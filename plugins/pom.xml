@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.eclipselabs.recommenders.plugin</groupId>
+  <artifactId>org.eclipselabs.recommenders.plugin.ep.template.parent</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+	<parent>
+		<groupId>org.eclipselabs.recommenders</groupId>
+		<artifactId>org.eclipselabs.recommenders.ep.template.parent</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
+	</parent>
+	
+	<modules>
+		<module>org.eclipselabs.recommenders.ep.template.example</module>
+	</modules>
+  
+  	<profiles>
+		<profile>
+			<id>build-number</id>
+			<activation>
+				<property>
+					<name>env.BUILD_NUMBER</name>
+				</property>
+			</activation>
+			
+			<properties>
+				<build-alias>b${env.BUILD_NUMBER}</build-alias>
+			</properties>
+		</profile>
+	</profiles>
+  
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+  		<plugins>
+  			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+			</plugin>
+  		</plugins>
+	</build>
+	
+</project>
