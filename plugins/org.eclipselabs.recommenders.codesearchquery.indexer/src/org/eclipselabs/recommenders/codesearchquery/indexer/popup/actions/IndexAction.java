@@ -4,17 +4,22 @@ import java.io.IOException;
 import java.util.List;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.WorkspaceJob;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.PlatformObject;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.IJobChangeEvent;
+import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
@@ -52,35 +57,62 @@ public class IndexAction implements IObjectActionDelegate {
     @Override
     public void run(IAction action) {
         try {
-            LuceneIndex index = LuceneIndex.createNewIndex();
-
-            for (IProject p : projects) {
-                IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
-
-                for (IPackageFragment mypackage : packages) {
-                    if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
-                        for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
-                            // Now create the AST for the ICompilationUnits
-                            CompilationUnit cu = parse(unit);
-                            CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
-
-                            cu.accept(visitor);
+            final Long start = System.currentTimeMillis();
+            final LuceneIndex index = LuceneIndex.createNewIndex();
+            
+            final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
+                
+                @Override
+                public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
+    
+                    index.printStats();
+                    
+                    for (IProject p : projects) {
+                        IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
+    
+                        for (IPackageFragment mypackage : packages) {
+                            if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
+                                for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
+                                    // Now create the AST for the ICompilationUnits
+                                    CompilationUnit cu = parse(unit);
+                                    CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
+    
+                                    cu.accept(visitor);
+                                }
+                            }
                         }
                     }
+                    
+                    return Status.OK_STATUS;
                 }
-            }
-
-            index.close();
-
-            MessageDialog.openInformation(shell, "Indexer", "Index was executed for " + projects.size()
-                    + " project(s).");
-
-        } catch (JavaModelException e) {
-            e.printStackTrace();
+            };
+            job.addJobChangeListener(new JobChangeAdapter() {
+               
+                @Override
+                public void done(final IJobChangeEvent event) {
+                    if (event.getResult().isOK()) {
+    
+                        index.printStats();
+                        index.close();
+                        
+                        Long duration = System.currentTimeMillis() - start;
+    
+                        String msg = "Index was built for " + projects.size()
+                                + " project(s). Took " + duration + " milliseconds.";
+                        
+                        System.out.println(msg);
+                    } else {
+                        System.out.println(event.getResult().getMessage());
+                    }
+                }
+    
+            });
+            job.schedule();
         } catch (IOException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
-        }
-
+        };
+        
     }
 
     private static CompilationUnit parse(ICompilationUnit unit) {

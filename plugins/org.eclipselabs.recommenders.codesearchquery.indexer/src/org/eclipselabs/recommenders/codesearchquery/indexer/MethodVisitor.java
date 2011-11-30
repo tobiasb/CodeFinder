@@ -3,7 +3,6 @@ package org.eclipselabs.recommenders.codesearchquery.indexer;
 import java.util.Set;
 
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
 import org.eclipse.jdt.core.dom.ConstructorInvocation;
 import org.eclipse.jdt.core.dom.IBinding;
@@ -17,10 +16,10 @@ import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
-import org.eclipselabs.recommenders.codesearchquery.indexer.lucene.LuceneIndex;
+import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
+import org.eclipselabs.recommenders.codesearchquery.indexer.lucene.LuceneIndex;
 
 import com.google.common.collect.Sets;
 
@@ -28,6 +27,8 @@ public class MethodVisitor extends IndexingASTVisitor {
 
 	private Set<IMethodName> calledMethods = Sets.newHashSet();
 	private Set<ITypeName> usedTypes = Sets.newHashSet();
+    private Set<ITypeName> parameterTypes = Sets.newHashSet();
+    private ITypeName returnType = null;
 
 	public MethodVisitor(LuceneIndex index, MethodDeclaration method) {
 		super(index);
@@ -35,50 +36,54 @@ public class MethodVisitor extends IndexingASTVisitor {
 		IMethodBinding b = method.resolveBinding();
 		final IMethodName methodName = BindingUtils.toMethodName(b);
 
-		setName(methodName.getIdentifier());
-		addMethodParametersToUses(methodName);
-		addMethodReturnTypeToUses(methodName);
+		setId(methodName.getIdentifier());
+		setName(methodName.getName());
+
+        debugOut("", "");
+		
+		addMethodParametersToUses(methodName, Fields.PARAMETER_TYPES);
+		addMethodReturnTypeToUses(methodName, Fields.RETURN_TYPE);
 	}
 
 	@Override
 	public boolean visit(final MethodInvocation node) {
 		final IMethodBinding b = node.resolveMethodBinding();
-		addUsedMethod(b);
+		addUsedMethod(b, node.getClass().toString());
 		return true;
 	}
 
 	@Override
 	public boolean visit(final ClassInstanceCreation node) {
 		final IMethodBinding b = node.resolveConstructorBinding();
-		addUsedMethod(b);
+		addUsedMethod(b, node.getClass().toString());
 		return true;
 	}
 
 	@Override
 	public boolean visit(final SuperConstructorInvocation node) {
 		final IMethodBinding b = node.resolveConstructorBinding();
-		addUsedMethod(b);
+		addUsedMethod(b, node.getClass().toString());
 		return true;
 	}
 
 	@Override
 	public boolean visit(final ConstructorInvocation node) {
 		final IMethodBinding b = node.resolveConstructorBinding();
-		addUsedMethod(b);
+		addUsedMethod(b, node.getClass().toString());
 		return true;
 	}
 
 	@Override
 	public boolean visit(final SuperMethodInvocation node) {
 		final IMethodBinding b = node.resolveMethodBinding();
-		addUsedMethod(b);
+		addUsedMethod(b, node.getClass().toString());
 		return true;
 	}
 
 	@Override
 	public boolean visit(final SimpleType node) {
 		final ITypeBinding b = node.resolveBinding();
-		addUsedType(b);
+		addUsedType(b, node.getClass().toString());
 
 		return true;
 	}
@@ -86,7 +91,7 @@ public class MethodVisitor extends IndexingASTVisitor {
 	@Override
 	public boolean visit(final QualifiedType node) {
 		final ITypeBinding b = node.resolveBinding();
-		addUsedType(b);
+		addUsedType(b, node.getClass().toString());
 
 		return true;
 	}
@@ -95,10 +100,10 @@ public class MethodVisitor extends IndexingASTVisitor {
 	public boolean visit(final SimpleName node) {
 		final IBinding b = node.resolveBinding();
 		if (b instanceof ITypeBinding) {
-			addUsedType((ITypeBinding) b);
+			addUsedType((ITypeBinding) b, node.getClass().toString());
 		} else if (b instanceof IVariableBinding) {
 			final IVariableBinding var = (IVariableBinding) b;
-			addUsedType(var.getType());
+			addUsedType(var.getType(), node.getClass().toString());
 		} else if (b instanceof IMethodBinding) {
 			// covered by several other visit methods: constructor calls, super
 			// invocations, method invocation and class
@@ -111,36 +116,45 @@ public class MethodVisitor extends IndexingASTVisitor {
 		return true;
 	}
 
-	private void addUsedType(final ITypeBinding b) {
-		System.out.println("Used: " + b.getName());
+	private void addUsedType(final ITypeBinding b, final String origin) {
 		final ITypeName type = BindingUtils.toTypeName(b);
 		if (type != null && !isPrimitiveOrArrayOrNullOrObjectOrString(type)) {
-			usedTypes.add(type);
+		    addUsedType(type, origin);
 		}
 	}
 
-	private void addUsedMethod(final IMethodBinding b) {
-
-		System.out.println("Invocation: " + b.getName());
+	private void addUsedMethod(final IMethodBinding b, String origin) {
 		final IMethodName method = BindingUtils.toMethodName(b);
 		if (method != null) {
-			calledMethods.add(method);
+		    addUsedMethod(method, origin);
 		}
 	}
 
-	private void addMethodParametersToUses(final IMethodName IMethodName) {
+	private void addMethodParametersToUses(final IMethodName IMethodName, final String origin) {
 		for (final ITypeName param : IMethodName.getParameterTypes()) {
 			if (!isPrimitiveOrArrayOrNullOrObjectOrString(param)) {
-				usedTypes.add(param);
+				addUsedType(param, origin);
+				parameterTypes.add(param);
 			}
 		}
 	}
 
-	private void addMethodReturnTypeToUses(final IMethodName IMethodName) {
-		final ITypeName returnType = IMethodName.getReturnType();
-		if (!isPrimitiveOrArrayOrNullOrObjectOrString(returnType)) {
-			usedTypes.add(returnType);
+	private void addMethodReturnTypeToUses(final IMethodName IMethodName, final String origin) {
+		final ITypeName type = IMethodName.getReturnType();
+		if (!isPrimitiveOrArrayOrNullOrObjectOrString(type)) {
+			addUsedType(type, origin);
+			returnType = type;
 		}
+	}
+	
+	private void addUsedMethod(IMethodName method, String origin) {
+        calledMethods.add(method);
+        debugOut("uses method " + method, origin);
+	}
+	
+	private void addUsedType(ITypeName type, String origin) {
+	    usedTypes.add(type);
+        debugOut("uses type " + type, origin);
 	}
 
 	@Override
@@ -150,10 +164,9 @@ public class MethodVisitor extends IndexingASTVisitor {
 
 	@Override
 	protected void populateDocument(Document d) {
-		d.add(new Field("called methods", joiner.join(getNames(calledMethods)),
-				Field.Store.YES, Field.Index.ANALYZED));
-
-		d.add(new Field("used types", joiner.join(getNames(usedTypes)),
-				Field.Store.YES, Field.Index.ANALYZED));
+        addToDocument(d, Fields.CALLED_METHODS, getNames(calledMethods));
+        addToDocument(d, Fields.USED_TYPES, getNames(usedTypes));
+        addToDocument(d, Fields.PARAMETER_TYPES, getNames(parameterTypes));
+        addToDocument(d, Fields.RETURN_TYPE, getName(returnType));
 	}
 }
