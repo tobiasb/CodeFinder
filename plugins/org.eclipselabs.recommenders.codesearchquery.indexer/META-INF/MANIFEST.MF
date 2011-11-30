@@ -14,7 +14,6 @@ Import-Package: com.google.common.base,
  org.eclipse.jdt.core.dom,
  org.eclipse.jdt.internal.corext.dom,
  org.eclipse.recommenders.rcp.utils.ast,
- org.eclipse.recommenders.utils,
  org.eclipse.ui,
  org.osgi.framework;version="1.5.0"
 Export-Package: org.eclipselabs.recommenders.codesearchquery.indexer

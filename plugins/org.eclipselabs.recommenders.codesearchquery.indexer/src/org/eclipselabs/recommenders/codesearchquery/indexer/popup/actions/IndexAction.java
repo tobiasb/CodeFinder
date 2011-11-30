@@ -14,6 +14,7 @@ import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
@@ -27,86 +28,87 @@ import com.google.common.collect.Lists;
 
 public class IndexAction implements IObjectActionDelegate {
 
-	private Shell shell;
-	private List<IProject> projects = null;
+    private Shell shell;
+    private List<IProject> projects = null;
 
-	/**
-	 * Constructor for Action1.
-	 */
-	public IndexAction() {
-		super();
-	}
+    /**
+     * Constructor for Action1.
+     */
+    public IndexAction() {
+        super();
+    }
 
-	/**
-	 * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
-	 */
-	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		shell = targetPart.getSite().getShell();
-	}
+    /**
+     * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
+     */
+    @Override
+    public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+        shell = targetPart.getSite().getShell();
+    }
 
-	/**
-	 * @see IActionDelegate#run(IAction)
-	 */
-	public void run(IAction action) {
-		try {
-			LuceneIndex index = LuceneIndex.createNewIndex();
+    /**
+     * @see IActionDelegate#run(IAction)
+     */
+    @Override
+    public void run(IAction action) {
+        try {
+            LuceneIndex index = LuceneIndex.createNewIndex();
 
-			for (IProject p : projects) {
-				IPackageFragment[] packages = JavaCore.create(p)
-						.getPackageFragments();
+            for (IProject p : projects) {
+                IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
 
-				for (IPackageFragment mypackage : packages) {
-					if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
-						for (ICompilationUnit unit : mypackage
-								.getCompilationUnits()) {
-							// Now create the AST for the ICompilationUnits
-							CompilationUnit cu = parse(unit);
-							CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
+                for (IPackageFragment mypackage : packages) {
+                    if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
+                        for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
+                            // Now create the AST for the ICompilationUnits
+                            CompilationUnit cu = parse(unit);
+                            CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
 
-							cu.accept(visitor);
-						}
-					}
-				}
-			}
+                            cu.accept(visitor);
+                        }
+                    }
+                }
+            }
 
-			index.close();
-			// MessageDialog.openInformation(shell, "Indexer",
-			// "Index was executed for " + projects.size()
-			// + " project(s).");
-		} catch (JavaModelException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+            index.close();
 
-	}
+            MessageDialog.openInformation(shell, "Indexer", "Index was executed for " + projects.size()
+                    + " project(s).");
 
-	private static CompilationUnit parse(ICompilationUnit unit) {
-		ASTParser parser = ASTParser.newParser(AST.JLS3);
-		parser.setKind(ASTParser.K_COMPILATION_UNIT);
-		parser.setSource(unit);
-		parser.setResolveBindings(true);
-		return (CompilationUnit) parser.createAST(null); // parse
-	}
+        } catch (JavaModelException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-	/**
-	 * @see IActionDelegate#selectionChanged(IAction, ISelection)
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-		projects = Lists.newLinkedList();
+    }
 
-		if (selection instanceof IStructuredSelection) {
+    private static CompilationUnit parse(ICompilationUnit unit) {
+        ASTParser parser = ASTParser.newParser(AST.JLS3);
+        parser.setKind(ASTParser.K_COMPILATION_UNIT);
+        parser.setSource(unit);
+        parser.setResolveBindings(true);
+        return (CompilationUnit) parser.createAST(null); // parse
+    }
 
-			for (Object o : ((IStructuredSelection) selection).toArray()) {
+    /**
+     * @see IActionDelegate#selectionChanged(IAction, ISelection)
+     */
+    @Override
+    public void selectionChanged(IAction action, ISelection selection) {
+        projects = Lists.newLinkedList();
 
-				if (o instanceof IProject) {
-					projects.add((IProject) o);
-				} else if (o instanceof PlatformObject) {
-					projects.add((IProject) ((PlatformObject) o)
-							.getAdapter(IProject.class));
-				}
-			}
-		}
-	}
+        if (selection instanceof IStructuredSelection) {
+
+            for (Object o : ((IStructuredSelection) selection).toArray()) {
+
+                if (o instanceof IProject) {
+                    projects.add((IProject) o);
+                } else if (o instanceof PlatformObject) {
+                    projects.add((IProject) ((PlatformObject) o).getAdapter(IProject.class));
+                }
+            }
+        }
+    }
 
 }
