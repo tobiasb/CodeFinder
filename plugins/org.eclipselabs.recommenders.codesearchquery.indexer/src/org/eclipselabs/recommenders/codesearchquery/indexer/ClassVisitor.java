@@ -12,11 +12,10 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.PackageDeclaration;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-import org.eclipse.jdt.internal.corext.dom.Bindings;
-import org.eclipselabs.recommenders.codesearchquery.indexer.lucene.LuceneIndex;
+import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
+import org.eclipselabs.recommenders.codesearchquery.indexer.lucene.LuceneIndex;
 
 import com.google.common.collect.Sets;
 
@@ -97,7 +96,7 @@ public class ClassVisitor extends IndexingASTVisitor {
 		final IMethodName method = BindingUtils.toMethodName(b);
 
 		methods.add(method);
-		setOverriddenIMethodName(b);
+		//setOverriddenIMethodName(b); //TODO: fixme
 
 		System.out.println("Method name: " + node.getName() + " Return type: "
 				+ node.getReturnType2());
@@ -108,15 +107,15 @@ public class ClassVisitor extends IndexingASTVisitor {
 		return false;
 	}
 
-	private void setOverriddenIMethodName(final IMethodBinding b) {
-		final IMethodBinding overriddenBinding = Bindings.findOverriddenMethod(
-				b, true);
-		final IMethodName overriddenIMethodName = BindingUtils
-				.toMethodName(overriddenBinding);
-		if (overriddenIMethodName != null) {
-			overriddenMethods.add(overriddenIMethodName);
-		}
-	}
+//	private void setOverriddenIMethodName(final IMethodBinding b) {
+//		final IMethodBinding overriddenBinding = Bindings.findOverriddenMethod(
+//				b, true);
+//		final IMethodName overriddenIMethodName = BindingUtils
+//				.toMethodName(overriddenBinding);
+//		if (overriddenIMethodName != null) {
+//			overriddenMethods.add(overriddenIMethodName);
+//		}
+//	}
 
 	@Override
 	public boolean visit(final FieldDeclaration node) {
