@@ -9,4 +9,11 @@
 	<artifactId>org.eclipselabs.recommenders.codesearchquery.indexer</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>eclipse-plugin</packaging>
+	
+	<repositories>
+		<repository>
+			<name>CodeRecommenders - Head</name>
+			<url>http://download.eclipse.org/recommenders/updates/head/</url>
+		</repository>
+	</repositories>
 </project>
