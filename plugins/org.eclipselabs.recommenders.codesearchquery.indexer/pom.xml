@@ -12,6 +12,11 @@
 	
 	<repositories>
 		<repository>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
 			<snapshots>
 			    <enabled>true</enabled>
 			    <updatePolicy>always</updatePolicy>
@@ -21,6 +26,7 @@
 			<id>coderecommenders</id>
 			<name>CodeRecommenders - Head</name>
 			<url>http://download.eclipse.org/recommenders/updates/head/</url>
+			<layout>default</layout>
 		</repository>
 	</repositories>
 </project>
