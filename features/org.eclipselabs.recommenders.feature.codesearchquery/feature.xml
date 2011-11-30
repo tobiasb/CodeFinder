@@ -21,14 +21,14 @@
          id="org.eclipse.recommenders.utils"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.4.0.qualifier"
          unpack="false"/>
-         
+
    <plugin
          id="org.eclipselabs.recommenders.codesearchquery.indexer"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.1.0.qualifier"
          unpack="false"/>
 
 </feature>
