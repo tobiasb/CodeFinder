@@ -41,7 +41,7 @@ public class LuceneIndex {
 	public void printStats() {
 
         try {
-            System.out.println("Stat - Docs in Index: " + m_writer.numDocs());
+            Activator.logInfo("Stat - Docs in Index: " + m_writer.numDocs());
         } catch (IOException e) {
             e.printStackTrace();
         }

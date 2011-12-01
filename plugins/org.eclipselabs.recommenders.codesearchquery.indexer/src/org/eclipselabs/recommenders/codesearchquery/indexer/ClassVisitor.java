@@ -70,7 +70,7 @@ public class ClassVisitor extends IndexingASTVisitor {
                     .toTypeName(superclass);
             if (!isPrimitiveOrArrayOrNullOrObjectOrString(superclassName)) {
                 extendedTypes.add(superclassName);
-                debugOut("extends type " + superclassName, node.getClass().toString());
+                debugOut("extends type [" + superclassName + "]", node.getClass().toString());
             }
         }
     }
@@ -81,7 +81,7 @@ public class ClassVisitor extends IndexingASTVisitor {
             final ITypeName interfaceName = BindingUtils.toTypeName(interface_);
             if (!isPrimitiveOrArrayOrNullOrObjectOrString(interfaceName)) {
                 implementedTypes.add(interfaceName);
-                debugOut("implements type " + interfaceName, node.getClass().toString());
+                debugOut("implements type [" + interfaceName + "]", node.getClass().toString());
             }
         }
     }
@@ -92,7 +92,7 @@ public class ClassVisitor extends IndexingASTVisitor {
 				.toMethodName(overriddenBinding);
 		if (overriddenIMethodName != null) {
 			overriddenMethods.add(overriddenIMethodName);
-			debugOut("overrides method " + overriddenIMethodName, Fields.OVERRIDDEN_METHODS);
+			debugOut("overrides method [" + overriddenIMethodName + "]", Fields.OVERRIDDEN_METHODS);
 		}
 	}
 
@@ -101,7 +101,7 @@ public class ClassVisitor extends IndexingASTVisitor {
 		final ITypeName ITypeName = BindingUtils.toTypeName(fieldTypeBinding);
 		if (!isPrimitiveOrArrayOrNullOrObjectOrString(ITypeName)) {
 			fieldTypes.add(ITypeName);
-            debugOut("uses type " + ITypeName, Fields.USED_TYPES);
+            debugOut("uses type [" + ITypeName + "]", Fields.USED_TYPES);
 		}
 	}
 

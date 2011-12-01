@@ -1,24 +1,25 @@
 package org.eclipselabs.recommenders.codesearchquery.indexer.popup.actions;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.PrefixQuery;
+import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopScoreDocCollector;
+import org.apache.lucene.search.WildcardQuery;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.SimpleFSDirectory;
-import org.apache.lucene.util.Version;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipselabs.recommenders.codesearchquery.indexer.Activator;
 import org.eclipselabs.recommenders.codesearchquery.indexer.Fields;
 
 public class SearchAction implements IObjectActionDelegate {
@@ -30,27 +31,26 @@ public class SearchAction implements IObjectActionDelegate {
 	@Override
 	public void run(IAction action) {
 
-		try {
-			StandardAnalyzer analyzer = new StandardAnalyzer(Version.LUCENE_30);
-			Directory index = new SimpleFSDirectory(new File("o:/index.l"));
-
-			// 2. query
-			String querystr = "String";
-
-			// the "title" arg specifies the default field to use
-			// when no field is explicitly specified in the query.			
-			TermQuery term1 = new TermQuery(new Term(Fields.RETURN_TYPE, "Ltest/bla/Test"));
-			TermQuery term2 = new TermQuery(new Term(Fields.USED_TYPES, "Ljava/util/Map"));
+		try {			
+			Directory index = Activator.injector.getInstance(Directory.class);// new SimpleFSDirectory(new File("o:/index.l"));
+			
+			Query term1 = new TermQuery(new Term(Fields.RETURN_TYPE, "Ljava/util/List"));
+            Query term2 = new WildcardQuery(new Term(Fields.CALLED_METHODS, "*String.format*"));
+			Query term3 = new PrefixQuery(new Term(Fields.USED_TYPES, "*" + IStatusLineManager.class.getSimpleName()));
 			
 			BooleanQuery q = new BooleanQuery();
-			q.add(term1, Occur.MUST);
-			q.add(term2, Occur.SHOULD);
-
+			//q.add(term1, Occur.SHOULD);
+            //q.add(term2, Occur.MUST);
+			q.add(term3, Occur.MUST);
+			
 			System.out.println("Searching for: " + q.toString());
 			
 			// 3. search
 			int hitsPerPage = 10;
 			IndexSearcher searcher = new IndexSearcher(index, true);
+			
+			Activator.logInfo("Index has %1$s documents", searcher.getIndexReader().numDocs());
+			
 			TopScoreDocCollector collector = TopScoreDocCollector.create(
 					hitsPerPage, true);
 			searcher.search(q, collector);
@@ -62,7 +62,9 @@ public class SearchAction implements IObjectActionDelegate {
 				int docId = hits[i].doc;
 				Document d = searcher.doc(docId);
 				System.out.println((i + 1) + ". " + d.get(Fields.TYPE) + " " + d.get(Fields.FRIENDLY_NAME));
+				System.out.println(d);
 			}
+			
 
 			// searcher can only be closed when there
 			// is no need to access the documents any more.

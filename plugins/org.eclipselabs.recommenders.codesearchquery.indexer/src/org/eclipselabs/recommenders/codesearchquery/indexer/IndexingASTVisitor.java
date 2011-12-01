@@ -25,7 +25,6 @@ public abstract class IndexingASTVisitor extends ASTVisitor implements
 	private String m_id;
     private String m_name;
 	private LuceneIndex m_index = null;
-	// private Map<String, List<String>> fields = null;
 
 	protected final Joiner joiner = Joiner.on(",").skipNulls();
 
@@ -56,7 +55,7 @@ public abstract class IndexingASTVisitor extends ASTVisitor implements
 	protected boolean isPrimitiveOrArrayOrNullOrObjectOrString(
 			final ITypeName type) {
 		return type == null || type.isPrimitiveType() || type.isArrayType()
-				|| type == VmTypeName.OBJECT || type == VmTypeName.STRING;
+				|| type == VmTypeName.OBJECT;// || type == VmTypeName.STRING;
 	}
 
 	public void index(ASTNode node) {
@@ -88,14 +87,13 @@ public abstract class IndexingASTVisitor extends ASTVisitor implements
         } else if (o instanceof ITypeName) {
             target = ((ITypeName) o).getIdentifier();
         } else {
-            //System.out.println("debug other type: "  + (o == null ? null : o.getClass()));
         }
 
         return target;
     }
 	
 	protected void debugOut(String msg, String origin) {
-	    System.out.println(getDocumentType() + " " + getName() + ": " + msg + " (" + origin + ")");
+	    Activator.logInfo("%1$s [%2$s]: %3$s (%4$s)", getDocumentType(), getName(), msg, origin);
 	}
 
 	protected final void createAndPopulateDocument() {
@@ -105,14 +103,14 @@ public abstract class IndexingASTVisitor extends ASTVisitor implements
 
 		addToDocument(doc, Fields.ID, getId());
         addToDocument(doc, Fields.TYPE, getDocumentType());
-        addToDocument(doc, Fields.FRIENDLY_NAME, getId());
+        addToDocument(doc, Fields.FRIENDLY_NAME, getName());
 
 		populateDocument(doc);
 
 		try {
 			getIndex().addDocument(doc);
 		} catch (IOException e) {
-			e.printStackTrace(); //TODO: fixme
+			Activator.logError(e, null);
 		}
 	}
 	

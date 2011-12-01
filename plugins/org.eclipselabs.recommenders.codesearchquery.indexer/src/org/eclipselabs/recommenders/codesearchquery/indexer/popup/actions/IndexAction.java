@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipselabs.recommenders.codesearchquery.indexer.Activator;
 import org.eclipselabs.recommenders.codesearchquery.indexer.CompilationUnitVisitor;
 import org.eclipselabs.recommenders.codesearchquery.indexer.lucene.LuceneIndex;
 
@@ -59,31 +60,46 @@ public class IndexAction implements IObjectActionDelegate {
         try {
             final Long start = System.currentTimeMillis();
             final LuceneIndex index = LuceneIndex.createNewIndex();
-            
+                    
             final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
                 
                 @Override
                 public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
     
-                    index.printStats();
-                    
-                    for (IProject p : projects) {
-                        IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
-    
-                        for (IPackageFragment mypackage : packages) {
-                            if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
-                                for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
-                                    // Now create the AST for the ICompilationUnits
-                                    CompilationUnit cu = parse(unit);
-                                    CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
-    
-                                    cu.accept(visitor);
+                    try {
+                        index.printStats();
+                        
+                        for (IProject p : projects) {
+                            try {
+                                
+                                IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
+            
+                                for (IPackageFragment mypackage : packages) {
+                                    if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
+                                        for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
+                                            // Now create the AST for the ICompilationUnits
+                                            try {
+                                                Activator.logInfo("Indexing ICompilationUnit %1$s ...", unit.getPath());
+                                                
+                                                CompilationUnit cu = parse(unit);
+                                                CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
+            
+                                                cu.accept(visitor);
+                                            }catch(Exception e) {
+                                                Activator.logWarning(e, "ICompilationUnit %1$ has not been indexed successfully", unit.getPath());
+                                            }
+                                        }
+                                    }
                                 }
+                            } catch(Exception e) {
+                                /* Do nothing */
                             }
                         }
+                        
+                        return Status.OK_STATUS;
+                    } catch(Exception e) {
+                        return Status.OK_STATUS;
                     }
-                    
-                    return Status.OK_STATUS;
                 }
             };
             job.addJobChangeListener(new JobChangeAdapter() {

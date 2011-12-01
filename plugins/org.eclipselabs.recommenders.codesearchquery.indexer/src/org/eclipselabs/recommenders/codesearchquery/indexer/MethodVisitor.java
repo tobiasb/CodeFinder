@@ -41,7 +41,7 @@ public class MethodVisitor extends IndexingASTVisitor {
 
         debugOut("", "");
 		
-		addMethodParametersToUses(methodName, Fields.PARAMETER_TYPES);
+		addMethodParametersToUses(methodName, Fields.USED_PARAMETER_TYPES);
 		addMethodReturnTypeToUses(methodName, Fields.RETURN_TYPE);
 	}
 
@@ -149,12 +149,12 @@ public class MethodVisitor extends IndexingASTVisitor {
 	
 	private void addUsedMethod(IMethodName method, String origin) {
         calledMethods.add(method);
-        debugOut("uses method " + method, origin);
+        debugOut("uses method [" + method + "]", origin);
 	}
 	
 	private void addUsedType(ITypeName type, String origin) {
 	    usedTypes.add(type);
-        debugOut("uses type " + type, origin);
+        debugOut("uses type [" + type + "]", origin);
 	}
 
 	@Override
@@ -166,7 +166,7 @@ public class MethodVisitor extends IndexingASTVisitor {
 	protected void populateDocument(Document d) {
         addToDocument(d, Fields.CALLED_METHODS, getNames(calledMethods));
         addToDocument(d, Fields.USED_TYPES, getNames(usedTypes));
-        addToDocument(d, Fields.PARAMETER_TYPES, getNames(parameterTypes));
+        addToDocument(d, Fields.USED_PARAMETER_TYPES, getNames(parameterTypes));
         addToDocument(d, Fields.RETURN_TYPE, getName(returnType));
 	}
 }
