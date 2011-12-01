@@ -94,7 +94,7 @@ public abstract class IndexingASTVisitor extends ASTVisitor implements
 	
 	protected void debugOut(String msg, String origin) {
 	    Activator.logInfo("%1$s [%2$s]: %3$s (%4$s)", getDocumentType(), getName(), msg, origin);
-	}
+	} 
 
 	protected final void createAndPopulateDocument() {
 		Document doc = new Document();
