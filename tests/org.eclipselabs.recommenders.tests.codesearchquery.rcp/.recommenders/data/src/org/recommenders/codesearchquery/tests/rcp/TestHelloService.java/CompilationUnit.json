@@ -1,0 +1,94 @@
+{
+  "imports": [
+    {
+      "kind": "TYPE_REFERENCE",
+      "name": "Ljava/lang/Object",
+      "fingerprint": "461e37adec8b28e74247c7473d930235838ea91e"
+    },
+    {
+      "kind": "TYPE_REFERENCE",
+      "name": "Lorg/recommenders/ep/template/example/HelloService",
+      "fingerprint": "1fdb802f4db22eb57b5c25e87c52ae0ae4ef6641"
+    }
+  ],
+  "kind": "SNAPSHOT",
+  "analysedOn": "2011-04-27T14:19:07.361+02:00",
+  "fingerprint": "52c9285967dedb51ef2553c0f4507816cc484045",
+  "name": "Lorg/recommenders/ep/template/tests/example/TestHelloService",
+  "primaryType": {
+    "name": "Lorg/recommenders/ep/template/tests/example/TestHelloService",
+    "superclass": "Ljava/lang/Object",
+    "interfaces": [],
+    "fields": [],
+    "methods": [
+      {
+        "name": "Lorg/recommenders/ep/template/tests/example/TestHelloService.testHello()V",
+        "line": 22,
+        "nestedTypes": [],
+        "modifiers": 1,
+        "objects": [
+          {
+            "type": "Lorg/recommenders/ep/template/example/HelloService",
+            "names": [
+              "service"
+            ],
+            "kind": "LOCAL",
+            "parameterCallSites": [],
+            "receiverCallSites": [
+              {
+                "receiver": "service",
+                "targetMethod": "Lorg/recommenders/ep/template/example/HelloService.hello()Ljava/lang/String;",
+                "sourceMethod": "Lorg/recommenders/ep/template/tests/example/TestHelloService.testHello()V",
+                "line": 23
+              },
+              {
+                "receiver": "service",
+                "targetMethod": "Lorg/recommenders/ep/template/example/HelloService.\u003cinit\u003e()V",
+                "sourceMethod": "Lorg/recommenders/ep/template/tests/example/TestHelloService.testHello()V",
+                "line": 22
+              }
+            ]
+          },
+          {
+            "type": "Ljava/lang/Object",
+            "names": [
+              "this"
+            ],
+            "kind": "PARAMETER",
+            "parameterCallSites": [],
+            "receiverCallSites": []
+          }
+        ]
+      },
+      {
+        "name": "Lorg/recommenders/ep/template/tests/example/TestHelloService.\u003cinit\u003e()V",
+        "superDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+        "firstDeclaration": "Ljava/lang/Object.\u003cinit\u003e()V",
+        "line": 18,
+        "nestedTypes": [],
+        "modifiers": 1,
+        "objects": [
+          {
+            "type": "Ljava/lang/Object",
+            "names": [
+              "this"
+            ],
+            "kind": "PARAMETER",
+            "parameterCallSites": [],
+            "receiverCallSites": [
+              {
+                "receiver": "this",
+                "targetMethod": "Ljava/lang/Object.\u003cinit\u003e()V",
+                "sourceMethod": "Lorg/recommenders/ep/template/tests/example/TestHelloService.\u003cinit\u003e()V",
+                "line": 18
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "line": 0,
+    "memberTypes": [],
+    "modifiers": 33
+  }
+}

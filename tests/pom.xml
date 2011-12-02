@@ -13,7 +13,7 @@
 	</parent>
 	
 	<modules>
-		<module>org.eclipselabs.recommenders.tests.codesearchquery.indexer</module>
+		<module>org.eclipselabs.recommenders.tests.codesearchquery.rcp</module>
 	</modules>
   
   	<properties>

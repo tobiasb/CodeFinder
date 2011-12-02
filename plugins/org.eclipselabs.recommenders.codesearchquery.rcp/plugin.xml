@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            id="org.eclipselabs.recommenders.codesearchquery.rcp.contribution1">
+         <action
+               label="Index"
+               class="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.IndexAction"
+	       		menubarPath="additions"
+               enablesFor="+"
+               id="org.eclipselabs.recommenders.codesearchquery.rcp.newAction">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            id="org.eclipselabs.recommenders.codesearchquery.rcp.contribution2">
+         <action
+               label="Search"
+               class="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.SearchAction"
+	       		menubarPath="additions"
+               enablesFor="+"
+               id="org.eclipselabs.recommenders.codesearchquery.rcp.searchAction">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>
