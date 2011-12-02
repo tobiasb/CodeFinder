@@ -7,7 +7,6 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.PrefixQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TermQuery;
@@ -15,7 +14,6 @@ import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.search.WildcardQuery;
 import org.apache.lucene.store.Directory;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
@@ -36,12 +34,13 @@ public class SearchAction implements IObjectActionDelegate {
 			
 			Query term1 = new TermQuery(new Term(Fields.RETURN_TYPE, "Ljava/util/List"));
             Query term2 = new WildcardQuery(new Term(Fields.CALLED_METHODS, "*String.format*"));
-			Query term3 = new PrefixQuery(new Term(Fields.USED_TYPES, "*" + IStatusLineManager.class.getSimpleName()));
 			
+            BooleanQuery q1 = new BooleanQuery();
+            q1.add(term2, Occur.MUST_NOT);
+            
 			BooleanQuery q = new BooleanQuery();
-			//q.add(term1, Occur.SHOULD);
-            //q.add(term2, Occur.MUST);
-			q.add(term3, Occur.MUST);
+			q.add(term1, Occur.MUST);
+            q.add(term2, Occur.SHOULD);
 			
 			System.out.println("Searching for: " + q.toString());
 			
@@ -57,7 +56,7 @@ public class SearchAction implements IObjectActionDelegate {
 			ScoreDoc[] hits = collector.topDocs().scoreDocs;
 
 			// 4. display results
-			System.out.println("Found " + hits.length + " hits.");
+			System.out.println("Found " + hits.length + " hits (Total: " + collector.getTotalHits() + ").");
 			for (int i = 0; i < hits.length; ++i) {
 				int docId = hits[i].doc;
 				Document d = searcher.doc(docId);
