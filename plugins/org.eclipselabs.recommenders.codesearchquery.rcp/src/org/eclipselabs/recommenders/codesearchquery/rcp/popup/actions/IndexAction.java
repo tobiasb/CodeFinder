@@ -21,19 +21,19 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.swt.widgets.Shell;
+//import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Activator;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer._CompilationUnitVisitor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 
 import com.google.common.collect.Lists;
 
 public class IndexAction implements IObjectActionDelegate {
 
-    private Shell shell;
+    //private Shell shell;
     private List<IProject> projects = null;
 
     /**
@@ -48,7 +48,7 @@ public class IndexAction implements IObjectActionDelegate {
      */
     @Override
     public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-        shell = targetPart.getSite().getShell();
+        //shell = targetPart.getSite().getShell();
     }
 
     /**
@@ -80,7 +80,7 @@ public class IndexAction implements IObjectActionDelegate {
                                             Activator.logInfo("Indexing ICompilationUnit %1$s ...", unit.getPath());
                                             
                                             CompilationUnit cu = parse(unit);
-                                            _CompilationUnitVisitor visitor = new _CompilationUnitVisitor(index);
+                                            CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
         
                                             cu.accept(visitor);
                                         }catch(Exception e) {

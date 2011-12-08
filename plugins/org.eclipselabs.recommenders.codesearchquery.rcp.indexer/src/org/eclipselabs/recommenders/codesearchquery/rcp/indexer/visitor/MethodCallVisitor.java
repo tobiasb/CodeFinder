@@ -8,7 +8,7 @@ import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 
-public class MethodCallVisitor extends ASTVisitor {
+public abstract class MethodCallVisitor extends ASTVisitor {
     @Override
     public boolean visit(final MethodInvocation node) {
         final IMethodBinding b = node.resolveMethodBinding();

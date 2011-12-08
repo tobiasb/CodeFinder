@@ -12,8 +12,8 @@ import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
 import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.xtext.xtend2.lib.StringConcatenation;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer._CompilationUnitVisitor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 import org.eclipselabs.recommenders.test.codesearchquery.rcp.CodesearchQueryModule;
 import org.junit.Test;
 
@@ -59,8 +59,8 @@ public class Scenarios {
       final ICompilationUnit cu = _first;
       LuceneIndex _index = CodesearchQueryModule.getIndex();
       LuceneIndex index = _index;
-      _CompilationUnitVisitor __CompilationUnitVisitor = new _CompilationUnitVisitor(index);
-      _CompilationUnitVisitor visitor = __CompilationUnitVisitor;
+      CompilationUnitVisitor __CompilationUnitVisitor = new CompilationUnitVisitor(index);
+      CompilationUnitVisitor visitor = __CompilationUnitVisitor;
       ASTNode _parse = this.parse(cu);
       ASTNode cuParsed = _parse;
       cuParsed.accept(visitor);

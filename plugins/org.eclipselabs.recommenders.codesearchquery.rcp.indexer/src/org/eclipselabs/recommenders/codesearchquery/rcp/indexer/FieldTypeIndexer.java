@@ -5,6 +5,7 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFieldIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
 public class FieldTypeIndexer extends AbstractIndexer implements IFieldIndexer {

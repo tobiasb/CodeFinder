@@ -6,6 +6,7 @@ import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.*;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.MethodCallVisitor;
 

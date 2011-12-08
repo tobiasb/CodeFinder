@@ -5,6 +5,7 @@ import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.*;
 
 public class DeclaringTypeIndexer extends AbstractIndexer implements
 		IFieldIndexer, IMethodIndexer, IClassIndexer {

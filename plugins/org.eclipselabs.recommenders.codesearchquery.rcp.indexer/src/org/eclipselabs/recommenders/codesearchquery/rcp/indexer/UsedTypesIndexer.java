@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.*;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.TypeUseVisitor;
 

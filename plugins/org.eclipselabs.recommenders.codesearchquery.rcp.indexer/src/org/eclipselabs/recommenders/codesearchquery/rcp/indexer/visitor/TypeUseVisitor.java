@@ -14,7 +14,7 @@ import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 
-public class TypeUseVisitor extends ASTVisitor {
+public abstract class TypeUseVisitor extends ASTVisitor {
     
     @Override
     public boolean visit(final SimpleType node) {

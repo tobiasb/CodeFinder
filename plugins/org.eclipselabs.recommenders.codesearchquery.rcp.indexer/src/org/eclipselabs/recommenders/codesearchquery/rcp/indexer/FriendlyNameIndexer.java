@@ -9,6 +9,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.ITypeName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.*;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
 public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {

@@ -7,6 +7,7 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.*;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
 public class DeclaredMethodsIndexer extends AbstractIndexer implements IClassIndexer {
