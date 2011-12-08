@@ -13,7 +13,7 @@
                class="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.IndexAction"
 	       		menubarPath="additions"
                enablesFor="+"
-               id="org.eclipselabs.recommenders.codesearchquery.rcp.newAction">
+               id="org.eclipselabs.recommenders.codesearchquery.rcp.indexAction">
          </action>
       </objectContribution>
    </extension>

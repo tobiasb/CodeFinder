@@ -7,6 +7,7 @@ Bundle-Vendor: Eclipse Code Recommenders
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.rcp.Activator
 Import-Package: org.eclipse.jdt.internal.corext.dom,
+ org.eclipselabs.recommenders.codesearchquery.rcp,
  org.osgi.framework;version="1.5.0"
 Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp
 Require-Bundle: org.eclipse.jface,

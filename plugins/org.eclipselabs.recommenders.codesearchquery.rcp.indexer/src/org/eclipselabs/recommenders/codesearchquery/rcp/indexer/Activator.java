@@ -1,23 +1,16 @@
-package org.eclipselabs.recommenders.codesearchquery.rcp;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
+package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
+
+import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
+public class Activator implements BundleActivator {
 
-public class Activator extends AbstractUIPlugin {
+	private static BundleContext context;
 
-    // The plug-in ID
-    public static final String PLUGIN_ID = "org.eclipselabs.recommenders.codesearchquery.rcp"; //$NON-NLS-1$
-    public static Injector injector = Guice.createInjector(new CodesearchQueryModule());
-
-    // The shared instance
-    private static Activator plugin;
-
-    public static Activator getDefault() {
-        return plugin;
-    }
-
+	static BundleContext getContext() {
+		return context;
+	}
+	
     public static void logError(final Throwable e, final String format, final Object... args) {
         //LoggingUtils.logError(e, getDefault(), format, args);
         logConsole(e, format, args);
@@ -50,16 +43,20 @@ public class Activator extends AbstractUIPlugin {
         }
     }
     
-    @Override
-    public void start(final BundleContext context) throws Exception {
-        super.start(context);
-        plugin = this;
-    }
+	/*
+	 * (non-Javadoc)
+	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	 */
+	public void start(BundleContext bundleContext) throws Exception {
+		Activator.context = bundleContext;
+	}
 
-    @Override
-    public void stop(final BundleContext context) throws Exception {
-        plugin = null;
-        super.stop(context);
-    }
+	/*
+	 * (non-Javadoc)
+	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 */
+	public void stop(BundleContext bundleContext) throws Exception {
+		Activator.context = null;
+	}
 
 }

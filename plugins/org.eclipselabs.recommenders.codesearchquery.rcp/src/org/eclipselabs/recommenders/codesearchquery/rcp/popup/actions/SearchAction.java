@@ -18,7 +18,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Activator;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
 public class SearchAction implements IObjectActionDelegate {
 
