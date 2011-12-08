@@ -31,15 +31,10 @@ public class _CompilationUnitVisitor extends ASTVisitor {
 
 	    list.add(new FullyQualifiedNameIndexer());
 	    list.add(new FriendlyNameIndexer());
-	    
-	    ExtendedTypeIndexer extendedTypeIndexer = new ExtendedTypeIndexer();
-	    list.add(extendedTypeIndexer);
-	    list.add(new AllExtendedTypesIndexer(extendedTypeIndexer));
-	    
-	    ImplementedInterfacesIndexer implementedInterfacesIndexer = new ImplementedInterfacesIndexer();
-	    list.add(implementedInterfacesIndexer);
-	    list.add(new AllImplementedInterfacesIndexer(implementedInterfacesIndexer));
-	    
+	    list.add(new ExtendedTypeIndexer());
+	    list.add(new AllExtendedTypesIndexer());
+	    list.add(new ImplementedInterfacesIndexer());
+	    list.add(new AllImplementedInterfacesIndexer());
 	    list.add(new CalledMethodsIndexer());
 	    list.add(new DeclaredMethodsIndexer());
 	    list.add(new DocumentTypeIndexer());
@@ -47,6 +42,8 @@ public class _CompilationUnitVisitor extends ASTVisitor {
 	    list.add(new ParameterTypesIndexer());
 	    list.add(new ReturnTypeIndexer());
 	    list.add(new UsedTypesIndexer());
+	    list.add(new DeclaringTypeIndexer());
+	    list.add(new FieldTypeIndexer());
         
 	    return list;
 	}

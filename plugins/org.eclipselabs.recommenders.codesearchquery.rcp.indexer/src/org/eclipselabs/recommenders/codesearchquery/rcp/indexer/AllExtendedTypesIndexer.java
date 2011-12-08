@@ -5,13 +5,7 @@ import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
-public class AllExtendedTypesIndexer extends AbstractIndexer implements IClassIndexer {
-
-    private final ExtendedTypeIndexer extendedTypeIndexer;
-    
-    public AllExtendedTypesIndexer(ExtendedTypeIndexer extendedTypeIndexer) {
-        this.extendedTypeIndexer = extendedTypeIndexer;
-    }
+public class AllExtendedTypesIndexer extends ExtendedTypeIndexer implements IClassIndexer {
     
     @Override
     public void index(Document document, TypeDeclaration type) {
@@ -19,7 +13,7 @@ public class AllExtendedTypesIndexer extends AbstractIndexer implements IClassIn
         ITypeBinding superclass = clazz.getSuperclass();
         // add superclass, if not null and not Object
         for (; superclass != null; superclass = superclass.getSuperclass()) {
-            extendedTypeIndexer.addAnalyzedExtendedTypeField(document, superclass, Fields.ALL_EXTENDED_TYPES);
+            addAnalyzedExtendedTypeField(document, superclass, Fields.ALL_EXTENDED_TYPES);
         }
     }
 }

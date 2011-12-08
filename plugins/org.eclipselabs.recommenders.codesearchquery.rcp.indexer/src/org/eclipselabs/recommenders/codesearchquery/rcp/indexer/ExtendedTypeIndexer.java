@@ -16,7 +16,7 @@ public class ExtendedTypeIndexer extends AbstractIndexer implements IClassIndexe
         addAnalyzedExtendedTypeField(document, clazz, Fields.EXTENDED_TYPE);
     }
     
-    public void addAnalyzedExtendedTypeField(final Document document, final ITypeBinding typeBinding, final String fieldName) {
+    protected void addAnalyzedExtendedTypeField(final Document document, final ITypeBinding typeBinding, final String fieldName) {
         final ITypeBinding superclass = typeBinding.getSuperclass();
         
         final ITypeName superclassName = BindingUtils

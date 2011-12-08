@@ -14,7 +14,7 @@ public class ImplementedInterfacesIndexer extends AbstractIndexer implements ICl
         addAnalyzedImplementedInterfaceField(document, type.resolveBinding(), Fields.IMPLEMENTED_TYPES);
     }
 
-    public void addAnalyzedImplementedInterfaceField(final Document document, final ITypeBinding typeBinding, final String fieldName) {
+    protected void addAnalyzedImplementedInterfaceField(final Document document, final ITypeBinding typeBinding, final String fieldName) {
         for (final ITypeBinding interface_ : typeBinding.getInterfaces()) {
             final ITypeName interfaceName = BindingUtils.toTypeName(interface_);
             if (!isPrimitiveOrArrayOrNullOrObjectOrString(interfaceName)) {

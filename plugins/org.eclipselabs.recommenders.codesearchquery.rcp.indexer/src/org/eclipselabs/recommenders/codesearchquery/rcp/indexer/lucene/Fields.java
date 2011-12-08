@@ -16,4 +16,5 @@ public class Fields {
     public final static String OVERRIDDEN_METHODS = "overridden_methods";
     public static final String ALL_IMPLEMENTED_TYPES = "all implemented types";
     public static final String ALL_EXTENDED_TYPES = "extended types";
+	public static final String FIELD_TYPE = "field type";
 }
