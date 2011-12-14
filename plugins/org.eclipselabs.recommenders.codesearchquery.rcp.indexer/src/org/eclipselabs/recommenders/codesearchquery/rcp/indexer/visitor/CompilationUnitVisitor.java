@@ -1,6 +1,7 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.lucene.document.Document;
@@ -35,16 +36,22 @@ public class CompilationUnitVisitor extends ASTVisitor {
 
 	private LuceneIndex index = null;
 	private List<IIndexer> indexer;
+	
+	public void addIndexer(IIndexer indexer) {
+		this.indexer.add(indexer);
+	}
+	
+	public void addIndexer(Collection<IIndexer> indexer) {
+		this.indexer.addAll(indexer);
+	}
 
 	public CompilationUnitVisitor(LuceneIndex index) {
 		this.index = index;
 		
-		indexer = Lists.newArrayList();
-		indexer.addAll(getAllIndexer());
-		
+		indexer = Lists.newArrayList();		
 	}
 
-	private List<IIndexer> getAllIndexer() {
+	public static List<IIndexer> getAllIndexer() {
 
 	    List<IIndexer> list = Lists.newArrayList();
 

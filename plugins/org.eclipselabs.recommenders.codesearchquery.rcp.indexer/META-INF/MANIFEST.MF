@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.jface,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.indexer,
+ org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor
 Import-Package: org.eclipse.jdt.internal.corext.dom

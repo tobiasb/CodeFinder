@@ -17,4 +17,5 @@ public class Fields {
     public static final String ALL_IMPLEMENTED_TYPES = "all implemented types";
     public static final String ALL_EXTENDED_TYPES = "extended types";
 	public static final String FIELD_TYPE = "field type";
+	public static final String DECLARING_TYPES = "declaring types";
 }

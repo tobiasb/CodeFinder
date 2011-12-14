@@ -32,10 +32,7 @@ public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndex
     }
 
     @Override
-    public void index(Document document, FieldDeclaration field) {
-        final ITypeBinding fieldTypeBinding = field.getType().resolveBinding();
-        final ITypeName typeName = BindingUtils.toTypeName(fieldTypeBinding);
-        
-        addAnalyzedField(document, Fields.FRIENDLY_NAME, typeName.getClassName());
+    public void index(Document document, FieldDeclaration field) {        
+        addAnalyzedField(document, Fields.FRIENDLY_NAME, field.fragments().get(0).toString());
     }
 }

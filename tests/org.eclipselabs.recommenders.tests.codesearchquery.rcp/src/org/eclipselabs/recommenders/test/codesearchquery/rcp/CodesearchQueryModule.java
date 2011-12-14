@@ -32,7 +32,7 @@ public class CodesearchQueryModule extends AbstractModule {
             bind(QueryParser.class).toInstance(new QueryParser(Version.LUCENE_30, Fields.FULLY_QUALIFIED_NAME, a));
             //bind(Directory.class).toInstance(new RAMDirectory());
         } catch(Exception ex) {
-            ex.printStackTrace();
+            ex.printStackTrace();//TODO: refactor
         }
     }
 
