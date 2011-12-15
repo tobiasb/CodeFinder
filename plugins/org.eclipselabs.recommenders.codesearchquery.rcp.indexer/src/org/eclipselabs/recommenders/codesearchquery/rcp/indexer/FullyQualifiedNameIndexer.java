@@ -12,7 +12,9 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.*;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClassIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFieldIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
 public class FullyQualifiedNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
@@ -35,13 +37,14 @@ public class FullyQualifiedNameIndexer extends AbstractIndexer implements IMetho
 
     @Override
     public void index(Document document, FieldDeclaration field) {
-        ITypeBinding b = field.getType().resolveBinding();
-        final ITypeName typeName = BindingUtils.toTypeName(b);
-
+        TypeDeclaration declaringType = getDeclaringType(field);
+        ITypeBinding b = declaringType.resolveBinding();
+        final ITypeName declaringTypeName = BindingUtils.toTypeName(b);
+        
         @SuppressWarnings("unchecked")
-        List<VariableDeclarationFragment> fragments = field.fragments();
+		List<VariableDeclarationFragment> fragments = field.fragments();
         VariableDeclarationFragment fragment = fragments.get(0);
         
-        addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME, typeName.getIdentifier() + "_" + fragment.getName());
+        addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME, declaringTypeName.getIdentifier() + "." + fragment.getName());
     }
 }

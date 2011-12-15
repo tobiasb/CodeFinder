@@ -11,7 +11,8 @@ public class AllExtendedTypesIndexer extends ExtendedTypeIndexer implements ICla
     @Override
     public void index(Document document, TypeDeclaration type) {
         final ITypeBinding clazz = type.resolveBinding();
-        ITypeBinding superclass = clazz.getSuperclass();
+        ITypeBinding superclass = clazz;
+        
         // add superclass, if not null and not Object
         for (; superclass != null; superclass = superclass.getSuperclass()) {
             addAnalyzedExtendedTypeField(document, superclass, Fields.ALL_EXTENDED_TYPES);

@@ -12,14 +12,10 @@ public class ImplementedInterfacesIndexer extends AbstractIndexer implements ICl
 
     @Override
     public void index(final Document document, final TypeDeclaration type) {
-        addAnalyzedImplementedInterfaceField(document, type.resolveBinding(), Fields.IMPLEMENTED_TYPES);
-    }
-
-    protected void addAnalyzedImplementedInterfaceField(final Document document, final ITypeBinding typeBinding, final String fieldName) {
-        for (final ITypeBinding interface_ : typeBinding.getInterfaces()) {
+        for (final ITypeBinding interface_ : type.resolveBinding().getInterfaces()) {
             final ITypeName interfaceName = BindingUtils.toTypeName(interface_);
             if (!isPrimitiveOrArrayOrNullOrObjectOrString(interfaceName)) {
-                addAnalyzedField(document, fieldName, interfaceName.getIdentifier());
+                addAnalyzedField(document, Fields.IMPLEMENTED_TYPES, interfaceName.getIdentifier());
             }
         }
     }

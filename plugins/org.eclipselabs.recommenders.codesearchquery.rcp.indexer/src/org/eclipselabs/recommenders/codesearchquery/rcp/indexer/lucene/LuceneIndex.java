@@ -11,7 +11,6 @@ import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriter.MaxFieldLength;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.LockObtainFailedException;
 import org.apache.lucene.util.Version;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.Activator;
 
@@ -35,7 +34,7 @@ public class LuceneIndex {
 	
 	public LuceneIndex(Directory directory) throws IOException {
 		m_index = directory;
-		m_analyzer = new StandardAnalyzer(Version.LUCENE_30);
+		m_analyzer = new StandardAnalyzer(Version.LUCENE_29);
 
 		m_writer = new IndexWriter(m_index, m_analyzer, MaxFieldLength.UNLIMITED);
 		m_writer.deleteAll();
@@ -104,6 +103,7 @@ public class LuceneIndex {
 	public void close() {
 		try {
 			m_writer.close();
+			m_index.close();
 		} catch (CorruptIndexException e) {
 			e.printStackTrace(); //TODO: refactor
 		} catch (IOException e) {

@@ -13,6 +13,7 @@ import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
+import org.eclipse.jdt.core.dom.TryStatement;
 
 public abstract class TypeUseVisitor extends ASTVisitor {
     
@@ -76,8 +77,13 @@ public abstract class TypeUseVisitor extends ASTVisitor {
     public boolean visit(final SuperMethodInvocation node) {
         return false;
     }
-    
+
+    @Override
+    public boolean visit(final TryStatement node) {
+    	return true;
+    };
+        
     protected void handleTypeUse(ITypeBinding typeBinding) {
-        //Let callers overwrite and handle typeBinding
+        //Let callers override and handle typeBinding
     }
 }

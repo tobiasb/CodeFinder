@@ -6,6 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.rcp.indexer.Activator
 Require-Bundle: org.eclipse.jface,
  org.eclipse.jdt.core,
+ org.eclipse.jdt.ui,
  org.apache.lucene,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
@@ -13,11 +14,11 @@ Require-Bundle: org.eclipse.jface,
  org.eclipse.ui,
  org.eclipse.recommenders.utils,
  org.eclipse.recommenders.utils.rcp,
- org.eclipse.recommenders.injection
+ org.eclipse.recommenders.injection,
+ org.eclipse.recommenders.rcp
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.indexer,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor
-Import-Package: org.eclipse.jdt.internal.corext.dom

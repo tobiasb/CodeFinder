@@ -22,7 +22,7 @@ public class CodesearchQueryModule extends AbstractModule {
             Analyzer a = new StandardAnalyzer(Version.LUCENE_30);
             
             bind(Analyzer.class).toInstance(a);
-            bind(Directory.class).toInstance(new SimpleFSDirectory(new File("o:/index.l")));
+            bind(Directory.class).toInstance(new SimpleFSDirectory(new File("d:/index.l")));
             bind(QueryParser.class).toInstance(new QueryParser(Version.LUCENE_30, Fields.FULLY_QUALIFIED_NAME, a));
             //bind(Directory.class).toInstance(new RAMDirectory());
         } catch(Exception ex) {
