@@ -7,16 +7,25 @@ import org.apache.lucene.index.IndexReader;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllFieldNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaringTypeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FieldsReadIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FieldsWrittenIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FriendlyNameIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullTextIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullyQualifiedNameIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFinallyIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
 import org.eclipselabs.recommenders.test.codesearchquery.rcp.TestBase;
@@ -467,6 +476,67 @@ public class TestGeneralScenarios extends TestBase {
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
       this.assertField(_documents_1, _l_1);
+  }
+  
+  @Test
+  public void testUsedTypesIndexerNoPrimitivesStringObjectEtc() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("public class MyClass {\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("String f;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Object o1;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void test() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("String g;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Object o2;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      UsedTypesIndexer _usedTypesIndexer = new UsedTypesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _usedTypesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.USED_TYPES, "Ljava/lang/String");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertNotField(_documents, _l);
+      List<Document> _documents_1 = index.getDocuments();
+      String _s_2 = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_3 = this.s(Fields.USED_TYPES, "Ljava/lang/String");
+      ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
+      List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
+      this.assertNotField(_documents_1, _l_1);
+      List<Document> _documents_2 = index.getDocuments();
+      String _s_4 = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_5 = this.s(Fields.USED_TYPES, "Ljava/lang/Object");
+      ArrayList<String> _newArrayList_3 = CollectionLiterals.<String>newArrayList(_s_4, _s_5);
+      List<String> _l_2 = this.l(((String[])Conversions.unwrapArray(_newArrayList_3, String.class)));
+      this.assertNotField(_documents_2, _l_2);
+      List<Document> _documents_3 = index.getDocuments();
+      String _s_6 = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_7 = this.s(Fields.USED_TYPES, "Ljava/lang/Object");
+      ArrayList<String> _newArrayList_4 = CollectionLiterals.<String>newArrayList(_s_6, _s_7);
+      List<String> _l_3 = this.l(((String[])Conversions.unwrapArray(_newArrayList_4, String.class)));
+      this.assertNotField(_documents_3, _l_3);
   }
   
   @Test
@@ -1054,5 +1124,846 @@ public class TestGeneralScenarios extends TestBase {
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_3, _s_4);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
       this.assertField(_documents_1, _l_1);
+  }
+  
+  @Test
+  public void testDeclaredFieldNamesClass() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public final class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Map map;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testDeclaredFieldNamesMethod() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public final class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doSomethingElse() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Map map;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testDeclaredFieldNamesTryCatch() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public final class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doSomethingElse() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("catch(Exception ex) { Map map; }");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testDeclaredFieldTypesClass() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public final class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Map map;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DeclaredFieldTypesIndexer _declaredFieldTypesIndexer = new DeclaredFieldTypesIndexer();
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.DECLARED_FIELD_TYPES, "Ljava/util/Map");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testDeclaredFieldTypesMethod() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public final class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doSomethingElse() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Map map;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DeclaredFieldTypesIndexer _declaredFieldTypesIndexer = new DeclaredFieldTypesIndexer();
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.DECLARED_FIELD_TYPES, "Ljava/util/Map");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testDeclaredFieldTypesTry() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public final class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doSomethingElse() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("catch(Exception ex) { Map map; }");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DeclaredFieldTypesIndexer _declaredFieldTypesIndexer = new DeclaredFieldTypesIndexer();
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.DECLARED_FIELD_TYPES, "Ljava/util/Map");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllFieldNamesIndexerClass() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private Map theMapyMap;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AllFieldNamesIndexer _allFieldNamesIndexer = new AllFieldNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allFieldNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.ALL_FIELD_NAMES, "theMapyMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllFieldNamesIndexerMethod() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private Map theMapyMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doThisAndThat() {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AllFieldNamesIndexer _allFieldNamesIndexer = new AllFieldNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allFieldNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.ALL_FIELD_NAMES, "theMapyMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllFieldNamesIndexerMethod02() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private Map theMapyMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doThisAndThat() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("private Map someOtherMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AllFieldNamesIndexer _allFieldNamesIndexer = new AllFieldNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allFieldNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.ALL_FIELD_NAMES, "theMapyMap");
+      String _s_2 = this.s(Fields.ALL_FIELD_NAMES, "someOtherMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllFieldNamesIndexerTryCatch() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private Map theMapyMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doThisAndThat() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("catch(Exception ex) {}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AllFieldNamesIndexer _allFieldNamesIndexer = new AllFieldNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allFieldNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.ALL_FIELD_NAMES, "theMapyMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllFieldNamesIndexerTryCatch02() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private Map theMapyMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("void doThisAndThat() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("catch(Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("private Map someOtherMap;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AllFieldNamesIndexer _allFieldNamesIndexer = new AllFieldNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allFieldNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.ALL_FIELD_NAMES, "theMapyMap");
+      String _s_2 = this.s(Fields.ALL_FIELD_NAMES, "someOtherMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllFieldNamesIndexerClass02() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private Map theMapyMap;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AllFieldNamesIndexer _allFieldNamesIndexer = new AllFieldNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allFieldNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.ALL_FIELD_NAMES, "theMapyMap");
+      String _s_2 = this.s(Fields.ALL_FIELD_NAMES, "suppressedExceptions");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFullTextIndexerClass() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FullTextIndexer _fullTextIndexer = new FullTextIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("public class MOtherException extends IOException {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      String _string = _builder_1.toString();
+      String _s_1 = this.s(Fields.FULL_TEXT, _string);
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFullTextIndexerMethod() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyTinyException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theEasiestMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FullTextIndexer _fullTextIndexer = new FullTextIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("public static void theEasiestMethodEver(){");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      String _string = _builder_1.toString();
+      String _s_1 = this.s(Fields.FULL_TEXT, _string);
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFullTextIndexerTryCatch() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyRandomException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theWorstMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("catch(Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("//This is a comment");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FullTextIndexer _fullTextIndexer = new FullTextIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("catch (Exception ex) {");
+      _builder_1.newLine();
+      _builder_1.append("}");
+      String _string = _builder_1.toString();
+      String _s_1 = this.s(Fields.FULL_TEXT, _string);
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFullTextIndexerField() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Map theWorldMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theBestMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("catch(Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("//This is a comment");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FullTextIndexer _fullTextIndexer = new FullTextIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Map theWorldMap;");
+      String _string = _builder_1.toString();
+      String _s_1 = this.s(Fields.FULL_TEXT, _string);
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFieldsReadIndexerMethod() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Map theWorldMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theBestMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("MyOtherOtherException m;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Object o = m.theWorldMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FieldsReadIndexer _fieldsReadIndexer = new FieldsReadIndexer();
+      FieldsWrittenIndexer _fieldsWrittenIndexer = new FieldsWrittenIndexer();
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fieldsReadIndexer, _fieldsWrittenIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.FIELDS_READ, "LMyOtherOtherException.theWorldMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFieldsReadIndexerClass() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class Testclass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Object someObject = null;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Testclass ob = new Testclass();");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Object anObject = ob.someObject;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FieldsReadIndexer _fieldsReadIndexer = new FieldsReadIndexer();
+      FieldsWrittenIndexer _fieldsWrittenIndexer = new FieldsWrittenIndexer();
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fieldsReadIndexer, _fieldsWrittenIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.FIELDS_READ, "LTestclass.someObject");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFieldsReadIndexerTryCatch() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class Testclass extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Object someObject = null;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Object theWorldMap = (new Testclass()).someObject;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theBestMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} catch(Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("Testclass c = new Testclass();");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("Object myObject = c.someObject;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FieldsReadIndexer _fieldsReadIndexer = new FieldsReadIndexer();
+      FieldsWrittenIndexer _fieldsWrittenIndexer = new FieldsWrittenIndexer();
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fieldsReadIndexer, _fieldsWrittenIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.FIELDS_READ, "LTestclass.someObject");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testFieldsWrittenIndexerMethod() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Map theWorldMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theBestMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("MyOtherOtherException m = null;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("m.theWorldMap = null;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      FieldsReadIndexer _fieldsReadIndexer = new FieldsReadIndexer();
+      FieldsWrittenIndexer _fieldsWrittenIndexer = new FieldsWrittenIndexer();
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fieldsReadIndexer, _fieldsWrittenIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.FIELDS_WRITTEN, "LMyOtherOtherException.theWorldMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testUsedFieldsInTryIndexer() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Map theWorldMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theBestMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("MyOtherOtherException m = null;");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("m.theWorldMap = null;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} catch(Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} finally {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      UsedFieldsInTryIndexer _usedFieldsInTryIndexer = new UsedFieldsInTryIndexer();
+      ArrayList<ITryCatchBlockIndexer> _newArrayList = CollectionLiterals.<ITryCatchBlockIndexer>newArrayList(_documentTypeIndexer, _usedFieldsInTryIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.USED_FIELDS_IN_TRY, "LMyOtherOtherException.theWorldMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testUsedFieldsInFinallyIndexer() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public Map theWorldMap;");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static void theBestMethodEver() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} catch(Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} finally {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("MyOtherOtherException m = null;");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("m.theWorldMap = null;");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      UsedFieldsInFinallyIndexer _usedFieldsInFinallyIndexer = new UsedFieldsInFinallyIndexer();
+      ArrayList<ITryCatchBlockIndexer> _newArrayList = CollectionLiterals.<ITryCatchBlockIndexer>newArrayList(_documentTypeIndexer, _usedFieldsInFinallyIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.USED_FIELDS_IN_FINALLY, "LMyOtherOtherException.theWorldMap");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
   }
 }

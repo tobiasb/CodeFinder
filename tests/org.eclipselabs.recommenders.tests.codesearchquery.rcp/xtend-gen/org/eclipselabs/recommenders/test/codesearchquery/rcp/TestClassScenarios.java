@@ -9,6 +9,7 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllMethodNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ExtendedTypeIndexer;
@@ -187,9 +188,44 @@ public class TestClassScenarios extends TestBase {
   }
   
   @Test
-  public void testAllMethodNamesIndexer() {
+  public void testDeclaredMethodNamesIndexer() {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("public class Clazz {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void method01() {}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private void method02() {}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("protected void method03() {}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      DeclaredMethodNamesIndexer _declaredMethodNamesIndexer = new DeclaredMethodNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.DECLARED_METHODS_NAMES, "method01");
+      String _s_2 = this.s(Fields.DECLARED_METHODS_NAMES, "method02");
+      String _s_3 = this.s(Fields.DECLARED_METHODS_NAMES, "method03");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2, _s_3);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllMethodNamesIndexer() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public void method01() {}");
@@ -214,8 +250,42 @@ public class TestClassScenarios extends TestBase {
       String _s_1 = this.s(Fields.ALL_METHOD_NAMES, "method01");
       String _s_2 = this.s(Fields.ALL_METHOD_NAMES, "method02");
       String _s_3 = this.s(Fields.ALL_METHOD_NAMES, "method03");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2, _s_3);
+      String _s_4 = this.s(Fields.ALL_METHOD_NAMES, "getMessage");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2, _s_3, _s_4);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAllMethodNamesIndexer02() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyOtherException extends IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void method01() {}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("private void method02() {}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("protected void method03() {}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      DeclaredMethodNamesIndexer _declaredMethodNamesIndexer = new DeclaredMethodNamesIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.ALL_METHOD_NAMES, "getMessage");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertNotField(_documents, _l);
   }
 }

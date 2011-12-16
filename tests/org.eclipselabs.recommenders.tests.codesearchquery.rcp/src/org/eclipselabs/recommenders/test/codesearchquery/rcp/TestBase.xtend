@@ -54,26 +54,31 @@ class TestBase {
     		}
     	}
     	
-		assertTrue('''There was no document with «c(expected)»'''.toString, false)
+		assertTrue('''There was no document with «(expected)»'''.toString, false)
 		return false
     }
     
     def assertNotField(List<Document> documents, List<String> expected) {
     	    	
     	for(document : documents) {  
-    		var foundInDocument = true  
-    		   		 		
+    		var foundInDocument = true
+    		 		
     		for(exp : expected) {
+    			var found = false
     			
 	    		for(field : document.fields) {
-	    			if(!s(field.name, field.stringValue).equals(exp)) {
-	    				foundInDocument = false
+	    			if(s(field.name, field.stringValue).equals(exp)) {
+	    				found = true;
 	    			}
+	    		}
+	    		
+	    		if(!found) {
+	    			foundInDocument = false
 	    		}
     		}
     		
     		if(foundInDocument) {
-    			assertTrue('''There was a document with «c(expected)»'''.toString, false)
+    			assertTrue('''There was a document with «(expected)»'''.toString, false)
     		}
     	}
     }
@@ -88,6 +93,10 @@ class TestBase {
     
     def exercise(CharSequence code, List<IIndexer> indexer, String projectName) {
     	return exercise(code, indexer, projectName, "MyClass.java")
+    }
+    
+    def exercise(CharSequence code, List<IIndexer> indexer, String projectName, String fileName) {
+    	return exercise(code, null, null, indexer, projectName, fileName)
     }
     
     def exercise(CharSequence code1, CharSequence code2, CharSequence code3, List<IIndexer> indexer, String projectName, String fileName) {
@@ -106,10 +115,6 @@ class TestBase {
         cuParsed.accept(visitor)
         
         return index
-    }
-    
-    def exercise(CharSequence code, List<IIndexer> indexer, String projectName, String fileName) {
-    	return exercise(code, null, null, indexer, projectName, fileName)
     }
 	
 	def exercise(CharSequence code, IIndexer indexer){

@@ -42,4 +42,13 @@ public class Fields {
 	public static final String RESOURCE_PATH = "resource path";
 	public static final String MODIFIERS = "modifiers";
 	public static final String ALL_METHOD_NAMES = "all method names";
+	public static final String DECLARED_METHODS_NAMES = "declared method names";
+	public static final String DECLARED_FIELD_NAMES = "declared field names";
+	public static final String DECLARED_FIELD_TYPES = "declared field types";
+	public static final String ALL_FIELD_NAMES = "all field names";
+	public static final String FULL_TEXT = "full text";
+	public static final String FIELDS_READ = "fields read";
+	public static final String FIELDS_WRITTEN = "fields written";
+	public static final String USED_FIELDS_IN_FINALLY = "used fields in finally";
+	public static final String USED_FIELDS_IN_TRY = "used fields in try";
 }

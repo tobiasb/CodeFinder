@@ -13,7 +13,6 @@ public class AllExtendedTypesIndexer extends ExtendedTypeIndexer implements ICla
         final ITypeBinding clazz = type.resolveBinding();
         ITypeBinding superclass = clazz;
         
-        // add superclass, if not null and not Object
         for (; superclass != null; superclass = superclass.getSuperclass()) {
             addAnalyzedExtendedTypeField(document, superclass, Fields.ALL_EXTENDED_TYPES);
         }

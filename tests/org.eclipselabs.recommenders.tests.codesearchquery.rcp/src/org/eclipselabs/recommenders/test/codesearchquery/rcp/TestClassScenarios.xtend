@@ -1,15 +1,16 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodsIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
-import org.junit.Test
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.OverriddenMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ExtendedTypeIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ImplementedInterfacesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllMethodNamesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodNamesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodsIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ExtendedTypeIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ImplementedInterfacesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.OverriddenMethodsIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
+import org.junit.Test
 
 class TestClassScenarios extends TestBase {
 	
@@ -119,9 +120,30 @@ class TestClassScenarios extends TestBase {
 	}
 	
 	@Test
-	def void testAllMethodNamesIndexer(){
+	def void testDeclaredMethodNamesIndexer(){
 		val code = '''
 		public class Clazz {
+			public void method01() {}
+			private void method02() {}
+			protected void method03() {}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::DECLARED_METHODS_NAMES, "method01"),
+			s(Fields::DECLARED_METHODS_NAMES, "method02"),
+			s(Fields::DECLARED_METHODS_NAMES, "method03")
+		)))
+	}
+	
+	@Test
+	def void testAllMethodNamesIndexer(){
+		val code = '''
+		import java.io.IOException;
+		public class MyOtherException extends IOException {
 			public void method01() {}
 			private void method02() {}
 			protected void method03() {}
@@ -134,7 +156,27 @@ class TestClassScenarios extends TestBase {
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_METHOD_NAMES, "method01"),
 			s(Fields::ALL_METHOD_NAMES, "method02"),
-			s(Fields::ALL_METHOD_NAMES, "method03")
+			s(Fields::ALL_METHOD_NAMES, "method03"),
+			s(Fields::ALL_METHOD_NAMES, "getMessage")
+		)))
+	}
+	
+	@Test
+	def void testAllMethodNamesIndexer02(){
+		val code = '''
+		import java.io.IOException;
+		public class MyOtherException extends IOException {
+			public void method01() {}
+			private void method02() {}
+			protected void method03() {}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
+		
+		assertNotField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ALL_METHOD_NAMES, "getMessage")
 		)))
 	}
 }

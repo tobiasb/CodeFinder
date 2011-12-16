@@ -1,16 +1,24 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllFieldNamesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaringTypeIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FieldsReadIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FieldsWrittenIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FriendlyNameIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullTextIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullyQualifiedNameIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFinallyIndexer
 
 class TestGeneralScenarios extends TestBase {
 
@@ -117,7 +125,9 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new FullyQualifiedNameIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::FULLY_QUALIFIED_NAME, "LMyClass.test()V"))))
+		assertField(index.documents, l(newArrayList(
+			s(Fields::FULLY_QUALIFIED_NAME, "LMyClass.test()V")
+		)))
 	}
 	
 	@Test
@@ -271,6 +281,43 @@ class TestGeneralScenarios extends TestBase {
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_TYPES, "Ljava/util/Map")
+		)))
+	}
+	
+	@Test
+	def void testUsedTypesIndexerNoPrimitivesStringObjectEtc(){
+		val code = '''
+		import java.util.Map;
+		
+		public class MyClass {	
+			String f;
+			Object o1;
+			public void test() {
+				String g;
+				Object o2;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new UsedTypesIndexer())))
+		
+		assertNotField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::USED_TYPES, "Ljava/lang/String")
+		)))
+		
+		assertNotField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::USED_TYPES, "Ljava/lang/String")
+		)))
+		assertNotField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::USED_TYPES, "Ljava/lang/Object")
+		)))
+		
+		assertNotField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::USED_TYPES, "Ljava/lang/Object")
 		)))
 	}
 	
@@ -637,5 +684,481 @@ class TestGeneralScenarios extends TestBase {
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::MODIFIERS, Fields::MODIFIER_FINAL)
 		)))	
+	}
+	
+	@Test
+	def void testDeclaredFieldNamesClass(){
+		val code = '''
+		import java.util.Map;
+		public final class MyClass {
+			Map map;
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DeclaredFieldNamesIndexer(), new DocumentTypeIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::DECLARED_FIELD_NAMES, "map")
+		)))	
+	}
+	
+	@Test
+	def void testDeclaredFieldNamesMethod(){
+		val code = '''
+		import java.util.Map;
+		public final class MyClass {
+			void doSomethingElse() {
+				Map map;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DeclaredFieldNamesIndexer(), new DocumentTypeIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::DECLARED_FIELD_NAMES, "map")
+		)))	
+	}
+	
+	@Test
+	def void testDeclaredFieldNamesTryCatch(){
+		val code = '''
+		import java.util.Map;
+		public final class MyClass {
+			void doSomethingElse() {
+				try {}
+				catch(Exception ex) { Map map; }
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DeclaredFieldNamesIndexer(), new DocumentTypeIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::DECLARED_FIELD_NAMES, "map")
+		)))	
+	}
+	
+	@Test
+	def void testDeclaredFieldTypesClass(){
+		val code = '''
+		import java.util.Map;
+		public final class MyClass {
+			Map map;
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DeclaredFieldTypesIndexer(), new DocumentTypeIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::DECLARED_FIELD_TYPES, "Ljava/util/Map")
+		)))	
+	}
+	
+	@Test
+	def void testDeclaredFieldTypesMethod(){
+		val code = '''
+		import java.util.Map;
+		public final class MyClass {
+			void doSomethingElse() {
+				Map map;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DeclaredFieldTypesIndexer(), new DocumentTypeIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::DECLARED_FIELD_TYPES, "Ljava/util/Map")
+		)))	
+	}
+	
+	@Test
+	def void testDeclaredFieldTypesTry(){
+		val code = '''
+		import java.util.Map;
+		public final class MyClass {
+			void doSomethingElse() {
+				try {}
+				catch(Exception ex) { Map map; }
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DeclaredFieldTypesIndexer(), new DocumentTypeIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::DECLARED_FIELD_TYPES, "Ljava/util/Map")
+		)))	
+	}
+	
+	@Test
+	def void testAllFieldNamesIndexerClass(){
+		val code = '''
+		import java.util.Map;
+		public class MyOtherException extends IOException {
+			private Map theMapyMap;
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ALL_FIELD_NAMES, "theMapyMap")
+		)))
+	}
+	
+	@Test
+	def void testAllFieldNamesIndexerMethod(){
+		val code = '''
+		import java.util.Map;
+		public class MyOtherException extends IOException {
+			private Map theMapyMap;
+			void doThisAndThat() {
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::ALL_FIELD_NAMES, "theMapyMap")
+		)))
+	}
+	
+	@Test
+	def void testAllFieldNamesIndexerMethod02(){
+		val code = '''
+		import java.util.Map;
+		public class MyOtherException extends IOException {
+			private Map theMapyMap;
+			void doThisAndThat() {
+				private Map someOtherMap;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::ALL_FIELD_NAMES, "theMapyMap"),
+			s(Fields::ALL_FIELD_NAMES, "someOtherMap")
+		)))
+	}
+	
+	@Test
+	def void testAllFieldNamesIndexerTryCatch(){
+		val code = '''
+		import java.util.Map;
+		public class MyOtherException extends IOException {
+			private Map theMapyMap;
+			void doThisAndThat() {
+				try {}
+				catch(Exception ex) {}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::ALL_FIELD_NAMES, "theMapyMap")
+		)))
+	}
+	
+	@Test
+	def void testAllFieldNamesIndexerTryCatch02(){
+		val code = '''
+		import java.util.Map;
+		public class MyOtherException extends IOException {
+			private Map theMapyMap;
+			void doThisAndThat() {
+				try {}
+				catch(Exception ex) {
+					private Map someOtherMap;
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::ALL_FIELD_NAMES, "theMapyMap"),
+			s(Fields::ALL_FIELD_NAMES, "someOtherMap")
+		)))
+	}
+	
+	@Test
+	def void testAllFieldNamesIndexerClass02(){
+		val code = '''
+		import java.util.Map;
+		import java.io.IOException;
+		public class MyOtherException extends IOException {
+			private Map theMapyMap;
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ALL_FIELD_NAMES, "theMapyMap"),
+			s(Fields::ALL_FIELD_NAMES, "suppressedExceptions")
+		)))
+	}
+	
+	@Test
+	def void testFullTextIndexerClass(){
+		val code = '''
+		import java.io.IOException;
+		public class MOtherException extends IOException {
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::FULL_TEXT, '''public class MOtherException extends IOException {
+}'''.toString)
+		)))
+	}
+	
+	@Test
+	def void testFullTextIndexerMethod(){
+		val code = '''
+		import java.io.IOException;
+		public class MyTinyException extends IOException {
+			public static void theEasiestMethodEver() {
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::FULL_TEXT, '''public static void theEasiestMethodEver(){
+}'''.toString)
+		)))
+	}
+	
+	@Test
+	def void testFullTextIndexerTryCatch(){
+		val code = '''
+		import java.io.IOException;
+		public class MyRandomException extends IOException {
+			public static void theWorstMethodEver() {
+				try {}
+				catch(Exception ex) {
+					//This is a comment
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::FULL_TEXT, '''catch (Exception ex) {
+}'''.toString)
+		)))
+	}
+	
+	@Test
+	def void testFullTextIndexerField(){
+		val code = '''
+		import java.util.Map;
+		import java.io.IOException;
+		public class MyOtherOtherException extends IOException {
+			Map theWorldMap;
+			public static void theBestMethodEver() {
+				try {}
+				catch(Exception ex) {
+					//This is a comment
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_FIELD),
+			s(Fields::FULL_TEXT, '''Map theWorldMap;'''.toString)
+		)))
+	}
+	
+	@Test
+	def void testFieldsReadIndexerMethod(){
+		val code = '''
+		import java.util.Map;
+		import java.io.IOException;
+		public class MyOtherOtherException extends IOException {
+			public Map theWorldMap;
+			public static void theBestMethodEver() {
+				MyOtherOtherException m;
+				Object o = m.theWorldMap;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::FIELDS_READ, "LMyOtherOtherException.theWorldMap")
+		)))
+		
+//		assertNotField(index.documents, l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_CLASS),
+//			s(Fields::FIELDS_WRITTEN, "LMyOtherOtherException.someObject")
+//		)))
+	}
+	
+	@Test
+	def void testFieldsReadIndexerClass(){
+		val code = '''
+		import java.io.IOException;
+		public class Testclass {
+			public Object someObject = null;
+			public Testclass ob = new Testclass();
+			public Object anObject = ob.someObject;
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::FIELDS_READ, "LTestclass.someObject")
+		)))
+		
+//		assertNotField(index.documents, l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_CLASS),
+//			s(Fields::FIELDS_WRITTEN, "LTestclass.someObject")
+//		)))
+	}
+	
+	@Test
+	def void testFieldsReadIndexerTryCatch(){
+		val code = '''
+		import java.io.IOException;
+		public class Testclass extends IOException {
+			public Object someObject = null;
+			public Object theWorldMap = (new Testclass()).someObject;
+			public static void theBestMethodEver() {
+				try {
+				} catch(Exception ex) {
+					Testclass c = new Testclass();
+					Object myObject = c.someObject;
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::FIELDS_READ, "LTestclass.someObject")
+		)))
+		
+//		assertNotField(index.documents, l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_CLASS),
+//			s(Fields::FIELDS_WRITTEN, "LTestclass.someObject")
+//		)))
+	}
+	
+	@Test
+	def void testFieldsWrittenIndexerMethod(){
+		val code = '''
+		import java.util.Map;
+		import java.io.IOException;
+		public class MyOtherOtherException extends IOException {
+			public Map theWorldMap;
+			public static void theBestMethodEver() {
+				MyOtherOtherException m = null;
+				m.theWorldMap = null;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
+		
+//		assertNotField(index.documents, l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_METHOD),
+//			s(Fields::FIELDS_READ, "LMyOtherOtherException.theWorldMap")
+//		)))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::FIELDS_WRITTEN, "LMyOtherOtherException.theWorldMap")
+		)))
+	}
+	
+	@Test
+	def void testUsedFieldsInTryIndexer(){
+		val code = '''
+		import java.util.Map;
+		import java.io.IOException;
+		public class MyOtherOtherException extends IOException {
+			public Map theWorldMap;
+			public static void theBestMethodEver() {
+				try {
+					MyOtherOtherException m = null;
+					m.theWorldMap = null;
+				} catch(Exception ex) {
+				} finally {
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new UsedFieldsInTryIndexer())))
+				
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::USED_FIELDS_IN_TRY, "LMyOtherOtherException.theWorldMap")
+		)))
+	}
+	
+	@Test
+	def void testUsedFieldsInFinallyIndexer(){
+		val code = '''
+		import java.util.Map;
+		import java.io.IOException;
+		public class MyOtherOtherException extends IOException {
+			public Map theWorldMap;
+			public static void theBestMethodEver() {
+				try {
+				} catch(Exception ex) {
+				} finally {
+					MyOtherOtherException m = null;
+					m.theWorldMap = null;
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new UsedFieldsInFinallyIndexer())))
+				
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::USED_FIELDS_IN_FINALLY, "LMyOtherOtherException.theWorldMap")
+		)))
 	}
 }

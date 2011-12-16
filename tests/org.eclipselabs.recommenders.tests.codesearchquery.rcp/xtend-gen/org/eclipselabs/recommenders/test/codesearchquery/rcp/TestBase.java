@@ -86,9 +86,7 @@ public class TestBase {
       }
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("There was no document with ");
-      final List<String> _typeConverted_expected = (List<String>)expected;
-      String _c = this.c(((String[])Conversions.unwrapArray(_typeConverted_expected, String.class)));
-      _builder.append(_c, "");
+      _builder.append(expected, "");
       String _string = _builder.toString();
       Assert.assertTrue(_string, false);
       return false;
@@ -99,13 +97,19 @@ public class TestBase {
       {
         boolean foundInDocument = true;
         for (final String exp : expected) {
-          List<Fieldable> _fields = document.getFields();
-          for (final Fieldable field : _fields) {
-            String _name = field.name();
-            String _stringValue = field.stringValue();
-            String _s = this.s(_name, _stringValue);
-            boolean _equals = _s.equals(exp);
-            boolean _operator_not = BooleanExtensions.operator_not(_equals);
+          {
+            boolean found = false;
+            List<Fieldable> _fields = document.getFields();
+            for (final Fieldable field : _fields) {
+              String _name = field.name();
+              String _stringValue = field.stringValue();
+              String _s = this.s(_name, _stringValue);
+              boolean _equals = _s.equals(exp);
+              if (_equals) {
+                found = true;
+              }
+            }
+            boolean _operator_not = BooleanExtensions.operator_not(found);
             if (_operator_not) {
               foundInDocument = false;
             }
@@ -114,9 +118,7 @@ public class TestBase {
         if (foundInDocument) {
           StringConcatenation _builder = new StringConcatenation();
           _builder.append("There was a document with ");
-          final List<String> _typeConverted_expected = (List<String>)expected;
-          String _c = this.c(((String[])Conversions.unwrapArray(_typeConverted_expected, String.class)));
-          _builder.append(_c, "");
+          _builder.append(expected, "");
           String _string = _builder.toString();
           Assert.assertTrue(_string, false);
         }
@@ -140,6 +142,11 @@ public class TestBase {
   
   public LuceneIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
     LuceneIndex _exercise = this.exercise(code, indexer, projectName, "MyClass.java");
+    return _exercise;
+  }
+  
+  public LuceneIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
+    LuceneIndex _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
     return _exercise;
   }
   
@@ -168,11 +175,6 @@ public class TestBase {
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
-  }
-  
-  public LuceneIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
-    LuceneIndex _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
-    return _exercise;
   }
   
   public LuceneIndex exercise(final CharSequence code, final IIndexer indexer) {
