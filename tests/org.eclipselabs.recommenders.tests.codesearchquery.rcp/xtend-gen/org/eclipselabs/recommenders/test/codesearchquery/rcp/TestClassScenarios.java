@@ -26,7 +26,7 @@ public class TestClassScenarios extends TestBase {
   @Test
   public void testDeclaredMethodsIndexer() {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("public class MyClass {");
+      _builder.append("public class MyClassXyZ {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public void test() {");
@@ -47,8 +47,8 @@ public class TestClassScenarios extends TestBase {
       LuceneIndex _exercise = this.exercise(code, _declaredMethodsIndexer);
       LuceneIndex index = _exercise;
       List<Document> _documents = index.getDocuments();
-      String _s = this.s(Fields.DECLARED_METHODS, "LMyClass.test()V");
-      String _s_1 = this.s(Fields.DECLARED_METHODS, "LMyClass.foo()V");
+      String _s = this.s(Fields.DECLARED_METHODS, "LMyClassXyZ.test()V");
+      String _s_1 = this.s(Fields.DECLARED_METHODS, "LMyClassXyZ.foo()V");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_documents, _l);
