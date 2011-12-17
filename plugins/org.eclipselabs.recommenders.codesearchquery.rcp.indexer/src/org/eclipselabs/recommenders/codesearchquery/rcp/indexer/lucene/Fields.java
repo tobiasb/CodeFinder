@@ -1,7 +1,5 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene;
 
-import java.io.IOException;
-import java.util.Map;
 
 public class Fields {
     //public final static String INT_TIMESTAMP = "int_timestamp";

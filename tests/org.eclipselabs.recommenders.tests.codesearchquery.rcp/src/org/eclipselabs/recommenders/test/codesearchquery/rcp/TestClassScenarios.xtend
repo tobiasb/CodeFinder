@@ -17,7 +17,7 @@ class TestClassScenarios extends TestBase {
 	@Test
 	def void testDeclaredMethodsIndexer(){
 		val code = '''
-		public class MyClass {
+		public class MyClassXyZ {
 			public void test() {
 			}
 			public void foo() {
@@ -28,8 +28,8 @@ class TestClassScenarios extends TestBase {
 		var index = exercise(code, new DeclaredMethodsIndexer())
 		
 		assertField(index.documents, l(newArrayList(
-			s(Fields::DECLARED_METHODS, "LMyClass.test()V"),
-			s(Fields::DECLARED_METHODS, "LMyClass.foo()V")
+			s(Fields::DECLARED_METHODS, "LMyClassXyZ.test()V"),
+			s(Fields::DECLARED_METHODS, "LMyClassXyZ.foo()V")
 		)))
 	}
 	
