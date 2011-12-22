@@ -16,10 +16,12 @@ public class ReturnTypeIndexer extends AbstractIndexer implements IMethodIndexer
         IMethodBinding b = method.resolveBinding();
         final IMethodName methodName = BindingUtils.toMethodName(b);
         
-        ITypeName returnType = methodName.getReturnType();
-        
-        if(!isPrimitiveOrArrayOrNullOrObjectOrString(returnType)) {
-            addAnalyzedField(document, Fields.RETURN_TYPE, returnType.getIdentifier());
+        if(methodName != null) {
+	        ITypeName returnType = methodName.getReturnType();
+	        
+	        if(!isPrimitiveOrArrayOrNullOrObjectOrString(returnType)) {
+	            addAnalyzedField(document, Fields.RETURN_TYPE, returnType.getIdentifier());
+	        }
         }
     }
 }

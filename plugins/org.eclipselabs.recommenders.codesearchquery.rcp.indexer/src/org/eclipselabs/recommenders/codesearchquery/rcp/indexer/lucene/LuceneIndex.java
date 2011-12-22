@@ -26,6 +26,7 @@ public class LuceneIndex {
 	@Inject
 	public LuceneIndex(Directory directory, Analyzer analyzer) throws IOException {
 		m_index = directory;
+		
 		m_analyzer = analyzer;
 
 		m_writer = new IndexWriter(m_index, m_analyzer, MaxFieldLength.UNLIMITED);
@@ -62,7 +63,7 @@ public class LuceneIndex {
 	public void truncateIndex() {
 		try {
 			m_writer.deleteAll();
-		m_writer.commit();
+			m_writer.commit();
 		} catch (IOException e) {
 			e.printStackTrace(); //TODO: refactor
 		}

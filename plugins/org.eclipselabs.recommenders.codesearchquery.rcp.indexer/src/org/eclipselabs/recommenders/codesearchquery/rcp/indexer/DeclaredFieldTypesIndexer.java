@@ -4,13 +4,10 @@ import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
-import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
-import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
-import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClassIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
@@ -37,9 +34,7 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements
 		final ASTVisitor visitor = new ASTVisitor() {
 			@Override
 			public boolean visit(FieldDeclaration node) {
-		        final ITypeBinding fieldTypeBinding = node.getType().resolveBinding();
-		        final ITypeName typeName = BindingUtils.toTypeName(fieldTypeBinding);  
-		        addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, typeName.getIdentifier());
+		        addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, BindingHelper.getIdentifier(node));
             	return false;
 			}
 		};
@@ -60,9 +55,7 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements
 		catchClause.accept(visitor);
 	}
 
-    private void addDeclaredFieldType(final Document document, VariableDeclarationStatement variableDeclaration) {
-        final ITypeBinding fieldTypeBinding = variableDeclaration.getType().resolveBinding();
-        final ITypeName typeName = BindingUtils.toTypeName(fieldTypeBinding);  
-        addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, typeName.getIdentifier());
+    private void addDeclaredFieldType(final Document document, VariableDeclarationStatement variableDeclaration) { 
+        addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, BindingHelper.getIdentifier(variableDeclaration));
     }
 }

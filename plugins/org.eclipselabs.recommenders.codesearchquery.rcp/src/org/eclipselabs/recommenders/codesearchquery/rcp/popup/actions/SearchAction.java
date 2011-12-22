@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.apache.lucene.document.Document;
@@ -13,6 +14,7 @@ import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.search.WildcardQuery;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.SimpleFSDirectory;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -29,7 +31,7 @@ public class SearchAction implements IObjectActionDelegate {
 	public void run(IAction action) {
 
 		try {			
-			Directory index = Activator.injector.getInstance(Directory.class);// new SimpleFSDirectory(new File("o:/index.l"));
+			Directory index = new SimpleFSDirectory(new File("d:/index.l")); //Activator.injector.getInstance(Directory.class);//
 			
 			Query term1 = new TermQuery(new Term(Fields.RETURN_TYPE, "Ljava/util/List"));
             Query term2 = new WildcardQuery(new Term(Fields.RETURN_TYPE, "Ltest/bla/Test"));
@@ -39,12 +41,14 @@ public class SearchAction implements IObjectActionDelegate {
             q1.add(term2, Occur.MUST);
             q1.add(term3, Occur.MUST);
             
+            
+            
 			BooleanQuery q = new BooleanQuery();
-			q.add(term1, Occur.SHOULD);
-			q.add(q1, Occur.SHOULD);
+			q.add(new TermQuery(new Term(Fields.MODIFIERS, Fields.MODIFIER_ABSTRACT)), Occur.MUST);
+			q.add(new TermQuery(new Term(Fields.TYPE, Fields.TYPE_CLASS)), Occur.MUST);
 //            q.add(term2, Occur.SHOULD);
 //            q.add(term3, Occur.SHOULD);
-			
+						
 			System.out.println("Searching for: " + q.toString());
 			
 			// 3. search
@@ -63,7 +67,7 @@ public class SearchAction implements IObjectActionDelegate {
 			for (int i = 0; i < hits.length; ++i) {
 				int docId = hits[i].doc;
 				Document d = searcher.doc(docId);
-				System.out.println((i + 1) + ". " + d.get(Fields.TYPE) + " " + d.get(Fields.FRIENDLY_NAME));
+				System.out.println((i + 1) + ". " + d.get(Fields.TYPE) + " " + d.get(Fields.FULLY_QUALIFIED_NAME));
 			}
 			
 

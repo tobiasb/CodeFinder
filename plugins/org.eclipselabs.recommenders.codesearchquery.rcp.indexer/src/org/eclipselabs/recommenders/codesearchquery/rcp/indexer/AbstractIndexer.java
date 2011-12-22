@@ -16,19 +16,17 @@ public abstract class AbstractIndexer {
 
     
     protected void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {        
-        Field field = new Field(fieldName, fieldValue,
+        if(fieldValue == null) {
+        	return;
+        }
+        
+    	Field field = new Field(fieldName, fieldValue,
                 Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS);
 
         System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, fieldValue));
         
         document.add(field);
     }
-    
-//    protected void addToDocument(final Document document, final String fieldName, final Collection<String> fieldValues) {
-//        for(final String value : fieldValues) {
-//        	addAnalyzedField(document, fieldName, value);
-//        }
-//    }
 
     public static boolean isPrimitiveOrArrayOrNullOrObjectOrString(
             final ITypeName type) {

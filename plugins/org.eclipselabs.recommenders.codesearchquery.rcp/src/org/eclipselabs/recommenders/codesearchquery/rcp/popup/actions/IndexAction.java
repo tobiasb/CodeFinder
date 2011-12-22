@@ -1,7 +1,11 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions;
 
+import java.io.File;
 import java.util.List;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.util.Version;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
@@ -21,7 +25,6 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
-//import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
@@ -58,7 +61,8 @@ public class IndexAction implements IObjectActionDelegate {
     public void run(IAction action) {
     	try {
 	        final Long start = System.currentTimeMillis();
-	        final LuceneIndex index = Activator.injector.getInstance(LuceneIndex.class);
+//	        final LuceneIndex index = Activator.injector.getInstance(LuceneIndex.class);
+	        final LuceneIndex index = new LuceneIndex(new SimpleFSDirectory(new File("d:/index.l")), new StandardAnalyzer(Version.LUCENE_29));
 	                
 	        final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
 	            

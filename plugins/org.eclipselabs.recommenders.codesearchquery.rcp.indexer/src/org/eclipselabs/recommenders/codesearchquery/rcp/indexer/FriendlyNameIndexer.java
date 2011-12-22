@@ -20,7 +20,11 @@ public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndex
         final IMethodBinding b = method.resolveBinding();
         final IMethodName methodName = BindingUtils.toMethodName(b);
         
-        addAnalyzedField(document, Fields.FRIENDLY_NAME, methodName.getName());
+        if(methodName != null) {
+        	addAnalyzedField(document, Fields.FRIENDLY_NAME, methodName.getName());
+        } else {
+        	addAnalyzedField(document, Fields.FRIENDLY_NAME, "");
+        }
     }
 
     @Override

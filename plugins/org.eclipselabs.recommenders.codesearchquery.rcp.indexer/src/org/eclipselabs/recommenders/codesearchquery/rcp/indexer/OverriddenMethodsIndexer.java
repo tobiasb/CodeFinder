@@ -30,6 +30,10 @@ public class OverriddenMethodsIndexer extends AbstractIndexer implements IClassI
     }
 
 	private void setOverriddenMethodName(final Document document, final IMethodBinding b) {
+		if(b == null) {
+			return;
+		}
+		
 		final IMethodBinding overriddenBinding = Bindings.findOverriddenMethod(b, true);
         
         final IMethodName overriddenMethodName = BindingUtils

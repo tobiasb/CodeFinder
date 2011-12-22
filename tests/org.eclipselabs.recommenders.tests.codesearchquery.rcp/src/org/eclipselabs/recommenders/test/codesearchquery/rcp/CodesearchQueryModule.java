@@ -25,11 +25,11 @@ public class CodesearchQueryModule extends AbstractModule {
     @Override
     protected void configure() {
         try {
-            Analyzer a = new StandardAnalyzer(Version.LUCENE_30);
+            Analyzer a = new StandardAnalyzer(Version.LUCENE_29);
             
             bind(Analyzer.class).toInstance(a);
             bind(Directory.class).toInstance(new RAMDirectory());
-            bind(QueryParser.class).toInstance(new QueryParser(Version.LUCENE_30, Fields.FULLY_QUALIFIED_NAME, a));
+            bind(QueryParser.class).toInstance(new QueryParser(Version.LUCENE_29, Fields.FULLY_QUALIFIED_NAME, a));
             //bind(Directory.class).toInstance(new RAMDirectory());
         } catch(Exception ex) {
             ex.printStackTrace();//TODO: refactor

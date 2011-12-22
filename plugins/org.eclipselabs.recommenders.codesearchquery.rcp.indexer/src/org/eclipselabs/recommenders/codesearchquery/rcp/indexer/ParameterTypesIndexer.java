@@ -17,10 +17,12 @@ public class ParameterTypesIndexer extends AbstractIndexer implements IMethodInd
         IMethodBinding b = method.resolveBinding();
         final IMethodName methodName = BindingUtils.toMethodName(b);
         
-        for(ITypeName typeName : methodName.getParameterTypes()) {
-            if(!isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
-                addAnalyzedField(document, Fields.PARAMETER_TYPES, typeName.getIdentifier());
-            }
+        if(methodName != null) {
+	        for(ITypeName typeName : methodName.getParameterTypes()) {
+	            if(!isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
+	                addAnalyzedField(document, Fields.PARAMETER_TYPES, typeName.getIdentifier());
+	            }
+	        }
         }
     }
 }
