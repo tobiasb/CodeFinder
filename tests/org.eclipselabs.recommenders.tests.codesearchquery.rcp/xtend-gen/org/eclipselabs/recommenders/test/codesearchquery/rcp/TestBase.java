@@ -44,15 +44,10 @@ public class TestBase {
   
   public void assertNumDocs(final IndexReader reader, final int expectedNum) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("The number of documents is not correct. Is [");
-    int _numDocs = reader.numDocs();
-    _builder.append(_numDocs, "");
-    _builder.append("] but should be [");
-    _builder.append(expectedNum, "");
-    _builder.append("]");
+    _builder.append("The number of documents is not correct. Is [\uFFFDreader.numDocs\uFFFD] but should be [\uFFFDexpectedNum\uFFFD]");
     String _string = _builder.toString();
-    int _numDocs_1 = reader.numDocs();
-    boolean _equals = Integer.valueOf(_numDocs_1).equals(Integer.valueOf(expectedNum));
+    int _numDocs = reader.numDocs();
+    boolean _equals = Integer.valueOf(_numDocs).equals(Integer.valueOf(expectedNum));
     Assert.assertTrue(_string, _equals);
   }
   
@@ -85,8 +80,7 @@ public class TestBase {
         }
       }
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("There was no document with ");
-      _builder.append(expected, "");
+      _builder.append("There was no document with \uFFFD(expected)\uFFFD");
       String _string = _builder.toString();
       Assert.assertTrue(_string, false);
       return false;
@@ -117,8 +111,7 @@ public class TestBase {
         }
         if (foundInDocument) {
           StringConcatenation _builder = new StringConcatenation();
-          _builder.append("There was a document with ");
-          _builder.append(expected, "");
+          _builder.append("There was a document with \uFFFD(expected)\uFFFD");
           String _string = _builder.toString();
           Assert.assertTrue(_string, false);
         }
@@ -128,9 +121,7 @@ public class TestBase {
   
   public String s(final String name, final String value) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append(name, "");
-    _builder.append("=");
-    _builder.append(value, "");
+    _builder.append("\uFFFDname\uFFFD=\uFFFDvalue\uFFFD");
     String _string = _builder.toString();
     return _string;
   }

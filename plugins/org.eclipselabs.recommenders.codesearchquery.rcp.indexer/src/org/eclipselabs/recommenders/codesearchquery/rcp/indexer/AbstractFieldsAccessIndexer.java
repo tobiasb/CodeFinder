@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.Assignment;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SimpleName;
-import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
+import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
 
 public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {

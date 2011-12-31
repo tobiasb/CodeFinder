@@ -3,7 +3,7 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.TryStatement;
-import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
+import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;

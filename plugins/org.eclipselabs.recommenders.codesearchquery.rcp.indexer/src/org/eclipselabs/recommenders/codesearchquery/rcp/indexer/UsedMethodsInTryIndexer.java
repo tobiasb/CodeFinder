@@ -5,7 +5,7 @@ import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.TryStatement;
-import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
+import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;

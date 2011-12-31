@@ -14,7 +14,7 @@ import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jdt.core.dom.TryStatement;
-import org.eclipse.recommenders.rcp.utils.ast.BindingUtils;
+import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AbstractIndexer;
 

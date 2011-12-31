@@ -14,8 +14,8 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.util.Version;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.Activator;
 
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
-import com.google.inject.internal.util.Lists;
 
 public class LuceneIndex {
 
