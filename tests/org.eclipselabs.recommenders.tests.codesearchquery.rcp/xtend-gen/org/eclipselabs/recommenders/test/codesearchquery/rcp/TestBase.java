@@ -25,8 +25,10 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
+import org.junit.Ignore;
 
 @SuppressWarnings("all")
+@Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 public class TestBase {
   public ASTNode parse(final ICompilationUnit unit) {
     ASTNode _xblockexpression = null;

@@ -20,7 +20,7 @@
 		<repository>
 			<id>helios</id>
 			<layout>p2</layout>
-			<url>http://vandyk.st.informatik.tu-darmstadt.de/mirrors/helios/</url>
+			<url>http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo/</url>
 		</repository>
 		<repository>
 			<id>recommenders-3rd</id>
@@ -33,14 +33,13 @@
 			<url>http://vandyk.st.informatik.tu-darmstadt.de/updates/head/</url>
 		</repository>
         <repository>
-			<id>xtextr</id>
+			<id>xtext</id>
 			<layout>p2</layout>
 			<url> http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
 		</repository>
-	</repositories>
-	
+       	</repositories>
 	<modules>
-        	<module>misc/targets</module>
+       	<module>misc/targets</module>
 		<module>features</module>
 		<module>plugins</module>
 		<module>repositories</module>
@@ -80,7 +79,7 @@
 					<configuration>
 						<resolver>p2</resolver>
 						<ignoreTychoRepositories>false</ignoreTychoRepositories>
-						<environments>
+						<!--environments>
 							<environment>
 								<os>linux</os>
 								<ws>gtk</ws>
@@ -106,7 +105,7 @@
 								<ws>cocoa</ws>
 								<arch>x86_64</arch>
 							</environment>
-						</environments>
+						</environments-->
 					</configuration>
 				</plugin>
 				<plugin>

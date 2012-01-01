@@ -15,7 +15,9 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneInd
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor
 
 import static junit.framework.Assert.*
+import org.junit.Ignore
 
+@Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase {
 	def parse(ICompilationUnit unit) {
         var parser = ASTParser::newParser(AST::JLS3);
