@@ -35,5 +35,4 @@ public class CodesearchQueryModule extends AbstractModule {
             ex.printStackTrace();//TODO: refactor
         }
     }
-
 }
