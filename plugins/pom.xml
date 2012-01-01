@@ -12,7 +12,8 @@
 	</parent>
 	
 	<modules>
-		<module>org.eclipselabs.recommenders.codesearchquery.indexer</module>
+		<module>org.eclipselabs.recommenders.codesearchquery.rcp</module>
+		<module>org.eclipselabs.recommenders.codesearchquery.rcp.indexer</module>
 	</modules>
   
   	<profiles>

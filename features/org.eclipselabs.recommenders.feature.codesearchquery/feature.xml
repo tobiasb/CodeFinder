@@ -18,7 +18,13 @@
    </license>
 
    <plugin
-         id="org.eclipselabs.recommenders.codesearchquery.indexer"
+         id="org.eclipselabs.recommenders.codesearchquery.rcp"
+         download-size="0"
+         install-size="0"
+         version="0.1.0.qualifier"
+         unpack="false"/>
+   <plugin
+         id="org.eclipselabs.recommenders.codesearchquery.rcp.indexer"
          download-size="0"
          install-size="0"
          version="0.1.0.qualifier"

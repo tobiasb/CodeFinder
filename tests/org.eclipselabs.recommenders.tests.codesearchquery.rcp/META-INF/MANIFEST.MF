@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests for Example Project
+Bundle-SymbolicName: org.eclipselabs.recommenders.tests.codesearchquery.rcp
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse Code Recommenders
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit4,
+ org.apache.log4j,
+ org.eclipse.ui,
+ org.apache.commons.collections,
+ org.hamcrest,
+ org.apache.commons.io,
+ org.eclipse.pde,
+ org.eclipse.recommenders.tests,
+ org.eclipse.core.resources,
+ org.eclipse.recommenders.utils,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.ui,
+ org.eclipse.core.runtime,
+ org.eclipselabs.recommenders.codesearchquery.rcp.indexer,
+ org.eclipse.recommenders.utils.rcp,
+ org.apache.commons.lang3,
+ com.google.inject,
+ org.apache.lucene,
+ com.google.guava,
+ org.eclipse.xtend2.lib,
+ org.eclipse.xtext.xbase.lib
+
