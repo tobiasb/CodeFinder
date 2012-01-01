@@ -8,6 +8,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaringTypeIndexer;
@@ -1965,5 +1966,65 @@ public class TestGeneralScenarios extends TestBase {
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAnnotationIndexer() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("@Deprecated");
+      _builder.newLine();
+      _builder.append("public class MyAnnotatedClass {");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AnnotationsIndexer _annotationsIndexer = new AnnotationsIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _annotationsIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.ANNOTATIONS, "Ljava/lang/Deprecated");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testAnnotationIndexer02() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("@SuppressWarnings({\"unchecked\", \"rawtypes\"})");
+      _builder.newLine();
+      _builder.append("public class MyAnnotatedClass {");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AnnotationsIndexer _annotationsIndexer = new AnnotationsIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _annotationsIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.ANNOTATIONS, "Ljava/lang/SuppressWarnings");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+      List<Document> _documents_1 = index.getDocuments();
+      String _s_2 = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_3 = this.s(Fields.ANNOTATIONS, "Ljava/lang/SuppressWarnings:unchecked");
+      ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
+      List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
+      this.assertField(_documents_1, _l_1);
+      List<Document> _documents_2 = index.getDocuments();
+      String _s_4 = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_5 = this.s(Fields.ANNOTATIONS, "Ljava/lang/SuppressWarnings:rawtypes");
+      ArrayList<String> _newArrayList_3 = CollectionLiterals.<String>newArrayList(_s_4, _s_5);
+      List<String> _l_2 = this.l(((String[])Conversions.unwrapArray(_newArrayList_3, String.class)));
+      this.assertField(_documents_2, _l_2);
   }
 }

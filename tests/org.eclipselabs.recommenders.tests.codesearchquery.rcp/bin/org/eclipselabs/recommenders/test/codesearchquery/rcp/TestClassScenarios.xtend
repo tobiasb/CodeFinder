@@ -1,8 +1,8 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer

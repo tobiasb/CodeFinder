@@ -13,12 +13,13 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullyQualifiedNa
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFinallyIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFinallyIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
 
 class TestGeneralScenarios extends TestBase {
 
@@ -1159,6 +1160,48 @@ class TestGeneralScenarios extends TestBase {
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_FIELDS_IN_FINALLY, "LMyOtherOtherException.theWorldMap")
+		)))
+	}
+	
+	@Test
+	def void testAnnotationIndexer(){
+		val code = '''
+		@Deprecated
+		public class MyAnnotatedClass {
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer())))
+				
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ANNOTATIONS, "Ljava/lang/Deprecated")
+		)))
+	}
+	
+	@Test
+	def void testAnnotationIndexer02(){
+		val code = '''
+		@SuppressWarnings({"unchecked", "rawtypes"})
+		public class MyAnnotatedClass {
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer())))
+				
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings")
+		)))
+			
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings:unchecked")
+		)))
+			
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings:rawtypes")
 		)))
 	}
 }

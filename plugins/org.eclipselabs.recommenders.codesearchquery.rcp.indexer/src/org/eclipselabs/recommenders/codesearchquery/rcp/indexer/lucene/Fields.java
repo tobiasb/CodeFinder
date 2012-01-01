@@ -50,4 +50,5 @@ public class Fields {
 	public static final String FIELDS_WRITTEN = "fields written";
 	public static final String USED_FIELDS_IN_FINALLY = "used fields in finally";
 	public static final String USED_FIELDS_IN_TRY = "used fields in try";
+	public static final String ANNOTATIONS = "annotations";
 }
