@@ -23,6 +23,6 @@ Require-Bundle: org.junit4,
  com.google.inject,
  org.apache.lucene,
  com.google.guava,
- org.eclipse.xtend2.lib,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.xtend2.lib
 
