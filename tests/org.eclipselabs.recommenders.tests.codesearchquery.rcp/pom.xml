@@ -13,5 +13,18 @@
 	<properties>
 		<eclemma.instrument.bundles>org.eclipselabs.recommenders.codesearchquery.rcp</eclemma.instrument.bundles>
 	</properties>
-	
+	<repositories>
+		<repository>
+			<releases>
+			  <enabled>true</enabled>
+			  <updatePolicy>always</updatePolicy>
+			  <checksumPolicy>warn</checksumPolicy>
+			</releases>
+      		<id>xtext</id>
+      		<name>Xtext</name>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
+      		<layout>default</layout>
+		</repository>
+	</repositories>
+
 </project>
