@@ -12,9 +12,9 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllFieldNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllMethodNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CaughtTypeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer;
@@ -77,9 +77,9 @@ public class CompilationUnitVisitor extends ASTVisitor {
 	    List<IIndexer> list = Lists.newArrayList();
 
 	    list.add(new AllExtendedTypesIndexer());
-	    list.add(new AllFieldNamesIndexer());
+	    list.add(new AllDeclaredFieldNamesIndexer());
 	    list.add(new AllImplementedInterfacesIndexer());
-	    list.add(new AllMethodNamesIndexer());
+	    list.add(new AllDeclaredMethodNamesIndexer());
 	    list.add(new UsedMethodsIndexer());
 	    list.add(new CaughtTypeIndexer());
 	    list.add(new DeclaredFieldNamesIndexer());

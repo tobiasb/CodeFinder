@@ -1,6 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllFieldNamesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaringTypeIndexer
@@ -807,7 +807,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
@@ -826,7 +826,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
@@ -846,7 +846,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
@@ -868,7 +868,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
@@ -891,7 +891,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
@@ -910,7 +910,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllFieldNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),

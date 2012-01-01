@@ -2,7 +2,7 @@ package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllMethodNamesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer
@@ -150,7 +150,7 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllMethodNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer())))
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
