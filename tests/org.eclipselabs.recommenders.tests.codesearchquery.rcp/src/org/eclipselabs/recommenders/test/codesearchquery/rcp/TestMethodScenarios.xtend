@@ -4,6 +4,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnTypeIndexe
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterTypesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterCountIndexer
 
 class TestMethodScenarios extends TestBase {
 	
@@ -39,6 +40,40 @@ class TestMethodScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::PARAMETER_TYPES, "Ljava/util/List")
+		)))
+	}
+	
+	@Test
+	def void testParameterCountIndexer(){
+		val code = '''
+		import java.util.List;
+		public class MyClass {
+			public void testSomething(List a) {
+			}
+		}
+		'''
+		
+		var index = exercise(code, new ParameterCountIndexer())
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::PARAMETER_COUNT, "1")
+		)))
+	}
+	
+	@Test
+	def void testParameterCountIndexer02(){
+		val code = '''
+		import java.util.List;
+		public class MyClass {
+			public void testSomething(List a, String b) {
+			}
+		}
+		'''
+		
+		var index = exercise(code, new ParameterCountIndexer())
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::PARAMETER_COUNT, "2")
 		)))
 	}
 }

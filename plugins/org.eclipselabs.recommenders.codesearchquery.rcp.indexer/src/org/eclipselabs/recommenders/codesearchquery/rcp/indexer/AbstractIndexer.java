@@ -14,6 +14,9 @@ import org.eclipse.recommenders.utils.names.VmTypeName;
 
 public abstract class AbstractIndexer {
 
+    protected void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {   
+    	addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
+    }
     
     protected void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {        
         if(fieldValue == null) {

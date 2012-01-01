@@ -26,6 +26,7 @@ public class Fields {
     public final static String USED_TYPES_IN_TRY = "used types in try";
     public final static String USED_TYPES_IN_FINALLY = "used types in finally";
     public final static String PARAMETER_TYPES = "parameter types";
+    public final static String PARAMETER_COUNT = "parameter count";
     public final static String RETURN_TYPE = "return type";
     public final static String USED_METHODS = "used methods";
     public final static String USED_METHODS_IN_TRY = "used methods in try";
