@@ -5,6 +5,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterCountIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer
 
 class TestMethodScenarios extends TestBase {
 	
@@ -74,6 +75,69 @@ class TestMethodScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::PARAMETER_COUNT, "2")
+		)))
+	}
+	
+	@Test
+	def void testReturnVariableExpressionsIndexer(){
+		val code = '''
+		import java.util.List;
+		public class MyClass {
+			public List testReturnNames() {
+				List names = null;
+				return names;
+			}
+		}
+		'''
+		
+		var index = exercise(code, new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer())
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names")
+		)))
+	}
+	
+	@Test
+	def void testReturnVariableExpressionsIndexer02(){
+		val code = '''
+		import java.util.List;
+		public class MyClass {
+			public List testReturnNames(boolean value) {
+				List names1 = null;
+				List names2 = null;
+				
+				if(value) { return names1; }
+				else { return names2;}
+			}
+		}
+		'''
+		
+		var index = exercise(code, new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer())
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names1")
+		)))
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names2")
+		)))
+	}
+	
+	@Test
+	def void testReturnVariableExpressionsIndexer03(){
+		val code = '''
+		import java.util.List;
+		public class MyClass {
+			public List testReturnNames() {
+				return null;
+			}
+		}
+		'''
+		
+		var index = exercise(code, new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer())
+		
+		assertField(index.documents, l(newArrayList(
+			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "null")
 		)))
 	}
 }

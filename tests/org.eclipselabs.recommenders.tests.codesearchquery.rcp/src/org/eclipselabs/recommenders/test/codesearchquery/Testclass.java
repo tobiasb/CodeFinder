@@ -2,6 +2,7 @@ package org.eclipselabs.recommenders.test.codesearchquery;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Ignore;
 
@@ -24,4 +25,7 @@ public class Testclass extends IOException {
             final Object myObject = c.someObject;
         }
     }
+	public List testReturnNames() {
+		return new ArrayList<String>();
+	}
 }
