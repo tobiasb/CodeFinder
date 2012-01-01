@@ -13,8 +13,9 @@
 	</parent>
 	
 	<modules>
+		<module>org.eclipse.recommenders.tests</module>
 		<module>org.eclipselabs.recommenders.tests.codesearchquery.rcp</module>
-	</modules>
+    </modules>
   
   	<properties>
   		<emma.session.out.file>${project.build.directory}/emma/${project.artifactId}.es</emma.session.out.file>
