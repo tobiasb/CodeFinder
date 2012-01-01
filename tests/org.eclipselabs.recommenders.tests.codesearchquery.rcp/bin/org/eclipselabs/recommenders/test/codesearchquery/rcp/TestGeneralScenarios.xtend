@@ -915,7 +915,7 @@ class TestGeneralScenarios extends TestBase {
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_FIELD_NAMES, "theMapyMap"),
-			s(Fields::ALL_FIELD_NAMES, "suppressedExceptions")
+			s(Fields::ALL_FIELD_NAMES, "stackTrace")
 		)))
 	}
 	

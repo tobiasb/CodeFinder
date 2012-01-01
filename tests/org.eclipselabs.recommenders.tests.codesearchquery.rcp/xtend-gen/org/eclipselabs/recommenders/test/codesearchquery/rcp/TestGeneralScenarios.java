@@ -1524,7 +1524,7 @@ public class TestGeneralScenarios extends TestBase {
       List<Document> _documents = index.getDocuments();
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
       String _s_1 = this.s(Fields.ALL_FIELD_NAMES, "theMapyMap");
-      String _s_2 = this.s(Fields.ALL_FIELD_NAMES, "suppressedExceptions");
+      String _s_2 = this.s(Fields.ALL_FIELD_NAMES, "stackTrace");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_documents, _l);

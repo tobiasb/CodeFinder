@@ -27,7 +27,7 @@ class TestBase {
     }
     
     def assertNumDocs(IndexReader reader, int expectedNum) {
-		assertTrue('''The number of documents is not correct. Is [«reader.numDocs»] but should be [«expectedNum»]'''.toString, reader.numDocs.equals(expectedNum))
+		assertTrue('''The number of documents is not correct. Is [Â«reader.numDocsÂ»] but should be [Â«expectedNumÂ»]'''.toString, reader.numDocs.equals(expectedNum))
     }
     
     def assertField(List<Document> documents, List<String> expected) {
@@ -54,7 +54,7 @@ class TestBase {
     		}
     	}
     	
-		assertTrue('''There was no document with «(expected)»'''.toString, false)
+		assertTrue('''There was no document with Â«expectedÂ»'''.toString, false)
 		return false
     }
     
@@ -78,13 +78,13 @@ class TestBase {
     		}
     		
     		if(foundInDocument) {
-    			assertTrue('''There was a document with «(expected)»'''.toString, false)
+    			assertTrue('''There was a document with Â«expectedÂ»'''.toString, false)
     		}
     	}
     }
     
     def s(String name, String value) {
-    	return '''«name»=«value»'''.toString
+    	return '''Â«nameÂ»=Â«valueÂ»'''.toString
     }
     
     def exercise(CharSequence code, List<IIndexer> indexer) {
