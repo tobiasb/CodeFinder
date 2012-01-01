@@ -23,6 +23,5 @@ Require-Bundle: org.junit4,
  org.eclipse.jdt.launching,
  org.eclipse.jdt.ui,
  org.eclipse.ui,
- org.eclipse.jface.text,
- org.eclipse.recommenders.analysis.wala
+ org.eclipse.jface.text
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
