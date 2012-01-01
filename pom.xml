@@ -32,6 +32,11 @@
 			<layout>p2</layout>
 			<url>http://vandyk.st.informatik.tu-darmstadt.de/updates/head/</url>
 		</repository>
+        <repository>
+			<id>xtextr</id>
+			<layout>p2</layout>
+			<url> http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
+		</repository>
 	</repositories>
 	
 	<modules>
