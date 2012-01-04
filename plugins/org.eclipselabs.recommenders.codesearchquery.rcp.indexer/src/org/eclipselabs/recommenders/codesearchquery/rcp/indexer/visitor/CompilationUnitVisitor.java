@@ -3,6 +3,7 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
+import java.util.ServiceLoader;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -15,6 +16,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypes
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CaughtTypeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer;
@@ -30,12 +32,15 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FriendlyNameInde
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullTextIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullyQualifiedNameIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ImplementedInterfacesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.InstanceOfIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.OverriddenMethodsIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterCountIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnTypeIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFinallyIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsInFinallyIndexer;
@@ -75,12 +80,12 @@ public class CompilationUnitVisitor extends ASTVisitor {
 	public static List<IIndexer> getAllIndexer() {
 
 	    List<IIndexer> list = Lists.newArrayList();
-
-	    list.add(new AllExtendedTypesIndexer());
+	    
 	    list.add(new AllDeclaredFieldNamesIndexer());
-	    list.add(new AllImplementedInterfacesIndexer());
 	    list.add(new AllDeclaredMethodNamesIndexer());
-	    list.add(new UsedMethodsIndexer());
+	    list.add(new AllExtendedTypesIndexer());
+	    list.add(new AllImplementedInterfacesIndexer());
+	    list.add(new AnnotationsIndexer());
 	    list.add(new CaughtTypeIndexer());
 	    list.add(new DeclaredFieldNamesIndexer());
 	    list.add(new DeclaredFieldTypesIndexer());
@@ -96,12 +101,15 @@ public class CompilationUnitVisitor extends ASTVisitor {
 	    list.add(new FullTextIndexer());
 	    list.add(new FullyQualifiedNameIndexer());
 	    list.add(new ImplementedInterfacesIndexer());
+	    list.add(new InstanceOfIndexer());
 	    list.add(new ModifiersIndexer());
 	    list.add(new OverriddenMethodsIndexer());
+	    list.add(new ParameterCountIndexer());
 	    list.add(new ParameterTypesIndexer());
 	    list.add(new ProjectNameIndexer());
 	    list.add(new ResourcePathIndexer());
 	    list.add(new ReturnTypeIndexer());
+	    list.add(new ReturnVariableExpressionIndexer());
 	    list.add(new UsedFieldsInFinallyIndexer());
 	    list.add(new UsedFieldsInTryIndexer());
 	    list.add(new UsedMethodsIndexer());

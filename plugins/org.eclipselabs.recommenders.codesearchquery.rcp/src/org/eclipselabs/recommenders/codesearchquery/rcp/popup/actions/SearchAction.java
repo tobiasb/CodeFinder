@@ -3,8 +3,11 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryParser.ParseException;
+import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.IndexSearcher;
@@ -15,6 +18,8 @@ import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.search.WildcardQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.util.Version;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -31,7 +36,8 @@ public class SearchAction implements IObjectActionDelegate {
 	public void run(IAction action) {
 
 		try {			
-			Directory index = new SimpleFSDirectory(new File("d:/index.l")); //Activator.injector.getInstance(Directory.class);//
+	        String path = Platform.getLocation().toString() + "/index.l";
+			Directory index = new SimpleFSDirectory(new File(path)); //Activator.injector.getInstance(Directory.class);//
 			
 			Query term1 = new TermQuery(new Term(Fields.RETURN_TYPE, "Ljava/util/List"));
             Query term2 = new WildcardQuery(new Term(Fields.RETURN_TYPE, "Ltest/bla/Test"));
@@ -48,8 +54,14 @@ public class SearchAction implements IObjectActionDelegate {
 			q.add(new TermQuery(new Term(Fields.TYPE, Fields.TYPE_CLASS)), Occur.MUST);
 //            q.add(term2, Occur.SHOULD);
 //            q.add(term3, Occur.SHOULD);
-						
-			System.out.println("Searching for: " + q.toString());
+			
+			Query query = q;
+			query = term1;
+			
+			System.out.println("Searching for (before): " + query.toString());
+			query = new QueryParser(Version.LUCENE_29, Fields.FULLY_QUALIFIED_NAME, new StandardAnalyzer(Version.LUCENE_29)).parse(query.toString());
+
+			System.out.println("Searching for (after): " + query.toString());
 			
 			// 3. search
 			int hitsPerPage = 10;
@@ -59,7 +71,7 @@ public class SearchAction implements IObjectActionDelegate {
 			
 			TopScoreDocCollector collector = TopScoreDocCollector.create(
 					hitsPerPage, true);
-			searcher.search(q, collector);
+			searcher.search(query, collector);
 			ScoreDoc[] hits = collector.topDocs().scoreDocs;
 
 			// 4. display results
@@ -76,6 +88,9 @@ public class SearchAction implements IObjectActionDelegate {
 			searcher.close();
 
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

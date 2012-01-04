@@ -11,6 +11,7 @@ import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
@@ -62,7 +63,8 @@ public class IndexAction implements IObjectActionDelegate {
     	try {
 	        final Long start = System.currentTimeMillis();
 //	        final LuceneIndex index = Activator.injector.getInstance(LuceneIndex.class);
-	        final LuceneIndex index = new LuceneIndex(new SimpleFSDirectory(new File("d:/index.l")), new StandardAnalyzer(Version.LUCENE_29));
+	        String path = Platform.getLocation().toString() + "/index.l";
+	        final LuceneIndex index = new LuceneIndex(new SimpleFSDirectory(new File(path)), new StandardAnalyzer(Version.LUCENE_29));
 	                
 	        final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
 	            
