@@ -25,4 +25,12 @@
       </objectContribution>
    </extension>
 
+	<extension
+	      point="org.eclipse.ui.views">
+	      <view
+             id="org.eclipselabs.recommenders.codesearchquery.rcp.searchQueryView"
+             name="Code Search Query-View" 
+             class="org.eclipselabs.recommenders.codesearchquery.rcp.views.SearchQueryView" />
+	</extension>
+
 </plugin>
