@@ -20,6 +20,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.InstanceOfIndexer
 
 class TestGeneralScenarios extends TestBase {
 
@@ -1171,7 +1172,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AnnotationsIndexer())))
 				
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
@@ -1187,7 +1188,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AnnotationsIndexer())))
 				
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
@@ -1202,6 +1203,76 @@ class TestGeneralScenarios extends TestBase {
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings:rawtypes")
+		)))
+	}
+	
+	@Test
+	def void testInstanceOfIndexerClass(){
+		val code = '''
+		public class MyInstanceOfClass {
+			public void operation() {
+				Object a = new String();
+				
+				if(a instanceof Exception) {
+					//Somethin's fishy
+				} 
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new InstanceOfIndexer())))
+				
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::INSTANCEOF_TYPES, "Ljava/lang/Exception")
+		)))
+	}
+	
+	@Test
+	def void testInstanceOfIndexerMethod(){
+		val code = '''
+		public class MyInstanceOfClass {
+			public void operation() {
+				Object a = new String();
+				
+				if(a instanceof Exception) {
+					//Somethin's fishy
+				} 
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new InstanceOfIndexer())))
+				
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::INSTANCEOF_TYPES, "Ljava/lang/Exception")
+		)))
+	}
+	
+	@Test
+	def void testInstanceOfIndexerTryCatch(){
+		val code = '''
+		public class MyInstanceOfClass {
+			public void operation() {
+				Object a = new String();
+				
+				try {
+				}
+				catch(Exception ex) {
+					if(a instanceof Exception) {
+						//Somethin's fishy
+					} 
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new InstanceOfIndexer())))
+				
+		assertField(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::INSTANCEOF_TYPES, "Ljava/lang/Exception")
 		)))
 	}
 }

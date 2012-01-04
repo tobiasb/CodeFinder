@@ -18,6 +18,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FieldsWrittenInd
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FriendlyNameIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullTextIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullyQualifiedNameIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.InstanceOfIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer;
@@ -2026,5 +2027,143 @@ public class TestGeneralScenarios extends TestBase {
       ArrayList<String> _newArrayList_3 = CollectionLiterals.<String>newArrayList(_s_4, _s_5);
       List<String> _l_2 = this.l(((String[])Conversions.unwrapArray(_newArrayList_3, String.class)));
       this.assertField(_documents_2, _l_2);
+  }
+  
+  @Test
+  public void testInstanceOfIndexerClass() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("public class MyInstanceOfClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void operation() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Object a = new String();");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("if(a instanceof Exception) {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("//Somethin\'s fishy");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} ");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      InstanceOfIndexer _instanceOfIndexer = new InstanceOfIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.INSTANCEOF_TYPES, "Ljava/lang/Exception");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testInstanceOfIndexerMethod() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("public class MyInstanceOfClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void operation() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Object a = new String();");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("if(a instanceof Exception) {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("//Somethin\'s fishy");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("} ");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      InstanceOfIndexer _instanceOfIndexer = new InstanceOfIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.INSTANCEOF_TYPES, "Ljava/lang/Exception");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
+  }
+  
+  @Test
+  public void testInstanceOfIndexerTryCatch() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("public class MyInstanceOfClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void operation() {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("Object a = new String();");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("try {");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("catch(Exception ex) {");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("if(a instanceof Exception) {");
+      _builder.newLine();
+      _builder.append("\t\t\t\t");
+      _builder.append("//Somethin\'s fishy");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("} ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      InstanceOfIndexer _instanceOfIndexer = new InstanceOfIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      LuceneIndex _exercise = this.exercise(code, _i);
+      LuceneIndex index = _exercise;
+      List<Document> _documents = index.getDocuments();
+      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      String _s_1 = this.s(Fields.INSTANCEOF_TYPES, "Ljava/lang/Exception");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_documents, _l);
   }
 }

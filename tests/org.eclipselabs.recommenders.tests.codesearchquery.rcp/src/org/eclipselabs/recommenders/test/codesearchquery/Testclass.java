@@ -27,5 +27,13 @@ public class Testclass extends IOException {
     }
 	public List testReturnNames() {
 		return new ArrayList<String>();
+	}			
+
+	public void operation() {
+		Object a = new String();
+		
+		if(a instanceof Exception) {
+			//Somethin's fishy
+		} 
 	}
 }

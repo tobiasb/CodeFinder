@@ -52,4 +52,5 @@ public class Fields {
 	public static final String USED_FIELDS_IN_FINALLY = "used fields in finally";
 	public static final String USED_FIELDS_IN_TRY = "used fields in try";
 	public static final String ANNOTATIONS = "annotations";
+	public static final String INSTANCEOF_TYPES = "instanceof types";
 }
