@@ -1,17 +1,19 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.views;
 
+import static com.google.common.collect.Lists.newArrayList;
+import static java.util.Collections.emptyList;
+import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_OVERLAY_ICONS;
+import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_PARAMETERS;
+import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_POST_QUALIFIED;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.KeywordAnalyzer;
-import org.apache.lucene.analysis.SimpleAnalyzer;
-import org.apache.lucene.analysis.StopAnalyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
-import org.apache.lucene.queryParser.MultiFieldQueryParser;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
@@ -20,7 +22,6 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.SimpleFSDirectory;
-import org.apache.lucene.util.StringHelper;
 import org.apache.lucene.util.Version;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
@@ -30,15 +31,22 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
-import org.eclipse.osgi.service.environment.EnvironmentInfo;
-import org.eclipse.recommenders.utils.names.IFieldName;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.ui.JavaElementLabelProvider;
+import org.eclipse.jdt.ui.JavaUI;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.names.VmTypeName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
+import org.eclipse.recommenders.utils.rcp.RCPUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -51,201 +59,215 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipselabs.recommenders.codesearchquery.rcp.Activator;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 public class SearchQueryView extends ViewPart {
     public static final String ID = SearchQueryView.class.getName();
-	protected Button triggerSearchButton;
-	protected Text searchQueryText;
-	protected Text searchResultText;
-	private final String newLine = System.getProperty("line.separator");
-	
-	private IndexSearcher searcher = null;
-	
-	public SearchQueryView() {
-		super();
-	}
-	
-	@Override
-	public void init(IViewSite site) throws PartInitException {
-		super.init(site);
-	}
-	
-	@Override
-	public void createPartControl(Composite parent) {
-		parent.setLayout(new GridLayout(2, true));
-				
-		searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
-		searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
-		
-		searchResultText = new Text(parent, SWT.BORDER | SWT.MULTI);
-//		searchResultText.setEnabled(false); // results: hence, readonly
-		searchResultText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
-		
-		triggerSearchButton = new Button(parent, SWT.PUSH);
-		triggerSearchButton.setText("Search");
-		triggerSearchButton.setLayoutData(new GridData());
-		triggerSearchButton.addSelectionListener(new SelectionListener() {
-			
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				
-				final List<ScoreDoc> result = Lists.newArrayList();
-				
-				//Search
-		        final WorkspaceJob job = new WorkspaceJob("Searching...") {
+    protected Button triggerSearchButton;
+    protected Text searchQueryText;
+    protected TableViewer searchResultText;
+    private final String newLine = System.getProperty("line.separator");
 
-					@Override
-					public IStatus runInWorkspace(IProgressMonitor monitor)
-							throws CoreException {
+    private IndexSearcher searcher = null;
 
-						setSearching();
+    public SearchQueryView() {
+        super();
+    }
 
-						try {
-							String path = Platform.getLocation().toString() + "/index.l";
-							Directory index = new SimpleFSDirectory(new File(path));
-	
-							searcher = new IndexSearcher(index, true);
+    @Override
+    public void init(final IViewSite site) throws PartInitException {
+        super.init(site);
+    }
 
-							Analyzer a = new KeywordAnalyzer();
-							String searchQuery = getSearchQuery();
-							Query q = new QueryParser(Version.LUCENE_29, Fields.FULLY_QUALIFIED_NAME, a).parse(searchQuery);
-														
-							TopScoreDocCollector collector = TopScoreDocCollector.create(
-									10, true);
-							searcher.search(q, collector);
-							result.clear();
+    @Override
+    public void createPartControl(final Composite parent) {
+        parent.setLayout(new GridLayout(2, true));
 
-							System.out.println("Searching for: " + q.toString());
-							
-							for(ScoreDoc doc : collector.topDocs().scoreDocs) {
-								result.add(doc);
-							}
-							
-						} catch (CorruptIndexException e1) {
-							e1.printStackTrace();
-							return Status.CANCEL_STATUS;
-						} catch (IOException e1) {
-							e1.printStackTrace();
-							return Status.CANCEL_STATUS;
-						}catch (ParseException e) {
-							e.printStackTrace();
-							return Status.CANCEL_STATUS;
-						}
-						
-		                return Status.OK_STATUS;
-					}
-		        
-		        };
-		        
-		        job.addJobChangeListener(new JobChangeAdapter() {
-		        	@Override
-		        	public void done(IJobChangeEvent event) {
-		        		setResult(result);
-						try {
-							searcher.close();
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-		        	}
-		        });
-		        
-		        job.schedule();
-			}
+        searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
+        searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
 
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-			}
-		});
-		
-		parent.pack();
-	}
-	
-	public String getSearchQuery() {
-		final StringBuilder string = new StringBuilder();
-		
-		Display.getDefault().syncExec(new Runnable() {
-			
-            @Override
-            public void run() {
-        		string.append(searchQueryText.getText());
-            }
-        });
-		
-		return string.toString();
-	}
-	
-	public void setSearching() {
-		Display.getDefault().syncExec(new Runnable() {
+        createSearchResultsViewer(parent);
+
+        triggerSearchButton = new Button(parent, SWT.PUSH);
+        triggerSearchButton.setText("Search");
+        triggerSearchButton.setLayoutData(new GridData());
+        triggerSearchButton.addSelectionListener(new SelectionListener() {
 
             @Override
-            public void run() {
-        		searchQueryText.setEnabled(false);
-        		searchResultText.setText("");
-        		triggerSearchButton.setEnabled(false);
+            public void widgetSelected(final SelectionEvent e) {
+
+                final List<ScoreDoc> result = Lists.newArrayList();
+
+                // Search
+                final WorkspaceJob job = new WorkspaceJob("Searching...") {
+
+                    @Override
+                    public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
+
+                        setSearching();
+
+                        try {
+                            final String path = Platform.getLocation().toString() + "/index.l";
+                            final Directory index = new SimpleFSDirectory(new File(path));
+
+                            searcher = new IndexSearcher(index, true);
+
+                            final Analyzer a = new KeywordAnalyzer();
+                            final String searchQuery = getSearchQuery();
+                            final Query q = new QueryParser(Version.LUCENE_29, Fields.FULLY_QUALIFIED_NAME, a)
+                                    .parse(searchQuery);
+
+                            final TopScoreDocCollector collector = TopScoreDocCollector.create(10, true);
+                            searcher.search(q, collector);
+                            result.clear();
+
+                            System.out.println("Searching for: " + q.toString());
+
+                            for (final ScoreDoc doc : collector.topDocs().scoreDocs) {
+                                result.add(doc);
+                            }
+
+                        } catch (final CorruptIndexException e1) {
+                            e1.printStackTrace();
+                            return Status.CANCEL_STATUS;
+                        } catch (final IOException e1) {
+                            e1.printStackTrace();
+                            return Status.CANCEL_STATUS;
+                        } catch (final ParseException e) {
+                            e.printStackTrace();
+                            return Status.CANCEL_STATUS;
+                        }
+
+                        return Status.OK_STATUS;
+                    }
+
+                };
+
+                job.addJobChangeListener(new JobChangeAdapter() {
+                    @Override
+                    public void done(final IJobChangeEvent event) {
+                        setResult(result);
+                        try {
+                            searcher.close();
+                        } catch (final IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+                job.schedule();
+            }
+
+            @Override
+            public void widgetDefaultSelected(final SelectionEvent e) {
             }
         });
-	}
-	
-	public void setResult(final List<ScoreDoc> result) {
-		Display.getDefault().syncExec(new Runnable() {
+
+        parent.pack();
+    }
+
+    private void createSearchResultsViewer(final Composite parent) {
+        searchResultText = new TableViewer(parent);
+        searchResultText.setContentProvider(new ArrayContentProvider());
+        searchResultText.setLabelProvider(new JavaElementLabelProvider(SHOW_OVERLAY_ICONS | SHOW_POST_QUALIFIED
+                | SHOW_PARAMETERS));
+        searchResultText.getControl().setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
+        searchResultText.addDoubleClickListener(new IDoubleClickListener() {
+
+            @Override
+            public void doubleClick(final DoubleClickEvent event) {
+                final Optional<IJavaElement> first = RCPUtils.first(event.getSelection());
+                if (first.isPresent()) {
+                    try {
+                        JavaUI.openInEditor(first.get());
+                    } catch (final PartInitException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    } catch (final JavaModelException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+    }
+
+    public String getSearchQuery() {
+        final StringBuilder string = new StringBuilder();
+
+        Display.getDefault().syncExec(new Runnable() {
 
             @Override
             public void run() {
-        		searchQueryText.setEnabled(true);
-        		
-        		StringBuilder sb = new StringBuilder();
-        		
-        		for(ScoreDoc scoreDoc : result) {
-					try {
-						Document doc = searcher.doc(scoreDoc.doc);
-						
-						String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
-						String docType = doc.get(Fields.TYPE);
-						String declaringType = doc.get(Fields.DECLARING_TYPE);
-						
-						try {
-							if(docType.equals(Fields.TYPE_CLASS)) {
-								ITypeName typeName = VmTypeName.get(docId); 
-								IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
-	
-			        			sb.append("Class: " + type.getFullyQualifiedName());
-							} else if(docType.equals(Fields.TYPE_METHOD)) {
-								IMethodName methodName = VmMethodName.get(docId);
-								IMethod method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
-	
-			        			sb.append("Method in Class: " + method.getHandleIdentifier());
-							} else if(docType.equals(Fields.TYPE_TRYCATCH) ||
-									 docType.equals(Fields.TYPE_FIELD)) {
-								ITypeName typeName = VmTypeName.get(declaringType); 
-								IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
-	
-			        			sb.append(docType + " declared in Class: " + type.getFullyQualifiedName());
-							}
-						}
-						catch(Exception ex) {
-		        			sb.append("Unknown " + docType + ": " + docId);
-						}
-						
-						sb.append(newLine);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-        		}
-        		
-        		searchResultText.setText(sb.toString());
-        		
-        		triggerSearchButton.setEnabled(true);
+                string.append(searchQueryText.getText());
             }
         });
-	}
-    
-	@Override
-	public void setFocus() {
-		searchQueryText.setFocus();
-	}
+
+        return string.toString();
+    }
+
+    public void setSearching() {
+        Display.getDefault().syncExec(new Runnable() {
+
+            @Override
+            public void run() {
+                searchQueryText.setEnabled(false);
+                searchResultText.setInput(emptyList());
+                triggerSearchButton.setEnabled(false);
+            }
+        });
+    }
+
+    public void setResult(final List<ScoreDoc> result) {
+        Display.getDefault().syncExec(new Runnable() {
+
+            @Override
+            public void run() {
+                searchQueryText.setEnabled(true);
+
+                final List<IJavaElement> newInput = newArrayList();
+                for (final ScoreDoc scoreDoc : result) {
+                    try {
+                        final Document doc = searcher.doc(scoreDoc.doc);
+
+                        final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
+                        final String docType = doc.get(Fields.TYPE);
+                        final String declaringType = doc.get(Fields.DECLARING_TYPE);
+
+                        try {
+                            if (docType.equals(Fields.TYPE_CLASS)) {
+                                final ITypeName typeName = VmTypeName.get(docId);
+                                final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
+                                newInput.add(type);
+                            } else if (docType.equals(Fields.TYPE_METHOD)) {
+                                final IMethodName methodName = VmMethodName.get(docId);
+                                final IMethod method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
+                                newInput.add(method);
+                            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
+                                final ITypeName typeName = VmTypeName.get(declaringType);
+                                final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
+                                newInput.add(type);
+                            }
+                        } catch (final Exception ex) {
+                        }
+
+                    } catch (final Exception e) {
+                        e.printStackTrace();
+                    }
+                    searchResultText.setInput(newInput);
+                }
+                triggerSearchButton.setEnabled(true);
+            }
+        });
+    }
+
+    @Override
+    public void setFocus() {
+        searchQueryText.setFocus();
+    }
 
 }
