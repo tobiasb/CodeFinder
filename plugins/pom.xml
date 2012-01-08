@@ -13,6 +13,8 @@
 	
 	<modules>
 		<module>org.eclipselabs.recommenders.codesearchquery.rcp</module>
+		<module>org.eclipselabs.recommenders.codesearchquery.rcp.dsl</module>
+		<module>org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui</module>
 		<module>org.eclipselabs.recommenders.codesearchquery.rcp.indexer</module>
 	</modules>
   
