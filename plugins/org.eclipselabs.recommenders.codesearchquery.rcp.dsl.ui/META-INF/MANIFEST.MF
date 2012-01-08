@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.0
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipselabs.recommenders.codesearchquery.rcp.dsl;visibility:=reexport,
@@ -18,7 +18,7 @@ Require-Bundle: org.eclipselabs.recommenders.codesearchquery.rcp.dsl;visibility:
  org.eclipse.compare
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist,
  org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.antlr,
  org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal
