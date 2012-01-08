@@ -88,6 +88,7 @@ public class SearchQueryView extends ViewPart {
 
         searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
         searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
+        searchQueryText.setText("used_types:\"Ljava/util/Set\"");
 
         createSearchResultsViewer(parent);
 
@@ -124,11 +125,11 @@ public class SearchQueryView extends ViewPart {
                             searcher.search(q, collector);
                             result.clear();
 
-                            System.out.println("Searching for: " + q.toString());
-
                             for (final ScoreDoc doc : collector.topDocs().scoreDocs) {
                                 result.add(doc);
                             }
+
+                            System.out.println("Searching for: " + q.toString() + ". " + result.size() + " hits.");
 
                         } catch (final CorruptIndexException e1) {
                             e1.printStackTrace();

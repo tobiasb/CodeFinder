@@ -1,0 +1,18 @@
+grammar org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.LuceneFields with org.eclipse.xtext.common.Terminals
+
+generate luceneFields "http://www.eclipselabs.org/recommenders/codesearchquery/internal/rcp/dsl/LuceneFields"
+
+Model:
+	'package' packageName=STRING 
+	'class' className=ID
+	
+	fields+=Field*
+	;
+	
+Field:
+	name=ID ';' value=STRING ';' types+=FieldType (',' types+=FieldType)* 
+	;
+	
+FieldType:
+	classType?='class' | methodType?='method' | fieldType?='field' | trycatchType?='trycatch'
+;

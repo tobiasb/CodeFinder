@@ -813,7 +813,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_FIELD_NAMES, "theMapyMap")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
 		)))
 	}
 	
@@ -832,7 +832,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::ALL_FIELD_NAMES, "theMapyMap")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
 		)))
 	}
 	
@@ -852,8 +852,8 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::ALL_FIELD_NAMES, "theMapyMap"),
-			s(Fields::ALL_FIELD_NAMES, "someOtherMap")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
 		)))
 	}
 	
@@ -874,7 +874,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::ALL_FIELD_NAMES, "theMapyMap")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
 		)))
 	}
 	
@@ -897,8 +897,8 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::ALL_FIELD_NAMES, "theMapyMap"),
-			s(Fields::ALL_FIELD_NAMES, "someOtherMap")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
 		)))
 	}
 	
@@ -916,8 +916,8 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_FIELD_NAMES, "theMapyMap"),
-			s(Fields::ALL_FIELD_NAMES, "stackTrace")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "stackTrace")
 		)))
 	}
 	

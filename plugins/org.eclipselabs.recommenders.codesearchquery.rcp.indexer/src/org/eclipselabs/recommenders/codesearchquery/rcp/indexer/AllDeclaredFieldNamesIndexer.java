@@ -48,7 +48,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
 		
 		try {
 			for(IField field : typeName.getFields()) {
-		        addAnalyzedField(document, Fields.ALL_FIELD_NAMES, field.getElementName());
+		        addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getElementName());
 			}
 		} catch (JavaModelException e) {
 		}
@@ -63,7 +63,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
 		final ASTVisitor visitor = new ASTVisitor() {
 			@Override
 			public boolean visit(VariableDeclarationStatement node) {
-		        addAnalyzedField(document, Fields.ALL_FIELD_NAMES, node.fragments().get(0).toString());
+		        addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, node.fragments().get(0).toString());
             	return false;
 			}
 		};
@@ -75,7 +75,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
 		final ASTVisitor visitor = new ASTVisitor() {
 			@Override
 			public boolean visit(VariableDeclarationStatement node) {
-		        addAnalyzedField(document, Fields.ALL_FIELD_NAMES, node.fragments().get(0).toString());
+		        addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, node.fragments().get(0).toString());
             	return false;
 			}
 		};

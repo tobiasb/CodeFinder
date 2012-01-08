@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="luceneQuery"
+    nsURI="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery"
+    nsPrefix="luceneQuery">
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ClauseExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClauseExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clause" eType="#//Clause"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Clause">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="#//NotExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="field" eType="#//FieldName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BooleanExp">
+    <eLiterals name="and1" literal="AND"/>
+    <eLiterals name="and2" value="1" literal="and"/>
+    <eLiterals name="or1" value="2" literal="OR"/>
+    <eLiterals name="or2" value="3" literal="or"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NotExpression">
+    <eLiterals name="not1" literal="not"/>
+    <eLiterals name="not2" value="1" literal="NOT"/>
+    <eLiterals name="not3" value="2" literal="!"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FieldName">
+    <eLiterals name="FullyQualifiedName" literal="FullyQualifiedName"/>
+    <eLiterals name="type" value="1" literal="type"/>
+    <eLiterals name="FriendlyName" value="2" literal="FriendlyName"/>
+    <eLiterals name="ImplementedTypes" value="3" literal="ImplementedTypes"/>
+    <eLiterals name="ExtendedTypes" value="4" literal="ExtendedTypes"/>
+    <eLiterals name="DeclaredMethods" value="5" literal="DeclaredMethods"/>
+    <eLiterals name="UsedTypes" value="6" literal="UsedTypes"/>
+    <eLiterals name="UsedTypesInTry" value="7" literal="UsedTypesInTry"/>
+    <eLiterals name="UsedTypesInFinally" value="8" literal="UsedTypesInFinally"/>
+    <eLiterals name="ParameterTypes" value="9" literal="ParameterTypes"/>
+    <eLiterals name="ParameterCount" value="10" literal="ParameterCount"/>
+    <eLiterals name="ReturnType" value="11" literal="ReturnType"/>
+    <eLiterals name="ReturnVariableEexpressions" value="12" literal="ReturnVariableEexpressions"/>
+    <eLiterals name="UsedMethods" value="13" literal="UsedMethods"/>
+    <eLiterals name="UsedMethodsInTry" value="14" literal="UsedMethodsInTry"/>
+    <eLiterals name="UsedMethodsInFinally" value="15" literal="UsedMethodsInFinally"/>
+    <eLiterals name="OverriddenMethods" value="16" literal="OverriddenMethods"/>
+    <eLiterals name="AllImplementedTypes" value="17" literal="AllImplementedTypes"/>
+    <eLiterals name="AllExtendedTypes" value="18" literal="AllExtendedTypes"/>
+    <eLiterals name="FieldType" value="19" literal="FieldType"/>
+    <eLiterals name="DeclaringType" value="20" literal="DeclaringType"/>
+    <eLiterals name="CaughtType" value="21" literal="CaughtType"/>
+    <eLiterals name="ProjectName" value="22" literal="ProjectName"/>
+    <eLiterals name="ResourcePath" value="23" literal="ResourcePath"/>
+    <eLiterals name="Modifiers" value="24" literal="Modifiers"/>
+    <eLiterals name="AllDeclaredMethodNames" value="25" literal="AllDeclaredMethodNames"/>
+    <eLiterals name="DeclaredMethodNames" value="26" literal="DeclaredMethodNames"/>
+    <eLiterals name="DeclaredFieldNames" value="27" literal="DeclaredFieldNames"/>
+    <eLiterals name="DeclaredFieldTypes" value="28" literal="DeclaredFieldTypes"/>
+    <eLiterals name="AllDeclaredFieldNames" value="29" literal="AllDeclaredFieldNames"/>
+    <eLiterals name="FullText" value="30" literal="FullText"/>
+    <eLiterals name="FieldsRead" value="31" literal="FieldsRead"/>
+    <eLiterals name="FieldsWritten" value="32" literal="FieldsWritten"/>
+    <eLiterals name="UsedFieldsInFinally" value="33" literal="UsedFieldsInFinally"/>
+    <eLiterals name="UsedFieldsInTry" value="34" literal="UsedFieldsInTry"/>
+    <eLiterals name="Annotations" value="35" literal="Annotations"/>
+    <eLiterals name="InstanceofTypes" value="36" literal="InstanceofTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Exp1" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="b" eType="#//BooleanExp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen"
+    editDirectory="/org.eclipselabs.recommenders.codesearchquery.rcp.dsl.edit/src"
+    editorDirectory="/org.eclipselabs.recommenders.codesearchquery.rcp.dsl.editor/src"
+    modelPluginID="org.eclipselabs.recommenders.codesearchquery.rcp.dsl" forceOverwrite="true"
+    modelName="LuceneQuery" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipselabs.recommenders.codesearchquery.rcp.dsl.edit"
+    editorPluginID="org.eclipselabs.recommenders.codesearchquery.rcp.dsl.editor">
+  <genPackages prefix="LuceneQuery" basePackage="org.eclipselabs.recommenders.codesearchquery.rcp.dsl"
+      disposableProviderFactory="true" ecorePackage="LuceneQuery.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//BooleanExp">
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/and1"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/and2"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/or1"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/or2"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//NotExpression">
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/not1"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/not2"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/not3"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//FieldName">
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/FullyQualifiedName"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/type"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/FriendlyName"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ImplementedTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ExtendedTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/DeclaredMethods"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedTypesInTry"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedTypesInFinally"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ParameterTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ParameterCount"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ReturnType"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ReturnVariableEexpressions"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedMethods"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedMethodsInTry"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedMethodsInFinally"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/OverriddenMethods"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/AllImplementedTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/AllExtendedTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/FieldType"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/DeclaringType"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/CaughtType"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ProjectName"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/ResourcePath"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/Modifiers"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/AllDeclaredMethodNames"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/DeclaredMethodNames"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/DeclaredFieldNames"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/DeclaredFieldTypes"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/AllDeclaredFieldNames"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/FullText"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/FieldsRead"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/FieldsWritten"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedFieldsInFinally"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/UsedFieldsInTry"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/Annotations"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//FieldName/InstanceofTypes"/>
+    </genEnums>
+    <genClasses ecoreClass="LuceneQuery.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Expression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LuceneQuery.ecore#//ClauseExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//ClauseExpression/clause"/>
+    </genClasses>
+    <genClasses ecoreClass="LuceneQuery.ecore#//Clause">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//Clause/n"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//Clause/field"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//Clause/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LuceneQuery.ecore#//Exp1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Exp1/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//Exp1/b"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Exp1/right"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

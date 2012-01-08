@@ -1,0 +1,97 @@
+grammar org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQuery 
+	with org.eclipse.xtext.common.Terminals
+
+generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery'
+
+
+/* * 
+ *   Query  ::= ( Clause )*
+ *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
+ * 	
+ * 
+ * Example: FriendlyName:(+"toString" -"toUpperCase") AND ReturnType:"Ljava/lang/String"
+ * */
+ 
+
+	Exp1 returns Expression:
+	 Exp2 ({Exp1.left=current} b=BooleanExp right=Exp2)*;
+	
+	Exp2 returns Expression:
+	 value=ClauseExpression |
+	 '(' Exp1 ')';
+
+//	Query returns Expression: 
+//		{Query}
+//		clauseExpressions+=ClauseExpression*
+//	;
+	
+	ClauseExpression:
+		clause=Clause
+	;
+	
+	Clause:
+		(n=NotExpression)? field=FieldName ':' value=FieldValue
+	;
+	
+	FieldValue:
+		Value | '(' Value* ')'
+	;
+	
+	Value:
+		('+' | '-')? (ID | STRING)
+	;
+	
+	enum BooleanExp:
+		and1='AND' | and2='and' | or1='OR' | or2='or'
+	;
+
+	enum NotExpression:
+		not1='not' | not2='NOT' | not3='!'
+	;
+	
+/*
+	The following rules are generated. Do not modify. Modify source file instead.
+*/
+
+enum FieldName:
+		FullyQualifiedName='FullyQualifiedName'
+	| 	type='type'
+	| 	FriendlyName='FriendlyName'
+	| 	ImplementedTypes='ImplementedTypes'
+	| 	ExtendedTypes='ExtendedTypes'
+	| 	DeclaredMethods='DeclaredMethods'
+	| 	UsedTypes='UsedTypes'
+	| 	UsedTypesInTry='UsedTypesInTry'
+	| 	UsedTypesInFinally='UsedTypesInFinally'
+	| 	ParameterTypes='ParameterTypes'
+	| 	ParameterCount='ParameterCount'
+	| 	ReturnType='ReturnType'
+	| 	ReturnVariableEexpressions='ReturnVariableEexpressions'
+	| 	UsedMethods='UsedMethods'
+	| 	UsedMethodsInTry='UsedMethodsInTry'
+	| 	UsedMethodsInFinally='UsedMethodsInFinally'
+	| 	OverriddenMethods='OverriddenMethods'
+	| 	AllImplementedTypes='AllImplementedTypes'
+	| 	AllExtendedTypes='AllExtendedTypes'
+	| 	FieldType='FieldType'
+	| 	DeclaringType='DeclaringType'
+	| 	CaughtType='CaughtType'
+	| 	ProjectName='ProjectName'
+	| 	ResourcePath='ResourcePath'
+	| 	Modifiers='Modifiers'
+	| 	AllDeclaredMethodNames='AllDeclaredMethodNames'
+	| 	DeclaredMethodNames='DeclaredMethodNames'
+	| 	DeclaredFieldNames='DeclaredFieldNames'
+	| 	DeclaredFieldTypes='DeclaredFieldTypes'
+	| 	AllDeclaredFieldNames='AllDeclaredFieldNames'
+	| 	FullText='FullText'
+	| 	FieldsRead='FieldsRead'
+	| 	FieldsWritten='FieldsWritten'
+	| 	UsedFieldsInFinally='UsedFieldsInFinally'
+	| 	UsedFieldsInTry='UsedFieldsInTry'
+	| 	Annotations='Annotations'
+	| 	InstanceofTypes='InstanceofTypes'
+;
+/*
+	End of generated rules.
+*/
