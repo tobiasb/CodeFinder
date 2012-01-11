@@ -34,7 +34,6 @@ public class Activator implements BundleActivator {
     private static void logConsole(final Throwable e, final String format, final Object... args) {
         try {
             System.out.println(String.format(format, args));
-            
             if(e != null) {
                 e.printStackTrace();
             }
