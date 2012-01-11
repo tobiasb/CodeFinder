@@ -34,13 +34,4 @@
              name="Code Search Query-View"/>
 	</extension>
 
-	<extension
-	      point="org.eclipse.ui.views">
-	      <view
-             category="org.eclipse.recommenders.rcp.category.views"
-             class="org.eclipselabs.recommenders.codesearchquery.rcp.views.SearchResultView"
-             id="org.eclipselabs.recommenders.codesearchquery.rcp.searchResultView"
-             name="Code Search Result-View"/>
-	</extension>
-
 </plugin>

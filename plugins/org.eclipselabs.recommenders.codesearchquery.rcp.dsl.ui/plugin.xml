@@ -277,4 +277,13 @@
     </provider>
   </extension>
 
+
+	<extension
+	      point="org.eclipse.ui.views">
+	      <view
+             category="org.eclipse.recommenders.rcp.category.views"
+             class="org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.views.EmbeddedEditor"
+             id="org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.searchResultView"
+             name="Embedded Editor"/>
+	</extension>
 </plugin>
