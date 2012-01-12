@@ -90,4 +90,5 @@ public class Fields {
 	public final static String ANNOTATIONS = "Annotations";
 	/** Can be applied to: class,method,tryCatch*/
 	public final static String INSTANCEOF_TYPES = "InstanceofTypes";
+	public final static String TIMESTAMP = "Timestamp";
 }

@@ -38,3 +38,4 @@ USED_FIELDS_IN_FINALLY; "UsedFieldsInFinally";trycatch
 USED_FIELDS_IN_TRY; "UsedFieldsInTry";trycatch
 ANNOTATIONS; "Annotations"; class
 INSTANCEOF_TYPES; "InstanceofTypes"; class,method,trycatch
+TIMESTAMP; "Timestamp"; class,method,field,trycatch

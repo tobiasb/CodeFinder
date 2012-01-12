@@ -94,6 +94,42 @@ public class TestBase {
       return false;
   }
   
+  public boolean assertFieldStartsWith(final List<Document> documents, final List<String> expected) {
+      for (final Document document : documents) {
+        {
+          boolean foundInDocument = true;
+          for (final String exp : expected) {
+            {
+              boolean found = false;
+              List<Fieldable> _fields = document.getFields();
+              for (final Fieldable field : _fields) {
+                String _name = field.name();
+                String _stringValue = field.stringValue();
+                String _s = this.s(_name, _stringValue);
+                boolean _startsWith = _s.startsWith(exp);
+                if (_startsWith) {
+                  found = true;
+                }
+              }
+              boolean _operator_not = BooleanExtensions.operator_not(found);
+              if (_operator_not) {
+                foundInDocument = false;
+              }
+            }
+          }
+          if (foundInDocument) {
+            return true;
+          }
+        }
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("There was no document with (startswith) ");
+      _builder.append(expected, "");
+      String _string = _builder.toString();
+      Assert.assertTrue(_string, false);
+      return false;
+  }
+  
   public void assertNotField(final List<Document> documents, final List<String> expected) {
     for (final Document document : documents) {
       {

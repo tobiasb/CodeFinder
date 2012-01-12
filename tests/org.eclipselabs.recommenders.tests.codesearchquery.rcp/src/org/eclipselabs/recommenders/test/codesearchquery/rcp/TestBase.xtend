@@ -60,6 +60,34 @@ class TestBase {
 		return false
     }
     
+    def assertFieldStartsWith(List<Document> documents, List<String> expected) {
+    	    	
+    	for(document : documents) {   
+    		var foundInDocument = true
+    		 		
+    		for(exp : expected) {
+    			var found = false
+    			
+	    		for(field : document.fields) {
+	    			if(s(field.name, field.stringValue).startsWith(exp)) {
+	    				found = true;
+	    			}
+	    		}
+	    		
+	    		if(!found) {
+	    			foundInDocument = false
+	    		}
+    		}
+    		
+    		if(foundInDocument) {
+    			return true
+    		}
+    	}
+    	
+		assertTrue('''There was no document with (startswith) «expected»'''.toString, false)
+		return false
+    }
+    
     def assertNotField(List<Document> documents, List<String> expected) {
     	    	
     	for(document : documents) {  

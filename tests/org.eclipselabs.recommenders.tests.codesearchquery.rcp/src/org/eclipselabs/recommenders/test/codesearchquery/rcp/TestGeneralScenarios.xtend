@@ -1,6 +1,7 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaringTypeIndexer
@@ -10,6 +11,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FieldsWrittenInd
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FriendlyNameIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullTextIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.FullyQualifiedNameIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.InstanceOfIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer
@@ -19,8 +21,8 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.InstanceOfIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.TimestampIndexer
+import java.util.Date
 
 class TestGeneralScenarios extends TestBase {
 
@@ -1273,6 +1275,75 @@ class TestGeneralScenarios extends TestBase {
 		assertField(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::INSTANCEOF_TYPES, "Ljava/lang/Exception")
+		)))
+	}
+	
+	@Test
+	def void testTimestampIndexer() {
+		val code = '''
+		public class MyInstanceOfClass {
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
+				
+		assertFieldStartsWith(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
+		)))
+	}
+	
+	@Test
+	def void testTimestampIndexer02() {
+		val code = '''
+		public class MyInstanceOfClass {
+			public void operation() {
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
+				
+		assertFieldStartsWith(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
+		)))
+	}
+	
+	@Test
+	def void testTimestampIndexer03() {
+		val code = '''
+		public class MyInstanceOfClass {
+			private String s;
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
+				
+		assertFieldStartsWith(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_FIELD),
+			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
+		)))
+	}
+	
+	@Test
+	def void testTimestampIndexer04() {
+		val code = '''
+		public class MyInstanceOfClass {
+			public void operation() {
+				try {
+				}
+				catch(Exception ex) {
+				}
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
+				
+		assertFieldStartsWith(index.documents, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
 		)))
 	}
 }
