@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl;
 
@@ -70,7 +71,11 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
     {
       case LuceneQueryPackage.EXPRESSION: return createExpression();
       case LuceneQueryPackage.CLAUSE_EXPRESSION: return createClauseExpression();
-      case LuceneQueryPackage.CLAUSE: return createClause();
+      case LuceneQueryPackage.SIMPLE_CLAUSE: return createSimpleClause();
+      case LuceneQueryPackage.TYPE_CLAUSE: return createTypeClause();
+      case LuceneQueryPackage.TYPE_TEST: return createTypeTest();
+      case LuceneQueryPackage.FIELD_NAME: return createFieldName();
+      case LuceneQueryPackage.TYPE_FIELD_NAME: return createTypeFieldName();
       case LuceneQueryPackage.EXP1: return createExp1();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -91,8 +96,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
         return createBooleanExpFromString(eDataType, initialValue);
       case LuceneQueryPackage.NOT_EXPRESSION:
         return createNotExpressionFromString(eDataType, initialValue);
-      case LuceneQueryPackage.FIELD_NAME:
-        return createFieldNameFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -112,8 +115,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
         return convertBooleanExpToString(eDataType, instanceValue);
       case LuceneQueryPackage.NOT_EXPRESSION:
         return convertNotExpressionToString(eDataType, instanceValue);
-      case LuceneQueryPackage.FIELD_NAME:
-        return convertFieldNameToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -146,10 +147,54 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Clause createClause()
+  public SimpleClause createSimpleClause()
   {
-    ClauseImpl clause = new ClauseImpl();
-    return clause;
+    SimpleClauseImpl simpleClause = new SimpleClauseImpl();
+    return simpleClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeClause createTypeClause()
+  {
+    TypeClauseImpl typeClause = new TypeClauseImpl();
+    return typeClause;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeTest createTypeTest()
+  {
+    TypeTestImpl typeTest = new TypeTestImpl();
+    return typeTest;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FieldName createFieldName()
+  {
+    FieldNameImpl fieldName = new FieldNameImpl();
+    return fieldName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeFieldName createTypeFieldName()
+  {
+    TypeFieldNameImpl typeFieldName = new TypeFieldNameImpl();
+    return typeFieldName;
   }
 
   /**
@@ -203,28 +248,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * @generated
    */
   public String convertNotExpressionToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FieldName createFieldNameFromString(EDataType eDataType, String initialValue)
-  {
-    FieldName result = FieldName.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertFieldNameToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

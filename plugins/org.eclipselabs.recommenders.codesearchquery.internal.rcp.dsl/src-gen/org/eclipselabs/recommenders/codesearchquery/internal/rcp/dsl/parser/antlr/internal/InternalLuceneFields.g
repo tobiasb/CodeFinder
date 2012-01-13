@@ -200,36 +200,33 @@ ruleField returns [EObject current=null]
 	    }
 
 )
-)	otherlv_3=';' 
+)(	otherlv_3=';' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getSemicolonKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getSemicolonKeyword_3_0());
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_4_0()); 
-	    }
-		lv_types_4_0=ruleFieldType		{
+		lv_proposeType_4_0=	'proposeType' 
+    {
+        newLeafNode(lv_proposeType_4_0, grammarAccess.getFieldAccess().getProposeTypeProposeTypeKeyword_3_1_0());
+    }
+ 
+	    {
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFieldRule());
+	            $current = createModelElement(grammarAccess.getFieldRule());
 	        }
-       		add(
-       			$current, 
-       			"types",
-        		lv_types_4_0, 
-        		"FieldType");
-	        afterParserOrEnumRuleCall();
+       		setWithLastConsumed($current, "proposeType", true, "proposeType");
 	    }
 
 )
-)(	otherlv_5=',' 
+))?	otherlv_5=';' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getCommaKeyword_5_0());
+    	newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getSemicolonKeyword_4());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_5_1_0()); 
+	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_5_0()); 
 	    }
 		lv_types_6_0=ruleFieldType		{
 	        if ($current==null) {
@@ -239,6 +236,28 @@ ruleField returns [EObject current=null]
        			$current, 
        			"types",
         		lv_types_6_0, 
+        		"FieldType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_7=',' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getFieldAccess().getCommaKeyword_6_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_6_1_0()); 
+	    }
+		lv_types_8_0=ruleFieldType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFieldRule());
+	        }
+       		add(
+       			$current, 
+       			"types",
+        		lv_types_8_0, 
         		"FieldType");
 	        afterParserOrEnumRuleCall();
 	    }

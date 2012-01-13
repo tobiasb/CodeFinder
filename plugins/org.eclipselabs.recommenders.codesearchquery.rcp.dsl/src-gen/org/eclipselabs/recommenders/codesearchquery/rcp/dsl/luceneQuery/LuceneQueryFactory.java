@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery;
 
@@ -44,13 +45,49 @@ public interface LuceneQueryFactory extends EFactory
   ClauseExpression createClauseExpression();
 
   /**
-   * Returns a new object of class '<em>Clause</em>'.
+   * Returns a new object of class '<em>Simple Clause</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Clause</em>'.
+   * @return a new object of class '<em>Simple Clause</em>'.
    * @generated
    */
-  Clause createClause();
+  SimpleClause createSimpleClause();
+
+  /**
+   * Returns a new object of class '<em>Type Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Clause</em>'.
+   * @generated
+   */
+  TypeClause createTypeClause();
+
+  /**
+   * Returns a new object of class '<em>Type Test</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Test</em>'.
+   * @generated
+   */
+  TypeTest createTypeTest();
+
+  /**
+   * Returns a new object of class '<em>Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Name</em>'.
+   * @generated
+   */
+  FieldName createFieldName();
+
+  /**
+   * Returns a new object of class '<em>Type Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Field Name</em>'.
+   * @generated
+   */
+  TypeFieldName createTypeFieldName();
 
   /**
    * Returns a new object of class '<em>Exp1</em>'.

@@ -18,6 +18,7 @@
     <genClasses ecoreClass="LuceneFields.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//Field/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//Field/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//Field/proposeType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneFields.ecore#//Field/types"/>
     </genClasses>
     <genClasses ecoreClass="LuceneFields.ecore#//FieldType">

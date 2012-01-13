@@ -13,11 +13,15 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Clause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Exp1;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Expression;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.services.LuceneQueryGrammarAccess;
 
 @SuppressWarnings("restriction")
@@ -48,12 +52,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == LuceneQueryPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case LuceneQueryPackage.CLAUSE:
-				if(context == grammarAccess.getClauseRule()) {
-					sequence_Clause(context, (Clause) semanticObject); 
-					return; 
-				}
-				else break;
 			case LuceneQueryPackage.CLAUSE_EXPRESSION:
 				if(context == grammarAccess.getClauseExpressionRule()) {
 					sequence_ClauseExpression(context, (ClauseExpression) semanticObject); 
@@ -76,31 +74,45 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 					return; 
 				}
 				else break;
+			case LuceneQueryPackage.FIELD_NAME:
+				if(context == grammarAccess.getFieldNameRule()) {
+					sequence_FieldName(context, (FieldName) semanticObject); 
+					return; 
+				}
+				else break;
+			case LuceneQueryPackage.SIMPLE_CLAUSE:
+				if(context == grammarAccess.getSimpleClauseRule()) {
+					sequence_SimpleClause(context, (SimpleClause) semanticObject); 
+					return; 
+				}
+				else break;
+			case LuceneQueryPackage.TYPE_CLAUSE:
+				if(context == grammarAccess.getTypeClauseRule()) {
+					sequence_TypeClause(context, (TypeClause) semanticObject); 
+					return; 
+				}
+				else break;
+			case LuceneQueryPackage.TYPE_FIELD_NAME:
+				if(context == grammarAccess.getTypeFieldNameRule()) {
+					sequence_TypeFieldName(context, (TypeFieldName) semanticObject); 
+					return; 
+				}
+				else break;
+			case LuceneQueryPackage.TYPE_TEST:
+				if(context == grammarAccess.getTypeTestRule()) {
+					sequence_TypeTest(context, (TypeTest) semanticObject); 
+					return; 
+				}
+				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
 	 * Constraint:
-	 *     clause=Clause
+	 *     (clause=SimpleClause | clause=TypeClause)
 	 */
 	protected void sequence_ClauseExpression(EObject context, ClauseExpression semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.CLAUSE_EXPRESSION__CLAUSE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.CLAUSE_EXPRESSION__CLAUSE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getClauseExpressionAccess().getClauseClauseParserRuleCall_0(), semanticObject.getClause());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (n=NotExpression? field=FieldName value=FieldValue)
-	 */
-	protected void sequence_Clause(EObject context, Clause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -127,5 +139,90 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getExp2Access().getValueClauseExpressionParserRuleCall_0_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         FullyQualifiedName='FullyQualifiedName' | 
+	 *         FriendlyName='FriendlyName' | 
+	 *         DeclaredMethods='DeclaredMethods' | 
+	 *         ParameterCount='ParameterCount' | 
+	 *         ReturnVariableEexpressions='ReturnVariableEexpressions' | 
+	 *         UsedMethods='UsedMethods' | 
+	 *         UsedMethodsInTry='UsedMethodsInTry' | 
+	 *         UsedMethodsInFinally='UsedMethodsInFinally' | 
+	 *         OverriddenMethods='OverriddenMethods' | 
+	 *         ProjectName='ProjectName' | 
+	 *         ResourcePath='ResourcePath' | 
+	 *         Modifiers='Modifiers' | 
+	 *         AllDeclaredMethodNames='AllDeclaredMethodNames' | 
+	 *         DeclaredMethodNames='DeclaredMethodNames' | 
+	 *         DeclaredFieldNames='DeclaredFieldNames' | 
+	 *         DeclaredFieldTypes='DeclaredFieldTypes' | 
+	 *         AllDeclaredFieldNames='AllDeclaredFieldNames' | 
+	 *         FullText='FullText' | 
+	 *         FieldsRead='FieldsRead' | 
+	 *         FieldsWritten='FieldsWritten' | 
+	 *         UsedFieldsInFinally='UsedFieldsInFinally' | 
+	 *         UsedFieldsInTry='UsedFieldsInTry' | 
+	 *         Annotations='Annotations' | 
+	 *         Timestamp='Timestamp'
+	 *     )
+	 */
+	protected void sequence_FieldName(EObject context, FieldName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (n=NotExpression? field=FieldName value=FieldValue)
+	 */
+	protected void sequence_SimpleClause(EObject context, SimpleClause semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (n=NotExpression? field=TypeFieldName value=TypeTest)
+	 */
+	protected void sequence_TypeClause(EObject context, TypeClause semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
+	 *         type='type' | 
+	 *         ImplementedTypes='ImplementedTypes' | 
+	 *         ExtendedTypes='ExtendedTypes' | 
+	 *         UsedTypes='UsedTypes' | 
+	 *         UsedTypesInTry='UsedTypesInTry' | 
+	 *         UsedTypesInFinally='UsedTypesInFinally' | 
+	 *         ParameterTypes='ParameterTypes' | 
+	 *         ReturnType='ReturnType' | 
+	 *         AllImplementedTypes='AllImplementedTypes' | 
+	 *         AllExtendedTypes='AllExtendedTypes' | 
+	 *         FieldType='FieldType' | 
+	 *         DeclaringType='DeclaringType' | 
+	 *         CaughtType='CaughtType' | 
+	 *         InstanceofTypes='InstanceofTypes'
+	 *     )
+	 */
+	protected void sequence_TypeFieldName(EObject context, TypeFieldName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (test1='test1' | test2='test2')
+	 */
+	protected void sequence_TypeTest(EObject context, TypeTest semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }

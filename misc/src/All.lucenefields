@@ -1,0 +1,41 @@
+package "org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene"
+class Fields 
+
+FULLY_QUALIFIED_NAME; "FullyQualifiedName"; class,method,field,trycatch
+TYPE; "type"; proposeType; class,method,field,trycatch
+FRIENDLY_NAME; "FriendlyName"; class,method,field,trycatch
+IMPLEMENTED_TYPES; "ImplementedTypes";proposeType; class
+EXTENDED_TYPE; "ExtendedTypes";proposeType; class
+DECLARED_METHODS; "DeclaredMethods"; class
+USED_TYPES; "UsedTypes";proposeType; class,method,field,trycatch
+USED_TYPES_IN_TRY; "UsedTypesInTry";proposeType; trycatch
+USED_TYPES_IN_FINALLY; "UsedTypesInFinally";proposeType; trycatch
+PARAMETER_TYPES; "ParameterTypes";proposeType; method
+PARAMETER_COUNT; "ParameterCount"; method
+RETURN_TYPE; "ReturnType";proposeType; method
+RETURN_VARIABLE_EXPRESSIONS; "ReturnVariableEexpressions"; method
+USED_METHODS; "UsedMethods"; class,method,trycatch
+USED_METHODS_IN_TRY; "UsedMethodsInTry"; trycatch
+USED_METHODS_IN_FINALLY; "UsedMethodsInFinally";trycatch
+OVERRIDDEN_METHODS; "OverriddenMethods"; class
+ALL_IMPLEMENTED_TYPES; "AllImplementedTypes";proposeType; class
+ALL_EXTENDED_TYPES; "AllExtendedTypes";proposeType; class
+FIELD_TYPE; "FieldType";proposeType; field
+DECLARING_TYPE; "DeclaringType";proposeType; method,field,trycatch
+CAUGHT_TYPE; "CaughtType";proposeType;trycatch
+PROJECT_NAME; "ProjectName"; class,method,field,trycatch
+RESOURCE_PATH; "ResourcePath"; class,method,field,trycatch
+MODIFIERS; "Modifiers"; class,method,field
+ALL_DELCARED_METHOD_NAMES; "AllDeclaredMethodNames"; class
+DECLARED_METHODS_NAMES; "DeclaredMethodNames"; class
+DECLARED_FIELD_NAMES; "DeclaredFieldNames"; class,method,trycatch
+DECLARED_FIELD_TYPES; "DeclaredFieldTypes"; class,method,trycatch
+ALL_DECLARED_FIELD_NAMES; "AllDeclaredFieldNames"; class,method,trycatch
+FULL_TEXT; "FullText"; class,method,field,trycatch 
+FIELDS_READ; "FieldsRead"; class,method,trycatch
+FIELDS_WRITTEN; "FieldsWritten"; method,trycatch
+USED_FIELDS_IN_FINALLY; "UsedFieldsInFinally";trycatch
+USED_FIELDS_IN_TRY; "UsedFieldsInTry";trycatch
+ANNOTATIONS; "Annotations"; class
+INSTANCEOF_TYPES; "InstanceofTypes";proposeType; class,method,trycatch
+TIMESTAMP; "Timestamp"; class,method,field,trycatch

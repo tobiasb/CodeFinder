@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.util;
 
@@ -89,10 +90,38 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.CLAUSE:
+      case LuceneQueryPackage.SIMPLE_CLAUSE:
       {
-        Clause clause = (Clause)theEObject;
-        T result = caseClause(clause);
+        SimpleClause simpleClause = (SimpleClause)theEObject;
+        T result = caseSimpleClause(simpleClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.TYPE_CLAUSE:
+      {
+        TypeClause typeClause = (TypeClause)theEObject;
+        T result = caseTypeClause(typeClause);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.TYPE_TEST:
+      {
+        TypeTest typeTest = (TypeTest)theEObject;
+        T result = caseTypeTest(typeTest);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.FIELD_NAME:
+      {
+        FieldName fieldName = (FieldName)theEObject;
+        T result = caseFieldName(fieldName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.TYPE_FIELD_NAME:
+      {
+        TypeFieldName typeFieldName = (TypeFieldName)theEObject;
+        T result = caseTypeFieldName(typeFieldName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -141,17 +170,81 @@ public class LuceneQuerySwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Clause</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Simple Clause</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Clause</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Simple Clause</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseClause(Clause object)
+  public T caseSimpleClause(SimpleClause object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Clause</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Clause</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeClause(TypeClause object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Test</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Test</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeTest(TypeTest object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Field Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFieldName(FieldName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Field Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeFieldName(TypeFieldName object)
   {
     return null;
   }

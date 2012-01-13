@@ -29,8 +29,17 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightExp2ParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		/// * * 
+		//
 		// *   Query  ::= ( Clause )*
-		// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" ) 
+		//
+		// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
+		//
+		// * 	
+		//
+		// * 
+		//
+		// * Example: FriendlyName:(+"toString" -"toUpperCase") AND ReturnType:"Ljava/lang/String"
+		//
 		// * * / Exp1 returns Expression:
 		//	Exp2 ({Exp1.left=current} b=BooleanExp right=Exp2)*;
 		public ParserRule getRule() { return rule; }
@@ -98,36 +107,52 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ClauseExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ClauseExpression");
-		private final Assignment cClauseAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cClauseClauseParserRuleCall_0 = (RuleCall)cClauseAssignment.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cClauseAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cClauseSimpleClauseParserRuleCall_0_0 = (RuleCall)cClauseAssignment_0.eContents().get(0);
+		private final Assignment cClauseAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cClauseTypeClauseParserRuleCall_1_0 = (RuleCall)cClauseAssignment_1.eContents().get(0);
 		
 		////	Query returns Expression: 
+		//
 		////		{Query}
+		//
 		////		clauseExpressions+=ClauseExpression*
+		//
 		////	;
+		//
 		//ClauseExpression:
-		//	clause=Clause;
+		//	clause=SimpleClause | clause=TypeClause;
 		public ParserRule getRule() { return rule; }
 
-		//clause=Clause
-		public Assignment getClauseAssignment() { return cClauseAssignment; }
+		//clause=SimpleClause | clause=TypeClause
+		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Clause
-		public RuleCall getClauseClauseParserRuleCall_0() { return cClauseClauseParserRuleCall_0; }
+		//clause=SimpleClause
+		public Assignment getClauseAssignment_0() { return cClauseAssignment_0; }
+
+		//SimpleClause
+		public RuleCall getClauseSimpleClauseParserRuleCall_0_0() { return cClauseSimpleClauseParserRuleCall_0_0; }
+
+		//clause=TypeClause
+		public Assignment getClauseAssignment_1() { return cClauseAssignment_1; }
+
+		//TypeClause
+		public RuleCall getClauseTypeClauseParserRuleCall_1_0() { return cClauseTypeClauseParserRuleCall_1_0; }
 	}
 
-	public class ClauseElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Clause");
+	public class SimpleClauseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleClause");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNNotExpressionEnumRuleCall_0_0 = (RuleCall)cNAssignment_0.eContents().get(0);
 		private final Assignment cFieldAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFieldFieldNameEnumRuleCall_1_0 = (RuleCall)cFieldAssignment_1.eContents().get(0);
+		private final RuleCall cFieldFieldNameParserRuleCall_1_0 = (RuleCall)cFieldAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cValueFieldValueParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
-		//Clause:
+		//SimpleClause:
 		//	n=NotExpression? field=FieldName ":" value=FieldValue;
 		public ParserRule getRule() { return rule; }
 
@@ -144,7 +169,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		public Assignment getFieldAssignment_1() { return cFieldAssignment_1; }
 
 		//FieldName
-		public RuleCall getFieldFieldNameEnumRuleCall_1_0() { return cFieldFieldNameEnumRuleCall_1_0; }
+		public RuleCall getFieldFieldNameParserRuleCall_1_0() { return cFieldFieldNameParserRuleCall_1_0; }
 
 		//":"
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -154,6 +179,46 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//FieldValue
 		public RuleCall getValueFieldValueParserRuleCall_3_0() { return cValueFieldValueParserRuleCall_3_0; }
+	}
+
+	public class TypeClauseElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeClause");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNNotExpressionEnumRuleCall_0_0 = (RuleCall)cNAssignment_0.eContents().get(0);
+		private final Assignment cFieldAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFieldTypeFieldNameParserRuleCall_1_0 = (RuleCall)cFieldAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueTypeTestParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		
+		//TypeClause:
+		//	n=NotExpression? field=TypeFieldName ":" value=TypeTest;
+		public ParserRule getRule() { return rule; }
+
+		//n=NotExpression? field=TypeFieldName ":" value=TypeTest
+		public Group getGroup() { return cGroup; }
+
+		//n=NotExpression?
+		public Assignment getNAssignment_0() { return cNAssignment_0; }
+
+		//NotExpression
+		public RuleCall getNNotExpressionEnumRuleCall_0_0() { return cNNotExpressionEnumRuleCall_0_0; }
+
+		//field=TypeFieldName
+		public Assignment getFieldAssignment_1() { return cFieldAssignment_1; }
+
+		//TypeFieldName
+		public RuleCall getFieldTypeFieldNameParserRuleCall_1_0() { return cFieldTypeFieldNameParserRuleCall_1_0; }
+
+		//":"
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+
+		//value=TypeTest
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+
+		//TypeTest
+		public RuleCall getValueTypeTestParserRuleCall_3_0() { return cValueTypeTestParserRuleCall_3_0; }
 	}
 
 	public class FieldValueElements extends AbstractParserRuleElementFinder {
@@ -186,6 +251,34 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
+	}
+
+	public class TypeTestElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeTest");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cTest1Assignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cTest1Test1Keyword_0_0 = (Keyword)cTest1Assignment_0.eContents().get(0);
+		private final Assignment cTest2Assignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cTest2Test2Keyword_1_0 = (Keyword)cTest2Assignment_1.eContents().get(0);
+		
+		//TypeTest:
+		//	test1="test1" | test2="test2";
+		public ParserRule getRule() { return rule; }
+
+		//test1="test1" | test2="test2"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//test1="test1"
+		public Assignment getTest1Assignment_0() { return cTest1Assignment_0; }
+
+		//"test1"
+		public Keyword getTest1Test1Keyword_0_0() { return cTest1Test1Keyword_0_0; }
+
+		//test2="test2"
+		public Assignment getTest2Assignment_1() { return cTest2Assignment_1; }
+
+		//"test2"
+		public Keyword getTest2Test2Keyword_1_0() { return cTest2Test2Keyword_1_0; }
 	}
 
 	public class ValueElements extends AbstractParserRuleElementFinder {
@@ -222,6 +315,364 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_1_1() { return cSTRINGTerminalRuleCall_1_1; }
+	}
+
+	public class FieldNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FieldName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cFullyQualifiedNameAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cFullyQualifiedNameFullyQualifiedNameKeyword_0_0 = (Keyword)cFullyQualifiedNameAssignment_0.eContents().get(0);
+		private final Assignment cFriendlyNameAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cFriendlyNameFriendlyNameKeyword_1_0 = (Keyword)cFriendlyNameAssignment_1.eContents().get(0);
+		private final Assignment cDeclaredMethodsAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cDeclaredMethodsDeclaredMethodsKeyword_2_0 = (Keyword)cDeclaredMethodsAssignment_2.eContents().get(0);
+		private final Assignment cParameterCountAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final Keyword cParameterCountParameterCountKeyword_3_0 = (Keyword)cParameterCountAssignment_3.eContents().get(0);
+		private final Assignment cReturnVariableEexpressionsAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final Keyword cReturnVariableEexpressionsReturnVariableEexpressionsKeyword_4_0 = (Keyword)cReturnVariableEexpressionsAssignment_4.eContents().get(0);
+		private final Assignment cUsedMethodsAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
+		private final Keyword cUsedMethodsUsedMethodsKeyword_5_0 = (Keyword)cUsedMethodsAssignment_5.eContents().get(0);
+		private final Assignment cUsedMethodsInTryAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
+		private final Keyword cUsedMethodsInTryUsedMethodsInTryKeyword_6_0 = (Keyword)cUsedMethodsInTryAssignment_6.eContents().get(0);
+		private final Assignment cUsedMethodsInFinallyAssignment_7 = (Assignment)cAlternatives.eContents().get(7);
+		private final Keyword cUsedMethodsInFinallyUsedMethodsInFinallyKeyword_7_0 = (Keyword)cUsedMethodsInFinallyAssignment_7.eContents().get(0);
+		private final Assignment cOverriddenMethodsAssignment_8 = (Assignment)cAlternatives.eContents().get(8);
+		private final Keyword cOverriddenMethodsOverriddenMethodsKeyword_8_0 = (Keyword)cOverriddenMethodsAssignment_8.eContents().get(0);
+		private final Assignment cProjectNameAssignment_9 = (Assignment)cAlternatives.eContents().get(9);
+		private final Keyword cProjectNameProjectNameKeyword_9_0 = (Keyword)cProjectNameAssignment_9.eContents().get(0);
+		private final Assignment cResourcePathAssignment_10 = (Assignment)cAlternatives.eContents().get(10);
+		private final Keyword cResourcePathResourcePathKeyword_10_0 = (Keyword)cResourcePathAssignment_10.eContents().get(0);
+		private final Assignment cModifiersAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
+		private final Keyword cModifiersModifiersKeyword_11_0 = (Keyword)cModifiersAssignment_11.eContents().get(0);
+		private final Assignment cAllDeclaredMethodNamesAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
+		private final Keyword cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_12_0 = (Keyword)cAllDeclaredMethodNamesAssignment_12.eContents().get(0);
+		private final Assignment cDeclaredMethodNamesAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
+		private final Keyword cDeclaredMethodNamesDeclaredMethodNamesKeyword_13_0 = (Keyword)cDeclaredMethodNamesAssignment_13.eContents().get(0);
+		private final Assignment cDeclaredFieldNamesAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
+		private final Keyword cDeclaredFieldNamesDeclaredFieldNamesKeyword_14_0 = (Keyword)cDeclaredFieldNamesAssignment_14.eContents().get(0);
+		private final Assignment cDeclaredFieldTypesAssignment_15 = (Assignment)cAlternatives.eContents().get(15);
+		private final Keyword cDeclaredFieldTypesDeclaredFieldTypesKeyword_15_0 = (Keyword)cDeclaredFieldTypesAssignment_15.eContents().get(0);
+		private final Assignment cAllDeclaredFieldNamesAssignment_16 = (Assignment)cAlternatives.eContents().get(16);
+		private final Keyword cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_16_0 = (Keyword)cAllDeclaredFieldNamesAssignment_16.eContents().get(0);
+		private final Assignment cFullTextAssignment_17 = (Assignment)cAlternatives.eContents().get(17);
+		private final Keyword cFullTextFullTextKeyword_17_0 = (Keyword)cFullTextAssignment_17.eContents().get(0);
+		private final Assignment cFieldsReadAssignment_18 = (Assignment)cAlternatives.eContents().get(18);
+		private final Keyword cFieldsReadFieldsReadKeyword_18_0 = (Keyword)cFieldsReadAssignment_18.eContents().get(0);
+		private final Assignment cFieldsWrittenAssignment_19 = (Assignment)cAlternatives.eContents().get(19);
+		private final Keyword cFieldsWrittenFieldsWrittenKeyword_19_0 = (Keyword)cFieldsWrittenAssignment_19.eContents().get(0);
+		private final Assignment cUsedFieldsInFinallyAssignment_20 = (Assignment)cAlternatives.eContents().get(20);
+		private final Keyword cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_20_0 = (Keyword)cUsedFieldsInFinallyAssignment_20.eContents().get(0);
+		private final Assignment cUsedFieldsInTryAssignment_21 = (Assignment)cAlternatives.eContents().get(21);
+		private final Keyword cUsedFieldsInTryUsedFieldsInTryKeyword_21_0 = (Keyword)cUsedFieldsInTryAssignment_21.eContents().get(0);
+		private final Assignment cAnnotationsAssignment_22 = (Assignment)cAlternatives.eContents().get(22);
+		private final Keyword cAnnotationsAnnotationsKeyword_22_0 = (Keyword)cAnnotationsAssignment_22.eContents().get(0);
+		private final Assignment cTimestampAssignment_23 = (Assignment)cAlternatives.eContents().get(23);
+		private final Keyword cTimestampTimestampKeyword_23_0 = (Keyword)cTimestampAssignment_23.eContents().get(0);
+		
+		/// *
+		//
+		//	The following rules are generated. Do not modify. Modify source file instead.
+		//
+		// * / FieldName:
+		//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
+		//	ParameterCount="ParameterCount" | ReturnVariableEexpressions="ReturnVariableEexpressions" | UsedMethods="UsedMethods"
+		//	| UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
+		//	OverriddenMethods="OverriddenMethods" | ProjectName="ProjectName" | ResourcePath="ResourcePath" |
+		//	Modifiers="Modifiers" | AllDeclaredMethodNames="AllDeclaredMethodNames" | DeclaredMethodNames="DeclaredMethodNames" |
+		//	DeclaredFieldNames="DeclaredFieldNames" | DeclaredFieldTypes="DeclaredFieldTypes" |
+		//	AllDeclaredFieldNames="AllDeclaredFieldNames" | FullText="FullText" | FieldsRead="FieldsRead" |
+		//	FieldsWritten="FieldsWritten" | UsedFieldsInFinally="UsedFieldsInFinally" | UsedFieldsInTry="UsedFieldsInTry" |
+		//	Annotations="Annotations" | Timestamp="Timestamp";
+		public ParserRule getRule() { return rule; }
+
+		//FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
+		//ParameterCount="ParameterCount" | ReturnVariableEexpressions="ReturnVariableEexpressions" | UsedMethods="UsedMethods" |
+		//UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
+		//OverriddenMethods="OverriddenMethods" | ProjectName="ProjectName" | ResourcePath="ResourcePath" | Modifiers="Modifiers"
+		//| AllDeclaredMethodNames="AllDeclaredMethodNames" | DeclaredMethodNames="DeclaredMethodNames" |
+		//DeclaredFieldNames="DeclaredFieldNames" | DeclaredFieldTypes="DeclaredFieldTypes" |
+		//AllDeclaredFieldNames="AllDeclaredFieldNames" | FullText="FullText" | FieldsRead="FieldsRead" |
+		//FieldsWritten="FieldsWritten" | UsedFieldsInFinally="UsedFieldsInFinally" | UsedFieldsInTry="UsedFieldsInTry" |
+		//Annotations="Annotations" | Timestamp="Timestamp"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//FullyQualifiedName="FullyQualifiedName"
+		public Assignment getFullyQualifiedNameAssignment_0() { return cFullyQualifiedNameAssignment_0; }
+
+		//"FullyQualifiedName"
+		public Keyword getFullyQualifiedNameFullyQualifiedNameKeyword_0_0() { return cFullyQualifiedNameFullyQualifiedNameKeyword_0_0; }
+
+		//FriendlyName="FriendlyName"
+		public Assignment getFriendlyNameAssignment_1() { return cFriendlyNameAssignment_1; }
+
+		//"FriendlyName"
+		public Keyword getFriendlyNameFriendlyNameKeyword_1_0() { return cFriendlyNameFriendlyNameKeyword_1_0; }
+
+		//DeclaredMethods="DeclaredMethods"
+		public Assignment getDeclaredMethodsAssignment_2() { return cDeclaredMethodsAssignment_2; }
+
+		//"DeclaredMethods"
+		public Keyword getDeclaredMethodsDeclaredMethodsKeyword_2_0() { return cDeclaredMethodsDeclaredMethodsKeyword_2_0; }
+
+		//ParameterCount="ParameterCount"
+		public Assignment getParameterCountAssignment_3() { return cParameterCountAssignment_3; }
+
+		//"ParameterCount"
+		public Keyword getParameterCountParameterCountKeyword_3_0() { return cParameterCountParameterCountKeyword_3_0; }
+
+		//ReturnVariableEexpressions="ReturnVariableEexpressions"
+		public Assignment getReturnVariableEexpressionsAssignment_4() { return cReturnVariableEexpressionsAssignment_4; }
+
+		//"ReturnVariableEexpressions"
+		public Keyword getReturnVariableEexpressionsReturnVariableEexpressionsKeyword_4_0() { return cReturnVariableEexpressionsReturnVariableEexpressionsKeyword_4_0; }
+
+		//UsedMethods="UsedMethods"
+		public Assignment getUsedMethodsAssignment_5() { return cUsedMethodsAssignment_5; }
+
+		//"UsedMethods"
+		public Keyword getUsedMethodsUsedMethodsKeyword_5_0() { return cUsedMethodsUsedMethodsKeyword_5_0; }
+
+		//UsedMethodsInTry="UsedMethodsInTry"
+		public Assignment getUsedMethodsInTryAssignment_6() { return cUsedMethodsInTryAssignment_6; }
+
+		//"UsedMethodsInTry"
+		public Keyword getUsedMethodsInTryUsedMethodsInTryKeyword_6_0() { return cUsedMethodsInTryUsedMethodsInTryKeyword_6_0; }
+
+		//UsedMethodsInFinally="UsedMethodsInFinally"
+		public Assignment getUsedMethodsInFinallyAssignment_7() { return cUsedMethodsInFinallyAssignment_7; }
+
+		//"UsedMethodsInFinally"
+		public Keyword getUsedMethodsInFinallyUsedMethodsInFinallyKeyword_7_0() { return cUsedMethodsInFinallyUsedMethodsInFinallyKeyword_7_0; }
+
+		//OverriddenMethods="OverriddenMethods"
+		public Assignment getOverriddenMethodsAssignment_8() { return cOverriddenMethodsAssignment_8; }
+
+		//"OverriddenMethods"
+		public Keyword getOverriddenMethodsOverriddenMethodsKeyword_8_0() { return cOverriddenMethodsOverriddenMethodsKeyword_8_0; }
+
+		//ProjectName="ProjectName"
+		public Assignment getProjectNameAssignment_9() { return cProjectNameAssignment_9; }
+
+		//"ProjectName"
+		public Keyword getProjectNameProjectNameKeyword_9_0() { return cProjectNameProjectNameKeyword_9_0; }
+
+		//ResourcePath="ResourcePath"
+		public Assignment getResourcePathAssignment_10() { return cResourcePathAssignment_10; }
+
+		//"ResourcePath"
+		public Keyword getResourcePathResourcePathKeyword_10_0() { return cResourcePathResourcePathKeyword_10_0; }
+
+		//Modifiers="Modifiers"
+		public Assignment getModifiersAssignment_11() { return cModifiersAssignment_11; }
+
+		//"Modifiers"
+		public Keyword getModifiersModifiersKeyword_11_0() { return cModifiersModifiersKeyword_11_0; }
+
+		//AllDeclaredMethodNames="AllDeclaredMethodNames"
+		public Assignment getAllDeclaredMethodNamesAssignment_12() { return cAllDeclaredMethodNamesAssignment_12; }
+
+		//"AllDeclaredMethodNames"
+		public Keyword getAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_12_0() { return cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_12_0; }
+
+		//DeclaredMethodNames="DeclaredMethodNames"
+		public Assignment getDeclaredMethodNamesAssignment_13() { return cDeclaredMethodNamesAssignment_13; }
+
+		//"DeclaredMethodNames"
+		public Keyword getDeclaredMethodNamesDeclaredMethodNamesKeyword_13_0() { return cDeclaredMethodNamesDeclaredMethodNamesKeyword_13_0; }
+
+		//DeclaredFieldNames="DeclaredFieldNames"
+		public Assignment getDeclaredFieldNamesAssignment_14() { return cDeclaredFieldNamesAssignment_14; }
+
+		//"DeclaredFieldNames"
+		public Keyword getDeclaredFieldNamesDeclaredFieldNamesKeyword_14_0() { return cDeclaredFieldNamesDeclaredFieldNamesKeyword_14_0; }
+
+		//DeclaredFieldTypes="DeclaredFieldTypes"
+		public Assignment getDeclaredFieldTypesAssignment_15() { return cDeclaredFieldTypesAssignment_15; }
+
+		//"DeclaredFieldTypes"
+		public Keyword getDeclaredFieldTypesDeclaredFieldTypesKeyword_15_0() { return cDeclaredFieldTypesDeclaredFieldTypesKeyword_15_0; }
+
+		//AllDeclaredFieldNames="AllDeclaredFieldNames"
+		public Assignment getAllDeclaredFieldNamesAssignment_16() { return cAllDeclaredFieldNamesAssignment_16; }
+
+		//"AllDeclaredFieldNames"
+		public Keyword getAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_16_0() { return cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_16_0; }
+
+		//FullText="FullText"
+		public Assignment getFullTextAssignment_17() { return cFullTextAssignment_17; }
+
+		//"FullText"
+		public Keyword getFullTextFullTextKeyword_17_0() { return cFullTextFullTextKeyword_17_0; }
+
+		//FieldsRead="FieldsRead"
+		public Assignment getFieldsReadAssignment_18() { return cFieldsReadAssignment_18; }
+
+		//"FieldsRead"
+		public Keyword getFieldsReadFieldsReadKeyword_18_0() { return cFieldsReadFieldsReadKeyword_18_0; }
+
+		//FieldsWritten="FieldsWritten"
+		public Assignment getFieldsWrittenAssignment_19() { return cFieldsWrittenAssignment_19; }
+
+		//"FieldsWritten"
+		public Keyword getFieldsWrittenFieldsWrittenKeyword_19_0() { return cFieldsWrittenFieldsWrittenKeyword_19_0; }
+
+		//UsedFieldsInFinally="UsedFieldsInFinally"
+		public Assignment getUsedFieldsInFinallyAssignment_20() { return cUsedFieldsInFinallyAssignment_20; }
+
+		//"UsedFieldsInFinally"
+		public Keyword getUsedFieldsInFinallyUsedFieldsInFinallyKeyword_20_0() { return cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_20_0; }
+
+		//UsedFieldsInTry="UsedFieldsInTry"
+		public Assignment getUsedFieldsInTryAssignment_21() { return cUsedFieldsInTryAssignment_21; }
+
+		//"UsedFieldsInTry"
+		public Keyword getUsedFieldsInTryUsedFieldsInTryKeyword_21_0() { return cUsedFieldsInTryUsedFieldsInTryKeyword_21_0; }
+
+		//Annotations="Annotations"
+		public Assignment getAnnotationsAssignment_22() { return cAnnotationsAssignment_22; }
+
+		//"Annotations"
+		public Keyword getAnnotationsAnnotationsKeyword_22_0() { return cAnnotationsAnnotationsKeyword_22_0; }
+
+		//Timestamp="Timestamp"
+		public Assignment getTimestampAssignment_23() { return cTimestampAssignment_23; }
+
+		//"Timestamp"
+		public Keyword getTimestampTimestampKeyword_23_0() { return cTimestampTimestampKeyword_23_0; }
+	}
+
+	public class TypeFieldNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeFieldName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cTypeTypeKeyword_0_0 = (Keyword)cTypeAssignment_0.eContents().get(0);
+		private final Assignment cImplementedTypesAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cImplementedTypesImplementedTypesKeyword_1_0 = (Keyword)cImplementedTypesAssignment_1.eContents().get(0);
+		private final Assignment cExtendedTypesAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cExtendedTypesExtendedTypesKeyword_2_0 = (Keyword)cExtendedTypesAssignment_2.eContents().get(0);
+		private final Assignment cUsedTypesAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final Keyword cUsedTypesUsedTypesKeyword_3_0 = (Keyword)cUsedTypesAssignment_3.eContents().get(0);
+		private final Assignment cUsedTypesInTryAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final Keyword cUsedTypesInTryUsedTypesInTryKeyword_4_0 = (Keyword)cUsedTypesInTryAssignment_4.eContents().get(0);
+		private final Assignment cUsedTypesInFinallyAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
+		private final Keyword cUsedTypesInFinallyUsedTypesInFinallyKeyword_5_0 = (Keyword)cUsedTypesInFinallyAssignment_5.eContents().get(0);
+		private final Assignment cParameterTypesAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
+		private final Keyword cParameterTypesParameterTypesKeyword_6_0 = (Keyword)cParameterTypesAssignment_6.eContents().get(0);
+		private final Assignment cReturnTypeAssignment_7 = (Assignment)cAlternatives.eContents().get(7);
+		private final Keyword cReturnTypeReturnTypeKeyword_7_0 = (Keyword)cReturnTypeAssignment_7.eContents().get(0);
+		private final Assignment cAllImplementedTypesAssignment_8 = (Assignment)cAlternatives.eContents().get(8);
+		private final Keyword cAllImplementedTypesAllImplementedTypesKeyword_8_0 = (Keyword)cAllImplementedTypesAssignment_8.eContents().get(0);
+		private final Assignment cAllExtendedTypesAssignment_9 = (Assignment)cAlternatives.eContents().get(9);
+		private final Keyword cAllExtendedTypesAllExtendedTypesKeyword_9_0 = (Keyword)cAllExtendedTypesAssignment_9.eContents().get(0);
+		private final Assignment cFieldTypeAssignment_10 = (Assignment)cAlternatives.eContents().get(10);
+		private final Keyword cFieldTypeFieldTypeKeyword_10_0 = (Keyword)cFieldTypeAssignment_10.eContents().get(0);
+		private final Assignment cDeclaringTypeAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
+		private final Keyword cDeclaringTypeDeclaringTypeKeyword_11_0 = (Keyword)cDeclaringTypeAssignment_11.eContents().get(0);
+		private final Assignment cCaughtTypeAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
+		private final Keyword cCaughtTypeCaughtTypeKeyword_12_0 = (Keyword)cCaughtTypeAssignment_12.eContents().get(0);
+		private final Assignment cInstanceofTypesAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
+		private final Keyword cInstanceofTypesInstanceofTypesKeyword_13_0 = (Keyword)cInstanceofTypesAssignment_13.eContents().get(0);
+		
+		/// *
+		//
+		//	End of generated rules.
+		//
+		// * / TypeFieldName:
+		//	type="type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
+		//	UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
+		//	ReturnType="ReturnType" | AllImplementedTypes="AllImplementedTypes" | AllExtendedTypes="AllExtendedTypes" |
+		//	FieldType="FieldType" | DeclaringType="DeclaringType" | CaughtType="CaughtType" | InstanceofTypes="InstanceofTypes";
+		public ParserRule getRule() { return rule; }
+
+		//type="type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
+		//UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
+		//ReturnType="ReturnType" | AllImplementedTypes="AllImplementedTypes" | AllExtendedTypes="AllExtendedTypes" |
+		//FieldType="FieldType" | DeclaringType="DeclaringType" | CaughtType="CaughtType" | InstanceofTypes="InstanceofTypes"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//type="type"
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+
+		//"type"
+		public Keyword getTypeTypeKeyword_0_0() { return cTypeTypeKeyword_0_0; }
+
+		//ImplementedTypes="ImplementedTypes"
+		public Assignment getImplementedTypesAssignment_1() { return cImplementedTypesAssignment_1; }
+
+		//"ImplementedTypes"
+		public Keyword getImplementedTypesImplementedTypesKeyword_1_0() { return cImplementedTypesImplementedTypesKeyword_1_0; }
+
+		//ExtendedTypes="ExtendedTypes"
+		public Assignment getExtendedTypesAssignment_2() { return cExtendedTypesAssignment_2; }
+
+		//"ExtendedTypes"
+		public Keyword getExtendedTypesExtendedTypesKeyword_2_0() { return cExtendedTypesExtendedTypesKeyword_2_0; }
+
+		//UsedTypes="UsedTypes"
+		public Assignment getUsedTypesAssignment_3() { return cUsedTypesAssignment_3; }
+
+		//"UsedTypes"
+		public Keyword getUsedTypesUsedTypesKeyword_3_0() { return cUsedTypesUsedTypesKeyword_3_0; }
+
+		//UsedTypesInTry="UsedTypesInTry"
+		public Assignment getUsedTypesInTryAssignment_4() { return cUsedTypesInTryAssignment_4; }
+
+		//"UsedTypesInTry"
+		public Keyword getUsedTypesInTryUsedTypesInTryKeyword_4_0() { return cUsedTypesInTryUsedTypesInTryKeyword_4_0; }
+
+		//UsedTypesInFinally="UsedTypesInFinally"
+		public Assignment getUsedTypesInFinallyAssignment_5() { return cUsedTypesInFinallyAssignment_5; }
+
+		//"UsedTypesInFinally"
+		public Keyword getUsedTypesInFinallyUsedTypesInFinallyKeyword_5_0() { return cUsedTypesInFinallyUsedTypesInFinallyKeyword_5_0; }
+
+		//ParameterTypes="ParameterTypes"
+		public Assignment getParameterTypesAssignment_6() { return cParameterTypesAssignment_6; }
+
+		//"ParameterTypes"
+		public Keyword getParameterTypesParameterTypesKeyword_6_0() { return cParameterTypesParameterTypesKeyword_6_0; }
+
+		//ReturnType="ReturnType"
+		public Assignment getReturnTypeAssignment_7() { return cReturnTypeAssignment_7; }
+
+		//"ReturnType"
+		public Keyword getReturnTypeReturnTypeKeyword_7_0() { return cReturnTypeReturnTypeKeyword_7_0; }
+
+		//AllImplementedTypes="AllImplementedTypes"
+		public Assignment getAllImplementedTypesAssignment_8() { return cAllImplementedTypesAssignment_8; }
+
+		//"AllImplementedTypes"
+		public Keyword getAllImplementedTypesAllImplementedTypesKeyword_8_0() { return cAllImplementedTypesAllImplementedTypesKeyword_8_0; }
+
+		//AllExtendedTypes="AllExtendedTypes"
+		public Assignment getAllExtendedTypesAssignment_9() { return cAllExtendedTypesAssignment_9; }
+
+		//"AllExtendedTypes"
+		public Keyword getAllExtendedTypesAllExtendedTypesKeyword_9_0() { return cAllExtendedTypesAllExtendedTypesKeyword_9_0; }
+
+		//FieldType="FieldType"
+		public Assignment getFieldTypeAssignment_10() { return cFieldTypeAssignment_10; }
+
+		//"FieldType"
+		public Keyword getFieldTypeFieldTypeKeyword_10_0() { return cFieldTypeFieldTypeKeyword_10_0; }
+
+		//DeclaringType="DeclaringType"
+		public Assignment getDeclaringTypeAssignment_11() { return cDeclaringTypeAssignment_11; }
+
+		//"DeclaringType"
+		public Keyword getDeclaringTypeDeclaringTypeKeyword_11_0() { return cDeclaringTypeDeclaringTypeKeyword_11_0; }
+
+		//CaughtType="CaughtType"
+		public Assignment getCaughtTypeAssignment_12() { return cCaughtTypeAssignment_12; }
+
+		//"CaughtType"
+		public Keyword getCaughtTypeCaughtTypeKeyword_12_0() { return cCaughtTypeCaughtTypeKeyword_12_0; }
+
+		//InstanceofTypes="InstanceofTypes"
+		public Assignment getInstanceofTypesAssignment_13() { return cInstanceofTypesAssignment_13; }
+
+		//"InstanceofTypes"
+		public Keyword getInstanceofTypesInstanceofTypesKeyword_13_0() { return cInstanceofTypesInstanceofTypesKeyword_13_0; }
 	}
 	
 	
@@ -304,338 +755,19 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//"!"
 		public Keyword getNot3ExclamationMarkKeyword_2_0() { return cNot3ExclamationMarkKeyword_2_0; }
 	}
-
-	public class FieldNameElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "FieldName");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cFullyQualifiedNameEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cFullyQualifiedNameFullyQualifiedNameKeyword_0_0 = (Keyword)cFullyQualifiedNameEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cTypeEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cTypeTypeKeyword_1_0 = (Keyword)cTypeEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cFriendlyNameEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cFriendlyNameFriendlyNameKeyword_2_0 = (Keyword)cFriendlyNameEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cImplementedTypesEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cImplementedTypesImplementedTypesKeyword_3_0 = (Keyword)cImplementedTypesEnumLiteralDeclaration_3.eContents().get(0);
-		private final EnumLiteralDeclaration cExtendedTypesEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
-		private final Keyword cExtendedTypesExtendedTypesKeyword_4_0 = (Keyword)cExtendedTypesEnumLiteralDeclaration_4.eContents().get(0);
-		private final EnumLiteralDeclaration cDeclaredMethodsEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
-		private final Keyword cDeclaredMethodsDeclaredMethodsKeyword_5_0 = (Keyword)cDeclaredMethodsEnumLiteralDeclaration_5.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedTypesEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
-		private final Keyword cUsedTypesUsedTypesKeyword_6_0 = (Keyword)cUsedTypesEnumLiteralDeclaration_6.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedTypesInTryEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
-		private final Keyword cUsedTypesInTryUsedTypesInTryKeyword_7_0 = (Keyword)cUsedTypesInTryEnumLiteralDeclaration_7.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedTypesInFinallyEnumLiteralDeclaration_8 = (EnumLiteralDeclaration)cAlternatives.eContents().get(8);
-		private final Keyword cUsedTypesInFinallyUsedTypesInFinallyKeyword_8_0 = (Keyword)cUsedTypesInFinallyEnumLiteralDeclaration_8.eContents().get(0);
-		private final EnumLiteralDeclaration cParameterTypesEnumLiteralDeclaration_9 = (EnumLiteralDeclaration)cAlternatives.eContents().get(9);
-		private final Keyword cParameterTypesParameterTypesKeyword_9_0 = (Keyword)cParameterTypesEnumLiteralDeclaration_9.eContents().get(0);
-		private final EnumLiteralDeclaration cParameterCountEnumLiteralDeclaration_10 = (EnumLiteralDeclaration)cAlternatives.eContents().get(10);
-		private final Keyword cParameterCountParameterCountKeyword_10_0 = (Keyword)cParameterCountEnumLiteralDeclaration_10.eContents().get(0);
-		private final EnumLiteralDeclaration cReturnTypeEnumLiteralDeclaration_11 = (EnumLiteralDeclaration)cAlternatives.eContents().get(11);
-		private final Keyword cReturnTypeReturnTypeKeyword_11_0 = (Keyword)cReturnTypeEnumLiteralDeclaration_11.eContents().get(0);
-		private final EnumLiteralDeclaration cReturnVariableEexpressionsEnumLiteralDeclaration_12 = (EnumLiteralDeclaration)cAlternatives.eContents().get(12);
-		private final Keyword cReturnVariableEexpressionsReturnVariableEexpressionsKeyword_12_0 = (Keyword)cReturnVariableEexpressionsEnumLiteralDeclaration_12.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedMethodsEnumLiteralDeclaration_13 = (EnumLiteralDeclaration)cAlternatives.eContents().get(13);
-		private final Keyword cUsedMethodsUsedMethodsKeyword_13_0 = (Keyword)cUsedMethodsEnumLiteralDeclaration_13.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedMethodsInTryEnumLiteralDeclaration_14 = (EnumLiteralDeclaration)cAlternatives.eContents().get(14);
-		private final Keyword cUsedMethodsInTryUsedMethodsInTryKeyword_14_0 = (Keyword)cUsedMethodsInTryEnumLiteralDeclaration_14.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedMethodsInFinallyEnumLiteralDeclaration_15 = (EnumLiteralDeclaration)cAlternatives.eContents().get(15);
-		private final Keyword cUsedMethodsInFinallyUsedMethodsInFinallyKeyword_15_0 = (Keyword)cUsedMethodsInFinallyEnumLiteralDeclaration_15.eContents().get(0);
-		private final EnumLiteralDeclaration cOverriddenMethodsEnumLiteralDeclaration_16 = (EnumLiteralDeclaration)cAlternatives.eContents().get(16);
-		private final Keyword cOverriddenMethodsOverriddenMethodsKeyword_16_0 = (Keyword)cOverriddenMethodsEnumLiteralDeclaration_16.eContents().get(0);
-		private final EnumLiteralDeclaration cAllImplementedTypesEnumLiteralDeclaration_17 = (EnumLiteralDeclaration)cAlternatives.eContents().get(17);
-		private final Keyword cAllImplementedTypesAllImplementedTypesKeyword_17_0 = (Keyword)cAllImplementedTypesEnumLiteralDeclaration_17.eContents().get(0);
-		private final EnumLiteralDeclaration cAllExtendedTypesEnumLiteralDeclaration_18 = (EnumLiteralDeclaration)cAlternatives.eContents().get(18);
-		private final Keyword cAllExtendedTypesAllExtendedTypesKeyword_18_0 = (Keyword)cAllExtendedTypesEnumLiteralDeclaration_18.eContents().get(0);
-		private final EnumLiteralDeclaration cFieldTypeEnumLiteralDeclaration_19 = (EnumLiteralDeclaration)cAlternatives.eContents().get(19);
-		private final Keyword cFieldTypeFieldTypeKeyword_19_0 = (Keyword)cFieldTypeEnumLiteralDeclaration_19.eContents().get(0);
-		private final EnumLiteralDeclaration cDeclaringTypeEnumLiteralDeclaration_20 = (EnumLiteralDeclaration)cAlternatives.eContents().get(20);
-		private final Keyword cDeclaringTypeDeclaringTypeKeyword_20_0 = (Keyword)cDeclaringTypeEnumLiteralDeclaration_20.eContents().get(0);
-		private final EnumLiteralDeclaration cCaughtTypeEnumLiteralDeclaration_21 = (EnumLiteralDeclaration)cAlternatives.eContents().get(21);
-		private final Keyword cCaughtTypeCaughtTypeKeyword_21_0 = (Keyword)cCaughtTypeEnumLiteralDeclaration_21.eContents().get(0);
-		private final EnumLiteralDeclaration cProjectNameEnumLiteralDeclaration_22 = (EnumLiteralDeclaration)cAlternatives.eContents().get(22);
-		private final Keyword cProjectNameProjectNameKeyword_22_0 = (Keyword)cProjectNameEnumLiteralDeclaration_22.eContents().get(0);
-		private final EnumLiteralDeclaration cResourcePathEnumLiteralDeclaration_23 = (EnumLiteralDeclaration)cAlternatives.eContents().get(23);
-		private final Keyword cResourcePathResourcePathKeyword_23_0 = (Keyword)cResourcePathEnumLiteralDeclaration_23.eContents().get(0);
-		private final EnumLiteralDeclaration cModifiersEnumLiteralDeclaration_24 = (EnumLiteralDeclaration)cAlternatives.eContents().get(24);
-		private final Keyword cModifiersModifiersKeyword_24_0 = (Keyword)cModifiersEnumLiteralDeclaration_24.eContents().get(0);
-		private final EnumLiteralDeclaration cAllDeclaredMethodNamesEnumLiteralDeclaration_25 = (EnumLiteralDeclaration)cAlternatives.eContents().get(25);
-		private final Keyword cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_25_0 = (Keyword)cAllDeclaredMethodNamesEnumLiteralDeclaration_25.eContents().get(0);
-		private final EnumLiteralDeclaration cDeclaredMethodNamesEnumLiteralDeclaration_26 = (EnumLiteralDeclaration)cAlternatives.eContents().get(26);
-		private final Keyword cDeclaredMethodNamesDeclaredMethodNamesKeyword_26_0 = (Keyword)cDeclaredMethodNamesEnumLiteralDeclaration_26.eContents().get(0);
-		private final EnumLiteralDeclaration cDeclaredFieldNamesEnumLiteralDeclaration_27 = (EnumLiteralDeclaration)cAlternatives.eContents().get(27);
-		private final Keyword cDeclaredFieldNamesDeclaredFieldNamesKeyword_27_0 = (Keyword)cDeclaredFieldNamesEnumLiteralDeclaration_27.eContents().get(0);
-		private final EnumLiteralDeclaration cDeclaredFieldTypesEnumLiteralDeclaration_28 = (EnumLiteralDeclaration)cAlternatives.eContents().get(28);
-		private final Keyword cDeclaredFieldTypesDeclaredFieldTypesKeyword_28_0 = (Keyword)cDeclaredFieldTypesEnumLiteralDeclaration_28.eContents().get(0);
-		private final EnumLiteralDeclaration cAllDeclaredFieldNamesEnumLiteralDeclaration_29 = (EnumLiteralDeclaration)cAlternatives.eContents().get(29);
-		private final Keyword cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_29_0 = (Keyword)cAllDeclaredFieldNamesEnumLiteralDeclaration_29.eContents().get(0);
-		private final EnumLiteralDeclaration cFullTextEnumLiteralDeclaration_30 = (EnumLiteralDeclaration)cAlternatives.eContents().get(30);
-		private final Keyword cFullTextFullTextKeyword_30_0 = (Keyword)cFullTextEnumLiteralDeclaration_30.eContents().get(0);
-		private final EnumLiteralDeclaration cFieldsReadEnumLiteralDeclaration_31 = (EnumLiteralDeclaration)cAlternatives.eContents().get(31);
-		private final Keyword cFieldsReadFieldsReadKeyword_31_0 = (Keyword)cFieldsReadEnumLiteralDeclaration_31.eContents().get(0);
-		private final EnumLiteralDeclaration cFieldsWrittenEnumLiteralDeclaration_32 = (EnumLiteralDeclaration)cAlternatives.eContents().get(32);
-		private final Keyword cFieldsWrittenFieldsWrittenKeyword_32_0 = (Keyword)cFieldsWrittenEnumLiteralDeclaration_32.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedFieldsInFinallyEnumLiteralDeclaration_33 = (EnumLiteralDeclaration)cAlternatives.eContents().get(33);
-		private final Keyword cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_33_0 = (Keyword)cUsedFieldsInFinallyEnumLiteralDeclaration_33.eContents().get(0);
-		private final EnumLiteralDeclaration cUsedFieldsInTryEnumLiteralDeclaration_34 = (EnumLiteralDeclaration)cAlternatives.eContents().get(34);
-		private final Keyword cUsedFieldsInTryUsedFieldsInTryKeyword_34_0 = (Keyword)cUsedFieldsInTryEnumLiteralDeclaration_34.eContents().get(0);
-		private final EnumLiteralDeclaration cAnnotationsEnumLiteralDeclaration_35 = (EnumLiteralDeclaration)cAlternatives.eContents().get(35);
-		private final Keyword cAnnotationsAnnotationsKeyword_35_0 = (Keyword)cAnnotationsEnumLiteralDeclaration_35.eContents().get(0);
-		private final EnumLiteralDeclaration cInstanceofTypesEnumLiteralDeclaration_36 = (EnumLiteralDeclaration)cAlternatives.eContents().get(36);
-		private final Keyword cInstanceofTypesInstanceofTypesKeyword_36_0 = (Keyword)cInstanceofTypesEnumLiteralDeclaration_36.eContents().get(0);
-		
-		/// *
-		//	The following rules are generated. Do not modify. Modify source file instead.
-		// * / / *
-		//	End of generated rules.
-		// * / enum FieldName:
-		//	FullyQualifiedName | type | FriendlyName | ImplementedTypes | ExtendedTypes | DeclaredMethods | UsedTypes |
-		//	UsedTypesInTry | UsedTypesInFinally | ParameterTypes | ParameterCount | ReturnType | ReturnVariableEexpressions |
-		//	UsedMethods | UsedMethodsInTry | UsedMethodsInFinally | OverriddenMethods | AllImplementedTypes | AllExtendedTypes |
-		//	FieldType | DeclaringType | CaughtType | ProjectName | ResourcePath | Modifiers | AllDeclaredMethodNames |
-		//	DeclaredMethodNames | DeclaredFieldNames | DeclaredFieldTypes | AllDeclaredFieldNames | FullText | FieldsRead |
-		//	FieldsWritten | UsedFieldsInFinally | UsedFieldsInTry | Annotations | InstanceofTypes;
-		public EnumRule getRule() { return rule; }
-
-		//FullyQualifiedName | type | FriendlyName | ImplementedTypes | ExtendedTypes | DeclaredMethods | UsedTypes |
-		//UsedTypesInTry | UsedTypesInFinally | ParameterTypes | ParameterCount | ReturnType | ReturnVariableEexpressions |
-		//UsedMethods | UsedMethodsInTry | UsedMethodsInFinally | OverriddenMethods | AllImplementedTypes | AllExtendedTypes |
-		//FieldType | DeclaringType | CaughtType | ProjectName | ResourcePath | Modifiers | AllDeclaredMethodNames |
-		//DeclaredMethodNames | DeclaredFieldNames | DeclaredFieldTypes | AllDeclaredFieldNames | FullText | FieldsRead |
-		//FieldsWritten | UsedFieldsInFinally | UsedFieldsInTry | Annotations | InstanceofTypes
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//FullyQualifiedName
-		public EnumLiteralDeclaration getFullyQualifiedNameEnumLiteralDeclaration_0() { return cFullyQualifiedNameEnumLiteralDeclaration_0; }
-
-		//"FullyQualifiedName"
-		public Keyword getFullyQualifiedNameFullyQualifiedNameKeyword_0_0() { return cFullyQualifiedNameFullyQualifiedNameKeyword_0_0; }
-
-		//type
-		public EnumLiteralDeclaration getTypeEnumLiteralDeclaration_1() { return cTypeEnumLiteralDeclaration_1; }
-
-		//"type"
-		public Keyword getTypeTypeKeyword_1_0() { return cTypeTypeKeyword_1_0; }
-
-		//FriendlyName
-		public EnumLiteralDeclaration getFriendlyNameEnumLiteralDeclaration_2() { return cFriendlyNameEnumLiteralDeclaration_2; }
-
-		//"FriendlyName"
-		public Keyword getFriendlyNameFriendlyNameKeyword_2_0() { return cFriendlyNameFriendlyNameKeyword_2_0; }
-
-		//ImplementedTypes
-		public EnumLiteralDeclaration getImplementedTypesEnumLiteralDeclaration_3() { return cImplementedTypesEnumLiteralDeclaration_3; }
-
-		//"ImplementedTypes"
-		public Keyword getImplementedTypesImplementedTypesKeyword_3_0() { return cImplementedTypesImplementedTypesKeyword_3_0; }
-
-		//ExtendedTypes
-		public EnumLiteralDeclaration getExtendedTypesEnumLiteralDeclaration_4() { return cExtendedTypesEnumLiteralDeclaration_4; }
-
-		//"ExtendedTypes"
-		public Keyword getExtendedTypesExtendedTypesKeyword_4_0() { return cExtendedTypesExtendedTypesKeyword_4_0; }
-
-		//DeclaredMethods
-		public EnumLiteralDeclaration getDeclaredMethodsEnumLiteralDeclaration_5() { return cDeclaredMethodsEnumLiteralDeclaration_5; }
-
-		//"DeclaredMethods"
-		public Keyword getDeclaredMethodsDeclaredMethodsKeyword_5_0() { return cDeclaredMethodsDeclaredMethodsKeyword_5_0; }
-
-		//UsedTypes
-		public EnumLiteralDeclaration getUsedTypesEnumLiteralDeclaration_6() { return cUsedTypesEnumLiteralDeclaration_6; }
-
-		//"UsedTypes"
-		public Keyword getUsedTypesUsedTypesKeyword_6_0() { return cUsedTypesUsedTypesKeyword_6_0; }
-
-		//UsedTypesInTry
-		public EnumLiteralDeclaration getUsedTypesInTryEnumLiteralDeclaration_7() { return cUsedTypesInTryEnumLiteralDeclaration_7; }
-
-		//"UsedTypesInTry"
-		public Keyword getUsedTypesInTryUsedTypesInTryKeyword_7_0() { return cUsedTypesInTryUsedTypesInTryKeyword_7_0; }
-
-		//UsedTypesInFinally
-		public EnumLiteralDeclaration getUsedTypesInFinallyEnumLiteralDeclaration_8() { return cUsedTypesInFinallyEnumLiteralDeclaration_8; }
-
-		//"UsedTypesInFinally"
-		public Keyword getUsedTypesInFinallyUsedTypesInFinallyKeyword_8_0() { return cUsedTypesInFinallyUsedTypesInFinallyKeyword_8_0; }
-
-		//ParameterTypes
-		public EnumLiteralDeclaration getParameterTypesEnumLiteralDeclaration_9() { return cParameterTypesEnumLiteralDeclaration_9; }
-
-		//"ParameterTypes"
-		public Keyword getParameterTypesParameterTypesKeyword_9_0() { return cParameterTypesParameterTypesKeyword_9_0; }
-
-		//ParameterCount
-		public EnumLiteralDeclaration getParameterCountEnumLiteralDeclaration_10() { return cParameterCountEnumLiteralDeclaration_10; }
-
-		//"ParameterCount"
-		public Keyword getParameterCountParameterCountKeyword_10_0() { return cParameterCountParameterCountKeyword_10_0; }
-
-		//ReturnType
-		public EnumLiteralDeclaration getReturnTypeEnumLiteralDeclaration_11() { return cReturnTypeEnumLiteralDeclaration_11; }
-
-		//"ReturnType"
-		public Keyword getReturnTypeReturnTypeKeyword_11_0() { return cReturnTypeReturnTypeKeyword_11_0; }
-
-		//ReturnVariableEexpressions
-		public EnumLiteralDeclaration getReturnVariableEexpressionsEnumLiteralDeclaration_12() { return cReturnVariableEexpressionsEnumLiteralDeclaration_12; }
-
-		//"ReturnVariableEexpressions"
-		public Keyword getReturnVariableEexpressionsReturnVariableEexpressionsKeyword_12_0() { return cReturnVariableEexpressionsReturnVariableEexpressionsKeyword_12_0; }
-
-		//UsedMethods
-		public EnumLiteralDeclaration getUsedMethodsEnumLiteralDeclaration_13() { return cUsedMethodsEnumLiteralDeclaration_13; }
-
-		//"UsedMethods"
-		public Keyword getUsedMethodsUsedMethodsKeyword_13_0() { return cUsedMethodsUsedMethodsKeyword_13_0; }
-
-		//UsedMethodsInTry
-		public EnumLiteralDeclaration getUsedMethodsInTryEnumLiteralDeclaration_14() { return cUsedMethodsInTryEnumLiteralDeclaration_14; }
-
-		//"UsedMethodsInTry"
-		public Keyword getUsedMethodsInTryUsedMethodsInTryKeyword_14_0() { return cUsedMethodsInTryUsedMethodsInTryKeyword_14_0; }
-
-		//UsedMethodsInFinally
-		public EnumLiteralDeclaration getUsedMethodsInFinallyEnumLiteralDeclaration_15() { return cUsedMethodsInFinallyEnumLiteralDeclaration_15; }
-
-		//"UsedMethodsInFinally"
-		public Keyword getUsedMethodsInFinallyUsedMethodsInFinallyKeyword_15_0() { return cUsedMethodsInFinallyUsedMethodsInFinallyKeyword_15_0; }
-
-		//OverriddenMethods
-		public EnumLiteralDeclaration getOverriddenMethodsEnumLiteralDeclaration_16() { return cOverriddenMethodsEnumLiteralDeclaration_16; }
-
-		//"OverriddenMethods"
-		public Keyword getOverriddenMethodsOverriddenMethodsKeyword_16_0() { return cOverriddenMethodsOverriddenMethodsKeyword_16_0; }
-
-		//AllImplementedTypes
-		public EnumLiteralDeclaration getAllImplementedTypesEnumLiteralDeclaration_17() { return cAllImplementedTypesEnumLiteralDeclaration_17; }
-
-		//"AllImplementedTypes"
-		public Keyword getAllImplementedTypesAllImplementedTypesKeyword_17_0() { return cAllImplementedTypesAllImplementedTypesKeyword_17_0; }
-
-		//AllExtendedTypes
-		public EnumLiteralDeclaration getAllExtendedTypesEnumLiteralDeclaration_18() { return cAllExtendedTypesEnumLiteralDeclaration_18; }
-
-		//"AllExtendedTypes"
-		public Keyword getAllExtendedTypesAllExtendedTypesKeyword_18_0() { return cAllExtendedTypesAllExtendedTypesKeyword_18_0; }
-
-		//FieldType
-		public EnumLiteralDeclaration getFieldTypeEnumLiteralDeclaration_19() { return cFieldTypeEnumLiteralDeclaration_19; }
-
-		//"FieldType"
-		public Keyword getFieldTypeFieldTypeKeyword_19_0() { return cFieldTypeFieldTypeKeyword_19_0; }
-
-		//DeclaringType
-		public EnumLiteralDeclaration getDeclaringTypeEnumLiteralDeclaration_20() { return cDeclaringTypeEnumLiteralDeclaration_20; }
-
-		//"DeclaringType"
-		public Keyword getDeclaringTypeDeclaringTypeKeyword_20_0() { return cDeclaringTypeDeclaringTypeKeyword_20_0; }
-
-		//CaughtType
-		public EnumLiteralDeclaration getCaughtTypeEnumLiteralDeclaration_21() { return cCaughtTypeEnumLiteralDeclaration_21; }
-
-		//"CaughtType"
-		public Keyword getCaughtTypeCaughtTypeKeyword_21_0() { return cCaughtTypeCaughtTypeKeyword_21_0; }
-
-		//ProjectName
-		public EnumLiteralDeclaration getProjectNameEnumLiteralDeclaration_22() { return cProjectNameEnumLiteralDeclaration_22; }
-
-		//"ProjectName"
-		public Keyword getProjectNameProjectNameKeyword_22_0() { return cProjectNameProjectNameKeyword_22_0; }
-
-		//ResourcePath
-		public EnumLiteralDeclaration getResourcePathEnumLiteralDeclaration_23() { return cResourcePathEnumLiteralDeclaration_23; }
-
-		//"ResourcePath"
-		public Keyword getResourcePathResourcePathKeyword_23_0() { return cResourcePathResourcePathKeyword_23_0; }
-
-		//Modifiers
-		public EnumLiteralDeclaration getModifiersEnumLiteralDeclaration_24() { return cModifiersEnumLiteralDeclaration_24; }
-
-		//"Modifiers"
-		public Keyword getModifiersModifiersKeyword_24_0() { return cModifiersModifiersKeyword_24_0; }
-
-		//AllDeclaredMethodNames
-		public EnumLiteralDeclaration getAllDeclaredMethodNamesEnumLiteralDeclaration_25() { return cAllDeclaredMethodNamesEnumLiteralDeclaration_25; }
-
-		//"AllDeclaredMethodNames"
-		public Keyword getAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_25_0() { return cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_25_0; }
-
-		//DeclaredMethodNames
-		public EnumLiteralDeclaration getDeclaredMethodNamesEnumLiteralDeclaration_26() { return cDeclaredMethodNamesEnumLiteralDeclaration_26; }
-
-		//"DeclaredMethodNames"
-		public Keyword getDeclaredMethodNamesDeclaredMethodNamesKeyword_26_0() { return cDeclaredMethodNamesDeclaredMethodNamesKeyword_26_0; }
-
-		//DeclaredFieldNames
-		public EnumLiteralDeclaration getDeclaredFieldNamesEnumLiteralDeclaration_27() { return cDeclaredFieldNamesEnumLiteralDeclaration_27; }
-
-		//"DeclaredFieldNames"
-		public Keyword getDeclaredFieldNamesDeclaredFieldNamesKeyword_27_0() { return cDeclaredFieldNamesDeclaredFieldNamesKeyword_27_0; }
-
-		//DeclaredFieldTypes
-		public EnumLiteralDeclaration getDeclaredFieldTypesEnumLiteralDeclaration_28() { return cDeclaredFieldTypesEnumLiteralDeclaration_28; }
-
-		//"DeclaredFieldTypes"
-		public Keyword getDeclaredFieldTypesDeclaredFieldTypesKeyword_28_0() { return cDeclaredFieldTypesDeclaredFieldTypesKeyword_28_0; }
-
-		//AllDeclaredFieldNames
-		public EnumLiteralDeclaration getAllDeclaredFieldNamesEnumLiteralDeclaration_29() { return cAllDeclaredFieldNamesEnumLiteralDeclaration_29; }
-
-		//"AllDeclaredFieldNames"
-		public Keyword getAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_29_0() { return cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_29_0; }
-
-		//FullText
-		public EnumLiteralDeclaration getFullTextEnumLiteralDeclaration_30() { return cFullTextEnumLiteralDeclaration_30; }
-
-		//"FullText"
-		public Keyword getFullTextFullTextKeyword_30_0() { return cFullTextFullTextKeyword_30_0; }
-
-		//FieldsRead
-		public EnumLiteralDeclaration getFieldsReadEnumLiteralDeclaration_31() { return cFieldsReadEnumLiteralDeclaration_31; }
-
-		//"FieldsRead"
-		public Keyword getFieldsReadFieldsReadKeyword_31_0() { return cFieldsReadFieldsReadKeyword_31_0; }
-
-		//FieldsWritten
-		public EnumLiteralDeclaration getFieldsWrittenEnumLiteralDeclaration_32() { return cFieldsWrittenEnumLiteralDeclaration_32; }
-
-		//"FieldsWritten"
-		public Keyword getFieldsWrittenFieldsWrittenKeyword_32_0() { return cFieldsWrittenFieldsWrittenKeyword_32_0; }
-
-		//UsedFieldsInFinally
-		public EnumLiteralDeclaration getUsedFieldsInFinallyEnumLiteralDeclaration_33() { return cUsedFieldsInFinallyEnumLiteralDeclaration_33; }
-
-		//"UsedFieldsInFinally"
-		public Keyword getUsedFieldsInFinallyUsedFieldsInFinallyKeyword_33_0() { return cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_33_0; }
-
-		//UsedFieldsInTry
-		public EnumLiteralDeclaration getUsedFieldsInTryEnumLiteralDeclaration_34() { return cUsedFieldsInTryEnumLiteralDeclaration_34; }
-
-		//"UsedFieldsInTry"
-		public Keyword getUsedFieldsInTryUsedFieldsInTryKeyword_34_0() { return cUsedFieldsInTryUsedFieldsInTryKeyword_34_0; }
-
-		//Annotations
-		public EnumLiteralDeclaration getAnnotationsEnumLiteralDeclaration_35() { return cAnnotationsEnumLiteralDeclaration_35; }
-
-		//"Annotations"
-		public Keyword getAnnotationsAnnotationsKeyword_35_0() { return cAnnotationsAnnotationsKeyword_35_0; }
-
-		//InstanceofTypes
-		public EnumLiteralDeclaration getInstanceofTypesEnumLiteralDeclaration_36() { return cInstanceofTypesEnumLiteralDeclaration_36; }
-
-		//"InstanceofTypes"
-		public Keyword getInstanceofTypesInstanceofTypesKeyword_36_0() { return cInstanceofTypesInstanceofTypesKeyword_36_0; }
-	}
 	
 	private Exp1Elements pExp1;
 	private Exp2Elements pExp2;
 	private ClauseExpressionElements pClauseExpression;
-	private ClauseElements pClause;
+	private SimpleClauseElements pSimpleClause;
+	private TypeClauseElements pTypeClause;
 	private FieldValueElements pFieldValue;
+	private TypeTestElements pTypeTest;
 	private ValueElements pValue;
 	private BooleanExpElements unknownRuleBooleanExp;
 	private NotExpressionElements unknownRuleNotExpression;
-	private FieldNameElements unknownRuleFieldName;
+	private FieldNameElements pFieldName;
+	private TypeFieldNameElements pTypeFieldName;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -659,8 +791,17 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	/// * * 
+	//
 	// *   Query  ::= ( Clause )*
-	// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" ) 
+	//
+	// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
+	//
+	// * 	
+	//
+	// * 
+	//
+	// * Example: FriendlyName:(+"toString" -"toUpperCase") AND ReturnType:"Ljava/lang/String"
+	//
 	// * * / Exp1 returns Expression:
 	//	Exp2 ({Exp1.left=current} b=BooleanExp right=Exp2)*;
 	public Exp1Elements getExp1Access() {
@@ -682,11 +823,15 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	////	Query returns Expression: 
+	//
 	////		{Query}
+	//
 	////		clauseExpressions+=ClauseExpression*
+	//
 	////	;
+	//
 	//ClauseExpression:
-	//	clause=Clause;
+	//	clause=SimpleClause | clause=TypeClause;
 	public ClauseExpressionElements getClauseExpressionAccess() {
 		return (pClauseExpression != null) ? pClauseExpression : (pClauseExpression = new ClauseExpressionElements());
 	}
@@ -695,14 +840,24 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getClauseExpressionAccess().getRule();
 	}
 
-	//Clause:
+	//SimpleClause:
 	//	n=NotExpression? field=FieldName ":" value=FieldValue;
-	public ClauseElements getClauseAccess() {
-		return (pClause != null) ? pClause : (pClause = new ClauseElements());
+	public SimpleClauseElements getSimpleClauseAccess() {
+		return (pSimpleClause != null) ? pSimpleClause : (pSimpleClause = new SimpleClauseElements());
 	}
 	
-	public ParserRule getClauseRule() {
-		return getClauseAccess().getRule();
+	public ParserRule getSimpleClauseRule() {
+		return getSimpleClauseAccess().getRule();
+	}
+
+	//TypeClause:
+	//	n=NotExpression? field=TypeFieldName ":" value=TypeTest;
+	public TypeClauseElements getTypeClauseAccess() {
+		return (pTypeClause != null) ? pTypeClause : (pTypeClause = new TypeClauseElements());
+	}
+	
+	public ParserRule getTypeClauseRule() {
+		return getTypeClauseAccess().getRule();
 	}
 
 	//FieldValue:
@@ -713,6 +868,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getFieldValueRule() {
 		return getFieldValueAccess().getRule();
+	}
+
+	//TypeTest:
+	//	test1="test1" | test2="test2";
+	public TypeTestElements getTypeTestAccess() {
+		return (pTypeTest != null) ? pTypeTest : (pTypeTest = new TypeTestElements());
+	}
+	
+	public ParserRule getTypeTestRule() {
+		return getTypeTestAccess().getRule();
 	}
 
 	//Value:
@@ -746,22 +911,42 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	/// *
+	//
 	//	The following rules are generated. Do not modify. Modify source file instead.
-	// * / / *
-	//	End of generated rules.
-	// * / enum FieldName:
-	//	FullyQualifiedName | type | FriendlyName | ImplementedTypes | ExtendedTypes | DeclaredMethods | UsedTypes |
-	//	UsedTypesInTry | UsedTypesInFinally | ParameterTypes | ParameterCount | ReturnType | ReturnVariableEexpressions |
-	//	UsedMethods | UsedMethodsInTry | UsedMethodsInFinally | OverriddenMethods | AllImplementedTypes | AllExtendedTypes |
-	//	FieldType | DeclaringType | CaughtType | ProjectName | ResourcePath | Modifiers | AllDeclaredMethodNames |
-	//	DeclaredMethodNames | DeclaredFieldNames | DeclaredFieldTypes | AllDeclaredFieldNames | FullText | FieldsRead |
-	//	FieldsWritten | UsedFieldsInFinally | UsedFieldsInTry | Annotations | InstanceofTypes;
+	//
+	// * / FieldName:
+	//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
+	//	ParameterCount="ParameterCount" | ReturnVariableEexpressions="ReturnVariableEexpressions" | UsedMethods="UsedMethods"
+	//	| UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
+	//	OverriddenMethods="OverriddenMethods" | ProjectName="ProjectName" | ResourcePath="ResourcePath" |
+	//	Modifiers="Modifiers" | AllDeclaredMethodNames="AllDeclaredMethodNames" | DeclaredMethodNames="DeclaredMethodNames" |
+	//	DeclaredFieldNames="DeclaredFieldNames" | DeclaredFieldTypes="DeclaredFieldTypes" |
+	//	AllDeclaredFieldNames="AllDeclaredFieldNames" | FullText="FullText" | FieldsRead="FieldsRead" |
+	//	FieldsWritten="FieldsWritten" | UsedFieldsInFinally="UsedFieldsInFinally" | UsedFieldsInTry="UsedFieldsInTry" |
+	//	Annotations="Annotations" | Timestamp="Timestamp";
 	public FieldNameElements getFieldNameAccess() {
-		return (unknownRuleFieldName != null) ? unknownRuleFieldName : (unknownRuleFieldName = new FieldNameElements());
+		return (pFieldName != null) ? pFieldName : (pFieldName = new FieldNameElements());
 	}
 	
-	public EnumRule getFieldNameRule() {
+	public ParserRule getFieldNameRule() {
 		return getFieldNameAccess().getRule();
+	}
+
+	/// *
+	//
+	//	End of generated rules.
+	//
+	// * / TypeFieldName:
+	//	type="type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
+	//	UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
+	//	ReturnType="ReturnType" | AllImplementedTypes="AllImplementedTypes" | AllExtendedTypes="AllExtendedTypes" |
+	//	FieldType="FieldType" | DeclaringType="DeclaringType" | CaughtType="CaughtType" | InstanceofTypes="InstanceofTypes";
+	public TypeFieldNameElements getTypeFieldNameAccess() {
+		return (pTypeFieldName != null) ? pTypeFieldName : (pTypeFieldName = new TypeFieldNameElements());
+	}
+	
+	public ParserRule getTypeFieldNameRule() {
+		return getTypeFieldNameAccess().getRule();
 	}
 
 	//terminal ID:

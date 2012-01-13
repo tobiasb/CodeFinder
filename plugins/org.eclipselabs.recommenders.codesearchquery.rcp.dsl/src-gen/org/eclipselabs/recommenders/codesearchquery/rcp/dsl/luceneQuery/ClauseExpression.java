@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery;
 
@@ -34,12 +35,12 @@ public interface ClauseExpression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Clause</em>' containment reference.
-   * @see #setClause(Clause)
+   * @see #setClause(EObject)
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getClauseExpression_Clause()
    * @model containment="true"
    * @generated
    */
-  Clause getClause();
+  EObject getClause();
 
   /**
    * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getClause <em>Clause</em>}' containment reference.
@@ -49,6 +50,6 @@ public interface ClauseExpression extends EObject
    * @see #getClause()
    * @generated
    */
-  void setClause(Clause value);
+  void setClause(EObject value);
 
 } // ClauseExpression

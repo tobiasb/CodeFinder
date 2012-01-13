@@ -20,12 +20,27 @@ class LuceneFieldsGenerator implements IGenerator {
 	} 
 	
 	def compileXtextBaseClass(Model m) {
+		var first = false;
 		'''/*
 	The following rules are generated. Do not modify. Modify source file instead.
 */
 FieldName:
+	«first = true»
 	«FOR f : m.fields»
-	«if(m.fields.indexOf(f)>0){'| '}»	«f.value»='«f.value»'
+		«IF(!f.proposeType)»
+			«if(first){'| '}»	«f.value»='«f.value»'
+			«first = false»
+		«ENDIF»
+	«ENDFOR»
+;
+
+TypeFieldName:
+	«first = true»
+	«FOR f : m.fields»
+		«IF(f.proposeType)»
+			«if(first){'| '}»	«f.value»='«f.value»'
+			«first = false»
+		«ENDIF»
 	«ENDFOR»
 ;
 /*

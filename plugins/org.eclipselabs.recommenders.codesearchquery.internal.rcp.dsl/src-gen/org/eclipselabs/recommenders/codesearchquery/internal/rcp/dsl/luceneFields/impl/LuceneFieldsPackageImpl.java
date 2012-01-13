@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl;
 
@@ -185,9 +186,19 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getField_ProposeType()
+  {
+    return (EAttribute)fieldEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getField_Types()
   {
-    return (EReference)fieldEClass.getEStructuralFeatures().get(2);
+    return (EReference)fieldEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -278,6 +289,7 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
     fieldEClass = createEClass(FIELD);
     createEAttribute(fieldEClass, FIELD__NAME);
     createEAttribute(fieldEClass, FIELD__VALUE);
+    createEAttribute(fieldEClass, FIELD__PROPOSE_TYPE);
     createEReference(fieldEClass, FIELD__TYPES);
 
     fieldTypeEClass = createEClass(FIELD_TYPE);
@@ -326,6 +338,7 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getField_Value(), ecorePackage.getEString(), "value", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getField_ProposeType(), ecorePackage.getEBoolean(), "proposeType", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Types(), this.getFieldType(), null, "types", null, 0, -1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldTypeEClass, FieldType.class, "FieldType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

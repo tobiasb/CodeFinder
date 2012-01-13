@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl;
 
@@ -9,12 +10,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Clause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
 
@@ -41,7 +42,7 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * @generated
    * @ordered
    */
-  protected Clause clause;
+  protected EObject clause;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,7 +70,7 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public Clause getClause()
+  public EObject getClause()
   {
     return clause;
   }
@@ -79,9 +80,9 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetClause(Clause newClause, NotificationChain msgs)
+  public NotificationChain basicSetClause(EObject newClause, NotificationChain msgs)
   {
-    Clause oldClause = clause;
+    EObject oldClause = clause;
     clause = newClause;
     if (eNotificationRequired())
     {
@@ -96,7 +97,7 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClause(Clause newClause)
+  public void setClause(EObject newClause)
   {
     if (newClause != clause)
     {
@@ -155,7 +156,7 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE:
-        setClause((Clause)newValue);
+        setClause((EObject)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,7 +173,7 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
     switch (featureID)
     {
       case LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE:
-        setClause((Clause)null);
+        setClause((EObject)null);
         return;
     }
     super.eUnset(featureID);

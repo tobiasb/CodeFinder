@@ -1,0 +1,49 @@
+/*
+	The following rules are generated. Do not modify. Modify source file instead.
+*/
+FieldName:
+		FullyQualifiedName='FullyQualifiedName'
+	| 	FriendlyName='FriendlyName'
+	| 	DeclaredMethods='DeclaredMethods'
+	| 	ParameterCount='ParameterCount'
+	| 	ReturnVariableEexpressions='ReturnVariableEexpressions'
+	| 	UsedMethods='UsedMethods'
+	| 	UsedMethodsInTry='UsedMethodsInTry'
+	| 	UsedMethodsInFinally='UsedMethodsInFinally'
+	| 	OverriddenMethods='OverriddenMethods'
+	| 	ProjectName='ProjectName'
+	| 	ResourcePath='ResourcePath'
+	| 	Modifiers='Modifiers'
+	| 	AllDeclaredMethodNames='AllDeclaredMethodNames'
+	| 	DeclaredMethodNames='DeclaredMethodNames'
+	| 	DeclaredFieldNames='DeclaredFieldNames'
+	| 	DeclaredFieldTypes='DeclaredFieldTypes'
+	| 	AllDeclaredFieldNames='AllDeclaredFieldNames'
+	| 	FullText='FullText'
+	| 	FieldsRead='FieldsRead'
+	| 	FieldsWritten='FieldsWritten'
+	| 	UsedFieldsInFinally='UsedFieldsInFinally'
+	| 	UsedFieldsInTry='UsedFieldsInTry'
+	| 	Annotations='Annotations'
+	| 	Timestamp='Timestamp'
+;
+
+TypeFieldName:
+	| 	type='type'
+	| 	ImplementedTypes='ImplementedTypes'
+	| 	ExtendedTypes='ExtendedTypes'
+	| 	UsedTypes='UsedTypes'
+	| 	UsedTypesInTry='UsedTypesInTry'
+	| 	UsedTypesInFinally='UsedTypesInFinally'
+	| 	ParameterTypes='ParameterTypes'
+	| 	ReturnType='ReturnType'
+	| 	AllImplementedTypes='AllImplementedTypes'
+	| 	AllExtendedTypes='AllExtendedTypes'
+	| 	FieldType='FieldType'
+	| 	DeclaringType='DeclaringType'
+	| 	CaughtType='CaughtType'
+	| 	InstanceofTypes='InstanceofTypes'
+;
+/*
+	End of generated rules.
+*/

@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.util;
 
@@ -88,9 +89,29 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createClauseExpressionAdapter();
       }
       @Override
-      public Adapter caseClause(Clause object)
+      public Adapter caseSimpleClause(SimpleClause object)
       {
-        return createClauseAdapter();
+        return createSimpleClauseAdapter();
+      }
+      @Override
+      public Adapter caseTypeClause(TypeClause object)
+      {
+        return createTypeClauseAdapter();
+      }
+      @Override
+      public Adapter caseTypeTest(TypeTest object)
+      {
+        return createTypeTestAdapter();
+      }
+      @Override
+      public Adapter caseFieldName(FieldName object)
+      {
+        return createFieldNameAdapter();
+      }
+      @Override
+      public Adapter caseTypeFieldName(TypeFieldName object)
+      {
+        return createTypeFieldNameAdapter();
       }
       @Override
       public Adapter caseExp1(Exp1 object)
@@ -150,16 +171,76 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Clause <em>Clause</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause <em>Simple Clause</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Clause
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause
    * @generated
    */
-  public Adapter createClauseAdapter()
+  public Adapter createSimpleClauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause <em>Type Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause
+   * @generated
+   */
+  public Adapter createTypeClauseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest <em>Type Test</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest
+   * @generated
+   */
+  public Adapter createTypeTestAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName <em>Field Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName
+   * @generated
+   */
+  public Adapter createFieldNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName <em>Type Field Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName
+   * @generated
+   */
+  public Adapter createTypeFieldNameAdapter()
   {
     return null;
   }

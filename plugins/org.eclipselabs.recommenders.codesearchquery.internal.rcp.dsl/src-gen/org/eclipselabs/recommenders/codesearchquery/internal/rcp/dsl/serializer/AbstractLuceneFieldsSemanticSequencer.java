@@ -77,7 +77,7 @@ public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID value=STRING types+=FieldType types+=FieldType*)
+	 *     (name=ID value=STRING proposeType?='proposeType'? types+=FieldType types+=FieldType*)
 	 */
 	protected void sequence_Field(EObject context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

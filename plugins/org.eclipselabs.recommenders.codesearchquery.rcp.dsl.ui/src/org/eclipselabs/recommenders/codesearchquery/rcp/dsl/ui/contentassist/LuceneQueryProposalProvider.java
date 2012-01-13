@@ -3,10 +3,20 @@
 */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.AbstractLuceneQueryProposalProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProvider {
-
+@Override
+public void complete_TypeTest(EObject model, RuleCall ruleCall,
+	ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("context: " + context.getSelectedText() + " " + context.getPrefix());
+		// TODO Auto-generated method stub
+		super.complete_TypeTest(model, ruleCall, context, acceptor);
+	}
 }

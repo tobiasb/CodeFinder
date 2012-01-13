@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields;
 
@@ -134,13 +135,22 @@ public interface LuceneFieldsPackage extends EPackage
   int FIELD__VALUE = 1;
 
   /**
+   * The feature id for the '<em><b>Propose Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__PROPOSE_TYPE = 2;
+
+  /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD__TYPES = 2;
+  int FIELD__TYPES = 3;
 
   /**
    * The number of structural features of the '<em>Field</em>' class.
@@ -149,7 +159,7 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_FEATURE_COUNT = 3;
+  int FIELD_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl <em>Field Type</em>}' class.
@@ -281,6 +291,17 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    */
   EAttribute getField_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#isProposeType <em>Propose Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Propose Type</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#isProposeType()
+   * @see #getField()
+   * @generated
+   */
+  EAttribute getField_ProposeType();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#getTypes <em>Types</em>}'.
@@ -429,6 +450,14 @@ public interface LuceneFieldsPackage extends EPackage
      * @generated
      */
     EAttribute FIELD__VALUE = eINSTANCE.getField_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Propose Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD__PROPOSE_TYPE = eINSTANCE.getField_ProposeType();
 
     /**
      * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.

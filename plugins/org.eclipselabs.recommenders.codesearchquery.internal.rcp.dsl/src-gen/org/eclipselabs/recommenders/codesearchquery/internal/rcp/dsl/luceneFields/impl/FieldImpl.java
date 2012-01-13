@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl;
 
@@ -34,6 +35,7 @@ import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneField
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldImpl#isProposeType <em>Propose Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldImpl#getTypes <em>Types</em>}</li>
  * </ul>
  * </p>
@@ -81,6 +83,26 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @ordered
    */
   protected String value = VALUE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isProposeType() <em>Propose Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isProposeType()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean PROPOSE_TYPE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isProposeType() <em>Propose Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isProposeType()
+   * @generated
+   * @ordered
+   */
+  protected boolean proposeType = PROPOSE_TYPE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
@@ -164,6 +186,29 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isProposeType()
+  {
+    return proposeType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setProposeType(boolean newProposeType)
+  {
+    boolean oldProposeType = proposeType;
+    proposeType = newProposeType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD__PROPOSE_TYPE, oldProposeType, proposeType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<FieldType> getTypes()
   {
     if (types == null)
@@ -203,6 +248,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return getName();
       case LuceneFieldsPackage.FIELD__VALUE:
         return getValue();
+      case LuceneFieldsPackage.FIELD__PROPOSE_TYPE:
+        return isProposeType();
       case LuceneFieldsPackage.FIELD__TYPES:
         return getTypes();
     }
@@ -225,6 +272,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return;
       case LuceneFieldsPackage.FIELD__VALUE:
         setValue((String)newValue);
+        return;
+      case LuceneFieldsPackage.FIELD__PROPOSE_TYPE:
+        setProposeType((Boolean)newValue);
         return;
       case LuceneFieldsPackage.FIELD__TYPES:
         getTypes().clear();
@@ -250,6 +300,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
       case LuceneFieldsPackage.FIELD__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
+      case LuceneFieldsPackage.FIELD__PROPOSE_TYPE:
+        setProposeType(PROPOSE_TYPE_EDEFAULT);
+        return;
       case LuceneFieldsPackage.FIELD__TYPES:
         getTypes().clear();
         return;
@@ -271,6 +324,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case LuceneFieldsPackage.FIELD__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case LuceneFieldsPackage.FIELD__PROPOSE_TYPE:
+        return proposeType != PROPOSE_TYPE_EDEFAULT;
       case LuceneFieldsPackage.FIELD__TYPES:
         return types != null && !types.isEmpty();
     }
@@ -292,6 +347,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     result.append(name);
     result.append(", value: ");
     result.append(value);
+    result.append(", proposeType: ");
+    result.append(proposeType);
     result.append(')');
     return result.toString();
   }

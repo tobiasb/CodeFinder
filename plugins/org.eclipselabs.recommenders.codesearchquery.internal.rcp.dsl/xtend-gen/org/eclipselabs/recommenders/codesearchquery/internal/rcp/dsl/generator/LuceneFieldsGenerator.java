@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.BooleanExtensions;
 import org.eclipse.xtext.xbase.lib.IntegerExtensions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
@@ -34,47 +35,100 @@ public class LuceneFieldsGenerator implements IGenerator {
   }
   
   public CharSequence compileXtextBaseClass(final Model m) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("/*");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("The following rules are generated. Do not modify. Modify source file instead.");
-    _builder.newLine();
-    _builder.append("*/");
-    _builder.newLine();
-    _builder.append("FieldName:");
-    _builder.newLine();
+    CharSequence _xblockexpression = null;
     {
-      EList<Field> _fields = m.getFields();
-      for(final Field f : _fields) {
-        _builder.append("\t");
-        String _xifexpression = null;
-        EList<Field> _fields_1 = m.getFields();
-        int _indexOf = _fields_1.indexOf(f);
-        boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
-        if (_operator_greaterThan) {
-          _xifexpression = "| ";
+      boolean first = false;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("/*");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("The following rules are generated. Do not modify. Modify source file instead.");
+      _builder.newLine();
+      _builder.append("*/");
+      _builder.newLine();
+      _builder.append("FieldName:");
+      _builder.newLine();
+      _builder.append("\t");
+      boolean _first = first = true;
+      _builder.append(_first, "	");
+      _builder.newLineIfNotEmpty();
+      {
+        EList<Field> _fields = m.getFields();
+        for(final Field f : _fields) {
+          {
+            boolean _isProposeType = f.isProposeType();
+            boolean _operator_not = BooleanExtensions.operator_not(_isProposeType);
+            if (_operator_not) {
+              _builder.append("\t");
+              String _xifexpression = null;
+              if (first) {
+                _xifexpression = "| ";
+              }
+              _builder.append(_xifexpression, "	");
+              _builder.append("\t");
+              String _value = f.getValue();
+              _builder.append(_value, "	");
+              _builder.append("=\'");
+              String _value_1 = f.getValue();
+              _builder.append(_value_1, "	");
+              _builder.append("\'");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t");
+              boolean _first_1 = first = false;
+              _builder.append(_first_1, "	");
+              _builder.newLineIfNotEmpty();
+            }
+          }
         }
-        _builder.append(_xifexpression, "	");
-        _builder.append("\t");
-        String _value = f.getValue();
-        _builder.append(_value, "	");
-        _builder.append("=\'");
-        String _value_1 = f.getValue();
-        _builder.append(_value_1, "	");
-        _builder.append("\'");
-        _builder.newLineIfNotEmpty();
       }
+      _builder.append(";");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("TypeFieldName:");
+      _builder.newLine();
+      _builder.append("\t");
+      boolean _first_2 = first = true;
+      _builder.append(_first_2, "	");
+      _builder.newLineIfNotEmpty();
+      {
+        EList<Field> _fields_1 = m.getFields();
+        for(final Field f_1 : _fields_1) {
+          {
+            boolean _isProposeType_1 = f_1.isProposeType();
+            if (_isProposeType_1) {
+              _builder.append("\t");
+              String _xifexpression_1 = null;
+              if (first) {
+                _xifexpression_1 = "| ";
+              }
+              _builder.append(_xifexpression_1, "	");
+              _builder.append("\t");
+              String _value_2 = f_1.getValue();
+              _builder.append(_value_2, "	");
+              _builder.append("=\'");
+              String _value_3 = f_1.getValue();
+              _builder.append(_value_3, "	");
+              _builder.append("\'");
+              _builder.newLineIfNotEmpty();
+              _builder.append("\t");
+              boolean _first_3 = first = false;
+              _builder.append(_first_3, "	");
+              _builder.newLineIfNotEmpty();
+            }
+          }
+        }
+      }
+      _builder.append(";");
+      _builder.newLine();
+      _builder.append("/*");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("End of generated rules.");
+      _builder.newLine();
+      _builder.append("*/");
+      _xblockexpression = (_builder);
     }
-    _builder.append(";");
-    _builder.newLine();
-    _builder.append("/*");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("End of generated rules.");
-    _builder.newLine();
-    _builder.append("*/");
-    return _builder;
+    return _xblockexpression;
   }
   
   public CharSequence compileFieldsClass(final Model m) {

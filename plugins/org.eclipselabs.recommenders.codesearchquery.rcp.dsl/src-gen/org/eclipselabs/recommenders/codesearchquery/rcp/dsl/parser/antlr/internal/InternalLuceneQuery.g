@@ -207,12 +207,12 @@ ruleClauseExpression returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getClauseClauseParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getClauseSimpleClauseParserRuleCall_0_0()); 
 	    }
-		lv_clause_0_0=ruleClause		{
+		lv_clause_0_0=ruleSimpleClause		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -220,40 +220,59 @@ ruleClauseExpression returns [EObject current=null]
        			$current, 
        			"clause",
         		lv_clause_0_0, 
-        		"Clause");
+        		"SimpleClause");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getClauseTypeClauseParserRuleCall_1_0()); 
+	    }
+		lv_clause_1_0=ruleTypeClause		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"clause",
+        		lv_clause_1_0, 
+        		"TypeClause");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
 
 
 
-// Entry rule entryRuleClause
-entryRuleClause returns [EObject current=null] 
+// Entry rule entryRuleSimpleClause
+entryRuleSimpleClause returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getClauseRule()); }
-	 iv_ruleClause=ruleClause 
-	 { $current=$iv_ruleClause.current; } 
+	{ newCompositeNode(grammarAccess.getSimpleClauseRule()); }
+	 iv_ruleSimpleClause=ruleSimpleClause 
+	 { $current=$iv_ruleSimpleClause.current; } 
 	 EOF 
 ;
 
-// Rule Clause
-ruleClause returns [EObject current=null] 
+// Rule SimpleClause
+ruleSimpleClause returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseAccess().getNNotExpressionEnumRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getSimpleClauseAccess().getNNotExpressionEnumRuleCall_0_0()); 
 	    }
 		lv_n_0_0=ruleNotExpression		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getClauseRule());
+	            $current = createModelElementForParent(grammarAccess.getSimpleClauseRule());
 	        }
        		set(
        			$current, 
@@ -267,11 +286,11 @@ ruleClause returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseAccess().getFieldFieldNameEnumRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getSimpleClauseAccess().getFieldFieldNameParserRuleCall_1_0()); 
 	    }
 		lv_field_1_0=ruleFieldName		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getClauseRule());
+	            $current = createModelElementForParent(grammarAccess.getSimpleClauseRule());
 	        }
        		set(
        			$current, 
@@ -284,22 +303,101 @@ ruleClause returns [EObject current=null]
 )
 )	otherlv_2=':' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getClauseAccess().getColonKeyword_2());
+    	newLeafNode(otherlv_2, grammarAccess.getSimpleClauseAccess().getColonKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseAccess().getValueFieldValueParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getSimpleClauseAccess().getValueFieldValueParserRuleCall_3_0()); 
 	    }
 		lv_value_3_0=ruleFieldValue		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getClauseRule());
+	            $current = createModelElementForParent(grammarAccess.getSimpleClauseRule());
 	        }
        		set(
        			$current, 
        			"value",
         		lv_value_3_0, 
         		"FieldValue");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleTypeClause
+entryRuleTypeClause returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTypeClauseRule()); }
+	 iv_ruleTypeClause=ruleTypeClause 
+	 { $current=$iv_ruleTypeClause.current; } 
+	 EOF 
+;
+
+// Rule TypeClause
+ruleTypeClause returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeClauseAccess().getNNotExpressionEnumRuleCall_0_0()); 
+	    }
+		lv_n_0_0=ruleNotExpression		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeClauseRule());
+	        }
+       		set(
+       			$current, 
+       			"n",
+        		lv_n_0_0, 
+        		"NotExpression");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeClauseAccess().getFieldTypeFieldNameParserRuleCall_1_0()); 
+	    }
+		lv_field_1_0=ruleTypeFieldName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeClauseRule());
+	        }
+       		set(
+       			$current, 
+       			"field",
+        		lv_field_1_0, 
+        		"TypeFieldName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_2=':' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getTypeClauseAccess().getColonKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTypeClauseAccess().getValueTypeTestParserRuleCall_3_0()); 
+	    }
+		lv_value_3_0=ruleTypeTest		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTypeClauseRule());
+	        }
+       		set(
+       			$current, 
+       			"value",
+        		lv_value_3_0, 
+        		"TypeTest");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -367,6 +465,58 @@ ruleFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToke
 
 
 
+// Entry rule entryRuleTypeTest
+entryRuleTypeTest returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTypeTestRule()); }
+	 iv_ruleTypeTest=ruleTypeTest 
+	 { $current=$iv_ruleTypeTest.current; } 
+	 EOF 
+;
+
+// Rule TypeTest
+ruleTypeTest returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_test1_0_0=	'test1' 
+    {
+        newLeafNode(lv_test1_0_0, grammarAccess.getTypeTestAccess().getTest1Test1Keyword_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeTestRule());
+	        }
+       		setWithLastConsumed($current, "test1", lv_test1_0_0, "test1");
+	    }
+
+)
+)
+    |(
+(
+		lv_test2_1_0=	'test2' 
+    {
+        newLeafNode(lv_test2_1_0, grammarAccess.getTypeTestAccess().getTest2Test2Keyword_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeTestRule());
+	        }
+       		setWithLastConsumed($current, "test2", lv_test2_1_0, "test2");
+	    }
+
+)
+))
+;
+
+
+
+
+
 // Entry rule entryRuleValue
 entryRuleValue returns [String current=null] 
 	:
@@ -411,6 +561,654 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     }
 ))
     ;
+
+
+
+
+
+// Entry rule entryRuleFieldName
+entryRuleFieldName returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFieldNameRule()); }
+	 iv_ruleFieldName=ruleFieldName 
+	 { $current=$iv_ruleFieldName.current; } 
+	 EOF 
+;
+
+// Rule FieldName
+ruleFieldName returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_FullyQualifiedName_0_0=	'FullyQualifiedName' 
+    {
+        newLeafNode(lv_FullyQualifiedName_0_0, grammarAccess.getFieldNameAccess().getFullyQualifiedNameFullyQualifiedNameKeyword_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "FullyQualifiedName", lv_FullyQualifiedName_0_0, "FullyQualifiedName");
+	    }
+
+)
+)
+    |(
+(
+		lv_FriendlyName_1_0=	'FriendlyName' 
+    {
+        newLeafNode(lv_FriendlyName_1_0, grammarAccess.getFieldNameAccess().getFriendlyNameFriendlyNameKeyword_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "FriendlyName", lv_FriendlyName_1_0, "FriendlyName");
+	    }
+
+)
+)
+    |(
+(
+		lv_DeclaredMethods_2_0=	'DeclaredMethods' 
+    {
+        newLeafNode(lv_DeclaredMethods_2_0, grammarAccess.getFieldNameAccess().getDeclaredMethodsDeclaredMethodsKeyword_2_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "DeclaredMethods", lv_DeclaredMethods_2_0, "DeclaredMethods");
+	    }
+
+)
+)
+    |(
+(
+		lv_ParameterCount_3_0=	'ParameterCount' 
+    {
+        newLeafNode(lv_ParameterCount_3_0, grammarAccess.getFieldNameAccess().getParameterCountParameterCountKeyword_3_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ParameterCount", lv_ParameterCount_3_0, "ParameterCount");
+	    }
+
+)
+)
+    |(
+(
+		lv_ReturnVariableEexpressions_4_0=	'ReturnVariableEexpressions' 
+    {
+        newLeafNode(lv_ReturnVariableEexpressions_4_0, grammarAccess.getFieldNameAccess().getReturnVariableEexpressionsReturnVariableEexpressionsKeyword_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ReturnVariableEexpressions", lv_ReturnVariableEexpressions_4_0, "ReturnVariableEexpressions");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedMethods_5_0=	'UsedMethods' 
+    {
+        newLeafNode(lv_UsedMethods_5_0, grammarAccess.getFieldNameAccess().getUsedMethodsUsedMethodsKeyword_5_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedMethods", lv_UsedMethods_5_0, "UsedMethods");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedMethodsInTry_6_0=	'UsedMethodsInTry' 
+    {
+        newLeafNode(lv_UsedMethodsInTry_6_0, grammarAccess.getFieldNameAccess().getUsedMethodsInTryUsedMethodsInTryKeyword_6_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedMethodsInTry", lv_UsedMethodsInTry_6_0, "UsedMethodsInTry");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedMethodsInFinally_7_0=	'UsedMethodsInFinally' 
+    {
+        newLeafNode(lv_UsedMethodsInFinally_7_0, grammarAccess.getFieldNameAccess().getUsedMethodsInFinallyUsedMethodsInFinallyKeyword_7_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedMethodsInFinally", lv_UsedMethodsInFinally_7_0, "UsedMethodsInFinally");
+	    }
+
+)
+)
+    |(
+(
+		lv_OverriddenMethods_8_0=	'OverriddenMethods' 
+    {
+        newLeafNode(lv_OverriddenMethods_8_0, grammarAccess.getFieldNameAccess().getOverriddenMethodsOverriddenMethodsKeyword_8_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "OverriddenMethods", lv_OverriddenMethods_8_0, "OverriddenMethods");
+	    }
+
+)
+)
+    |(
+(
+		lv_ProjectName_9_0=	'ProjectName' 
+    {
+        newLeafNode(lv_ProjectName_9_0, grammarAccess.getFieldNameAccess().getProjectNameProjectNameKeyword_9_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ProjectName", lv_ProjectName_9_0, "ProjectName");
+	    }
+
+)
+)
+    |(
+(
+		lv_ResourcePath_10_0=	'ResourcePath' 
+    {
+        newLeafNode(lv_ResourcePath_10_0, grammarAccess.getFieldNameAccess().getResourcePathResourcePathKeyword_10_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ResourcePath", lv_ResourcePath_10_0, "ResourcePath");
+	    }
+
+)
+)
+    |(
+(
+		lv_Modifiers_11_0=	'Modifiers' 
+    {
+        newLeafNode(lv_Modifiers_11_0, grammarAccess.getFieldNameAccess().getModifiersModifiersKeyword_11_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "Modifiers", lv_Modifiers_11_0, "Modifiers");
+	    }
+
+)
+)
+    |(
+(
+		lv_AllDeclaredMethodNames_12_0=	'AllDeclaredMethodNames' 
+    {
+        newLeafNode(lv_AllDeclaredMethodNames_12_0, grammarAccess.getFieldNameAccess().getAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_12_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "AllDeclaredMethodNames", lv_AllDeclaredMethodNames_12_0, "AllDeclaredMethodNames");
+	    }
+
+)
+)
+    |(
+(
+		lv_DeclaredMethodNames_13_0=	'DeclaredMethodNames' 
+    {
+        newLeafNode(lv_DeclaredMethodNames_13_0, grammarAccess.getFieldNameAccess().getDeclaredMethodNamesDeclaredMethodNamesKeyword_13_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "DeclaredMethodNames", lv_DeclaredMethodNames_13_0, "DeclaredMethodNames");
+	    }
+
+)
+)
+    |(
+(
+		lv_DeclaredFieldNames_14_0=	'DeclaredFieldNames' 
+    {
+        newLeafNode(lv_DeclaredFieldNames_14_0, grammarAccess.getFieldNameAccess().getDeclaredFieldNamesDeclaredFieldNamesKeyword_14_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "DeclaredFieldNames", lv_DeclaredFieldNames_14_0, "DeclaredFieldNames");
+	    }
+
+)
+)
+    |(
+(
+		lv_DeclaredFieldTypes_15_0=	'DeclaredFieldTypes' 
+    {
+        newLeafNode(lv_DeclaredFieldTypes_15_0, grammarAccess.getFieldNameAccess().getDeclaredFieldTypesDeclaredFieldTypesKeyword_15_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "DeclaredFieldTypes", lv_DeclaredFieldTypes_15_0, "DeclaredFieldTypes");
+	    }
+
+)
+)
+    |(
+(
+		lv_AllDeclaredFieldNames_16_0=	'AllDeclaredFieldNames' 
+    {
+        newLeafNode(lv_AllDeclaredFieldNames_16_0, grammarAccess.getFieldNameAccess().getAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_16_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "AllDeclaredFieldNames", lv_AllDeclaredFieldNames_16_0, "AllDeclaredFieldNames");
+	    }
+
+)
+)
+    |(
+(
+		lv_FullText_17_0=	'FullText' 
+    {
+        newLeafNode(lv_FullText_17_0, grammarAccess.getFieldNameAccess().getFullTextFullTextKeyword_17_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "FullText", lv_FullText_17_0, "FullText");
+	    }
+
+)
+)
+    |(
+(
+		lv_FieldsRead_18_0=	'FieldsRead' 
+    {
+        newLeafNode(lv_FieldsRead_18_0, grammarAccess.getFieldNameAccess().getFieldsReadFieldsReadKeyword_18_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "FieldsRead", lv_FieldsRead_18_0, "FieldsRead");
+	    }
+
+)
+)
+    |(
+(
+		lv_FieldsWritten_19_0=	'FieldsWritten' 
+    {
+        newLeafNode(lv_FieldsWritten_19_0, grammarAccess.getFieldNameAccess().getFieldsWrittenFieldsWrittenKeyword_19_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "FieldsWritten", lv_FieldsWritten_19_0, "FieldsWritten");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedFieldsInFinally_20_0=	'UsedFieldsInFinally' 
+    {
+        newLeafNode(lv_UsedFieldsInFinally_20_0, grammarAccess.getFieldNameAccess().getUsedFieldsInFinallyUsedFieldsInFinallyKeyword_20_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedFieldsInFinally", lv_UsedFieldsInFinally_20_0, "UsedFieldsInFinally");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedFieldsInTry_21_0=	'UsedFieldsInTry' 
+    {
+        newLeafNode(lv_UsedFieldsInTry_21_0, grammarAccess.getFieldNameAccess().getUsedFieldsInTryUsedFieldsInTryKeyword_21_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedFieldsInTry", lv_UsedFieldsInTry_21_0, "UsedFieldsInTry");
+	    }
+
+)
+)
+    |(
+(
+		lv_Annotations_22_0=	'Annotations' 
+    {
+        newLeafNode(lv_Annotations_22_0, grammarAccess.getFieldNameAccess().getAnnotationsAnnotationsKeyword_22_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "Annotations", lv_Annotations_22_0, "Annotations");
+	    }
+
+)
+)
+    |(
+(
+		lv_Timestamp_23_0=	'Timestamp' 
+    {
+        newLeafNode(lv_Timestamp_23_0, grammarAccess.getFieldNameAccess().getTimestampTimestampKeyword_23_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "Timestamp", lv_Timestamp_23_0, "Timestamp");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleTypeFieldName
+entryRuleTypeFieldName returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTypeFieldNameRule()); }
+	 iv_ruleTypeFieldName=ruleTypeFieldName 
+	 { $current=$iv_ruleTypeFieldName.current; } 
+	 EOF 
+;
+
+// Rule TypeFieldName
+ruleTypeFieldName returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_type_0_0=	'type' 
+    {
+        newLeafNode(lv_type_0_0, grammarAccess.getTypeFieldNameAccess().getTypeTypeKeyword_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "type", lv_type_0_0, "type");
+	    }
+
+)
+)
+    |(
+(
+		lv_ImplementedTypes_1_0=	'ImplementedTypes' 
+    {
+        newLeafNode(lv_ImplementedTypes_1_0, grammarAccess.getTypeFieldNameAccess().getImplementedTypesImplementedTypesKeyword_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ImplementedTypes", lv_ImplementedTypes_1_0, "ImplementedTypes");
+	    }
+
+)
+)
+    |(
+(
+		lv_ExtendedTypes_2_0=	'ExtendedTypes' 
+    {
+        newLeafNode(lv_ExtendedTypes_2_0, grammarAccess.getTypeFieldNameAccess().getExtendedTypesExtendedTypesKeyword_2_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ExtendedTypes", lv_ExtendedTypes_2_0, "ExtendedTypes");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedTypes_3_0=	'UsedTypes' 
+    {
+        newLeafNode(lv_UsedTypes_3_0, grammarAccess.getTypeFieldNameAccess().getUsedTypesUsedTypesKeyword_3_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedTypes", lv_UsedTypes_3_0, "UsedTypes");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedTypesInTry_4_0=	'UsedTypesInTry' 
+    {
+        newLeafNode(lv_UsedTypesInTry_4_0, grammarAccess.getTypeFieldNameAccess().getUsedTypesInTryUsedTypesInTryKeyword_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedTypesInTry", lv_UsedTypesInTry_4_0, "UsedTypesInTry");
+	    }
+
+)
+)
+    |(
+(
+		lv_UsedTypesInFinally_5_0=	'UsedTypesInFinally' 
+    {
+        newLeafNode(lv_UsedTypesInFinally_5_0, grammarAccess.getTypeFieldNameAccess().getUsedTypesInFinallyUsedTypesInFinallyKeyword_5_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "UsedTypesInFinally", lv_UsedTypesInFinally_5_0, "UsedTypesInFinally");
+	    }
+
+)
+)
+    |(
+(
+		lv_ParameterTypes_6_0=	'ParameterTypes' 
+    {
+        newLeafNode(lv_ParameterTypes_6_0, grammarAccess.getTypeFieldNameAccess().getParameterTypesParameterTypesKeyword_6_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ParameterTypes", lv_ParameterTypes_6_0, "ParameterTypes");
+	    }
+
+)
+)
+    |(
+(
+		lv_ReturnType_7_0=	'ReturnType' 
+    {
+        newLeafNode(lv_ReturnType_7_0, grammarAccess.getTypeFieldNameAccess().getReturnTypeReturnTypeKeyword_7_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "ReturnType", lv_ReturnType_7_0, "ReturnType");
+	    }
+
+)
+)
+    |(
+(
+		lv_AllImplementedTypes_8_0=	'AllImplementedTypes' 
+    {
+        newLeafNode(lv_AllImplementedTypes_8_0, grammarAccess.getTypeFieldNameAccess().getAllImplementedTypesAllImplementedTypesKeyword_8_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "AllImplementedTypes", lv_AllImplementedTypes_8_0, "AllImplementedTypes");
+	    }
+
+)
+)
+    |(
+(
+		lv_AllExtendedTypes_9_0=	'AllExtendedTypes' 
+    {
+        newLeafNode(lv_AllExtendedTypes_9_0, grammarAccess.getTypeFieldNameAccess().getAllExtendedTypesAllExtendedTypesKeyword_9_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "AllExtendedTypes", lv_AllExtendedTypes_9_0, "AllExtendedTypes");
+	    }
+
+)
+)
+    |(
+(
+		lv_FieldType_10_0=	'FieldType' 
+    {
+        newLeafNode(lv_FieldType_10_0, grammarAccess.getTypeFieldNameAccess().getFieldTypeFieldTypeKeyword_10_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "FieldType", lv_FieldType_10_0, "FieldType");
+	    }
+
+)
+)
+    |(
+(
+		lv_DeclaringType_11_0=	'DeclaringType' 
+    {
+        newLeafNode(lv_DeclaringType_11_0, grammarAccess.getTypeFieldNameAccess().getDeclaringTypeDeclaringTypeKeyword_11_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "DeclaringType", lv_DeclaringType_11_0, "DeclaringType");
+	    }
+
+)
+)
+    |(
+(
+		lv_CaughtType_12_0=	'CaughtType' 
+    {
+        newLeafNode(lv_CaughtType_12_0, grammarAccess.getTypeFieldNameAccess().getCaughtTypeCaughtTypeKeyword_12_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "CaughtType", lv_CaughtType_12_0, "CaughtType");
+	    }
+
+)
+)
+    |(
+(
+		lv_InstanceofTypes_13_0=	'InstanceofTypes' 
+    {
+        newLeafNode(lv_InstanceofTypes_13_0, grammarAccess.getTypeFieldNameAccess().getInstanceofTypesInstanceofTypesKeyword_13_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
+	        }
+       		setWithLastConsumed($current, "InstanceofTypes", lv_InstanceofTypes_13_0, "InstanceofTypes");
+	    }
+
+)
+))
+;
 
 
 
@@ -467,235 +1265,6 @@ ruleNotExpression returns [Enumerator current=null]
 	{
         $current = grammarAccess.getNotExpressionAccess().getNot3EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_2, grammarAccess.getNotExpressionAccess().getNot3EnumLiteralDeclaration_2()); 
-    }
-));
-
-
-
-// Rule FieldName
-ruleFieldName returns [Enumerator current=null] 
-    @init { enterRule(); }
-    @after { leaveRule(); }:
-((	enumLiteral_0='FullyQualifiedName' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getFullyQualifiedNameEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getFieldNameAccess().getFullyQualifiedNameEnumLiteralDeclaration_0()); 
-    }
-)
-    |(	enumLiteral_1='type' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getTypeEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getFieldNameAccess().getTypeEnumLiteralDeclaration_1()); 
-    }
-)
-    |(	enumLiteral_2='FriendlyName' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getFriendlyNameEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getFieldNameAccess().getFriendlyNameEnumLiteralDeclaration_2()); 
-    }
-)
-    |(	enumLiteral_3='ImplementedTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getImplementedTypesEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_3, grammarAccess.getFieldNameAccess().getImplementedTypesEnumLiteralDeclaration_3()); 
-    }
-)
-    |(	enumLiteral_4='ExtendedTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getExtendedTypesEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_4, grammarAccess.getFieldNameAccess().getExtendedTypesEnumLiteralDeclaration_4()); 
-    }
-)
-    |(	enumLiteral_5='DeclaredMethods' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getDeclaredMethodsEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_5, grammarAccess.getFieldNameAccess().getDeclaredMethodsEnumLiteralDeclaration_5()); 
-    }
-)
-    |(	enumLiteral_6='UsedTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedTypesEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_6, grammarAccess.getFieldNameAccess().getUsedTypesEnumLiteralDeclaration_6()); 
-    }
-)
-    |(	enumLiteral_7='UsedTypesInTry' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedTypesInTryEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_7, grammarAccess.getFieldNameAccess().getUsedTypesInTryEnumLiteralDeclaration_7()); 
-    }
-)
-    |(	enumLiteral_8='UsedTypesInFinally' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedTypesInFinallyEnumLiteralDeclaration_8().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_8, grammarAccess.getFieldNameAccess().getUsedTypesInFinallyEnumLiteralDeclaration_8()); 
-    }
-)
-    |(	enumLiteral_9='ParameterTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getParameterTypesEnumLiteralDeclaration_9().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_9, grammarAccess.getFieldNameAccess().getParameterTypesEnumLiteralDeclaration_9()); 
-    }
-)
-    |(	enumLiteral_10='ParameterCount' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getParameterCountEnumLiteralDeclaration_10().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_10, grammarAccess.getFieldNameAccess().getParameterCountEnumLiteralDeclaration_10()); 
-    }
-)
-    |(	enumLiteral_11='ReturnType' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getReturnTypeEnumLiteralDeclaration_11().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_11, grammarAccess.getFieldNameAccess().getReturnTypeEnumLiteralDeclaration_11()); 
-    }
-)
-    |(	enumLiteral_12='ReturnVariableEexpressions' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getReturnVariableEexpressionsEnumLiteralDeclaration_12().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_12, grammarAccess.getFieldNameAccess().getReturnVariableEexpressionsEnumLiteralDeclaration_12()); 
-    }
-)
-    |(	enumLiteral_13='UsedMethods' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedMethodsEnumLiteralDeclaration_13().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_13, grammarAccess.getFieldNameAccess().getUsedMethodsEnumLiteralDeclaration_13()); 
-    }
-)
-    |(	enumLiteral_14='UsedMethodsInTry' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedMethodsInTryEnumLiteralDeclaration_14().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_14, grammarAccess.getFieldNameAccess().getUsedMethodsInTryEnumLiteralDeclaration_14()); 
-    }
-)
-    |(	enumLiteral_15='UsedMethodsInFinally' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedMethodsInFinallyEnumLiteralDeclaration_15().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_15, grammarAccess.getFieldNameAccess().getUsedMethodsInFinallyEnumLiteralDeclaration_15()); 
-    }
-)
-    |(	enumLiteral_16='OverriddenMethods' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getOverriddenMethodsEnumLiteralDeclaration_16().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_16, grammarAccess.getFieldNameAccess().getOverriddenMethodsEnumLiteralDeclaration_16()); 
-    }
-)
-    |(	enumLiteral_17='AllImplementedTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getAllImplementedTypesEnumLiteralDeclaration_17().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_17, grammarAccess.getFieldNameAccess().getAllImplementedTypesEnumLiteralDeclaration_17()); 
-    }
-)
-    |(	enumLiteral_18='AllExtendedTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getAllExtendedTypesEnumLiteralDeclaration_18().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_18, grammarAccess.getFieldNameAccess().getAllExtendedTypesEnumLiteralDeclaration_18()); 
-    }
-)
-    |(	enumLiteral_19='FieldType' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getFieldTypeEnumLiteralDeclaration_19().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_19, grammarAccess.getFieldNameAccess().getFieldTypeEnumLiteralDeclaration_19()); 
-    }
-)
-    |(	enumLiteral_20='DeclaringType' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getDeclaringTypeEnumLiteralDeclaration_20().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_20, grammarAccess.getFieldNameAccess().getDeclaringTypeEnumLiteralDeclaration_20()); 
-    }
-)
-    |(	enumLiteral_21='CaughtType' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getCaughtTypeEnumLiteralDeclaration_21().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_21, grammarAccess.getFieldNameAccess().getCaughtTypeEnumLiteralDeclaration_21()); 
-    }
-)
-    |(	enumLiteral_22='ProjectName' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getProjectNameEnumLiteralDeclaration_22().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_22, grammarAccess.getFieldNameAccess().getProjectNameEnumLiteralDeclaration_22()); 
-    }
-)
-    |(	enumLiteral_23='ResourcePath' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getResourcePathEnumLiteralDeclaration_23().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_23, grammarAccess.getFieldNameAccess().getResourcePathEnumLiteralDeclaration_23()); 
-    }
-)
-    |(	enumLiteral_24='Modifiers' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getModifiersEnumLiteralDeclaration_24().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_24, grammarAccess.getFieldNameAccess().getModifiersEnumLiteralDeclaration_24()); 
-    }
-)
-    |(	enumLiteral_25='AllDeclaredMethodNames' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getAllDeclaredMethodNamesEnumLiteralDeclaration_25().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_25, grammarAccess.getFieldNameAccess().getAllDeclaredMethodNamesEnumLiteralDeclaration_25()); 
-    }
-)
-    |(	enumLiteral_26='DeclaredMethodNames' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getDeclaredMethodNamesEnumLiteralDeclaration_26().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_26, grammarAccess.getFieldNameAccess().getDeclaredMethodNamesEnumLiteralDeclaration_26()); 
-    }
-)
-    |(	enumLiteral_27='DeclaredFieldNames' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getDeclaredFieldNamesEnumLiteralDeclaration_27().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_27, grammarAccess.getFieldNameAccess().getDeclaredFieldNamesEnumLiteralDeclaration_27()); 
-    }
-)
-    |(	enumLiteral_28='DeclaredFieldTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getDeclaredFieldTypesEnumLiteralDeclaration_28().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_28, grammarAccess.getFieldNameAccess().getDeclaredFieldTypesEnumLiteralDeclaration_28()); 
-    }
-)
-    |(	enumLiteral_29='AllDeclaredFieldNames' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getAllDeclaredFieldNamesEnumLiteralDeclaration_29().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_29, grammarAccess.getFieldNameAccess().getAllDeclaredFieldNamesEnumLiteralDeclaration_29()); 
-    }
-)
-    |(	enumLiteral_30='FullText' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getFullTextEnumLiteralDeclaration_30().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_30, grammarAccess.getFieldNameAccess().getFullTextEnumLiteralDeclaration_30()); 
-    }
-)
-    |(	enumLiteral_31='FieldsRead' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getFieldsReadEnumLiteralDeclaration_31().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_31, grammarAccess.getFieldNameAccess().getFieldsReadEnumLiteralDeclaration_31()); 
-    }
-)
-    |(	enumLiteral_32='FieldsWritten' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getFieldsWrittenEnumLiteralDeclaration_32().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_32, grammarAccess.getFieldNameAccess().getFieldsWrittenEnumLiteralDeclaration_32()); 
-    }
-)
-    |(	enumLiteral_33='UsedFieldsInFinally' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedFieldsInFinallyEnumLiteralDeclaration_33().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_33, grammarAccess.getFieldNameAccess().getUsedFieldsInFinallyEnumLiteralDeclaration_33()); 
-    }
-)
-    |(	enumLiteral_34='UsedFieldsInTry' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getUsedFieldsInTryEnumLiteralDeclaration_34().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_34, grammarAccess.getFieldNameAccess().getUsedFieldsInTryEnumLiteralDeclaration_34()); 
-    }
-)
-    |(	enumLiteral_35='Annotations' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getAnnotationsEnumLiteralDeclaration_35().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_35, grammarAccess.getFieldNameAccess().getAnnotationsEnumLiteralDeclaration_35()); 
-    }
-)
-    |(	enumLiteral_36='InstanceofTypes' 
-	{
-        $current = grammarAccess.getFieldNameAccess().getInstanceofTypesEnumLiteralDeclaration_36().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_36, grammarAccess.getFieldNameAccess().getInstanceofTypesEnumLiteralDeclaration_36()); 
     }
 ));
 

@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl;
 
@@ -14,7 +15,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BooleanExp;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Clause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Exp1;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Expression;
@@ -22,6 +22,10 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldNam
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryFactory;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,7 +54,35 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass clauseEClass = null;
+  private EClass simpleClauseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeClauseEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeTestEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fieldNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeFieldNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +104,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * @generated
    */
   private EEnum notExpressionEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum fieldNameEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -188,9 +213,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getClause()
+  public EClass getSimpleClause()
   {
-    return clauseEClass;
+    return simpleClauseEClass;
   }
 
   /**
@@ -198,9 +223,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClause_N()
+  public EAttribute getSimpleClause_N()
   {
-    return (EAttribute)clauseEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)simpleClauseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -208,9 +233,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClause_Field()
+  public EReference getSimpleClause_Field()
   {
-    return (EAttribute)clauseEClass.getEStructuralFeatures().get(1);
+    return (EReference)simpleClauseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -218,9 +243,479 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClause_Value()
+  public EAttribute getSimpleClause_Value()
   {
-    return (EAttribute)clauseEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)simpleClauseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeClause()
+  {
+    return typeClauseEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeClause_N()
+  {
+    return (EAttribute)typeClauseEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeClause_Field()
+  {
+    return (EReference)typeClauseEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeClause_Value()
+  {
+    return (EReference)typeClauseEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeTest()
+  {
+    return typeTestEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeTest_Test1()
+  {
+    return (EAttribute)typeTestEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeTest_Test2()
+  {
+    return (EAttribute)typeTestEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getFieldName()
+  {
+    return fieldNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_FullyQualifiedName()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_FriendlyName()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_DeclaredMethods()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_ParameterCount()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_ReturnVariableEexpressions()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_UsedMethods()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_UsedMethodsInTry()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_UsedMethodsInFinally()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_OverriddenMethods()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_ProjectName()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_ResourcePath()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_Modifiers()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_AllDeclaredMethodNames()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_DeclaredMethodNames()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(13);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_DeclaredFieldNames()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(14);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_DeclaredFieldTypes()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(15);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_AllDeclaredFieldNames()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(16);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_FullText()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(17);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_FieldsRead()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(18);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_FieldsWritten()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(19);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_UsedFieldsInFinally()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(20);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_UsedFieldsInTry()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(21);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_Annotations()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(22);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_Timestamp()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(23);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeFieldName()
+  {
+    return typeFieldNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_Type()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_ImplementedTypes()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_ExtendedTypes()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_UsedTypes()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_UsedTypesInTry()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_UsedTypesInFinally()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_ParameterTypes()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_ReturnType()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_AllImplementedTypes()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_AllExtendedTypes()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_FieldType()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_DeclaringType()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_CaughtType()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(12);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeFieldName_InstanceofTypes()
+  {
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(13);
   }
 
   /**
@@ -288,16 +783,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getFieldName()
-  {
-    return fieldNameEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public LuceneQueryFactory getLuceneQueryFactory()
   {
     return (LuceneQueryFactory)getEFactoryInstance();
@@ -329,10 +814,61 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     clauseExpressionEClass = createEClass(CLAUSE_EXPRESSION);
     createEReference(clauseExpressionEClass, CLAUSE_EXPRESSION__CLAUSE);
 
-    clauseEClass = createEClass(CLAUSE);
-    createEAttribute(clauseEClass, CLAUSE__N);
-    createEAttribute(clauseEClass, CLAUSE__FIELD);
-    createEAttribute(clauseEClass, CLAUSE__VALUE);
+    simpleClauseEClass = createEClass(SIMPLE_CLAUSE);
+    createEAttribute(simpleClauseEClass, SIMPLE_CLAUSE__N);
+    createEReference(simpleClauseEClass, SIMPLE_CLAUSE__FIELD);
+    createEAttribute(simpleClauseEClass, SIMPLE_CLAUSE__VALUE);
+
+    typeClauseEClass = createEClass(TYPE_CLAUSE);
+    createEAttribute(typeClauseEClass, TYPE_CLAUSE__N);
+    createEReference(typeClauseEClass, TYPE_CLAUSE__FIELD);
+    createEReference(typeClauseEClass, TYPE_CLAUSE__VALUE);
+
+    typeTestEClass = createEClass(TYPE_TEST);
+    createEAttribute(typeTestEClass, TYPE_TEST__TEST1);
+    createEAttribute(typeTestEClass, TYPE_TEST__TEST2);
+
+    fieldNameEClass = createEClass(FIELD_NAME);
+    createEAttribute(fieldNameEClass, FIELD_NAME__FULLY_QUALIFIED_NAME);
+    createEAttribute(fieldNameEClass, FIELD_NAME__FRIENDLY_NAME);
+    createEAttribute(fieldNameEClass, FIELD_NAME__DECLARED_METHODS);
+    createEAttribute(fieldNameEClass, FIELD_NAME__PARAMETER_COUNT);
+    createEAttribute(fieldNameEClass, FIELD_NAME__RETURN_VARIABLE_EEXPRESSIONS);
+    createEAttribute(fieldNameEClass, FIELD_NAME__USED_METHODS);
+    createEAttribute(fieldNameEClass, FIELD_NAME__USED_METHODS_IN_TRY);
+    createEAttribute(fieldNameEClass, FIELD_NAME__USED_METHODS_IN_FINALLY);
+    createEAttribute(fieldNameEClass, FIELD_NAME__OVERRIDDEN_METHODS);
+    createEAttribute(fieldNameEClass, FIELD_NAME__PROJECT_NAME);
+    createEAttribute(fieldNameEClass, FIELD_NAME__RESOURCE_PATH);
+    createEAttribute(fieldNameEClass, FIELD_NAME__MODIFIERS);
+    createEAttribute(fieldNameEClass, FIELD_NAME__ALL_DECLARED_METHOD_NAMES);
+    createEAttribute(fieldNameEClass, FIELD_NAME__DECLARED_METHOD_NAMES);
+    createEAttribute(fieldNameEClass, FIELD_NAME__DECLARED_FIELD_NAMES);
+    createEAttribute(fieldNameEClass, FIELD_NAME__DECLARED_FIELD_TYPES);
+    createEAttribute(fieldNameEClass, FIELD_NAME__ALL_DECLARED_FIELD_NAMES);
+    createEAttribute(fieldNameEClass, FIELD_NAME__FULL_TEXT);
+    createEAttribute(fieldNameEClass, FIELD_NAME__FIELDS_READ);
+    createEAttribute(fieldNameEClass, FIELD_NAME__FIELDS_WRITTEN);
+    createEAttribute(fieldNameEClass, FIELD_NAME__USED_FIELDS_IN_FINALLY);
+    createEAttribute(fieldNameEClass, FIELD_NAME__USED_FIELDS_IN_TRY);
+    createEAttribute(fieldNameEClass, FIELD_NAME__ANNOTATIONS);
+    createEAttribute(fieldNameEClass, FIELD_NAME__TIMESTAMP);
+
+    typeFieldNameEClass = createEClass(TYPE_FIELD_NAME);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__TYPE);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__IMPLEMENTED_TYPES);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__EXTENDED_TYPES);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__USED_TYPES);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__USED_TYPES_IN_TRY);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__USED_TYPES_IN_FINALLY);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__PARAMETER_TYPES);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__RETURN_TYPE);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__ALL_IMPLEMENTED_TYPES);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__ALL_EXTENDED_TYPES);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__FIELD_TYPE);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__DECLARING_TYPE);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__CAUGHT_TYPE);
+    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__INSTANCEOF_TYPES);
 
     exp1EClass = createEClass(EXP1);
     createEReference(exp1EClass, EXP1__LEFT);
@@ -342,7 +878,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     // Create enums
     booleanExpEEnum = createEEnum(BOOLEAN_EXP);
     notExpressionEEnum = createEEnum(NOT_EXPRESSION);
-    fieldNameEEnum = createEEnum(FIELD_NAME);
   }
 
   /**
@@ -381,12 +916,63 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEReference(getExpression_Value(), this.getClauseExpression(), null, "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clauseExpressionEClass, ClauseExpression.class, "ClauseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getClauseExpression_Clause(), this.getClause(), null, "clause", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getClauseExpression_Clause(), ecorePackage.getEObject(), null, "clause", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(clauseEClass, Clause.class, "Clause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getClause_N(), this.getNotExpression(), "n", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClause_Field(), this.getFieldName(), "field", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClause_Value(), ecorePackage.getEString(), "value", null, 0, 1, Clause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(simpleClauseEClass, SimpleClause.class, "SimpleClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleClause_N(), this.getNotExpression(), "n", null, 0, 1, SimpleClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSimpleClause_Field(), this.getFieldName(), null, "field", null, 0, 1, SimpleClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSimpleClause_Value(), ecorePackage.getEString(), "value", null, 0, 1, SimpleClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeClauseEClass, TypeClause.class, "TypeClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypeClause_N(), this.getNotExpression(), "n", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeClause_Field(), this.getTypeFieldName(), null, "field", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeClause_Value(), this.getTypeTest(), null, "value", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeTestEClass, TypeTest.class, "TypeTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypeTest_Test1(), ecorePackage.getEString(), "test1", null, 0, 1, TypeTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeTest_Test2(), ecorePackage.getEString(), "test2", null, 0, 1, TypeTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fieldNameEClass, FieldName.class, "FieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFieldName_FullyQualifiedName(), ecorePackage.getEString(), "FullyQualifiedName", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_FriendlyName(), ecorePackage.getEString(), "FriendlyName", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_DeclaredMethods(), ecorePackage.getEString(), "DeclaredMethods", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_ParameterCount(), ecorePackage.getEString(), "ParameterCount", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_ReturnVariableEexpressions(), ecorePackage.getEString(), "ReturnVariableEexpressions", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_UsedMethods(), ecorePackage.getEString(), "UsedMethods", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_UsedMethodsInTry(), ecorePackage.getEString(), "UsedMethodsInTry", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_UsedMethodsInFinally(), ecorePackage.getEString(), "UsedMethodsInFinally", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_OverriddenMethods(), ecorePackage.getEString(), "OverriddenMethods", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_ProjectName(), ecorePackage.getEString(), "ProjectName", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_ResourcePath(), ecorePackage.getEString(), "ResourcePath", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_Modifiers(), ecorePackage.getEString(), "Modifiers", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_AllDeclaredMethodNames(), ecorePackage.getEString(), "AllDeclaredMethodNames", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_DeclaredMethodNames(), ecorePackage.getEString(), "DeclaredMethodNames", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_DeclaredFieldNames(), ecorePackage.getEString(), "DeclaredFieldNames", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_DeclaredFieldTypes(), ecorePackage.getEString(), "DeclaredFieldTypes", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_AllDeclaredFieldNames(), ecorePackage.getEString(), "AllDeclaredFieldNames", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_FullText(), ecorePackage.getEString(), "FullText", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_FieldsRead(), ecorePackage.getEString(), "FieldsRead", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_FieldsWritten(), ecorePackage.getEString(), "FieldsWritten", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_UsedFieldsInFinally(), ecorePackage.getEString(), "UsedFieldsInFinally", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_UsedFieldsInTry(), ecorePackage.getEString(), "UsedFieldsInTry", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_Annotations(), ecorePackage.getEString(), "Annotations", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_Timestamp(), ecorePackage.getEString(), "Timestamp", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(typeFieldNameEClass, TypeFieldName.class, "TypeFieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getTypeFieldName_Type(), ecorePackage.getEString(), "type", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_ImplementedTypes(), ecorePackage.getEString(), "ImplementedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_ExtendedTypes(), ecorePackage.getEString(), "ExtendedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_UsedTypes(), ecorePackage.getEString(), "UsedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_UsedTypesInTry(), ecorePackage.getEString(), "UsedTypesInTry", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_UsedTypesInFinally(), ecorePackage.getEString(), "UsedTypesInFinally", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_ParameterTypes(), ecorePackage.getEString(), "ParameterTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_ReturnType(), ecorePackage.getEString(), "ReturnType", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_AllImplementedTypes(), ecorePackage.getEString(), "AllImplementedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_AllExtendedTypes(), ecorePackage.getEString(), "AllExtendedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_FieldType(), ecorePackage.getEString(), "FieldType", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_DeclaringType(), ecorePackage.getEString(), "DeclaringType", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_CaughtType(), ecorePackage.getEString(), "CaughtType", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_InstanceofTypes(), ecorePackage.getEString(), "InstanceofTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exp1EClass, Exp1.class, "Exp1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExp1_Left(), this.getExpression(), null, "left", null, 0, 1, Exp1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -404,45 +990,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     addEEnumLiteral(notExpressionEEnum, NotExpression.NOT1);
     addEEnumLiteral(notExpressionEEnum, NotExpression.NOT2);
     addEEnumLiteral(notExpressionEEnum, NotExpression.NOT3);
-
-    initEEnum(fieldNameEEnum, FieldName.class, "FieldName");
-    addEEnumLiteral(fieldNameEEnum, FieldName.FULLY_QUALIFIED_NAME);
-    addEEnumLiteral(fieldNameEEnum, FieldName.TYPE);
-    addEEnumLiteral(fieldNameEEnum, FieldName.FRIENDLY_NAME);
-    addEEnumLiteral(fieldNameEEnum, FieldName.IMPLEMENTED_TYPES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.EXTENDED_TYPES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.DECLARED_METHODS);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_TYPES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_TYPES_IN_TRY);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_TYPES_IN_FINALLY);
-    addEEnumLiteral(fieldNameEEnum, FieldName.PARAMETER_TYPES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.PARAMETER_COUNT);
-    addEEnumLiteral(fieldNameEEnum, FieldName.RETURN_TYPE);
-    addEEnumLiteral(fieldNameEEnum, FieldName.RETURN_VARIABLE_EEXPRESSIONS);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_METHODS);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_METHODS_IN_TRY);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_METHODS_IN_FINALLY);
-    addEEnumLiteral(fieldNameEEnum, FieldName.OVERRIDDEN_METHODS);
-    addEEnumLiteral(fieldNameEEnum, FieldName.ALL_IMPLEMENTED_TYPES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.ALL_EXTENDED_TYPES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.FIELD_TYPE);
-    addEEnumLiteral(fieldNameEEnum, FieldName.DECLARING_TYPE);
-    addEEnumLiteral(fieldNameEEnum, FieldName.CAUGHT_TYPE);
-    addEEnumLiteral(fieldNameEEnum, FieldName.PROJECT_NAME);
-    addEEnumLiteral(fieldNameEEnum, FieldName.RESOURCE_PATH);
-    addEEnumLiteral(fieldNameEEnum, FieldName.MODIFIERS);
-    addEEnumLiteral(fieldNameEEnum, FieldName.ALL_DECLARED_METHOD_NAMES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.DECLARED_METHOD_NAMES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.DECLARED_FIELD_NAMES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.DECLARED_FIELD_TYPES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.ALL_DECLARED_FIELD_NAMES);
-    addEEnumLiteral(fieldNameEEnum, FieldName.FULL_TEXT);
-    addEEnumLiteral(fieldNameEEnum, FieldName.FIELDS_READ);
-    addEEnumLiteral(fieldNameEEnum, FieldName.FIELDS_WRITTEN);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_FIELDS_IN_FINALLY);
-    addEEnumLiteral(fieldNameEEnum, FieldName.USED_FIELDS_IN_TRY);
-    addEEnumLiteral(fieldNameEEnum, FieldName.ANNOTATIONS);
-    addEEnumLiteral(fieldNameEEnum, FieldName.INSTANCEOF_TYPES);
 
     // Create resource
     createResource(eNS_URI);

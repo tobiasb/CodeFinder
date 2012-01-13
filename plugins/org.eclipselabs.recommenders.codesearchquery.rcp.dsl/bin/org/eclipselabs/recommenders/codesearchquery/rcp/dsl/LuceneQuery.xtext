@@ -26,15 +26,23 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 //	;
 	
 	ClauseExpression:
-		clause=Clause
+		clause=SimpleClause | clause=TypeClause
 	;
 	
-	Clause:
+	SimpleClause:
 		(n=NotExpression)? field=FieldName ':' value=FieldValue
+	;
+	
+	TypeClause:
+		(n=NotExpression)? field=TypeFieldName ':' value=TypeTest
 	;
 	
 	FieldValue:
 		Value | '(' Value* ')'
+	;
+	
+	TypeTest:
+		test1='test1' | test2='test2'
 	;
 	
 	Value:
@@ -52,30 +60,16 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 /*
 	The following rules are generated. Do not modify. Modify source file instead.
 */
-
-enum FieldName:
+FieldName:
 		FullyQualifiedName='FullyQualifiedName'
-	| 	type='type'
 	| 	FriendlyName='FriendlyName'
-	| 	ImplementedTypes='ImplementedTypes'
-	| 	ExtendedTypes='ExtendedTypes'
 	| 	DeclaredMethods='DeclaredMethods'
-	| 	UsedTypes='UsedTypes'
-	| 	UsedTypesInTry='UsedTypesInTry'
-	| 	UsedTypesInFinally='UsedTypesInFinally'
-	| 	ParameterTypes='ParameterTypes'
 	| 	ParameterCount='ParameterCount'
-	| 	ReturnType='ReturnType'
 	| 	ReturnVariableEexpressions='ReturnVariableEexpressions'
 	| 	UsedMethods='UsedMethods'
 	| 	UsedMethodsInTry='UsedMethodsInTry'
 	| 	UsedMethodsInFinally='UsedMethodsInFinally'
 	| 	OverriddenMethods='OverriddenMethods'
-	| 	AllImplementedTypes='AllImplementedTypes'
-	| 	AllExtendedTypes='AllExtendedTypes'
-	| 	FieldType='FieldType'
-	| 	DeclaringType='DeclaringType'
-	| 	CaughtType='CaughtType'
 	| 	ProjectName='ProjectName'
 	| 	ResourcePath='ResourcePath'
 	| 	Modifiers='Modifiers'
@@ -90,6 +84,23 @@ enum FieldName:
 	| 	UsedFieldsInFinally='UsedFieldsInFinally'
 	| 	UsedFieldsInTry='UsedFieldsInTry'
 	| 	Annotations='Annotations'
+	| 	Timestamp='Timestamp'
+;
+
+TypeFieldName:
+	type='type'
+	| 	ImplementedTypes='ImplementedTypes'
+	| 	ExtendedTypes='ExtendedTypes'
+	| 	UsedTypes='UsedTypes'
+	| 	UsedTypesInTry='UsedTypesInTry'
+	| 	UsedTypesInFinally='UsedTypesInFinally'
+	| 	ParameterTypes='ParameterTypes'
+	| 	ReturnType='ReturnType'
+	| 	AllImplementedTypes='AllImplementedTypes'
+	| 	AllExtendedTypes='AllExtendedTypes'
+	| 	FieldType='FieldType'
+	| 	DeclaringType='DeclaringType'
+	| 	CaughtType='CaughtType'
 	| 	InstanceofTypes='InstanceofTypes'
 ;
 /*
