@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -2185,9 +2186,10 @@ public class TestGeneralScenarios extends TestBase {
       LuceneIndex index = _exercise;
       List<Document> _documents = index.getDocuments();
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
       Date _date = new Date();
-      String _string = _date.toString();
-      String _substring = _string.substring(0, 13);
+      String _format = _dateFormat.format(_date);
+      String _substring = _format.substring(0, 10);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -2216,9 +2218,10 @@ public class TestGeneralScenarios extends TestBase {
       LuceneIndex index = _exercise;
       List<Document> _documents = index.getDocuments();
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
       Date _date = new Date();
-      String _string = _date.toString();
-      String _substring = _string.substring(0, 13);
+      String _format = _dateFormat.format(_date);
+      String _substring = _format.substring(0, 10);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -2244,9 +2247,10 @@ public class TestGeneralScenarios extends TestBase {
       LuceneIndex index = _exercise;
       List<Document> _documents = index.getDocuments();
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
+      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
       Date _date = new Date();
-      String _string = _date.toString();
-      String _substring = _string.substring(0, 13);
+      String _format = _dateFormat.format(_date);
+      String _substring = _format.substring(0, 10);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -2287,9 +2291,10 @@ public class TestGeneralScenarios extends TestBase {
       LuceneIndex index = _exercise;
       List<Document> _documents = index.getDocuments();
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
       Date _date = new Date();
-      String _string = _date.toString();
-      String _substring = _string.substring(0, 13);
+      String _format = _dateFormat.format(_date);
+      String _substring = _format.substring(0, 10);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));

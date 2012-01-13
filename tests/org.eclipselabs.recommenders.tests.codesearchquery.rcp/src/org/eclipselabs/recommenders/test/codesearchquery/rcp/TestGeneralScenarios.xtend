@@ -1289,7 +1289,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
+			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))
 	}
 	
@@ -1306,7 +1306,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
+			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))
 	}
 	
@@ -1322,7 +1322,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
-			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
+			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))
 	}
 	
@@ -1343,7 +1343,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index.documents, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::TIMESTAMP, new Date().toString.substring(0, 13))
+			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))
 	}
 }
