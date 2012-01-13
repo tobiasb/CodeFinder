@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
+import java.util.Date
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer
@@ -15,14 +16,13 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.InstanceOfIndexe
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ModifiersIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.TimestampIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFinallyIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.TimestampIndexer
-import java.util.Date
 
 class TestGeneralScenarios extends TestBase {
 
