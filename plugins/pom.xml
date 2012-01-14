@@ -12,10 +12,12 @@
 	</parent>
 	
 	<modules>
+		<module>org.eclipselabs.recommenders.codesearchquery</module>
 		<module>org.eclipselabs.recommenders.codesearchquery.rcp</module>
 		<module>org.eclipselabs.recommenders.codesearchquery.rcp.dsl</module>
 		<module>org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui</module>
 		<module>org.eclipselabs.recommenders.codesearchquery.rcp.indexer</module>
+		<module>org.eclipselabs.recommenders.codesearchquery.rcp.searcher</module>
 	</modules>
   
   	<profiles>

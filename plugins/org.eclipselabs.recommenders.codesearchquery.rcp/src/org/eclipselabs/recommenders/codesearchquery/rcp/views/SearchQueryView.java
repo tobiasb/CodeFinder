@@ -63,7 +63,7 @@ public class SearchQueryView extends ViewPart {
     protected Button triggerSearchButton;
     protected Text searchQueryText;
     protected TableViewer searchResultTable;
-    private final String newLine = System.getProperty("line.separator");
+//    private final String newLine = System.getProperty("line.separator");
     private CodeSearcher codeSearcher;
     
     public SearchQueryView() {
