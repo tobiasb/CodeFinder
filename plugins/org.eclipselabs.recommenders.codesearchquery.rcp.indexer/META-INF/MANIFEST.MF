@@ -15,10 +15,10 @@ Require-Bundle: org.eclipse.jface,
  org.eclipse.recommenders.utils,
  org.eclipse.recommenders.utils.rcp,
  org.eclipse.recommenders.injection,
- org.eclipse.recommenders.rcp
+ org.eclipse.recommenders.rcp,
+ org.eclipselabs.recommenders.codesearchquery;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.indexer,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces,
- org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor

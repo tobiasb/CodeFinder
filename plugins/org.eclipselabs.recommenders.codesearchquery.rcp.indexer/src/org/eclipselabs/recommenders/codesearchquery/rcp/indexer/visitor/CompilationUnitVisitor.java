@@ -18,6 +18,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedIn
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CaughtTypeIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodNamesIndexer;
@@ -54,13 +55,12 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
 
 import com.google.common.collect.Lists;
 
 public class CompilationUnitVisitor extends ASTVisitor {
 
-	private LuceneIndex index = null;
+	private CodeIndexer index = null;
 	private List<IIndexer> indexer;
 	
 	public void addIndexer(IIndexer indexer) {
@@ -71,7 +71,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
 		this.indexer.addAll(indexer);
 	}
 
-	public CompilationUnitVisitor(LuceneIndex index) {
+	public CompilationUnitVisitor(CodeIndexer index) {
 		this.index = index;
 		
 		indexer = Lists.newArrayList();		

@@ -7,8 +7,8 @@ import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
+import org.eclipselabs.recommenders.codesearchquery.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
@@ -18,8 +18,8 @@ public class CodesearchQueryModule extends AbstractModule {
 
     public static Injector injector = Guice.createInjector(new CodesearchQueryModule());
     
-    public static LuceneIndex getIndex() {
-        return injector.getInstance(LuceneIndex.class);
+    public static CodeIndexer getIndex() {
+        return injector.getInstance(CodeIndexer.class);
     }
     
     @Override

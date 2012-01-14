@@ -4,6 +4,9 @@ Bundle-Name: Codesearchquery
 Bundle-SymbolicName: org.eclipselabs.recommenders.codesearchquery
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.Activator
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ org.apache.lucene;bundle-version="2.9.1",
+ org.apache.lucene.analysis;bundle-version="2.9.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipselabs.recommenders.codesearchquery

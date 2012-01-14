@@ -30,8 +30,7 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Activator;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer;
 
 import com.google.common.collect.Lists;
 
@@ -64,7 +63,7 @@ public class IndexAction implements IObjectActionDelegate {
 	        final Long start = System.currentTimeMillis();
 //	        final LuceneIndex index = Activator.injector.getInstance(LuceneIndex.class);
 	        String path = Platform.getLocation().toString() + "/index.l";
-	        final LuceneIndex index = new LuceneIndex(new SimpleFSDirectory(new File(path)), new StandardAnalyzer(Version.LUCENE_29));
+	        final CodeIndexer index = new CodeIndexer(new SimpleFSDirectory(new File(path)), new StandardAnalyzer(Version.LUCENE_29));
 	                
 	        final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
 	            
@@ -87,10 +86,8 @@ public class IndexAction implements IObjectActionDelegate {
 	                                            Activator.logInfo("Indexing ICompilationUnit %1$s ...", unit.getPath());
 	                                            
 	                                            CompilationUnit cu = parse(unit);
-	                                            CompilationUnitVisitor visitor = new CompilationUnitVisitor(index);
-	                                            visitor.addIndexer(CompilationUnitVisitor.getAllIndexer());
-	        
-	                                            cu.accept(visitor);
+	                                            
+	                                            index.index(cu);
 	                                        }catch(Exception e) {
 	                                            Activator.logWarning(e, "ICompilationUnit %1$s has not been indexed successfully", unit.getPath());
 	                                        }

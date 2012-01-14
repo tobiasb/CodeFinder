@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
+import org.eclipselabs.recommenders.codesearchquery.Fields
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer
@@ -9,7 +10,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeInde
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ExtendedTypeIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ImplementedInterfacesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.OverriddenMethodsIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
 
 class TestClassScenarios extends TestBase {
@@ -27,7 +27,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, new DeclaredMethodsIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::DECLARED_METHODS, "LMyClassXyZ.test()V"),
 			s(Fields::DECLARED_METHODS, "LMyClassXyZ.foo()V")
 		)))
@@ -46,7 +46,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new OverriddenMethodsIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::OVERRIDDEN_METHODS, "Ljava/lang/Object.toString()Ljava/lang/String;")
 		)))
@@ -62,7 +62,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new ExtendedTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::EXTENDED_TYPE, "Ljava/io/IOException")
 		)))
@@ -78,7 +78,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllExtendedTypesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_EXTENDED_TYPES, "Ljava/io/IOException"),
 			s(Fields::ALL_EXTENDED_TYPES, "Ljava/lang/Exception"),
@@ -96,7 +96,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new ImplementedInterfacesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::IMPLEMENTED_TYPES, "Ljava/io/Externalizable")
 		)))
@@ -112,7 +112,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllImplementedInterfacesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_IMPLEMENTED_TYPES, "Ljava/io/Externalizable"),
 			s(Fields::ALL_IMPLEMENTED_TYPES, "Ljava/io/Serializable")
@@ -131,7 +131,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::DECLARED_METHODS_NAMES, "method01"),
 			s(Fields::DECLARED_METHODS_NAMES, "method02"),
@@ -150,9 +150,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredMethodNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_DELCARED_METHOD_NAMES, "method01"),
 			s(Fields::ALL_DELCARED_METHOD_NAMES, "method02"),
@@ -174,7 +174,7 @@ class TestClassScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
 		
-		assertNotField(index.documents, l(newArrayList(
+		assertNotField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_DELCARED_METHOD_NAMES, "getMessage")
 		)))

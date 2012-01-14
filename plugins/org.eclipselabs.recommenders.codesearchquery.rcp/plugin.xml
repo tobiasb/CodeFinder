@@ -15,13 +15,6 @@
                enablesFor="+"
                id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.indexAction">
          </action>
-         <action
-               class="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.SearchAction"
-               enablesFor="+"
-               id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.searchAction"
-               label="Search"
-               menubarPath="additions">
-         </action>
       </objectContribution>
    </extension>
 

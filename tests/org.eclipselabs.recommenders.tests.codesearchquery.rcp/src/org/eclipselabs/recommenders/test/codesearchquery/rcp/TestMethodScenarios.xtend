@@ -1,11 +1,11 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnTypeIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
-import org.junit.Test
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterTypesIndexer
+import org.eclipselabs.recommenders.codesearchquery.Fields
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterCountIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterTypesIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnTypeIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer
+import org.junit.Test
 
 class TestMethodScenarios extends TestBase {
 	
@@ -22,7 +22,7 @@ class TestMethodScenarios extends TestBase {
 		
 		var index = exercise(code, new ReturnTypeIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::RETURN_TYPE, "Ljava/util/List")
 		)))
 	}
@@ -39,7 +39,7 @@ class TestMethodScenarios extends TestBase {
 		
 		var index = exercise(code, new ParameterTypesIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::PARAMETER_TYPES, "Ljava/util/List")
 		)))
 	}
@@ -56,7 +56,7 @@ class TestMethodScenarios extends TestBase {
 		
 		var index = exercise(code, new ParameterCountIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::PARAMETER_COUNT, "1")
 		)))
 	}
@@ -73,7 +73,7 @@ class TestMethodScenarios extends TestBase {
 		
 		var index = exercise(code, new ParameterCountIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::PARAMETER_COUNT, "2")
 		)))
 	}
@@ -92,7 +92,7 @@ class TestMethodScenarios extends TestBase {
 		
 		var index = exercise(code, new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names")
 		)))
 	}
@@ -112,13 +112,13 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer())
+		var index = exercise(code, new ReturnVariableExpressionIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names1")
 		)))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names2")
 		)))
 	}
@@ -136,7 +136,7 @@ class TestMethodScenarios extends TestBase {
 		
 		var index = exercise(code, new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "null")
 		)))
 	}

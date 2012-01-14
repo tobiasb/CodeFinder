@@ -1,6 +1,7 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
 import java.util.Date
+import org.eclipselabs.recommenders.codesearchquery.Fields
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer
@@ -21,7 +22,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFina
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields
 import org.junit.Test
 
 class TestGeneralScenarios extends TestBase {
@@ -34,7 +34,7 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		var index = exercise(code, new FriendlyNameIndexer())
-		assertNumDocs(index.reader, 1)
+		assertNumDocs(index, 1)
 	}
 
 	@Test
@@ -47,7 +47,7 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		var index = exercise(code, new FriendlyNameIndexer())
-		assertNumDocs(index.reader, 2)
+		assertNumDocs(index, 2)
 	}
 
 	@Test
@@ -65,7 +65,7 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		var index = exercise(code, new FriendlyNameIndexer())
-		assertNumDocs(index.reader, 3)
+		assertNumDocs(index, 3)
 	}
 	
 	@Test
@@ -77,7 +77,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new FriendlyNameIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::FRIENDLY_NAME, "MyClass"))))
+		assertField(index, l(newArrayList(s(Fields::FRIENDLY_NAME, "MyClass"))))
 	}
 	
 	@Test
@@ -90,7 +90,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new FriendlyNameIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::FRIENDLY_NAME, "test"))))
+		assertField(index, l(newArrayList(s(Fields::FRIENDLY_NAME, "test"))))
 	}
 	
 	@Test
@@ -104,7 +104,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new FriendlyNameIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::FRIENDLY_NAME, "map"))))
+		assertField(index, l(newArrayList(s(Fields::FRIENDLY_NAME, "map"))))
 	}
 	
 	@Test
@@ -116,7 +116,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new FullyQualifiedNameIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::FULLY_QUALIFIED_NAME, "LMyClass"))))
+		assertField(index, l(newArrayList(s(Fields::FULLY_QUALIFIED_NAME, "LMyClass"))))
 	}
 	
 	@Test
@@ -129,7 +129,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new FullyQualifiedNameIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::FULLY_QUALIFIED_NAME, "LMyClass.test()V")
 		)))
 	}
@@ -145,7 +145,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new FullyQualifiedNameIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::FULLY_QUALIFIED_NAME, "LMyClass.mapInstance"))))
+		assertField(index, l(newArrayList(s(Fields::FULLY_QUALIFIED_NAME, "LMyClass.mapInstance"))))
 	}
 	
 	@Test
@@ -157,7 +157,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new DocumentTypeIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
 	}
 	
 	@Test
@@ -171,8 +171,8 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new DocumentTypeIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_FIELD))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_FIELD))))
 	}
 	
 	@Test
@@ -186,8 +186,8 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new DocumentTypeIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_METHOD))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_METHOD))))
 	}
 	
 	@Test
@@ -209,9 +209,9 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new DocumentTypeIndexer())
 		
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_METHOD))))
-		assertField(index.documents, l(newArrayList(s(Fields::TYPE, Fields::TYPE_TRYCATCH))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_CLASS))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_METHOD))))
+		assertField(index, l(newArrayList(s(Fields::TYPE, Fields::TYPE_TRYCATCH))))
 	}
 	
 	@Test
@@ -227,7 +227,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, new UsedTypesIndexer())
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::USED_TYPES, "Ljava/util/Map")
 		)))
 	}
@@ -248,12 +248,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new UsedTypesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::USED_TYPES, "Ljava/util/Map")
 		)))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::USED_TYPES, "Ljava/util/List")
 		)))
@@ -277,12 +277,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new UsedTypesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::USED_TYPES, "Ljava/util/Map")
 		)))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_TYPES, "Ljava/util/Map")
 		)))
@@ -305,21 +305,21 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new UsedTypesIndexer())))
 		
-		assertNotField(index.documents, l(newArrayList(
+		assertNotField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::USED_TYPES, "Ljava/lang/String")
 		)))
 		
-		assertNotField(index.documents, l(newArrayList(
+		assertNotField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::USED_TYPES, "Ljava/lang/String")
 		)))
-		assertNotField(index.documents, l(newArrayList(
+		assertNotField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::USED_TYPES, "Ljava/lang/Object")
 		)))
 		
-		assertNotField(index.documents, l(newArrayList(
+		assertNotField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::USED_TYPES, "Ljava/lang/Object")
 		)))
@@ -340,12 +340,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new UsedMethodsIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
 		)))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
 		)))
@@ -368,17 +368,17 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new UsedMethodsIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
 		)))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
 		)))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
 		)))
@@ -395,7 +395,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new FriendlyNameIndexer(), new DeclaringTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::FRIENDLY_NAME, "foo"),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
@@ -411,7 +411,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new FriendlyNameIndexer(), new DeclaringTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::FRIENDLY_NAME, "map"),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
@@ -428,7 +428,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new FriendlyNameIndexer(), new DeclaringTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::FRIENDLY_NAME, "MyClass$SubClass"),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
@@ -446,7 +446,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaringTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
@@ -461,7 +461,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ProjectNameIndexer(), new DocumentTypeIndexer())), "projectName")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::PROJECT_NAME, "projectName")
 		)))		
@@ -478,7 +478,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ProjectNameIndexer(), new DocumentTypeIndexer())), "projectName")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::PROJECT_NAME, "projectName")
 		)))		
@@ -494,7 +494,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ProjectNameIndexer(), new DocumentTypeIndexer())), "projectName")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
 			s(Fields::PROJECT_NAME, "projectName")
 		)))		
@@ -513,7 +513,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ProjectNameIndexer(), new DocumentTypeIndexer())), "projectName")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::PROJECT_NAME, "projectName")
 		)))		
@@ -528,7 +528,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
 		)))		
@@ -545,7 +545,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
 		)))		
@@ -561,7 +561,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
 			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
 		)))		
@@ -580,7 +580,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
 		)))		
@@ -595,7 +595,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ModifiersIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::MODIFIERS, "public")
 		)))		
@@ -610,7 +610,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ModifiersIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::MODIFIERS, Fields::MODIFIER_PUBLIC),
 			s(Fields::MODIFIERS, Fields::MODIFIER_ABSTRACT)
@@ -627,7 +627,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ModifiersIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::MODIFIERS, Fields::MODIFIER_PUBLIC)
 		)))		
@@ -643,7 +643,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ModifiersIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::MODIFIERS, Fields::MODIFIER_PUBLIC),
 			s(Fields::MODIFIERS, Fields::MODIFIER_STATIC)
@@ -661,7 +661,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ModifiersIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
 			s(Fields::MODIFIERS, Fields::MODIFIER_PRIVATE)
 		)))		
@@ -678,13 +678,13 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new ModifiersIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
 			s(Fields::MODIFIERS, Fields::MODIFIER_PROTECTED),
 			s(Fields::MODIFIERS, Fields::MODIFIER_STATIC)
 		)))		
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::MODIFIERS, Fields::MODIFIER_FINAL)
 		)))	
@@ -701,7 +701,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DeclaredFieldNamesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::DECLARED_FIELD_NAMES, "map")
 		)))	
@@ -720,7 +720,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DeclaredFieldNamesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::DECLARED_FIELD_NAMES, "map")
 		)))	
@@ -740,7 +740,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DeclaredFieldNamesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::DECLARED_FIELD_NAMES, "map")
 		)))	
@@ -757,7 +757,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DeclaredFieldTypesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::DECLARED_FIELD_TYPES, "Ljava/util/Map")
 		)))	
@@ -776,7 +776,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DeclaredFieldTypesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::DECLARED_FIELD_TYPES, "Ljava/util/Map")
 		)))	
@@ -796,7 +796,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DeclaredFieldTypesIndexer(), new DocumentTypeIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::DECLARED_FIELD_TYPES, "Ljava/util/Map")
 		)))	
@@ -811,9 +811,9 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
 		)))
@@ -832,7 +832,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
 		)))
@@ -852,7 +852,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
@@ -874,7 +874,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
 		)))
@@ -897,7 +897,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
@@ -916,7 +916,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "stackTrace")
@@ -933,7 +933,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::FULL_TEXT, '''public class MOtherException extends IOException {
 }'''.toString)
@@ -952,7 +952,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::FULL_TEXT, '''public static void theEasiestMethodEver(){
 }'''.toString)
@@ -975,7 +975,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::FULL_TEXT, '''catch (Exception ex) {
 }'''.toString)
@@ -1000,7 +1000,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FullTextIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
 			s(Fields::FULL_TEXT, '''Map theWorldMap;'''.toString)
 		)))
@@ -1022,12 +1022,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::FIELDS_READ, "LMyOtherOtherException.theWorldMap")
 		)))
 		
-//		assertNotField(index.documents, l(newArrayList(
+//		assertNotField(index, l(newArrayList(
 //			s(Fields::TYPE, Fields::TYPE_CLASS),
 //			s(Fields::FIELDS_WRITTEN, "LMyOtherOtherException.someObject")
 //		)))
@@ -1046,12 +1046,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::FIELDS_READ, "LTestclass.someObject")
 		)))
 		
-//		assertNotField(index.documents, l(newArrayList(
+//		assertNotField(index, l(newArrayList(
 //			s(Fields::TYPE, Fields::TYPE_CLASS),
 //			s(Fields::FIELDS_WRITTEN, "LTestclass.someObject")
 //		)))
@@ -1076,12 +1076,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::FIELDS_READ, "LTestclass.someObject")
 		)))
 		
-//		assertNotField(index.documents, l(newArrayList(
+//		assertNotField(index, l(newArrayList(
 //			s(Fields::TYPE, Fields::TYPE_CLASS),
 //			s(Fields::FIELDS_WRITTEN, "LTestclass.someObject")
 //		)))
@@ -1103,12 +1103,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldsReadIndexer(), new FieldsWrittenIndexer())))
 		
-//		assertNotField(index.documents, l(newArrayList(
+//		assertNotField(index, l(newArrayList(
 //			s(Fields::TYPE, Fields::TYPE_METHOD),
 //			s(Fields::FIELDS_READ, "LMyOtherOtherException.theWorldMap")
 //		)))
 		
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::FIELDS_WRITTEN, "LMyOtherOtherException.theWorldMap")
 		)))
@@ -1134,7 +1134,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new UsedFieldsInTryIndexer())))
 				
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_FIELDS_IN_TRY, "LMyOtherOtherException.theWorldMap")
 		)))
@@ -1160,7 +1160,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new UsedFieldsInFinallyIndexer())))
 				
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_FIELDS_IN_FINALLY, "LMyOtherOtherException.theWorldMap")
 		)))
@@ -1176,7 +1176,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AnnotationsIndexer())))
 				
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ANNOTATIONS, "Ljava/lang/Deprecated")
 		)))
@@ -1192,17 +1192,17 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AnnotationsIndexer())))
 				
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings")
 		)))
 			
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings:unchecked")
 		)))
 			
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings:rawtypes")
 		)))
@@ -1224,7 +1224,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new InstanceOfIndexer())))
 				
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::INSTANCEOF_TYPES, "Ljava/lang/Exception")
 		)))
@@ -1246,7 +1246,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new InstanceOfIndexer())))
 				
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::INSTANCEOF_TYPES, "Ljava/lang/Exception")
 		)))
@@ -1272,7 +1272,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new InstanceOfIndexer())))
 				
-		assertField(index.documents, l(newArrayList(
+		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::INSTANCEOF_TYPES, "Ljava/lang/Exception")
 		)))
@@ -1287,7 +1287,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				
-		assertFieldStartsWith(index.documents, l(newArrayList(
+		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))
@@ -1304,7 +1304,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				
-		assertFieldStartsWith(index.documents, l(newArrayList(
+		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
 			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))
@@ -1320,7 +1320,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				
-		assertFieldStartsWith(index.documents, l(newArrayList(
+		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
 			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))
@@ -1341,7 +1341,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				
-		assertFieldStartsWith(index.documents, l(newArrayList(
+		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
 		)))

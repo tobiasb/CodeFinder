@@ -10,10 +10,10 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
+import org.eclipselabs.recommenders.codesearchquery.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClassIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFieldIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 
 public class FullyQualifiedNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
 

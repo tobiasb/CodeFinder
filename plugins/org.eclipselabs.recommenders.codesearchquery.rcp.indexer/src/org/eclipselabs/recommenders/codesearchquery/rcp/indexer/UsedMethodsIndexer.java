@@ -9,10 +9,10 @@ import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.IMethodName;
+import org.eclipselabs.recommenders.codesearchquery.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClassIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.MethodCallVisitor;
 
 public class UsedMethodsIndexer extends AbstractIndexer implements

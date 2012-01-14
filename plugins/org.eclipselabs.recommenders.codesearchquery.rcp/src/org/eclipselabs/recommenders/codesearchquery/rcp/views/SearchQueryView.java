@@ -10,19 +10,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.KeywordAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryParser.ParseException;
-import org.apache.lucene.queryParser.QueryParser;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.SimpleFSDirectory;
-import org.apache.lucene.util.Version;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -59,7 +52,8 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.Fields;
+import org.eclipselabs.recommenders.codesearchquery.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcher;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -68,11 +62,10 @@ public class SearchQueryView extends ViewPart {
     public static final String ID = SearchQueryView.class.getName();
     protected Button triggerSearchButton;
     protected Text searchQueryText;
-    protected TableViewer searchResultText;
+    protected TableViewer searchResultTable;
     private final String newLine = System.getProperty("line.separator");
-
-    private IndexSearcher searcher = null;
-
+    private CodeSearcher codeSearcher;
+    
     public SearchQueryView() {
         super();
     }
@@ -88,7 +81,7 @@ public class SearchQueryView extends ViewPart {
 
         searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
         searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
-        searchQueryText.setText("used_types:\"Ljava/util/Set\"");
+        searchQueryText.setText(Fields.USED_TYPES + ":\"Ljava/util/Set\"");
 
         createSearchResultsViewer(parent);
 
@@ -114,23 +107,12 @@ public class SearchQueryView extends ViewPart {
                             final String path = Platform.getLocation().toString() + "/index.l";
                             final Directory index = new SimpleFSDirectory(new File(path));
 
-                            searcher = new IndexSearcher(index, true);
-
-                            final Analyzer a = new KeywordAnalyzer();
                             final String searchQuery = getSearchQuery();
-                            final Query q = new QueryParser(Version.LUCENE_29, Fields.FULLY_QUALIFIED_NAME, a)
-                                    .parse(searchQuery);
 
-                            final TopScoreDocCollector collector = TopScoreDocCollector.create(10, true);
-                            searcher.search(q, collector);
+                            codeSearcher = new CodeSearcher(index);
+                            List<ScoreDoc> hits = codeSearcher.search(searchQuery);
                             result.clear();
-
-                            for (final ScoreDoc doc : collector.topDocs().scoreDocs) {
-                                result.add(doc);
-                            }
-
-                            System.out.println("Searching for: " + q.toString() + ". " + result.size() + " hits.");
-
+                            result.addAll(hits);
                         } catch (final CorruptIndexException e1) {
                             e1.printStackTrace();
                             return Status.CANCEL_STATUS;
@@ -151,11 +133,7 @@ public class SearchQueryView extends ViewPart {
                     @Override
                     public void done(final IJobChangeEvent event) {
                         setResult(result);
-                        try {
-                            searcher.close();
-                        } catch (final IOException e) {
-                            e.printStackTrace();
-                        }
+                        codeSearcher.close();
                     }
                 });
 
@@ -171,12 +149,12 @@ public class SearchQueryView extends ViewPart {
     }
 
     private void createSearchResultsViewer(final Composite parent) {
-        searchResultText = new TableViewer(parent);
-        searchResultText.setContentProvider(new ArrayContentProvider());
-        searchResultText.setLabelProvider(new JavaElementLabelProvider(SHOW_OVERLAY_ICONS | SHOW_POST_QUALIFIED
+        searchResultTable = new TableViewer(parent);
+        searchResultTable.setContentProvider(new ArrayContentProvider());
+        searchResultTable.setLabelProvider(new JavaElementLabelProvider(SHOW_OVERLAY_ICONS | SHOW_POST_QUALIFIED
                 | SHOW_PARAMETERS));
-        searchResultText.getControl().setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
-        searchResultText.addDoubleClickListener(new IDoubleClickListener() {
+        searchResultTable.getControl().setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
+        searchResultTable.addDoubleClickListener(new IDoubleClickListener() {
 
             @Override
             public void doubleClick(final DoubleClickEvent event) {
@@ -217,7 +195,7 @@ public class SearchQueryView extends ViewPart {
             @Override
             public void run() {
                 searchQueryText.setEnabled(false);
-                searchResultText.setInput(emptyList());
+                searchResultTable.setInput(emptyList());
                 triggerSearchButton.setEnabled(false);
             }
         });
@@ -233,7 +211,7 @@ public class SearchQueryView extends ViewPart {
                 final List<IJavaElement> newInput = newArrayList();
                 for (final ScoreDoc scoreDoc : result) {
                     try {
-                        final Document doc = searcher.doc(scoreDoc.doc);
+                        final Document doc = codeSearcher.resolve(scoreDoc.doc);
 
                         final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
                         final String docType = doc.get(Fields.TYPE);
@@ -259,7 +237,7 @@ public class SearchQueryView extends ViewPart {
                     } catch (final Exception e) {
                         e.printStackTrace();
                     }
-                    searchResultText.setInput(newInput);
+                    searchResultTable.setInput(newInput);
                 }
                 triggerSearchButton.setEnabled(true);
             }

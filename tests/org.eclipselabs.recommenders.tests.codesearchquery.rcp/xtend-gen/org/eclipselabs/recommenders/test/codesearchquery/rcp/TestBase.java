@@ -7,7 +7,7 @@ import junit.framework.Assert;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Fieldable;
-import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -22,9 +22,11 @@ import org.eclipse.xtext.xbase.lib.BooleanExtensions;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipselabs.recommenders.codesearchquery.AbstractIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcher;
 import org.junit.Ignore;
 
 @SuppressWarnings("all")
@@ -44,22 +46,30 @@ public class TestBase {
     return _xblockexpression;
   }
   
-  public void assertNumDocs(final IndexReader reader, final int expectedNum) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("The number of documents is not correct. Is [");
-    int _numDocs = reader.numDocs();
-    _builder.append(_numDocs, "");
-    _builder.append("] but should be [");
-    _builder.append(expectedNum, "");
-    _builder.append("]");
-    String _string = _builder.toString();
-    int _numDocs_1 = reader.numDocs();
-    boolean _equals = Integer.valueOf(_numDocs_1).equals(Integer.valueOf(expectedNum));
-    Assert.assertTrue(_string, _equals);
+  public void assertNumDocs(final AbstractIndex index, final int expectedNum) {
+      Directory _index = index.getIndex();
+      CodeSearcher _codeSearcher = new CodeSearcher(_index);
+      CodeSearcher readIndex = _codeSearcher;
+      List<Document> _documents = readIndex.getDocuments();
+      int _size = _documents.size();
+      int numDocs = _size;
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("The number of documents is not correct. Is [");
+      _builder.append(numDocs, "");
+      _builder.append("] but should be [");
+      _builder.append(expectedNum, "");
+      _builder.append("]");
+      String _string = _builder.toString();
+      boolean _equals = Integer.valueOf(numDocs).equals(Integer.valueOf(expectedNum));
+      Assert.assertTrue(_string, _equals);
   }
   
-  public boolean assertField(final List<Document> documents, final List<String> expected) {
-      for (final Document document : documents) {
+  public boolean assertField(final AbstractIndex index, final List<String> expected) {
+      Directory _index = index.getIndex();
+      CodeSearcher _codeSearcher = new CodeSearcher(_index);
+      CodeSearcher readIndex = _codeSearcher;
+      List<Document> _documents = readIndex.getDocuments();
+      for (final Document document : _documents) {
         {
           boolean foundInDocument = true;
           for (final String exp : expected) {
@@ -94,8 +104,12 @@ public class TestBase {
       return false;
   }
   
-  public boolean assertFieldStartsWith(final List<Document> documents, final List<String> expected) {
-      for (final Document document : documents) {
+  public boolean assertFieldStartsWith(final AbstractIndex index, final List<String> expected) {
+      Directory _index = index.getIndex();
+      CodeSearcher _codeSearcher = new CodeSearcher(_index);
+      CodeSearcher readIndex = _codeSearcher;
+      List<Document> _documents = readIndex.getDocuments();
+      for (final Document document : _documents) {
         {
           boolean foundInDocument = true;
           for (final String exp : expected) {
@@ -130,38 +144,42 @@ public class TestBase {
       return false;
   }
   
-  public void assertNotField(final List<Document> documents, final List<String> expected) {
-    for (final Document document : documents) {
-      {
-        boolean foundInDocument = true;
-        for (final String exp : expected) {
-          {
-            boolean found = false;
-            List<Fieldable> _fields = document.getFields();
-            for (final Fieldable field : _fields) {
-              String _name = field.name();
-              String _stringValue = field.stringValue();
-              String _s = this.s(_name, _stringValue);
-              boolean _equals = _s.equals(exp);
-              if (_equals) {
-                found = true;
+  public void assertNotField(final AbstractIndex index, final List<String> expected) {
+      Directory _index = index.getIndex();
+      CodeSearcher _codeSearcher = new CodeSearcher(_index);
+      CodeSearcher readIndex = _codeSearcher;
+      List<Document> _documents = readIndex.getDocuments();
+      for (final Document document : _documents) {
+        {
+          boolean foundInDocument = true;
+          for (final String exp : expected) {
+            {
+              boolean found = false;
+              List<Fieldable> _fields = document.getFields();
+              for (final Fieldable field : _fields) {
+                String _name = field.name();
+                String _stringValue = field.stringValue();
+                String _s = this.s(_name, _stringValue);
+                boolean _equals = _s.equals(exp);
+                if (_equals) {
+                  found = true;
+                }
+              }
+              boolean _operator_not = BooleanExtensions.operator_not(found);
+              if (_operator_not) {
+                foundInDocument = false;
               }
             }
-            boolean _operator_not = BooleanExtensions.operator_not(found);
-            if (_operator_not) {
-              foundInDocument = false;
-            }
+          }
+          if (foundInDocument) {
+            StringConcatenation _builder = new StringConcatenation();
+            _builder.append("There was a document with ");
+            _builder.append(expected, "");
+            String _string = _builder.toString();
+            Assert.assertTrue(_string, false);
           }
         }
-        if (foundInDocument) {
-          StringConcatenation _builder = new StringConcatenation();
-          _builder.append("There was a document with ");
-          _builder.append(expected, "");
-          String _string = _builder.toString();
-          Assert.assertTrue(_string, false);
-        }
       }
-    }
   }
   
   public String s(final String name, final String value) {
@@ -173,22 +191,22 @@ public class TestBase {
     return _string;
   }
   
-  public LuceneIndex exercise(final CharSequence code, final List<IIndexer> indexer) {
-    LuceneIndex _exercise = this.exercise(code, indexer, "test");
+  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer) {
+    CodeIndexer _exercise = this.exercise(code, indexer, "test");
     return _exercise;
   }
   
-  public LuceneIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
-    LuceneIndex _exercise = this.exercise(code, indexer, projectName, "MyClass.java");
+  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
+    CodeIndexer _exercise = this.exercise(code, indexer, projectName, "MyClass.java");
     return _exercise;
   }
   
-  public LuceneIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
-    LuceneIndex _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
+  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
+    CodeIndexer _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
     return _exercise;
   }
   
-  public LuceneIndex exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
+  public CodeIndexer exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
     try {
       {
         IWorkspace _workspace = ResourcesPlugin.getWorkspace();
@@ -200,14 +218,15 @@ public class TestBase {
         ICompilationUnit _first = struct.getFirst();
         final ICompilationUnit cu = _first;
         RAMDirectory _rAMDirectory = new RAMDirectory();
-        LuceneIndex _luceneIndex = new LuceneIndex(_rAMDirectory);
-        LuceneIndex index = _luceneIndex;
+        CodeIndexer _codeIndexer = new CodeIndexer(_rAMDirectory);
+        CodeIndexer index = _codeIndexer;
         CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         visitor.addIndexer(indexer);
         ASTNode _parse = this.parse(cu);
         ASTNode cuParsed = _parse;
         cuParsed.accept(visitor);
+        index.commit();
         return index;
       }
     } catch (Exception _e) {
@@ -215,10 +234,10 @@ public class TestBase {
     }
   }
   
-  public LuceneIndex exercise(final CharSequence code, final IIndexer indexer) {
+  public CodeIndexer exercise(final CharSequence code, final IIndexer indexer) {
     ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(indexer);
     List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-    LuceneIndex _exercise = this.exercise(code, _i);
+    CodeIndexer _exercise = this.exercise(code, _i);
     return _exercise;
   }
   

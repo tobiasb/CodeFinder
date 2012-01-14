@@ -2,20 +2,20 @@ package org.eclipselabs.recommenders.test.codesearchquery.rcp
 
 import java.util.List
 import org.apache.commons.lang3.StringUtils
-import org.apache.lucene.document.Document
-import org.apache.lucene.index.IndexReader
 import org.apache.lucene.store.RAMDirectory
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.jdt.core.ICompilationUnit
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTParser
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
+import org.eclipselabs.recommenders.codesearchquery.AbstractIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.lucene.LuceneIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcher
+import org.junit.Ignore
 
 import static junit.framework.Assert.*
-import org.junit.Ignore
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase {
@@ -28,13 +28,19 @@ class TestBase {
 		parser.createAST(null);
     }
     
-    def assertNumDocs(IndexReader reader, int expectedNum) {
-		assertTrue('''The number of documents is not correct. Is [«reader.numDocs»] but should be [«expectedNum»]'''.toString, reader.numDocs.equals(expectedNum))
+    def assertNumDocs(AbstractIndex index, int expectedNum) {
+    	
+    	var readIndex = new CodeSearcher(index.index)
+    	var numDocs = readIndex.documents.size
+    	
+		assertTrue('''The number of documents is not correct. Is [«numDocs»] but should be [«expectedNum»]'''.toString, numDocs.equals(expectedNum))
     }
     
-    def assertField(List<Document> documents, List<String> expected) {
+    def assertField(AbstractIndex index, List<String> expected) {
     	    	
-    	for(document : documents) {   
+    	var readIndex = new CodeSearcher(index.index)
+    	    	
+    	for(document : readIndex.documents) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -60,9 +66,10 @@ class TestBase {
 		return false
     }
     
-    def assertFieldStartsWith(List<Document> documents, List<String> expected) {
+    def assertFieldStartsWith(AbstractIndex index, List<String> expected) {
+    	var readIndex = new CodeSearcher(index.index)
     	    	
-    	for(document : documents) {   
+    	for(document : readIndex.documents) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -88,9 +95,10 @@ class TestBase {
 		return false
     }
     
-    def assertNotField(List<Document> documents, List<String> expected) {
+    def assertNotField(AbstractIndex index, List<String> expected) {
+    	    	    	var readIndex = new CodeSearcher(index.index)
     	    	
-    	for(document : documents) {  
+    	for(document : readIndex.documents) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -136,13 +144,14 @@ class TestBase {
 //		val struct3 = fixture.createFileAndParseWithMarkers(code3.toString, "2" + fileName)
 		val cu = struct.first;
 
-        var index = new LuceneIndex(new RAMDirectory())// CodesearchQueryModule::index//
+        var index = new CodeIndexer(new RAMDirectory())// CodesearchQueryModule::index//
 		
         var visitor = new CompilationUnitVisitor(index);
         visitor.addIndexer(indexer);
         
         var cuParsed = parse(cu);
         cuParsed.accept(visitor)
+        index.commit
         
         return index
     }
