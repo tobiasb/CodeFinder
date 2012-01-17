@@ -13,7 +13,6 @@ import java.util.List;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryParser.ParseException;
-import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.eclipse.core.resources.WorkspaceJob;
@@ -93,7 +92,7 @@ public class SearchQueryView extends ViewPart {
             @Override
             public void widgetSelected(final SelectionEvent e) {
 
-                final List<ScoreDoc> result = Lists.newArrayList();
+                final List<Document> result = Lists.newArrayList();
 
                 // Search
                 final WorkspaceJob job = new WorkspaceJob("Searching...") {
@@ -110,9 +109,9 @@ public class SearchQueryView extends ViewPart {
                             final String searchQuery = getSearchQuery();
 
                             codeSearcher = new CodeSearcher(index);
-                            List<ScoreDoc> hits = codeSearcher.search(searchQuery);
+                            
                             result.clear();
-                            result.addAll(hits);
+                            result.addAll(codeSearcher.search(searchQuery));
                         } catch (final CorruptIndexException e1) {
                             e1.printStackTrace();
                             return Status.CANCEL_STATUS;
@@ -201,7 +200,7 @@ public class SearchQueryView extends ViewPart {
         });
     }
 
-    public void setResult(final List<ScoreDoc> result) {
+    public void setResult(final List<Document> result) {
         Display.getDefault().syncExec(new Runnable() {
 
             @Override
@@ -209,9 +208,9 @@ public class SearchQueryView extends ViewPart {
                 searchQueryText.setEnabled(true);
 
                 final List<IJavaElement> newInput = newArrayList();
-                for (final ScoreDoc scoreDoc : result) {
+                for (final Document doc : result) {
                     try {
-                        final Document doc = codeSearcher.resolve(scoreDoc.doc);
+//                        final Document doc = codeSearcher.resolve(scoreDoc.doc);
 
                         final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
                         final String docType = doc.get(Fields.TYPE);
