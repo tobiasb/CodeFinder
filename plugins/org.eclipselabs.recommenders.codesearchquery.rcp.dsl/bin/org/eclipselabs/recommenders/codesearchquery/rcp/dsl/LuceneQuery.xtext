@@ -38,25 +38,34 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	;
 	
 	FieldValue:
-		Value | '(' Value* ')'
+		Value //| '(' Value* ')'
 	;
 	
 	TypeValue:
-		Value | '(' Value* ')'
+		QualifiedNameWithWildcard //| '(' QualifiedNameWithWildcard* ')'
 	;
 	
 	Value:
-		('+' | '-')? (ID | STRING | ANY_OTHER)
+		/* ('+' | '-')?*/ (ID ('*' ID)* ('*')?)
+	;
+  
+  	QualifiedNameWithWildcard hidden(SL_COMMENT, ML_COMMENT):
+	  ( ID ( '*'? Sep ID? )* '*'?)
+	  
+	  //( ID '*'?( ('/' | '.')? ID  '*'?)* )
+	;
+	
+	Sep:
+		('/' | '.')
 	;
 	
 	enum BooleanExp:
-		and1='AND' | and2='and' | or1='OR' | or2='or'
+		and1='AND' | or1='OR'
 	;
 
 	enum NotExpression:
-		not1='not' | not2='NOT' | not3='!'
+		not1='-' | not2='NOT' | not3='!'
 	;
-	
 /*
 	The following rules are generated. Do not modify. Modify source file instead.
 */

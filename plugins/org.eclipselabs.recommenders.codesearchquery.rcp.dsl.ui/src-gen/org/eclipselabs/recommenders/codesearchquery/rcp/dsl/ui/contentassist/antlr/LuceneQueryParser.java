@@ -39,10 +39,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getExp2Access().getAlternatives(), "rule__Exp2__Alternatives");
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives(), "rule__ClauseExpression__Alternatives");
-					put(grammarAccess.getFieldValueAccess().getAlternatives(), "rule__FieldValue__Alternatives");
-					put(grammarAccess.getTypeValueAccess().getAlternatives(), "rule__TypeValue__Alternatives");
-					put(grammarAccess.getValueAccess().getAlternatives_0(), "rule__Value__Alternatives_0");
-					put(grammarAccess.getValueAccess().getAlternatives_1(), "rule__Value__Alternatives_1");
+					put(grammarAccess.getSepAccess().getAlternatives(), "rule__Sep__Alternatives");
 					put(grammarAccess.getFieldNameAccess().getAlternatives(), "rule__FieldName__Alternatives");
 					put(grammarAccess.getTypeFieldNameAccess().getAlternatives(), "rule__TypeFieldName__Alternatives");
 					put(grammarAccess.getBooleanExpAccess().getAlternatives(), "rule__BooleanExp__Alternatives");
@@ -52,9 +49,10 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExp2Access().getGroup_1(), "rule__Exp2__Group_1__0");
 					put(grammarAccess.getSimpleClauseAccess().getGroup(), "rule__SimpleClause__Group__0");
 					put(grammarAccess.getTypeClauseAccess().getGroup(), "rule__TypeClause__Group__0");
-					put(grammarAccess.getFieldValueAccess().getGroup_1(), "rule__FieldValue__Group_1__0");
-					put(grammarAccess.getTypeValueAccess().getGroup_1(), "rule__TypeValue__Group_1__0");
 					put(grammarAccess.getValueAccess().getGroup(), "rule__Value__Group__0");
+					put(grammarAccess.getValueAccess().getGroup_1(), "rule__Value__Group_1__0");
+					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
+					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup_1(), "rule__QualifiedNameWithWildcard__Group_1__0");
 					put(grammarAccess.getExp1Access().getBAssignment_1_1(), "rule__Exp1__BAssignment_1_1");
 					put(grammarAccess.getExp1Access().getRightAssignment_1_2(), "rule__Exp1__RightAssignment_1_2");
 					put(grammarAccess.getExp2Access().getValueAssignment_0(), "rule__Exp2__ValueAssignment_0");

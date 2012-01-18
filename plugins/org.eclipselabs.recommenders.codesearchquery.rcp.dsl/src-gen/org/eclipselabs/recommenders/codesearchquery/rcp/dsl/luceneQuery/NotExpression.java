@@ -31,7 +31,7 @@ public enum NotExpression implements Enumerator
    * @generated
    * @ordered
    */
-  NOT1(0, "not1", "not"),
+  NOT1(0, "not1", "-"),
 
   /**
    * The '<em><b>Not2</b></em>' literal object.
@@ -62,7 +62,7 @@ public enum NotExpression implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #NOT1
-   * @model name="not1" literal="not"
+   * @model name="not1" literal="-"
    * @generated
    * @ordered
    */
