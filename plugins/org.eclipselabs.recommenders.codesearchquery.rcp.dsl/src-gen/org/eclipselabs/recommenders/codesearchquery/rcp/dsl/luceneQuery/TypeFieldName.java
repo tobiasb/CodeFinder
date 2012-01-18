@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getImplementedTypes <em>Implemented Types</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getExtendedTypes <em>Extended Types</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getUsedTypes <em>Used Types</em>}</li>
@@ -39,32 +38,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TypeFieldName extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Type</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute.
-   * @see #setType(String)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getTypeFieldName_Type()
-   * @model
-   * @generated
-   */
-  String getType();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getType <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' attribute.
-   * @see #getType()
-   * @generated
-   */
-  void setType(String value);
-
   /**
    * Returns the value of the '<em><b>Implemented Types</b></em>' attribute.
    * <!-- begin-user-doc -->

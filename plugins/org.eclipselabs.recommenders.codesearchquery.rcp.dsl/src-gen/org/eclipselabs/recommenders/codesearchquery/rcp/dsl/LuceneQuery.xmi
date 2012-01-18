@@ -100,16 +100,16 @@
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="TypeTest">
-      <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//TypeTest"/>
+    <rules xsi:type="xtext:ParserRule" name="TypeValue">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="test1" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="test1"/>
-        </elements>
-        <elements xsi:type="xtext:Assignment" feature="test2" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="test2"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:RuleCall" cardinality="*" rule="/0/@rules.7"/>
+          <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
       </alternatives>
     </rules>
@@ -125,6 +125,7 @@
         <elements xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          <elements xsi:type="xtext:RuleCall" rule="/1/@rules.6"/>
         </elements>
       </alternatives>
     </rules>
@@ -177,6 +178,9 @@
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:Assignment" feature="FullyQualifiedName" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FullyQualifiedName"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="Type" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="Type"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="FriendlyName" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FriendlyName"/>
@@ -254,9 +258,6 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//TypeFieldName"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="Type" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="Type"/>
-        </elements>
         <elements xsi:type="xtext:Assignment" feature="ImplementedTypes" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ImplementedTypes"/>
         </elements>

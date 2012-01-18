@@ -192,7 +192,7 @@ public interface LuceneQueryPackage extends EPackage
   int TYPE_CLAUSE__FIELD = 1;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -210,43 +210,6 @@ public interface LuceneQueryPackage extends EPackage
   int TYPE_CLAUSE_FEATURE_COUNT = 3;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeTestImpl <em>Type Test</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeTestImpl
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTypeTest()
-   * @generated
-   */
-  int TYPE_TEST = 4;
-
-  /**
-   * The feature id for the '<em><b>Test1</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_TEST__TEST1 = 0;
-
-  /**
-   * The feature id for the '<em><b>Test2</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_TEST__TEST2 = 1;
-
-  /**
-   * The number of structural features of the '<em>Type Test</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_TEST_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl <em>Field Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -254,7 +217,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getFieldName()
    * @generated
    */
-  int FIELD_NAME = 5;
+  int FIELD_NAME = 4;
 
   /**
    * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
@@ -266,13 +229,22 @@ public interface LuceneQueryPackage extends EPackage
   int FIELD_NAME__FULLY_QUALIFIED_NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_NAME__TYPE = 1;
+
+  /**
    * The feature id for the '<em><b>Friendly Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_NAME__FRIENDLY_NAME = 1;
+  int FIELD_NAME__FRIENDLY_NAME = 2;
 
   /**
    * The feature id for the '<em><b>Declared Methods</b></em>' attribute.
@@ -281,7 +253,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__DECLARED_METHODS = 2;
+  int FIELD_NAME__DECLARED_METHODS = 3;
 
   /**
    * The feature id for the '<em><b>Parameter Count</b></em>' attribute.
@@ -290,7 +262,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__PARAMETER_COUNT = 3;
+  int FIELD_NAME__PARAMETER_COUNT = 4;
 
   /**
    * The feature id for the '<em><b>Return Variable Eexpressions</b></em>' attribute.
@@ -299,7 +271,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__RETURN_VARIABLE_EEXPRESSIONS = 4;
+  int FIELD_NAME__RETURN_VARIABLE_EEXPRESSIONS = 5;
 
   /**
    * The feature id for the '<em><b>Used Methods</b></em>' attribute.
@@ -308,7 +280,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__USED_METHODS = 5;
+  int FIELD_NAME__USED_METHODS = 6;
 
   /**
    * The feature id for the '<em><b>Used Methods In Try</b></em>' attribute.
@@ -317,7 +289,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__USED_METHODS_IN_TRY = 6;
+  int FIELD_NAME__USED_METHODS_IN_TRY = 7;
 
   /**
    * The feature id for the '<em><b>Used Methods In Finally</b></em>' attribute.
@@ -326,7 +298,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__USED_METHODS_IN_FINALLY = 7;
+  int FIELD_NAME__USED_METHODS_IN_FINALLY = 8;
 
   /**
    * The feature id for the '<em><b>Overridden Methods</b></em>' attribute.
@@ -335,7 +307,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__OVERRIDDEN_METHODS = 8;
+  int FIELD_NAME__OVERRIDDEN_METHODS = 9;
 
   /**
    * The feature id for the '<em><b>Project Name</b></em>' attribute.
@@ -344,7 +316,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__PROJECT_NAME = 9;
+  int FIELD_NAME__PROJECT_NAME = 10;
 
   /**
    * The feature id for the '<em><b>Resource Path</b></em>' attribute.
@@ -353,7 +325,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__RESOURCE_PATH = 10;
+  int FIELD_NAME__RESOURCE_PATH = 11;
 
   /**
    * The feature id for the '<em><b>Modifiers</b></em>' attribute.
@@ -362,7 +334,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__MODIFIERS = 11;
+  int FIELD_NAME__MODIFIERS = 12;
 
   /**
    * The feature id for the '<em><b>All Declared Method Names</b></em>' attribute.
@@ -371,7 +343,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__ALL_DECLARED_METHOD_NAMES = 12;
+  int FIELD_NAME__ALL_DECLARED_METHOD_NAMES = 13;
 
   /**
    * The feature id for the '<em><b>Declared Method Names</b></em>' attribute.
@@ -380,7 +352,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__DECLARED_METHOD_NAMES = 13;
+  int FIELD_NAME__DECLARED_METHOD_NAMES = 14;
 
   /**
    * The feature id for the '<em><b>Declared Field Names</b></em>' attribute.
@@ -389,7 +361,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__DECLARED_FIELD_NAMES = 14;
+  int FIELD_NAME__DECLARED_FIELD_NAMES = 15;
 
   /**
    * The feature id for the '<em><b>Declared Field Types</b></em>' attribute.
@@ -398,7 +370,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__DECLARED_FIELD_TYPES = 15;
+  int FIELD_NAME__DECLARED_FIELD_TYPES = 16;
 
   /**
    * The feature id for the '<em><b>All Declared Field Names</b></em>' attribute.
@@ -407,7 +379,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__ALL_DECLARED_FIELD_NAMES = 16;
+  int FIELD_NAME__ALL_DECLARED_FIELD_NAMES = 17;
 
   /**
    * The feature id for the '<em><b>Full Text</b></em>' attribute.
@@ -416,7 +388,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__FULL_TEXT = 17;
+  int FIELD_NAME__FULL_TEXT = 18;
 
   /**
    * The feature id for the '<em><b>Fields Read</b></em>' attribute.
@@ -425,7 +397,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__FIELDS_READ = 18;
+  int FIELD_NAME__FIELDS_READ = 19;
 
   /**
    * The feature id for the '<em><b>Fields Written</b></em>' attribute.
@@ -434,7 +406,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__FIELDS_WRITTEN = 19;
+  int FIELD_NAME__FIELDS_WRITTEN = 20;
 
   /**
    * The feature id for the '<em><b>Used Fields In Finally</b></em>' attribute.
@@ -443,7 +415,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__USED_FIELDS_IN_FINALLY = 20;
+  int FIELD_NAME__USED_FIELDS_IN_FINALLY = 21;
 
   /**
    * The feature id for the '<em><b>Used Fields In Try</b></em>' attribute.
@@ -452,7 +424,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__USED_FIELDS_IN_TRY = 21;
+  int FIELD_NAME__USED_FIELDS_IN_TRY = 22;
 
   /**
    * The feature id for the '<em><b>Annotations</b></em>' attribute.
@@ -461,7 +433,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__ANNOTATIONS = 22;
+  int FIELD_NAME__ANNOTATIONS = 23;
 
   /**
    * The feature id for the '<em><b>Timestamp</b></em>' attribute.
@@ -470,7 +442,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME__TIMESTAMP = 23;
+  int FIELD_NAME__TIMESTAMP = 24;
 
   /**
    * The number of structural features of the '<em>Field Name</em>' class.
@@ -479,7 +451,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_NAME_FEATURE_COUNT = 24;
+  int FIELD_NAME_FEATURE_COUNT = 25;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldNameImpl <em>Type Field Name</em>}' class.
@@ -489,16 +461,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTypeFieldName()
    * @generated
    */
-  int TYPE_FIELD_NAME = 6;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD_NAME__TYPE = 0;
+  int TYPE_FIELD_NAME = 5;
 
   /**
    * The feature id for the '<em><b>Implemented Types</b></em>' attribute.
@@ -507,7 +470,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__IMPLEMENTED_TYPES = 1;
+  int TYPE_FIELD_NAME__IMPLEMENTED_TYPES = 0;
 
   /**
    * The feature id for the '<em><b>Extended Types</b></em>' attribute.
@@ -516,7 +479,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__EXTENDED_TYPES = 2;
+  int TYPE_FIELD_NAME__EXTENDED_TYPES = 1;
 
   /**
    * The feature id for the '<em><b>Used Types</b></em>' attribute.
@@ -525,7 +488,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__USED_TYPES = 3;
+  int TYPE_FIELD_NAME__USED_TYPES = 2;
 
   /**
    * The feature id for the '<em><b>Used Types In Try</b></em>' attribute.
@@ -534,7 +497,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__USED_TYPES_IN_TRY = 4;
+  int TYPE_FIELD_NAME__USED_TYPES_IN_TRY = 3;
 
   /**
    * The feature id for the '<em><b>Used Types In Finally</b></em>' attribute.
@@ -543,7 +506,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__USED_TYPES_IN_FINALLY = 5;
+  int TYPE_FIELD_NAME__USED_TYPES_IN_FINALLY = 4;
 
   /**
    * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
@@ -552,7 +515,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__PARAMETER_TYPES = 6;
+  int TYPE_FIELD_NAME__PARAMETER_TYPES = 5;
 
   /**
    * The feature id for the '<em><b>Return Type</b></em>' attribute.
@@ -561,7 +524,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__RETURN_TYPE = 7;
+  int TYPE_FIELD_NAME__RETURN_TYPE = 6;
 
   /**
    * The feature id for the '<em><b>All Implemented Types</b></em>' attribute.
@@ -570,7 +533,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__ALL_IMPLEMENTED_TYPES = 8;
+  int TYPE_FIELD_NAME__ALL_IMPLEMENTED_TYPES = 7;
 
   /**
    * The feature id for the '<em><b>All Extended Types</b></em>' attribute.
@@ -579,7 +542,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__ALL_EXTENDED_TYPES = 9;
+  int TYPE_FIELD_NAME__ALL_EXTENDED_TYPES = 8;
 
   /**
    * The feature id for the '<em><b>Field Type</b></em>' attribute.
@@ -588,7 +551,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__FIELD_TYPE = 10;
+  int TYPE_FIELD_NAME__FIELD_TYPE = 9;
 
   /**
    * The feature id for the '<em><b>Declaring Type</b></em>' attribute.
@@ -597,7 +560,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__DECLARING_TYPE = 11;
+  int TYPE_FIELD_NAME__DECLARING_TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Caught Type</b></em>' attribute.
@@ -606,7 +569,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__CAUGHT_TYPE = 12;
+  int TYPE_FIELD_NAME__CAUGHT_TYPE = 11;
 
   /**
    * The feature id for the '<em><b>Instanceof Types</b></em>' attribute.
@@ -615,7 +578,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME__INSTANCEOF_TYPES = 13;
+  int TYPE_FIELD_NAME__INSTANCEOF_TYPES = 12;
 
   /**
    * The number of structural features of the '<em>Type Field Name</em>' class.
@@ -624,7 +587,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_NAME_FEATURE_COUNT = 14;
+  int TYPE_FIELD_NAME_FEATURE_COUNT = 13;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.
@@ -634,7 +597,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getExp1()
    * @generated
    */
-  int EXP1 = 7;
+  int EXP1 = 6;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -689,7 +652,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getBooleanExp()
    * @generated
    */
-  int BOOLEAN_EXP = 8;
+  int BOOLEAN_EXP = 7;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression <em>Not Expression</em>}' enum.
@@ -699,7 +662,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getNotExpression()
    * @generated
    */
-  int NOT_EXPRESSION = 9;
+  int NOT_EXPRESSION = 8;
 
 
   /**
@@ -820,47 +783,15 @@ public interface LuceneQueryPackage extends EPackage
   EReference getTypeClause_Field();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @return the meta object for the attribute '<em>Value</em>'.
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getValue()
    * @see #getTypeClause()
    * @generated
    */
-  EReference getTypeClause_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest <em>Type Test</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Type Test</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest
-   * @generated
-   */
-  EClass getTypeTest();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest#getTest1 <em>Test1</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Test1</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest#getTest1()
-   * @see #getTypeTest()
-   * @generated
-   */
-  EAttribute getTypeTest_Test1();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest#getTest2 <em>Test2</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Test2</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest#getTest2()
-   * @see #getTypeTest()
-   * @generated
-   */
-  EAttribute getTypeTest_Test2();
+  EAttribute getTypeClause_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName <em>Field Name</em>}'.
@@ -882,6 +813,17 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EAttribute getFieldName_FullyQualifiedName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getType()
+   * @see #getFieldName()
+   * @generated
+   */
+  EAttribute getFieldName_Type();
 
   /**
    * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getFriendlyName <em>Friendly Name</em>}'.
@@ -1145,17 +1087,6 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EClass getTypeFieldName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getType()
-   * @see #getTypeFieldName()
-   * @generated
-   */
-  EAttribute getTypeFieldName_Type();
 
   /**
    * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName#getImplementedTypes <em>Implemented Types</em>}'.
@@ -1483,38 +1414,12 @@ public interface LuceneQueryPackage extends EPackage
     EReference TYPE_CLAUSE__FIELD = eINSTANCE.getTypeClause_Field();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference TYPE_CLAUSE__VALUE = eINSTANCE.getTypeClause_Value();
-
-    /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeTestImpl <em>Type Test</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeTestImpl
-     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTypeTest()
-     * @generated
-     */
-    EClass TYPE_TEST = eINSTANCE.getTypeTest();
-
-    /**
-     * The meta object literal for the '<em><b>Test1</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_TEST__TEST1 = eINSTANCE.getTypeTest_Test1();
-
-    /**
-     * The meta object literal for the '<em><b>Test2</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_TEST__TEST2 = eINSTANCE.getTypeTest_Test2();
+    EAttribute TYPE_CLAUSE__VALUE = eINSTANCE.getTypeClause_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl <em>Field Name</em>}' class.
@@ -1533,6 +1438,14 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute FIELD_NAME__FULLY_QUALIFIED_NAME = eINSTANCE.getFieldName_FullyQualifiedName();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_NAME__TYPE = eINSTANCE.getFieldName_Type();
 
     /**
      * The meta object literal for the '<em><b>Friendly Name</b></em>' attribute feature.
@@ -1727,14 +1640,6 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EClass TYPE_FIELD_NAME = eINSTANCE.getTypeFieldName();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD_NAME__TYPE = eINSTANCE.getTypeFieldName_Type();
 
     /**
      * The meta object literal for the '<em><b>Implemented Types</b></em>' attribute feature.

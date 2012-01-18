@@ -23,7 +23,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFiel
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldNameImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldNameImpl#getImplementedTypes <em>Implemented Types</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldNameImpl#getExtendedTypes <em>Extended Types</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldNameImpl#getUsedTypes <em>Used Types</em>}</li>
@@ -44,26 +43,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFiel
  */
 public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements TypeFieldName
 {
-  /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
-
   /**
    * The default value of the '{@link #getImplementedTypes() <em>Implemented Types</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -343,29 +322,6 @@ public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements T
   protected EClass eStaticClass()
   {
     return LuceneQueryPackage.Literals.TYPE_FIELD_NAME;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getType()
-  {
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setType(String newType)
-  {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.TYPE_FIELD_NAME__TYPE, oldType, type));
   }
 
   /**
@@ -677,8 +633,6 @@ public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements T
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_FIELD_NAME__TYPE:
-        return getType();
       case LuceneQueryPackage.TYPE_FIELD_NAME__IMPLEMENTED_TYPES:
         return getImplementedTypes();
       case LuceneQueryPackage.TYPE_FIELD_NAME__EXTENDED_TYPES:
@@ -719,9 +673,6 @@ public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements T
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_FIELD_NAME__TYPE:
-        setType((String)newValue);
-        return;
       case LuceneQueryPackage.TYPE_FIELD_NAME__IMPLEMENTED_TYPES:
         setImplementedTypes((String)newValue);
         return;
@@ -775,9 +726,6 @@ public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements T
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_FIELD_NAME__TYPE:
-        setType(TYPE_EDEFAULT);
-        return;
       case LuceneQueryPackage.TYPE_FIELD_NAME__IMPLEMENTED_TYPES:
         setImplementedTypes(IMPLEMENTED_TYPES_EDEFAULT);
         return;
@@ -831,8 +779,6 @@ public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements T
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_FIELD_NAME__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case LuceneQueryPackage.TYPE_FIELD_NAME__IMPLEMENTED_TYPES:
         return IMPLEMENTED_TYPES_EDEFAULT == null ? implementedTypes != null : !IMPLEMENTED_TYPES_EDEFAULT.equals(implementedTypes);
       case LuceneQueryPackage.TYPE_FIELD_NAME__EXTENDED_TYPES:
@@ -874,9 +820,7 @@ public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements T
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (Type: ");
-    result.append(type);
-    result.append(", ImplementedTypes: ");
+    result.append(" (ImplementedTypes: ");
     result.append(implementedTypes);
     result.append(", ExtendedTypes: ");
     result.append(extendedTypes);

@@ -25,7 +25,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpre
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,13 +61,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * @generated
    */
   private EClass typeClauseEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass typeTestEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -283,39 +275,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getTypeClause_Value()
+  public EAttribute getTypeClause_Value()
   {
-    return (EReference)typeClauseEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getTypeTest()
-  {
-    return typeTestEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTypeTest_Test1()
-  {
-    return (EAttribute)typeTestEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTypeTest_Test2()
-  {
-    return (EAttribute)typeTestEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)typeClauseEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -343,7 +305,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_FriendlyName()
+  public EAttribute getFieldName_Type()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(1);
   }
@@ -353,7 +315,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_DeclaredMethods()
+  public EAttribute getFieldName_FriendlyName()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(2);
   }
@@ -363,7 +325,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_ParameterCount()
+  public EAttribute getFieldName_DeclaredMethods()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(3);
   }
@@ -373,7 +335,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_ReturnVariableEexpressions()
+  public EAttribute getFieldName_ParameterCount()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(4);
   }
@@ -383,7 +345,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_UsedMethods()
+  public EAttribute getFieldName_ReturnVariableEexpressions()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(5);
   }
@@ -393,7 +355,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_UsedMethodsInTry()
+  public EAttribute getFieldName_UsedMethods()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(6);
   }
@@ -403,7 +365,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_UsedMethodsInFinally()
+  public EAttribute getFieldName_UsedMethodsInTry()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(7);
   }
@@ -413,7 +375,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_OverriddenMethods()
+  public EAttribute getFieldName_UsedMethodsInFinally()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(8);
   }
@@ -423,7 +385,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_ProjectName()
+  public EAttribute getFieldName_OverriddenMethods()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(9);
   }
@@ -433,7 +395,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_ResourcePath()
+  public EAttribute getFieldName_ProjectName()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(10);
   }
@@ -443,7 +405,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_Modifiers()
+  public EAttribute getFieldName_ResourcePath()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(11);
   }
@@ -453,7 +415,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_AllDeclaredMethodNames()
+  public EAttribute getFieldName_Modifiers()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(12);
   }
@@ -463,7 +425,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_DeclaredMethodNames()
+  public EAttribute getFieldName_AllDeclaredMethodNames()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(13);
   }
@@ -473,7 +435,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_DeclaredFieldNames()
+  public EAttribute getFieldName_DeclaredMethodNames()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(14);
   }
@@ -483,7 +445,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_DeclaredFieldTypes()
+  public EAttribute getFieldName_DeclaredFieldNames()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(15);
   }
@@ -493,7 +455,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_AllDeclaredFieldNames()
+  public EAttribute getFieldName_DeclaredFieldTypes()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(16);
   }
@@ -503,7 +465,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_FullText()
+  public EAttribute getFieldName_AllDeclaredFieldNames()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(17);
   }
@@ -513,7 +475,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_FieldsRead()
+  public EAttribute getFieldName_FullText()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(18);
   }
@@ -523,7 +485,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_FieldsWritten()
+  public EAttribute getFieldName_FieldsRead()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(19);
   }
@@ -533,7 +495,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_UsedFieldsInFinally()
+  public EAttribute getFieldName_FieldsWritten()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(20);
   }
@@ -543,7 +505,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_UsedFieldsInTry()
+  public EAttribute getFieldName_UsedFieldsInFinally()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(21);
   }
@@ -553,7 +515,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_Annotations()
+  public EAttribute getFieldName_UsedFieldsInTry()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(22);
   }
@@ -563,9 +525,19 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFieldName_Timestamp()
+  public EAttribute getFieldName_Annotations()
   {
     return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(23);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFieldName_Timestamp()
+  {
+    return (EAttribute)fieldNameEClass.getEStructuralFeatures().get(24);
   }
 
   /**
@@ -583,7 +555,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_Type()
+  public EAttribute getTypeFieldName_ImplementedTypes()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(0);
   }
@@ -593,7 +565,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_ImplementedTypes()
+  public EAttribute getTypeFieldName_ExtendedTypes()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(1);
   }
@@ -603,7 +575,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_ExtendedTypes()
+  public EAttribute getTypeFieldName_UsedTypes()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(2);
   }
@@ -613,7 +585,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_UsedTypes()
+  public EAttribute getTypeFieldName_UsedTypesInTry()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(3);
   }
@@ -623,7 +595,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_UsedTypesInTry()
+  public EAttribute getTypeFieldName_UsedTypesInFinally()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(4);
   }
@@ -633,7 +605,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_UsedTypesInFinally()
+  public EAttribute getTypeFieldName_ParameterTypes()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(5);
   }
@@ -643,7 +615,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_ParameterTypes()
+  public EAttribute getTypeFieldName_ReturnType()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(6);
   }
@@ -653,7 +625,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_ReturnType()
+  public EAttribute getTypeFieldName_AllImplementedTypes()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(7);
   }
@@ -663,7 +635,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_AllImplementedTypes()
+  public EAttribute getTypeFieldName_AllExtendedTypes()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(8);
   }
@@ -673,7 +645,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_AllExtendedTypes()
+  public EAttribute getTypeFieldName_FieldType()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(9);
   }
@@ -683,7 +655,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_FieldType()
+  public EAttribute getTypeFieldName_DeclaringType()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(10);
   }
@@ -693,7 +665,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_DeclaringType()
+  public EAttribute getTypeFieldName_CaughtType()
   {
     return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(11);
   }
@@ -703,19 +675,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeFieldName_CaughtType()
-  {
-    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(12);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getTypeFieldName_InstanceofTypes()
   {
-    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(13);
+    return (EAttribute)typeFieldNameEClass.getEStructuralFeatures().get(12);
   }
 
   /**
@@ -822,14 +784,11 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     typeClauseEClass = createEClass(TYPE_CLAUSE);
     createEAttribute(typeClauseEClass, TYPE_CLAUSE__N);
     createEReference(typeClauseEClass, TYPE_CLAUSE__FIELD);
-    createEReference(typeClauseEClass, TYPE_CLAUSE__VALUE);
-
-    typeTestEClass = createEClass(TYPE_TEST);
-    createEAttribute(typeTestEClass, TYPE_TEST__TEST1);
-    createEAttribute(typeTestEClass, TYPE_TEST__TEST2);
+    createEAttribute(typeClauseEClass, TYPE_CLAUSE__VALUE);
 
     fieldNameEClass = createEClass(FIELD_NAME);
     createEAttribute(fieldNameEClass, FIELD_NAME__FULLY_QUALIFIED_NAME);
+    createEAttribute(fieldNameEClass, FIELD_NAME__TYPE);
     createEAttribute(fieldNameEClass, FIELD_NAME__FRIENDLY_NAME);
     createEAttribute(fieldNameEClass, FIELD_NAME__DECLARED_METHODS);
     createEAttribute(fieldNameEClass, FIELD_NAME__PARAMETER_COUNT);
@@ -855,7 +814,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     createEAttribute(fieldNameEClass, FIELD_NAME__TIMESTAMP);
 
     typeFieldNameEClass = createEClass(TYPE_FIELD_NAME);
-    createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__TYPE);
     createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__IMPLEMENTED_TYPES);
     createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__EXTENDED_TYPES);
     createEAttribute(typeFieldNameEClass, TYPE_FIELD_NAME__USED_TYPES);
@@ -926,14 +884,11 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEClass(typeClauseEClass, TypeClause.class, "TypeClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeClause_N(), this.getNotExpression(), "n", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeClause_Field(), this.getTypeFieldName(), null, "field", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTypeClause_Value(), this.getTypeTest(), null, "value", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(typeTestEClass, TypeTest.class, "TypeTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypeTest_Test1(), ecorePackage.getEString(), "test1", null, 0, 1, TypeTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTypeTest_Test2(), ecorePackage.getEString(), "test2", null, 0, 1, TypeTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeClause_Value(), ecorePackage.getEString(), "value", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldNameEClass, FieldName.class, "FieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFieldName_FullyQualifiedName(), ecorePackage.getEString(), "FullyQualifiedName", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldName_Type(), ecorePackage.getEString(), "Type", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFieldName_FriendlyName(), ecorePackage.getEString(), "FriendlyName", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFieldName_DeclaredMethods(), ecorePackage.getEString(), "DeclaredMethods", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFieldName_ParameterCount(), ecorePackage.getEString(), "ParameterCount", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -959,7 +914,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEAttribute(getFieldName_Timestamp(), ecorePackage.getEString(), "Timestamp", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeFieldNameEClass, TypeFieldName.class, "TypeFieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypeFieldName_Type(), ecorePackage.getEString(), "Type", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeFieldName_ImplementedTypes(), ecorePackage.getEString(), "ImplementedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeFieldName_ExtendedTypes(), ecorePackage.getEString(), "ExtendedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeFieldName_UsedTypes(), ecorePackage.getEString(), "UsedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -73,7 +73,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
       case LuceneQueryPackage.CLAUSE_EXPRESSION: return createClauseExpression();
       case LuceneQueryPackage.SIMPLE_CLAUSE: return createSimpleClause();
       case LuceneQueryPackage.TYPE_CLAUSE: return createTypeClause();
-      case LuceneQueryPackage.TYPE_TEST: return createTypeTest();
       case LuceneQueryPackage.FIELD_NAME: return createFieldName();
       case LuceneQueryPackage.TYPE_FIELD_NAME: return createTypeFieldName();
       case LuceneQueryPackage.EXP1: return createExp1();
@@ -162,17 +161,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     TypeClauseImpl typeClause = new TypeClauseImpl();
     return typeClause;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TypeTest createTypeTest()
-  {
-    TypeTestImpl typeTest = new TypeTestImpl();
-    return typeTest;
   }
 
   /**

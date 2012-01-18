@@ -34,19 +34,19 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	;
 	
 	TypeClause:
-		(n=NotExpression)? field=TypeFieldName ':' value=TypeTest
+		(n=NotExpression)? field=TypeFieldName ':' value=TypeValue
 	;
 	
 	FieldValue:
 		Value | '(' Value* ')'
 	;
 	
-	TypeTest:
-		test1='test1' | test2='test2'
+	TypeValue:
+		Value | '(' Value* ')'
 	;
 	
 	Value:
-		('+' | '-')? (ID | STRING)
+		('+' | '-')? (ID | STRING | ANY_OTHER)
 	;
 	
 	enum BooleanExp:

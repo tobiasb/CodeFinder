@@ -35,14 +35,11 @@
     <genClasses ecoreClass="LuceneQuery.ecore#//TypeClause">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeClause/n"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//TypeClause/field"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//TypeClause/value"/>
-    </genClasses>
-    <genClasses ecoreClass="LuceneQuery.ecore#//TypeTest">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeTest/test1"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeTest/test2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeClause/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//FieldName">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FieldName/FullyQualifiedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FieldName/Type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FieldName/FriendlyName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FieldName/DeclaredMethods"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FieldName/ParameterCount"/>
@@ -68,7 +65,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FieldName/Timestamp"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//TypeFieldName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/Type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/ImplementedTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/ExtendedTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/UsedTypes"/>

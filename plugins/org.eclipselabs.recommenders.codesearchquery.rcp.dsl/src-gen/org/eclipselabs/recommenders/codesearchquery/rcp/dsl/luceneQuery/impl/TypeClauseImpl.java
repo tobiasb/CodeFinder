@@ -19,7 +19,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,14 +68,24 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
   protected TypeFieldName field;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected TypeTest value;
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -175,7 +184,7 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeTest getValue()
+  public String getValue()
   {
     return value;
   }
@@ -185,37 +194,12 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetValue(TypeTest newValue, NotificationChain msgs)
+  public void setValue(String newValue)
   {
-    TypeTest oldValue = value;
+    String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.TYPE_CLAUSE__VALUE, oldValue, newValue);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(TypeTest newValue)
-  {
-    if (newValue != value)
-    {
-      NotificationChain msgs = null;
-      if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LuceneQueryPackage.TYPE_CLAUSE__VALUE, null, msgs);
-      if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LuceneQueryPackage.TYPE_CLAUSE__VALUE, null, msgs);
-      msgs = basicSetValue(newValue, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.TYPE_CLAUSE__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.TYPE_CLAUSE__VALUE, oldValue, value));
   }
 
   /**
@@ -230,8 +214,6 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
     {
       case LuceneQueryPackage.TYPE_CLAUSE__FIELD:
         return basicSetField(null, msgs);
-      case LuceneQueryPackage.TYPE_CLAUSE__VALUE:
-        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -273,7 +255,7 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
         setField((TypeFieldName)newValue);
         return;
       case LuceneQueryPackage.TYPE_CLAUSE__VALUE:
-        setValue((TypeTest)newValue);
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -296,7 +278,7 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
         setField((TypeFieldName)null);
         return;
       case LuceneQueryPackage.TYPE_CLAUSE__VALUE:
-        setValue((TypeTest)null);
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -317,7 +299,7 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
       case LuceneQueryPackage.TYPE_CLAUSE__FIELD:
         return field != null;
       case LuceneQueryPackage.TYPE_CLAUSE__VALUE:
-        return value != null;
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -335,6 +317,8 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (n: ");
     result.append(n);
+    result.append(", value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

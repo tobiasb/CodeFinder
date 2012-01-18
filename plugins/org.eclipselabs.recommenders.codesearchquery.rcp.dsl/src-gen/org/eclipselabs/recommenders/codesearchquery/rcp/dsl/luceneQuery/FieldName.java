@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getFriendlyName <em>Friendly Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getDeclaredMethods <em>Declared Methods</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getParameterCount <em>Parameter Count</em>}</li>
@@ -74,6 +75,32 @@ public interface FieldName extends EObject
    * @generated
    */
   void setFullyQualifiedName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(String)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getFieldName_Type()
+   * @model
+   * @generated
+   */
+  String getType();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName#getType <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #getType()
+   * @generated
+   */
+  void setType(String value);
 
   /**
    * Returns the value of the '<em><b>Friendly Name</b></em>' attribute.

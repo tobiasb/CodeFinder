@@ -21,7 +21,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeTest;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.services.LuceneQueryGrammarAccess;
 
 @SuppressWarnings("restriction")
@@ -98,12 +97,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 					return; 
 				}
 				else break;
-			case LuceneQueryPackage.TYPE_TEST:
-				if(context == grammarAccess.getTypeTestRule()) {
-					sequence_TypeTest(context, (TypeTest) semanticObject); 
-					return; 
-				}
-				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -146,6 +139,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 * Constraint:
 	 *     (
 	 *         FullyQualifiedName='FullyQualifiedName' | 
+	 *         Type='Type' | 
 	 *         FriendlyName='FriendlyName' | 
 	 *         DeclaredMethods='DeclaredMethods' | 
 	 *         ParameterCount='ParameterCount' | 
@@ -187,7 +181,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (n=NotExpression? field=TypeFieldName value=TypeTest)
+	 *     (n=NotExpression? field=TypeFieldName value=TypeValue)
 	 */
 	protected void sequence_TypeClause(EObject context, TypeClause semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -197,7 +191,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
-	 *         Type='Type' | 
 	 *         ImplementedTypes='ImplementedTypes' | 
 	 *         ExtendedTypes='ExtendedTypes' | 
 	 *         UsedTypes='UsedTypes' | 
@@ -214,15 +207,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *     )
 	 */
 	protected void sequence_TypeFieldName(EObject context, TypeFieldName semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (test1='test1' | test2='test2')
-	 */
-	protected void sequence_TypeTest(EObject context, TypeTest semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

@@ -63,15 +63,6 @@ public interface LuceneQueryFactory extends EFactory
   TypeClause createTypeClause();
 
   /**
-   * Returns a new object of class '<em>Type Test</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Test</em>'.
-   * @generated
-   */
-  TypeTest createTypeTest();
-
-  /**
    * Returns a new object of class '<em>Field Name</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -24,6 +24,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl#getFriendlyName <em>Friendly Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl#getDeclaredMethods <em>Declared Methods</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl#getParameterCount <em>Parameter Count</em>}</li>
@@ -73,6 +74,26 @@ public class FieldNameImpl extends MinimalEObjectImpl.Container implements Field
    * @ordered
    */
   protected String fullyQualifiedName = FULLY_QUALIFIED_NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getFriendlyName() <em>Friendly Name</em>}' attribute.
@@ -576,6 +597,29 @@ public class FieldNameImpl extends MinimalEObjectImpl.Container implements Field
     fullyQualifiedName = newFullyQualifiedName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.FIELD_NAME__FULLY_QUALIFIED_NAME, oldFullyQualifiedName, fullyQualifiedName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.FIELD_NAME__TYPE, oldType, type));
   }
 
   /**
@@ -1119,6 +1163,8 @@ public class FieldNameImpl extends MinimalEObjectImpl.Container implements Field
     {
       case LuceneQueryPackage.FIELD_NAME__FULLY_QUALIFIED_NAME:
         return getFullyQualifiedName();
+      case LuceneQueryPackage.FIELD_NAME__TYPE:
+        return getType();
       case LuceneQueryPackage.FIELD_NAME__FRIENDLY_NAME:
         return getFriendlyName();
       case LuceneQueryPackage.FIELD_NAME__DECLARED_METHODS:
@@ -1181,6 +1227,9 @@ public class FieldNameImpl extends MinimalEObjectImpl.Container implements Field
     {
       case LuceneQueryPackage.FIELD_NAME__FULLY_QUALIFIED_NAME:
         setFullyQualifiedName((String)newValue);
+        return;
+      case LuceneQueryPackage.FIELD_NAME__TYPE:
+        setType((String)newValue);
         return;
       case LuceneQueryPackage.FIELD_NAME__FRIENDLY_NAME:
         setFriendlyName((String)newValue);
@@ -1268,6 +1317,9 @@ public class FieldNameImpl extends MinimalEObjectImpl.Container implements Field
       case LuceneQueryPackage.FIELD_NAME__FULLY_QUALIFIED_NAME:
         setFullyQualifiedName(FULLY_QUALIFIED_NAME_EDEFAULT);
         return;
+      case LuceneQueryPackage.FIELD_NAME__TYPE:
+        setType(TYPE_EDEFAULT);
+        return;
       case LuceneQueryPackage.FIELD_NAME__FRIENDLY_NAME:
         setFriendlyName(FRIENDLY_NAME_EDEFAULT);
         return;
@@ -1353,6 +1405,8 @@ public class FieldNameImpl extends MinimalEObjectImpl.Container implements Field
     {
       case LuceneQueryPackage.FIELD_NAME__FULLY_QUALIFIED_NAME:
         return FULLY_QUALIFIED_NAME_EDEFAULT == null ? fullyQualifiedName != null : !FULLY_QUALIFIED_NAME_EDEFAULT.equals(fullyQualifiedName);
+      case LuceneQueryPackage.FIELD_NAME__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
       case LuceneQueryPackage.FIELD_NAME__FRIENDLY_NAME:
         return FRIENDLY_NAME_EDEFAULT == null ? friendlyName != null : !FRIENDLY_NAME_EDEFAULT.equals(friendlyName);
       case LuceneQueryPackage.FIELD_NAME__DECLARED_METHODS:
@@ -1416,6 +1470,8 @@ public class FieldNameImpl extends MinimalEObjectImpl.Container implements Field
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (FullyQualifiedName: ");
     result.append(fullyQualifiedName);
+    result.append(", Type: ");
+    result.append(type);
     result.append(", FriendlyName: ");
     result.append(friendlyName);
     result.append(", DeclaredMethods: ");
