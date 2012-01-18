@@ -1,0 +1,2 @@
+ExtendedTypes:Lorg/eclipse* AND Modifiers: public AND (UsedTypes:L*ASTVisitor OR UsedTypes:L*Plugin)
+UsedTypes:Ljava/util/*
