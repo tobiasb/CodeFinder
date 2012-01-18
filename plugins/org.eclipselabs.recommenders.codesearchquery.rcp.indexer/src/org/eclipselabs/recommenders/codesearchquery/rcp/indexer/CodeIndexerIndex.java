@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -16,7 +17,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.Compilat
 
 public class CodeIndexerIndex extends AbstractIndex {
 
-	private IndexWriter m_writer = null;
+	private IndexWriter m_writer;
 	
 	public CodeIndexerIndex(Directory directory) throws IOException {
 		super(directory);
@@ -43,6 +44,22 @@ public class CodeIndexerIndex extends AbstractIndex {
 
         cu.accept(visitor);
 	}
+	
+    public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {   
+    	addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
+    }
+
+    public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {        
+        if(fieldValue == null) {
+        	return;
+        }
+        
+    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+
+        System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
+        
+        document.add(field);
+    }
 	
 	public void commit() {
 		try {

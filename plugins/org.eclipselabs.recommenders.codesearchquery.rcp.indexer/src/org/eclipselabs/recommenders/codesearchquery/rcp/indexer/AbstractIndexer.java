@@ -1,7 +1,6 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 
 import org.apache.lucene.document.Document;
-import org.apache.lucene.document.Field;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jdt.core.JavaModelException;
@@ -13,21 +12,13 @@ import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.names.VmTypeName;
 
 public abstract class AbstractIndexer {
-
-    protected void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {   
-    	addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
+		
+    protected void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {  
+    	CodeIndexerIndex.addAnalyzedField(document, fieldName, fieldValue);
     }
-    
-    protected void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {        
-        if(fieldValue == null) {
-        	return;
-        }
-        
-    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
 
-        System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
-        
-        document.add(field);
+    protected void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {   
+    	CodeIndexerIndex.addAnalyzedField(document, fieldName, fieldValue);
     }
 
     public static boolean isPrimitiveOrArrayOrNullOrObjectOrString(
