@@ -2,7 +2,7 @@ package "org.eclipselabs.recommenders.codesearchquery"
 class Fields 
 
 FULLY_QUALIFIED_NAME; "FullyQualifiedName"; class,method,field,trycatch
-TYPE; "Type"; proposeType; class,method,field,trycatch
+TYPE; "Type"; class,method,field,trycatch
 FRIENDLY_NAME; "FriendlyName"; class,method,field,trycatch
 IMPLEMENTED_TYPES; "ImplementedTypes";proposeType; class
 EXTENDED_TYPE; "ExtendedTypes";proposeType; class
