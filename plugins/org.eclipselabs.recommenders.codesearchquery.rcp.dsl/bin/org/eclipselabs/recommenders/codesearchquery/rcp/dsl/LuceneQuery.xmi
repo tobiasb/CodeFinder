@@ -254,8 +254,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//TypeFieldName"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="type"/>
+        <elements xsi:type="xtext:Assignment" feature="Type" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="Type"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="ImplementedTypes" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ImplementedTypes"/>

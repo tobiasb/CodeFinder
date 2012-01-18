@@ -2262,7 +2262,7 @@ rule__TypeFieldName__TypeAssignment_0
 (
 { before(grammarAccess.getTypeFieldNameAccess().getTypeTypeKeyword_0_0()); }
 
-	'type' 
+	'Type' 
 
 { after(grammarAccess.getTypeFieldNameAccess().getTypeTypeKeyword_0_0()); }
 )

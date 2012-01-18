@@ -246,7 +246,7 @@ public class SearchQueryView extends ViewPart {
             private <T>void addIfNotNull(List<T> list, T element) {
             	if(element != null)
             		list.add(element);
-            	//TODO: Why are they even null?
+            	//TODO: Elements are null if the workspace isn't built and the java elements couldn't be resolved
             }
         });
     }

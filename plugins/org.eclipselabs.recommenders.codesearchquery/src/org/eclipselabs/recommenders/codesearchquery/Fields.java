@@ -19,7 +19,7 @@ public class Fields {
 	/** Can be applied to: class,method,field,tryCatch*/
 	public final static String FULLY_QUALIFIED_NAME = "FullyQualifiedName";
 	/** Can be applied to: class,method,field,tryCatch*/
-	public final static String TYPE = "type";
+	public final static String TYPE = "Type";
 	/** Can be applied to: class,method,field,tryCatch*/
 	public final static String FRIENDLY_NAME = "FriendlyName";
 	/** Can be applied to: class*/

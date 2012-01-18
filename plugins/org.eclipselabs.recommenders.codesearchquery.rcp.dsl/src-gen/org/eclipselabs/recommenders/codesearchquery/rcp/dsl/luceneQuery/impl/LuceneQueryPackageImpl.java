@@ -959,7 +959,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEAttribute(getFieldName_Timestamp(), ecorePackage.getEString(), "Timestamp", null, 0, 1, FieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeFieldNameEClass, TypeFieldName.class, "TypeFieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypeFieldName_Type(), ecorePackage.getEString(), "type", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeFieldName_Type(), ecorePackage.getEString(), "Type", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeFieldName_ImplementedTypes(), ecorePackage.getEString(), "ImplementedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeFieldName_ExtendedTypes(), ecorePackage.getEString(), "ExtendedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeFieldName_UsedTypes(), ecorePackage.getEString(), "UsedTypes", null, 0, 1, TypeFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

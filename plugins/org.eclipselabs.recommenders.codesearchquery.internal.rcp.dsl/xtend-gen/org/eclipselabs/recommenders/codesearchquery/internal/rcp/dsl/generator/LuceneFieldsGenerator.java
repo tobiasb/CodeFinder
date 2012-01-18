@@ -12,6 +12,7 @@ import org.eclipse.xtext.xbase.lib.IntegerExtensions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.generator.BooleanHandler;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldType;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model;
@@ -28,16 +29,20 @@ public class LuceneFieldsGenerator implements IGenerator {
         String _operator_plus = StringExtensions.operator_plus(_className, ".java");
         CharSequence _compileFieldsClass = this.compileFieldsClass(e);
         fsa.generateFile(_operator_plus, _compileFieldsClass);
-        CharSequence _compileXtextBaseClass = this.compileXtextBaseClass(e);
+        String _compileXtextBaseClass = this.compileXtextBaseClass(e);
         fsa.generateFile("LuceneQueryBaseGenerated.xtext", _compileXtextBaseClass);
       }
     }
   }
   
-  public CharSequence compileXtextBaseClass(final Model m) {
-    CharSequence _xblockexpression = null;
+  public String compileXtextBaseClass(final Model m) {
+    String _xblockexpression = null;
     {
-      boolean first = false;
+      BooleanHandler _booleanHandler = new BooleanHandler();
+      BooleanHandler b = _booleanHandler;
+      StringBuilder _stringBuilder = new StringBuilder();
+      StringBuilder sb = _stringBuilder;
+      b.setValue(Boolean.valueOf(true));
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("/*");
       _builder.newLine();
@@ -48,10 +53,6 @@ public class LuceneFieldsGenerator implements IGenerator {
       _builder.newLine();
       _builder.append("FieldName:");
       _builder.newLine();
-      _builder.append("\t");
-      boolean _first = first = true;
-      _builder.append(_first, "	");
-      _builder.newLineIfNotEmpty();
       {
         EList<Field> _fields = m.getFields();
         for(final Field f : _fields) {
@@ -61,72 +62,76 @@ public class LuceneFieldsGenerator implements IGenerator {
             if (_operator_not) {
               _builder.append("\t");
               String _xifexpression = null;
-              if (first) {
+              Boolean _value = b.getValue();
+              boolean _operator_not_1 = BooleanExtensions.operator_not(_value);
+              if (_operator_not_1) {
                 _xifexpression = "| ";
               }
               _builder.append(_xifexpression, "	");
               _builder.append("\t");
-              String _value = f.getValue();
-              _builder.append(_value, "	");
-              _builder.append("=\'");
               String _value_1 = f.getValue();
               _builder.append(_value_1, "	");
+              _builder.append("=\'");
+              String _value_2 = f.getValue();
+              _builder.append(_value_2, "	");
               _builder.append("\'");
               _builder.newLineIfNotEmpty();
               _builder.append("\t");
-              boolean _first_1 = first = false;
-              _builder.append(_first_1, "	");
+              b.setValue(Boolean.valueOf(false));
               _builder.newLineIfNotEmpty();
             }
           }
         }
       }
       _builder.append(";");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("TypeFieldName:");
-      _builder.newLine();
-      _builder.append("\t");
-      boolean _first_2 = first = true;
-      _builder.append(_first_2, "	");
-      _builder.newLineIfNotEmpty();
+      sb.append(_builder);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.newLine();
+      sb.append(_builder_1);
+      b.setValue(Boolean.valueOf(true));
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("TypeFieldName:");
+      _builder_2.newLine();
       {
         EList<Field> _fields_1 = m.getFields();
         for(final Field f_1 : _fields_1) {
           {
             boolean _isProposeType_1 = f_1.isProposeType();
             if (_isProposeType_1) {
-              _builder.append("\t");
+              _builder_2.append("\t");
               String _xifexpression_1 = null;
-              if (first) {
+              Boolean _value_3 = b.getValue();
+              boolean _operator_not_2 = BooleanExtensions.operator_not(_value_3);
+              if (_operator_not_2) {
                 _xifexpression_1 = "| ";
               }
-              _builder.append(_xifexpression_1, "	");
-              _builder.append("\t");
-              String _value_2 = f_1.getValue();
-              _builder.append(_value_2, "	");
-              _builder.append("=\'");
-              String _value_3 = f_1.getValue();
-              _builder.append(_value_3, "	");
-              _builder.append("\'");
-              _builder.newLineIfNotEmpty();
-              _builder.append("\t");
-              boolean _first_3 = first = false;
-              _builder.append(_first_3, "	");
-              _builder.newLineIfNotEmpty();
+              _builder_2.append(_xifexpression_1, "	");
+              _builder_2.append("\t");
+              String _value_4 = f_1.getValue();
+              _builder_2.append(_value_4, "	");
+              _builder_2.append("=\'");
+              String _value_5 = f_1.getValue();
+              _builder_2.append(_value_5, "	");
+              _builder_2.append("\'");
+              _builder_2.newLineIfNotEmpty();
+              _builder_2.append("\t");
+              b.setValue(Boolean.valueOf(false));
+              _builder_2.newLineIfNotEmpty();
             }
           }
         }
       }
-      _builder.append(";");
-      _builder.newLine();
-      _builder.append("/*");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("End of generated rules.");
-      _builder.newLine();
-      _builder.append("*/");
-      _xblockexpression = (_builder);
+      _builder_2.append(";");
+      _builder_2.newLine();
+      _builder_2.append("/*");
+      _builder_2.newLine();
+      _builder_2.append("\t");
+      _builder_2.append("End of generated rules.");
+      _builder_2.newLine();
+      _builder_2.append("*/");
+      sb.append(_builder_2);
+      String _string = sb.toString();
+      _xblockexpression = (_string);
     }
     return _xblockexpression;
   }

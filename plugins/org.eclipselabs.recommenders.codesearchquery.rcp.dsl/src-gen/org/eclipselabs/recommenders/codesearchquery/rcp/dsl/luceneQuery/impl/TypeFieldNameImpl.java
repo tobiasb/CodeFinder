@@ -874,7 +874,7 @@ public class TypeFieldNameImpl extends MinimalEObjectImpl.Container implements T
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
+    result.append(" (Type: ");
     result.append(type);
     result.append(", ImplementedTypes: ");
     result.append(implementedTypes);

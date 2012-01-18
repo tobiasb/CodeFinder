@@ -986,16 +986,16 @@ ruleTypeFieldName returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_type_0_0=	'type' 
+		lv_Type_0_0=	'Type' 
     {
-        newLeafNode(lv_type_0_0, grammarAccess.getTypeFieldNameAccess().getTypeTypeKeyword_0_0());
+        newLeafNode(lv_Type_0_0, grammarAccess.getTypeFieldNameAccess().getTypeTypeKeyword_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getTypeFieldNameRule());
 	        }
-       		setWithLastConsumed($current, "type", lv_type_0_0, "type");
+       		setWithLastConsumed($current, "Type", lv_Type_0_0, "Type");
 	    }
 
 )

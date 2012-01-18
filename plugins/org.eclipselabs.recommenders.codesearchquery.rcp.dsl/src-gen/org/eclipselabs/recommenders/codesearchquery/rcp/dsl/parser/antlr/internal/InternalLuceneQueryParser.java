@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "')'", "':'", "'test1'", "'test2'", "'+'", "'-'", "'FullyQualifiedName'", "'FriendlyName'", "'DeclaredMethods'", "'ParameterCount'", "'ReturnVariableEexpressions'", "'UsedMethods'", "'UsedMethodsInTry'", "'UsedMethodsInFinally'", "'OverriddenMethods'", "'ProjectName'", "'ResourcePath'", "'Modifiers'", "'AllDeclaredMethodNames'", "'DeclaredMethodNames'", "'DeclaredFieldNames'", "'DeclaredFieldTypes'", "'AllDeclaredFieldNames'", "'FullText'", "'FieldsRead'", "'FieldsWritten'", "'UsedFieldsInFinally'", "'UsedFieldsInTry'", "'Annotations'", "'Timestamp'", "'type'", "'ImplementedTypes'", "'ExtendedTypes'", "'UsedTypes'", "'UsedTypesInTry'", "'UsedTypesInFinally'", "'ParameterTypes'", "'ReturnType'", "'AllImplementedTypes'", "'AllExtendedTypes'", "'FieldType'", "'DeclaringType'", "'CaughtType'", "'InstanceofTypes'", "'AND'", "'and'", "'OR'", "'or'", "'not'", "'NOT'", "'!'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "')'", "':'", "'test1'", "'test2'", "'+'", "'-'", "'FullyQualifiedName'", "'FriendlyName'", "'DeclaredMethods'", "'ParameterCount'", "'ReturnVariableEexpressions'", "'UsedMethods'", "'UsedMethodsInTry'", "'UsedMethodsInFinally'", "'OverriddenMethods'", "'ProjectName'", "'ResourcePath'", "'Modifiers'", "'AllDeclaredMethodNames'", "'DeclaredMethodNames'", "'DeclaredFieldNames'", "'DeclaredFieldTypes'", "'AllDeclaredFieldNames'", "'FullText'", "'FieldsRead'", "'FieldsWritten'", "'UsedFieldsInFinally'", "'UsedFieldsInTry'", "'Annotations'", "'Timestamp'", "'Type'", "'ImplementedTypes'", "'ExtendedTypes'", "'UsedTypes'", "'UsedTypesInTry'", "'UsedTypesInFinally'", "'ParameterTypes'", "'ReturnType'", "'AllImplementedTypes'", "'AllExtendedTypes'", "'FieldType'", "'DeclaringType'", "'CaughtType'", "'InstanceofTypes'", "'AND'", "'and'", "'OR'", "'or'", "'not'", "'NOT'", "'!'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -2499,11 +2499,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeFieldName"
-    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:983:1: ruleTypeFieldName returns [EObject current=null] : ( ( (lv_type_0_0= 'type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) ) ;
+    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:983:1: ruleTypeFieldName returns [EObject current=null] : ( ( (lv_Type_0_0= 'Type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) ) ;
     public final EObject ruleTypeFieldName() throws RecognitionException {
         EObject current = null;
 
-        Token lv_type_0_0=null;
+        Token lv_Type_0_0=null;
         Token lv_ImplementedTypes_1_0=null;
         Token lv_ExtendedTypes_2_0=null;
         Token lv_UsedTypes_3_0=null;
@@ -2521,10 +2521,10 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:986:28: ( ( ( (lv_type_0_0= 'type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:1: ( ( (lv_type_0_0= 'type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:986:28: ( ( ( (lv_Type_0_0= 'Type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:1: ( ( (lv_Type_0_0= 'Type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:1: ( ( (lv_type_0_0= 'type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:1: ( ( (lv_Type_0_0= 'Type' ) ) | ( (lv_ImplementedTypes_1_0= 'ImplementedTypes' ) ) | ( (lv_ExtendedTypes_2_0= 'ExtendedTypes' ) ) | ( (lv_UsedTypes_3_0= 'UsedTypes' ) ) | ( (lv_UsedTypesInTry_4_0= 'UsedTypesInTry' ) ) | ( (lv_UsedTypesInFinally_5_0= 'UsedTypesInFinally' ) ) | ( (lv_ParameterTypes_6_0= 'ParameterTypes' ) ) | ( (lv_ReturnType_7_0= 'ReturnType' ) ) | ( (lv_AllImplementedTypes_8_0= 'AllImplementedTypes' ) ) | ( (lv_AllExtendedTypes_9_0= 'AllExtendedTypes' ) ) | ( (lv_FieldType_10_0= 'FieldType' ) ) | ( (lv_DeclaringType_11_0= 'DeclaringType' ) ) | ( (lv_CaughtType_12_0= 'CaughtType' ) ) | ( (lv_InstanceofTypes_13_0= 'InstanceofTypes' ) ) )
             int alt12=14;
             switch ( input.LA(1) ) {
             case 42:
@@ -2606,23 +2606,23 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
             switch (alt12) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:2: ( (lv_type_0_0= 'type' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:2: ( (lv_Type_0_0= 'Type' ) )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:2: ( (lv_type_0_0= 'type' ) )
-                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:988:1: (lv_type_0_0= 'type' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:987:2: ( (lv_Type_0_0= 'Type' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:988:1: (lv_Type_0_0= 'Type' )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:988:1: (lv_type_0_0= 'type' )
-                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:989:3: lv_type_0_0= 'type'
+                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:988:1: (lv_Type_0_0= 'Type' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:989:3: lv_Type_0_0= 'Type'
                     {
-                    lv_type_0_0=(Token)match(input,42,FOLLOW_42_in_ruleTypeFieldName2252); 
+                    lv_Type_0_0=(Token)match(input,42,FOLLOW_42_in_ruleTypeFieldName2252); 
 
-                            newLeafNode(lv_type_0_0, grammarAccess.getTypeFieldNameAccess().getTypeTypeKeyword_0_0());
+                            newLeafNode(lv_Type_0_0, grammarAccess.getTypeFieldNameAccess().getTypeTypeKeyword_0_0());
                         
 
                     	        if (current==null) {
                     	            current = createModelElement(grammarAccess.getTypeFieldNameRule());
                     	        }
-                           		setWithLastConsumed(current, "type", lv_type_0_0, "type");
+                           		setWithLastConsumed(current, "Type", lv_Type_0_0, "Type");
                     	    
 
                     }

@@ -197,7 +197,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
-	 *         type='type' | 
+	 *         Type='Type' | 
 	 *         ImplementedTypes='ImplementedTypes' | 
 	 *         ExtendedTypes='ExtendedTypes' | 
 	 *         UsedTypes='UsedTypes' | 

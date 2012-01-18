@@ -68,7 +68,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FieldName/Timestamp"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//TypeFieldName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/Type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/ImplementedTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/ExtendedTypes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeFieldName/UsedTypes"/>

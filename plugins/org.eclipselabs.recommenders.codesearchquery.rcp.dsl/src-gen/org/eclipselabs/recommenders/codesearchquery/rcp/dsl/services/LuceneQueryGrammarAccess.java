@@ -578,22 +578,22 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//	End of generated rules.
 		//
 		// * / TypeFieldName:
-		//	type="type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
+		//	Type="Type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
 		//	UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
 		//	ReturnType="ReturnType" | AllImplementedTypes="AllImplementedTypes" | AllExtendedTypes="AllExtendedTypes" |
 		//	FieldType="FieldType" | DeclaringType="DeclaringType" | CaughtType="CaughtType" | InstanceofTypes="InstanceofTypes";
 		public ParserRule getRule() { return rule; }
 
-		//type="type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
+		//Type="Type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
 		//UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
 		//ReturnType="ReturnType" | AllImplementedTypes="AllImplementedTypes" | AllExtendedTypes="AllExtendedTypes" |
 		//FieldType="FieldType" | DeclaringType="DeclaringType" | CaughtType="CaughtType" | InstanceofTypes="InstanceofTypes"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//type="type"
+		//Type="Type"
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
-		//"type"
+		//"Type"
 		public Keyword getTypeTypeKeyword_0_0() { return cTypeTypeKeyword_0_0; }
 
 		//ImplementedTypes="ImplementedTypes"
@@ -937,7 +937,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	End of generated rules.
 	//
 	// * / TypeFieldName:
-	//	type="type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
+	//	Type="Type" | ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
 	//	UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
 	//	ReturnType="ReturnType" | AllImplementedTypes="AllImplementedTypes" | AllExtendedTypes="AllExtendedTypes" |
 	//	FieldType="FieldType" | DeclaringType="DeclaringType" | CaughtType="CaughtType" | InstanceofTypes="InstanceofTypes";
