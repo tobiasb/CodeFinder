@@ -3,7 +3,6 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
-import java.util.ServiceLoader;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -12,10 +11,10 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllExtendedTypesIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedInterfacesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CaughtTypeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
@@ -164,12 +163,13 @@ public class CompilationUnitVisitor extends ASTVisitor {
 	    return false;
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public boolean visit(TryStatement node) {
         Document document = new Document();
 
 		TryStatement tryStatement = node;
+		
+		@SuppressWarnings("unchecked")
 		List<CatchClause> catchClauses = tryStatement.catchClauses();
 		
 		for(CatchClause catchClause : catchClauses) {

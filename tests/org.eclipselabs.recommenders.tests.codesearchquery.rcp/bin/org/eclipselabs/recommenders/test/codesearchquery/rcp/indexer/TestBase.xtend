@@ -1,7 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer
 
 import java.util.List
-import org.apache.commons.lang3.StringUtils
 import org.apache.lucene.store.RAMDirectory
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.jdt.core.ICompilationUnit
@@ -9,13 +8,13 @@ import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTParser
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
 import org.eclipselabs.recommenders.codesearchquery.AbstractIndex
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex
 import org.junit.Ignore
 
 import static junit.framework.Assert.*
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase {
@@ -38,7 +37,7 @@ class TestBase {
      
     def assertField(AbstractIndex index, List<String> expected) {
     	    	
-    	var readIndex = new org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex(index.index)
+    	var readIndex = new CodeSearcherIndex(index.index)
     	    	
     	for(document : readIndex.getDocuments) {   
     		var foundInDocument = true
@@ -96,7 +95,7 @@ class TestBase {
     }
     
     def assertNotField(AbstractIndex index, List<String> expected) {
-    	    	    	var readIndex = new org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex(index.index)
+    	    	    	var readIndex = new CodeSearcherIndex(index.index)
     	    	
     	for(document : readIndex.getDocuments) {   
     		var foundInDocument = true
@@ -144,7 +143,7 @@ class TestBase {
 //		val struct3 = fixture.createFileAndParseWithMarkers(code3.toString, "2" + fileName)
 		val cu = struct.first;
 
-        var index = new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex(new RAMDirectory())// CodesearchQueryModule::index//
+        var index = new CodeIndexerIndex(new RAMDirectory())// CodesearchQueryModule::index//
 		
         var visitor = new CompilationUnitVisitor(index);
         visitor.addIndexer(indexer);

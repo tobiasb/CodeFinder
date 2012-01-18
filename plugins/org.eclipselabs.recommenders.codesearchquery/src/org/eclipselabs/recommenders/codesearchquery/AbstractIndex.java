@@ -1,14 +1,16 @@
 package org.eclipselabs.recommenders.codesearchquery;
 
+import java.io.IOException;
+
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.KeywordAnalyzer;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.util.Version;
 
-public class AbstractIndex {
+public abstract class AbstractIndex {
 
-	protected Directory m_index = null;
-	protected Analyzer m_analyzer = null;
+	private Directory m_index = null;
+	private Analyzer m_analyzer = null;
 	
 	private final static Version luceneVersion = Version.LUCENE_35;
 	
@@ -17,7 +19,7 @@ public class AbstractIndex {
 //		m_analyzer = analyzer;
 //	}
 	
-	public AbstractIndex(Directory directory) {
+	public AbstractIndex(Directory directory) throws IOException {
 		m_index = directory;
 //		m_analyzer = new Analyzer(){
 //
@@ -29,7 +31,11 @@ public class AbstractIndex {
 //	    	}
 //	    };
 		m_analyzer = new KeywordAnalyzer();
+		
+		init();
 	}
+	
+	protected abstract void init() throws IOException;
 	
 	public static Version getVersion() {
 		return luceneVersion;
@@ -37,5 +43,9 @@ public class AbstractIndex {
 	
 	public Directory getIndex() {
 		return m_index;
+	}
+	
+	public Analyzer getAnalyzer() {
+		return m_analyzer;
 	}
 }

@@ -20,17 +20,15 @@ public class CodeIndexerIndex extends AbstractIndex {
 	
 	public CodeIndexerIndex(Directory directory) throws IOException {
 		super(directory);
-		
-		initializeWriter();
 	}
 	
-	private void initializeWriter() throws CorruptIndexException, LockObtainFailedException, IOException {
-	    IndexWriterConfig config = new IndexWriterConfig(getVersion(), m_analyzer);
+	protected void init() throws CorruptIndexException, LockObtainFailedException, IOException {
+	    IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
 
-		m_writer = new IndexWriter(m_index, config);
+		m_writer = new IndexWriter(getIndex(), config);
 		m_writer.deleteAll();
 	}
-	
+		
 	public void index(CompilationUnit cu) {
 
         CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
@@ -83,7 +81,7 @@ public class CodeIndexerIndex extends AbstractIndex {
 		try {
 			commit();
 			m_writer.close();
-			m_index.close();
+			getIndex().close();
 		} catch (CorruptIndexException e) {
 			e.printStackTrace(); //TODO: refactor
 		} catch (IOException e) {

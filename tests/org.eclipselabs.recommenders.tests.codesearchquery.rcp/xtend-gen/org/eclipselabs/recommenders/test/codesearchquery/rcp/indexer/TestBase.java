@@ -46,139 +46,163 @@ public class TestBase {
   }
   
   public void assertNumDocs(final AbstractIndex index, final int expectedNum) {
-      Directory _index = index.getIndex();
-      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-      CodeSearcherIndex readIndex = _codeSearcherIndex;
-      List<Document> _documents = readIndex.getDocuments();
-      int _size = _documents.size();
-      int numDocs = _size;
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("The number of documents is not correct. Is [");
-      _builder.append(numDocs, "");
-      _builder.append("] but should be [");
-      _builder.append(expectedNum, "");
-      _builder.append("]");
-      String _string = _builder.toString();
-      boolean _equals = Integer.valueOf(numDocs).equals(Integer.valueOf(expectedNum));
-      Assert.assertTrue(_string, _equals);
+    try {
+      {
+        Directory _index = index.getIndex();
+        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+        CodeSearcherIndex readIndex = _codeSearcherIndex;
+        List<Document> _documents = readIndex.getDocuments();
+        int _size = _documents.size();
+        int numDocs = _size;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("The number of documents is not correct. Is [");
+        _builder.append(numDocs, "");
+        _builder.append("] but should be [");
+        _builder.append(expectedNum, "");
+        _builder.append("]");
+        String _string = _builder.toString();
+        boolean _equals = Integer.valueOf(numDocs).equals(Integer.valueOf(expectedNum));
+        Assert.assertTrue(_string, _equals);
+      }
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public boolean assertField(final AbstractIndex index, final List<String> expected) {
-      Directory _index = index.getIndex();
-      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-      CodeSearcherIndex readIndex = _codeSearcherIndex;
-      List<Document> _documents = readIndex.getDocuments();
-      for (final Document document : _documents) {
-        {
-          boolean foundInDocument = true;
-          for (final String exp : expected) {
-            {
-              boolean found = false;
-              List<Fieldable> _fields = document.getFields();
-              for (final Fieldable field : _fields) {
-                String _name = field.name();
-                String _stringValue = field.stringValue();
-                String _s = this.s(_name, _stringValue);
-                boolean _equals = _s.equals(exp);
-                if (_equals) {
-                  found = true;
+    try {
+      {
+        Directory _index = index.getIndex();
+        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+        CodeSearcherIndex readIndex = _codeSearcherIndex;
+        List<Document> _documents = readIndex.getDocuments();
+        for (final Document document : _documents) {
+          {
+            boolean foundInDocument = true;
+            for (final String exp : expected) {
+              {
+                boolean found = false;
+                List<Fieldable> _fields = document.getFields();
+                for (final Fieldable field : _fields) {
+                  String _name = field.name();
+                  String _stringValue = field.stringValue();
+                  String _s = this.s(_name, _stringValue);
+                  boolean _equals = _s.equals(exp);
+                  if (_equals) {
+                    found = true;
+                  }
+                }
+                boolean _operator_not = BooleanExtensions.operator_not(found);
+                if (_operator_not) {
+                  foundInDocument = false;
                 }
               }
-              boolean _operator_not = BooleanExtensions.operator_not(found);
-              if (_operator_not) {
-                foundInDocument = false;
-              }
+            }
+            if (foundInDocument) {
+              return true;
             }
           }
-          if (foundInDocument) {
-            return true;
-          }
         }
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("There was no document with ");
+        _builder.append(expected, "");
+        String _string = _builder.toString();
+        Assert.assertTrue(_string, false);
+        return false;
       }
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("There was no document with ");
-      _builder.append(expected, "");
-      String _string = _builder.toString();
-      Assert.assertTrue(_string, false);
-      return false;
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public boolean assertFieldStartsWith(final AbstractIndex index, final List<String> expected) {
-      Directory _index = index.getIndex();
-      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-      CodeSearcherIndex readIndex = _codeSearcherIndex;
-      List<Document> _documents = readIndex.getDocuments();
-      for (final Document document : _documents) {
-        {
-          boolean foundInDocument = true;
-          for (final String exp : expected) {
-            {
-              boolean found = false;
-              List<Fieldable> _fields = document.getFields();
-              for (final Fieldable field : _fields) {
-                String _name = field.name();
-                String _stringValue = field.stringValue();
-                String _s = this.s(_name, _stringValue);
-                boolean _startsWith = _s.startsWith(exp);
-                if (_startsWith) {
-                  found = true;
+    try {
+      {
+        Directory _index = index.getIndex();
+        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+        CodeSearcherIndex readIndex = _codeSearcherIndex;
+        List<Document> _documents = readIndex.getDocuments();
+        for (final Document document : _documents) {
+          {
+            boolean foundInDocument = true;
+            for (final String exp : expected) {
+              {
+                boolean found = false;
+                List<Fieldable> _fields = document.getFields();
+                for (final Fieldable field : _fields) {
+                  String _name = field.name();
+                  String _stringValue = field.stringValue();
+                  String _s = this.s(_name, _stringValue);
+                  boolean _startsWith = _s.startsWith(exp);
+                  if (_startsWith) {
+                    found = true;
+                  }
+                }
+                boolean _operator_not = BooleanExtensions.operator_not(found);
+                if (_operator_not) {
+                  foundInDocument = false;
                 }
               }
-              boolean _operator_not = BooleanExtensions.operator_not(found);
-              if (_operator_not) {
-                foundInDocument = false;
-              }
+            }
+            if (foundInDocument) {
+              return true;
             }
           }
-          if (foundInDocument) {
-            return true;
-          }
         }
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("There was no document with (startswith) ");
+        _builder.append(expected, "");
+        String _string = _builder.toString();
+        Assert.assertTrue(_string, false);
+        return false;
       }
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("There was no document with (startswith) ");
-      _builder.append(expected, "");
-      String _string = _builder.toString();
-      Assert.assertTrue(_string, false);
-      return false;
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public void assertNotField(final AbstractIndex index, final List<String> expected) {
-      Directory _index = index.getIndex();
-      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-      CodeSearcherIndex readIndex = _codeSearcherIndex;
-      List<Document> _documents = readIndex.getDocuments();
-      for (final Document document : _documents) {
-        {
-          boolean foundInDocument = true;
-          for (final String exp : expected) {
-            {
-              boolean found = false;
-              List<Fieldable> _fields = document.getFields();
-              for (final Fieldable field : _fields) {
-                String _name = field.name();
-                String _stringValue = field.stringValue();
-                String _s = this.s(_name, _stringValue);
-                boolean _equals = _s.equals(exp);
-                if (_equals) {
-                  found = true;
+    try {
+      {
+        Directory _index = index.getIndex();
+        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+        CodeSearcherIndex readIndex = _codeSearcherIndex;
+        List<Document> _documents = readIndex.getDocuments();
+        for (final Document document : _documents) {
+          {
+            boolean foundInDocument = true;
+            for (final String exp : expected) {
+              {
+                boolean found = false;
+                List<Fieldable> _fields = document.getFields();
+                for (final Fieldable field : _fields) {
+                  String _name = field.name();
+                  String _stringValue = field.stringValue();
+                  String _s = this.s(_name, _stringValue);
+                  boolean _equals = _s.equals(exp);
+                  if (_equals) {
+                    found = true;
+                  }
+                }
+                boolean _operator_not = BooleanExtensions.operator_not(found);
+                if (_operator_not) {
+                  foundInDocument = false;
                 }
               }
-              boolean _operator_not = BooleanExtensions.operator_not(found);
-              if (_operator_not) {
-                foundInDocument = false;
-              }
             }
-          }
-          if (foundInDocument) {
-            StringConcatenation _builder = new StringConcatenation();
-            _builder.append("There was a document with ");
-            _builder.append(expected, "");
-            String _string = _builder.toString();
-            Assert.assertTrue(_string, false);
+            if (foundInDocument) {
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("There was a document with ");
+              _builder.append(expected, "");
+              String _string = _builder.toString();
+              Assert.assertTrue(_string, false);
+            }
           }
         }
       }
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public String s(final String name, final String value) {

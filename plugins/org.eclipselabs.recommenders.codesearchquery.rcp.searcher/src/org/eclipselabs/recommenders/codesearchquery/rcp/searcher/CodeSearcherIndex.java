@@ -22,10 +22,12 @@ public class CodeSearcherIndex extends AbstractIndex {
 	private QueryParser parser = null;
 	private IndexSearcher searcher = null;
 	
-	public CodeSearcherIndex(Directory directory) {
+	public CodeSearcherIndex(Directory directory) throws IOException {
 		super(directory);
-		
-		parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, m_analyzer);
+	}
+	
+	protected void init() {
+		parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, getAnalyzer());
 		parser.setLowercaseExpandedTerms(false);
 	}
 	
@@ -63,7 +65,7 @@ public class CodeSearcherIndex extends AbstractIndex {
 	
 	public IndexReader openReader() {
 		try {
-			return IndexReader.open(m_index, true);
+			return IndexReader.open(getIndex(), true);
 		} catch (IOException e) {
 			return null;
 		}
