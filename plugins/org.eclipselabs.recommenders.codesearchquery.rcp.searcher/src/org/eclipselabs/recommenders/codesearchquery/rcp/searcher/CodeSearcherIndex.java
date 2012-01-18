@@ -18,11 +18,11 @@ import org.eclipselabs.recommenders.codesearchquery.Fields;
 
 import com.google.common.collect.Lists;
 
-public class CodeSearcher extends AbstractIndex {
+public class CodeSearcherIndex extends AbstractIndex {
 	private QueryParser parser = null;
 	private IndexSearcher searcher = null;
 	
-	public CodeSearcher(Directory directory) {
+	public CodeSearcherIndex(Directory directory) {
 		super(directory);
 		
 		parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, m_analyzer);

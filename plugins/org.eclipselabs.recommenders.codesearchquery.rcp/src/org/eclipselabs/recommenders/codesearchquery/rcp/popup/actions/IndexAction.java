@@ -28,7 +28,7 @@ import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Activator;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
 
 import com.google.common.collect.Lists;
 
@@ -60,7 +60,7 @@ public class IndexAction implements IObjectActionDelegate {
     	try {
 	        final Long start = System.currentTimeMillis();
 	        String path = Platform.getLocation().toString() + "/index.l";
-	        final CodeIndexer index = new CodeIndexer(new SimpleFSDirectory(new File(path)));
+	        final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
 	                
 	        final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
 	            

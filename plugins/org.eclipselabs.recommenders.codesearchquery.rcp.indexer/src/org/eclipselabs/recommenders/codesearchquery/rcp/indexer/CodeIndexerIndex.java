@@ -14,11 +14,11 @@ import org.eclipselabs.recommenders.codesearchquery.AbstractIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 
-public class CodeIndexer extends AbstractIndex {
+public class CodeIndexerIndex extends AbstractIndex {
 
 	private IndexWriter m_writer = null;
 	
-	public CodeIndexer(Directory directory) throws IOException {
+	public CodeIndexerIndex(Directory directory) throws IOException {
 		super(directory);
 		
 		initializeWriter();

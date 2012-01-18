@@ -22,10 +22,10 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipselabs.recommenders.codesearchquery.AbstractIndex;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcher;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.junit.Ignore;
 
 @SuppressWarnings("all")
@@ -47,8 +47,8 @@ public class TestBase {
   
   public void assertNumDocs(final AbstractIndex index, final int expectedNum) {
       Directory _index = index.getIndex();
-      CodeSearcher _codeSearcher = new CodeSearcher(_index);
-      CodeSearcher readIndex = _codeSearcher;
+      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+      CodeSearcherIndex readIndex = _codeSearcherIndex;
       List<Document> _documents = readIndex.getDocuments();
       int _size = _documents.size();
       int numDocs = _size;
@@ -65,8 +65,8 @@ public class TestBase {
   
   public boolean assertField(final AbstractIndex index, final List<String> expected) {
       Directory _index = index.getIndex();
-      CodeSearcher _codeSearcher = new CodeSearcher(_index);
-      CodeSearcher readIndex = _codeSearcher;
+      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+      CodeSearcherIndex readIndex = _codeSearcherIndex;
       List<Document> _documents = readIndex.getDocuments();
       for (final Document document : _documents) {
         {
@@ -105,8 +105,8 @@ public class TestBase {
   
   public boolean assertFieldStartsWith(final AbstractIndex index, final List<String> expected) {
       Directory _index = index.getIndex();
-      CodeSearcher _codeSearcher = new CodeSearcher(_index);
-      CodeSearcher readIndex = _codeSearcher;
+      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+      CodeSearcherIndex readIndex = _codeSearcherIndex;
       List<Document> _documents = readIndex.getDocuments();
       for (final Document document : _documents) {
         {
@@ -145,8 +145,8 @@ public class TestBase {
   
   public void assertNotField(final AbstractIndex index, final List<String> expected) {
       Directory _index = index.getIndex();
-      CodeSearcher _codeSearcher = new CodeSearcher(_index);
-      CodeSearcher readIndex = _codeSearcher;
+      CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
+      CodeSearcherIndex readIndex = _codeSearcherIndex;
       List<Document> _documents = readIndex.getDocuments();
       for (final Document document : _documents) {
         {
@@ -190,22 +190,22 @@ public class TestBase {
     return _string;
   }
   
-  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer) {
-    CodeIndexer _exercise = this.exercise(code, indexer, "test");
+  public CodeIndexerIndex exercise(final CharSequence code, final List<IIndexer> indexer) {
+    CodeIndexerIndex _exercise = this.exercise(code, indexer, "test");
     return _exercise;
   }
   
-  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
-    CodeIndexer _exercise = this.exercise(code, indexer, projectName, "MyClass.java");
+  public CodeIndexerIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
+    CodeIndexerIndex _exercise = this.exercise(code, indexer, projectName, "MyClass.java");
     return _exercise;
   }
   
-  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
-    CodeIndexer _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
+  public CodeIndexerIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
+    CodeIndexerIndex _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
     return _exercise;
   }
   
-  public CodeIndexer exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
+  public CodeIndexerIndex exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
     try {
       {
         IWorkspace _workspace = ResourcesPlugin.getWorkspace();
@@ -217,8 +217,8 @@ public class TestBase {
         ICompilationUnit _first = struct.getFirst();
         final ICompilationUnit cu = _first;
         RAMDirectory _rAMDirectory = new RAMDirectory();
-        CodeIndexer _codeIndexer = new CodeIndexer(_rAMDirectory);
-        CodeIndexer index = _codeIndexer;
+        CodeIndexerIndex _codeIndexerIndex = new CodeIndexerIndex(_rAMDirectory);
+        CodeIndexerIndex index = _codeIndexerIndex;
         CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         visitor.addIndexer(indexer);
@@ -233,10 +233,10 @@ public class TestBase {
     }
   }
   
-  public CodeIndexer exercise(final CharSequence code, final IIndexer indexer) {
+  public CodeIndexerIndex exercise(final CharSequence code, final IIndexer indexer) {
     ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(indexer);
     List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-    CodeIndexer _exercise = this.exercise(code, _i);
+    CodeIndexerIndex _exercise = this.exercise(code, _i);
     return _exercise;
   }
   

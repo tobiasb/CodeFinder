@@ -18,7 +18,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllImplementedIn
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredMethodNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CaughtTypeIndexer;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredMethodNamesIndexer;
@@ -60,7 +60,7 @@ import com.google.common.collect.Lists;
 
 public class CompilationUnitVisitor extends ASTVisitor {
 
-	private CodeIndexer index = null;
+	private CodeIndexerIndex index = null;
 	private List<IIndexer> indexer;
 	
 	public void addIndexer(IIndexer indexer) {
@@ -71,7 +71,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
 		this.indexer.addAll(indexer);
 	}
 
-	public CompilationUnitVisitor(CodeIndexer index) {
+	public CompilationUnitVisitor(CodeIndexerIndex index) {
 		this.index = index;
 		
 		indexer = Lists.newArrayList();		

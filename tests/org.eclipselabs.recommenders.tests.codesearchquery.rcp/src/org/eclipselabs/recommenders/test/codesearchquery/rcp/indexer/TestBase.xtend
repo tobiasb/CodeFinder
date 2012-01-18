@@ -11,11 +11,11 @@ import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
 import org.eclipselabs.recommenders.codesearchquery.AbstractIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcher
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex
 import org.junit.Ignore
 
 import static junit.framework.Assert.*
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase {
@@ -30,17 +30,17 @@ class TestBase {
      
     def assertNumDocs(AbstractIndex index, int expectedNum) {
     	
-    	var readIndex = new CodeSearcher(index.index)
-    	var numDocs = readIndex.documents.size
+    	var readIndex = new org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex(index.index)
+    	var numDocs = readIndex.getDocuments.size
     	
 		assertTrue('''The number of documents is not correct. Is [«numDocs»] but should be [«expectedNum»]'''.toString, numDocs.equals(expectedNum))
     }
      
     def assertField(AbstractIndex index, List<String> expected) {
     	    	
-    	var readIndex = new CodeSearcher(index.index)
+    	var readIndex = new org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex(index.index)
     	    	
-    	for(document : readIndex.documents) {   
+    	for(document : readIndex.getDocuments) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -67,9 +67,9 @@ class TestBase {
     }
     
     def assertFieldStartsWith(AbstractIndex index, List<String> expected) {
-    	var readIndex = new CodeSearcher(index.index)
+    	var readIndex = new org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex(index.index)
     	    	
-    	for(document : readIndex.documents) {   
+    	for(document : readIndex.getDocuments) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -96,9 +96,9 @@ class TestBase {
     }
     
     def assertNotField(AbstractIndex index, List<String> expected) {
-    	    	    	var readIndex = new CodeSearcher(index.index)
+    	    	    	var readIndex = new org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex(index.index)
     	    	
-    	for(document : readIndex.documents) {   
+    	for(document : readIndex.getDocuments) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -144,7 +144,7 @@ class TestBase {
 //		val struct3 = fixture.createFileAndParseWithMarkers(code3.toString, "2" + fileName)
 		val cu = struct.first;
 
-        var index = new CodeIndexer(new RAMDirectory())// CodesearchQueryModule::index//
+        var index = new org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex(new RAMDirectory())// CodesearchQueryModule::index//
 		
         var visitor = new CompilationUnitVisitor(index);
         visitor.addIndexer(indexer);

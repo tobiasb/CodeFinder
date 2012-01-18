@@ -51,7 +51,7 @@ import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipselabs.recommenders.codesearchquery.Fields;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcher;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -61,7 +61,7 @@ public class SearchQueryView extends ViewPart {
     protected Button triggerSearchButton;
     protected Text searchQueryText;
     protected TableViewer searchResultTable;
-    private CodeSearcher codeSearcher;
+    private CodeSearcherIndex codeSearcher;
     
     public SearchQueryView() {
         super();
@@ -108,7 +108,7 @@ public class SearchQueryView extends ViewPart {
 //                            final String searchQuery = Fields.USED_TYPES + ":\"" + conv.convert(getSearchQuery()) + "\"";
                             final String searchQuery = getSearchQuery();
 
-                            codeSearcher = new CodeSearcher(index);
+                            codeSearcher = new CodeSearcherIndex(index);
                             
                             result.clear();
                             result.addAll(codeSearcher.search(searchQuery));
