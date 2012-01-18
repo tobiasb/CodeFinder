@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.Field.TermVector;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -54,7 +55,7 @@ public class CodeIndexerIndex extends AbstractIndex {
         	return;
         }
         
-    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED, TermVector.YES);
 
         System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
         
