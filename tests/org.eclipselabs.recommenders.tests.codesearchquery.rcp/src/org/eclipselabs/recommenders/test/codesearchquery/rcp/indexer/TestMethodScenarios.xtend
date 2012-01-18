@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.test.codesearchquery.rcp
+package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer
 
 import org.eclipselabs.recommenders.codesearchquery.Fields
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterCountIndexer

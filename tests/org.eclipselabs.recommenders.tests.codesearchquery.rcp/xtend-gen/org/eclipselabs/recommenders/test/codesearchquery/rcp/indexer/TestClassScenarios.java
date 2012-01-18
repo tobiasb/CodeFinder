@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.test.codesearchquery.rcp;
+package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ExtendedTypeInde
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ImplementedInterfacesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.OverriddenMethodsIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
-import org.eclipselabs.recommenders.test.codesearchquery.rcp.TestBase;
+import org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.TestBase;
 import org.junit.Test;
 
 @SuppressWarnings("all")

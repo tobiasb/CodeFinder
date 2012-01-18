@@ -3,7 +3,6 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.searcher;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.lucene.analysis.KeywordAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexReader;
@@ -24,14 +23,13 @@ public class CodeSearcher extends AbstractIndex {
 	private IndexSearcher searcher = null;
 	
 	public CodeSearcher(Directory directory) {
-//		super(directory, new StandardAnalyzer(getVersion()));
-		super(directory, new KeywordAnalyzer());
+		super(directory);
 		
 		parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, m_analyzer);
+		parser.setLowercaseExpandedTerms(false);
 	}
 	
 	public List<Document> search(String queryString) throws CorruptIndexException, IOException, ParseException {
-
 		searcher = new IndexSearcher(m_index, true);
 
 		TopScoreDocCollector collector = TopScoreDocCollector.create(10, true);

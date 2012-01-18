@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.test.codesearchquery.rcp;
+package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
-import org.eclipselabs.recommenders.test.codesearchquery.rcp.TestBase;
+import org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.TestBase;
 import org.junit.Test;
 
 @SuppressWarnings("all")

@@ -23,10 +23,9 @@ public abstract class AbstractIndexer {
         	return;
         }
         
-    	Field field = new Field(fieldName, fieldValue,
-                Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS);
+    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
 
-        System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, fieldValue));
+        System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
         
         document.add(field);
     }

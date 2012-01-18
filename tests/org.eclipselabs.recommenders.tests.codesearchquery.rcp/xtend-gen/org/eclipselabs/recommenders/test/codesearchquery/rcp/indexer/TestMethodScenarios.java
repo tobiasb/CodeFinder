@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.test.codesearchquery.rcp;
+package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterCountIn
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ParameterTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnTypeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer;
-import org.eclipselabs.recommenders.test.codesearchquery.rcp.TestBase;
+import org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.TestBase;
 import org.junit.Test;
 
 @SuppressWarnings("all")

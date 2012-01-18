@@ -1,6 +1,5 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.views;
 
-import static com.google.common.collect.Lists.newArrayList;
 import static java.util.Collections.emptyList;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_OVERLAY_ICONS;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_PARAMETERS;
@@ -62,7 +61,6 @@ public class SearchQueryView extends ViewPart {
     protected Button triggerSearchButton;
     protected Text searchQueryText;
     protected TableViewer searchResultTable;
-//    private final String newLine = System.getProperty("line.separator");
     private CodeSearcher codeSearcher;
     
     public SearchQueryView() {
@@ -80,7 +78,7 @@ public class SearchQueryView extends ViewPart {
 
         searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
         searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
-        searchQueryText.setText(Fields.USED_TYPES + ":\"Ljava/util/Set\"");
+        searchQueryText.setText(Fields.USED_TYPES + ":Ljava/util/*");
 
         createSearchResultsViewer(parent);
 
@@ -106,6 +104,8 @@ public class SearchQueryView extends ViewPart {
                             final String path = Platform.getLocation().toString() + "/index.l";
                             final Directory index = new SimpleFSDirectory(new File(path));
 
+//                            DotNotationConverter conv = new DotNotationConverter();
+//                            final String searchQuery = Fields.USED_TYPES + ":\"" + conv.convert(getSearchQuery()) + "\"";
                             final String searchQuery = getSearchQuery();
 
                             codeSearcher = new CodeSearcher(index);
@@ -206,12 +206,12 @@ public class SearchQueryView extends ViewPart {
             @Override
             public void run() {
                 searchQueryText.setEnabled(true);
+                triggerSearchButton.setEnabled(true);
 
-                final List<IJavaElement> newInput = newArrayList();
+                final List<IJavaElement> newInput = Lists.newArrayList();
+                
                 for (final Document doc : result) {
                     try {
-//                        final Document doc = codeSearcher.resolve(scoreDoc.doc);
-
                         final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
                         final String docType = doc.get(Fields.TYPE);
                         final String declaringType = doc.get(Fields.DECLARING_TYPE);
@@ -220,15 +220,17 @@ public class SearchQueryView extends ViewPart {
                             if (docType.equals(Fields.TYPE_CLASS)) {
                                 final ITypeName typeName = VmTypeName.get(docId);
                                 final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
-                                newInput.add(type);
-                            } else if (docType.equals(Fields.TYPE_METHOD)) {
+                                addIfNotNull(newInput, type);
+                            } 
+                            else if (docType.equals(Fields.TYPE_METHOD)) {
                                 final IMethodName methodName = VmMethodName.get(docId);
                                 final IMethod method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
-                                newInput.add(method);
-                            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
+                                addIfNotNull(newInput, method);
+                            } 
+                            else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
                                 final ITypeName typeName = VmTypeName.get(declaringType);
                                 final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
-                                newInput.add(type);
+                                addIfNotNull(newInput, type);
                             }
                         } catch (final Exception ex) {
                         }
@@ -236,9 +238,15 @@ public class SearchQueryView extends ViewPart {
                     } catch (final Exception e) {
                         e.printStackTrace();
                     }
-                    searchResultTable.setInput(newInput);
                 }
-                triggerSearchButton.setEnabled(true);
+                
+                searchResultTable.setInput(newInput);
+            }
+            
+            private <T>void addIfNotNull(List<T> list, T element) {
+            	if(element != null)
+            		list.add(element);
+            	//TODO: Why are they even null?
             }
         });
     }

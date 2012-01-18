@@ -3,12 +3,10 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriter.MaxFieldLength;
+import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.LockObtainFailedException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -16,27 +14,20 @@ import org.eclipselabs.recommenders.codesearchquery.AbstractIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 
-import com.google.inject.Inject;
-
 public class CodeIndexer extends AbstractIndex {
 
 	private IndexWriter m_writer = null;
-
-	@Inject
-	public CodeIndexer(Directory directory, Analyzer analyzer) throws IOException {
-		super(directory, analyzer);
-
-		initializeWriter();
-	}
 	
 	public CodeIndexer(Directory directory) throws IOException {
-		super(directory, new StandardAnalyzer(getVersion()));
+		super(directory);
 		
 		initializeWriter();
 	}
 	
 	private void initializeWriter() throws CorruptIndexException, LockObtainFailedException, IOException {
-		m_writer = new IndexWriter(m_index, m_analyzer, MaxFieldLength.UNLIMITED);
+	    IndexWriterConfig config = new IndexWriterConfig(getVersion(), m_analyzer);
+
+		m_writer = new IndexWriter(m_index, config);
 		m_writer.deleteAll();
 	}
 	
@@ -90,6 +81,7 @@ public class CodeIndexer extends AbstractIndex {
 
 	public void close() {
 		try {
+			commit();
 			m_writer.close();
 			m_index.close();
 		} catch (CorruptIndexException e) {

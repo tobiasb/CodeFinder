@@ -1,10 +1,9 @@
-package org.eclipselabs.recommenders.test.codesearchquery.rcp;
+package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import junit.framework.Assert;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Fieldable;
 import org.apache.lucene.store.Directory;
@@ -239,11 +238,6 @@ public class TestBase {
     List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
     CodeIndexer _exercise = this.exercise(code, _i);
     return _exercise;
-  }
-  
-  public String c(final String[] items) {
-    String _concatWith = StringUtils.concatWith(", ", items);
-    return _concatWith;
   }
   
   public List<String> l(final String[] items) {

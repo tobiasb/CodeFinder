@@ -6,9 +6,8 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.rcp.searcher.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipselabs.recommenders.codesearchquery,
- org.apache.lucene,
- org.apache.lucene.analysis,
  com.google.guava
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.searcher
+Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.searcher,
+ org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter

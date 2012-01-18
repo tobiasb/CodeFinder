@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.test.codesearchquery.rcp
+package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer
 
 import java.util.List
 import org.apache.commons.lang3.StringUtils
@@ -27,7 +27,7 @@ class TestBase {
         
 		parser.createAST(null);
     }
-    
+     
     def assertNumDocs(AbstractIndex index, int expectedNum) {
     	
     	var readIndex = new CodeSearcher(index.index)
@@ -35,7 +35,7 @@ class TestBase {
     	
 		assertTrue('''The number of documents is not correct. Is [«numDocs»] but should be [«expectedNum»]'''.toString, numDocs.equals(expectedNum))
     }
-    
+     
     def assertField(AbstractIndex index, List<String> expected) {
     	    	
     	var readIndex = new CodeSearcher(index.index)
@@ -160,9 +160,9 @@ class TestBase {
 		return exercise(code, i(newArrayList(indexer)))  
 	}
 	
-	def c(String [] items) {
-		return StringUtils::concatWith(", ", items)
-	}
+//	def c(String [] items) {
+//		return StringUtils::concatWith(", ", items)
+//	}
 	
 	def l(String [] items) {
 		return items as List<String>

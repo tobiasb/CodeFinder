@@ -3,9 +3,7 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions;
 import java.io.File;
 import java.util.List;
 
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.store.SimpleFSDirectory;
-import org.apache.lucene.util.Version;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
@@ -61,9 +59,8 @@ public class IndexAction implements IObjectActionDelegate {
     public void run(IAction action) {
     	try {
 	        final Long start = System.currentTimeMillis();
-//	        final LuceneIndex index = Activator.injector.getInstance(LuceneIndex.class);
 	        String path = Platform.getLocation().toString() + "/index.l";
-	        final CodeIndexer index = new CodeIndexer(new SimpleFSDirectory(new File(path)), new StandardAnalyzer(Version.LUCENE_29));
+	        final CodeIndexer index = new CodeIndexer(new SimpleFSDirectory(new File(path)));
 	                
 	        final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
 	            
@@ -126,7 +123,7 @@ public class IndexAction implements IObjectActionDelegate {
 	            }
 	   
 	        });
-	        job.schedule();;
+	        job.schedule();
     	} catch(Exception ex) {
             Activator.logError(ex, "Error");
     	}

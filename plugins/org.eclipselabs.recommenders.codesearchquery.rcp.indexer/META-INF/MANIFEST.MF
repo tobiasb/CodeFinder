@@ -7,7 +7,6 @@ Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.rcp.indexer.Activ
 Require-Bundle: org.eclipse.jface,
  org.eclipse.jdt.core,
  org.eclipse.jdt.ui,
- org.apache.lucene;bundle-version="2.9.1",
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  com.google.guava,
