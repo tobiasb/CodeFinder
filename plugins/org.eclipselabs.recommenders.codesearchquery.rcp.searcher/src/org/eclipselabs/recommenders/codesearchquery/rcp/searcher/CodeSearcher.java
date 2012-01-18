@@ -30,7 +30,7 @@ public class CodeSearcher extends AbstractIndex {
 	}
 	
 	public List<Document> search(String queryString) throws CorruptIndexException, IOException, ParseException {
-		searcher = new IndexSearcher(m_index, true);
+		searcher = new IndexSearcher(IndexReader.open(getIndex()));
 
 		TopScoreDocCollector collector = TopScoreDocCollector.create(10, true);
 		
