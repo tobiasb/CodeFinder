@@ -34,16 +34,6 @@ public enum BooleanExp implements Enumerator
   AND1(0, "and1", "AND"),
 
   /**
-   * The '<em><b>And2</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #AND2_VALUE
-   * @generated
-   * @ordered
-   */
-  AND2(1, "and2", "and"),
-
-  /**
    * The '<em><b>Or1</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -51,17 +41,7 @@ public enum BooleanExp implements Enumerator
    * @generated
    * @ordered
    */
-  OR1(2, "or1", "OR"),
-
-  /**
-   * The '<em><b>Or2</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #OR2_VALUE
-   * @generated
-   * @ordered
-   */
-  OR2(3, "or2", "or");
+  OR1(1, "or1", "OR");
 
   /**
    * The '<em><b>And1</b></em>' literal value.
@@ -79,21 +59,6 @@ public enum BooleanExp implements Enumerator
   public static final int AND1_VALUE = 0;
 
   /**
-   * The '<em><b>And2</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>And2</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #AND2
-   * @model name="and2" literal="and"
-   * @generated
-   * @ordered
-   */
-  public static final int AND2_VALUE = 1;
-
-  /**
    * The '<em><b>Or1</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
@@ -106,22 +71,7 @@ public enum BooleanExp implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int OR1_VALUE = 2;
-
-  /**
-   * The '<em><b>Or2</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Or2</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #OR2
-   * @model name="or2" literal="or"
-   * @generated
-   * @ordered
-   */
-  public static final int OR2_VALUE = 3;
+  public static final int OR1_VALUE = 1;
 
   /**
    * An array of all the '<em><b>Boolean Exp</b></em>' enumerators.
@@ -133,9 +83,7 @@ public enum BooleanExp implements Enumerator
     new BooleanExp[]
     {
       AND1,
-      AND2,
       OR1,
-      OR2,
     };
 
   /**
@@ -195,9 +143,7 @@ public enum BooleanExp implements Enumerator
     switch (value)
     {
       case AND1_VALUE: return AND1;
-      case AND2_VALUE: return AND2;
       case OR1_VALUE: return OR1;
-      case OR2_VALUE: return OR2;
     }
     return null;
   }

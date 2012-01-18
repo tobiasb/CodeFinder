@@ -12,9 +12,7 @@
       disposableProviderFactory="true" ecorePackage="LuceneQuery.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//BooleanExp">
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/and1"/>
-      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/and2"/>
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/or1"/>
-      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/or2"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//NotExpression">
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/not1"/>

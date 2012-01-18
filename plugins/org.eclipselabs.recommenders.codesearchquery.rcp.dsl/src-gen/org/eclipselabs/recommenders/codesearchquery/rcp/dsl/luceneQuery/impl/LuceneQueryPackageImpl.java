@@ -936,9 +936,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     // Initialize enums and add enum literals
     initEEnum(booleanExpEEnum, BooleanExp.class, "BooleanExp");
     addEEnumLiteral(booleanExpEEnum, BooleanExp.AND1);
-    addEEnumLiteral(booleanExpEEnum, BooleanExp.AND2);
     addEEnumLiteral(booleanExpEEnum, BooleanExp.OR1);
-    addEEnumLiteral(booleanExpEEnum, BooleanExp.OR2);
 
     initEEnum(notExpressionEEnum, NotExpression.class, "NotExpression");
     addEEnumLiteral(notExpressionEEnum, NotExpression.NOT1);
