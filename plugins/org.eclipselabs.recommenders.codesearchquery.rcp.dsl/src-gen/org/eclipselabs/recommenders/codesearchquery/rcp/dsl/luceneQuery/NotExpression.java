@@ -24,79 +24,79 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum NotExpression implements Enumerator
 {
   /**
-   * The '<em><b>Not1</b></em>' literal object.
+   * The '<em><b>N1</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NOT1_VALUE
+   * @see #N1_VALUE
    * @generated
    * @ordered
    */
-  NOT1(0, "not1", "-"),
+  N1(0, "n1", "-"),
 
   /**
-   * The '<em><b>Not2</b></em>' literal object.
+   * The '<em><b>N2</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NOT2_VALUE
+   * @see #N2_VALUE
    * @generated
    * @ordered
    */
-  NOT2(1, "not2", "NOT"),
+  N2(1, "n2", "NOT"),
 
   /**
-   * The '<em><b>Not3</b></em>' literal object.
+   * The '<em><b>N3</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #NOT3_VALUE
+   * @see #N3_VALUE
    * @generated
    * @ordered
    */
-  NOT3(2, "not3", "!");
+  N3(2, "n3", "!");
 
   /**
-   * The '<em><b>Not1</b></em>' literal value.
+   * The '<em><b>N1</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Not1</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>N1</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #NOT1
-   * @model name="not1" literal="-"
+   * @see #N1
+   * @model name="n1" literal="-"
    * @generated
    * @ordered
    */
-  public static final int NOT1_VALUE = 0;
+  public static final int N1_VALUE = 0;
 
   /**
-   * The '<em><b>Not2</b></em>' literal value.
+   * The '<em><b>N2</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Not2</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>N2</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #NOT2
-   * @model name="not2" literal="NOT"
+   * @see #N2
+   * @model name="n2" literal="NOT"
    * @generated
    * @ordered
    */
-  public static final int NOT2_VALUE = 1;
+  public static final int N2_VALUE = 1;
 
   /**
-   * The '<em><b>Not3</b></em>' literal value.
+   * The '<em><b>N3</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of '<em><b>Not3</b></em>' literal object isn't clear,
+   * If the meaning of '<em><b>N3</b></em>' literal object isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @see #NOT3
-   * @model name="not3" literal="!"
+   * @see #N3
+   * @model name="n3" literal="!"
    * @generated
    * @ordered
    */
-  public static final int NOT3_VALUE = 2;
+  public static final int N3_VALUE = 2;
 
   /**
    * An array of all the '<em><b>Not Expression</b></em>' enumerators.
@@ -107,9 +107,9 @@ public enum NotExpression implements Enumerator
   private static final NotExpression[] VALUES_ARRAY =
     new NotExpression[]
     {
-      NOT1,
-      NOT2,
-      NOT3,
+      N1,
+      N2,
+      N3,
     };
 
   /**
@@ -168,9 +168,9 @@ public enum NotExpression implements Enumerator
   {
     switch (value)
     {
-      case NOT1_VALUE: return NOT1;
-      case NOT2_VALUE: return NOT2;
-      case NOT3_VALUE: return NOT3;
+      case N1_VALUE: return N1;
+      case N2_VALUE: return N2;
+      case N3_VALUE: return N3;
     }
     return null;
   }

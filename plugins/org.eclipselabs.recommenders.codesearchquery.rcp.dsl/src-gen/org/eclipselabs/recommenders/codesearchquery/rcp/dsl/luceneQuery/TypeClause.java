@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getN <em>N</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getField <em>Field</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getValue <em>Value</em>}</li>
  * </ul>
@@ -28,35 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface TypeClause extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>N</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>N</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>N</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression
-   * @see #setN(NotExpression)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getTypeClause_N()
-   * @model
-   * @generated
-   */
-  NotExpression getN();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getN <em>N</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>N</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression
-   * @see #getN()
-   * @generated
-   */
-  void setN(NotExpression value);
-
   /**
    * Returns the value of the '<em><b>Field</b></em>' containment reference.
    * <!-- begin-user-doc -->

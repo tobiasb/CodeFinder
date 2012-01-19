@@ -103,7 +103,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (clause=SimpleClause | clause=TypeClause)
+	 *     ((n=NotExpression | m=MustExpression)? (clause=SimpleClause | clause=TypeClause))
 	 */
 	protected void sequence_ClauseExpression(EObject context, ClauseExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -172,19 +172,39 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (n=NotExpression? field=FieldName value=FieldValue)
+	 *     (field=FieldName value=FieldValue)
 	 */
 	protected void sequence_SimpleClause(EObject context, SimpleClause semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.SIMPLE_CLAUSE__FIELD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.SIMPLE_CLAUSE__FIELD));
+			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.SIMPLE_CLAUSE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.SIMPLE_CLAUSE__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSimpleClauseAccess().getFieldFieldNameParserRuleCall_0_0(), semanticObject.getField());
+		feeder.accept(grammarAccess.getSimpleClauseAccess().getValueFieldValueParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (n=NotExpression? field=TypeFieldName value=TypeValue)
+	 *     (field=TypeFieldName value=TypeValue)
 	 */
 	protected void sequence_TypeClause(EObject context, TypeClause semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.TYPE_CLAUSE__FIELD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.TYPE_CLAUSE__FIELD));
+			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.TYPE_CLAUSE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.TYPE_CLAUSE__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTypeClauseAccess().getFieldTypeFieldNameParserRuleCall_0_0(), semanticObject.getField());
+		feeder.accept(grammarAccess.getTypeClauseAccess().getValueTypeValueParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

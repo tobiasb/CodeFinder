@@ -100,13 +100,31 @@ public interface LuceneQueryPackage extends EPackage
   int CLAUSE_EXPRESSION = 1;
 
   /**
+   * The feature id for the '<em><b>N</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLAUSE_EXPRESSION__N = 0;
+
+  /**
+   * The feature id for the '<em><b>M</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLAUSE_EXPRESSION__M = 1;
+
+  /**
    * The feature id for the '<em><b>Clause</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLAUSE_EXPRESSION__CLAUSE = 0;
+  int CLAUSE_EXPRESSION__CLAUSE = 2;
 
   /**
    * The number of structural features of the '<em>Clause Expression</em>' class.
@@ -115,7 +133,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLAUSE_EXPRESSION_FEATURE_COUNT = 1;
+  int CLAUSE_EXPRESSION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleClauseImpl <em>Simple Clause</em>}' class.
@@ -128,22 +146,13 @@ public interface LuceneQueryPackage extends EPackage
   int SIMPLE_CLAUSE = 2;
 
   /**
-   * The feature id for the '<em><b>N</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_CLAUSE__N = 0;
-
-  /**
    * The feature id for the '<em><b>Field</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_CLAUSE__FIELD = 1;
+  int SIMPLE_CLAUSE__FIELD = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -152,7 +161,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_CLAUSE__VALUE = 2;
+  int SIMPLE_CLAUSE__VALUE = 1;
 
   /**
    * The number of structural features of the '<em>Simple Clause</em>' class.
@@ -161,7 +170,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_CLAUSE_FEATURE_COUNT = 3;
+  int SIMPLE_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeClauseImpl <em>Type Clause</em>}' class.
@@ -174,22 +183,13 @@ public interface LuceneQueryPackage extends EPackage
   int TYPE_CLAUSE = 3;
 
   /**
-   * The feature id for the '<em><b>N</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_CLAUSE__N = 0;
-
-  /**
    * The feature id for the '<em><b>Field</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_CLAUSE__FIELD = 1;
+  int TYPE_CLAUSE__FIELD = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -198,7 +198,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_CLAUSE__VALUE = 2;
+  int TYPE_CLAUSE__VALUE = 1;
 
   /**
    * The number of structural features of the '<em>Type Clause</em>' class.
@@ -207,7 +207,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_CLAUSE_FEATURE_COUNT = 3;
+  int TYPE_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FieldNameImpl <em>Field Name</em>}' class.
@@ -664,6 +664,16 @@ public interface LuceneQueryPackage extends EPackage
    */
   int NOT_EXPRESSION = 8;
 
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression <em>Must Expression</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getMustExpression()
+   * @generated
+   */
+  int MUST_EXPRESSION = 9;
+
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Expression <em>Expression</em>}'.
@@ -697,6 +707,28 @@ public interface LuceneQueryPackage extends EPackage
   EClass getClauseExpression();
 
   /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getN <em>N</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>N</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getN()
+   * @see #getClauseExpression()
+   * @generated
+   */
+  EAttribute getClauseExpression_N();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getM <em>M</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>M</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getM()
+   * @see #getClauseExpression()
+   * @generated
+   */
+  EAttribute getClauseExpression_M();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getClause <em>Clause</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -716,17 +748,6 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EClass getSimpleClause();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause#getN <em>N</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>N</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause#getN()
-   * @see #getSimpleClause()
-   * @generated
-   */
-  EAttribute getSimpleClause_N();
 
   /**
    * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause#getField <em>Field</em>}'.
@@ -759,17 +780,6 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EClass getTypeClause();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getN <em>N</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>N</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getN()
-   * @see #getTypeClause()
-   * @generated
-   */
-  EAttribute getTypeClause_N();
 
   /**
    * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause#getField <em>Field</em>}'.
@@ -1295,6 +1305,16 @@ public interface LuceneQueryPackage extends EPackage
   EEnum getNotExpression();
 
   /**
+   * Returns the meta object for enum '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression <em>Must Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Must Expression</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression
+   * @generated
+   */
+  EEnum getMustExpression();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1346,6 +1366,22 @@ public interface LuceneQueryPackage extends EPackage
     EClass CLAUSE_EXPRESSION = eINSTANCE.getClauseExpression();
 
     /**
+     * The meta object literal for the '<em><b>N</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLAUSE_EXPRESSION__N = eINSTANCE.getClauseExpression_N();
+
+    /**
+     * The meta object literal for the '<em><b>M</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLAUSE_EXPRESSION__M = eINSTANCE.getClauseExpression_M();
+
+    /**
      * The meta object literal for the '<em><b>Clause</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1362,14 +1398,6 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EClass SIMPLE_CLAUSE = eINSTANCE.getSimpleClause();
-
-    /**
-     * The meta object literal for the '<em><b>N</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_CLAUSE__N = eINSTANCE.getSimpleClause_N();
 
     /**
      * The meta object literal for the '<em><b>Field</b></em>' containment reference feature.
@@ -1396,14 +1424,6 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EClass TYPE_CLAUSE = eINSTANCE.getTypeClause();
-
-    /**
-     * The meta object literal for the '<em><b>N</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_CLAUSE__N = eINSTANCE.getTypeClause_N();
 
     /**
      * The meta object literal for the '<em><b>Field</b></em>' containment reference feature.
@@ -1798,6 +1818,16 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EEnum NOT_EXPRESSION = eINSTANCE.getNotExpression();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression <em>Must Expression</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression
+     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getMustExpression()
+     * @generated
+     */
+    EEnum MUST_EXPRESSION = eINSTANCE.getMustExpression();
 
   }
 

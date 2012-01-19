@@ -21,6 +21,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Expressi
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryFactory;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause;
@@ -96,6 +97,13 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * @generated
    */
   private EEnum notExpressionEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum mustExpressionEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -195,9 +203,29 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getClauseExpression_N()
+  {
+    return (EAttribute)clauseExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getClauseExpression_M()
+  {
+    return (EAttribute)clauseExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getClauseExpression_Clause()
   {
-    return (EReference)clauseExpressionEClass.getEStructuralFeatures().get(0);
+    return (EReference)clauseExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -215,19 +243,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleClause_N()
-  {
-    return (EAttribute)simpleClauseEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getSimpleClause_Field()
   {
-    return (EReference)simpleClauseEClass.getEStructuralFeatures().get(1);
+    return (EReference)simpleClauseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -237,7 +255,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    */
   public EAttribute getSimpleClause_Value()
   {
-    return (EAttribute)simpleClauseEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)simpleClauseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -255,19 +273,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getTypeClause_N()
-  {
-    return (EAttribute)typeClauseEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getTypeClause_Field()
   {
-    return (EReference)typeClauseEClass.getEStructuralFeatures().get(1);
+    return (EReference)typeClauseEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -277,7 +285,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    */
   public EAttribute getTypeClause_Value()
   {
-    return (EAttribute)typeClauseEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)typeClauseEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -745,6 +753,16 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getMustExpression()
+  {
+    return mustExpressionEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public LuceneQueryFactory getLuceneQueryFactory()
   {
     return (LuceneQueryFactory)getEFactoryInstance();
@@ -774,15 +792,15 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     createEReference(expressionEClass, EXPRESSION__VALUE);
 
     clauseExpressionEClass = createEClass(CLAUSE_EXPRESSION);
+    createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__N);
+    createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__M);
     createEReference(clauseExpressionEClass, CLAUSE_EXPRESSION__CLAUSE);
 
     simpleClauseEClass = createEClass(SIMPLE_CLAUSE);
-    createEAttribute(simpleClauseEClass, SIMPLE_CLAUSE__N);
     createEReference(simpleClauseEClass, SIMPLE_CLAUSE__FIELD);
     createEAttribute(simpleClauseEClass, SIMPLE_CLAUSE__VALUE);
 
     typeClauseEClass = createEClass(TYPE_CLAUSE);
-    createEAttribute(typeClauseEClass, TYPE_CLAUSE__N);
     createEReference(typeClauseEClass, TYPE_CLAUSE__FIELD);
     createEAttribute(typeClauseEClass, TYPE_CLAUSE__VALUE);
 
@@ -836,6 +854,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     // Create enums
     booleanExpEEnum = createEEnum(BOOLEAN_EXP);
     notExpressionEEnum = createEEnum(NOT_EXPRESSION);
+    mustExpressionEEnum = createEEnum(MUST_EXPRESSION);
   }
 
   /**
@@ -874,15 +893,15 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEReference(getExpression_Value(), this.getClauseExpression(), null, "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clauseExpressionEClass, ClauseExpression.class, "ClauseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getClauseExpression_N(), this.getNotExpression(), "n", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClauseExpression_M(), this.getMustExpression(), "m", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClauseExpression_Clause(), ecorePackage.getEObject(), null, "clause", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(simpleClauseEClass, SimpleClause.class, "SimpleClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSimpleClause_N(), this.getNotExpression(), "n", null, 0, 1, SimpleClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSimpleClause_Field(), this.getFieldName(), null, "field", null, 0, 1, SimpleClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSimpleClause_Value(), ecorePackage.getEString(), "value", null, 0, 1, SimpleClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeClauseEClass, TypeClause.class, "TypeClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTypeClause_N(), this.getNotExpression(), "n", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTypeClause_Field(), this.getTypeFieldName(), null, "field", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeClause_Value(), ecorePackage.getEString(), "value", null, 0, 1, TypeClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -939,9 +958,12 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     addEEnumLiteral(booleanExpEEnum, BooleanExp.OR1);
 
     initEEnum(notExpressionEEnum, NotExpression.class, "NotExpression");
-    addEEnumLiteral(notExpressionEEnum, NotExpression.NOT1);
-    addEEnumLiteral(notExpressionEEnum, NotExpression.NOT2);
-    addEEnumLiteral(notExpressionEEnum, NotExpression.NOT3);
+    addEEnumLiteral(notExpressionEEnum, NotExpression.N1);
+    addEEnumLiteral(notExpressionEEnum, NotExpression.N2);
+    addEEnumLiteral(notExpressionEEnum, NotExpression.N3);
+
+    initEEnum(mustExpressionEEnum, MustExpression.class, "MustExpression");
+    addEEnumLiteral(mustExpressionEEnum, MustExpression.M);
 
     // Create resource
     createResource(eNS_URI);

@@ -7,9 +7,6 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 /* * 
  *   Query  ::= ( Clause )*
  *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
- * 	
- * 
- * Example: FriendlyName:(+"toString" -"toUpperCase") AND ReturnType:"Ljava/lang/String"
  * */
  
 	Exp1 returns Expression:
@@ -18,44 +15,41 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	Exp2 returns Expression:
 	 value=ClauseExpression |
 	 '(' Exp1 ')';
-
-//	Query returns Expression: 
-//		{Query}
-//		clauseExpressions+=ClauseExpression*
-//	;
 	
 	ClauseExpression:
-		clause=SimpleClause | clause=TypeClause
+		(n=NotExpression | m=MustExpression)? (clause=SimpleClause | clause=TypeClause)
 	;
 	
 	SimpleClause:
-		(n=NotExpression)? field=FieldName ':' value=FieldValue
+		 field=FieldName ':' value=FieldValue
 	;
 	
 	TypeClause:
-		(n=NotExpression)? field=TypeFieldName ':' value=TypeValue
+		field=TypeFieldName ':' value=TypeValue
 	;
 	
 	FieldValue:
-		Value //| '(' Value* ')'
+		Value
 	;
 	
 	TypeValue:
-		QualifiedNameWithWildcard //| '(' QualifiedNameWithWildcard* ')'
+		QualifiedNameWithWildcard
 	;
 	
 	Value:
-		/* ('+' | '-')?*/ (ID ('*' ID)* ('*')?)
+		(Wildcard)? (ID (Wildcard ID)* (Wildcard)?)?
 	;
   
   	QualifiedNameWithWildcard hidden(SL_COMMENT, ML_COMMENT):
-	  ( ID ( '*'? Sep '*'? ID? )* '*'?)
-	  
-	  //( ID '*'?( ('/' | '.')? ID  '*'?)* )
+	  Value ((Wildcard?) Sep (Wildcard?) Value)* Wildcard?
 	;
 	
 	Sep:
 		('/' | '.')
+	;
+	
+	Wildcard:
+		('*' | '?')
 	;
 	
 	enum BooleanExp:
@@ -63,7 +57,11 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	;
 
 	enum NotExpression:
-		not1='-' | not2='NOT' | not3='!'
+		n1='-' | n2='NOT' | n3='!'
+	;
+
+	enum MustExpression:
+		m='+'
 	;
 /*
 	The following rules are generated. Do not modify. Modify source file instead.

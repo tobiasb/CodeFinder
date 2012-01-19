@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName;
 
@@ -27,7 +26,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFiel
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeClauseImpl#getN <em>N</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeClauseImpl#getField <em>Field</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeClauseImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -37,26 +35,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFiel
  */
 public class TypeClauseImpl extends MinimalEObjectImpl.Container implements TypeClause
 {
-  /**
-   * The default value of the '{@link #getN() <em>N</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getN()
-   * @generated
-   * @ordered
-   */
-  protected static final NotExpression N_EDEFAULT = NotExpression.NOT1;
-
-  /**
-   * The cached value of the '{@link #getN() <em>N</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getN()
-   * @generated
-   * @ordered
-   */
-  protected NotExpression n = N_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -106,29 +84,6 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
   protected EClass eStaticClass()
   {
     return LuceneQueryPackage.Literals.TYPE_CLAUSE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotExpression getN()
-  {
-    return n;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setN(NotExpression newN)
-  {
-    NotExpression oldN = n;
-    n = newN == null ? N_EDEFAULT : newN;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.TYPE_CLAUSE__N, oldN, n));
   }
 
   /**
@@ -228,8 +183,6 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_CLAUSE__N:
-        return getN();
       case LuceneQueryPackage.TYPE_CLAUSE__FIELD:
         return getField();
       case LuceneQueryPackage.TYPE_CLAUSE__VALUE:
@@ -248,9 +201,6 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_CLAUSE__N:
-        setN((NotExpression)newValue);
-        return;
       case LuceneQueryPackage.TYPE_CLAUSE__FIELD:
         setField((TypeFieldName)newValue);
         return;
@@ -271,9 +221,6 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_CLAUSE__N:
-        setN(N_EDEFAULT);
-        return;
       case LuceneQueryPackage.TYPE_CLAUSE__FIELD:
         setField((TypeFieldName)null);
         return;
@@ -294,8 +241,6 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.TYPE_CLAUSE__N:
-        return n != N_EDEFAULT;
       case LuceneQueryPackage.TYPE_CLAUSE__FIELD:
         return field != null;
       case LuceneQueryPackage.TYPE_CLAUSE__VALUE:
@@ -315,9 +260,7 @@ public class TypeClauseImpl extends MinimalEObjectImpl.Container implements Type
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (n: ");
-    result.append(n);
-    result.append(", value: ");
+    result.append(" (value: ");
     result.append(value);
     result.append(')');
     return result.toString();

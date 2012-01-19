@@ -9,17 +9,17 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClauseExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="#//NotExpression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="m" eType="#//MustExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clause" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleClause">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="#//NotExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//FieldName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeClause">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="n" eType="#//NotExpression"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//TypeFieldName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -29,9 +29,12 @@
     <eLiterals name="or1" value="1" literal="OR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NotExpression">
-    <eLiterals name="not1" literal="-"/>
-    <eLiterals name="not2" value="1" literal="NOT"/>
-    <eLiterals name="not3" value="2" literal="!"/>
+    <eLiterals name="n1" literal="-"/>
+    <eLiterals name="n2" value="1" literal="NOT"/>
+    <eLiterals name="n3" value="2" literal="!"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MustExpression">
+    <eLiterals name="m" literal="+"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FieldName">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="FullyQualifiedName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -17,7 +17,7 @@
             </type>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="b" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="right" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
@@ -44,12 +44,22 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//ClauseExpression"/>
       </type>
-      <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="clause" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Alternatives" cardinality="?">
+          <elements xsi:type="xtext:Assignment" feature="n" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="m" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          </elements>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="clause" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+        <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Assignment" feature="clause" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+          </elements>
+          <elements xsi:type="xtext:Assignment" feature="clause" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+          </elements>
         </elements>
       </alternatives>
     </rules>
@@ -58,11 +68,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//SimpleClause"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Assignment" cardinality="?" feature="n" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
-        </elements>
         <elements xsi:type="xtext:Assignment" feature="field" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=":"/>
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
@@ -75,11 +82,8 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//TypeClause"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Assignment" cardinality="?" feature="n" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
-        </elements>
         <elements xsi:type="xtext:Assignment" feature="field" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=":"/>
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
@@ -104,12 +108,15 @@
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
-        <elements xsi:type="xtext:Group" cardinality="*">
-          <elements xsi:type="xtext:Keyword" value="*"/>
+        <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/0/@rules.10"/>
+        <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+            <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </elements>
+          <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/0/@rules.10"/>
         </elements>
-        <elements xsi:type="xtext:Keyword" cardinality="?" value="*"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="QualifiedNameWithWildcard" definesHiddenTokens="true" hiddenTokens="/1/@rules.4 /1/@rules.3">
@@ -117,14 +124,14 @@
         <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
         <elements xsi:type="xtext:Group" cardinality="*">
-          <elements xsi:type="xtext:Keyword" cardinality="?" value="*"/>
+          <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/0/@rules.10"/>
           <elements xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
-          <elements xsi:type="xtext:Keyword" cardinality="?" value="*"/>
-          <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/1/@rules.0"/>
+          <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/0/@rules.10"/>
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
         </elements>
-        <elements xsi:type="xtext:Keyword" cardinality="?" value="*"/>
+        <elements xsi:type="xtext:RuleCall" cardinality="?" rule="/0/@rules.10"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Sep">
@@ -134,6 +141,15 @@
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:Keyword" value="/"/>
         <elements xsi:type="xtext:Keyword" value="."/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Wildcard">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Keyword" value="*"/>
+        <elements xsi:type="xtext:Keyword" value="?"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:EnumRule" name="BooleanExp">
@@ -157,17 +173,26 @@
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//NotExpression/not1"/>
+          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//NotExpression/n1"/>
           <literal value="-"/>
         </elements>
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//NotExpression/not2"/>
+          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//NotExpression/n2"/>
           <literal value="NOT"/>
         </elements>
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//NotExpression/not3"/>
+          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//NotExpression/n3"/>
           <literal value="!"/>
         </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:EnumRule" name="MustExpression">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EEnum" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//MustExpression"/>
+      </type>
+      <alternatives xsi:type="xtext:EnumLiteralDeclaration">
+        <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//MustExpression/m"/>
+        <literal value="+"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="FieldName">

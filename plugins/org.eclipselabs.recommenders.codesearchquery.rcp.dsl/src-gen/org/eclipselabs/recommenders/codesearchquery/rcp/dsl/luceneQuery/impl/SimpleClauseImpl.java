@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause;
 
 /**
@@ -27,7 +26,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleCl
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleClauseImpl#getN <em>N</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleClauseImpl#getField <em>Field</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleClauseImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -37,26 +35,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleCl
  */
 public class SimpleClauseImpl extends MinimalEObjectImpl.Container implements SimpleClause
 {
-  /**
-   * The default value of the '{@link #getN() <em>N</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getN()
-   * @generated
-   * @ordered
-   */
-  protected static final NotExpression N_EDEFAULT = NotExpression.NOT1;
-
-  /**
-   * The cached value of the '{@link #getN() <em>N</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getN()
-   * @generated
-   * @ordered
-   */
-  protected NotExpression n = N_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -106,29 +84,6 @@ public class SimpleClauseImpl extends MinimalEObjectImpl.Container implements Si
   protected EClass eStaticClass()
   {
     return LuceneQueryPackage.Literals.SIMPLE_CLAUSE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotExpression getN()
-  {
-    return n;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setN(NotExpression newN)
-  {
-    NotExpression oldN = n;
-    n = newN == null ? N_EDEFAULT : newN;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.SIMPLE_CLAUSE__N, oldN, n));
   }
 
   /**
@@ -228,8 +183,6 @@ public class SimpleClauseImpl extends MinimalEObjectImpl.Container implements Si
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.SIMPLE_CLAUSE__N:
-        return getN();
       case LuceneQueryPackage.SIMPLE_CLAUSE__FIELD:
         return getField();
       case LuceneQueryPackage.SIMPLE_CLAUSE__VALUE:
@@ -248,9 +201,6 @@ public class SimpleClauseImpl extends MinimalEObjectImpl.Container implements Si
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.SIMPLE_CLAUSE__N:
-        setN((NotExpression)newValue);
-        return;
       case LuceneQueryPackage.SIMPLE_CLAUSE__FIELD:
         setField((FieldName)newValue);
         return;
@@ -271,9 +221,6 @@ public class SimpleClauseImpl extends MinimalEObjectImpl.Container implements Si
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.SIMPLE_CLAUSE__N:
-        setN(N_EDEFAULT);
-        return;
       case LuceneQueryPackage.SIMPLE_CLAUSE__FIELD:
         setField((FieldName)null);
         return;
@@ -294,8 +241,6 @@ public class SimpleClauseImpl extends MinimalEObjectImpl.Container implements Si
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.SIMPLE_CLAUSE__N:
-        return n != N_EDEFAULT;
       case LuceneQueryPackage.SIMPLE_CLAUSE__FIELD:
         return field != null;
       case LuceneQueryPackage.SIMPLE_CLAUSE__VALUE:
@@ -315,9 +260,7 @@ public class SimpleClauseImpl extends MinimalEObjectImpl.Container implements Si
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (n: ");
-    result.append(n);
-    result.append(", value: ");
+    result.append(" (value: ");
     result.append(value);
     result.append(')');
     return result.toString();

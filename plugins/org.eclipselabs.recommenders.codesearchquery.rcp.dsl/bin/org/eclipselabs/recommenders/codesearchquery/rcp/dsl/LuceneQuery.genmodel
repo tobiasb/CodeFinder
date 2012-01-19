@@ -15,23 +15,26 @@
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BooleanExp/or1"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//NotExpression">
-      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/not1"/>
-      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/not2"/>
-      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/not3"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/n1"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/n2"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//NotExpression/n3"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//MustExpression">
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//MustExpression/m"/>
     </genEnums>
     <genClasses ecoreClass="LuceneQuery.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Expression/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//ClauseExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/n"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/m"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//ClauseExpression/clause"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//SimpleClause">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleClause/n"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//SimpleClause/field"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleClause/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//TypeClause">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeClause/n"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//TypeClause/field"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeClause/value"/>
     </genClasses>

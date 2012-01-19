@@ -95,6 +95,8 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
         return createBooleanExpFromString(eDataType, initialValue);
       case LuceneQueryPackage.NOT_EXPRESSION:
         return createNotExpressionFromString(eDataType, initialValue);
+      case LuceneQueryPackage.MUST_EXPRESSION:
+        return createMustExpressionFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -114,6 +116,8 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
         return convertBooleanExpToString(eDataType, instanceValue);
       case LuceneQueryPackage.NOT_EXPRESSION:
         return convertNotExpressionToString(eDataType, instanceValue);
+      case LuceneQueryPackage.MUST_EXPRESSION:
+        return convertMustExpressionToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -236,6 +240,28 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * @generated
    */
   public String convertNotExpressionToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MustExpression createMustExpressionFromString(EDataType eDataType, String initialValue)
+  {
+    MustExpression result = MustExpression.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertMustExpressionToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
