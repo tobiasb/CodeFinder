@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.jface,
  org.eclipse.recommenders.utils.rcp,
  org.eclipse.recommenders.injection,
  org.eclipse.recommenders.rcp,
- org.eclipselabs.recommenders.codesearchquery;bundle-version="0.1.0"
+ org.eclipselabs.recommenders.codesearchquery,
+ org.eclipselabs.recommenders.codesearchquery.rcp.searcher
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.indexer,

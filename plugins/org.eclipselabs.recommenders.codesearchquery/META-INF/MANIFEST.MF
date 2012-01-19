@@ -4,7 +4,8 @@ Bundle-Name: Codesearchquery
 Bundle-SymbolicName: org.eclipselabs.recommenders.codesearchquery
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.Activator
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ com.google.guava
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.apache.lucene,
@@ -29,6 +30,7 @@ Export-Package: org.apache.lucene,
   uses:="org.apache.lucene.util,
    org.apache.lucene.store,
    org.osgi.framework,
-   org.apache.lucene.analysis"
+   org.apache.lucene.analysis",
+ org.eclipselabs.recommenders.codesearchquery.termvector
 Bundle-ClassPath: lib/lucene-core-3.5.0.jar,
  .

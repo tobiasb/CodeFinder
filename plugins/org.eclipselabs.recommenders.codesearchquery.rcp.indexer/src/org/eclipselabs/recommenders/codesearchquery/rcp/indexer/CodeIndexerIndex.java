@@ -106,4 +106,9 @@ public class CodeIndexerIndex extends AbstractIndex {
 			e.printStackTrace(); //TODO: refactor
 		}
 	}
+
+	public void addDocuments(List<Document> docs) throws IOException {
+		for(Document doc : docs)
+			addDocument(doc);
+	}
 }

@@ -132,7 +132,6 @@ public class SearchQueryView extends ViewPart {
                     @Override
                     public void done(final IJobChangeEvent event) {
                         setResult(result);
-                        codeSearcher.close();
                     }
                 });
 
