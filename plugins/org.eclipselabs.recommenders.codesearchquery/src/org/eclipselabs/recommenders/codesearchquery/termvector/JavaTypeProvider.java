@@ -20,6 +20,7 @@ public class JavaTypeProvider extends AbstractTermVectorProvider implements ITer
 		final Set<String> result  = Sets.newHashSet();
 		
 		for(String fieldName : getFields()) {
+			//TODO: Schränke Felder mit IFieldSelector ein
 			Set<String> types = consumable.getTermVector(fieldName);
 			result.addAll(types);
 		}
