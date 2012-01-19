@@ -101,16 +101,22 @@ public class SearchQueryView extends ViewPart {
                         setSearching();
 
                         try {
+                            result.clear();
+                            
                             final String path = Platform.getLocation().toString() + "/index.l";
                             final Directory index = new SimpleFSDirectory(new File(path));
 
+                            if(!new File(path).exists()) {
+                            	System.out.println("Index doesn't exist at " + path);
+                            	return Status.CANCEL_STATUS;
+                            }
+                            
 //                            DotNotationConverter conv = new DotNotationConverter();
 //                            final String searchQuery = Fields.USED_TYPES + ":\"" + conv.convert(getSearchQuery()) + "\"";
                             final String searchQuery = getSearchQuery();
 
                             codeSearcher = new CodeSearcherIndex(index);
                             
-                            result.clear();
                             result.addAll(codeSearcher.search(searchQuery));
                         } catch (final CorruptIndexException e1) {
                             e1.printStackTrace();
