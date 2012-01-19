@@ -13,6 +13,8 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
 import org.eclipselabs.recommenders.codesearchquery.termvector.JavaTypeProvider;
 
 /**
@@ -46,8 +48,9 @@ public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProv
 			JavaTypeProvider source = new JavaTypeProvider();
 			source.load(searcherIndex);
 			
+			IQueryPartConverter converter = new DotNotationConverter();
 			for(String type : source.getDisjunctTermVector()) {
-				acceptor.accept(createCompletionProposal(type, context));
+				acceptor.accept(createCompletionProposal(converter.convertTo(type), context));
 			}
 		} catch(Exception ex) {
 			ex.printStackTrace();

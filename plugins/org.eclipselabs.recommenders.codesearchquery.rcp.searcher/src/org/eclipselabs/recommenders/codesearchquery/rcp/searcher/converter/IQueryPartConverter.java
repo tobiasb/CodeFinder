@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter;
 
 public interface IQueryPartConverter {
-	public String convert(String queryPart);
+	public String convertFrom(String queryPart);
+	public String convertTo(String queryPart);
 }

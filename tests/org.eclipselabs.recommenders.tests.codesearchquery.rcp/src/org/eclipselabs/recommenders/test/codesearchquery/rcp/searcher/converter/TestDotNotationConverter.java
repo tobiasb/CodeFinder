@@ -13,7 +13,7 @@ public class TestDotNotationConverter {
 		IQueryPartConverter sut = new DotNotationConverter();
 		
 		String expected = "Lorg/eclipselabs/recommenders";
-		String actual = sut.convert("org.eclipselabs.recommenders");
+		String actual = sut.convertFrom("org.eclipselabs.recommenders");
 		
 		Assert.assertEquals(expected, actual);
 	}
@@ -23,7 +23,7 @@ public class TestDotNotationConverter {
 		IQueryPartConverter sut = new DotNotationConverter();
 		
 		String expected = "Lorg/eclipselabs/*";
-		String actual = sut.convert("org.eclipselabs.*");
+		String actual = sut.convertFrom("org.eclipselabs.*");
 		
 		Assert.assertEquals(expected, actual);
 	}
