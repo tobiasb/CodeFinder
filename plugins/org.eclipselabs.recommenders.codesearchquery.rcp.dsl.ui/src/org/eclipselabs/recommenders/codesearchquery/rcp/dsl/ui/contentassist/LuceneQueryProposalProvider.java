@@ -3,20 +3,49 @@
 */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist;
 
+import java.io.File;
+
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.SimpleFSDirectory;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.AbstractLuceneQueryProposalProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.LuceneQueryUiModule;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQueryActivator;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.codesearchquery.termvector.JavaTypeProvider;
+
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProvider {
-//@Override
-//public void complete_TypeTest(EObject model, RuleCall ruleCall,
-//	ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-//		System.out.println("context: " + context.getSelectedText() + " " + context.getPrefix());
-//		// TODO Auto-generated method stub
-//		super.complete_TypeTest(model, ruleCall, context, acceptor);
-//	}
+	
+	public LuceneQueryProposalProvider() {
+		
+	}
+	
+	@Override
+	public void complete_TypeValue(EObject model, RuleCall ruleCall,
+			ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		System.out.println("context: " + context.getSelectedText() + " " + context.getPrefix());
+
+		try {
+			IPath path = Platform.getStateLocation(LuceneQueryActivator.getInstance().getBundle());
+	        final Directory index = new SimpleFSDirectory(new File(path.toString() + "/index.l"));
+	        
+			CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index);
+			
+			JavaTypeProvider source = new JavaTypeProvider();
+			source.load(searcherIndex);
+			
+			for(String type : source.getDisjunctTermVector()) {
+				acceptor.accept(createCompletionProposal(type, context));
+			}
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 }
