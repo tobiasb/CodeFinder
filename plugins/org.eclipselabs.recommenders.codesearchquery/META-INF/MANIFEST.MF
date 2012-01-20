@@ -6,7 +6,7 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.Activator
 Require-Bundle: org.eclipse.core.runtime,
  com.google.guava,
- org.apache.lucene
+ org.apache.lucene;bundle-version="3.5.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.apache.lucene,
