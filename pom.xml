@@ -25,7 +25,7 @@
         <repository>
 			<id>recommenders-3rd</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/recommenders/updates/?dir=3rd</url>
+			<url>http://download.eclipse.org/recommenders/updates/3rd</url>
 		</repository>
 		<!--repository>
 			<id>recommenders-3rd</id>
@@ -35,7 +35,7 @@
 		<repository>
 			<id>recommenders-eclipse</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/recommenders/updates/?dir=head/e37</url>
+			<url>http://download.eclipse.org/recommenders/updates/head/e37</url>
 		</repository>
         <repository>
 			<id>xtext</id>
