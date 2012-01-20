@@ -2,7 +2,6 @@
  * <copyright>
  * </copyright>
  *
-
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.util;
 

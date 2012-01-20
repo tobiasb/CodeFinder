@@ -8,7 +8,6 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit4,
  org.apache.log4j,
  org.eclipse.ui,
- org.apache.commons.collections,
  org.apache.commons.io,
  org.eclipse.pde,
  org.eclipse.core.resources,
@@ -18,11 +17,11 @@ Require-Bundle: org.junit4,
  org.eclipse.core.runtime,
  org.eclipse.recommenders.utils.rcp,
  org.apache.commons.lang3,
- com.google.inject,
  com.google.guava,
  org.eclipse.xtend2.lib,
  org.eclipse.recommenders.tests,
  org.eclipselabs.recommenders.codesearchquery,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer,
- org.eclipselabs.recommenders.codesearchquery.rcp.searcher
+ org.eclipselabs.recommenders.codesearchquery.rcp.searcher,
+ com.google.inject;bundle-version="3.0.0"
 
