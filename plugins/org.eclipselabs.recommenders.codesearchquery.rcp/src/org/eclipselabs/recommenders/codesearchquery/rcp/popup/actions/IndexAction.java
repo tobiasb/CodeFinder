@@ -18,8 +18,6 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -29,6 +27,7 @@ import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Activator;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils.CompilationUnitHelper;
 
 import com.google.common.collect.Lists;
 
@@ -83,7 +82,7 @@ public class IndexAction implements IObjectActionDelegate {
 	                                        try {
 	                                            Activator.logInfo("Indexing ICompilationUnit %1$s ...", unit.getPath());
 	                                            
-	                                            CompilationUnit cu = parse(unit);
+	                                            CompilationUnit cu = CompilationUnitHelper.parse(unit);
 	                                            
 	                                            index.index(cu);
 	                                        }catch(Exception e) {
@@ -130,14 +129,6 @@ public class IndexAction implements IObjectActionDelegate {
     	} catch(Exception ex) {
             Activator.logError(ex, "Error");
     	}
-    }
-
-    private static CompilationUnit parse(ICompilationUnit unit) {
-        ASTParser parser = ASTParser.newParser(AST.JLS3);
-        parser.setKind(ASTParser.K_COMPILATION_UNIT);
-        parser.setSource(unit);
-        parser.setResolveBindings(true);
-        return (CompilationUnit) parser.createAST(null); // parse
     }
 
     /**

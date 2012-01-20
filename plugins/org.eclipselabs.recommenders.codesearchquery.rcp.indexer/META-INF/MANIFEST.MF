@@ -21,4 +21,5 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.indexer,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces,
+ org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils,
  org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor
