@@ -31,7 +31,7 @@ import org.junit.Ignore;
 @SuppressWarnings("all")
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 public class TestBase {
-  public ASTNode parse(final ICompilationUnit unit) {
+  public static ASTNode parse(final ICompilationUnit unit) {
     ASTNode _xblockexpression = null;
     {
       ASTParser _newParser = ASTParser.newParser(AST.JLS3);
@@ -240,14 +240,14 @@ public class TestBase {
         final Tuple<ICompilationUnit,Set<Integer>> struct = _createFileAndParseWithMarkers;
         ICompilationUnit _first = struct.getFirst();
         final ICompilationUnit cu = _first;
+        ASTNode _parse = TestBase.parse(cu);
+        ASTNode cuParsed = _parse;
         RAMDirectory _rAMDirectory = new RAMDirectory();
         CodeIndexerIndex _codeIndexerIndex = new CodeIndexerIndex(_rAMDirectory);
         CodeIndexerIndex index = _codeIndexerIndex;
         CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         visitor.addIndexer(indexer);
-        ASTNode _parse = this.parse(cu);
-        ASTNode cuParsed = _parse;
         cuParsed.accept(visitor);
         index.commit();
         return index;

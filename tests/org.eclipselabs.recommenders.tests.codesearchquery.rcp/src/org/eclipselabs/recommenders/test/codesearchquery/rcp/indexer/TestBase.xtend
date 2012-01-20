@@ -18,7 +18,7 @@ import static junit.framework.Assert.*
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase {
-	def parse(ICompilationUnit unit) {
+	def static parse(ICompilationUnit unit) {
         var parser = ASTParser::newParser(AST::JLS3);
         parser.setKind(ASTParser::K_COMPILATION_UNIT);
         parser.setSource(unit);
@@ -139,16 +139,14 @@ class TestBase {
     def exercise(CharSequence code1, CharSequence code2, CharSequence code3, List<IIndexer> indexer, String projectName, String fileName) {
     	val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),projectName)
 		val struct = fixture.createFileAndParseWithMarkers(code1.toString, fileName)
-//		val struct2 = fixture.createFileAndParseWithMarkers(code2.toString, "1" + fileName)
-//		val struct3 = fixture.createFileAndParseWithMarkers(code3.toString, "2" + fileName)
 		val cu = struct.first;
+        var cuParsed = parse(cu);
 
-        var index = new CodeIndexerIndex(new RAMDirectory())// CodesearchQueryModule::index//
+        var index = new CodeIndexerIndex(new RAMDirectory())
 		
         var visitor = new CompilationUnitVisitor(index);
         visitor.addIndexer(indexer);
         
-        var cuParsed = parse(cu);
         cuParsed.accept(visitor)
         index.commit
         

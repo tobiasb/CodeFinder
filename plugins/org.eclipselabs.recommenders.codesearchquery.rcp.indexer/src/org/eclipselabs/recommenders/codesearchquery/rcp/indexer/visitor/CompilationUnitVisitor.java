@@ -76,7 +76,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
 		indexer = Lists.newArrayList();		
 	}
 
-	public static List<IIndexer> getAllIndexer() {
+	public static List<IIndexer> getDefaultIndexer() {
 
 	    List<IIndexer> list = Lists.newArrayList();
 	    

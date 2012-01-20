@@ -9,41 +9,72 @@ import org.apache.lucene.document.Field.TermVector;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.LockObtainFailedException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipselabs.recommenders.codesearchquery.AbstractIndex;
+import org.eclipselabs.recommenders.codesearchquery.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 
-public class CodeIndexerIndex extends AbstractIndex {
+import com.google.common.collect.Lists;
+
+public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
 
 	private IndexWriter m_writer;
+	private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList();
 	
 	public CodeIndexerIndex(Directory directory) throws IOException {
 		super(directory);
+		
+		commit();
 	}
 	
 	protected void init() throws CorruptIndexException, LockObtainFailedException, IOException {
 	    IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
 
 		m_writer = new IndexWriter(getIndex(), config);
-		m_writer.deleteAll();
+		m_writer.deleteAll(); //TODO probably shouldn't delete everyting here, dunno
 	}
 		
-	public void index(CompilationUnit cu) {
-
-        CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
-        visitor.addIndexer(CompilationUnitVisitor.getAllIndexer());
-
-        cu.accept(visitor);
+	public void index(CompilationUnit cu) throws IOException {
+	    index(cu, CompilationUnitVisitor.getDefaultIndexer());
 	}
 	
-	public void index(CompilationUnit cu, List<IIndexer> indexer) {
+	public void index(CompilationUnit cu, IIndexer indexer) throws IOException {
+		tmpIndexerCollection.clear();
+		tmpIndexerCollection.add(indexer);
+		
+		index(cu, tmpIndexerCollection);
+	}
+	
+	public void index(CompilationUnit cu, List<IIndexer> indexer) throws IOException {
+		delete(cu);
+		
         CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
         visitor.addIndexer(indexer);
 
         cu.accept(visitor);
+        
+        commit();
+	}
+	
+	private void delete(CompilationUnit cu) throws IOException {
+		ResourcePathIndexer indexer = new ResourcePathIndexer();
+		String cuPath = indexer.getResourcePath(cu);
+		
+		delete(new Term(Fields.RESOURCE_PATH, cuPath));
+	}
+	
+	public void delete(Term term) throws IOException {
+
+		int numDocsBefore = m_writer.numDocs();
+		m_writer.deleteDocuments(term);
+		commit(); // for correct num count
+
+		int numDeleted = numDocsBefore - m_writer.numDocs();
+        System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
 	}
 	
     public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {   
