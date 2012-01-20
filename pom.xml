@@ -46,7 +46,7 @@
        	
        	
 	<modules>
-       	<module>misc/targets</module>
+       	<!--module>misc/targets</module-->
 		<module>features</module>
 		<module>plugins</module>
 		<module>repositories</module>
