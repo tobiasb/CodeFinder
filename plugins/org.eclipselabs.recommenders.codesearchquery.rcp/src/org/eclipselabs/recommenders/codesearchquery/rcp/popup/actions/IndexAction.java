@@ -69,6 +69,7 @@ public class IndexAction implements IObjectActionDelegate {
 	   
 	                try {
 	                    index.printStats();
+	                    monitor.beginTask("Indexing source files", projects.size());
 	                    
 	                    for (IProject p : projects) {
 	                        try {
@@ -94,6 +95,8 @@ public class IndexAction implements IObjectActionDelegate {
 	                        } catch(Exception e) {
 	                            /* Do nothing */
 	                        }
+	                        
+	                        monitor.worked(1);
 	                    }
 	                    
 	                    return Status.OK_STATUS;
