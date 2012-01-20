@@ -22,15 +22,20 @@
 			<layout>p2</layout>
 			<url>http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo/</url>
 		</repository>
-		<repository>
+        <repository>
+			<id>recommenders-3rd</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/recommenders/updates/?dir=3rd</url>
+		</repository>
+		<!--repository>
 			<id>recommenders-3rd</id>
 			<layout>p2</layout>
 			<url>http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd-head/</url>
-		</repository>
+		</repository-->
 		<repository>
 			<id>recommenders-eclipse</id>
 			<layout>p2</layout>
-			<url>http://vandyk.st.informatik.tu-darmstadt.de/updates/head/</url>
+			<url>http://download.eclipse.org/recommenders/updates/?dir=head/e37</url>
 		</repository>
         <repository>
 			<id>xtext</id>
@@ -38,6 +43,8 @@
 			<url> http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
 		</repository>
        	</repositories>
+       	
+       	
 	<modules>
        	<module>misc/targets</module>
 		<module>features</module>
