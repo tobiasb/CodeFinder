@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.document.Field.TermVector;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
@@ -23,7 +22,7 @@ import com.google.common.collect.Lists;
 public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
 
 	private IndexWriter m_writer;
-	private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList();
+	private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList(); // we don't want to create a new instance every time we index
 	
 	public CodeIndexerIndex(Directory directory) throws IOException {
 		super(directory);
@@ -60,13 +59,6 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         commit();
 	}
 	
-	private void delete(CompilationUnit cu) throws IOException {
-		ResourcePathIndexer indexer = new ResourcePathIndexer();
-		String cuPath = indexer.getResourcePath(cu);
-		
-		delete(new Term(Fields.RESOURCE_PATH, cuPath));
-	}
-	
 	public void delete(Term term) throws IOException {
 
 		int numDocsBefore = m_writer.numDocs();
@@ -75,6 +67,13 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
 		int numDeleted = numDocsBefore - m_writer.numDocs();
         System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
+	}
+	
+	private void delete(CompilationUnit cu) throws IOException {
+		ResourcePathIndexer indexer = new ResourcePathIndexer();
+		String cuPath = indexer.getResourcePath(cu);
+		
+		delete(new Term(Fields.RESOURCE_PATH, cuPath));
 	}
 	
     public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {   
@@ -86,7 +85,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         	return;
         }
         
-    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED, TermVector.YES);
+    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
 
         System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
         
