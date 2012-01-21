@@ -33,7 +33,7 @@ import com.google.common.collect.Lists;
 
 public class IndexAction implements IObjectActionDelegate {
 
-    //private Shell shell;
+    // private Shell shell;
     private List<IProject> projects = null;
 
     /**
@@ -47,95 +47,104 @@ public class IndexAction implements IObjectActionDelegate {
      * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
      */
     @Override
-    public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-        //shell = targetPart.getSite().getShell();
+    public void setActivePart(final IAction action, final IWorkbenchPart targetPart) {
+        // shell = targetPart.getSite().getShell();
     }
 
     /**
      * @see IActionDelegate#run(IAction)
      */
     @Override
-    public void run(IAction action) {
-    	try {
-	        final Long start = System.currentTimeMillis();
-	        String path = Platform.getLocation().toString() + "/index.l";
-	        final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
-	                
-	        final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
-	            
-	            @Override
-	            public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
-	   
-	                try {
-	                    index.printStats();
-	                    monitor.beginTask("Indexing source files", projects.size());
-	                    
-	                    for (IProject p : projects) {
-	                        try {
-	                            
-	                            IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
-	        
-	                            for (IPackageFragment mypackage : packages) {
-	                                if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
-	                                    for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
-	                                        // Now create the AST for the ICompilationUnits
-	                                        try {
-	                                            Activator.logInfo("Indexing ICompilationUnit %1$s ...", unit.getPath());
-	                                            
-	                                            CompilationUnit cu = CompilationUnitHelper.parse(unit);
-	                                            
-	                                            index.index(cu);
-	                                        }catch(Exception e) {
-	                                            Activator.logWarning(e, "ICompilationUnit %1$s has not been indexed successfully", unit.getPath());
-	                                        }
-	                                    }
-	                                }
-	                            }
-	                        } catch(Exception e) {
-	                            /* Do nothing */
-	                        }
-	                        
-	                        monitor.worked(1);
-	                    }
-	                    
-	                    return Status.OK_STATUS;
-	                } catch(Exception e) {
-	                    return Status.OK_STATUS;
-	                }
-	            }
-	        };
-	        job.addJobChangeListener(new JobChangeAdapter() {
-	           
-	            @Override
-	            public void done(final IJobChangeEvent event) {
-	                if (event.getResult().isOK()) {
-	   
-	                    index.printStats();
-	                    index.close();
-	                    
-	                    Long duration = System.currentTimeMillis() - start;
-	   
-	                    String msg = "Index was built for " + projects.size()
-	                            + " project(s). Took " + duration + " milliseconds.";
-	                    
-	                    System.out.println(msg);
-	                } else {
-	                    System.out.println(event.getResult().getMessage());
-	                }
-	            }
-	   
-	        });
-	        job.schedule();
-    	} catch(Exception ex) {
+    public void run(final IAction action) {
+        try {
+            final Long start = System.currentTimeMillis();
+            String path = Platform.getLocation().toString() + "/index.l";
+            final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
+
+            final WorkspaceJob job = new WorkspaceJob("Indexing sources...") {
+
+                @Override
+                public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
+
+                    try {
+                        index.printStats();
+                        monitor.beginTask("Indexing source files", projects.size());
+
+                        for (IProject p : projects) {
+                            try {
+
+                                IPackageFragment[] packages = JavaCore.create(p).getPackageFragments();
+
+                                for (IPackageFragment mypackage : packages) {
+                                    if (mypackage.getKind() == IPackageFragmentRoot.K_SOURCE) {
+                                        for (ICompilationUnit unit : mypackage.getCompilationUnits()) {
+                                            if (monitor.isCanceled()) {
+                                                return Status.CANCEL_STATUS;
+                                            }
+                                            monitor.subTask(unit.getUnderlyingResource().getProjectRelativePath()
+                                                    .toString());
+                                            // Now create the AST for the ICompilationUnits
+                                            try {
+                                                Activator.logInfo("Indexing ICompilationUnit %1$s ...", unit.getPath());
+
+                                                CompilationUnit cu = CompilationUnitHelper.parse(unit);
+
+                                                index.index(cu);
+                                            } catch (Exception e) {
+                                                Activator.logWarning(e,
+                                                        "ICompilationUnit %1$s has not been indexed successfully",
+                                                        unit.getPath());
+                                            }
+                                        }
+                                    }
+                                }
+                            } catch (Exception e) {
+                                /* Do nothing */
+                            }
+
+                            monitor.worked(1);
+                        }
+
+                        return Status.OK_STATUS;
+                    } catch (Exception e) {
+                        return Status.OK_STATUS;
+                    } finally {
+                        monitor.done();
+                    }
+                }
+            };
+            job.addJobChangeListener(new JobChangeAdapter() {
+
+                @Override
+                public void done(final IJobChangeEvent event) {
+                    if (event.getResult().isOK()) {
+
+                        index.printStats();
+                        index.close();
+
+                        Long duration = System.currentTimeMillis() - start;
+
+                        String msg = "Index was built for " + projects.size() + " project(s). Took " + duration
+                                + " milliseconds.";
+
+                        System.out.println(msg);
+                    } else {
+                        System.out.println(event.getResult().getMessage());
+                    }
+                }
+
+            });
+            job.schedule();
+        } catch (Exception ex) {
             Activator.logError(ex, "Error");
-    	}
+        }
     }
 
     /**
      * @see IActionDelegate#selectionChanged(IAction, ISelection)
      */
     @Override
-    public void selectionChanged(IAction action, ISelection selection) {
+    public void selectionChanged(final IAction action, final ISelection selection) {
         projects = Lists.newLinkedList();
 
         if (selection instanceof IStructuredSelection) {
