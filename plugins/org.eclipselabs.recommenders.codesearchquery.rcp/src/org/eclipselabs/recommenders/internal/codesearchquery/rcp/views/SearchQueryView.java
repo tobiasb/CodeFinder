@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.codesearchquery.rcp.views;
+package org.eclipselabs.recommenders.internal.codesearchquery.rcp.views;
 
 import static java.util.Collections.emptyList;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_OVERLAY_ICONS;

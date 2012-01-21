@@ -5,13 +5,14 @@ Bundle-SymbolicName: org.eclipselabs.recommenders.codesearchquery.rcp;singleton:
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse Code Recommenders
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-Activator: org.eclipselabs.recommenders.codesearchquery.rcp.Activator
+Bundle-Activator: org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator
 Require-Bundle: org.eclipse.jface,
  org.eclipse.jdt.core,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  com.google.guava,
  org.eclipse.ui,
+ org.eclipse.recommenders.rcp,
  org.eclipse.recommenders.utils,
  org.eclipse.recommenders.utils.rcp,
  org.eclipse.recommenders.injection,

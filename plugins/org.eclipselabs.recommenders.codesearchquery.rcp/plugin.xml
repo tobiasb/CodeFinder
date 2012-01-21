@@ -10,7 +10,7 @@
             id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.contribution1">
          <action
                label="Index"
-               class="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.IndexAction"
+               class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions.IndexAction"
 	       		menubarPath="additions"
                enablesFor="+"
                id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.indexAction">
@@ -22,9 +22,15 @@
 	      point="org.eclipse.ui.views">
 	      <view
              category="org.eclipse.recommenders.rcp.category.views"
-             class="org.eclipselabs.recommenders.codesearchquery.rcp.views.SearchQueryView"
+             class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.views.SearchQueryView"
              id="org.eclipselabs.recommenders.codesearchquery.rcp.searchQueryView"
              name="Code Search Query-View"/>
 	</extension>
+ <extension
+       point="org.eclipse.recommenders.injection.modules">
+    <module
+          class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.CSQModule">
+    </module>
+ </extension>
 
 </plugin>
