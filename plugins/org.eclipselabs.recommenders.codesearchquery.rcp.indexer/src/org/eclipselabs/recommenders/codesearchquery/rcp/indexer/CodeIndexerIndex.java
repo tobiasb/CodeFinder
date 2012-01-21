@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -21,124 +22,137 @@ import com.google.common.collect.Lists;
 
 public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
 
-	private IndexWriter m_writer;
-	private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList(); // we don't want to create a new instance every time we index
-	
-	public CodeIndexerIndex(Directory directory) throws IOException {
-		super(directory);
-		
-		commit();
-	}
-	
-	protected void init() throws CorruptIndexException, LockObtainFailedException, IOException {
-	    IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
+    private IndexWriter m_writer;
+    private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList(); // we don't want to create a new instance
+                                                                              // every time we index
 
-		m_writer = new IndexWriter(getIndex(), config);
-		m_writer.deleteAll(); //TODO probably shouldn't delete everyting here, dunno
-	}
-		
-	public void index(CompilationUnit cu) throws IOException {
-	    index(cu, CompilationUnitVisitor.getDefaultIndexer());
-	}
-	
-	public void index(CompilationUnit cu, IIndexer indexer) throws IOException {
-		tmpIndexerCollection.clear();
-		tmpIndexerCollection.add(indexer);
-		
-		index(cu, tmpIndexerCollection);
-	}
-	
-	public void index(CompilationUnit cu, List<IIndexer> indexer) throws IOException {
-		delete(cu);
-		
+    public CodeIndexerIndex(final Directory directory) throws IOException {
+        super(directory);
+
+        commit();
+    }
+
+    @Override
+    protected void init() throws CorruptIndexException, LockObtainFailedException, IOException {
+        IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
+
+        m_writer = new IndexWriter(getIndex(), config);
+        // m_writer.deleteAll(); // TODO probably shouldn't delete everyting here, dunno
+    }
+
+    @Override
+    public void index(final CompilationUnit cu) throws IOException {
+        index(cu, CompilationUnitVisitor.getDefaultIndexer());
+    }
+
+    public long lastUpdated(final File location) {
+        // last update 1.1.1970 ;)
+        return 0;
+    }
+
+    @Override
+    public void index(final CompilationUnit cu, final IIndexer indexer) throws IOException {
+        tmpIndexerCollection.clear();
+        tmpIndexerCollection.add(indexer);
+
+        index(cu, tmpIndexerCollection);
+    }
+
+    @Override
+    public void index(final CompilationUnit cu, final List<IIndexer> indexer) throws IOException {
+        delete(cu);
+
         CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
         visitor.addIndexer(indexer);
 
         cu.accept(visitor);
-        
+
         commit();
-	}
-	
-	public void delete(Term term) throws IOException {
-
-		int numDocsBefore = m_writer.numDocs();
-		m_writer.deleteDocuments(term);
-		commit(); // for correct num count
-
-		int numDeleted = numDocsBefore - m_writer.numDocs();
-        System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
-	}
-	
-	private void delete(CompilationUnit cu) throws IOException {
-		ResourcePathIndexer indexer = new ResourcePathIndexer();
-		String cuPath = indexer.getResourcePath(cu);
-		
-		delete(new Term(Fields.RESOURCE_PATH, cuPath));
-	}
-	
-    public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {   
-    	addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
     }
 
-    public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {        
-        if(fieldValue == null) {
-        	return;
+    public void delete(final Term term) throws IOException {
+
+        int numDocsBefore = m_writer.numDocs();
+        m_writer.deleteDocuments(term);
+        commit(); // for correct num count
+
+        int numDeleted = numDocsBefore - m_writer.numDocs();
+        System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
+    }
+
+    private void delete(final CompilationUnit cu) throws IOException {
+        ResourcePathIndexer indexer = new ResourcePathIndexer();
+        String cuPath = indexer.getResourcePath(cu);
+
+        delete(new Term(Fields.RESOURCE_PATH, cuPath));
+    }
+
+    public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
+        addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
+    }
+
+    public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {
+        if (fieldValue == null) {
+            return;
         }
-        
-    	Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+
+        Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
 
         System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
-        
+
         document.add(field);
     }
-	
-	public void commit() {
-		try {
-			m_writer.commit();
-		} catch (CorruptIndexException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
-	public void addDocument(Document d) throws IOException {
-		m_writer.addDocument(d);
-	}
-	
-	public void truncateIndex() {
-		try {
-			m_writer.deleteAll();
-			m_writer.commit();
-		} catch (IOException e) {
-			e.printStackTrace(); //TODO: refactor
-		}
-	}
-	
-	public void printStats() {
+    public void commit() {
+        try {
+            m_writer.commit();
+        } catch (CorruptIndexException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void addDocument(final Document d) throws IOException {
+        m_writer.addDocument(d);
+    }
+
+    @Override
+    public void truncateIndex() {
+        try {
+            m_writer.deleteAll();
+            m_writer.commit();
+        } catch (IOException e) {
+            e.printStackTrace(); // TODO: refactor
+        }
+    }
+
+    public void printStats() {
         try {
             Activator.logInfo("Stat - Docs in Index: " + m_writer.numDocs());
         } catch (IOException e) {
-            e.printStackTrace(); //TODO: refactor
+            e.printStackTrace(); // TODO: refactor
         }
-	}
+    }
 
-	public void close() {
-		try {
-			commit();
-			m_writer.close();
-			getIndex().close();
-		} catch (CorruptIndexException e) {
-			e.printStackTrace(); //TODO: refactor
-		} catch (IOException e) {
-			e.printStackTrace(); //TODO: refactor
-		}
-	}
+    @Override
+    public void close() {
+        try {
+            commit();
+            m_writer.close();
+            getIndex().close();
+        } catch (CorruptIndexException e) {
+            e.printStackTrace(); // TODO: refactor
+        } catch (IOException e) {
+            e.printStackTrace(); // TODO: refactor
+        }
+    }
 
-	public void addDocuments(List<Document> docs) throws IOException {
-		for(Document doc : docs)
-			addDocument(doc);
-	}
+    public void addDocuments(final List<Document> docs) throws IOException {
+        for (Document doc : docs) {
+            addDocument(doc);
+        }
+    }
 }
