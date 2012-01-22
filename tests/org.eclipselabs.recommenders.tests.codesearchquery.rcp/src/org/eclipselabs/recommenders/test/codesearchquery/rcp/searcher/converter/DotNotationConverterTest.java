@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.tests.codesearchquery.rcp.searcher.converter;
+package org.eclipselabs.recommenders.test.codesearchquery.rcp.searcher.converter;
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
@@ -37,5 +37,25 @@ public class DotNotationConverterTest {
 		String actual = sut.convertFrom("org.java.lang.*");
 		
 		Assert.assertEquals("Lorg/java/lang/*", actual);
+	}
+
+	@Test
+	public void testSimplePackageName() {
+		IQueryPartConverter sut = new DotNotationConverter();
+		
+		String expected = "Lorg/eclipselabs/recommenders";
+		String actual = sut.convertFrom("org.eclipselabs.recommenders");
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void testSimpleWildcardPackageName() {
+		IQueryPartConverter sut = new DotNotationConverter();
+		
+		String expected = "Lorg/eclipselabs/*";
+		String actual = sut.convertFrom("org.eclipselabs.*");
+		
+		Assert.assertEquals(expected, actual);
 	}
 }
