@@ -81,8 +81,13 @@ public class SearchQueryView extends ViewPart {
         searchQueryText.setText(Fields.USED_TYPES + ":Ljava/util/*");
 
         createSearchResultsViewer(parent);
-
-        triggerSearchButton = new Button(parent, SWT.PUSH);
+        createTriggerSearchButton(parent);
+        
+        parent.pack();
+    }
+    
+    private void createTriggerSearchButton(final Composite parent) {
+    	triggerSearchButton = new Button(parent, SWT.PUSH);
         triggerSearchButton.setText("Search");
         triggerSearchButton.setLayoutData(new GridData());
         triggerSearchButton.addSelectionListener(new SelectionListener() {
@@ -148,8 +153,6 @@ public class SearchQueryView extends ViewPart {
             public void widgetDefaultSelected(final SelectionEvent e) {
             }
         });
-
-        parent.pack();
     }
 
     private void createSearchResultsViewer(final Composite parent) {

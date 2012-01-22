@@ -42,7 +42,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 	
 	public List<Document> search(Query query) throws IOException {
 
-		IndexReader reader = IndexReader.open(getIndex());
+		IndexReader reader = IndexReader.open(getIndex()); // TODO: Cache reader
 
 		//TODO: Schränke Felder mit IFieldSelector ein
 		
