@@ -22,8 +22,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.1.0";visibility:=reexport,
  org.slf4j.api;resolution:=optional
 Import-Package: org.apache.log4j,
  org.apache.commons.logging,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtend2.lib
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl,
  org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.services,
