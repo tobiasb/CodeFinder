@@ -32,8 +32,6 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.ui.JavaElementLabelProvider;
 import org.eclipse.jdt.ui.JavaUI;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.text.ITextInputListener;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -57,6 +55,7 @@ import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
@@ -65,6 +64,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQueryStandalon
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.LuceneQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.TypeQueryProposalProvider;
 
 import com.google.common.base.Optional;
@@ -79,6 +79,7 @@ public class SearchQueryView extends ViewPart {
     private CodeSearcherIndex codeSearcher;
 
     private EmbeddedEditorModelAccess partialEditor;
+    private EmbeddedEditor handle;
     
     public SearchQueryView() {
         super();
@@ -131,38 +132,31 @@ public class SearchQueryView extends ViewPart {
         Injector injector = activator
                 .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCHQUERY_RCP_DSL_LUCENEQUERY);
         EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
-        org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor handle = factory.newEditor(resourceProvider).withParent(
+        handle = factory.newEditor(resourceProvider).withParent(
                 parent);
-        
-//        handle.getDocument().r).readOnly(new IUnitOfWork<T, XtextResource>() {@Override
-//        public T exec(XtextResource state) throws Exception {
-//        	// TODO Auto-generated method stub
-//        	return null;
-//        }});
-        
+                
         // keep the partialEditor as instance var to read / write the edited text
         partialEditor = handle.createPartialEditor(true);
-        handle.getViewer().addTextInputListener(new ITextInputListener() {
-
-            @Override
-            public void inputDocumentChanged(final IDocument oldInput, final IDocument newInput) {
-                System.out.println(partialEditor.getSerializedModel());
-            }
-
-            @Override
-            public void inputDocumentAboutToBeChanged(final IDocument oldInput, final IDocument newInput) {
-                // no constraints...
-            }
-        });
+//        handle.getViewer().addTextInputListener(new ITextInputListener() {
+//
+//            @Override
+//            public void inputDocumentChanged(final IDocument oldInput, final IDocument newInput) {
+//            }
+//
+//            @Override
+//            public void inputDocumentAboutToBeChanged(final IDocument oldInput, final IDocument newInput) {
+//                // no constraints...
+//            }
+//        });
         
-//        EcoreUtil.getAllProperContents(handle.getDocument(), false);
+        handle.getDocument().set("UsedTypes:java.util.List");
 	}
 
-	private void createSearchQueryViewer(final Composite parent) {
-		searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
-        searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
-        searchQueryText.setText(Fields.USED_TYPES + ":Ljava/util/*");
-	}
+//	private void createSearchQueryViewer(final Composite parent) {
+//		searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
+//        searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
+//        searchQueryText.setText(Fields.USED_TYPES + ":Ljava/util/*");
+//	}
     
     private void createTriggerSearchButton(final Composite parent) {
     	triggerSearchButton = new Button(parent, SWT.PUSH);
@@ -178,7 +172,8 @@ public class SearchQueryView extends ViewPart {
                 // Search
                 final WorkspaceJob job = new WorkspaceJob("Searching...") {
 
-                    @Override
+                    @SuppressWarnings("restriction")
+					@Override
                     public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
 
                         setSearching();
@@ -193,10 +188,8 @@ public class SearchQueryView extends ViewPart {
                             	System.out.println("Index doesn't exist at " + path);
                             	return Status.CANCEL_STATUS;
                             }
-                            
-//                            DotNotationConverter conv = new DotNotationConverter();
-//                            final String searchQuery = Fields.USED_TYPES + ":\"" + conv.convert(getSearchQuery()) + "\"";
-                            final String searchQuery = getSearchQuery();
+
+                            final String searchQuery = handle.getDocument().readOnly(new QueryExtractor());
 
                             codeSearcher = new CodeSearcherIndex(index);
                             
