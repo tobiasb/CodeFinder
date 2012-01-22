@@ -5,10 +5,10 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.eclipselabs.recommenders.codesearchquery.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
-import org.eclipselabs.recommenders.codesearchquery.termvector.ITermVectorProvider;
-import org.eclipselabs.recommenders.codesearchquery.termvector.JavaTypeProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ITermVectorProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
 import org.junit.Test;
 
 public class JavaTypeProviderTest extends AbstractTestIndex {

@@ -1,6 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer
 
-import org.eclipselabs.recommenders.codesearchquery.Fields
+import org.eclipselabs.recommenders.codesearchquery.rcp.Fields
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CaughtTypeIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DocumentTypeIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsInFinallyIndexer

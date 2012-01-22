@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.codesearchquery.termvector;
+package org.eclipselabs.recommenders.codesearchquery.rcp.termvector;
 
 import java.util.List;
 

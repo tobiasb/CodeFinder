@@ -1,11 +1,12 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer
 
-import java.util.Date
+import org.apache.lucene.store.RAMDirectory
 import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.jdt.core.dom.CompilationUnit
-import org.eclipselabs.recommenders.codesearchquery.Fields
+import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
+import org.eclipselabs.recommenders.codesearchquery.rcp.Fields
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaredFieldTypesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.DeclaringTypeIndexer
@@ -24,11 +25,10 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFina
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
-import org.junit.Test
-import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
-import org.apache.lucene.store.RAMDirectory
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor
+import org.junit.Test
+
+import static org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.TestBase.*
 
 class TestGeneralScenarios extends TestBase {
 

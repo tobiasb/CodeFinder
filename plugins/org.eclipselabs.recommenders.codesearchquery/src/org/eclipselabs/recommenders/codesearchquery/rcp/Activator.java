@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.codesearchquery;
+package org.eclipselabs.recommenders.codesearchquery.rcp;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryParser.ParseException;
-import org.eclipselabs.recommenders.codesearchquery.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.eclipselabs.recommenders.test.codesearchquery.AbstractTestIndex;
 import org.junit.Assert;

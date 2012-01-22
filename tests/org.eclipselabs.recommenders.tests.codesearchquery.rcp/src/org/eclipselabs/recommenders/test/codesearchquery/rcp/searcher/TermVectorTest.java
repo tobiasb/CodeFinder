@@ -3,7 +3,7 @@ package org.eclipselabs.recommenders.test.codesearchquery.rcp.searcher;
 import java.io.IOException;
 import java.util.Set;
 
-import org.eclipselabs.recommenders.codesearchquery.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.test.codesearchquery.AbstractTestIndex;
 import org.junit.Assert;
 import org.junit.Test;

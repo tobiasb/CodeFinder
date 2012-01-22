@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.ICompilationUnit
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTParser
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
-import org.eclipselabs.recommenders.codesearchquery.AbstractIndex
+import org.eclipselabs.recommenders.codesearchquery.rcp.AbstractIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor

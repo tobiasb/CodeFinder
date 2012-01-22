@@ -1,4 +1,4 @@
-package "org.eclipselabs.recommenders.codesearchquery"
+package "org.eclipselabs.recommenders.codesearchquery.rcp"
 class Fields 
 
 FULLY_QUALIFIED_NAME; "FullyQualifiedName"; class,method,field,trycatch

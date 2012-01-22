@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.codesearchquery;
+package org.eclipselabs.recommenders.codesearchquery.rcp;
 
 import java.io.IOException;
 

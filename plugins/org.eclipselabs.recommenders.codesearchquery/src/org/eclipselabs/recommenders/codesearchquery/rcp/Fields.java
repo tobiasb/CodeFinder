@@ -1,7 +1,7 @@
 /*
 * This is a generated file. Do not modify. Modify source file instead.
 */
-package org.eclipselabs.recommenders.codesearchquery;
+package org.eclipselabs.recommenders.codesearchquery.rcp;
 
 public class Fields {
 	public final static String TYPE_CLASS = "class";

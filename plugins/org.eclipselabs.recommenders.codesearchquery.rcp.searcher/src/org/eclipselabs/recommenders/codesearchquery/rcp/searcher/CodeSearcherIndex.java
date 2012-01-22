@@ -15,9 +15,9 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
-import org.eclipselabs.recommenders.codesearchquery.AbstractIndex;
-import org.eclipselabs.recommenders.codesearchquery.Fields;
-import org.eclipselabs.recommenders.codesearchquery.termvector.ITermVectorConsumable;
+import org.eclipselabs.recommenders.codesearchquery.rcp.AbstractIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ITermVectorConsumable;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;

@@ -7,6 +7,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.lucene;bundle-version="3.5.0";visibility:=reexport,
  com.google.guava
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipselabs.recommenders.codesearchquery,
- org.eclipselabs.recommenders.codesearchquery.termvector
+Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp,
+ org.eclipselabs.recommenders.codesearchquery.rcp.termvector
 

@@ -1,9 +1,9 @@
-package org.eclipselabs.recommenders.codesearchquery.termvector;
+package org.eclipselabs.recommenders.codesearchquery.rcp.termvector;
 
 import java.util.List;
 import java.util.Set;
 
-import org.eclipselabs.recommenders.codesearchquery.Fields;
+import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;

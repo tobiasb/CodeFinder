@@ -15,7 +15,7 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
-import org.eclipselabs.recommenders.codesearchquery.termvector.JavaTypeProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
 
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
