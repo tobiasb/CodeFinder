@@ -10,14 +10,20 @@ import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.LockObtainFailedException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipselabs.recommenders.codesearchquery.AbstractIndex;
 import org.eclipselabs.recommenders.codesearchquery.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils.IIndexInformationProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils.IndexInformationCache;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
@@ -26,6 +32,8 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList(); // we don't want to create a new instance
                                                                               // every time we index
 
+    private IIndexInformationProvider indexInformationProvider;
+    
     public CodeIndexerIndex(final Directory directory) throws IOException {
         super(directory);
 
@@ -38,6 +46,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
         m_writer = new IndexWriter(getIndex(), config);
         // m_writer.deleteAll(); // TODO probably shouldn't delete everyting here, dunno
+        indexInformationProvider = new IndexInformationCache();
     }
 
     @Override
@@ -45,9 +54,60 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         index(cu, CompilationUnitVisitor.getDefaultIndexer());
     }
 
-    public long lastUpdated(final File location) {
+    public long lastIndexed(final File location) {
+    	Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
+    	
+    	if(lastIndexed.isPresent()) {
+    		return lastIndexed.get();
+    	} else {
+    		lastIndexed = lastIndexedInternal(location);
+    	}
+    	
+    	if(lastIndexed.isPresent()) {
+    		indexInformationProvider.setLastIndexed(location, lastIndexed.get());
+    		return lastIndexed.get();
+    	}
+    	
         // last update 1.1.1970 ;)
         return 0;
+    }
+    
+    private Optional<Long> lastIndexedInternal(final File location) {
+    	String path = location.getPath();
+    	
+    	try {
+			CodeSearcherIndex csi = new CodeSearcherIndex(getIndex()); // TODO: Cache csi
+			
+			Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));
+			List<Document> docs = csi.search(q);
+			
+			if(docs.size() > 0)
+				return getMinTimestamp(docs);
+					
+		} catch (IOException e) {
+			Activator.logError(e);
+		}
+    	
+    	return Optional.absent();
+    }
+    
+    private Optional<Long> getMinTimestamp(List<Document> documents) {
+    	long min = Long.MAX_VALUE;
+    	
+    	for(Document doc : documents) {
+    		String timestampString = doc.get(Fields.TIMESTAMP);
+    		
+    		try {
+        		Long timestampValue = Long.parseLong(timestampString);
+	    		if(min > timestampValue)
+	    			min = timestampValue;
+    		} catch(Exception ex) {}
+    	}
+    	
+    	if(min == Long.MAX_VALUE)
+    		return Optional.absent();
+    	
+    	return Optional.of(min);
     }
 
     @Override

@@ -10,12 +10,10 @@
  */
 package org.eclipselabs.recommenders.internal.codesearchquery.rcp.indexing;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.inject.Inject;
 
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.jobs.Job;
@@ -70,7 +68,7 @@ public class IndexUpdaterService {
     private void addOrUpdateCompilationUnitToIndex(final ICompilationUnit cu) {
         try {
 
-            if (!shouldIndex(cu)) {
+            if (!IndexUtils.shouldIndex(cu, indexer)) {
                 return;
             }
             CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
@@ -84,17 +82,6 @@ public class IndexUpdaterService {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-    }
-
-    private boolean shouldIndex(final ICompilationUnit cu) throws JavaModelException {
-        IResource resource = cu.getUnderlyingResource();
-        File location = resource.getLocation().toFile();
-        if (location == null) {
-            return false;
-        }
-        long lastModified = location.lastModified();
-        // TODO replace with is up to date logic.
-        return true;
     }
 
     @Subscribe

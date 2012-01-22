@@ -68,7 +68,6 @@ public class IndexUtils {
 
     public static void addOrUpdateCompilationUnitToIndex(final ICompilationUnit cu, final CodeIndexerIndex indexer) {
         try {
-
             if (!shouldIndex(cu, indexer)) {
                 return;
             }
@@ -85,7 +84,7 @@ public class IndexUtils {
         }
     }
 
-    private static boolean shouldIndex(final ICompilationUnit cu, final CodeIndexerIndex indexer)
+    public static boolean shouldIndex(final ICompilationUnit cu, final CodeIndexerIndex indexer)
             throws JavaModelException {
         IResource resource = cu.getUnderlyingResource();
         File location = resource.getLocation().toFile();
@@ -93,6 +92,6 @@ public class IndexUtils {
             return false;
         }
         long lastModified = location.lastModified();
-        return indexer.lastUpdated(location) < lastModified;
+        return indexer.lastIndexed(location) < lastModified;
     }
 }
