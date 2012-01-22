@@ -1,6 +1,8 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer
 
 import java.util.Date
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.jdt.core.dom.CompilationUnit
 import org.eclipselabs.recommenders.codesearchquery.Fields
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer
@@ -23,6 +25,10 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryI
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndexer
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer
 import org.junit.Test
+import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
+import org.apache.lucene.store.RAMDirectory
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor
 
 class TestGeneralScenarios extends TestBase {
 
@@ -526,11 +532,22 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
+		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
+		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
+		val cu = struct.first;
+        var cuParsed = parse(cu);
+
+        var index = new CodeIndexerIndex(new RAMDirectory())
 		
+        var visitor = new CompilationUnitVisitor(index);
+        visitor.addIndexer(i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())));
+        
+        cuParsed.accept(visitor)
+        index.commit
+        		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
+			s(Fields::RESOURCE_PATH, new ResourcePathIndexer().getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
 		)))		
 	}
 	
@@ -543,11 +560,22 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
+		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
+		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
+		val cu = struct.first;
+        var cuParsed = parse(cu);
+
+        var index = new CodeIndexerIndex(new RAMDirectory())
 		
+        var visitor = new CompilationUnitVisitor(index);
+        visitor.addIndexer(i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())));
+        
+        cuParsed.accept(visitor)
+        index.commit
+        		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
+			s(Fields::RESOURCE_PATH, new ResourcePathIndexer().getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
 		)))		
 	}
 	
@@ -559,11 +587,22 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
+		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
+		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
+		val cu = struct.first;
+        var cuParsed = parse(cu);
+
+        var index = new CodeIndexerIndex(new RAMDirectory())
 		
+        var visitor = new CompilationUnitVisitor(index);
+        visitor.addIndexer(i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())));
+        
+        cuParsed.accept(visitor)
+        index.commit
+        		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
-			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
+			s(Fields::RESOURCE_PATH, new ResourcePathIndexer().getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
 		)))		
 	}
 	
@@ -578,12 +617,23 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())), "projectName", "MyClass.java")
+		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
+		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
+		val cu = struct.first;
+        var cuParsed = parse(cu);
+
+        var index = new CodeIndexerIndex(new RAMDirectory())
 		
+        var visitor = new CompilationUnitVisitor(index);
+        visitor.addIndexer(i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())));
+        
+        cuParsed.accept(visitor)
+        index.commit
+        		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::RESOURCE_PATH, "/projectName/MyClass.java")
-		)))		
+			s(Fields::RESOURCE_PATH, new ResourcePathIndexer().getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
+		)))			
 	}
 	
 	@Test
@@ -1289,7 +1339,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
+			s(Fields::TIMESTAMP, TimestampIndexer::getTimeString().substring(0, 8)) //This test obviously will fail from time to time
 		)))
 	}
 	
@@ -1306,7 +1356,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
+			s(Fields::TIMESTAMP, TimestampIndexer::getTimeString().substring(0, 8)) //This test obviously will fail from time to time
 		)))
 	}
 	
@@ -1322,7 +1372,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
-			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
+			s(Fields::TIMESTAMP, TimestampIndexer::getTimeString().substring(0, 8)) //This test obviously will fail from time to time
 		)))
 	}
 	
@@ -1343,7 +1393,7 @@ class TestGeneralScenarios extends TestBase {
 				
 		assertFieldStartsWith(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::TIMESTAMP, TimestampIndexer::dateFormat.format(new Date()) .substring(0, 10)) //This test will fail if the check occurs within a different "hour".
+			s(Fields::TIMESTAMP, TimestampIndexer::getTimeString().substring(0, 8)) //This test obviously will fail from time to time
 		)))
 	}
 }

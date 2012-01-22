@@ -15,9 +15,10 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherInd
 import org.junit.Ignore
 
 import static junit.framework.Assert.*
+import org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.AbstractTestBase
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
-class TestBase {
+class TestBase extends AbstractTestBase {
 	def static parse(ICompilationUnit unit) {
         var parser = ASTParser::newParser(AST::JLS3);
         parser.setKind(ASTParser::K_COMPILATION_UNIT);

@@ -1,5 +1,7 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 
+import java.io.File;
+
 import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.jdt.core.dom.ASTNode;
@@ -47,7 +49,8 @@ public class ResourcePathIndexer extends AbstractIndexer implements
 	}
 	
 	public String getResourcePath(IResource resource) {
-		return resource.getFullPath().toString();
+        File location = resource.getLocation().toFile();
+		return location.getPath();
 	}
 	
 	public String getResourcePath(CompilationUnit cu) {

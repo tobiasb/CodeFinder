@@ -2,10 +2,17 @@ package org.eclipselabs.recommenders.test.codesearchquery;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.store.RAMDirectory;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
+import org.eclipse.recommenders.utils.Tuple;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils.CompilationUnitHelper;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 
 import com.google.common.collect.Lists;
@@ -73,5 +80,25 @@ public class AbstractTestIndex {
 		newDocs();
 		
 		return this;
+	}
+	
+	protected CompilationUnit getSampleCompilationUnit() throws Exception {
+
+		JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
+		Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers("public class MyInstanceOfClass {}", "MyClass.java");
+		
+		CompilationUnit cu = CompilationUnitHelper.parse(struct.getFirst());
+		
+		return cu;
+	}
+	
+	protected ICompilationUnit getSampleICompilationUnit() throws Exception {
+
+		JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
+		Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers("public class MyInstanceOfClass {}", "MyClass.java");
+		
+		ICompilationUnit cu = struct.getFirst();
+		
+		return cu;
 	}
 }

@@ -1,9 +1,5 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
@@ -18,12 +14,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryC
 
 public class TimestampIndexer extends AbstractIndexer implements IClassIndexer,
 		IMethodIndexer, IFieldIndexer, ITryCatchBlockIndexer {
-
-	private static final DateFormat format = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-
-	public static DateFormat getDateFormat() {
-		return format;
-	}
 	
 	@Override
 	public void index(Document document, TryStatement tryStatement,
@@ -46,7 +36,8 @@ public class TimestampIndexer extends AbstractIndexer implements IClassIndexer,
 		addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
 	}
 
-	private String getTimeString() {
-		return format.format(new Date());
+	public static String getTimeString() {
+		long timestamp = System.currentTimeMillis();
+		return String.valueOf(timestamp);
 	}
 }

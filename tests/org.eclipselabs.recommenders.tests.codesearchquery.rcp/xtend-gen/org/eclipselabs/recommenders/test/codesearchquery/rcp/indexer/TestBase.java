@@ -26,11 +26,12 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.AbstractTestBase;
 import org.junit.Ignore;
 
 @SuppressWarnings("all")
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
-public class TestBase {
+public class TestBase extends AbstractTestBase {
   public static ASTNode parse(final ICompilationUnit unit) {
     ASTNode _xblockexpression = null;
     {

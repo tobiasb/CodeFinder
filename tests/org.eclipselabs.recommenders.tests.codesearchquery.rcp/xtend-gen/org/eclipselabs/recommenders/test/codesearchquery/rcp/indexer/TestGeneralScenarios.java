@@ -1,12 +1,20 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import org.apache.lucene.store.RAMDirectory;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
+import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipselabs.recommenders.codesearchquery.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AllDeclaredFieldNamesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AnnotationsIndexer;
@@ -31,6 +39,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedTypesIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 import org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.TestBase;
 import org.junit.Test;
 
@@ -826,107 +835,207 @@ public class TestGeneralScenarios extends TestBase {
   
   @Test
   public void testResourcePathIndexer() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("public class MyClass {");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i, "projectName", "MyClass.java");
-      CodeIndexerIndex index = _exercise;
-      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.RESOURCE_PATH, "/projectName/MyClass.java");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+    try {
+      {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("public class MyClass {");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+        final CharSequence code = _builder;
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, "projectName");
+        final JavaProjectFixture fixture = _javaProjectFixture;
+        String _string = code.toString();
+        Tuple<ICompilationUnit,Set<Integer>> _createFileAndParseWithMarkers = fixture.createFileAndParseWithMarkers(_string, "MyClass.java");
+        final Tuple<ICompilationUnit,Set<Integer>> struct = _createFileAndParseWithMarkers;
+        ICompilationUnit _first = struct.getFirst();
+        final ICompilationUnit cu = _first;
+        ASTNode _parse = TestBase.parse(cu);
+        ASTNode cuParsed = _parse;
+        RAMDirectory _rAMDirectory = new RAMDirectory();
+        CodeIndexerIndex _codeIndexerIndex = new CodeIndexerIndex(_rAMDirectory);
+        CodeIndexerIndex index = _codeIndexerIndex;
+        CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
+        CompilationUnitVisitor visitor = _compilationUnitVisitor;
+        ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
+        DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+        visitor.addIndexer(_i);
+        cuParsed.accept(visitor);
+        index.commit();
+        String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
+        CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
+        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+        List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+        this.assertField(index, _l);
+      }
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   @Test
   public void testResourcePathIndexer02() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("public class MyClass {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("public void myMethod() {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i, "projectName", "MyClass.java");
-      CodeIndexerIndex index = _exercise;
-      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_1 = this.s(Fields.RESOURCE_PATH, "/projectName/MyClass.java");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+    try {
+      {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("public class MyClass {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public void myMethod() {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+        final CharSequence code = _builder;
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, "projectName");
+        final JavaProjectFixture fixture = _javaProjectFixture;
+        String _string = code.toString();
+        Tuple<ICompilationUnit,Set<Integer>> _createFileAndParseWithMarkers = fixture.createFileAndParseWithMarkers(_string, "MyClass.java");
+        final Tuple<ICompilationUnit,Set<Integer>> struct = _createFileAndParseWithMarkers;
+        ICompilationUnit _first = struct.getFirst();
+        final ICompilationUnit cu = _first;
+        ASTNode _parse = TestBase.parse(cu);
+        ASTNode cuParsed = _parse;
+        RAMDirectory _rAMDirectory = new RAMDirectory();
+        CodeIndexerIndex _codeIndexerIndex = new CodeIndexerIndex(_rAMDirectory);
+        CodeIndexerIndex index = _codeIndexerIndex;
+        CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
+        CompilationUnitVisitor visitor = _compilationUnitVisitor;
+        ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
+        DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+        visitor.addIndexer(_i);
+        cuParsed.accept(visitor);
+        index.commit();
+        String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
+        CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
+        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+        List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+        this.assertField(index, _l);
+      }
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   @Test
   public void testResourcePathIndexer03() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("public class MyClass {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("MyClass test;");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i, "projectName", "MyClass.java");
-      CodeIndexerIndex index = _exercise;
-      String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
-      String _s_1 = this.s(Fields.RESOURCE_PATH, "/projectName/MyClass.java");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+    try {
+      {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("public class MyClass {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("MyClass test;");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+        final CharSequence code = _builder;
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, "projectName");
+        final JavaProjectFixture fixture = _javaProjectFixture;
+        String _string = code.toString();
+        Tuple<ICompilationUnit,Set<Integer>> _createFileAndParseWithMarkers = fixture.createFileAndParseWithMarkers(_string, "MyClass.java");
+        final Tuple<ICompilationUnit,Set<Integer>> struct = _createFileAndParseWithMarkers;
+        ICompilationUnit _first = struct.getFirst();
+        final ICompilationUnit cu = _first;
+        ASTNode _parse = TestBase.parse(cu);
+        ASTNode cuParsed = _parse;
+        RAMDirectory _rAMDirectory = new RAMDirectory();
+        CodeIndexerIndex _codeIndexerIndex = new CodeIndexerIndex(_rAMDirectory);
+        CodeIndexerIndex index = _codeIndexerIndex;
+        CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
+        CompilationUnitVisitor visitor = _compilationUnitVisitor;
+        ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
+        DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+        visitor.addIndexer(_i);
+        cuParsed.accept(visitor);
+        index.commit();
+        String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
+        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
+        CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
+        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+        List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+        this.assertField(index, _l);
+      }
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   @Test
   public void testResourcePathIndexer04() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("public class MyClass {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("public void myMethod() {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("try {}");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("catch(Exception ex) {}");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i, "projectName", "MyClass.java");
-      CodeIndexerIndex index = _exercise;
-      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.RESOURCE_PATH, "/projectName/MyClass.java");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+    try {
+      {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("public class MyClass {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("public void myMethod() {");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("try {}");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("catch(Exception ex) {}");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+        final CharSequence code = _builder;
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, "projectName");
+        final JavaProjectFixture fixture = _javaProjectFixture;
+        String _string = code.toString();
+        Tuple<ICompilationUnit,Set<Integer>> _createFileAndParseWithMarkers = fixture.createFileAndParseWithMarkers(_string, "MyClass.java");
+        final Tuple<ICompilationUnit,Set<Integer>> struct = _createFileAndParseWithMarkers;
+        ICompilationUnit _first = struct.getFirst();
+        final ICompilationUnit cu = _first;
+        ASTNode _parse = TestBase.parse(cu);
+        ASTNode cuParsed = _parse;
+        RAMDirectory _rAMDirectory = new RAMDirectory();
+        CodeIndexerIndex _codeIndexerIndex = new CodeIndexerIndex(_rAMDirectory);
+        CodeIndexerIndex index = _codeIndexerIndex;
+        CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
+        CompilationUnitVisitor visitor = _compilationUnitVisitor;
+        ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
+        DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+        visitor.addIndexer(_i);
+        cuParsed.accept(visitor);
+        index.commit();
+        String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
+        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
+        CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
+        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+        List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+        this.assertField(index, _l);
+      }
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   @Test
@@ -2104,10 +2213,8 @@ public class TestGeneralScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
-      Date _date = new Date();
-      String _format = _dateFormat.format(_date);
-      String _substring = _format.substring(0, 10);
+      String _timeString = TimestampIndexer.getTimeString();
+      String _substring = _timeString.substring(0, 8);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -2135,10 +2242,8 @@ public class TestGeneralScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
-      Date _date = new Date();
-      String _format = _dateFormat.format(_date);
-      String _substring = _format.substring(0, 10);
+      String _timeString = TimestampIndexer.getTimeString();
+      String _substring = _timeString.substring(0, 8);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -2163,10 +2268,8 @@ public class TestGeneralScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
-      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
-      Date _date = new Date();
-      String _format = _dateFormat.format(_date);
-      String _substring = _format.substring(0, 10);
+      String _timeString = TimestampIndexer.getTimeString();
+      String _substring = _timeString.substring(0, 8);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -2206,10 +2309,8 @@ public class TestGeneralScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      DateFormat _dateFormat = TimestampIndexer.getDateFormat();
-      Date _date = new Date();
-      String _format = _dateFormat.format(_date);
-      String _substring = _format.substring(0, 10);
+      String _timeString = TimestampIndexer.getTimeString();
+      String _substring = _timeString.substring(0, 8);
       String _s_1 = this.s(Fields.TIMESTAMP, _substring);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));

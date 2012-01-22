@@ -41,6 +41,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ProjectNameIndex
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnTypeIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ReturnVariableExpressionIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.TimestampIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInFinallyIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedFieldsInTryIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.UsedMethodsInFinallyIndexer;
@@ -109,6 +110,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
 	    list.add(new ResourcePathIndexer());
 	    list.add(new ReturnTypeIndexer());
 	    list.add(new ReturnVariableExpressionIndexer());
+	    list.add(new TimestampIndexer());
 	    list.add(new UsedFieldsInFinallyIndexer());
 	    list.add(new UsedFieldsInTryIndexer());
 	    list.add(new UsedMethodsIndexer());
