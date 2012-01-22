@@ -22,6 +22,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils.IIndexInfo
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils.IndexInformationCache;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.visitor.CompilationUnitVisitor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;

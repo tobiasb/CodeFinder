@@ -21,12 +21,6 @@
          id="org.eclipselabs.recommenders.codesearchquery.rcp.source"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-   <plugin
-         id="org.eclipselabs.recommenders.codesearchquery.rcp.indexer.source"
-         download-size="0"
-         install-size="0"
          version="0.1.0.qualifier"
          unpack="false"/>
 

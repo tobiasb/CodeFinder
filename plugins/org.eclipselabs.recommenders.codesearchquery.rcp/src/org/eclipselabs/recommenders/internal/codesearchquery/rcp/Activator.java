@@ -21,6 +21,11 @@ public class Activator extends AbstractUIPlugin {
         logConsole(e, format, args);
     }
 
+    public static void logError(final Throwable e) {
+        // LoggingUtils.logError(e, getDefault(), format, args);
+        logConsole(e, null);
+    }
+
     public static void logWarning(final Throwable e, final String format, final Object... args) {
         // LoggingUtils.logError(e, getDefault(), format, args);
         logConsole(e, format, args);
@@ -42,14 +47,14 @@ public class Activator extends AbstractUIPlugin {
 
     private static void logConsole(final Throwable e, final String format, final Object... args) {
         try {
-            System.out.println(String.format(format, args));
-
-            if (e != null) {
+        	if(format != null) {
+        		System.out.println(String.format(format, args));
+        	}
+        	if(e != null) {
                 e.printStackTrace();
             }
-        } catch (Exception ex) {
-            System.out.println(String.format("String [%1$s] cannot be formatted correctly. Stacktrace: %2$s", format,
-                    ex.getStackTrace()));
+        }catch(Exception ex) {
+            System.out.println(String.format("String [%1$s] cannot be formatted correctly. Stacktrace: %2$s", format, ex.getStackTrace()));
         }
     }
 

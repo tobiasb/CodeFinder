@@ -62,8 +62,10 @@ import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQueryStandaloneSetup;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.LuceneQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.TypeQueryProposalProvider;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -100,7 +102,11 @@ public class SearchQueryView extends ViewPart {
         parent.pack();
     }
 
+	@SuppressWarnings("restriction")
 	private void createSearchQueryViewerXtext(Composite parent) {
+		
+		LuceneQueryProposalProvider.setQueryProposalProvider(new TypeQueryProposalProvider());
+		
         IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 
             @Override

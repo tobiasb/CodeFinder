@@ -24,25 +24,4 @@
          version="0.1.0.qualifier"
          unpack="false"/>
 
-   <plugin
-         id="org.eclipselabs.recommenders.codesearchquery.rcp.indexer"
-         download-size="0"
-         install-size="0"
-         version="0.1.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipselabs.recommenders.codesearchquery.rcp.searcher"
-         download-size="0"
-         install-size="0"
-         version="0.1.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="org.eclipselabs.recommenders.codesearchquery"
-         download-size="0"
-         install-size="0"
-         version="0.1.0.qualifier"
-         unpack="false"/>
-
 </feature>

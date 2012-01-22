@@ -3,27 +3,24 @@
 */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist;
 
-import java.io.File;
-
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.SimpleFSDirectory;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
-import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
 
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */
 public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProvider {
 	
+	private static IQueryProposalProvider provider;
+	
 	public LuceneQueryProposalProvider() {
 		
+	}
+	
+	public static void setQueryProposalProvider(IQueryProposalProvider provider) {
+		LuceneQueryProposalProvider.provider = provider;
 	}
 	
 	@Override
@@ -32,25 +29,8 @@ public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProv
 		System.out.println("context: " + context.getSelectedText() + " " + context.getPrefix());
 
 		try {
-//			IPath path = Platform.getStateLocation(LuceneQueryActivator.getInstance().getBundle());
-//	        final Directory index = new SimpleFSDirectory(new File(path.toString() + "/index.l"));
-
-            final String path = Platform.getLocation().toString() + "/index.l";
-            final Directory index = new SimpleFSDirectory(new File(path));
-
-            if(!new File(path).exists()) {
-            	System.out.println("Index doesn't exist at " + path);
-            	return;
-            }
-            
-			CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index);
-			
-			JavaTypeProvider source = new JavaTypeProvider();
-			source.load(searcherIndex);
-			
-			IQueryPartConverter converter = new DotNotationConverter();
-			for(String type : source.getDisjunctTermVector()) {
-				acceptor.accept(createCompletionProposal(converter.convertTo(type), context));
+			for(String type : provider.getProposals(QueryProposalType.TYPE)) {
+				acceptor.accept(createCompletionProposal(provider.convert(type), context));
 			}
 		} catch(Exception ex) {
 			ex.printStackTrace();
