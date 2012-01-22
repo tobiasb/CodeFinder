@@ -37,7 +37,7 @@ public class LastIndexedTimestamp extends AbstractTestIndex {
         CompilationUnit cu = CompilationUnitHelper.parse(icu);
 		index.index(cu, indexer);
 		
-		long lastUpdated = index.lastUpdated(location);
+		long lastUpdated = index.lastIndexed(location);
 		
 		
 		Assert.assertTrue(lastUpdated > 0);
