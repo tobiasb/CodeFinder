@@ -9,11 +9,24 @@
             objectClass="org.eclipse.core.resources.IProject"
             id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.contribution1">
          <action
-               label="Index"
+               label="CodeSearch - Index"
                class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions.IndexAction"
 	       		menubarPath="additions"
                enablesFor="+"
                id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.indexAction">
+         </action>
+      </objectContribution>
+      
+            <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IProject"
+            id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.contribution2">
+         <action
+               label="CodeSearch - Delete Index"
+               class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions.DeleteIndexAction"
+	       		menubarPath="additions"
+               enablesFor="+"
+               id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.deleteIndexAction">
          </action>
       </objectContribution>
    </extension>
