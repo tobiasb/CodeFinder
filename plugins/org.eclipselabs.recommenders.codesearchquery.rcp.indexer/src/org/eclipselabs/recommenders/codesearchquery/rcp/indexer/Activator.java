@@ -11,6 +11,11 @@ public class Activator implements BundleActivator {
 		return context;
 	}
 	
+    public static void logError(final Throwable e) {
+        //LoggingUtils.logError(e, getDefault(), format, args);
+        logConsole(e, null);
+    }
+	
     public static void logError(final Throwable e, final String format, final Object... args) {
         //LoggingUtils.logError(e, getDefault(), format, args);
         logConsole(e, format, args);
@@ -33,8 +38,10 @@ public class Activator implements BundleActivator {
     
     private static void logConsole(final Throwable e, final String format, final Object... args) {
         try {
-            System.out.println(String.format(format, args));
-            if(e != null) {
+        	if(format != null) {
+        		System.out.println(String.format(format, args));
+        	}
+        	if(e != null) {
                 e.printStackTrace();
             }
         }catch(Exception ex) {
