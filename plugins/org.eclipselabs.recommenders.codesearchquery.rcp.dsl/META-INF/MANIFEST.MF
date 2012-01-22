@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.eclipselabs.recommenders.codesearchquery.rcp.dsl
-Bundle-Vendor: My Company
+Bundle-Name: Code Search (RCP) Lucene DSL
+Bundle-Vendor: Eclipse Code Recommenders
 Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.eclipselabs.recommenders.codesearchquery.rcp.dsl; singleton:=true
 Bundle-ActivationPolicy: lazy

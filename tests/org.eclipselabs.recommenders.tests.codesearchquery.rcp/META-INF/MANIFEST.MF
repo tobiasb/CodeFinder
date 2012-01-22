@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Tests for Example Project
+Bundle-Name: Code Search Query (RCP) - Tests
 Bundle-SymbolicName: org.eclipselabs.recommenders.tests.codesearchquery.rcp
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse Code Recommenders
