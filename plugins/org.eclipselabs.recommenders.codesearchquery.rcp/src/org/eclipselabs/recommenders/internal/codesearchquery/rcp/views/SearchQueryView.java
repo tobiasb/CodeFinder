@@ -94,7 +94,6 @@ public class SearchQueryView extends ViewPart {
     public void createPartControl(final Composite parent) {
         parent.setLayout(new GridLayout(2, true));
 
-        //createSearchQueryViewer(parent);
         createSearchQueryViewerXtext(parent);
 
         createSearchResultsViewer(parent);
@@ -116,10 +115,6 @@ public class SearchQueryView extends ViewPart {
                     LuceneQueryStandaloneSetup.doSetup();
                     ResourceSet resourceSet = new ResourceSetImpl();
                     Resource resource = resourceSet.createResource(URI.createURI("embedded.lucenequery"));
-
-                    // ByteArrayInputStream bais = new ByteArrayInputStream("Hello Xtext!".getBytes());
-                    // resource.load(bais, null);
-                    // Model model = (Model) resource.getContents().get(0);
 
                     return (XtextResource) resource;
                 } catch (Exception e) {
@@ -151,12 +146,6 @@ public class SearchQueryView extends ViewPart {
         
         handle.getDocument().set("UsedTypes:java.util.List");
 	}
-
-//	private void createSearchQueryViewer(final Composite parent) {
-//		searchQueryText = new Text(parent, SWT.BORDER | SWT.MULTI);
-//        searchQueryText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
-//        searchQueryText.setText(Fields.USED_TYPES + ":Ljava/util/*");
-//	}
     
     private void createTriggerSearchButton(final Composite parent) {
     	triggerSearchButton = new Button(parent, SWT.PUSH);
