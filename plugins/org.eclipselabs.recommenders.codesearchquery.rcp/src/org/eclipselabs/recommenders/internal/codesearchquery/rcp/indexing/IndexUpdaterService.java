@@ -16,6 +16,7 @@ import javax.inject.Inject;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
@@ -31,6 +32,18 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 import com.google.common.eventbus.Subscribe;
 
 public class IndexUpdaterService {
+
+    private final ISchedulingRule MUTEX = new ISchedulingRule() {
+        @Override
+        public boolean isConflicting(final ISchedulingRule rule) {
+            return rule == this;
+        }
+
+        @Override
+        public boolean contains(final ISchedulingRule rule) {
+            return rule == this;
+        }
+    };
 
     private final CodeIndexerIndex indexer;
 
@@ -56,7 +69,7 @@ public class IndexUpdaterService {
 
         };
         job.setPriority(Job.DECORATE);
-        job.setRule(null);
+        job.setRule(MUTEX);
         job.schedule();
     }
 
