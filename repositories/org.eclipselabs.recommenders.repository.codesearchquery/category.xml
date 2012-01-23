@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipselabs.recommenders.feature.codesearchquery_0.1.0.qualifier.jar" id="org.eclipselabs.recommenders.feature.codesearchquery" version="0.1.0.qualifier"/>
+   <feature url="features/org.eclipselabs.recommenders.feature.codesearchquery.source_0.1.0.qualifier.jar" id="org.eclipselabs.recommenders.feature.codesearchquery.source" version="0.1.0.qualifier"/>
+</site>
