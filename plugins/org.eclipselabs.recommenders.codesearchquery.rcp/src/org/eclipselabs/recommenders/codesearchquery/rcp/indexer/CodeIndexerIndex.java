@@ -30,6 +30,7 @@ import com.google.common.collect.Lists;
 public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
 
     private IndexWriter m_writer;
+    private CodeSearcherIndex searcherIndex;
     private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList(); // we don't want to create a new instance
                                                                               // every time we index
 
@@ -46,6 +47,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
 
         m_writer = new IndexWriter(getIndex(), config);
+        searcherIndex = new CodeSearcherIndex(getIndex());
         // m_writer.deleteAll(); // TODO probably shouldn't delete everyting here, dunno
         indexInformationProvider = new IndexInformationCache();
     }
@@ -77,11 +79,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     private Optional<Long> lastIndexedInternal(final File location) {
     	String path = location.getPath();
     	
-    	try {
-			CodeSearcherIndex csi = new CodeSearcherIndex(getIndex()); // TODO: Cache csi
-			
+    	try {			
 			Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));
-			List<Document> docs = csi.search(q);
+			List<Document> docs = searcherIndex.search(q);
 			
 			if(docs.size() > 0)
 				return getMinTimestamp(docs);
