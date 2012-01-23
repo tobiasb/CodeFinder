@@ -28,12 +28,13 @@ import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitRemove
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitSaved;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.JavaProjectOpened;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.IndexUpdaterServiceSettings;
 import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.eventbus.Subscribe;
 
 public class IndexUpdaterService {
-
+	
     private final ISchedulingRule MUTEX = new ISchedulingRule() {
         @Override
         public boolean isConflicting(final ISchedulingRule rule) {
@@ -55,11 +56,17 @@ public class IndexUpdaterService {
 
     @Subscribe
     public void onEvent(final CompilationUnitAdded event) {
+    	if(IndexUpdaterServiceSettings.getNoDispatch())
+    		return;
+    	
         addOrUpdateCompilationUnitToIndex(event.compilationUnit);
     }
 
     @Subscribe
     public void onEvent(final JavaProjectOpened event) {
+    	if(IndexUpdaterServiceSettings.getNoDispatch())
+    		return;
+    	
         Job job = new Job("Updating code-search index") {
 
             @Override
@@ -76,6 +83,9 @@ public class IndexUpdaterService {
 
     @Subscribe
     public void onEvent(final CompilationUnitSaved event) {
+    	if(IndexUpdaterServiceSettings.getNoDispatch())
+    		return;
+    	
         addOrUpdateCompilationUnitToIndex(event.compilationUnit);
     }
 
@@ -100,6 +110,9 @@ public class IndexUpdaterService {
 
     @Subscribe
     public void onEvent(final CompilationUnitRemoved event) {
+    	if(IndexUpdaterServiceSettings.getNoDispatch())
+    		return;
+    	
     	try {
     		if(event.compilationUnit != null) {
 	            CompilationUnit ast = SharedASTProvider.getAST(event.compilationUnit, SharedASTProvider.WAIT_YES, null);

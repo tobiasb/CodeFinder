@@ -16,6 +16,8 @@ import org.junit.Ignore
 
 import static junit.framework.Assert.*
 import org.eclipselabs.recommenders.test.codesearchquery.rcp.indexer.AbstractTestBase
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.indexing.IndexUpdaterService
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.IndexUpdaterServiceSettings
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase extends AbstractTestBase {
@@ -137,7 +139,8 @@ class TestBase extends AbstractTestBase {
     	return exercise(code, null, null, indexer, projectName, fileName)
     }
     
-    def exercise(CharSequence code1, CharSequence code2, CharSequence code3, List<IIndexer> indexer, String projectName, String fileName) {
+    def exercise(CharSequence code1, CharSequence code2, CharSequence code3, List<IIndexer> indexer, String projectName, String fileName) {   	
+    	IndexUpdaterServiceSettings::setNoDispatch(true); // To prevent workspace events from being processed
     	val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),projectName)
 		val struct = fixture.createFileAndParseWithMarkers(code1.toString, fileName)
 		val cu = struct.first;
