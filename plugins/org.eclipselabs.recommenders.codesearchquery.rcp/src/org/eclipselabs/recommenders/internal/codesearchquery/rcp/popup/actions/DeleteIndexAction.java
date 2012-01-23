@@ -21,7 +21,7 @@ public class DeleteIndexAction implements IObjectActionDelegate {
 	@Override
 	public void run(IAction action) {
         try {
-        	String path = Platform.getLocation().toString() + "/index.l";
+        	String path = Platform.getLocation().toString() + "/index";
 			final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
 			
 			index.truncateIndex();

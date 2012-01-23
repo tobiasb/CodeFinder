@@ -19,7 +19,7 @@ public class TypeQueryProposalProvider implements IQueryProposalProvider {
 	public List<String> getProposals(QueryProposalType type) {
 
 		try {
-	        final String path = Platform.getLocation().toString() + "/index.l";
+	        final String path = Platform.getLocation().toString() + "/index";
 	        final Directory index = new SimpleFSDirectory(new File(path));
 	
 	        if(!new File(path).exists()) {

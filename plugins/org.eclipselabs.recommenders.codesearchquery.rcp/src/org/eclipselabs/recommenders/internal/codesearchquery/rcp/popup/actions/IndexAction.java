@@ -49,7 +49,7 @@ public class IndexAction implements IObjectActionDelegate {
     public void run(final IAction action) {
         try {
             final Long start = System.currentTimeMillis();
-            String path = Platform.getLocation().toString() + "/index.l";
+            String path = Platform.getLocation().toString() + "/index";
             final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
 
             final IndexUpdaterJob job = new IndexUpdaterJob(index, ResourcesPlugin.getWorkspace().getRoot());

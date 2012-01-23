@@ -170,7 +170,7 @@ public class SearchQueryView extends ViewPart {
                         try {
                             result.clear();
                             
-                            final String path = Platform.getLocation().toString() + "/index.l";
+                            final String path = Platform.getLocation().toString() + "/index";
                             final Directory index = new SimpleFSDirectory(new File(path));
 
                             if(!new File(path).exists()) {
