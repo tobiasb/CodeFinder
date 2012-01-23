@@ -179,6 +179,7 @@ public class SearchQueryView extends ViewPart {
                             }
 
                             final String searchQuery = handle.getDocument().readOnly(new QueryExtractor());
+                            resetXtextQuery();
 
                             codeSearcher = new CodeSearcherIndex(index);
                             
@@ -211,6 +212,18 @@ public class SearchQueryView extends ViewPart {
 
             @Override
             public void widgetDefaultSelected(final SelectionEvent e) {
+            }
+        });
+    }
+    
+    private void resetXtextQuery() {
+        Display.getDefault().syncExec(new Runnable() {
+
+            @Override
+            public void run() {
+                //TODO refactor: there should be a better way
+                // When we convert from dot- to L/-notation we actually modify the model. The next stmt is to undo that
+                handle.getDocument().set(handle.getDocument().get());
             }
         });
     }
