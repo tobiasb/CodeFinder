@@ -44,6 +44,7 @@ public class CSQModule extends AbstractModule {
             File folder = findOrCreateIndexFolder();
             SimpleFSDirectory directory = new SimpleFSDirectory(folder);
             bind(Directory.class).annotatedWith(CodeSearchQuery.class).toInstance(directory);
+            bind(Directory.class).toInstance(directory);
         } catch (IOException e) {
             // this is critical!
             throwUnhandledException(e);

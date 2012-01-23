@@ -1,9 +1,8 @@
 package org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions;
 
-import java.io.File;
 import java.util.List;
 
-import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.store.Directory;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.PlatformObject;
@@ -12,6 +11,7 @@ import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
@@ -48,8 +48,9 @@ public class IndexAction implements IObjectActionDelegate {
     public void run(final IAction action) {
         try {
             final Long start = System.currentTimeMillis();
-            String path = Activator.getDefault().getStateLocation().toFile() + "/index";
-            final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
+            
+            Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
+            final CodeIndexerIndex index = new CodeIndexerIndex(directory);
 
             final IndexUpdaterJob job = new IndexUpdaterJob(index, ResourcesPlugin.getWorkspace().getRoot());
             job.addJobChangeListener(new JobChangeAdapter() {

@@ -5,7 +5,6 @@ import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_OVERLAY_ICONS;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_PARAMETERS;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_POST_QUALIFIED;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -13,7 +12,6 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.SimpleFSDirectory;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -35,6 +33,7 @@ import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.names.VmMethodName;
@@ -65,7 +64,6 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQu
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.TypeQueryProposalProvider;
-import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -170,14 +168,8 @@ public class SearchQueryView extends ViewPart {
                         try {
                             result.clear();
                             
-                            final String path = Activator.getDefault().getStateLocation().toFile() + "/index";
-                            final Directory index = new SimpleFSDirectory(new File(path));
-
-                            if(!new File(path).exists()) {
-                            	System.out.println("Index doesn't exist at " + path);
-                            	return Status.CANCEL_STATUS;
-                            }
-
+                            Directory index = InjectionService.getInstance().requestInstance(Directory.class);
+                            
                             final String searchQuery = handle.getDocument().readOnly(new QueryExtractor());
                             resetXtextQuery();
 

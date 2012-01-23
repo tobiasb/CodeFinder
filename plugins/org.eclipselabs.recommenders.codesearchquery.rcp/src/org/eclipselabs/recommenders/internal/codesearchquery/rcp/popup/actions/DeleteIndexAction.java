@@ -1,11 +1,11 @@
 package org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.store.Directory;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
@@ -20,8 +20,8 @@ public class DeleteIndexAction implements IObjectActionDelegate {
 	@Override
 	public void run(IAction action) {
         try {
-        	String path = Activator.getDefault().getStateLocation().toFile() + "/index";
-			final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
+            Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
+			final CodeIndexerIndex index = new CodeIndexerIndex(directory);
 			
 			index.truncateIndex();
 			index.close();

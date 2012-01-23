@@ -1,12 +1,10 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.searcher;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.SimpleFSDirectory;
-import org.eclipse.core.runtime.Platform;
+import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.IQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
@@ -19,16 +17,10 @@ public class TypeQueryProposalProvider implements IQueryProposalProvider {
 	public List<String> getProposals(QueryProposalType type) {
 
 		try {
-	        final String path = Platform.getLocation().toString() + "/index";
-	        final Directory index = new SimpleFSDirectory(new File(path));
-	
-	        if(!new File(path).exists()) {
-	        	System.out.println("Index doesn't exist at " + path);
-	        	return null;
-	        }
+
+            Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
 	        
-			CodeSearcherIndex searcherIndex;
-				searcherIndex = new CodeSearcherIndex(index);
+			CodeSearcherIndex searcherIndex = new CodeSearcherIndex(directory);
 			
 			JavaTypeProvider source = new JavaTypeProvider();
 			source.load(searcherIndex);
