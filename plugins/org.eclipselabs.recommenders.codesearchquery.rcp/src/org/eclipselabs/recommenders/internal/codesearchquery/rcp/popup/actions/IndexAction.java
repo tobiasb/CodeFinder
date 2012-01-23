@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.lucene.store.SimpleFSDirectory;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
@@ -49,7 +48,7 @@ public class IndexAction implements IObjectActionDelegate {
     public void run(final IAction action) {
         try {
             final Long start = System.currentTimeMillis();
-            String path = Platform.getLocation().toString() + "/index";
+            String path = Activator.getDefault().getStateLocation().toFile() + "/index";
             final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
 
             final IndexUpdaterJob job = new IndexUpdaterJob(index, ResourcesPlugin.getWorkspace().getRoot());

@@ -18,7 +18,6 @@ import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
@@ -66,6 +65,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQu
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.TypeQueryProposalProvider;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -170,7 +170,7 @@ public class SearchQueryView extends ViewPart {
                         try {
                             result.clear();
                             
-                            final String path = Platform.getLocation().toString() + "/index";
+                            final String path = Activator.getDefault().getStateLocation().toFile() + "/index";
                             final Directory index = new SimpleFSDirectory(new File(path));
 
                             if(!new File(path).exists()) {

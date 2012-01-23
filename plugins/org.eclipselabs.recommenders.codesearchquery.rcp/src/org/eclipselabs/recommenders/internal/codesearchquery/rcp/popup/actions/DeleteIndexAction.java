@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import org.apache.lucene.store.SimpleFSDirectory;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IObjectActionDelegate;
@@ -21,7 +20,7 @@ public class DeleteIndexAction implements IObjectActionDelegate {
 	@Override
 	public void run(IAction action) {
         try {
-        	String path = Platform.getLocation().toString() + "/index";
+        	String path = Activator.getDefault().getStateLocation().toFile() + "/index";
 			final CodeIndexerIndex index = new CodeIndexerIndex(new SimpleFSDirectory(new File(path)));
 			
 			index.truncateIndex();
