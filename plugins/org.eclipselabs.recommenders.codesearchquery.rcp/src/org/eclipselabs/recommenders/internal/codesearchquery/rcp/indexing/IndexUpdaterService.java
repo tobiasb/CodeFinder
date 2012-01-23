@@ -27,6 +27,7 @@ import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitRemove
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitSaved;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.JavaProjectOpened;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.eventbus.Subscribe;
 
@@ -86,6 +87,15 @@ public class IndexUpdaterService {
 
     @Subscribe
     public void onEvent(final CompilationUnitRemoved event) {
-        System.out.println("no delete support by indexer");
+    	try {
+    		if(event.compilationUnit != null) {
+	            CompilationUnit ast = SharedASTProvider.getAST(event.compilationUnit, SharedASTProvider.WAIT_YES, null);
+	            if(ast != null) {
+	            	indexer.delete(ast);
+	            }
+    		}
+    	} catch(IOException ex) {
+    		Activator.logError(ex);
+    	}
     }
 }

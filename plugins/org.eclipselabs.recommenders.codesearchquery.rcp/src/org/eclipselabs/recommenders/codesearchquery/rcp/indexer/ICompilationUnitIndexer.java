@@ -31,6 +31,11 @@ public interface ICompilationUnitIndexer {
 	public void index(CompilationUnit cu, List<IIndexer> indexer) throws IOException;
 	
 	/**
+	 * Deletes documents associated with this CompilationUnit from the index.
+	 */
+	public void delete(CompilationUnit cu) throws IOException;
+	
+	/**
 	 * Deletes all documents from the index.
 	 */
 	public void truncateIndex();

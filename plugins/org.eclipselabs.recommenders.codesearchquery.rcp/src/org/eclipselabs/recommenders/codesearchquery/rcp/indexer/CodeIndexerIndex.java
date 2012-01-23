@@ -55,6 +55,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         index(cu, CompilationUnitVisitor.getDefaultIndexer());
     }
 
+    @Override
     public long lastIndexed(final File location) {
     	Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
     	
@@ -141,7 +142,8 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
     }
 
-    private void delete(final CompilationUnit cu) throws IOException {
+    @Override
+    public void delete(final CompilationUnit cu) throws IOException {
         ResourcePathIndexer indexer = new ResourcePathIndexer();
         String cuPath = indexer.getResourcePath(cu);
 
