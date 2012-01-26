@@ -2,7 +2,7 @@ package org.eclipselabs.recommenders.test.codesearchquery.rcp.dsl;
 
 import org.junit.Test;
 
-public class BasicGrammarTest extends DslTestBase {
+public class TypeStringTest extends DslTestBase {
 
 	@Test
 	public void testBasicDotNotationGrammar() throws Exception {
