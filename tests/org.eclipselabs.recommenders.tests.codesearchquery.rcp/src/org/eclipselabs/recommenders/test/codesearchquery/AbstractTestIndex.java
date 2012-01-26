@@ -12,6 +12,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
 import org.eclipse.recommenders.utils.Tuple;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.IndexUpdaterServiceSettings;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils.CompilationUnitHelper;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 
@@ -23,7 +24,8 @@ public class AbstractTestIndex {
 	private List<Document> docs = Lists.newArrayList();
 	private Document currentDoc = null;
 	
-	public AbstractTestIndex() {
+	public AbstractTestIndex() {	
+    	IndexUpdaterServiceSettings.setNoDispatch(true); // To prevent workspace events from being processed
 	}
 	
 	public AbstractTestIndex newIndex() throws IOException {

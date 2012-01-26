@@ -77,7 +77,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     }
     
     private Optional<Long> lastIndexedInternal(final File location) {
-    	String path = location.getPath();
+    	String path = ResourcePathIndexer.getResourcePath(location);
     	
     	try {			
 			Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));

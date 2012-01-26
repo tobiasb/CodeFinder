@@ -4,6 +4,8 @@ import java.io.File;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -48,12 +50,19 @@ public class ResourcePathIndexer extends AbstractIndexer implements
 		addAnalyzedField(document, Fields.RESOURCE_PATH, getResourcePath(resource));
 	}
 	
-	public String getResourcePath(IResource resource) {
-        File location = resource.getLocation().toFile();
-		return location.getPath();
-	}
-	
 	public String getResourcePath(CompilationUnit cu) {
 		return getResourcePath(getResource(cu));
+	}
+	
+	public String getResourcePath(IResource resource) {
+		return getResourcePath(resource.getLocation());
+	}
+	
+	public static String getResourcePath(IPath path) {
+		return path.toPortableString();
+	}
+	
+	public static String getResourcePath(File file) {
+		return getResourcePath(Path.fromOSString(file.getAbsolutePath()));
 	}
 }

@@ -5,7 +5,8 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
@@ -24,14 +25,16 @@ public class LastIndexedTimestamp extends AbstractTestIndex {
 	public void testLastUpdatedGtZero() throws Exception {
 
 		ICompilationUnit icu = getSampleICompilationUnit();
-        IResource resource = icu.getUnderlyingResource();
-        File location = resource.getLocation().toFile();
+        
+        ResourcePathIndexer rpi = new ResourcePathIndexer();
+        IPath p = Path.fromPortableString(rpi.getResourcePath(CompilationUnitHelper.parse(icu)));
+        File location = p.toFile();
 		        
 		newIndex();
 		CodeIndexerIndex index = getIndexer(); 
 		
 		List<IIndexer> indexer = Lists.newArrayList();
-		indexer.add(new ResourcePathIndexer());
+		indexer.add(rpi);
 		indexer.add(new TimestampIndexer());
 
         CompilationUnit cu = CompilationUnitHelper.parse(icu);

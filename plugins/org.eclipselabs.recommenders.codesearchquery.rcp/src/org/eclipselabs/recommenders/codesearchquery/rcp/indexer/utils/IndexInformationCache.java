@@ -3,6 +3,8 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.indexer.utils;
 import java.io.File;
 import java.util.HashMap;
 
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathIndexer;
+
 import com.google.common.base.Optional;
 import com.google.common.collect.Maps;
 
@@ -11,7 +13,7 @@ public class IndexInformationCache implements IIndexInformationProvider {
 	private HashMap<String, Long> cache = Maps.newHashMap();
 	
 	private String getPath(File location) {
-		return location.getPath();
+		return ResourcePathIndexer.getResourcePath(location);
 	}
 	
 	@Override
