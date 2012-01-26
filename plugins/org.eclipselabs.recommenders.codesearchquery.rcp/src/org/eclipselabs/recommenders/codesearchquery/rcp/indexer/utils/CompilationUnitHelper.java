@@ -8,19 +8,21 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 
 public class CompilationUnitHelper {
 
-    public static CompilationUnit parse(final ICompilationUnit unit) {
-        ASTParser parser = ASTParser.newParser(AST.JLS4);
+	private static ASTParser parser;
+	
+	static {
+		parser = ASTParser.newParser(AST.JLS4);
         parser.setKind(ASTParser.K_COMPILATION_UNIT);
-        parser.setSource(unit);
         parser.setResolveBindings(true);
+	}
+	
+    public static CompilationUnit parse(final ICompilationUnit unit) {
+        parser.setSource(unit);
         return (CompilationUnit) parser.createAST(null); // parse
     }
 
     public static CompilationUnit parse(final IClassFile type) {
-        ASTParser parser = ASTParser.newParser(AST.JLS4);
-        parser.setKind(ASTParser.K_COMPILATION_UNIT);
         parser.setSource(type);
-        parser.setResolveBindings(true);
         return (CompilationUnit) parser.createAST(null); // parse
     }
 }
