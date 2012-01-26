@@ -8,7 +8,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.ResourcePathInde
 import org.eclipselabs.recommenders.test.codesearchquery.AbstractTestIndex;
 import org.junit.Test;
 
-public class IndexCompilationUnitMultipleTimesTests extends AbstractTestIndex {
+public class IndexCompilationUnitMultipleTimesTest extends AbstractTestIndex {
 
 	@Test
 	public void testOnce() throws Exception {

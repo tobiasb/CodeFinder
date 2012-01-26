@@ -19,7 +19,7 @@ import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-public class LastIndexedTimestamp extends AbstractTestIndex {
+public class LastIndexedTimestampTest extends AbstractTestIndex {
 
 	@Test
 	public void testLastUpdatedGtZero() throws Exception {
