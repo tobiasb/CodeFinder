@@ -96,6 +96,7 @@ public class IndexUtils {
             return false;
         }
         long lastModified = location.lastModified();
-        return indexer.lastIndexed(location) < lastModified;
+        long lastIndexed = indexer.lastIndexed(location);
+        return lastIndexed < lastModified;
     }
 }
