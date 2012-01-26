@@ -2,7 +2,9 @@ package org.eclipselabs.recommenders.test.codesearchquery.rcp.dsl;
 
 import org.eclipse.xtext.junit.AbstractXtextTests;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQueryStandaloneSetup;
+import org.junit.Ignore;
 
+@Ignore("Just the test base")
 public class DslTestBase extends AbstractXtextTests {
 
 //    private final Injector injector = new LuceneQueryStandaloneSetup().createInjectorAndDoEMFRegistration();

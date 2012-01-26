@@ -23,6 +23,4 @@ Require-Bundle: org.junit4,
  com.google.inject;bundle-version="3.0.0",
  org.eclipselabs.recommenders.codesearchquery.rcp,
  org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui,
- org.apache.lucene;bundle-version="3.5.0",
- org.eclipse.xtext,
- org.eclipse.xtext.junit
+ org.apache.lucene;bundle-version="3.5.0"
