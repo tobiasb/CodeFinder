@@ -34,12 +34,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
 		//
-		// * 	
-		//
-		// * 
-		//
-		// * Example: FriendlyName:(+"toString" -"toUpperCase") AND ReturnType:"Ljava/lang/String"
-		//
 		// * * / Exp1 returns Expression:
 		//	Exp2 ({Exp1.left=current} b=BooleanExp right=Exp2)*;
 		public ParserRule getRule() { return rule; }
@@ -119,14 +113,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cClauseAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final RuleCall cClauseTypeClauseParserRuleCall_1_1_0 = (RuleCall)cClauseAssignment_1_1.eContents().get(0);
 		
-		////	Query returns Expression: 
-		//
-		////		{Query}
-		//
-		////		clauseExpressions+=ClauseExpression*
-		//
-		////	;
-		//
 		//ClauseExpression:
 		//	(n=NotExpression | m=MustExpression)? (clause=SimpleClause | clause=TypeClause);
 		public ParserRule getRule() { return rule; }
@@ -233,13 +219,10 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FieldValue");
 		private final RuleCall cValueParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//FieldValue: //| '(' Value* ')'
-		//
+		//FieldValue:
 		//	Value;
 		public ParserRule getRule() { return rule; }
 
-		////| '(' Value* ')'
-		//
 		//Value
 		public RuleCall getValueParserRuleCall() { return cValueParserRuleCall; }
 	}
@@ -248,13 +231,10 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeValue");
 		private final RuleCall cQualifiedNameWithWildcardParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//TypeValue: //| '(' QualifiedNameWithWildcard* ')'
-		//
+		//TypeValue:
 		//	QualifiedNameWithWildcard;
 		public ParserRule getRule() { return rule; }
 
-		////| '(' QualifiedNameWithWildcard* ')'
-		//
 		//QualifiedNameWithWildcard
 		public RuleCall getQualifiedNameWithWildcardParserRuleCall() { return cQualifiedNameWithWildcardParserRuleCall; }
 	}
@@ -264,36 +244,48 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cWildcardParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_0_0 = (RuleCall)cGroup_1_0.eContents().get(0);
+		private final RuleCall cSpecialCharParserRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
 		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
 		private final RuleCall cWildcardParserRuleCall_1_1_0 = (RuleCall)cGroup_1_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final RuleCall cSpecialCharParserRuleCall_1_1_2 = (RuleCall)cGroup_1_1.eContents().get(2);
 		private final RuleCall cWildcardParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		
 		//Value:
-		//	Wildcard? / * ('+' | '-')?* / (ID (Wildcard ID)* Wildcard?)?;
+		//	Wildcard? ((ID SpecialChar?) (Wildcard? ID SpecialChar?)* Wildcard?)?;
 		public ParserRule getRule() { return rule; }
 
-		//Wildcard? / * ('+' | '-')?* / (ID (Wildcard ID)* Wildcard?)?
+		//Wildcard? ((ID SpecialChar?) (Wildcard? ID SpecialChar?)* Wildcard?)?
 		public Group getGroup() { return cGroup; }
 
 		//Wildcard?
 		public RuleCall getWildcardParserRuleCall_0() { return cWildcardParserRuleCall_0; }
 
-		//(ID (Wildcard ID)* Wildcard?)?
+		//((ID SpecialChar?) (Wildcard? ID SpecialChar?)* Wildcard?)?
 		public Group getGroup_1() { return cGroup_1; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall_1_0() { return cIDTerminalRuleCall_1_0; }
+		//ID SpecialChar?
+		public Group getGroup_1_0() { return cGroup_1_0; }
 
-		//(Wildcard ID)*
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_0_0() { return cIDTerminalRuleCall_1_0_0; }
+
+		//SpecialChar?
+		public RuleCall getSpecialCharParserRuleCall_1_0_1() { return cSpecialCharParserRuleCall_1_0_1; }
+
+		//(Wildcard? ID SpecialChar?)*
 		public Group getGroup_1_1() { return cGroup_1_1; }
 
-		//Wildcard
+		//Wildcard?
 		public RuleCall getWildcardParserRuleCall_1_1_0() { return cWildcardParserRuleCall_1_1_0; }
 
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1_1() { return cIDTerminalRuleCall_1_1_1; }
+
+		//SpecialChar?
+		public RuleCall getSpecialCharParserRuleCall_1_1_2() { return cSpecialCharParserRuleCall_1_1_2; }
 
 		//Wildcard?
 		public RuleCall getWildcardParserRuleCall_1_2() { return cWildcardParserRuleCall_1_2; }
@@ -310,10 +302,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueParserRuleCall_1_3 = (RuleCall)cGroup_1.eContents().get(3);
 		private final RuleCall cWildcardParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
-		////Wildcard? ( ID ( (Wildcard?) Sep (Wildcard?) ID? )* Wildcard?)?
-		//
-		////( ID '*'?( ('/' | '.')? ID  '*'?)* )
-		//
 		//QualifiedNameWithWildcard hidden(SL_COMMENT, ML_COMMENT):
 		//	Value (Wildcard? Sep Wildcard? Value)* Wildcard?;
 		public ParserRule getRule() { return rule; }
@@ -361,6 +349,34 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"."
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+	}
+
+	public class SpecialCharElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SpecialChar");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cReverseSolidusKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cHyphenMinusKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cSolidusKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//SpecialChar:
+		//	"\\" "-" | "/";
+		public ParserRule getRule() { return rule; }
+
+		//"\\" "-" | "/"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"\\" "-"
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"\\"
+		public Keyword getReverseSolidusKeyword_0_0() { return cReverseSolidusKeyword_0_0; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_0_1() { return cHyphenMinusKeyword_0_1; }
+
+		//"/"
+		public Keyword getSolidusKeyword_1() { return cSolidusKeyword_1; }
 	}
 
 	public class WildcardElements extends AbstractParserRuleElementFinder {
@@ -833,6 +849,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	private ValueElements pValue;
 	private QualifiedNameWithWildcardElements pQualifiedNameWithWildcard;
 	private SepElements pSep;
+	private SpecialCharElements pSpecialChar;
 	private WildcardElements pWildcard;
 	private BooleanExpElements unknownRuleBooleanExp;
 	private NotExpressionElements unknownRuleNotExpression;
@@ -867,12 +884,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
 	//
-	// * 	
-	//
-	// * 
-	//
-	// * Example: FriendlyName:(+"toString" -"toUpperCase") AND ReturnType:"Ljava/lang/String"
-	//
 	// * * / Exp1 returns Expression:
 	//	Exp2 ({Exp1.left=current} b=BooleanExp right=Exp2)*;
 	public Exp1Elements getExp1Access() {
@@ -893,14 +904,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getExp2Access().getRule();
 	}
 
-	////	Query returns Expression: 
-	//
-	////		{Query}
-	//
-	////		clauseExpressions+=ClauseExpression*
-	//
-	////	;
-	//
 	//ClauseExpression:
 	//	(n=NotExpression | m=MustExpression)? (clause=SimpleClause | clause=TypeClause);
 	public ClauseExpressionElements getClauseExpressionAccess() {
@@ -931,8 +934,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeClauseAccess().getRule();
 	}
 
-	//FieldValue: //| '(' Value* ')'
-	//
+	//FieldValue:
 	//	Value;
 	public FieldValueElements getFieldValueAccess() {
 		return (pFieldValue != null) ? pFieldValue : (pFieldValue = new FieldValueElements());
@@ -942,8 +944,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getFieldValueAccess().getRule();
 	}
 
-	//TypeValue: //| '(' QualifiedNameWithWildcard* ')'
-	//
+	//TypeValue:
 	//	QualifiedNameWithWildcard;
 	public TypeValueElements getTypeValueAccess() {
 		return (pTypeValue != null) ? pTypeValue : (pTypeValue = new TypeValueElements());
@@ -954,7 +955,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Value:
-	//	Wildcard? / * ('+' | '-')?* / (ID (Wildcard ID)* Wildcard?)?;
+	//	Wildcard? ((ID SpecialChar?) (Wildcard? ID SpecialChar?)* Wildcard?)?;
 	public ValueElements getValueAccess() {
 		return (pValue != null) ? pValue : (pValue = new ValueElements());
 	}
@@ -963,10 +964,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getValueAccess().getRule();
 	}
 
-	////Wildcard? ( ID ( (Wildcard?) Sep (Wildcard?) ID? )* Wildcard?)?
-	//
-	////( ID '*'?( ('/' | '.')? ID  '*'?)* )
-	//
 	//QualifiedNameWithWildcard hidden(SL_COMMENT, ML_COMMENT):
 	//	Value (Wildcard? Sep Wildcard? Value)* Wildcard?;
 	public QualifiedNameWithWildcardElements getQualifiedNameWithWildcardAccess() {
@@ -985,6 +982,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSepRule() {
 		return getSepAccess().getRule();
+	}
+
+	//SpecialChar:
+	//	"\\" "-" | "/";
+	public SpecialCharElements getSpecialCharAccess() {
+		return (pSpecialChar != null) ? pSpecialChar : (pSpecialChar = new SpecialCharElements());
+	}
+	
+	public ParserRule getSpecialCharRule() {
+		return getSpecialCharAccess().getRule();
 	}
 
 	//Wildcard:

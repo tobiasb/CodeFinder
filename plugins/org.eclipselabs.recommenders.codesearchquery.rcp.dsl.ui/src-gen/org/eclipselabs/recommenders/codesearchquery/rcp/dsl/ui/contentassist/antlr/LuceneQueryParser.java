@@ -41,6 +41,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_0(), "rule__ClauseExpression__Alternatives_0");
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1(), "rule__ClauseExpression__Alternatives_1");
 					put(grammarAccess.getSepAccess().getAlternatives(), "rule__Sep__Alternatives");
+					put(grammarAccess.getSpecialCharAccess().getAlternatives(), "rule__SpecialChar__Alternatives");
 					put(grammarAccess.getWildcardAccess().getAlternatives(), "rule__Wildcard__Alternatives");
 					put(grammarAccess.getFieldNameAccess().getAlternatives(), "rule__FieldName__Alternatives");
 					put(grammarAccess.getTypeFieldNameAccess().getAlternatives(), "rule__TypeFieldName__Alternatives");
@@ -54,9 +55,11 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeClauseAccess().getGroup(), "rule__TypeClause__Group__0");
 					put(grammarAccess.getValueAccess().getGroup(), "rule__Value__Group__0");
 					put(grammarAccess.getValueAccess().getGroup_1(), "rule__Value__Group_1__0");
+					put(grammarAccess.getValueAccess().getGroup_1_0(), "rule__Value__Group_1_0__0");
 					put(grammarAccess.getValueAccess().getGroup_1_1(), "rule__Value__Group_1_1__0");
 					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
 					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup_1(), "rule__QualifiedNameWithWildcard__Group_1__0");
+					put(grammarAccess.getSpecialCharAccess().getGroup_0(), "rule__SpecialChar__Group_0__0");
 					put(grammarAccess.getExp1Access().getBAssignment_1_1(), "rule__Exp1__BAssignment_1_1");
 					put(grammarAccess.getExp1Access().getRightAssignment_1_2(), "rule__Exp1__RightAssignment_1_2");
 					put(grammarAccess.getExp2Access().getValueAssignment_0(), "rule__Exp2__ValueAssignment_0");

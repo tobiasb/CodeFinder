@@ -60,9 +60,12 @@ import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQueryStandaloneSetup;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.LuceneQueryProposalProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ResourcePathQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.TypeQueryProposalProvider;
 
 import com.google.common.base.Optional;
@@ -103,7 +106,9 @@ public class SearchQueryView extends ViewPart {
 	@SuppressWarnings("restriction")
 	private void createSearchQueryViewerXtext(Composite parent) {
 		
-		LuceneQueryProposalProvider.setQueryProposalProvider(new TypeQueryProposalProvider());
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new TypeQueryProposalProvider());
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.MODIFIER, new ModifierQueryProposalProvider());
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.RESOURCE_PATH, new ResourcePathQueryProposalProvider());
 		
         IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 

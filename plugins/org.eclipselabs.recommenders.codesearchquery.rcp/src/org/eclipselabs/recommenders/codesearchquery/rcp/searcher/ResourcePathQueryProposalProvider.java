@@ -6,11 +6,11 @@ import java.util.List;
 import org.apache.lucene.store.Directory;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.IQueryProposalProvider;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
-import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.UnixPathNameConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ResourcePathProvider;
 
-public class TypeQueryProposalProvider implements IQueryProposalProvider {
+public class ResourcePathQueryProposalProvider implements
+		IQueryProposalProvider {
 
 	@Override
 	public List<String> getProposals() {
@@ -21,7 +21,7 @@ public class TypeQueryProposalProvider implements IQueryProposalProvider {
 	        
 			CodeSearcherIndex searcherIndex = new CodeSearcherIndex(directory);
 			
-			JavaTypeProvider source = new JavaTypeProvider();
+			ResourcePathProvider source = new ResourcePathProvider();
 			source.load(searcherIndex);
 			
 			return source.getDisjunctTermVector();
@@ -31,9 +31,9 @@ public class TypeQueryProposalProvider implements IQueryProposalProvider {
 	}
 
 	@Override
-	public String convert(String type) {
-		IQueryPartConverter converter = new DotNotationConverter();
-		return converter.convertTo(type);
+	public String convert(String source) {
+		UnixPathNameConverter converter = new UnixPathNameConverter();
+		return converter.convertTo(source);
 	}
 
 }

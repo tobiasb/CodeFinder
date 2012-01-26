@@ -499,37 +499,59 @@ ruleValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     { 
         afterParserOrEnumRuleCall();
     }
-)?(    this_ID_1=RULE_ID    {
+)?((    this_ID_1=RULE_ID    {
 		$current.merge(this_ID_1);
     }
 
     { 
-    newLeafNode(this_ID_1, grammarAccess.getValueAccess().getIDTerminalRuleCall_1_0()); 
+    newLeafNode(this_ID_1, grammarAccess.getValueAccess().getIDTerminalRuleCall_1_0_0()); 
     }
 (
     { 
-        newCompositeNode(grammarAccess.getValueAccess().getWildcardParserRuleCall_1_1_0()); 
+        newCompositeNode(grammarAccess.getValueAccess().getSpecialCharParserRuleCall_1_0_1()); 
     }
-    this_Wildcard_2=ruleWildcard    {
-		$current.merge(this_Wildcard_2);
+    this_SpecialChar_2=ruleSpecialChar    {
+		$current.merge(this_SpecialChar_2);
     }
 
     { 
         afterParserOrEnumRuleCall();
     }
-    this_ID_3=RULE_ID    {
-		$current.merge(this_ID_3);
+)?)((
+    { 
+        newCompositeNode(grammarAccess.getValueAccess().getWildcardParserRuleCall_1_1_0()); 
+    }
+    this_Wildcard_3=ruleWildcard    {
+		$current.merge(this_Wildcard_3);
     }
 
     { 
-    newLeafNode(this_ID_3, grammarAccess.getValueAccess().getIDTerminalRuleCall_1_1_1()); 
+        afterParserOrEnumRuleCall();
     }
-)*(
+)?    this_ID_4=RULE_ID    {
+		$current.merge(this_ID_4);
+    }
+
+    { 
+    newLeafNode(this_ID_4, grammarAccess.getValueAccess().getIDTerminalRuleCall_1_1_1()); 
+    }
+(
+    { 
+        newCompositeNode(grammarAccess.getValueAccess().getSpecialCharParserRuleCall_1_1_2()); 
+    }
+    this_SpecialChar_5=ruleSpecialChar    {
+		$current.merge(this_SpecialChar_5);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)?)*(
     { 
         newCompositeNode(grammarAccess.getValueAccess().getWildcardParserRuleCall_1_2()); 
     }
-    this_Wildcard_4=ruleWildcard    {
-		$current.merge(this_Wildcard_4);
+    this_Wildcard_6=ruleWildcard    {
+		$current.merge(this_Wildcard_6);
     }
 
     { 
@@ -665,6 +687,46 @@ ruleSep returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
     {
         $current.merge(kw);
         newLeafNode(kw, grammarAccess.getSepAccess().getFullStopKeyword_1()); 
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuleSpecialChar
+entryRuleSpecialChar returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSpecialCharRule()); } 
+	 iv_ruleSpecialChar=ruleSpecialChar 
+	 { $current=$iv_ruleSpecialChar.current.getText(); }  
+	 EOF 
+;
+
+// Rule SpecialChar
+ruleSpecialChar returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+	kw='\\' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSpecialCharAccess().getReverseSolidusKeyword_0_0()); 
+    }
+
+	kw='-' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSpecialCharAccess().getHyphenMinusKeyword_0_1()); 
+    }
+)
+    |
+	kw='/' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getSpecialCharAccess().getSolidusKeyword_1()); 
     }
 )
     ;

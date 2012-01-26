@@ -37,7 +37,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	;
 	
 	Value:
-		(Wildcard)? (ID (Wildcard ID)* (Wildcard)?)?
+		(Wildcard)? ((ID (SpecialChar?)) ((Wildcard?) ID (SpecialChar?))* (Wildcard)?)?
 	;
   
   	QualifiedNameWithWildcard hidden(SL_COMMENT, ML_COMMENT):
@@ -46,6 +46,10 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	
 	Sep:
 		('/' | '.')
+	;
+	
+	SpecialChar:
+		('\\' ('-')) | '/'
 	;
 	
 	Wildcard:
