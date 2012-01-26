@@ -22,7 +22,6 @@ import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitAdded;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitRemoved;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitSaved;
@@ -95,7 +94,7 @@ public class IndexUpdaterService {
             if (!IndexUtils.shouldIndex(cu, indexer)) {
                 return;
             }
-            CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
+            CompilationUnit ast = IndexUtils.getAST(cu);
             if (ast != null) {
                 indexer.index(ast);
             }
@@ -115,7 +114,7 @@ public class IndexUpdaterService {
     	
     	try {
     		if(event.compilationUnit != null) {
-	            CompilationUnit ast = SharedASTProvider.getAST(event.compilationUnit, SharedASTProvider.WAIT_YES, null);
+	            CompilationUnit ast = IndexUtils.getAST(event.compilationUnit);
 	            if(ast != null) {
 	            	indexer.delete(ast);
 	            }

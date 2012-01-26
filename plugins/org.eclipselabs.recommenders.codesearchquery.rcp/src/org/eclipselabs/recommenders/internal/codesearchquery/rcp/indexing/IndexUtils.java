@@ -65,13 +65,17 @@ public class IndexUtils {
         }
         return Status.OK_STATUS;
     }
+    
+    public static CompilationUnit getAST(ICompilationUnit cu) {
+    	return SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
+    }
 
     public static void addOrUpdateCompilationUnitToIndex(final ICompilationUnit cu, final CodeIndexerIndex indexer) {
         try {
             if (!shouldIndex(cu, indexer)) {
                 return;
             }
-            CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
+            CompilationUnit ast = getAST(cu);
             if (ast != null) {
                 indexer.index(ast);
             }
