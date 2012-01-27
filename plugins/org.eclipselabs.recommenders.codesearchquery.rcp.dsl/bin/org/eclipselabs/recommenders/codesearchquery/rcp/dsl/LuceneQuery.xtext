@@ -10,11 +10,11 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
  * */
  
 	Exp1 returns Expression:
-	 Exp2 ({Exp1.left=current} b=BinaryExp right=Exp2)*;
+	 Exp2 ( {Exp1.left=current} b=BinaryExp right=Exp1 )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	
 	Exp2 returns Expression:
 	 value=ClauseExpression |
-	 UnaryExpression? '(' Exp1 ')';
+	 (UnaryExpression? '(' Exp1 ')');
 	 
 /*
 	The following rules are generated. Do not modify. Modify source file instead.
@@ -139,7 +139,10 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	;
 	
 	DocumentTypeFieldValue:
-		NameWithWC
+		'class'
+		| 'method'
+		| 'field'
+		| 'trycatch'
 	;
 	
 	AnnotationFieldValue:

@@ -27,7 +27,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cBBinaryExpEnumRuleCall_1_1_0 = (RuleCall)cBAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightExp2ParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightExp1ParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		/// * * 
 		//
@@ -36,16 +36,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
 		//
 		// * * / Exp1 returns Expression:
-		//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp2)*;
+		//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?;
 		public ParserRule getRule() { return rule; }
 
-		//Exp2 ({Exp1.left=current} b=BinaryExp right=Exp2)*
+		//Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?
 		public Group getGroup() { return cGroup; }
 
 		//Exp2
 		public RuleCall getExp2ParserRuleCall_0() { return cExp2ParserRuleCall_0; }
 
-		//({Exp1.left=current} b=BinaryExp right=Exp2)*
+		//({Exp1.left=current} b=BinaryExp right=Exp1)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{Exp1.left=current}
@@ -57,11 +57,11 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//BinaryExp
 		public RuleCall getBBinaryExpEnumRuleCall_1_1_0() { return cBBinaryExpEnumRuleCall_1_1_0; }
 
-		//right=Exp2
+		//right=Exp1
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 
-		//Exp2
-		public RuleCall getRightExp2ParserRuleCall_1_2_0() { return cRightExp2ParserRuleCall_1_2_0; }
+		//Exp1
+		public RuleCall getRightExp1ParserRuleCall_1_2_0() { return cRightExp1ParserRuleCall_1_2_0; }
 	}
 
 	public class Exp2Elements extends AbstractParserRuleElementFinder {
@@ -896,14 +896,30 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class DocumentTypeFieldValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DocumentTypeFieldValue");
-		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cClassKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cMethodKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cFieldKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cTrycatchKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		
 		//DocumentTypeFieldValue:
-		//	NameWithWC;
+		//	"class" | "method" | "field" | "trycatch";
 		public ParserRule getRule() { return rule; }
 
-		//NameWithWC
-		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
+		//"class" | "method" | "field" | "trycatch"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"class"
+		public Keyword getClassKeyword_0() { return cClassKeyword_0; }
+
+		//"method"
+		public Keyword getMethodKeyword_1() { return cMethodKeyword_1; }
+
+		//"field"
+		public Keyword getFieldKeyword_2() { return cFieldKeyword_2; }
+
+		//"trycatch"
+		public Keyword getTrycatchKeyword_3() { return cTrycatchKeyword_3; }
 	}
 
 	public class AnnotationFieldValueElements extends AbstractParserRuleElementFinder {
@@ -1057,7 +1073,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
 	//
 	// * * / Exp1 returns Expression:
-	//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp2)*;
+	//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?;
 	public Exp1Elements getExp1Access() {
 		return (pExp1 != null) ? pExp1 : (pExp1 = new Exp1Elements());
 	}
@@ -1268,7 +1284,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DocumentTypeFieldValue:
-	//	NameWithWC;
+	//	"class" | "method" | "field" | "trycatch";
 	public DocumentTypeFieldValueElements getDocumentTypeFieldValueAccess() {
 		return (pDocumentTypeFieldValue != null) ? pDocumentTypeFieldValue : (pDocumentTypeFieldValue = new DocumentTypeFieldValueElements());
 	}

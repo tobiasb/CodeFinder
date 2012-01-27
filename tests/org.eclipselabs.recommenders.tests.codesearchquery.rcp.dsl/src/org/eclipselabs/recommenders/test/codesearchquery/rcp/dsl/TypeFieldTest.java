@@ -71,4 +71,10 @@ public class TypeFieldTest extends DslTestBase {
 	
         getParseResultAndExpect("UsedTypes:java.util*.bla*", 0);
 	}
+	
+	@Test
+	public void testMisc() throws Exception {
+		
+		getParseResultAndExpect("UsedTypes:org.eclipse.recommenders.codesearch.FeatureWeights", 0);
+	}
 }

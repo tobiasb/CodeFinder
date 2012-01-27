@@ -114,9 +114,9 @@ ruleExp1 returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExp1Access().getRightExp2ParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getExp1Access().getRightExp1ParserRuleCall_1_2_0()); 
 	    }
-		lv_right_3_0=ruleExp2		{
+		lv_right_3_0=ruleExp1		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getExp1Rule());
 	        }
@@ -124,12 +124,12 @@ ruleExp1 returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Exp2");
+        		"Exp1");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*)
+))?)
 ;
 
 
@@ -1663,14 +1663,34 @@ ruleDocumentTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrData
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-    this_NameWithWC_0=RULE_NAMEWITHWC    {
-		$current.merge(this_NameWithWC_0);
+(
+	kw='class' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getClassKeyword_0()); 
     }
 
-    { 
-    newLeafNode(this_NameWithWC_0, grammarAccess.getDocumentTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); 
+    |
+	kw='method' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getMethodKeyword_1()); 
     }
 
+    |
+	kw='field' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getFieldKeyword_2()); 
+    }
+
+    |
+	kw='trycatch' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getTrycatchKeyword_3()); 
+    }
+)
     ;
 
 

@@ -605,9 +605,9 @@ ruleDocumentTypeFieldValue
     }
 	:
 (
-{ before(grammarAccess.getDocumentTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); }
-	RULE_NAMEWITHWC
-{ after(grammarAccess.getDocumentTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); }
+{ before(grammarAccess.getDocumentTypeFieldValueAccess().getAlternatives()); }
+(rule__DocumentTypeFieldValue__Alternatives)
+{ after(grammarAccess.getDocumentTypeFieldValueAccess().getAlternatives()); }
 )
 
 ;
@@ -2868,6 +2868,48 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__DocumentTypeFieldValue__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getDocumentTypeFieldValueAccess().getClassKeyword_0()); }
+
+	'class' 
+
+{ after(grammarAccess.getDocumentTypeFieldValueAccess().getClassKeyword_0()); }
+)
+
+    |(
+{ before(grammarAccess.getDocumentTypeFieldValueAccess().getMethodKeyword_1()); }
+
+	'method' 
+
+{ after(grammarAccess.getDocumentTypeFieldValueAccess().getMethodKeyword_1()); }
+)
+
+    |(
+{ before(grammarAccess.getDocumentTypeFieldValueAccess().getFieldKeyword_2()); }
+
+	'field' 
+
+{ after(grammarAccess.getDocumentTypeFieldValueAccess().getFieldKeyword_2()); }
+)
+
+    |(
+{ before(grammarAccess.getDocumentTypeFieldValueAccess().getTrycatchKeyword_3()); }
+
+	'trycatch' 
+
+{ after(grammarAccess.getDocumentTypeFieldValueAccess().getTrycatchKeyword_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__UnaryExpression__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -3702,7 +3744,7 @@ rule__Exp1__Group__1__Impl
 :
 (
 { before(grammarAccess.getExp1Access().getGroup_1()); }
-(rule__Exp1__Group_1__0)*
+(rule__Exp1__Group_1__0)?
 { after(grammarAccess.getExp1Access().getGroup_1()); }
 )
 
@@ -14788,8 +14830,8 @@ rule__Exp1__RightAssignment_1_2
     }
 :
 (
-{ before(grammarAccess.getExp1Access().getRightExp2ParserRuleCall_1_2_0()); }
-	ruleExp2{ after(grammarAccess.getExp1Access().getRightExp2ParserRuleCall_1_2_0()); }
+{ before(grammarAccess.getExp1Access().getRightExp1ParserRuleCall_1_2_0()); }
+	ruleExp1{ after(grammarAccess.getExp1Access().getRightExp1ParserRuleCall_1_2_0()); }
 )
 
 ;
