@@ -45,6 +45,14 @@ public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProv
 		fillProposals(QueryProposalType.MODIFIER, context, acceptor);
 	}
 	
+	@Override
+	public void complete_DocumentTypeFieldValue(EObject model,
+			RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+
+		fillProposals(QueryProposalType.DOCUMENT_TYPE, context, acceptor);
+	}
+	
 	private void fillProposals(QueryProposalType proposalType, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 
 		IQueryProposalProvider p = provider.get(proposalType);

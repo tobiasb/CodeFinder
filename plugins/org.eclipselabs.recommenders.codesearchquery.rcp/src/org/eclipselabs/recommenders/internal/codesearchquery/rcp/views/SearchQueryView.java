@@ -63,6 +63,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.Luc
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.DocumentTypeProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ResourcePathQueryProposalProvider;
@@ -109,6 +110,7 @@ public class SearchQueryView extends ViewPart {
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new TypeQueryProposalProvider());
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.MODIFIER, new ModifierQueryProposalProvider());
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH, new ResourcePathQueryProposalProvider());
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.DOCUMENT_TYPE, new DocumentTypeProposalProvider());
 		
         IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 
