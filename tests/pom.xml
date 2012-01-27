@@ -15,7 +15,6 @@
 	<modules>
 		<module>org.eclipse.recommenders.tests</module>
 		<module>org.eclipselabs.recommenders.tests.codesearchquery.rcp</module>
-		<!-->module>org.eclipselabs.recommenders.tests.codesearchquery.rcp.dsl</module-->
     </modules>
   
   	<properties>
