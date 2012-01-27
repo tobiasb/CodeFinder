@@ -3,3 +3,4 @@ UsedTypes:Ljava/util/*
 Modifiers:asd*s*s*
 ExtendedTypes:Lorg.eclipse* AND Modifiers: p* AND (UsedTypes:LASTVisitor OR UsedTypes:LPl.ugin.*)
 ExtendedTypes:Lorg.eclipse*AST* AND Modifiers: p*s AND (UsedTypes:LASTVisitor OR UsedTypes:LPl.*.ugin.*)
+AllExtendedTypes:org.test.SomeTestClass
