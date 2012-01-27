@@ -18,8 +18,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,9 +26,8 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpre
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getN <em>N</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getM <em>M</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getClause <em>Clause</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getField <em>Field</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,54 +36,34 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpre
 public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implements ClauseExpression
 {
   /**
-   * The default value of the '{@link #getN() <em>N</em>}' attribute.
+   * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getN()
+   * @see #getField()
    * @generated
    * @ordered
    */
-  protected static final NotExpression N_EDEFAULT = NotExpression.N1;
+  protected EObject field;
 
   /**
-   * The cached value of the '{@link #getN() <em>N</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getN()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected NotExpression n = N_EDEFAULT;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The default value of the '{@link #getM() <em>M</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getM()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final MustExpression M_EDEFAULT = MustExpression.M;
-
-  /**
-   * The cached value of the '{@link #getM() <em>M</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getM()
-   * @generated
-   * @ordered
-   */
-  protected MustExpression m = M_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getClause() <em>Clause</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getClause()
-   * @generated
-   * @ordered
-   */
-  protected EObject clause;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -114,9 +91,9 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotExpression getN()
+  public EObject getField()
   {
-    return n;
+    return field;
   }
 
   /**
@@ -124,59 +101,13 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setN(NotExpression newN)
+  public NotificationChain basicSetField(EObject newField, NotificationChain msgs)
   {
-    NotExpression oldN = n;
-    n = newN == null ? N_EDEFAULT : newN;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__N, oldN, n));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MustExpression getM()
-  {
-    return m;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setM(MustExpression newM)
-  {
-    MustExpression oldM = m;
-    m = newM == null ? M_EDEFAULT : newM;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__M, oldM, m));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EObject getClause()
-  {
-    return clause;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetClause(EObject newClause, NotificationChain msgs)
-  {
-    EObject oldClause = clause;
-    clause = newClause;
+    EObject oldField = field;
+    field = newField;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE, oldClause, newClause);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD, oldField, newField);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -187,20 +118,43 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClause(EObject newClause)
+  public void setField(EObject newField)
   {
-    if (newClause != clause)
+    if (newField != field)
     {
       NotificationChain msgs = null;
-      if (clause != null)
-        msgs = ((InternalEObject)clause).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE, null, msgs);
-      if (newClause != null)
-        msgs = ((InternalEObject)newClause).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE, null, msgs);
-      msgs = basicSetClause(newClause, msgs);
+      if (field != null)
+        msgs = ((InternalEObject)field).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD, null, msgs);
+      if (newField != null)
+        msgs = ((InternalEObject)newField).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD, null, msgs);
+      msgs = basicSetField(newField, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE, newClause, newClause));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD, newField, newField));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE, oldValue, value));
   }
 
   /**
@@ -213,8 +167,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE:
-        return basicSetClause(null, msgs);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
+        return basicSetField(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -229,12 +183,10 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__N:
-        return getN();
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__M:
-        return getM();
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE:
-        return getClause();
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
+        return getField();
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -249,14 +201,11 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__N:
-        setN((NotExpression)newValue);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
+        setField((EObject)newValue);
         return;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__M:
-        setM((MustExpression)newValue);
-        return;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE:
-        setClause((EObject)newValue);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -272,14 +221,11 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__N:
-        setN(N_EDEFAULT);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
+        setField((EObject)null);
         return;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__M:
-        setM(M_EDEFAULT);
-        return;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE:
-        setClause((EObject)null);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -295,12 +241,10 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__N:
-        return n != N_EDEFAULT;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__M:
-        return m != M_EDEFAULT;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__CLAUSE:
-        return clause != null;
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
+        return field != null;
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -316,10 +260,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (n: ");
-    result.append(n);
-    result.append(", m: ");
-    result.append(m);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

@@ -11,6 +11,7 @@ import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field;
+import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldType;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model;
@@ -50,6 +51,12 @@ public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSeque
 					return; 
 				}
 				else break;
+			case LuceneFieldsPackage.FIELD_CATEGORY:
+				if(context == grammarAccess.getFieldCategoryRule()) {
+					sequence_FieldCategory(context, (FieldCategory) semanticObject); 
+					return; 
+				}
+				else break;
 			case LuceneFieldsPackage.FIELD_TYPE:
 				if(context == grammarAccess.getFieldTypeRule()) {
 					sequence_FieldType(context, (FieldType) semanticObject); 
@@ -68,6 +75,15 @@ public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     (categoryName=ID fields+=Field*)
+	 */
+	protected void sequence_FieldCategory(EObject context, FieldCategory semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (classType?='class' | methodType?='method' | fieldType?='field' | trycatchType?='trycatch')
 	 */
 	protected void sequence_FieldType(EObject context, FieldType semanticObject) {
@@ -77,7 +93,7 @@ public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID value=STRING proposeType?='proposeType'? types+=FieldType types+=FieldType*)
+	 *     (name=ID value=STRING types+=FieldType types+=FieldType*)
 	 */
 	protected void sequence_Field(EObject context, Field semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -86,7 +102,7 @@ public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (packageName=STRING className=ID fields+=Field*)
+	 *     (packageNames+=STRING* className=ID fieldCategories+=FieldCategory*)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

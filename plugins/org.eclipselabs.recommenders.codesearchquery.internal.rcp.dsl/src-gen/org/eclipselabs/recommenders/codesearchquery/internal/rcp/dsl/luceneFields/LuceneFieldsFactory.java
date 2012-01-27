@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields;
 
@@ -33,6 +34,15 @@ public interface LuceneFieldsFactory extends EFactory
    * @generated
    */
   Model createModel();
+
+  /**
+   * Returns a new object of class '<em>Field Category</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Category</em>'.
+   * @generated
+   */
+  FieldCategory createFieldCategory();
 
   /**
    * Returns a new object of class '<em>Field</em>'.

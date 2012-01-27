@@ -7,4 +7,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit4,
  org.eclipse.xtext,
  org.eclipse.xtext.junit,
- org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui
+ org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui,
+ org.eclipselabs.recommenders.codesearchquery.rcp

@@ -77,29 +77,29 @@ ruleModel returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='package' 
+(	otherlv_0='packages' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getModelAccess().getPackageKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getModelAccess().getPackagesKeyword_0());
     }
 (
 (
-		lv_packageName_1_0=RULE_STRING
+		lv_packageNames_1_0=RULE_STRING
 		{
-			newLeafNode(lv_packageName_1_0, grammarAccess.getModelAccess().getPackageNameSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_packageNames_1_0, grammarAccess.getModelAccess().getPackageNamesSTRINGTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getModelRule());
 	        }
-       		setWithLastConsumed(
+       		addWithLastConsumed(
        			$current, 
-       			"packageName",
-        		lv_packageName_1_0, 
+       			"packageNames",
+        		lv_packageNames_1_0, 
         		"STRING");
 	    }
 
 )
-)	otherlv_2='class' 
+)*	otherlv_2='class' 
     {
     	newLeafNode(otherlv_2, grammarAccess.getModelAccess().getClassKeyword_2());
     }
@@ -124,22 +124,87 @@ ruleModel returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelAccess().getFieldsFieldParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getModelAccess().getFieldCategoriesFieldCategoryParserRuleCall_4_0()); 
 	    }
-		lv_fields_4_0=ruleField		{
+		lv_fieldCategories_4_0=ruleFieldCategory		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModelRule());
 	        }
        		add(
        			$current, 
-       			"fields",
-        		lv_fields_4_0, 
-        		"Field");
+       			"fieldCategories",
+        		lv_fieldCategories_4_0, 
+        		"FieldCategory");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )*)
+;
+
+
+
+
+
+// Entry rule entryRuleFieldCategory
+entryRuleFieldCategory returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFieldCategoryRule()); }
+	 iv_ruleFieldCategory=ruleFieldCategory 
+	 { $current=$iv_ruleFieldCategory.current; } 
+	 EOF 
+;
+
+// Rule FieldCategory
+ruleFieldCategory returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_categoryName_0_0=RULE_ID
+		{
+			newLeafNode(lv_categoryName_0_0, grammarAccess.getFieldCategoryAccess().getCategoryNameIDTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldCategoryRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"categoryName",
+        		lv_categoryName_0_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getFieldCategoryAccess().getLeftCurlyBracketKeyword_1());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFieldCategoryAccess().getFieldsFieldParserRuleCall_2_0()); 
+	    }
+		lv_fields_2_0=ruleField		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFieldCategoryRule());
+	        }
+       		add(
+       			$current, 
+       			"fields",
+        		lv_fields_2_0, 
+        		"Field");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_3='}' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getFieldCategoryAccess().getRightCurlyBracketKeyword_3());
+    }
+)
 ;
 
 
@@ -178,9 +243,9 @@ ruleField returns [EObject current=null]
 	    }
 
 )
-)	otherlv_1=';' 
+)	otherlv_1='=' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getFieldAccess().getSemicolonKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getFieldAccess().getEqualsSignKeyword_1());
     }
 (
 (
@@ -200,33 +265,36 @@ ruleField returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3=';' 
+)	otherlv_3='{' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getSemicolonKeyword_3_0());
-    }
-(
-(
-		lv_proposeType_4_0=	'proposeType' 
-    {
-        newLeafNode(lv_proposeType_4_0, grammarAccess.getFieldAccess().getProposeTypeProposeTypeKeyword_3_1_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getFieldRule());
-	        }
-       		setWithLastConsumed($current, "proposeType", true, "proposeType");
-	    }
-
-)
-))?	otherlv_5=';' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getLeftCurlyBracketKeyword_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_4_0()); 
+	    }
+		lv_types_4_0=ruleFieldType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getFieldRule());
+	        }
+       		add(
+       			$current, 
+       			"types",
+        		lv_types_4_0, 
+        		"FieldType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_5=',' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getCommaKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_5_1_0()); 
 	    }
 		lv_types_6_0=ruleFieldType		{
 	        if ($current==null) {
@@ -241,29 +309,11 @@ ruleField returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_7=',' 
+))*	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getFieldAccess().getCommaKeyword_6_0());
+    	newLeafNode(otherlv_7, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_6());
     }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_6_1_0()); 
-	    }
-		lv_types_8_0=ruleFieldType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getFieldRule());
-	        }
-       		add(
-       			$current, 
-       			"types",
-        		lv_types_8_0, 
-        		"FieldType");
-	        afterParserOrEnumRuleCall();
-	    }
-
 )
-))*)
 ;
 
 

@@ -10,6 +10,14 @@ public class DslTestBase extends AbstractXtextTests {
 //    private final Injector injector = new LuceneQueryStandaloneSetup().createInjectorAndDoEMFRegistration();
 //    private final LuceneQueryParser parser = injector.getInstance(LuceneQueryParser.class);
     
+	protected String field(String fieldName, String fieldValue) {
+		return fieldName + ":" + fieldValue;
+	}
+	
+	protected String field(String fieldName, int fieldValue) {
+		return field(fieldName, String.valueOf(fieldValue));
+	}
+	
     @Override
     protected void setUp() throws Exception {
     	super.setUp();

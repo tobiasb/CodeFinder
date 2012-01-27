@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields;
 
@@ -70,13 +71,13 @@ public interface LuceneFieldsPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Package Name</b></em>' attribute.
+   * The feature id for the '<em><b>Package Names</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__PACKAGE_NAME = 0;
+  int MODEL__PACKAGE_NAMES = 0;
 
   /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
@@ -88,13 +89,13 @@ public interface LuceneFieldsPackage extends EPackage
   int MODEL__CLASS_NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+   * The feature id for the '<em><b>Field Categories</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__FIELDS = 2;
+  int MODEL__FIELD_CATEGORIES = 2;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -106,6 +107,43 @@ public interface LuceneFieldsPackage extends EPackage
   int MODEL_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl <em>Field Category</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.LuceneFieldsPackageImpl#getFieldCategory()
+   * @generated
+   */
+  int FIELD_CATEGORY = 1;
+
+  /**
+   * The feature id for the '<em><b>Category Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_CATEGORY__CATEGORY_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Fields</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_CATEGORY__FIELDS = 1;
+
+  /**
+   * The number of structural features of the '<em>Field Category</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_CATEGORY_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldImpl <em>Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -113,7 +151,7 @@ public interface LuceneFieldsPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.LuceneFieldsPackageImpl#getField()
    * @generated
    */
-  int FIELD = 1;
+  int FIELD = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -134,22 +172,13 @@ public interface LuceneFieldsPackage extends EPackage
   int FIELD__VALUE = 1;
 
   /**
-   * The feature id for the '<em><b>Propose Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD__PROPOSE_TYPE = 2;
-
-  /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD__TYPES = 3;
+  int FIELD__TYPES = 2;
 
   /**
    * The number of structural features of the '<em>Field</em>' class.
@@ -158,7 +187,7 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_FEATURE_COUNT = 4;
+  int FIELD_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl <em>Field Type</em>}' class.
@@ -168,7 +197,7 @@ public interface LuceneFieldsPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.LuceneFieldsPackageImpl#getFieldType()
    * @generated
    */
-  int FIELD_TYPE = 2;
+  int FIELD_TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Class Type</b></em>' attribute.
@@ -227,15 +256,15 @@ public interface LuceneFieldsPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getPackageName <em>Package Name</em>}'.
+   * Returns the meta object for the attribute list '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getPackageNames <em>Package Names</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Package Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getPackageName()
+   * @return the meta object for the attribute list '<em>Package Names</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getPackageNames()
    * @see #getModel()
    * @generated
    */
-  EAttribute getModel_PackageName();
+  EAttribute getModel_PackageNames();
 
   /**
    * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getClassName <em>Class Name</em>}'.
@@ -249,15 +278,47 @@ public interface LuceneFieldsPackage extends EPackage
   EAttribute getModel_ClassName();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getFields <em>Fields</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getFieldCategories <em>Field Categories</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Fields</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getFields()
+   * @return the meta object for the containment reference list '<em>Field Categories</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model#getFieldCategories()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_Fields();
+  EReference getModel_FieldCategories();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory <em>Field Category</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Field Category</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory
+   * @generated
+   */
+  EClass getFieldCategory();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory#getCategoryName <em>Category Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Category Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory#getCategoryName()
+   * @see #getFieldCategory()
+   * @generated
+   */
+  EAttribute getFieldCategory_CategoryName();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory#getFields <em>Fields</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Fields</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory#getFields()
+   * @see #getFieldCategory()
+   * @generated
+   */
+  EReference getFieldCategory_Fields();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field <em>Field</em>}'.
@@ -290,17 +351,6 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    */
   EAttribute getField_Value();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#isProposeType <em>Propose Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Propose Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#isProposeType()
-   * @see #getField()
-   * @generated
-   */
-  EAttribute getField_ProposeType();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#getTypes <em>Types</em>}'.
@@ -401,12 +451,12 @@ public interface LuceneFieldsPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Package Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Package Names</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__PACKAGE_NAME = eINSTANCE.getModel_PackageName();
+    EAttribute MODEL__PACKAGE_NAMES = eINSTANCE.getModel_PackageNames();
 
     /**
      * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
@@ -417,12 +467,38 @@ public interface LuceneFieldsPackage extends EPackage
     EAttribute MODEL__CLASS_NAME = eINSTANCE.getModel_ClassName();
 
     /**
+     * The meta object literal for the '<em><b>Field Categories</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__FIELD_CATEGORIES = eINSTANCE.getModel_FieldCategories();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl <em>Field Category</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl
+     * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.LuceneFieldsPackageImpl#getFieldCategory()
+     * @generated
+     */
+    EClass FIELD_CATEGORY = eINSTANCE.getFieldCategory();
+
+    /**
+     * The meta object literal for the '<em><b>Category Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_CATEGORY__CATEGORY_NAME = eINSTANCE.getFieldCategory_CategoryName();
+
+    /**
      * The meta object literal for the '<em><b>Fields</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__FIELDS = eINSTANCE.getModel_Fields();
+    EReference FIELD_CATEGORY__FIELDS = eINSTANCE.getFieldCategory_Fields();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl.FieldImpl <em>Field</em>}' class.
@@ -449,14 +525,6 @@ public interface LuceneFieldsPackage extends EPackage
      * @generated
      */
     EAttribute FIELD__VALUE = eINSTANCE.getField_Value();
-
-    /**
-     * The meta object literal for the '<em><b>Propose Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FIELD__PROPOSE_TYPE = eINSTANCE.getField_ProposeType();
 
     /**
      * The meta object literal for the '<em><b>Types</b></em>' containment reference list feature.

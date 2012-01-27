@@ -3,15 +3,22 @@ grammar org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.LuceneFiel
 generate luceneFields "http://www.eclipselabs.org/recommenders/codesearchquery/internal/rcp/dsl/LuceneFields"
 
 Model:
-	'package' packageName=STRING 
+	'packages' packageNames +=STRING* 
 	'class' className=ID
 	
-	fields+=Field*
+	fieldCategories+=FieldCategory*
 	;
 	
+FieldCategory:
+	categoryName=ID '{'
+		fields+=Field*
+	'}'
+;
+	
 Field:
-	name=ID ';' value=STRING (';' proposeType?='proposeType')? ';' types+=FieldType (',' types+=FieldType)* 
-	;
+	name=ID '=' value=STRING 
+	'{' types+=FieldType (',' types+=FieldType)* '}' 
+;
 	
 FieldType:
 	classType?='class' | methodType?='method' | fieldType?='field' | trycatchType?='trycatch'

@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.impl;
 
@@ -68,6 +69,7 @@ public class LuceneFieldsFactoryImpl extends EFactoryImpl implements LuceneField
     switch (eClass.getClassifierID())
     {
       case LuceneFieldsPackage.MODEL: return createModel();
+      case LuceneFieldsPackage.FIELD_CATEGORY: return createFieldCategory();
       case LuceneFieldsPackage.FIELD: return createField();
       case LuceneFieldsPackage.FIELD_TYPE: return createFieldType();
       default:
@@ -84,6 +86,17 @@ public class LuceneFieldsFactoryImpl extends EFactoryImpl implements LuceneField
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FieldCategory createFieldCategory()
+  {
+    FieldCategoryImpl fieldCategory = new FieldCategoryImpl();
+    return fieldCategory;
   }
 
   /**

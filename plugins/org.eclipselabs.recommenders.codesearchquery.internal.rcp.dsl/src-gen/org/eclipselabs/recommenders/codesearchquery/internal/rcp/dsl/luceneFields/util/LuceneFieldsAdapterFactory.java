@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.util;
 
@@ -83,6 +84,11 @@ public class LuceneFieldsAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseFieldCategory(FieldCategory object)
+      {
+        return createFieldCategoryAdapter();
+      }
+      @Override
       public Adapter caseField(Field object)
       {
         return createFieldAdapter();
@@ -125,6 +131,21 @@ public class LuceneFieldsAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory <em>Field Category</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory
+   * @generated
+   */
+  public Adapter createFieldCategoryAdapter()
   {
     return null;
   }

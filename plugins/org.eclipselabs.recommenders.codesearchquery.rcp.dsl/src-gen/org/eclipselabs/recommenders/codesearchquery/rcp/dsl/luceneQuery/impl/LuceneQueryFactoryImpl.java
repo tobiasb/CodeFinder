@@ -71,10 +71,16 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
     {
       case LuceneQueryPackage.EXPRESSION: return createExpression();
       case LuceneQueryPackage.CLAUSE_EXPRESSION: return createClauseExpression();
-      case LuceneQueryPackage.SIMPLE_CLAUSE: return createSimpleClause();
-      case LuceneQueryPackage.TYPE_CLAUSE: return createTypeClause();
-      case LuceneQueryPackage.FIELD_NAME: return createFieldName();
-      case LuceneQueryPackage.TYPE_FIELD_NAME: return createTypeFieldName();
+      case LuceneQueryPackage.TYPE_FIELD: return createTypeField();
+      case LuceneQueryPackage.METHOD_FIELD: return createMethodField();
+      case LuceneQueryPackage.FILE_PATH_FIELD: return createFilePathField();
+      case LuceneQueryPackage.NUMBER_FIELD: return createNumberField();
+      case LuceneQueryPackage.MODIFIER_FIELD: return createModifierField();
+      case LuceneQueryPackage.TIME_FIELD: return createTimeField();
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD: return createDocumentTypeField();
+      case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
+      case LuceneQueryPackage.ANNOTATION_FIELD: return createAnnotationField();
+      case LuceneQueryPackage.SIMPLE_FIELD: return createSimpleField();
       case LuceneQueryPackage.EXP1: return createExp1();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -91,12 +97,8 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     switch (eDataType.getClassifierID())
     {
-      case LuceneQueryPackage.BOOLEAN_EXP:
-        return createBooleanExpFromString(eDataType, initialValue);
-      case LuceneQueryPackage.NOT_EXPRESSION:
-        return createNotExpressionFromString(eDataType, initialValue);
-      case LuceneQueryPackage.MUST_EXPRESSION:
-        return createMustExpressionFromString(eDataType, initialValue);
+      case LuceneQueryPackage.BINARY_EXP:
+        return createBinaryExpFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -112,12 +114,8 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     switch (eDataType.getClassifierID())
     {
-      case LuceneQueryPackage.BOOLEAN_EXP:
-        return convertBooleanExpToString(eDataType, instanceValue);
-      case LuceneQueryPackage.NOT_EXPRESSION:
-        return convertNotExpressionToString(eDataType, instanceValue);
-      case LuceneQueryPackage.MUST_EXPRESSION:
-        return convertMustExpressionToString(eDataType, instanceValue);
+      case LuceneQueryPackage.BINARY_EXP:
+        return convertBinaryExpToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -150,10 +148,10 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public SimpleClause createSimpleClause()
+  public TypeField createTypeField()
   {
-    SimpleClauseImpl simpleClause = new SimpleClauseImpl();
-    return simpleClause;
+    TypeFieldImpl typeField = new TypeFieldImpl();
+    return typeField;
   }
 
   /**
@@ -161,10 +159,10 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeClause createTypeClause()
+  public MethodField createMethodField()
   {
-    TypeClauseImpl typeClause = new TypeClauseImpl();
-    return typeClause;
+    MethodFieldImpl methodField = new MethodFieldImpl();
+    return methodField;
   }
 
   /**
@@ -172,10 +170,10 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public FieldName createFieldName()
+  public FilePathField createFilePathField()
   {
-    FieldNameImpl fieldName = new FieldNameImpl();
-    return fieldName;
+    FilePathFieldImpl filePathField = new FilePathFieldImpl();
+    return filePathField;
   }
 
   /**
@@ -183,10 +181,76 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public TypeFieldName createTypeFieldName()
+  public NumberField createNumberField()
   {
-    TypeFieldNameImpl typeFieldName = new TypeFieldNameImpl();
-    return typeFieldName;
+    NumberFieldImpl numberField = new NumberFieldImpl();
+    return numberField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModifierField createModifierField()
+  {
+    ModifierFieldImpl modifierField = new ModifierFieldImpl();
+    return modifierField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TimeField createTimeField()
+  {
+    TimeFieldImpl timeField = new TimeFieldImpl();
+    return timeField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DocumentTypeField createDocumentTypeField()
+  {
+    DocumentTypeFieldImpl documentTypeField = new DocumentTypeFieldImpl();
+    return documentTypeField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ProjectNameField createProjectNameField()
+  {
+    ProjectNameFieldImpl projectNameField = new ProjectNameFieldImpl();
+    return projectNameField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AnnotationField createAnnotationField()
+  {
+    AnnotationFieldImpl annotationField = new AnnotationFieldImpl();
+    return annotationField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleField createSimpleField()
+  {
+    SimpleFieldImpl simpleField = new SimpleFieldImpl();
+    return simpleField;
   }
 
   /**
@@ -205,9 +269,9 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public BooleanExp createBooleanExpFromString(EDataType eDataType, String initialValue)
+  public BinaryExp createBinaryExpFromString(EDataType eDataType, String initialValue)
   {
-    BooleanExp result = BooleanExp.get(initialValue);
+    BinaryExp result = BinaryExp.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -217,51 +281,7 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertBooleanExpToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotExpression createNotExpressionFromString(EDataType eDataType, String initialValue)
-  {
-    NotExpression result = NotExpression.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertNotExpressionToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MustExpression createMustExpressionFromString(EDataType eDataType, String initialValue)
-  {
-    MustExpression result = MustExpression.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertMustExpressionToString(EDataType eDataType, Object instanceValue)
+  public String convertBinaryExpToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

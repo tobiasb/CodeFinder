@@ -16,9 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getN <em>N</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getM <em>M</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getClause <em>Clause</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getField <em>Field</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -29,87 +28,55 @@ import org.eclipse.emf.ecore.EObject;
 public interface ClauseExpression extends EObject
 {
   /**
-   * Returns the value of the '<em><b>N</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression}.
+   * Returns the value of the '<em><b>Field</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>N</em>' attribute isn't clear,
+   * If the meaning of the '<em>Field</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>N</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression
-   * @see #setN(NotExpression)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getClauseExpression_N()
-   * @model
-   * @generated
-   */
-  NotExpression getN();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getN <em>N</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>N</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NotExpression
-   * @see #getN()
-   * @generated
-   */
-  void setN(NotExpression value);
-
-  /**
-   * Returns the value of the '<em><b>M</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>M</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>M</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression
-   * @see #setM(MustExpression)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getClauseExpression_M()
-   * @model
-   * @generated
-   */
-  MustExpression getM();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getM <em>M</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>M</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MustExpression
-   * @see #getM()
-   * @generated
-   */
-  void setM(MustExpression value);
-
-  /**
-   * Returns the value of the '<em><b>Clause</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Clause</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Clause</em>' containment reference.
-   * @see #setClause(EObject)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getClauseExpression_Clause()
+   * @return the value of the '<em>Field</em>' containment reference.
+   * @see #setField(EObject)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getClauseExpression_Field()
    * @model containment="true"
    * @generated
    */
-  EObject getClause();
+  EObject getField();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getClause <em>Clause</em>}' containment reference.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getField <em>Field</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Clause</em>' containment reference.
-   * @see #getClause()
+   * @param value the new value of the '<em>Field</em>' containment reference.
+   * @see #getField()
    * @generated
    */
-  void setClause(EObject value);
+  void setField(EObject value);
+
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getClauseExpression_Value()
+   * @model
+   * @generated
+   */
+  String getValue();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getValue <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(String value);
 
 } // ClauseExpression

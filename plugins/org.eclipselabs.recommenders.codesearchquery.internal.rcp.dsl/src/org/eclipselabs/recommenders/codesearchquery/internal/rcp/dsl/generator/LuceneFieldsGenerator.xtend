@@ -22,71 +22,76 @@ class LuceneFieldsGenerator implements IGenerator {
 	def compileXtextBaseClass(Model m) {
 		var b = new BooleanHandler();
 		
-		var sb = new StringBuilder()
-		
 		b.setValue(true)
 		
-sb.append('''/*
+'''/*
 	The following rules are generated. Do not modify. Modify source file instead.
 */
-FieldName:
-	«FOR f : m.fields»
-		«IF(!f.proposeType)»
-			«if(!b.value){'| '}»	«f.value»='«f.value»'
+	ClauseExpression:
+		(n=MustNotExpression | m=MustExpression)? 
+		(
+			«FOR category : m.fieldCategories»
+			«if(m.fieldCategories.indexOf(category)>0){'| '}»field=«category.categoryName» ':' value=«category.categoryName»Value
+			«ENDFOR»
+		)
+	;
+
+	«FOR category : m.fieldCategories»
+	«category.categoryName»:
+		«FOR field : category.fields»
+			«if(!b.value){'| '}»	«field.value»='«field.value»'
 			«b.setValue(false)»
-		«ENDIF»
+		«ENDFOR»
+	;
+	
+	«b.setValue(true)»
 	«ENDFOR»
-;''')
-
-sb.append('''
-
-''')
-
-		b.setValue(true)
-sb.append('''
-TypeFieldName:
-	«FOR f : m.fields»
-		«IF(f.proposeType)»
-			«if(!b.value){'| '}»	«f.value»='«f.value»'
-			«b.setValue(false)»
-		«ENDIF»
-	«ENDFOR»
-;
-/*
+	/*
 	End of generated rules.
-*/''')
-
-		sb.toString
+*/
+'''
 
 	}
 	
 	def compileFieldsClass(Model m) {
 		'''
-		«doNotModify»
-		package «m.packageName»;
-		
-		public class «m.className» {
-			public final static String TYPE_CLASS = "class";
-			public final static String TYPE_METHOD = "method";
-			public final static String TYPE_FIELD = "field";
-			public final static String TYPE_TRYCATCH = "trycatch";
-		
-			public static final String MODIFIER_PUBLIC = "public";
-			public static final String MODIFIER_FINAL = "final";
-			public static final String MODIFIER_PRIVATE = "private";
-			public static final String MODIFIER_PROTECTED = "protected";
-			public static final String MODIFIER_STATIC = "static";
-			public static final String MODIFIER_ABSTRACT = "abstract";
-			
-			«FOR f : m.fields»
-			«f.compile»
-			«ENDFOR»
-		}'''
+/*
+ *	COPY THE NEXT BLOCK TO THE FOLLOWING LOCATONS:
+	«FOR packageName : m.packageNames»
+ *		«packageName».«m.className»
+	«ENDFOR»
+*/
+/*
+	«doNotModify»
+	
+public class «m.className» {
+	public final static String TYPE_CLASS = "class";
+	public final static String TYPE_METHOD = "method";
+	public final static String TYPE_FIELD = "field";
+	public final static String TYPE_TRYCATCH = "trycatch";
+
+	public static final String MODIFIER_PUBLIC = "public";
+	public static final String MODIFIER_FINAL = "final";
+	public static final String MODIFIER_PRIVATE = "private";
+	public static final String MODIFIER_PROTECTED = "protected";
+	public static final String MODIFIER_STATIC = "static";
+	public static final String MODIFIER_ABSTRACT = "abstract";
+	
+	«FOR category : m.fieldCategories»
+	//«category.categoryName»
+		«FOR field : category.fields»
+	«field.compile»
+		«ENDFOR»
+	
+	
+	«ENDFOR»
+}
+*/'''
 	}
 	
 	def compile(Field f) {
-		'''/** Can be applied to: «FOR t : f.types»«if(f.types.indexOf(t)>0){','}»«t.toTypeName»«ENDFOR»*/
-public final static String «f.name» = "«f.value»";'''
+'''	/** Can be applied to: «FOR t : f.types»«if(f.types.indexOf(t)>0){','}»«t.toTypeName»«ENDFOR»*/
+	public final static String «f.name» = "«f.value»";'''
 	}
 	
 	def toTypeName(FieldType t) {

@@ -90,31 +90,73 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.SIMPLE_CLAUSE:
+      case LuceneQueryPackage.TYPE_FIELD:
       {
-        SimpleClause simpleClause = (SimpleClause)theEObject;
-        T result = caseSimpleClause(simpleClause);
+        TypeField typeField = (TypeField)theEObject;
+        T result = caseTypeField(typeField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.TYPE_CLAUSE:
+      case LuceneQueryPackage.METHOD_FIELD:
       {
-        TypeClause typeClause = (TypeClause)theEObject;
-        T result = caseTypeClause(typeClause);
+        MethodField methodField = (MethodField)theEObject;
+        T result = caseMethodField(methodField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.FIELD_NAME:
+      case LuceneQueryPackage.FILE_PATH_FIELD:
       {
-        FieldName fieldName = (FieldName)theEObject;
-        T result = caseFieldName(fieldName);
+        FilePathField filePathField = (FilePathField)theEObject;
+        T result = caseFilePathField(filePathField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.TYPE_FIELD_NAME:
+      case LuceneQueryPackage.NUMBER_FIELD:
       {
-        TypeFieldName typeFieldName = (TypeFieldName)theEObject;
-        T result = caseTypeFieldName(typeFieldName);
+        NumberField numberField = (NumberField)theEObject;
+        T result = caseNumberField(numberField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.MODIFIER_FIELD:
+      {
+        ModifierField modifierField = (ModifierField)theEObject;
+        T result = caseModifierField(modifierField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.TIME_FIELD:
+      {
+        TimeField timeField = (TimeField)theEObject;
+        T result = caseTimeField(timeField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD:
+      {
+        DocumentTypeField documentTypeField = (DocumentTypeField)theEObject;
+        T result = caseDocumentTypeField(documentTypeField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.PROJECT_NAME_FIELD:
+      {
+        ProjectNameField projectNameField = (ProjectNameField)theEObject;
+        T result = caseProjectNameField(projectNameField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.ANNOTATION_FIELD:
+      {
+        AnnotationField annotationField = (AnnotationField)theEObject;
+        T result = caseAnnotationField(annotationField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.SIMPLE_FIELD:
+      {
+        SimpleField simpleField = (SimpleField)theEObject;
+        T result = caseSimpleField(simpleField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -163,65 +205,161 @@ public class LuceneQuerySwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Simple Clause</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Type Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Simple Clause</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Type Field</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSimpleClause(SimpleClause object)
+  public T caseTypeField(TypeField object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type Clause</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Method Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type Clause</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Method Field</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypeClause(TypeClause object)
+  public T caseMethodField(MethodField object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Field Name</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>File Path Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Field Name</em>'.
+   * @return the result of interpreting the object as an instance of '<em>File Path Field</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFieldName(FieldName object)
+  public T caseFilePathField(FilePathField object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type Field Name</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Number Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type Field Name</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Number Field</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTypeFieldName(TypeFieldName object)
+  public T caseNumberField(NumberField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Modifier Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Modifier Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModifierField(ModifierField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Time Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Time Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTimeField(TimeField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Document Type Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Document Type Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDocumentTypeField(DocumentTypeField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Project Name Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Project Name Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProjectNameField(ProjectNameField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Annotation Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Annotation Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAnnotationField(AnnotationField object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleField(SimpleField object)
   {
     return null;
   }

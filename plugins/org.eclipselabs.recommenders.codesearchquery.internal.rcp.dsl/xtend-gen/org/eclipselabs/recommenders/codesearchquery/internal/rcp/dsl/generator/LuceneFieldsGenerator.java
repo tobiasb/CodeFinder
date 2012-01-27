@@ -14,6 +14,7 @@ import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.generator.BooleanHandler;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field;
+import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldCategory;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.FieldType;
 import org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Model;
 
@@ -29,19 +30,17 @@ public class LuceneFieldsGenerator implements IGenerator {
         String _operator_plus = StringExtensions.operator_plus(_className, ".java");
         CharSequence _compileFieldsClass = this.compileFieldsClass(e);
         fsa.generateFile(_operator_plus, _compileFieldsClass);
-        String _compileXtextBaseClass = this.compileXtextBaseClass(e);
+        CharSequence _compileXtextBaseClass = this.compileXtextBaseClass(e);
         fsa.generateFile("LuceneQueryBaseGenerated.xtext", _compileXtextBaseClass);
       }
     }
   }
   
-  public String compileXtextBaseClass(final Model m) {
-    String _xblockexpression = null;
+  public CharSequence compileXtextBaseClass(final Model m) {
+    CharSequence _xblockexpression = null;
     {
       BooleanHandler _booleanHandler = new BooleanHandler();
       BooleanHandler b = _booleanHandler;
-      StringBuilder _stringBuilder = new StringBuilder();
-      StringBuilder sb = _stringBuilder;
       b.setValue(Boolean.valueOf(true));
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("/*");
@@ -51,105 +50,132 @@ public class LuceneFieldsGenerator implements IGenerator {
       _builder.newLine();
       _builder.append("*/");
       _builder.newLine();
-      _builder.append("FieldName:");
+      _builder.append("\t");
+      _builder.append("ClauseExpression:");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("(n=MustNotExpression | m=MustExpression)? ");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("(");
       _builder.newLine();
       {
-        EList<Field> _fields = m.getFields();
-        for(final Field f : _fields) {
+        EList<FieldCategory> _fieldCategories = m.getFieldCategories();
+        for(final FieldCategory category : _fieldCategories) {
+          _builder.append("\t\t\t");
+          String _xifexpression = null;
+          EList<FieldCategory> _fieldCategories_1 = m.getFieldCategories();
+          int _indexOf = _fieldCategories_1.indexOf(category);
+          boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
+          if (_operator_greaterThan) {
+            _xifexpression = "| ";
+          }
+          _builder.append(_xifexpression, "			");
+          _builder.append("field=");
+          String _categoryName = category.getCategoryName();
+          _builder.append(_categoryName, "			");
+          _builder.append(" \':\' value=");
+          String _categoryName_1 = category.getCategoryName();
+          _builder.append(_categoryName_1, "			");
+          _builder.append("Value");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.append("\t\t");
+      _builder.append(")");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append(";");
+      _builder.newLine();
+      _builder.newLine();
+      {
+        EList<FieldCategory> _fieldCategories_2 = m.getFieldCategories();
+        for(final FieldCategory category_1 : _fieldCategories_2) {
+          _builder.append("\t");
+          String _categoryName_2 = category_1.getCategoryName();
+          _builder.append(_categoryName_2, "	");
+          _builder.append(":");
+          _builder.newLineIfNotEmpty();
           {
-            boolean _isProposeType = f.isProposeType();
-            boolean _operator_not = BooleanExtensions.operator_not(_isProposeType);
-            if (_operator_not) {
+            EList<Field> _fields = category_1.getFields();
+            for(final Field field : _fields) {
               _builder.append("\t");
-              String _xifexpression = null;
+              _builder.append("\t");
+              String _xifexpression_1 = null;
               Boolean _value = b.getValue();
-              boolean _operator_not_1 = BooleanExtensions.operator_not(_value);
-              if (_operator_not_1) {
-                _xifexpression = "| ";
+              boolean _operator_not = BooleanExtensions.operator_not(_value);
+              if (_operator_not) {
+                _xifexpression_1 = "| ";
               }
-              _builder.append(_xifexpression, "	");
+              _builder.append(_xifexpression_1, "		");
               _builder.append("\t");
-              String _value_1 = f.getValue();
-              _builder.append(_value_1, "	");
+              String _value_1 = field.getValue();
+              _builder.append(_value_1, "		");
               _builder.append("=\'");
-              String _value_2 = f.getValue();
-              _builder.append(_value_2, "	");
+              String _value_2 = field.getValue();
+              _builder.append(_value_2, "		");
               _builder.append("\'");
               _builder.newLineIfNotEmpty();
               _builder.append("\t");
+              _builder.append("\t");
               b.setValue(Boolean.valueOf(false));
               _builder.newLineIfNotEmpty();
             }
           }
+          _builder.append("\t");
+          _builder.append(";");
+          _builder.newLine();
+          _builder.append("\t");
+          _builder.newLine();
+          _builder.append("\t");
+          b.setValue(Boolean.valueOf(true));
+          _builder.newLineIfNotEmpty();
         }
       }
-      _builder.append(";");
-      sb.append(_builder);
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.newLine();
-      sb.append(_builder_1);
-      b.setValue(Boolean.valueOf(true));
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("TypeFieldName:");
-      _builder_2.newLine();
-      {
-        EList<Field> _fields_1 = m.getFields();
-        for(final Field f_1 : _fields_1) {
-          {
-            boolean _isProposeType_1 = f_1.isProposeType();
-            if (_isProposeType_1) {
-              _builder_2.append("\t");
-              String _xifexpression_1 = null;
-              Boolean _value_3 = b.getValue();
-              boolean _operator_not_2 = BooleanExtensions.operator_not(_value_3);
-              if (_operator_not_2) {
-                _xifexpression_1 = "| ";
-              }
-              _builder_2.append(_xifexpression_1, "	");
-              _builder_2.append("\t");
-              String _value_4 = f_1.getValue();
-              _builder_2.append(_value_4, "	");
-              _builder_2.append("=\'");
-              String _value_5 = f_1.getValue();
-              _builder_2.append(_value_5, "	");
-              _builder_2.append("\'");
-              _builder_2.newLineIfNotEmpty();
-              _builder_2.append("\t");
-              b.setValue(Boolean.valueOf(false));
-              _builder_2.newLineIfNotEmpty();
-            }
-          }
-        }
-      }
-      _builder_2.append(";");
-      _builder_2.newLine();
-      _builder_2.append("/*");
-      _builder_2.newLine();
-      _builder_2.append("\t");
-      _builder_2.append("End of generated rules.");
-      _builder_2.newLine();
-      _builder_2.append("*/");
-      sb.append(_builder_2);
-      String _string = sb.toString();
-      _xblockexpression = (_string);
+      _builder.append("\t");
+      _builder.append("/*");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("End of generated rules.");
+      _builder.newLine();
+      _builder.append("*/");
+      _builder.newLine();
+      _xblockexpression = (_builder);
     }
     return _xblockexpression;
   }
   
   public CharSequence compileFieldsClass(final Model m) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/*");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*\tCOPY THE NEXT BLOCK TO THE FOLLOWING LOCATONS:");
+    _builder.newLine();
+    {
+      EList<String> _packageNames = m.getPackageNames();
+      for(final String packageName : _packageNames) {
+        _builder.append("*\t\t");
+        _builder.append(packageName, "");
+        _builder.append(".");
+        String _className = m.getClassName();
+        _builder.append(_className, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("/*");
+    _builder.newLine();
+    _builder.append("\t");
     CharSequence _doNotModify = this.doNotModify();
-    _builder.append(_doNotModify, "");
+    _builder.append(_doNotModify, "	");
     _builder.newLineIfNotEmpty();
-    _builder.append("package ");
-    String _packageName = m.getPackageName();
-    _builder.append(_packageName, "");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     _builder.newLine();
     _builder.append("public class ");
-    String _className = m.getClassName();
-    _builder.append(_className, "");
+    String _className_1 = m.getClassName();
+    _builder.append(_className_1, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -186,20 +212,36 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("\t");
     _builder.newLine();
     {
-      EList<Field> _fields = m.getFields();
-      for(final Field f : _fields) {
+      EList<FieldCategory> _fieldCategories = m.getFieldCategories();
+      for(final FieldCategory category : _fieldCategories) {
         _builder.append("\t");
-        CharSequence _compile = this.compile(f);
-        _builder.append(_compile, "	");
+        _builder.append("//");
+        String _categoryName = category.getCategoryName();
+        _builder.append(_categoryName, "	");
         _builder.newLineIfNotEmpty();
+        {
+          EList<Field> _fields = category.getFields();
+          for(final Field field : _fields) {
+            CharSequence _compile = this.compile(field);
+            _builder.append(_compile, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
       }
     }
     _builder.append("}");
+    _builder.newLine();
+    _builder.append("*/");
     return _builder;
   }
   
   public CharSequence compile(final Field f) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
     _builder.append("/** Can be applied to: ");
     {
       EList<FieldType> _types = f.getTypes();
@@ -211,19 +253,20 @@ public class LuceneFieldsGenerator implements IGenerator {
         if (_operator_greaterThan) {
           _xifexpression = ",";
         }
-        _builder.append(_xifexpression, "");
+        _builder.append(_xifexpression, "	");
         String _typeName = this.toTypeName(t);
-        _builder.append(_typeName, "");
+        _builder.append(_typeName, "	");
       }
     }
     _builder.append("*/");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
     _builder.append("public final static String ");
     String _name = f.getName();
-    _builder.append(_name, "");
+    _builder.append(_name, "	");
     _builder.append(" = \"");
     String _value = f.getValue();
-    _builder.append(_value, "");
+    _builder.append(_value, "	");
     _builder.append("\";");
     return _builder;
   }

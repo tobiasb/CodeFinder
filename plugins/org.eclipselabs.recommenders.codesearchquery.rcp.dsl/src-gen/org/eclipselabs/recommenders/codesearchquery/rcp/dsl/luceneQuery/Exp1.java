@@ -55,7 +55,7 @@ public interface Exp1 extends Expression
 
   /**
    * Returns the value of the '<em><b>B</b></em>' attribute.
-   * The literals are from the enumeration {@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BooleanExp}.
+   * The literals are from the enumeration {@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BinaryExp}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>B</em>' attribute isn't clear,
@@ -63,24 +63,24 @@ public interface Exp1 extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>B</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BooleanExp
-   * @see #setB(BooleanExp)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BinaryExp
+   * @see #setB(BinaryExp)
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getExp1_B()
    * @model
    * @generated
    */
-  BooleanExp getB();
+  BinaryExp getB();
 
   /**
    * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Exp1#getB <em>B</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>B</em>' attribute.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BooleanExp
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BinaryExp
    * @see #getB()
    * @generated
    */
-  void setB(BooleanExp value);
+  void setB(BinaryExp value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.

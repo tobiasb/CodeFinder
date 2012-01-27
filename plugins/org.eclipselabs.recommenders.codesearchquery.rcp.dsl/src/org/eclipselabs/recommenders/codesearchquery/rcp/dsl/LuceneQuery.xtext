@@ -1,5 +1,5 @@
 grammar org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQuery 
-	with org.eclipse.xtext.common.Terminals
+	with org.eclipse.xtext.xbase.Xbase
 
 generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery'
 
@@ -10,108 +10,159 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
  * */
  
 	Exp1 returns Expression:
-	 Exp2 ({Exp1.left=current} b=BooleanExp right=Exp2)*;
+	 Exp2 ({Exp1.left=current} b=BinaryExp right=Exp2)*;
 	
 	Exp2 returns Expression:
 	 value=ClauseExpression |
-	 '(' Exp1 ')';
-	
-	ClauseExpression:
-		(n=NotExpression | m=MustExpression)? (clause=SimpleClause | clause=TypeClause)
-	;
-	
-	SimpleClause:
-		 field=FieldName ':' value=FieldValue
-	;
-	
-	TypeClause:
-		field=TypeFieldName ':' value=TypeValue
-	;
-	
-	FieldValue:
-		Value
-	;
-	
-	TypeValue:
-		QualifiedNameWithWildcard
-	;
-	
-	Value:
-		(Wildcard)? ((ID (SpecialChar?)) ((Wildcard?) ID (SpecialChar?))* (Wildcard)?)?
-	;
-  
-  	QualifiedNameWithWildcard hidden(SL_COMMENT, ML_COMMENT):
-	  Value ((Wildcard?) Sep (Wildcard?) Value)* Wildcard?
-	;
-	
-	Sep:
-		('/' | '.')
-	;
-	
-	SpecialChar:
-		('\\' ('-')) | '/'
-	;
-	
-	Wildcard:
-		('*' | '?')
-	;
-	
-	enum BooleanExp:
-		and1='AND' | or1='OR'
-	;
-
-	enum NotExpression:
-		n1='-' | n2='NOT' | n3='!'
-	;
-
-	enum MustExpression:
-		m='+'
-	;
+	 UnaryExpression? '(' Exp1 ')';
+	 
 /*
 	The following rules are generated. Do not modify. Modify source file instead.
 */
-FieldName:
-		FullyQualifiedName='FullyQualifiedName'
-	| 	Type='Type'
-	| 	FriendlyName='FriendlyName'
-	| 	DeclaredMethods='DeclaredMethods'
-	| 	ParameterCount='ParameterCount'
-	| 	ReturnVariableEexpressions='ReturnVariableEexpressions'
-	| 	UsedMethods='UsedMethods'
-	| 	UsedMethodsInTry='UsedMethodsInTry'
-	| 	UsedMethodsInFinally='UsedMethodsInFinally'
-	| 	OverriddenMethods='OverriddenMethods'
-	| 	ProjectName='ProjectName'
-	| 	ResourcePath='ResourcePath'
-	| 	Modifiers='Modifiers'
-	| 	AllDeclaredMethodNames='AllDeclaredMethodNames'
-	| 	DeclaredMethodNames='DeclaredMethodNames'
-	| 	DeclaredFieldNames='DeclaredFieldNames'
-	| 	DeclaredFieldTypes='DeclaredFieldTypes'
-	| 	AllDeclaredFieldNames='AllDeclaredFieldNames'
-	| 	FullText='FullText'
-	| 	FieldsRead='FieldsRead'
-	| 	FieldsWritten='FieldsWritten'
-	| 	UsedFieldsInFinally='UsedFieldsInFinally'
-	| 	UsedFieldsInTry='UsedFieldsInTry'
-	| 	Annotations='Annotations'
-	| 	Timestamp='Timestamp'
-;
-TypeFieldName:
-		ImplementedTypes='ImplementedTypes'
-	| 	ExtendedTypes='ExtendedTypes'
-	| 	UsedTypes='UsedTypes'
-	| 	UsedTypesInTry='UsedTypesInTry'
-	| 	UsedTypesInFinally='UsedTypesInFinally'
-	| 	ParameterTypes='ParameterTypes'
-	| 	ReturnType='ReturnType'
-	| 	AllImplementedTypes='AllImplementedTypes'
-	| 	AllExtendedTypes='AllExtendedTypes'
-	| 	FieldType='FieldType'
-	| 	DeclaringType='DeclaringType'
-	| 	CaughtType='CaughtType'
-	| 	InstanceofTypes='InstanceofTypes'
-;
-/*
+	ClauseExpression:
+		(UnaryExpression)? 
+		(
+			(field=SimpleField ':' value=SimpleFieldValue)
+			| (field=TypeField ':' value=TypeFieldValue)
+			| (field=MethodField ':' value=MethodFieldValue)
+			| (field=FilePathField ':' value=FilePathFieldValue)
+			| (field=NumberField ':' value=NumberFieldValue)
+			| (field=ModifierField ':' value=ModifierFieldValue)
+			| (field=TimeField ':' value=TimeFieldValue)
+			| (field=DocumentTypeField ':' value=DocumentTypeFieldValue)
+			| (field=ProjectNameField ':' value=ProjectNameFieldValue)
+			| (field=AnnotationField ':' value=AnnotationFieldValue)
+		)
+	;
+
+	TypeField:
+			ImplementedTypes='ImplementedTypes'
+		| 	ExtendedTypes='ExtendedTypes'
+		| 	UsedTypes='UsedTypes'
+		| 	UsedTypesInTry='UsedTypesInTry'
+		| 	UsedTypesInFinally='UsedTypesInFinally'
+		| 	ParameterTypes='ParameterTypes'
+		| 	ReturnType='ReturnType'
+		| 	InstanceofTypes='InstanceofTypes'
+		| 	AllImplementedTypes='AllImplementedTypes'
+		| 	AllExtendedTypes='AllExtendedTypes'
+		| 	FieldType='FieldType'
+		| 	CaughtType='CaughtType'
+		| 	DeclaredFieldTypes='DeclaredFieldTypes'
+		| 	DeclaringType='DeclaringType'
+	;
+	
+	MethodField:
+			UsedMethods='UsedMethods'
+		| 	UsedMethodsInTry='UsedMethodsInTry'
+		| 	UsedMethodsInFinally='UsedMethodsInFinally'
+		| 	OverriddenMethods='OverriddenMethods'
+	;
+	
+	FilePathField:
+			ResourcePath='ResourcePath'
+	;
+	
+	NumberField:
+			ParameterCount='ParameterCount'
+	;
+	
+	ModifierField:
+			Modifiers='Modifiers'
+	;
+	
+	TimeField:
+			Timestamp='Timestamp'
+	;
+	
+	DocumentTypeField:
+			Type='Type'
+	;
+	
+	ProjectNameField:
+			ProjectName='ProjectName'
+	;
+	
+	AnnotationField:
+			Annotations='Annotations'
+	;
+	
+	SimpleField:
+			FullyQualifiedName='FullyQualifiedName'
+		| 	FriendlyName='FriendlyName'
+		| 	DeclaredMethods='DeclaredMethods'
+		| 	ReturnVariableEexpressions='ReturnVariableEexpressions'
+		| 	AllDeclaredMethodNames='AllDeclaredMethodNames'
+		| 	DeclaredMethodNames='DeclaredMethodNames'
+		| 	DeclaredFieldNames='DeclaredFieldNames'
+		| 	AllDeclaredFieldNames='AllDeclaredFieldNames'
+		| 	FullText='FullText'
+		| 	FieldsRead='FieldsRead'
+		| 	FieldsWritten='FieldsWritten'
+		| 	UsedFieldsInFinally='UsedFieldsInFinally'
+		| 	UsedFieldsInTry='UsedFieldsInTry'
+	;
+	
+	/*
 	End of generated rules.
 */
+
+		
+
+	SimpleFieldValue:
+		NameWithWC
+	;
+	
+	MethodFieldValue:
+		NameWithWC
+	;
+	
+	ProjectNameFieldValue:
+		NameWithWC
+	;
+	
+	NumberFieldValue:
+		INT
+	;
+	
+	ModifierFieldValue:
+		'private'
+		| 'public' 
+		| 'static' 
+		| 'final'
+		| 'abstract' 
+		| 'protected'
+	;
+	
+	TimeFieldValue:
+		NameWithWC
+	;
+	
+	DocumentTypeFieldValue:
+		NameWithWC
+	;
+	
+	AnnotationFieldValue:
+		NameWithWC
+	;
+	
+	TypeFieldValue:
+		NameWithWC
+	;
+	
+	terminal NameWithWC				: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.')*;
+	terminal PathWithWC  			: (('A'..'Z' ':') | ('a'..'z'|'A'..'Z'|'_'|'/')) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
+	
+	FilePathFieldValue:
+		PathWithWC
+	;
+	//-----------------
+	
+	enum BinaryExp:
+		and1='AND' | or1='OR'
+	;
+
+	UnaryExpression:
+		('-' | 'NOT' | '!' | '+')
+	;
+

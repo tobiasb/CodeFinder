@@ -108,7 +108,7 @@ public class SearchQueryView extends ViewPart {
 		
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new TypeQueryProposalProvider());
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.MODIFIER, new ModifierQueryProposalProvider());
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.RESOURCE_PATH, new ResourcePathQueryProposalProvider());
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH, new ResourcePathQueryProposalProvider());
 		
         IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 

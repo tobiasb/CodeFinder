@@ -21,9 +21,14 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'class'", "';'", "'proposeType'", "','", "'method'", "'field'", "'trycatch'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'packages'", "'class'", "'{'", "'}'", "'='", "','", "'method'", "'field'", "'trycatch'"
     };
     public static final int RULE_ID=5;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int EOF=-1;
+    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_ML_COMMENT=7;
+    public static final int T__19=19;
     public static final int RULE_STRING=4;
     public static final int T__16=16;
     public static final int T__15=15;
@@ -33,12 +38,8 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_INT=6;
     public static final int RULE_WS=9;
-    public static final int RULE_SL_COMMENT=8;
-    public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -115,57 +116,75 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModel"
-    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:76:1: ruleModel returns [EObject current=null] : (otherlv_0= 'package' ( (lv_packageName_1_0= RULE_STRING ) ) otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fields_4_0= ruleField ) )* ) ;
+    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:76:1: ruleModel returns [EObject current=null] : (otherlv_0= 'packages' ( (lv_packageNames_1_0= RULE_STRING ) )* otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fieldCategories_4_0= ruleFieldCategory ) )* ) ;
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
-        Token lv_packageName_1_0=null;
+        Token lv_packageNames_1_0=null;
         Token otherlv_2=null;
         Token lv_className_3_0=null;
-        EObject lv_fields_4_0 = null;
+        EObject lv_fieldCategories_4_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:79:28: ( (otherlv_0= 'package' ( (lv_packageName_1_0= RULE_STRING ) ) otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fields_4_0= ruleField ) )* ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:80:1: (otherlv_0= 'package' ( (lv_packageName_1_0= RULE_STRING ) ) otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fields_4_0= ruleField ) )* )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:79:28: ( (otherlv_0= 'packages' ( (lv_packageNames_1_0= RULE_STRING ) )* otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fieldCategories_4_0= ruleFieldCategory ) )* ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:80:1: (otherlv_0= 'packages' ( (lv_packageNames_1_0= RULE_STRING ) )* otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fieldCategories_4_0= ruleFieldCategory ) )* )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:80:1: (otherlv_0= 'package' ( (lv_packageName_1_0= RULE_STRING ) ) otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fields_4_0= ruleField ) )* )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:80:3: otherlv_0= 'package' ( (lv_packageName_1_0= RULE_STRING ) ) otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fields_4_0= ruleField ) )*
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:80:1: (otherlv_0= 'packages' ( (lv_packageNames_1_0= RULE_STRING ) )* otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fieldCategories_4_0= ruleFieldCategory ) )* )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:80:3: otherlv_0= 'packages' ( (lv_packageNames_1_0= RULE_STRING ) )* otherlv_2= 'class' ( (lv_className_3_0= RULE_ID ) ) ( (lv_fieldCategories_4_0= ruleFieldCategory ) )*
             {
             otherlv_0=(Token)match(input,11,FOLLOW_11_in_ruleModel122); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getModelAccess().getPackageKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getModelAccess().getPackagesKeyword_0());
                 
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:84:1: ( (lv_packageName_1_0= RULE_STRING ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:85:1: (lv_packageName_1_0= RULE_STRING )
-            {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:85:1: (lv_packageName_1_0= RULE_STRING )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:86:3: lv_packageName_1_0= RULE_STRING
-            {
-            lv_packageName_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleModel139); 
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:84:1: ( (lv_packageNames_1_0= RULE_STRING ) )*
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-            			newLeafNode(lv_packageName_1_0, grammarAccess.getModelAccess().getPackageNameSTRINGTerminalRuleCall_1_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getModelRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"packageName",
-                    		lv_packageName_1_0, 
-                    		"STRING");
-            	    
-
-            }
+                if ( (LA1_0==RULE_STRING) ) {
+                    alt1=1;
+                }
 
 
-            }
+                switch (alt1) {
+            	case 1 :
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:85:1: (lv_packageNames_1_0= RULE_STRING )
+            	    {
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:85:1: (lv_packageNames_1_0= RULE_STRING )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:86:3: lv_packageNames_1_0= RULE_STRING
+            	    {
+            	    lv_packageNames_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleModel139); 
 
-            otherlv_2=(Token)match(input,12,FOLLOW_12_in_ruleModel156); 
+            	    			newLeafNode(lv_packageNames_1_0, grammarAccess.getModelAccess().getPackageNamesSTRINGTerminalRuleCall_1_0()); 
+            	    		
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getModelRule());
+            	    	        }
+            	           		addWithLastConsumed(
+            	           			current, 
+            	           			"packageNames",
+            	            		lv_packageNames_1_0, 
+            	            		"STRING");
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop1;
+                }
+            } while (true);
+
+            otherlv_2=(Token)match(input,12,FOLLOW_12_in_ruleModel157); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getModelAccess().getClassKeyword_2());
                 
@@ -175,7 +194,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:107:1: (lv_className_3_0= RULE_ID )
             // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:108:3: lv_className_3_0= RULE_ID
             {
-            lv_className_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleModel173); 
+            lv_className_3_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleModel174); 
 
             			newLeafNode(lv_className_3_0, grammarAccess.getModelAccess().getClassNameIDTerminalRuleCall_3_0()); 
             		
@@ -195,29 +214,29 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:124:2: ( (lv_fields_4_0= ruleField ) )*
-            loop1:
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:124:2: ( (lv_fieldCategories_4_0= ruleFieldCategory ) )*
+            loop2:
             do {
-                int alt1=2;
-                int LA1_0 = input.LA(1);
+                int alt2=2;
+                int LA2_0 = input.LA(1);
 
-                if ( (LA1_0==RULE_ID) ) {
-                    alt1=1;
+                if ( (LA2_0==RULE_ID) ) {
+                    alt2=1;
                 }
 
 
-                switch (alt1) {
+                switch (alt2) {
             	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:125:1: (lv_fields_4_0= ruleField )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:125:1: (lv_fieldCategories_4_0= ruleFieldCategory )
             	    {
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:125:1: (lv_fields_4_0= ruleField )
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:126:3: lv_fields_4_0= ruleField
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:125:1: (lv_fieldCategories_4_0= ruleFieldCategory )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:126:3: lv_fieldCategories_4_0= ruleFieldCategory
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getModelAccess().getFieldsFieldParserRuleCall_4_0()); 
+            	    	        newCompositeNode(grammarAccess.getModelAccess().getFieldCategoriesFieldCategoryParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleField_in_ruleModel199);
-            	    lv_fields_4_0=ruleField();
+            	    pushFollow(FOLLOW_ruleFieldCategory_in_ruleModel200);
+            	    lv_fieldCategories_4_0=ruleFieldCategory();
 
             	    state._fsp--;
 
@@ -227,9 +246,9 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
             	    	        }
             	           		add(
             	           			current, 
-            	           			"fields",
-            	            		lv_fields_4_0, 
-            	            		"Field");
+            	           			"fieldCategories",
+            	            		lv_fieldCategories_4_0, 
+            	            		"FieldCategory");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -240,7 +259,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop1;
+            	    break loop2;
                 }
             } while (true);
 
@@ -264,8 +283,167 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleModel"
 
 
+    // $ANTLR start "entryRuleFieldCategory"
+    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:150:1: entryRuleFieldCategory returns [EObject current=null] : iv_ruleFieldCategory= ruleFieldCategory EOF ;
+    public final EObject entryRuleFieldCategory() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleFieldCategory = null;
+
+
+        try {
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:151:2: (iv_ruleFieldCategory= ruleFieldCategory EOF )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:152:2: iv_ruleFieldCategory= ruleFieldCategory EOF
+            {
+             newCompositeNode(grammarAccess.getFieldCategoryRule()); 
+            pushFollow(FOLLOW_ruleFieldCategory_in_entryRuleFieldCategory237);
+            iv_ruleFieldCategory=ruleFieldCategory();
+
+            state._fsp--;
+
+             current =iv_ruleFieldCategory; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFieldCategory247); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleFieldCategory"
+
+
+    // $ANTLR start "ruleFieldCategory"
+    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:159:1: ruleFieldCategory returns [EObject current=null] : ( ( (lv_categoryName_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_fields_2_0= ruleField ) )* otherlv_3= '}' ) ;
+    public final EObject ruleFieldCategory() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_categoryName_0_0=null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        EObject lv_fields_2_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:162:28: ( ( ( (lv_categoryName_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_fields_2_0= ruleField ) )* otherlv_3= '}' ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:1: ( ( (lv_categoryName_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_fields_2_0= ruleField ) )* otherlv_3= '}' )
+            {
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:1: ( ( (lv_categoryName_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_fields_2_0= ruleField ) )* otherlv_3= '}' )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:2: ( (lv_categoryName_0_0= RULE_ID ) ) otherlv_1= '{' ( (lv_fields_2_0= ruleField ) )* otherlv_3= '}'
+            {
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:2: ( (lv_categoryName_0_0= RULE_ID ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:164:1: (lv_categoryName_0_0= RULE_ID )
+            {
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:164:1: (lv_categoryName_0_0= RULE_ID )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:165:3: lv_categoryName_0_0= RULE_ID
+            {
+            lv_categoryName_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleFieldCategory289); 
+
+            			newLeafNode(lv_categoryName_0_0, grammarAccess.getFieldCategoryAccess().getCategoryNameIDTerminalRuleCall_0_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getFieldCategoryRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"categoryName",
+                    		lv_categoryName_0_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleFieldCategory306); 
+
+                	newLeafNode(otherlv_1, grammarAccess.getFieldCategoryAccess().getLeftCurlyBracketKeyword_1());
+                
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:185:1: ( (lv_fields_2_0= ruleField ) )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
+
+                if ( (LA3_0==RULE_ID) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:186:1: (lv_fields_2_0= ruleField )
+            	    {
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:186:1: (lv_fields_2_0= ruleField )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:187:3: lv_fields_2_0= ruleField
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getFieldCategoryAccess().getFieldsFieldParserRuleCall_2_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleField_in_ruleFieldCategory327);
+            	    lv_fields_2_0=ruleField();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getFieldCategoryRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"fields",
+            	            		lv_fields_2_0, 
+            	            		"Field");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop3;
+                }
+            } while (true);
+
+            otherlv_3=(Token)match(input,14,FOLLOW_14_in_ruleFieldCategory340); 
+
+                	newLeafNode(otherlv_3, grammarAccess.getFieldCategoryAccess().getRightCurlyBracketKeyword_3());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleFieldCategory"
+
+
     // $ANTLR start "entryRuleField"
-    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:150:1: entryRuleField returns [EObject current=null] : iv_ruleField= ruleField EOF ;
+    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:215:1: entryRuleField returns [EObject current=null] : iv_ruleField= ruleField EOF ;
     public final EObject entryRuleField() throws RecognitionException {
         EObject current = null;
 
@@ -273,17 +451,17 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:151:2: (iv_ruleField= ruleField EOF )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:152:2: iv_ruleField= ruleField EOF
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:216:2: (iv_ruleField= ruleField EOF )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:217:2: iv_ruleField= ruleField EOF
             {
              newCompositeNode(grammarAccess.getFieldRule()); 
-            pushFollow(FOLLOW_ruleField_in_entryRuleField236);
+            pushFollow(FOLLOW_ruleField_in_entryRuleField376);
             iv_ruleField=ruleField();
 
             state._fsp--;
 
              current =iv_ruleField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleField246); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleField386); 
 
             }
 
@@ -301,7 +479,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleField"
-    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:159:1: ruleField returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ';' ( (lv_value_2_0= RULE_STRING ) ) (otherlv_3= ';' ( (lv_proposeType_4_0= 'proposeType' ) ) )? otherlv_5= ';' ( (lv_types_6_0= ruleFieldType ) ) (otherlv_7= ',' ( (lv_types_8_0= ruleFieldType ) ) )* ) ;
+    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:224:1: ruleField returns [EObject current=null] : ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) otherlv_3= '{' ( (lv_types_4_0= ruleFieldType ) ) (otherlv_5= ',' ( (lv_types_6_0= ruleFieldType ) ) )* otherlv_7= '}' ) ;
     public final EObject ruleField() throws RecognitionException {
         EObject current = null;
 
@@ -309,30 +487,29 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
         Token otherlv_1=null;
         Token lv_value_2_0=null;
         Token otherlv_3=null;
-        Token lv_proposeType_4_0=null;
         Token otherlv_5=null;
         Token otherlv_7=null;
-        EObject lv_types_6_0 = null;
+        EObject lv_types_4_0 = null;
 
-        EObject lv_types_8_0 = null;
+        EObject lv_types_6_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:162:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ';' ( (lv_value_2_0= RULE_STRING ) ) (otherlv_3= ';' ( (lv_proposeType_4_0= 'proposeType' ) ) )? otherlv_5= ';' ( (lv_types_6_0= ruleFieldType ) ) (otherlv_7= ',' ( (lv_types_8_0= ruleFieldType ) ) )* ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ';' ( (lv_value_2_0= RULE_STRING ) ) (otherlv_3= ';' ( (lv_proposeType_4_0= 'proposeType' ) ) )? otherlv_5= ';' ( (lv_types_6_0= ruleFieldType ) ) (otherlv_7= ',' ( (lv_types_8_0= ruleFieldType ) ) )* )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:227:28: ( ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) otherlv_3= '{' ( (lv_types_4_0= ruleFieldType ) ) (otherlv_5= ',' ( (lv_types_6_0= ruleFieldType ) ) )* otherlv_7= '}' ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:228:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) otherlv_3= '{' ( (lv_types_4_0= ruleFieldType ) ) (otherlv_5= ',' ( (lv_types_6_0= ruleFieldType ) ) )* otherlv_7= '}' )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ';' ( (lv_value_2_0= RULE_STRING ) ) (otherlv_3= ';' ( (lv_proposeType_4_0= 'proposeType' ) ) )? otherlv_5= ';' ( (lv_types_6_0= ruleFieldType ) ) (otherlv_7= ',' ( (lv_types_8_0= ruleFieldType ) ) )* )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= ';' ( (lv_value_2_0= RULE_STRING ) ) (otherlv_3= ';' ( (lv_proposeType_4_0= 'proposeType' ) ) )? otherlv_5= ';' ( (lv_types_6_0= ruleFieldType ) ) (otherlv_7= ',' ( (lv_types_8_0= ruleFieldType ) ) )*
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:228:1: ( ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) otherlv_3= '{' ( (lv_types_4_0= ruleFieldType ) ) (otherlv_5= ',' ( (lv_types_6_0= ruleFieldType ) ) )* otherlv_7= '}' )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:228:2: ( (lv_name_0_0= RULE_ID ) ) otherlv_1= '=' ( (lv_value_2_0= RULE_STRING ) ) otherlv_3= '{' ( (lv_types_4_0= ruleFieldType ) ) (otherlv_5= ',' ( (lv_types_6_0= ruleFieldType ) ) )* otherlv_7= '}'
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:163:2: ( (lv_name_0_0= RULE_ID ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:164:1: (lv_name_0_0= RULE_ID )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:228:2: ( (lv_name_0_0= RULE_ID ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:229:1: (lv_name_0_0= RULE_ID )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:164:1: (lv_name_0_0= RULE_ID )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:165:3: lv_name_0_0= RULE_ID
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:229:1: (lv_name_0_0= RULE_ID )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:230:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleField288); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleField428); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getFieldAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -352,17 +529,17 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,13,FOLLOW_13_in_ruleField305); 
+            otherlv_1=(Token)match(input,15,FOLLOW_15_in_ruleField445); 
 
-                	newLeafNode(otherlv_1, grammarAccess.getFieldAccess().getSemicolonKeyword_1());
+                	newLeafNode(otherlv_1, grammarAccess.getFieldAccess().getEqualsSignKeyword_1());
                 
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:185:1: ( (lv_value_2_0= RULE_STRING ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:186:1: (lv_value_2_0= RULE_STRING )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:250:1: ( (lv_value_2_0= RULE_STRING ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:251:1: (lv_value_2_0= RULE_STRING )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:186:1: (lv_value_2_0= RULE_STRING )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:187:3: lv_value_2_0= RULE_STRING
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:251:1: (lv_value_2_0= RULE_STRING )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:252:3: lv_value_2_0= RULE_STRING
             {
-            lv_value_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleField322); 
+            lv_value_2_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleField462); 
 
             			newLeafNode(lv_value_2_0, grammarAccess.getFieldAccess().getValueSTRINGTerminalRuleCall_2_0()); 
             		
@@ -382,68 +559,21 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:203:2: (otherlv_3= ';' ( (lv_proposeType_4_0= 'proposeType' ) ) )?
-            int alt2=2;
-            int LA2_0 = input.LA(1);
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleField479); 
 
-            if ( (LA2_0==13) ) {
-                int LA2_1 = input.LA(2);
-
-                if ( (LA2_1==14) ) {
-                    alt2=1;
-                }
-            }
-            switch (alt2) {
-                case 1 :
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:203:4: otherlv_3= ';' ( (lv_proposeType_4_0= 'proposeType' ) )
-                    {
-                    otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleField340); 
-
-                        	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getSemicolonKeyword_3_0());
-                        
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:207:1: ( (lv_proposeType_4_0= 'proposeType' ) )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:208:1: (lv_proposeType_4_0= 'proposeType' )
-                    {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:208:1: (lv_proposeType_4_0= 'proposeType' )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:209:3: lv_proposeType_4_0= 'proposeType'
-                    {
-                    lv_proposeType_4_0=(Token)match(input,14,FOLLOW_14_in_ruleField358); 
-
-                            newLeafNode(lv_proposeType_4_0, grammarAccess.getFieldAccess().getProposeTypeProposeTypeKeyword_3_1_0());
-                        
-
-                    	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getFieldRule());
-                    	        }
-                           		setWithLastConsumed(current, "proposeType", true, "proposeType");
-                    	    
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-
-            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleField385); 
-
-                	newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getSemicolonKeyword_4());
+                	newLeafNode(otherlv_3, grammarAccess.getFieldAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:226:1: ( (lv_types_6_0= ruleFieldType ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:227:1: (lv_types_6_0= ruleFieldType )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:272:1: ( (lv_types_4_0= ruleFieldType ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:273:1: (lv_types_4_0= ruleFieldType )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:227:1: (lv_types_6_0= ruleFieldType )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:228:3: lv_types_6_0= ruleFieldType
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:273:1: (lv_types_4_0= ruleFieldType )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:274:3: lv_types_4_0= ruleFieldType
             {
              
-            	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_5_0()); 
+            	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_4_0()); 
             	    
-            pushFollow(FOLLOW_ruleFieldType_in_ruleField406);
-            lv_types_6_0=ruleFieldType();
+            pushFollow(FOLLOW_ruleFieldType_in_ruleField500);
+            lv_types_4_0=ruleFieldType();
 
             state._fsp--;
 
@@ -454,7 +584,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
                    		add(
                    			current, 
                    			"types",
-                    		lv_types_6_0, 
+                    		lv_types_4_0, 
                     		"FieldType");
             	        afterParserOrEnumRuleCall();
             	    
@@ -464,36 +594,36 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:244:2: (otherlv_7= ',' ( (lv_types_8_0= ruleFieldType ) ) )*
-            loop3:
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:290:2: (otherlv_5= ',' ( (lv_types_6_0= ruleFieldType ) ) )*
+            loop4:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA3_0==15) ) {
-                    alt3=1;
+                if ( (LA4_0==16) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt4) {
             	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:244:4: otherlv_7= ',' ( (lv_types_8_0= ruleFieldType ) )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:290:4: otherlv_5= ',' ( (lv_types_6_0= ruleFieldType ) )
             	    {
-            	    otherlv_7=(Token)match(input,15,FOLLOW_15_in_ruleField419); 
+            	    otherlv_5=(Token)match(input,16,FOLLOW_16_in_ruleField513); 
 
-            	        	newLeafNode(otherlv_7, grammarAccess.getFieldAccess().getCommaKeyword_6_0());
+            	        	newLeafNode(otherlv_5, grammarAccess.getFieldAccess().getCommaKeyword_5_0());
             	        
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:248:1: ( (lv_types_8_0= ruleFieldType ) )
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:249:1: (lv_types_8_0= ruleFieldType )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:294:1: ( (lv_types_6_0= ruleFieldType ) )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:295:1: (lv_types_6_0= ruleFieldType )
             	    {
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:249:1: (lv_types_8_0= ruleFieldType )
-            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:250:3: lv_types_8_0= ruleFieldType
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:295:1: (lv_types_6_0= ruleFieldType )
+            	    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:296:3: lv_types_6_0= ruleFieldType
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_6_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getFieldAccess().getTypesFieldTypeParserRuleCall_5_1_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleFieldType_in_ruleField440);
-            	    lv_types_8_0=ruleFieldType();
+            	    pushFollow(FOLLOW_ruleFieldType_in_ruleField534);
+            	    lv_types_6_0=ruleFieldType();
 
             	    state._fsp--;
 
@@ -504,7 +634,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
             	           		add(
             	           			current, 
             	           			"types",
-            	            		lv_types_8_0, 
+            	            		lv_types_6_0, 
             	            		"FieldType");
             	    	        afterParserOrEnumRuleCall();
             	    	    
@@ -519,10 +649,14 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop3;
+            	    break loop4;
                 }
             } while (true);
 
+            otherlv_7=(Token)match(input,14,FOLLOW_14_in_ruleField548); 
+
+                	newLeafNode(otherlv_7, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_6());
+                
 
             }
 
@@ -544,7 +678,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFieldType"
-    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:274:1: entryRuleFieldType returns [EObject current=null] : iv_ruleFieldType= ruleFieldType EOF ;
+    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:324:1: entryRuleFieldType returns [EObject current=null] : iv_ruleFieldType= ruleFieldType EOF ;
     public final EObject entryRuleFieldType() throws RecognitionException {
         EObject current = null;
 
@@ -552,17 +686,17 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:275:2: (iv_ruleFieldType= ruleFieldType EOF )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:276:2: iv_ruleFieldType= ruleFieldType EOF
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:325:2: (iv_ruleFieldType= ruleFieldType EOF )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:326:2: iv_ruleFieldType= ruleFieldType EOF
             {
              newCompositeNode(grammarAccess.getFieldTypeRule()); 
-            pushFollow(FOLLOW_ruleFieldType_in_entryRuleFieldType478);
+            pushFollow(FOLLOW_ruleFieldType_in_entryRuleFieldType584);
             iv_ruleFieldType=ruleFieldType();
 
             state._fsp--;
 
              current =iv_ruleFieldType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFieldType488); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFieldType594); 
 
             }
 
@@ -580,7 +714,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFieldType"
-    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:283:1: ruleFieldType returns [EObject current=null] : ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) ) ;
+    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:333:1: ruleFieldType returns [EObject current=null] : ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) ) ;
     public final EObject ruleFieldType() throws RecognitionException {
         EObject current = null;
 
@@ -592,50 +726,50 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:286:28: ( ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:287:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:336:28: ( ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:287:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) )
-            int alt4=4;
+            // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) )
+            int alt5=4;
             switch ( input.LA(1) ) {
             case 12:
                 {
-                alt4=1;
-                }
-                break;
-            case 16:
-                {
-                alt4=2;
+                alt5=1;
                 }
                 break;
             case 17:
                 {
-                alt4=3;
+                alt5=2;
                 }
                 break;
             case 18:
                 {
-                alt4=4;
+                alt5=3;
+                }
+                break;
+            case 19:
+                {
+                alt5=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt4) {
+            switch (alt5) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:287:2: ( (lv_classType_0_0= 'class' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:2: ( (lv_classType_0_0= 'class' ) )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:287:2: ( (lv_classType_0_0= 'class' ) )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:288:1: (lv_classType_0_0= 'class' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:2: ( (lv_classType_0_0= 'class' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:338:1: (lv_classType_0_0= 'class' )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:288:1: (lv_classType_0_0= 'class' )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:289:3: lv_classType_0_0= 'class'
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:338:1: (lv_classType_0_0= 'class' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:339:3: lv_classType_0_0= 'class'
                     {
-                    lv_classType_0_0=(Token)match(input,12,FOLLOW_12_in_ruleFieldType531); 
+                    lv_classType_0_0=(Token)match(input,12,FOLLOW_12_in_ruleFieldType637); 
 
                             newLeafNode(lv_classType_0_0, grammarAccess.getFieldTypeAccess().getClassTypeClassKeyword_0_0());
                         
@@ -655,15 +789,15 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:303:6: ( (lv_methodType_1_0= 'method' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:353:6: ( (lv_methodType_1_0= 'method' ) )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:303:6: ( (lv_methodType_1_0= 'method' ) )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:304:1: (lv_methodType_1_0= 'method' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:353:6: ( (lv_methodType_1_0= 'method' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:354:1: (lv_methodType_1_0= 'method' )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:304:1: (lv_methodType_1_0= 'method' )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:305:3: lv_methodType_1_0= 'method'
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:354:1: (lv_methodType_1_0= 'method' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:355:3: lv_methodType_1_0= 'method'
                     {
-                    lv_methodType_1_0=(Token)match(input,16,FOLLOW_16_in_ruleFieldType568); 
+                    lv_methodType_1_0=(Token)match(input,17,FOLLOW_17_in_ruleFieldType674); 
 
                             newLeafNode(lv_methodType_1_0, grammarAccess.getFieldTypeAccess().getMethodTypeMethodKeyword_1_0());
                         
@@ -683,15 +817,15 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:319:6: ( (lv_fieldType_2_0= 'field' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:369:6: ( (lv_fieldType_2_0= 'field' ) )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:319:6: ( (lv_fieldType_2_0= 'field' ) )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:320:1: (lv_fieldType_2_0= 'field' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:369:6: ( (lv_fieldType_2_0= 'field' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:370:1: (lv_fieldType_2_0= 'field' )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:320:1: (lv_fieldType_2_0= 'field' )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:321:3: lv_fieldType_2_0= 'field'
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:370:1: (lv_fieldType_2_0= 'field' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:371:3: lv_fieldType_2_0= 'field'
                     {
-                    lv_fieldType_2_0=(Token)match(input,17,FOLLOW_17_in_ruleFieldType605); 
+                    lv_fieldType_2_0=(Token)match(input,18,FOLLOW_18_in_ruleFieldType711); 
 
                             newLeafNode(lv_fieldType_2_0, grammarAccess.getFieldTypeAccess().getFieldTypeFieldKeyword_2_0());
                         
@@ -711,15 +845,15 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:335:6: ( (lv_trycatchType_3_0= 'trycatch' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:385:6: ( (lv_trycatchType_3_0= 'trycatch' ) )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:335:6: ( (lv_trycatchType_3_0= 'trycatch' ) )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:336:1: (lv_trycatchType_3_0= 'trycatch' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:385:6: ( (lv_trycatchType_3_0= 'trycatch' ) )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:386:1: (lv_trycatchType_3_0= 'trycatch' )
                     {
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:336:1: (lv_trycatchType_3_0= 'trycatch' )
-                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:3: lv_trycatchType_3_0= 'trycatch'
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:386:1: (lv_trycatchType_3_0= 'trycatch' )
+                    // ../org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearchquery/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:387:3: lv_trycatchType_3_0= 'trycatch'
                     {
-                    lv_trycatchType_3_0=(Token)match(input,18,FOLLOW_18_in_ruleFieldType642); 
+                    lv_trycatchType_3_0=(Token)match(input,19,FOLLOW_19_in_ruleFieldType748); 
 
                             newLeafNode(lv_trycatchType_3_0, grammarAccess.getFieldTypeAccess().getTrycatchTypeTrycatchKeyword_3_0());
                         
@@ -764,27 +898,32 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel75 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel85 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_ruleModel122 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleModel139 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_ruleModel156 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleModel173 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_ruleField_in_ruleModel199 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_ruleField_in_entryRuleField236 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleField246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleField288 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleField305 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleField322 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleField340 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleField358 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleField385 = new BitSet(new long[]{0x0000000000071000L});
-    public static final BitSet FOLLOW_ruleFieldType_in_ruleField406 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleField419 = new BitSet(new long[]{0x0000000000071000L});
-    public static final BitSet FOLLOW_ruleFieldType_in_ruleField440 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_ruleFieldType_in_entryRuleFieldType478 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFieldType488 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_ruleFieldType531 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleFieldType568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleFieldType605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleFieldType642 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_ruleModel122 = new BitSet(new long[]{0x0000000000001010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleModel139 = new BitSet(new long[]{0x0000000000001010L});
+    public static final BitSet FOLLOW_12_in_ruleModel157 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleModel174 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_ruleFieldCategory_in_ruleModel200 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_ruleFieldCategory_in_entryRuleFieldCategory237 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFieldCategory247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleFieldCategory289 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleFieldCategory306 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_ruleField_in_ruleFieldCategory327 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_14_in_ruleFieldCategory340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleField_in_entryRuleField376 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleField386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleField428 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleField445 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleField462 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleField479 = new BitSet(new long[]{0x00000000000E1000L});
+    public static final BitSet FOLLOW_ruleFieldType_in_ruleField500 = new BitSet(new long[]{0x0000000000014000L});
+    public static final BitSet FOLLOW_16_in_ruleField513 = new BitSet(new long[]{0x00000000000E1000L});
+    public static final BitSet FOLLOW_ruleFieldType_in_ruleField534 = new BitSet(new long[]{0x0000000000014000L});
+    public static final BitSet FOLLOW_14_in_ruleField548 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFieldType_in_entryRuleFieldType584 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFieldType594 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_ruleFieldType637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleFieldType674 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleFieldType711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleFieldType748 = new BitSet(new long[]{0x0000000000000002L});
 
 }

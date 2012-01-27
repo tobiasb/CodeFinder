@@ -2,6 +2,7 @@
  * <copyright>
  * </copyright>
  *
+
  */
 package org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields;
 
@@ -19,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#getValue <em>Value</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#isProposeType <em>Propose Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#getTypes <em>Types</em>}</li>
  * </ul>
  * </p>
@@ -81,32 +81,6 @@ public interface Field extends EObject
    * @generated
    */
   void setValue(String value);
-
-  /**
-   * Returns the value of the '<em><b>Propose Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Propose Type</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Propose Type</em>' attribute.
-   * @see #setProposeType(boolean)
-   * @see org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getField_ProposeType()
-   * @model
-   * @generated
-   */
-  boolean isProposeType();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.internal.rcp.dsl.luceneFields.Field#isProposeType <em>Propose Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Propose Type</em>' attribute.
-   * @see #isProposeType()
-   * @generated
-   */
-  void setProposeType(boolean value);
 
   /**
    * Returns the value of the '<em><b>Types</b></em>' containment reference list.

@@ -89,24 +89,54 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createClauseExpressionAdapter();
       }
       @Override
-      public Adapter caseSimpleClause(SimpleClause object)
+      public Adapter caseTypeField(TypeField object)
       {
-        return createSimpleClauseAdapter();
+        return createTypeFieldAdapter();
       }
       @Override
-      public Adapter caseTypeClause(TypeClause object)
+      public Adapter caseMethodField(MethodField object)
       {
-        return createTypeClauseAdapter();
+        return createMethodFieldAdapter();
       }
       @Override
-      public Adapter caseFieldName(FieldName object)
+      public Adapter caseFilePathField(FilePathField object)
       {
-        return createFieldNameAdapter();
+        return createFilePathFieldAdapter();
       }
       @Override
-      public Adapter caseTypeFieldName(TypeFieldName object)
+      public Adapter caseNumberField(NumberField object)
       {
-        return createTypeFieldNameAdapter();
+        return createNumberFieldAdapter();
+      }
+      @Override
+      public Adapter caseModifierField(ModifierField object)
+      {
+        return createModifierFieldAdapter();
+      }
+      @Override
+      public Adapter caseTimeField(TimeField object)
+      {
+        return createTimeFieldAdapter();
+      }
+      @Override
+      public Adapter caseDocumentTypeField(DocumentTypeField object)
+      {
+        return createDocumentTypeFieldAdapter();
+      }
+      @Override
+      public Adapter caseProjectNameField(ProjectNameField object)
+      {
+        return createProjectNameFieldAdapter();
+      }
+      @Override
+      public Adapter caseAnnotationField(AnnotationField object)
+      {
+        return createAnnotationFieldAdapter();
+      }
+      @Override
+      public Adapter caseSimpleField(SimpleField object)
+      {
+        return createSimpleFieldAdapter();
       }
       @Override
       public Adapter caseExp1(Exp1 object)
@@ -166,61 +196,151 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause <em>Simple Clause</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField <em>Type Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleClause
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField
    * @generated
    */
-  public Adapter createSimpleClauseAdapter()
+  public Adapter createTypeFieldAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause <em>Type Clause</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField <em>Method Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeClause
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField
    * @generated
    */
-  public Adapter createTypeClauseAdapter()
+  public Adapter createMethodFieldAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName <em>Field Name</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField <em>File Path Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FieldName
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField
    * @generated
    */
-  public Adapter createFieldNameAdapter()
+  public Adapter createFilePathFieldAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName <em>Type Field Name</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberField <em>Number Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeFieldName
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberField
    * @generated
    */
-  public Adapter createTypeFieldNameAdapter()
+  public Adapter createNumberFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ModifierField <em>Modifier Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ModifierField
+   * @generated
+   */
+  public Adapter createModifierFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField <em>Time Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField
+   * @generated
+   */
+  public Adapter createTimeFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.DocumentTypeField <em>Document Type Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.DocumentTypeField
+   * @generated
+   */
+  public Adapter createDocumentTypeFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectNameField <em>Project Name Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectNameField
+   * @generated
+   */
+  public Adapter createProjectNameFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.AnnotationField <em>Annotation Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.AnnotationField
+   * @generated
+   */
+  public Adapter createAnnotationFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField <em>Simple Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField
+   * @generated
+   */
+  public Adapter createSimpleFieldAdapter()
   {
     return null;
   }

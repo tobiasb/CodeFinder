@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BooleanExp;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Exp1;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
@@ -54,7 +54,7 @@ public class Exp1Impl extends ExpressionImpl implements Exp1
    * @generated
    * @ordered
    */
-  protected static final BooleanExp B_EDEFAULT = BooleanExp.AND1;
+  protected static final BinaryExp B_EDEFAULT = BinaryExp.AND1;
 
   /**
    * The cached value of the '{@link #getB() <em>B</em>}' attribute.
@@ -64,7 +64,7 @@ public class Exp1Impl extends ExpressionImpl implements Exp1
    * @generated
    * @ordered
    */
-  protected BooleanExp b = B_EDEFAULT;
+  protected BinaryExp b = B_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -150,7 +150,7 @@ public class Exp1Impl extends ExpressionImpl implements Exp1
    * <!-- end-user-doc -->
    * @generated
    */
-  public BooleanExp getB()
+  public BinaryExp getB()
   {
     return b;
   }
@@ -160,9 +160,9 @@ public class Exp1Impl extends ExpressionImpl implements Exp1
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setB(BooleanExp newB)
+  public void setB(BinaryExp newB)
   {
-    BooleanExp oldB = b;
+    BinaryExp oldB = b;
     b = newB == null ? B_EDEFAULT : newB;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.EXP1__B, oldB, b));
@@ -268,7 +268,7 @@ public class Exp1Impl extends ExpressionImpl implements Exp1
         setLeft((Expression)newValue);
         return;
       case LuceneQueryPackage.EXP1__B:
-        setB((BooleanExp)newValue);
+        setB((BinaryExp)newValue);
         return;
       case LuceneQueryPackage.EXP1__RIGHT:
         setRight((Expression)newValue);

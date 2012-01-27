@@ -7,9 +7,10 @@ public class UnixPathNameConverter extends AbstractQueryPartConverter implements
 	public String convertFrom(String queryPart) {
 		String result = queryPart;
 
-		result = result.replaceFirst("/", ":");	
-		result = result.replace(":", ":\\");		
-		result = result.replace("/", "\\");		
+//		result = result.replaceFirst("/", ":");	
+//		result = result.replace(":", ":\\");		
+//		result = result.replace("/", "\\");		
+		result = result.replace(":", "\\:");
 		
 		return result;
 	}
@@ -18,8 +19,8 @@ public class UnixPathNameConverter extends AbstractQueryPartConverter implements
 	public String convertTo(String queryPart) {
 		String result = queryPart;
 		
-		result = result.replace("\\", "/");
-		result = result.replace(":", "");		
+//		result = result.replace("\\", "/");
+//		result = result.replace(":", "\\:");		
 		
 		return result;
 	}

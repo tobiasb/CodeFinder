@@ -45,40 +45,94 @@ public interface LuceneQueryFactory extends EFactory
   ClauseExpression createClauseExpression();
 
   /**
-   * Returns a new object of class '<em>Simple Clause</em>'.
+   * Returns a new object of class '<em>Type Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Clause</em>'.
+   * @return a new object of class '<em>Type Field</em>'.
    * @generated
    */
-  SimpleClause createSimpleClause();
+  TypeField createTypeField();
 
   /**
-   * Returns a new object of class '<em>Type Clause</em>'.
+   * Returns a new object of class '<em>Method Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Clause</em>'.
+   * @return a new object of class '<em>Method Field</em>'.
    * @generated
    */
-  TypeClause createTypeClause();
+  MethodField createMethodField();
 
   /**
-   * Returns a new object of class '<em>Field Name</em>'.
+   * Returns a new object of class '<em>File Path Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field Name</em>'.
+   * @return a new object of class '<em>File Path Field</em>'.
    * @generated
    */
-  FieldName createFieldName();
+  FilePathField createFilePathField();
 
   /**
-   * Returns a new object of class '<em>Type Field Name</em>'.
+   * Returns a new object of class '<em>Number Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Field Name</em>'.
+   * @return a new object of class '<em>Number Field</em>'.
    * @generated
    */
-  TypeFieldName createTypeFieldName();
+  NumberField createNumberField();
+
+  /**
+   * Returns a new object of class '<em>Modifier Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Modifier Field</em>'.
+   * @generated
+   */
+  ModifierField createModifierField();
+
+  /**
+   * Returns a new object of class '<em>Time Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Time Field</em>'.
+   * @generated
+   */
+  TimeField createTimeField();
+
+  /**
+   * Returns a new object of class '<em>Document Type Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Document Type Field</em>'.
+   * @generated
+   */
+  DocumentTypeField createDocumentTypeField();
+
+  /**
+   * Returns a new object of class '<em>Project Name Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Project Name Field</em>'.
+   * @generated
+   */
+  ProjectNameField createProjectNameField();
+
+  /**
+   * Returns a new object of class '<em>Annotation Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Annotation Field</em>'.
+   * @generated
+   */
+  AnnotationField createAnnotationField();
+
+  /**
+   * Returns a new object of class '<em>Simple Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Field</em>'.
+   * @generated
+   */
+  SimpleField createSimpleField();
 
   /**
    * Returns a new object of class '<em>Exp1</em>'.
