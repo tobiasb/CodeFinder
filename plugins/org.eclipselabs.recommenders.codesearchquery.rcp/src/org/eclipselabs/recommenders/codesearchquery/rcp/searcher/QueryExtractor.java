@@ -10,7 +10,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.Cla
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FilePathFieldImpl;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.UnixPathNameConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
 
 public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
 
@@ -38,7 +38,7 @@ public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
 				}
 
 				if(field instanceof FilePathFieldImpl) {
-					UnixPathNameConverter conv = new UnixPathNameConverter();
+					PathValueConverter conv = new PathValueConverter();
 					
 					String oldValue = impl.getValue();
 					String newValue = conv.convertFrom(oldValue);

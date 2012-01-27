@@ -68,7 +68,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.GenericQueryPro
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.UnixPathNameConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ProjectNameProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ResourcePathProvider;
@@ -115,7 +115,7 @@ public class SearchQueryView extends ViewPart {
 				new GenericQueryProposalProvider(new JavaTypeProvider(), new DotNotationConverter()));
 		
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH, 
-				new GenericQueryProposalProvider(new ResourcePathProvider(), new UnixPathNameConverter()));
+				new GenericQueryProposalProvider(new ResourcePathProvider(), new PathValueConverter()));
 		
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.PROJECT_NAME, 
 				new GenericQueryProposalProvider(new ProjectNameProvider(), null));
