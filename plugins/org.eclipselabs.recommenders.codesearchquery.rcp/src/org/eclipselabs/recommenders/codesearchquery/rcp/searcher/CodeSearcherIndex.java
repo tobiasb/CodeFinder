@@ -48,7 +48,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 		
 		IndexSearcher searcher = new IndexSearcher(reader);
 
-		TopScoreDocCollector collector = TopScoreDocCollector.create(10, true);
+		TopScoreDocCollector collector = TopScoreDocCollector.create(reader.numDocs(), true); //numDocs might not be the actual number
 		
 		searcher.search(query, collector);
 
