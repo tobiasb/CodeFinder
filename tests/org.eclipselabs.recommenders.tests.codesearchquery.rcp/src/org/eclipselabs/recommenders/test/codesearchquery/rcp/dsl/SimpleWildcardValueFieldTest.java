@@ -7,6 +7,7 @@ public class SimpleWildcardValueFieldTest extends DslTestBase {
 	@Test
 	public void testSimpleName() throws Exception {
 
+    	super.setUp();
         getParseResultAndExpect("FriendlyName:Test", 0);
         getParseResultAndExpect("FriendlyName:Test001", 0);
 	}
@@ -14,6 +15,7 @@ public class SimpleWildcardValueFieldTest extends DslTestBase {
 	@Test
 	public void testWildcardName() throws Exception {
 
+    	super.setUp();
         getParseResultAndExpect("FriendlyName:Test*", 0);
         getParseResultAndExpect("FriendlyName:Test001*", 0);
         getParseResultAndExpect("FriendlyName:Test*001", 0);

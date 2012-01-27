@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearchquery.rcp.dsl;
 
+
 import org.eclipse.xtext.junit.AbstractXtextTests;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQueryStandaloneSetup;
 

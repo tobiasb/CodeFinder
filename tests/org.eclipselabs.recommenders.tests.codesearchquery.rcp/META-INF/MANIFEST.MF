@@ -18,9 +18,10 @@ Require-Bundle: org.junit4,
  org.eclipse.recommenders.utils.rcp,
  org.apache.commons.lang3,
  com.google.guava,
- org.eclipse.xtend2.lib,
  org.eclipse.recommenders.tests,
  com.google.inject;bundle-version="3.0.0",
  org.eclipselabs.recommenders.codesearchquery.rcp,
  org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui,
- org.apache.lucene;bundle-version="3.5.0"
+ org.apache.lucene;bundle-version="3.5.0",
+ org.eclipse.xtext.junit,
+ org.eclipse.xtend2.lib
