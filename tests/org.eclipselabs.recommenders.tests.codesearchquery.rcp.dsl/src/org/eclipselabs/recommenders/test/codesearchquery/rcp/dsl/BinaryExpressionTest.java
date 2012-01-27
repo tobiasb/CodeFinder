@@ -39,4 +39,16 @@ public class BinaryExpressionTest extends DslTestBase {
 
         getParseResultAndExpect("(UsedTypes:java.util.List) or (UsedTypes:java.util.Map)", 1);
 	}
+
+	@Test
+	public void testImplicitOr01() throws Exception {
+
+        getParseResultAndExpect("UsedTypes:java.util.List UsedTypes:java.util.Map", 0);
+	}
+
+	@Test
+	public void testImplicitOr02() throws Exception {
+
+        getParseResultAndExpect("UsedTypes:java.util.List UsedTypes:java.util.Map OR UsedTypes:java.util.List", 0);
+	}
 }

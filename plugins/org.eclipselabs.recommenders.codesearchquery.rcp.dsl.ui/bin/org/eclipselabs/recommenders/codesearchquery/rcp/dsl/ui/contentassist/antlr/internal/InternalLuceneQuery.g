@@ -3808,7 +3808,7 @@ rule__Exp1__Group_1__1__Impl
 :
 (
 { before(grammarAccess.getExp1Access().getBAssignment_1_1()); }
-(rule__Exp1__BAssignment_1_1)
+(rule__Exp1__BAssignment_1_1)?
 { after(grammarAccess.getExp1Access().getBAssignment_1_1()); }
 )
 

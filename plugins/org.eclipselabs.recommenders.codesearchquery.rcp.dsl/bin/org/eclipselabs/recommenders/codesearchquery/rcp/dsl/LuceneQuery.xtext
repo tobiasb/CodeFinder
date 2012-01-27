@@ -10,7 +10,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
  * */
  
 	Exp1 returns Expression:
-	 Exp2 ( {Exp1.left=current} b=BinaryExp right=Exp1 )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+	 Exp2 ( {Exp1.left=current} b=BinaryExp? right=Exp1 )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	
 	Exp2 returns Expression:
 	 value=ClauseExpression |

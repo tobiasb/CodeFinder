@@ -35,23 +35,25 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
 		//
-		// * * / Exp1 returns Expression:
-		//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?;
+		// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+		//
+		//Exp1 returns Expression:
+		//	Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?;
 		public ParserRule getRule() { return rule; }
 
-		//Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?
+		//Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?
 		public Group getGroup() { return cGroup; }
 
 		//Exp2
 		public RuleCall getExp2ParserRuleCall_0() { return cExp2ParserRuleCall_0; }
 
-		//({Exp1.left=current} b=BinaryExp right=Exp1)?
+		//({Exp1.left=current} b=BinaryExp? right=Exp1)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{Exp1.left=current}
 		public Action getExp1LeftAction_1_0() { return cExp1LeftAction_1_0; }
 
-		//b=BinaryExp
+		//b=BinaryExp?
 		public Assignment getBAssignment_1_1() { return cBAssignment_1_1; }
 
 		//BinaryExp
@@ -1072,8 +1074,10 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
 	//
-	// * * / Exp1 returns Expression:
-	//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?;
+	// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+	//
+	//Exp1 returns Expression:
+	//	Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?;
 	public Exp1Elements getExp1Access() {
 		return (pExp1 != null) ? pExp1 : (pExp1 = new Exp1Elements());
 	}
