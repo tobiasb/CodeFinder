@@ -4,5 +4,6 @@ public enum QueryProposalType {
 	TYPE,
 	MODIFIER,
 	FILE_PATH, 
-	DOCUMENT_TYPE
+	DOCUMENT_TYPE, 
+	PROJECT_NAME
 }

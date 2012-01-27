@@ -64,10 +64,14 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.Que
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.DocumentTypeProposalProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.GenericQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ResourcePathQueryProposalProvider;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.TypeQueryProposalProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.UnixPathNameConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ProjectNameProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ResourcePathProvider;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -107,9 +111,16 @@ public class SearchQueryView extends ViewPart {
 	@SuppressWarnings("restriction")
 	private void createSearchQueryViewerXtext(Composite parent) {
 		
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new TypeQueryProposalProvider());
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, 
+				new GenericQueryProposalProvider(new JavaTypeProvider(), new DotNotationConverter()));
+		
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH, 
+				new GenericQueryProposalProvider(new ResourcePathProvider(), new UnixPathNameConverter()));
+		
+		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.PROJECT_NAME, 
+				new GenericQueryProposalProvider(new ProjectNameProvider(), null));
+		
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.MODIFIER, new ModifierQueryProposalProvider());
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH, new ResourcePathQueryProposalProvider());
 		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.DOCUMENT_TYPE, new DocumentTypeProposalProvider());
 		
         IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {

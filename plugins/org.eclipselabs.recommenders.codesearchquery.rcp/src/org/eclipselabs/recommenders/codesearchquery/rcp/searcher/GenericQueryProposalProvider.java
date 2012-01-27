@@ -6,12 +6,19 @@ import java.util.List;
 import org.apache.lucene.store.Directory;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.IQueryProposalProvider;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
-import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ITermVectorProvider;
 
-public class TypeQueryProposalProvider implements IQueryProposalProvider {
+public class GenericQueryProposalProvider implements IQueryProposalProvider {
 
+	private ITermVectorProvider termVectorProvider;
+	private IQueryPartConverter queryPartConverter;
+	
+	public GenericQueryProposalProvider(ITermVectorProvider termVectorProvider, IQueryPartConverter queryPartConverter) {
+		this.termVectorProvider = termVectorProvider;
+		this.queryPartConverter = queryPartConverter;
+	}
+	
 	@Override
 	public List<String> getProposals() {
 
@@ -21,19 +28,18 @@ public class TypeQueryProposalProvider implements IQueryProposalProvider {
 	        
 			CodeSearcherIndex searcherIndex = new CodeSearcherIndex(directory);
 			
-			JavaTypeProvider source = new JavaTypeProvider();
-			source.load(searcherIndex);
+			termVectorProvider.load(searcherIndex);
 			
-			return source.getDisjunctTermVector();
+			return termVectorProvider.getDisjunctTermVector();
 		} catch (IOException e) {
 			return null;
 		}
 	}
 
 	@Override
-	public String convert(String type) {
-		IQueryPartConverter converter = new DotNotationConverter();
-		return converter.convertTo(type);
+	public String convert(String source) {
+		if(queryPartConverter == null) return source;
+		
+		return queryPartConverter.convertTo(source);
 	}
-
 }
