@@ -14,10 +14,9 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.UnixP
 
 public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
 
-	@SuppressWarnings("unused")
 	@Override
 	public String exec(XtextResource state) throws Exception {
-		TreeIterator iter = state.getAllContents();
+		TreeIterator<EObject> iter = state.getAllContents();
 		
 		do {
 			EObject o = (EObject) iter.next();
