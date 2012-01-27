@@ -25,7 +25,7 @@
         <repository>
 			<id>recommenders-3rd</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/recommenders/updates/3rd</url>
+			<url>http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/</url>
 		</repository>
 		<!--repository>
 			<id>recommenders-3rd</id>
