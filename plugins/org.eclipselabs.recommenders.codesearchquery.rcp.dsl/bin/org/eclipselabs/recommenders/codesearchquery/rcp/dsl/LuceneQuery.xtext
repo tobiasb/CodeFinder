@@ -1,5 +1,5 @@
 grammar org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQuery 
-	with org.eclipse.xtext.xbase.Xbase
+	with org.eclipse.xtext.common.Terminals//org.eclipse.xtext.xbase.Xtype
 
 generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery'
 

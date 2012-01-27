@@ -34,6 +34,5 @@ Export-Package: org.eclipselabs.recommenders.codesearchquery.rcp.dsl,
  org.eclipselabs.recommenders.codesearchquery.rcp.dsl.validation,
  org.eclipselabs.recommenders.codesearchquery.rcp.dsl.scoping,
  org.eclipselabs.recommenders.codesearchquery.rcp.dsl.generator,
- org.eclipselabs.recommenders.codesearchquery.rcp.dsl.formatting,
- org.eclipselabs.recommenders.codesearchquery.rcp.dsl.jvmmodel
+ org.eclipselabs.recommenders.codesearchquery.rcp.dsl.formatting
 
