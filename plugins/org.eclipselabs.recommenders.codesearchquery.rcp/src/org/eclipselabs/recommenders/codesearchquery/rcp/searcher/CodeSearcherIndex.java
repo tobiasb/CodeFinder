@@ -44,15 +44,16 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         return search(query);
     }
 
-    public List<Document> search(final Query query) throws IOException {
+    @SuppressWarnings("deprecation")
+	public List<Document> search(final Query query) throws IOException {
 
         // TODO: Schränke Felder mit IFieldSelector ein
-
-        final IndexSearcher searcher = new IndexSearcher(reader);
+		IndexReader tmp = reader.reopen(true);
+        final IndexSearcher searcher = new IndexSearcher(tmp);
 
         // TODO MB: Tobias, not sure this is the intended way how to do this.
         // anyway, ensure that the number is at least in the case of a completly new created index.
-        final int numberOfDocuments = Math.max(1, reader.numDocs());
+        final int numberOfDocuments = Math.max(1, tmp.numDocs());
         final TopScoreDocCollector collector = TopScoreDocCollector.create(numberOfDocuments, true); // numDocs
                                                                                                      // might
                                                                                                      // not
