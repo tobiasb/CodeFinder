@@ -31,11 +31,7 @@ public abstract class AbstractIndex {
         // }
         // };
         m_analyzer = new KeywordAnalyzer();
-
-        init();
     }
-
-    protected abstract void init() throws IOException;
 
     public static Version getVersion() {
         return luceneVersion;

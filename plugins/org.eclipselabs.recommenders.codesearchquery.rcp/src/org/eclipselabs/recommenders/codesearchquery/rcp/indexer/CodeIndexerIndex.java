@@ -13,7 +13,6 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.LockObtainFailedException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipselabs.recommenders.codesearchquery.rcp.AbstractIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
@@ -37,20 +36,14 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public CodeIndexerIndex(final Directory directory) throws IOException {
         super(directory);
 
-        commit();
-    }
-
-    @Override
-    protected void init() throws CorruptIndexException, LockObtainFailedException, IOException {
-        // don't do that (call an overridable method from (super) constructor...
-        // your fields in here are not
-        // initialized. commonly referred to as bad practice.
         final IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
         IndexWriter.unlock(getIndex());
         m_writer = new IndexWriter(getIndex(), config);
         m_writer.commit();
         searcherIndex = new CodeSearcherIndex(getIndex());
         indexInformationProvider = new IndexInformationCache();
+
+        commit();
     }
 
     @Override
