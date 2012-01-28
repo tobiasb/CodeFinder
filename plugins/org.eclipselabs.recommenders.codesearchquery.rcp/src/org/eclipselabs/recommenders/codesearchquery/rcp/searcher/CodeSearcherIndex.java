@@ -29,7 +29,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
     public CodeSearcherIndex(final Directory directory) throws IOException {
         super(directory);
         reader = IndexReader.open(directory);
-        parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, getAnalyzer());
+        parser = new QueryParser(getVersion(), Fields.FULL_TEXT, getAnalyzer());
         parser.setLowercaseExpandedTerms(false);
     }
 
