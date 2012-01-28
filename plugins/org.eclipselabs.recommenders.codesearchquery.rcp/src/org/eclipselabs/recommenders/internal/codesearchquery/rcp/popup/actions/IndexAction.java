@@ -48,9 +48,10 @@ public class IndexAction implements IObjectActionDelegate {
     public void run(final IAction action) {
         try {
             final Long start = System.currentTimeMillis();
-            
-            Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
-            final CodeIndexerIndex index = new CodeIndexerIndex(directory);
+
+            final InjectionService s = InjectionService.getInstance();
+            final Directory directory = s.requestInstance(Directory.class);
+            final CodeIndexerIndex index = s.requestInstance(CodeIndexerIndex.class);
 
             final IndexUpdaterJob job = new IndexUpdaterJob(index, ResourcesPlugin.getWorkspace().getRoot());
             job.addJobChangeListener(new JobChangeAdapter() {
@@ -60,12 +61,13 @@ public class IndexAction implements IObjectActionDelegate {
                     if (event.getResult().isOK()) {
 
                         index.printStats();
-                        index.close();
+                        // index.close();
 
-                        Long duration = System.currentTimeMillis() - start;
+                        final Long duration = System.currentTimeMillis() - start;
 
-                        String msg = "Index was built for " + projects.size() + " project(s). Took " + duration
-                                + " milliseconds.";
+                        final String msg =
+                                "Index was built for " + projects.size() + " project(s). Took " + duration
+                                        + " milliseconds.";
 
                         System.out.println(msg);
                     } else {
@@ -75,7 +77,7 @@ public class IndexAction implements IObjectActionDelegate {
 
             });
             job.schedule();
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
             Activator.logError(ex, "Error");
         }
     }
@@ -89,7 +91,7 @@ public class IndexAction implements IObjectActionDelegate {
 
         if (selection instanceof IStructuredSelection) {
 
-            for (Object o : ((IStructuredSelection) selection).toArray()) {
+            for (final Object o : ((IStructuredSelection) selection).toArray()) {
 
                 if (o instanceof IProject) {
                     projects.add((IProject) o);
