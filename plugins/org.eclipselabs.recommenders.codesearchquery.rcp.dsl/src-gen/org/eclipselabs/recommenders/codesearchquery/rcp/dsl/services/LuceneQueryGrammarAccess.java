@@ -110,275 +110,297 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cUnaryExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
-		private final Assignment cFieldAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
-		private final RuleCall cFieldSimpleFieldParserRuleCall_1_0_0_0 = (RuleCall)cFieldAssignment_1_0_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Assignment cValueAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cValueSimpleFieldValueParserRuleCall_1_0_2_0 = (RuleCall)cValueAssignment_1_0_2.eContents().get(0);
-		private final Group cGroup_1_1 = (Group)cAlternatives_1.eContents().get(1);
-		private final Assignment cFieldAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
-		private final RuleCall cFieldTypeFieldParserRuleCall_1_1_0_0 = (RuleCall)cFieldAssignment_1_1_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_1_1 = (Keyword)cGroup_1_1.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
-		private final RuleCall cValueTypeFieldValueParserRuleCall_1_1_2_0 = (RuleCall)cValueAssignment_1_1_2.eContents().get(0);
-		private final Group cGroup_1_2 = (Group)cAlternatives_1.eContents().get(2);
-		private final Assignment cFieldAssignment_1_2_0 = (Assignment)cGroup_1_2.eContents().get(0);
-		private final RuleCall cFieldMethodFieldParserRuleCall_1_2_0_0 = (RuleCall)cFieldAssignment_1_2_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_2_1 = (Keyword)cGroup_1_2.eContents().get(1);
-		private final Assignment cValueAssignment_1_2_2 = (Assignment)cGroup_1_2.eContents().get(2);
-		private final RuleCall cValueMethodFieldValueParserRuleCall_1_2_2_0 = (RuleCall)cValueAssignment_1_2_2.eContents().get(0);
-		private final Group cGroup_1_3 = (Group)cAlternatives_1.eContents().get(3);
-		private final Assignment cFieldAssignment_1_3_0 = (Assignment)cGroup_1_3.eContents().get(0);
-		private final RuleCall cFieldFilePathFieldParserRuleCall_1_3_0_0 = (RuleCall)cFieldAssignment_1_3_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_3_1 = (Keyword)cGroup_1_3.eContents().get(1);
-		private final Assignment cValueAssignment_1_3_2 = (Assignment)cGroup_1_3.eContents().get(2);
-		private final RuleCall cValueFilePathFieldValueParserRuleCall_1_3_2_0 = (RuleCall)cValueAssignment_1_3_2.eContents().get(0);
-		private final Group cGroup_1_4 = (Group)cAlternatives_1.eContents().get(4);
-		private final Assignment cFieldAssignment_1_4_0 = (Assignment)cGroup_1_4.eContents().get(0);
-		private final RuleCall cFieldNumberFieldParserRuleCall_1_4_0_0 = (RuleCall)cFieldAssignment_1_4_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_4_1 = (Keyword)cGroup_1_4.eContents().get(1);
-		private final Assignment cValueAssignment_1_4_2 = (Assignment)cGroup_1_4.eContents().get(2);
-		private final RuleCall cValueNumberFieldValueParserRuleCall_1_4_2_0 = (RuleCall)cValueAssignment_1_4_2.eContents().get(0);
-		private final Group cGroup_1_5 = (Group)cAlternatives_1.eContents().get(5);
-		private final Assignment cFieldAssignment_1_5_0 = (Assignment)cGroup_1_5.eContents().get(0);
-		private final RuleCall cFieldModifierFieldParserRuleCall_1_5_0_0 = (RuleCall)cFieldAssignment_1_5_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_5_1 = (Keyword)cGroup_1_5.eContents().get(1);
-		private final Assignment cValueAssignment_1_5_2 = (Assignment)cGroup_1_5.eContents().get(2);
-		private final RuleCall cValueModifierFieldValueParserRuleCall_1_5_2_0 = (RuleCall)cValueAssignment_1_5_2.eContents().get(0);
-		private final Group cGroup_1_6 = (Group)cAlternatives_1.eContents().get(6);
-		private final Assignment cFieldAssignment_1_6_0 = (Assignment)cGroup_1_6.eContents().get(0);
-		private final RuleCall cFieldTimeFieldParserRuleCall_1_6_0_0 = (RuleCall)cFieldAssignment_1_6_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_6_1 = (Keyword)cGroup_1_6.eContents().get(1);
-		private final Assignment cValueAssignment_1_6_2 = (Assignment)cGroup_1_6.eContents().get(2);
-		private final RuleCall cValueTimeFieldValueParserRuleCall_1_6_2_0 = (RuleCall)cValueAssignment_1_6_2.eContents().get(0);
-		private final Group cGroup_1_7 = (Group)cAlternatives_1.eContents().get(7);
-		private final Assignment cFieldAssignment_1_7_0 = (Assignment)cGroup_1_7.eContents().get(0);
-		private final RuleCall cFieldDocumentTypeFieldParserRuleCall_1_7_0_0 = (RuleCall)cFieldAssignment_1_7_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_7_1 = (Keyword)cGroup_1_7.eContents().get(1);
-		private final Assignment cValueAssignment_1_7_2 = (Assignment)cGroup_1_7.eContents().get(2);
-		private final RuleCall cValueDocumentTypeFieldValueParserRuleCall_1_7_2_0 = (RuleCall)cValueAssignment_1_7_2.eContents().get(0);
-		private final Group cGroup_1_8 = (Group)cAlternatives_1.eContents().get(8);
-		private final Assignment cFieldAssignment_1_8_0 = (Assignment)cGroup_1_8.eContents().get(0);
-		private final RuleCall cFieldProjectNameFieldParserRuleCall_1_8_0_0 = (RuleCall)cFieldAssignment_1_8_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_8_1 = (Keyword)cGroup_1_8.eContents().get(1);
-		private final Assignment cValueAssignment_1_8_2 = (Assignment)cGroup_1_8.eContents().get(2);
-		private final RuleCall cValueProjectNameFieldValueParserRuleCall_1_8_2_0 = (RuleCall)cValueAssignment_1_8_2.eContents().get(0);
-		private final Group cGroup_1_9 = (Group)cAlternatives_1.eContents().get(9);
-		private final Assignment cFieldAssignment_1_9_0 = (Assignment)cGroup_1_9.eContents().get(0);
-		private final RuleCall cFieldAnnotationFieldParserRuleCall_1_9_0_0 = (RuleCall)cFieldAssignment_1_9_0.eContents().get(0);
-		private final Keyword cColonKeyword_1_9_1 = (Keyword)cGroup_1_9.eContents().get(1);
-		private final Assignment cValueAssignment_1_9_2 = (Assignment)cGroup_1_9.eContents().get(2);
-		private final RuleCall cValueAnnotationFieldValueParserRuleCall_1_9_2_0 = (RuleCall)cValueAssignment_1_9_2.eContents().get(0);
+		private final Assignment cDefaultAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cDefaultSimpleFieldValueParserRuleCall_1_0_0 = (RuleCall)cDefaultAssignment_1_0.eContents().get(0);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cAlternatives_1.eContents().get(1);
+		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
+		private final Assignment cFieldAssignment_1_1_0_0 = (Assignment)cGroup_1_1_0.eContents().get(0);
+		private final RuleCall cFieldSimpleFieldParserRuleCall_1_1_0_0_0 = (RuleCall)cFieldAssignment_1_1_0_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_0_1 = (Keyword)cGroup_1_1_0.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_0_2 = (Assignment)cGroup_1_1_0.eContents().get(2);
+		private final RuleCall cValueSimpleFieldValueParserRuleCall_1_1_0_2_0 = (RuleCall)cValueAssignment_1_1_0_2.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cAlternatives_1_1.eContents().get(1);
+		private final Assignment cFieldAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
+		private final RuleCall cFieldTypeFieldParserRuleCall_1_1_1_0_0 = (RuleCall)cFieldAssignment_1_1_1_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_1_1 = (Keyword)cGroup_1_1_1.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_1_2 = (Assignment)cGroup_1_1_1.eContents().get(2);
+		private final RuleCall cValueTypeFieldValueParserRuleCall_1_1_1_2_0 = (RuleCall)cValueAssignment_1_1_1_2.eContents().get(0);
+		private final Group cGroup_1_1_2 = (Group)cAlternatives_1_1.eContents().get(2);
+		private final Assignment cFieldAssignment_1_1_2_0 = (Assignment)cGroup_1_1_2.eContents().get(0);
+		private final RuleCall cFieldMethodFieldParserRuleCall_1_1_2_0_0 = (RuleCall)cFieldAssignment_1_1_2_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_2_1 = (Keyword)cGroup_1_1_2.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_2_2 = (Assignment)cGroup_1_1_2.eContents().get(2);
+		private final RuleCall cValueMethodFieldValueParserRuleCall_1_1_2_2_0 = (RuleCall)cValueAssignment_1_1_2_2.eContents().get(0);
+		private final Group cGroup_1_1_3 = (Group)cAlternatives_1_1.eContents().get(3);
+		private final Assignment cFieldAssignment_1_1_3_0 = (Assignment)cGroup_1_1_3.eContents().get(0);
+		private final RuleCall cFieldFilePathFieldParserRuleCall_1_1_3_0_0 = (RuleCall)cFieldAssignment_1_1_3_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_3_1 = (Keyword)cGroup_1_1_3.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_3_2 = (Assignment)cGroup_1_1_3.eContents().get(2);
+		private final RuleCall cValueFilePathFieldValueParserRuleCall_1_1_3_2_0 = (RuleCall)cValueAssignment_1_1_3_2.eContents().get(0);
+		private final Group cGroup_1_1_4 = (Group)cAlternatives_1_1.eContents().get(4);
+		private final Assignment cFieldAssignment_1_1_4_0 = (Assignment)cGroup_1_1_4.eContents().get(0);
+		private final RuleCall cFieldNumberFieldParserRuleCall_1_1_4_0_0 = (RuleCall)cFieldAssignment_1_1_4_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_4_1 = (Keyword)cGroup_1_1_4.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_4_2 = (Assignment)cGroup_1_1_4.eContents().get(2);
+		private final RuleCall cValueNumberFieldValueParserRuleCall_1_1_4_2_0 = (RuleCall)cValueAssignment_1_1_4_2.eContents().get(0);
+		private final Group cGroup_1_1_5 = (Group)cAlternatives_1_1.eContents().get(5);
+		private final Assignment cFieldAssignment_1_1_5_0 = (Assignment)cGroup_1_1_5.eContents().get(0);
+		private final RuleCall cFieldModifierFieldParserRuleCall_1_1_5_0_0 = (RuleCall)cFieldAssignment_1_1_5_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_5_1 = (Keyword)cGroup_1_1_5.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_5_2 = (Assignment)cGroup_1_1_5.eContents().get(2);
+		private final RuleCall cValueModifierFieldValueParserRuleCall_1_1_5_2_0 = (RuleCall)cValueAssignment_1_1_5_2.eContents().get(0);
+		private final Group cGroup_1_1_6 = (Group)cAlternatives_1_1.eContents().get(6);
+		private final Assignment cFieldAssignment_1_1_6_0 = (Assignment)cGroup_1_1_6.eContents().get(0);
+		private final RuleCall cFieldTimeFieldParserRuleCall_1_1_6_0_0 = (RuleCall)cFieldAssignment_1_1_6_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_6_1 = (Keyword)cGroup_1_1_6.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_6_2 = (Assignment)cGroup_1_1_6.eContents().get(2);
+		private final RuleCall cValueTimeFieldValueParserRuleCall_1_1_6_2_0 = (RuleCall)cValueAssignment_1_1_6_2.eContents().get(0);
+		private final Group cGroup_1_1_7 = (Group)cAlternatives_1_1.eContents().get(7);
+		private final Assignment cFieldAssignment_1_1_7_0 = (Assignment)cGroup_1_1_7.eContents().get(0);
+		private final RuleCall cFieldDocumentTypeFieldParserRuleCall_1_1_7_0_0 = (RuleCall)cFieldAssignment_1_1_7_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_7_1 = (Keyword)cGroup_1_1_7.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_7_2 = (Assignment)cGroup_1_1_7.eContents().get(2);
+		private final RuleCall cValueDocumentTypeFieldValueParserRuleCall_1_1_7_2_0 = (RuleCall)cValueAssignment_1_1_7_2.eContents().get(0);
+		private final Group cGroup_1_1_8 = (Group)cAlternatives_1_1.eContents().get(8);
+		private final Assignment cFieldAssignment_1_1_8_0 = (Assignment)cGroup_1_1_8.eContents().get(0);
+		private final RuleCall cFieldProjectNameFieldParserRuleCall_1_1_8_0_0 = (RuleCall)cFieldAssignment_1_1_8_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_8_1 = (Keyword)cGroup_1_1_8.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_8_2 = (Assignment)cGroup_1_1_8.eContents().get(2);
+		private final RuleCall cValueProjectNameFieldValueParserRuleCall_1_1_8_2_0 = (RuleCall)cValueAssignment_1_1_8_2.eContents().get(0);
+		private final Group cGroup_1_1_9 = (Group)cAlternatives_1_1.eContents().get(9);
+		private final Assignment cFieldAssignment_1_1_9_0 = (Assignment)cGroup_1_1_9.eContents().get(0);
+		private final RuleCall cFieldAnnotationFieldParserRuleCall_1_1_9_0_0 = (RuleCall)cFieldAssignment_1_1_9_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_9_1 = (Keyword)cGroup_1_1_9.eContents().get(1);
+		private final Assignment cValueAssignment_1_1_9_2 = (Assignment)cGroup_1_1_9.eContents().get(2);
+		private final RuleCall cValueAnnotationFieldValueParserRuleCall_1_1_9_2_0 = (RuleCall)cValueAssignment_1_1_9_2.eContents().get(0);
 		
 		/// *
 		//
 		//	The following rules are generated. Do not modify. Modify source file instead.
 		//
 		// * / ClauseExpression:
-		//	UnaryExpression? (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue |
-		//	field=MethodField ":" value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField
-		//	":" value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":"
-		//	value=TimeFieldValue | field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":"
-		//	value=ProjectNameFieldValue | field=AnnotationField ":" value=AnnotationFieldValue);
+		//	UnaryExpression? (default=SimpleFieldValue // Default field
+		//
+		//	| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
+		//	value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
+		//	value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
+		//	field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
+		//	field=AnnotationField ":" value=AnnotationFieldValue));
 		public ParserRule getRule() { return rule; }
 
-		//UnaryExpression? (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue |
-		//field=MethodField ":" value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
+		//UnaryExpression? (default=SimpleFieldValue // Default field
+		//
+		//| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
+		//value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
 		//value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
 		//field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
-		//field=AnnotationField ":" value=AnnotationFieldValue)
+		//field=AnnotationField ":" value=AnnotationFieldValue))
 		public Group getGroup() { return cGroup; }
 
 		//UnaryExpression?
 		public RuleCall getUnaryExpressionParserRuleCall_0() { return cUnaryExpressionParserRuleCall_0; }
+
+		//default=SimpleFieldValue // Default field
+		//
+		//| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
+		//value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
+		//value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
+		//field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
+		//field=AnnotationField ":" value=AnnotationFieldValue)
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//default=SimpleFieldValue
+		public Assignment getDefaultAssignment_1_0() { return cDefaultAssignment_1_0; }
+
+		//SimpleFieldValue
+		public RuleCall getDefaultSimpleFieldValueParserRuleCall_1_0_0() { return cDefaultSimpleFieldValueParserRuleCall_1_0_0; }
 
 		//field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
 		//value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
 		//value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
 		//field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
 		//field=AnnotationField ":" value=AnnotationFieldValue
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
 		//field=SimpleField ":" value=SimpleFieldValue
-		public Group getGroup_1_0() { return cGroup_1_0; }
+		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
 
 		//field=SimpleField
-		public Assignment getFieldAssignment_1_0_0() { return cFieldAssignment_1_0_0; }
+		public Assignment getFieldAssignment_1_1_0_0() { return cFieldAssignment_1_1_0_0; }
 
 		//SimpleField
-		public RuleCall getFieldSimpleFieldParserRuleCall_1_0_0_0() { return cFieldSimpleFieldParserRuleCall_1_0_0_0; }
+		public RuleCall getFieldSimpleFieldParserRuleCall_1_1_0_0_0() { return cFieldSimpleFieldParserRuleCall_1_1_0_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_0_1() { return cColonKeyword_1_0_1; }
+		public Keyword getColonKeyword_1_1_0_1() { return cColonKeyword_1_1_0_1; }
 
 		//value=SimpleFieldValue
-		public Assignment getValueAssignment_1_0_2() { return cValueAssignment_1_0_2; }
+		public Assignment getValueAssignment_1_1_0_2() { return cValueAssignment_1_1_0_2; }
 
 		//SimpleFieldValue
-		public RuleCall getValueSimpleFieldValueParserRuleCall_1_0_2_0() { return cValueSimpleFieldValueParserRuleCall_1_0_2_0; }
+		public RuleCall getValueSimpleFieldValueParserRuleCall_1_1_0_2_0() { return cValueSimpleFieldValueParserRuleCall_1_1_0_2_0; }
 
 		//field=TypeField ":" value=TypeFieldValue
-		public Group getGroup_1_1() { return cGroup_1_1; }
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
 
 		//field=TypeField
-		public Assignment getFieldAssignment_1_1_0() { return cFieldAssignment_1_1_0; }
+		public Assignment getFieldAssignment_1_1_1_0() { return cFieldAssignment_1_1_1_0; }
 
 		//TypeField
-		public RuleCall getFieldTypeFieldParserRuleCall_1_1_0_0() { return cFieldTypeFieldParserRuleCall_1_1_0_0; }
+		public RuleCall getFieldTypeFieldParserRuleCall_1_1_1_0_0() { return cFieldTypeFieldParserRuleCall_1_1_1_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_1_1() { return cColonKeyword_1_1_1; }
+		public Keyword getColonKeyword_1_1_1_1() { return cColonKeyword_1_1_1_1; }
 
 		//value=TypeFieldValue
-		public Assignment getValueAssignment_1_1_2() { return cValueAssignment_1_1_2; }
+		public Assignment getValueAssignment_1_1_1_2() { return cValueAssignment_1_1_1_2; }
 
 		//TypeFieldValue
-		public RuleCall getValueTypeFieldValueParserRuleCall_1_1_2_0() { return cValueTypeFieldValueParserRuleCall_1_1_2_0; }
+		public RuleCall getValueTypeFieldValueParserRuleCall_1_1_1_2_0() { return cValueTypeFieldValueParserRuleCall_1_1_1_2_0; }
 
 		//field=MethodField ":" value=MethodFieldValue
-		public Group getGroup_1_2() { return cGroup_1_2; }
+		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
 
 		//field=MethodField
-		public Assignment getFieldAssignment_1_2_0() { return cFieldAssignment_1_2_0; }
+		public Assignment getFieldAssignment_1_1_2_0() { return cFieldAssignment_1_1_2_0; }
 
 		//MethodField
-		public RuleCall getFieldMethodFieldParserRuleCall_1_2_0_0() { return cFieldMethodFieldParserRuleCall_1_2_0_0; }
+		public RuleCall getFieldMethodFieldParserRuleCall_1_1_2_0_0() { return cFieldMethodFieldParserRuleCall_1_1_2_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_2_1() { return cColonKeyword_1_2_1; }
+		public Keyword getColonKeyword_1_1_2_1() { return cColonKeyword_1_1_2_1; }
 
 		//value=MethodFieldValue
-		public Assignment getValueAssignment_1_2_2() { return cValueAssignment_1_2_2; }
+		public Assignment getValueAssignment_1_1_2_2() { return cValueAssignment_1_1_2_2; }
 
 		//MethodFieldValue
-		public RuleCall getValueMethodFieldValueParserRuleCall_1_2_2_0() { return cValueMethodFieldValueParserRuleCall_1_2_2_0; }
+		public RuleCall getValueMethodFieldValueParserRuleCall_1_1_2_2_0() { return cValueMethodFieldValueParserRuleCall_1_1_2_2_0; }
 
 		//field=FilePathField ":" value=FilePathFieldValue
-		public Group getGroup_1_3() { return cGroup_1_3; }
+		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
 
 		//field=FilePathField
-		public Assignment getFieldAssignment_1_3_0() { return cFieldAssignment_1_3_0; }
+		public Assignment getFieldAssignment_1_1_3_0() { return cFieldAssignment_1_1_3_0; }
 
 		//FilePathField
-		public RuleCall getFieldFilePathFieldParserRuleCall_1_3_0_0() { return cFieldFilePathFieldParserRuleCall_1_3_0_0; }
+		public RuleCall getFieldFilePathFieldParserRuleCall_1_1_3_0_0() { return cFieldFilePathFieldParserRuleCall_1_1_3_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_3_1() { return cColonKeyword_1_3_1; }
+		public Keyword getColonKeyword_1_1_3_1() { return cColonKeyword_1_1_3_1; }
 
 		//value=FilePathFieldValue
-		public Assignment getValueAssignment_1_3_2() { return cValueAssignment_1_3_2; }
+		public Assignment getValueAssignment_1_1_3_2() { return cValueAssignment_1_1_3_2; }
 
 		//FilePathFieldValue
-		public RuleCall getValueFilePathFieldValueParserRuleCall_1_3_2_0() { return cValueFilePathFieldValueParserRuleCall_1_3_2_0; }
+		public RuleCall getValueFilePathFieldValueParserRuleCall_1_1_3_2_0() { return cValueFilePathFieldValueParserRuleCall_1_1_3_2_0; }
 
 		//field=NumberField ":" value=NumberFieldValue
-		public Group getGroup_1_4() { return cGroup_1_4; }
+		public Group getGroup_1_1_4() { return cGroup_1_1_4; }
 
 		//field=NumberField
-		public Assignment getFieldAssignment_1_4_0() { return cFieldAssignment_1_4_0; }
+		public Assignment getFieldAssignment_1_1_4_0() { return cFieldAssignment_1_1_4_0; }
 
 		//NumberField
-		public RuleCall getFieldNumberFieldParserRuleCall_1_4_0_0() { return cFieldNumberFieldParserRuleCall_1_4_0_0; }
+		public RuleCall getFieldNumberFieldParserRuleCall_1_1_4_0_0() { return cFieldNumberFieldParserRuleCall_1_1_4_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_4_1() { return cColonKeyword_1_4_1; }
+		public Keyword getColonKeyword_1_1_4_1() { return cColonKeyword_1_1_4_1; }
 
 		//value=NumberFieldValue
-		public Assignment getValueAssignment_1_4_2() { return cValueAssignment_1_4_2; }
+		public Assignment getValueAssignment_1_1_4_2() { return cValueAssignment_1_1_4_2; }
 
 		//NumberFieldValue
-		public RuleCall getValueNumberFieldValueParserRuleCall_1_4_2_0() { return cValueNumberFieldValueParserRuleCall_1_4_2_0; }
+		public RuleCall getValueNumberFieldValueParserRuleCall_1_1_4_2_0() { return cValueNumberFieldValueParserRuleCall_1_1_4_2_0; }
 
 		//field=ModifierField ":" value=ModifierFieldValue
-		public Group getGroup_1_5() { return cGroup_1_5; }
+		public Group getGroup_1_1_5() { return cGroup_1_1_5; }
 
 		//field=ModifierField
-		public Assignment getFieldAssignment_1_5_0() { return cFieldAssignment_1_5_0; }
+		public Assignment getFieldAssignment_1_1_5_0() { return cFieldAssignment_1_1_5_0; }
 
 		//ModifierField
-		public RuleCall getFieldModifierFieldParserRuleCall_1_5_0_0() { return cFieldModifierFieldParserRuleCall_1_5_0_0; }
+		public RuleCall getFieldModifierFieldParserRuleCall_1_1_5_0_0() { return cFieldModifierFieldParserRuleCall_1_1_5_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_5_1() { return cColonKeyword_1_5_1; }
+		public Keyword getColonKeyword_1_1_5_1() { return cColonKeyword_1_1_5_1; }
 
 		//value=ModifierFieldValue
-		public Assignment getValueAssignment_1_5_2() { return cValueAssignment_1_5_2; }
+		public Assignment getValueAssignment_1_1_5_2() { return cValueAssignment_1_1_5_2; }
 
 		//ModifierFieldValue
-		public RuleCall getValueModifierFieldValueParserRuleCall_1_5_2_0() { return cValueModifierFieldValueParserRuleCall_1_5_2_0; }
+		public RuleCall getValueModifierFieldValueParserRuleCall_1_1_5_2_0() { return cValueModifierFieldValueParserRuleCall_1_1_5_2_0; }
 
 		//field=TimeField ":" value=TimeFieldValue
-		public Group getGroup_1_6() { return cGroup_1_6; }
+		public Group getGroup_1_1_6() { return cGroup_1_1_6; }
 
 		//field=TimeField
-		public Assignment getFieldAssignment_1_6_0() { return cFieldAssignment_1_6_0; }
+		public Assignment getFieldAssignment_1_1_6_0() { return cFieldAssignment_1_1_6_0; }
 
 		//TimeField
-		public RuleCall getFieldTimeFieldParserRuleCall_1_6_0_0() { return cFieldTimeFieldParserRuleCall_1_6_0_0; }
+		public RuleCall getFieldTimeFieldParserRuleCall_1_1_6_0_0() { return cFieldTimeFieldParserRuleCall_1_1_6_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_6_1() { return cColonKeyword_1_6_1; }
+		public Keyword getColonKeyword_1_1_6_1() { return cColonKeyword_1_1_6_1; }
 
 		//value=TimeFieldValue
-		public Assignment getValueAssignment_1_6_2() { return cValueAssignment_1_6_2; }
+		public Assignment getValueAssignment_1_1_6_2() { return cValueAssignment_1_1_6_2; }
 
 		//TimeFieldValue
-		public RuleCall getValueTimeFieldValueParserRuleCall_1_6_2_0() { return cValueTimeFieldValueParserRuleCall_1_6_2_0; }
+		public RuleCall getValueTimeFieldValueParserRuleCall_1_1_6_2_0() { return cValueTimeFieldValueParserRuleCall_1_1_6_2_0; }
 
 		//field=DocumentTypeField ":" value=DocumentTypeFieldValue
-		public Group getGroup_1_7() { return cGroup_1_7; }
+		public Group getGroup_1_1_7() { return cGroup_1_1_7; }
 
 		//field=DocumentTypeField
-		public Assignment getFieldAssignment_1_7_0() { return cFieldAssignment_1_7_0; }
+		public Assignment getFieldAssignment_1_1_7_0() { return cFieldAssignment_1_1_7_0; }
 
 		//DocumentTypeField
-		public RuleCall getFieldDocumentTypeFieldParserRuleCall_1_7_0_0() { return cFieldDocumentTypeFieldParserRuleCall_1_7_0_0; }
+		public RuleCall getFieldDocumentTypeFieldParserRuleCall_1_1_7_0_0() { return cFieldDocumentTypeFieldParserRuleCall_1_1_7_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_7_1() { return cColonKeyword_1_7_1; }
+		public Keyword getColonKeyword_1_1_7_1() { return cColonKeyword_1_1_7_1; }
 
 		//value=DocumentTypeFieldValue
-		public Assignment getValueAssignment_1_7_2() { return cValueAssignment_1_7_2; }
+		public Assignment getValueAssignment_1_1_7_2() { return cValueAssignment_1_1_7_2; }
 
 		//DocumentTypeFieldValue
-		public RuleCall getValueDocumentTypeFieldValueParserRuleCall_1_7_2_0() { return cValueDocumentTypeFieldValueParserRuleCall_1_7_2_0; }
+		public RuleCall getValueDocumentTypeFieldValueParserRuleCall_1_1_7_2_0() { return cValueDocumentTypeFieldValueParserRuleCall_1_1_7_2_0; }
 
 		//field=ProjectNameField ":" value=ProjectNameFieldValue
-		public Group getGroup_1_8() { return cGroup_1_8; }
+		public Group getGroup_1_1_8() { return cGroup_1_1_8; }
 
 		//field=ProjectNameField
-		public Assignment getFieldAssignment_1_8_0() { return cFieldAssignment_1_8_0; }
+		public Assignment getFieldAssignment_1_1_8_0() { return cFieldAssignment_1_1_8_0; }
 
 		//ProjectNameField
-		public RuleCall getFieldProjectNameFieldParserRuleCall_1_8_0_0() { return cFieldProjectNameFieldParserRuleCall_1_8_0_0; }
+		public RuleCall getFieldProjectNameFieldParserRuleCall_1_1_8_0_0() { return cFieldProjectNameFieldParserRuleCall_1_1_8_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_8_1() { return cColonKeyword_1_8_1; }
+		public Keyword getColonKeyword_1_1_8_1() { return cColonKeyword_1_1_8_1; }
 
 		//value=ProjectNameFieldValue
-		public Assignment getValueAssignment_1_8_2() { return cValueAssignment_1_8_2; }
+		public Assignment getValueAssignment_1_1_8_2() { return cValueAssignment_1_1_8_2; }
 
 		//ProjectNameFieldValue
-		public RuleCall getValueProjectNameFieldValueParserRuleCall_1_8_2_0() { return cValueProjectNameFieldValueParserRuleCall_1_8_2_0; }
+		public RuleCall getValueProjectNameFieldValueParserRuleCall_1_1_8_2_0() { return cValueProjectNameFieldValueParserRuleCall_1_1_8_2_0; }
 
 		//field=AnnotationField ":" value=AnnotationFieldValue
-		public Group getGroup_1_9() { return cGroup_1_9; }
+		public Group getGroup_1_1_9() { return cGroup_1_1_9; }
 
 		//field=AnnotationField
-		public Assignment getFieldAssignment_1_9_0() { return cFieldAssignment_1_9_0; }
+		public Assignment getFieldAssignment_1_1_9_0() { return cFieldAssignment_1_1_9_0; }
 
 		//AnnotationField
-		public RuleCall getFieldAnnotationFieldParserRuleCall_1_9_0_0() { return cFieldAnnotationFieldParserRuleCall_1_9_0_0; }
+		public RuleCall getFieldAnnotationFieldParserRuleCall_1_1_9_0_0() { return cFieldAnnotationFieldParserRuleCall_1_1_9_0_0; }
 
 		//":"
-		public Keyword getColonKeyword_1_9_1() { return cColonKeyword_1_9_1; }
+		public Keyword getColonKeyword_1_1_9_1() { return cColonKeyword_1_1_9_1; }
 
 		//value=AnnotationFieldValue
-		public Assignment getValueAssignment_1_9_2() { return cValueAssignment_1_9_2; }
+		public Assignment getValueAssignment_1_1_9_2() { return cValueAssignment_1_1_9_2; }
 
 		//AnnotationFieldValue
-		public RuleCall getValueAnnotationFieldValueParserRuleCall_1_9_2_0() { return cValueAnnotationFieldValueParserRuleCall_1_9_2_0; }
+		public RuleCall getValueAnnotationFieldValueParserRuleCall_1_1_9_2_0() { return cValueAnnotationFieldValueParserRuleCall_1_1_9_2_0; }
 	}
 
 	public class TypeFieldElements extends AbstractParserRuleElementFinder {
@@ -1100,11 +1122,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	The following rules are generated. Do not modify. Modify source file instead.
 	//
 	// * / ClauseExpression:
-	//	UnaryExpression? (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue |
-	//	field=MethodField ":" value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField
-	//	":" value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":"
-	//	value=TimeFieldValue | field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":"
-	//	value=ProjectNameFieldValue | field=AnnotationField ":" value=AnnotationFieldValue);
+	//	UnaryExpression? (default=SimpleFieldValue // Default field
+	//
+	//	| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
+	//	value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
+	//	value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
+	//	field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
+	//	field=AnnotationField ":" value=AnnotationFieldValue));
 	public ClauseExpressionElements getClauseExpressionAccess() {
 		return (pClauseExpression != null) ? pClauseExpression : (pClauseExpression = new ClauseExpressionElements());
 	}
@@ -1317,7 +1341,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal NameWithWC:
-	//	("a".."z" | "A".."Z" | "_" | "*" | "?") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" | ".")*;
+	//	("a".."z" | "A".."Z" | "_" | "*" | "?" | "<" | ">" | "[" | "]") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" |
+	//	"<" | ">" | "[" | "]" | ".")*;
 	public TerminalRule getNameWithWCRule() {
 		return (tNameWithWC != null) ? tNameWithWC : (tNameWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NameWithWC"));
 	} 

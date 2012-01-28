@@ -28,11 +28,14 @@ class LuceneFieldsGenerator implements IGenerator {
 	The following rules are generated. Do not modify. Modify source file instead.
 */
 	ClauseExpression:
-		(n=MustNotExpression | m=MustExpression)? 
+		(UnaryExpression)? 
 		(
+			default=SimpleFieldValue | // Default field
+			(
 			«FOR category : m.fieldCategories»
-			«if(m.fieldCategories.indexOf(category)>0){'| '}»field=«category.categoryName» ':' value=«category.categoryName»Value
+				«if(m.fieldCategories.indexOf(category)>0){'| '}»field=«category.categoryName» ':' value=«category.categoryName»Value
 			«ENDFOR»
+			)
 		)
 	;
 

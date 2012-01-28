@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.KeywordAnalyzer;
+import org.apache.lucene.analysis.PerFieldAnalyzerWrapper;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.util.Version;
 
@@ -30,7 +32,8 @@ public abstract class AbstractIndex {
         // return new WhitespaceTokenizer(reader);
         // }
         // };
-        m_analyzer = new KeywordAnalyzer();
+        m_analyzer = new PerFieldAnalyzerWrapper(new KeywordAnalyzer());
+        ((PerFieldAnalyzerWrapper) m_analyzer).addAnalyzer(Fields.FULL_TEXT, new StandardAnalyzer(getVersion()));
     }
 
     public static Version getVersion() {

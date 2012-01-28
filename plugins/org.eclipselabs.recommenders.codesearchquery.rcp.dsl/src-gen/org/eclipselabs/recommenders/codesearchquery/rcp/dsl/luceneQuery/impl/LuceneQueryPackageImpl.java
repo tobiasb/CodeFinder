@@ -235,9 +235,19 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getClauseExpression_Default()
+  {
+    return (EAttribute)clauseExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getClauseExpression_Field()
   {
-    return (EReference)clauseExpressionEClass.getEStructuralFeatures().get(0);
+    return (EReference)clauseExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -247,7 +257,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    */
   public EAttribute getClauseExpression_Value()
   {
-    return (EAttribute)clauseExpressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)clauseExpressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -814,6 +824,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     createEReference(expressionEClass, EXPRESSION__VALUE);
 
     clauseExpressionEClass = createEClass(CLAUSE_EXPRESSION);
+    createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__DEFAULT);
     createEReference(clauseExpressionEClass, CLAUSE_EXPRESSION__FIELD);
     createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__VALUE);
 
@@ -920,6 +931,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEReference(getExpression_Value(), this.getClauseExpression(), null, "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clauseExpressionEClass, ClauseExpression.class, "ClauseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getClauseExpression_Default(), ecorePackage.getEString(), "default", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClauseExpression_Field(), ecorePackage.getEObject(), null, "field", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClauseExpression_Value(), ecorePackage.getEString(), "value", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

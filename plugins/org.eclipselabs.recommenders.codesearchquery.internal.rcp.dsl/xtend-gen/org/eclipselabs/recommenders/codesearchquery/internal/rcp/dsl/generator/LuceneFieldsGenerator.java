@@ -54,9 +54,15 @@ public class LuceneFieldsGenerator implements IGenerator {
       _builder.append("ClauseExpression:");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("(n=MustNotExpression | m=MustExpression)? ");
+      _builder.append("(UnaryExpression)? ");
       _builder.newLine();
       _builder.append("\t\t");
+      _builder.append("(");
+      _builder.newLine();
+      _builder.append("\t\t\t");
+      _builder.append("default=SimpleFieldValue | // Default field");
+      _builder.newLine();
+      _builder.append("\t\t\t");
       _builder.append("(");
       _builder.newLine();
       {
@@ -81,6 +87,9 @@ public class LuceneFieldsGenerator implements IGenerator {
           _builder.newLineIfNotEmpty();
         }
       }
+      _builder.append("\t\t\t");
+      _builder.append(")");
+      _builder.newLine();
       _builder.append("\t\t");
       _builder.append(")");
       _builder.newLine();

@@ -26,6 +26,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getDefault <em>Default</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getField <em>Field</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -35,6 +36,26 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
  */
 public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implements ClauseExpression
 {
+  /**
+   * The default value of the '{@link #getDefault() <em>Default</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDefault()
+   * @generated
+   * @ordered
+   */
+  protected static final String DEFAULT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDefault() <em>Default</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDefault()
+   * @generated
+   * @ordered
+   */
+  protected String default_ = DEFAULT_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -84,6 +105,29 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   protected EClass eStaticClass()
   {
     return LuceneQueryPackage.Literals.CLAUSE_EXPRESSION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getDefault()
+  {
+    return default_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDefault(String newDefault)
+  {
+    String oldDefault = default_;
+    default_ = newDefault;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__DEFAULT, oldDefault, default_));
   }
 
   /**
@@ -183,6 +227,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__DEFAULT:
+        return getDefault();
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         return getField();
       case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
@@ -201,6 +247,9 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__DEFAULT:
+        setDefault((String)newValue);
+        return;
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         setField((EObject)newValue);
         return;
@@ -221,6 +270,9 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__DEFAULT:
+        setDefault(DEFAULT_EDEFAULT);
+        return;
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         setField((EObject)null);
         return;
@@ -241,6 +293,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__DEFAULT:
+        return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         return field != null;
       case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
@@ -260,7 +314,9 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
+    result.append(" (default: ");
+    result.append(default_);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

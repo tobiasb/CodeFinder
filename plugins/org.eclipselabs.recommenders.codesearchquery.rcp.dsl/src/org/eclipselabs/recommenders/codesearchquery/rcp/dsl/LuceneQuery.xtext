@@ -13,8 +13,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	 Exp2 ( {Exp1.left=current} b=BinaryExp? right=Exp1 )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	
 	Exp2 returns Expression:
-	 value=ClauseExpression |
-	 (UnaryExpression? '(' Exp1 ')');
+	 value=ClauseExpression | (UnaryExpression? '(' Exp1 ')');
 	 
 /*
 	The following rules are generated. Do not modify. Modify source file instead.
@@ -22,16 +21,19 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	ClauseExpression:
 		(UnaryExpression)? 
 		(
-			(field=SimpleField ':' value=SimpleFieldValue)
-			| (field=TypeField ':' value=TypeFieldValue)
-			| (field=MethodField ':' value=MethodFieldValue)
-			| (field=FilePathField ':' value=FilePathFieldValue)
-			| (field=NumberField ':' value=NumberFieldValue)
-			| (field=ModifierField ':' value=ModifierFieldValue)
-			| (field=TimeField ':' value=TimeFieldValue)
-			| (field=DocumentTypeField ':' value=DocumentTypeFieldValue)
-			| (field=ProjectNameField ':' value=ProjectNameFieldValue)
-			| (field=AnnotationField ':' value=AnnotationFieldValue)
+			default=SimpleFieldValue | // Default field
+			(
+				(field=SimpleField ':' value=SimpleFieldValue)
+				| (field=TypeField ':' value=TypeFieldValue)
+				| (field=MethodField ':' value=MethodFieldValue)
+				| (field=FilePathField ':' value=FilePathFieldValue)
+				| (field=NumberField ':' value=NumberFieldValue)
+				| (field=ModifierField ':' value=ModifierFieldValue)
+				| (field=TimeField ':' value=TimeFieldValue)
+				| (field=DocumentTypeField ':' value=DocumentTypeFieldValue)
+				| (field=ProjectNameField ':' value=ProjectNameFieldValue)
+				| (field=AnnotationField ':' value=AnnotationFieldValue)
+			)
 		)
 	;
 
@@ -153,7 +155,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 		NameWithWC
 	;
 	
-	terminal NameWithWC				: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.')*;
+	terminal NameWithWC				: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
 	terminal PathWithWC  			: (('A'..'Z' ':') | ('a'..'z'|'A'..'Z'|'_'|'/')) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
 	
 	FilePathFieldValue:

@@ -162,6 +162,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
+	 *         default=SimpleFieldValue | 
 	 *         (field=SimpleField value=SimpleFieldValue) | 
 	 *         (field=TypeField value=TypeFieldValue) | 
 	 *         (field=MethodField value=MethodFieldValue) | 

@@ -100,13 +100,22 @@ public interface LuceneQueryPackage extends EPackage
   int CLAUSE_EXPRESSION = 1;
 
   /**
+   * The feature id for the '<em><b>Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CLAUSE_EXPRESSION__DEFAULT = 0;
+
+  /**
    * The feature id for the '<em><b>Field</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLAUSE_EXPRESSION__FIELD = 0;
+  int CLAUSE_EXPRESSION__FIELD = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -115,7 +124,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLAUSE_EXPRESSION__VALUE = 1;
+  int CLAUSE_EXPRESSION__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Clause Expression</em>' class.
@@ -124,7 +133,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CLAUSE_EXPRESSION_FEATURE_COUNT = 2;
+  int CLAUSE_EXPRESSION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl <em>Type Field</em>}' class.
@@ -754,6 +763,17 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EClass getClauseExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getDefault <em>Default</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Default</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getDefault()
+   * @see #getClauseExpression()
+   * @generated
+   */
+  EAttribute getClauseExpression_Default();
 
   /**
    * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getField <em>Field</em>}'.
@@ -1398,6 +1418,14 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EClass CLAUSE_EXPRESSION = eINSTANCE.getClauseExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CLAUSE_EXPRESSION__DEFAULT = eINSTANCE.getClauseExpression_Default();
 
     /**
      * The meta object literal for the '<em><b>Field</b></em>' containment reference feature.

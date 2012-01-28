@@ -19,13 +19,6 @@ public class BinaryExpressionTest extends DslTestBase {
     }
 
     @Test
-    public void testAnd03Fail() throws Exception {
-
-        super.setUp();
-        getParseResultAndExpect("(UsedTypes:java.util.List) and (UsedTypes:java.util.Map)", 1);
-    }
-
-    @Test
     public void testOr01() throws Exception {
 
         super.setUp();
@@ -37,13 +30,6 @@ public class BinaryExpressionTest extends DslTestBase {
 
         super.setUp();
         getParseResultAndExpect("(UsedTypes:java.util.List) OR (UsedTypes:java.util.Map)", 0);
-    }
-
-    @Test
-    public void testOr03Fail() throws Exception {
-
-        super.setUp();
-        getParseResultAndExpect("(UsedTypes:java.util.List) or (UsedTypes:java.util.Map)", 1);
     }
 
     @Test
