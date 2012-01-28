@@ -23,8 +23,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
-    private QueryParser parser;
-    private final IndexReader reader;
+    private final QueryParser parser;
+    private IndexReader reader;
 
     public CodeSearcherIndex(final Directory directory) throws IOException {
         super(directory);
@@ -43,11 +43,17 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 
         // TODO: Schränke Felder mit IFieldSelector ein
 
-        @SuppressWarnings("deprecation")
-        IndexReader tmp = reader.reopen(true);
-        final IndexSearcher searcher = new IndexSearcher(tmp);
+        final IndexReader newReader = reader.openIfChanged(reader);
+        if (newReader != null) {
+            // reader was reopened
+            reader.close();
+            reader = newReader;
+        }
+        final IndexSearcher searcher = new IndexSearcher(reader);
 
-        final int collectorSize = tmp.numDocs() > 0 ? tmp.numDocs() : 1;
+        // TODO MB: Tobias, not sure this is the intended way how to do this.
+        // anyway, ensure that the number is at least in the case of a completly new created index.
+        final int collectorSize = reader.numDocs() > 0 ? reader.numDocs() : 1;
 
         final TopScoreDocCollector collector = TopScoreDocCollector.create(collectorSize, true);
 
