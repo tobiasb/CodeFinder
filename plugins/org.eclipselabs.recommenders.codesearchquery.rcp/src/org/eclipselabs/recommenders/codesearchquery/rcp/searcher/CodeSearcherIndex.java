@@ -14,7 +14,6 @@ import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
-import org.apache.lucene.search.TotalHitCountCollector;
 import org.apache.lucene.store.Directory;
 import org.eclipselabs.recommenders.codesearchquery.rcp.AbstractIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
@@ -42,21 +41,18 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
     public List<Document> search(final String queryString) throws CorruptIndexException, IOException, ParseException {
         final Query query = parser.parse(queryString);
 
-    public List<Document> search(final Query query) throws IOException {
+        return search(query);
+    }
 
-        final IndexReader reader = IndexReader.open(getIndex()); // TODO: Cache
-                                                                 // reader
+    public List<Document> search(final Query query) throws IOException {
 
         // TODO: Schränke Felder mit IFieldSelector ein
 
-        final IndexSearcher searcher = new IndexSearcher(reader);
+        @SuppressWarnings("deprecation")
+        IndexReader tmp = reader.reopen(true);
+        final IndexSearcher searcher = new IndexSearcher(tmp);
 
-        // XXX This is super-redundant. Searching just to find out the total
-        // number of hits. Must be refactored
-        final TotalHitCountCollector hitCounts = new TotalHitCountCollector();
-        searcher.search(query, hitCounts);
-
-        final int collectorSize = hitCounts.getTotalHits() > 0 ? hitCounts.getTotalHits() : 1;
+        final int collectorSize = tmp.numDocs() > 0 ? tmp.numDocs() : 1;
 
         final TopScoreDocCollector collector = TopScoreDocCollector.create(collectorSize, true);
 
@@ -64,8 +60,8 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 
         final List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
 
-
-        System.out.println("Searching for: " + query.toString() + ". " + result.size() + " hits.");
+        // System.out.println("Searching for: " + query.toString() + ". " +
+        // result.size() + " hits.");
 
         searcher.close();
 
