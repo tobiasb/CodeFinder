@@ -1,8 +1,13 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 
+import static com.google.common.base.Optional.absent;
+import static com.google.common.base.Optional.fromNullable;
+import static com.google.common.base.Optional.of;
+
 import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -10,6 +15,8 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.names.VmTypeName;
+
+import com.google.common.base.Optional;
 
 public abstract class AbstractIndexer {
 
@@ -22,8 +29,8 @@ public abstract class AbstractIndexer {
     }
 
     public static boolean isPrimitiveOrArrayOrNullOrObjectOrString(final ITypeName type) {
-        return (type == null) || type.isPrimitiveType() || type.isArrayType() || (type == VmTypeName.OBJECT)
-                || (type == VmTypeName.STRING);
+        return type == null || type.isPrimitiveType() || type.isArrayType() || type == VmTypeName.OBJECT
+                || type == VmTypeName.STRING;
     }
 
     // protected void debugOut(String msg, String origin) {
@@ -32,42 +39,44 @@ public abstract class AbstractIndexer {
     // }
 
     protected IProject getProject(ASTNode node) {
-        while ((node != null) && !(node instanceof CompilationUnit)) {
+        while (node != null && !(node instanceof CompilationUnit)) {
             node = node.getParent();
         }
 
         return ((CompilationUnit) node).getTypeRoot().getJavaProject().getProject();
     }
 
-    protected IResource getResource(ASTNode node) {
-        while ((node != null) && !(node instanceof CompilationUnit)) {
+    protected Optional<IResource> getResource(ASTNode node) {
+        while (node != null && !(node instanceof CompilationUnit)) {
             node = node.getParent();
         }
 
         try {
-            return ((CompilationUnit) node).getTypeRoot().getCorrespondingResource();
+            final CompilationUnit cu = (CompilationUnit) node;
+            final ITypeRoot root = cu.getTypeRoot();
+            final IResource resource = root.getCorrespondingResource();
+            return fromNullable(resource);
         } catch (final JavaModelException e) {
-            return null;
+            return absent();
         }
     }
 
-    protected TypeDeclaration getDeclaringType(ASTNode node) {
+    protected Optional<TypeDeclaration> getDeclaringType(ASTNode node) {
         for (; node != null; node = node.getParent()) {
             if (node instanceof TypeDeclaration) {
-                return (TypeDeclaration) node;
+                return of((TypeDeclaration) node);
             }
         }
 
-        return null;
+        return absent();
     }
 
-    protected MethodDeclaration getDeclaringMethod(ASTNode node) {
+    protected Optional<MethodDeclaration> getDeclaringMethod(ASTNode node) {
         for (; node != null; node = node.getParent()) {
             if (node instanceof MethodDeclaration) {
-                return (MethodDeclaration) node;
+                return of((MethodDeclaration) node);
             }
         }
-
-        return null;
+        return absent();
     }
 }

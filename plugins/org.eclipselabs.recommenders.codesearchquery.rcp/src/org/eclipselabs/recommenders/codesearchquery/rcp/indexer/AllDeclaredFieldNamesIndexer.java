@@ -32,17 +32,26 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
     public void index(final Document document, final MethodDeclaration method) {
         addFields(document, method);
 
-        final ITypeBinding typeBinding = getDeclaringType(method).resolveBinding();
-        addFields(document, typeBinding);
+        final Optional<TypeDeclaration> opt = getDeclaringType(method);
+        if (opt.isPresent()) {
+            final ITypeBinding typeBinding = opt.get().resolveBinding();
+            addFields(document, typeBinding);
+        }
     }
 
     @Override
     public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         addFields(document, catchClause);
-        addFields(document, getDeclaringMethod(catchClause));
+        final Optional<MethodDeclaration> optMethod = getDeclaringMethod(catchClause);
+        if (optMethod.isPresent()) {
+            addFields(document, optMethod.get());
+        }
 
-        final ITypeBinding typeBinding = getDeclaringType(catchClause).resolveBinding();
-        addFields(document, typeBinding);
+        final Optional<TypeDeclaration> opt = getDeclaringType(catchClause);
+        if (opt.isPresent()) {
+            final ITypeBinding typeBinding = opt.get().resolveBinding();
+            addFields(document, typeBinding);
+        }
     }
 
     private void addFields(final Document document, final ITypeBinding type) {

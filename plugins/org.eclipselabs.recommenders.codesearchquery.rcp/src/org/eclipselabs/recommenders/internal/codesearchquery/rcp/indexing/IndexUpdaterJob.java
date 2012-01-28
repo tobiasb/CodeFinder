@@ -56,6 +56,7 @@ public class IndexUpdaterJob extends Job {
             }
             return Status.OK_STATUS;
         } catch (final Exception e) {
+            e.printStackTrace();
             return Status.OK_STATUS;
         } finally {
             monitor.done();

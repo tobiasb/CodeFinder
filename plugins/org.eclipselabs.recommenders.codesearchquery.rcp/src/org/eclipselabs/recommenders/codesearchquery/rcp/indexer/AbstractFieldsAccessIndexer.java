@@ -7,8 +7,11 @@ import org.eclipse.jdt.core.dom.Assignment;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SimpleName;
+import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
+
+import com.google.common.base.Optional;
 
 public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
     public enum AssignmentSide {
@@ -24,11 +27,15 @@ public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final QualifiedName node) {
-                if ((side == null) || (parentIsAssignment(node) && currentNodeCorrectSideOfAssignment(node, side))
+                if (side == null || (parentIsAssignment(node) && currentNodeCorrectSideOfAssignment(node, side))
                         || side.equals(AssignmentSide.RIGHT)) {
                     final SimpleName simpleName = node.getName();
 
-                    final ITypeBinding typeBinding = getDeclaringType(node).resolveBinding();
+                    final Optional<TypeDeclaration> opt = getDeclaringType(node);
+                    if (!opt.isPresent()) {
+                        return false;
+                    }
+                    final ITypeBinding typeBinding = opt.get().resolveBinding();
                     final ITypeName declaringType = BindingUtils.toTypeName(typeBinding);
 
                     final String result = String.format("%1$s.%2$s", declaringType.getIdentifier(), simpleName);
@@ -44,7 +51,7 @@ public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
     }
 
     private boolean parentIsAssignment(final ASTNode node) {
-        return (node.getParent() != null) && (node.getParent() instanceof Assignment);
+        return node.getParent() != null && node.getParent() instanceof Assignment;
     }
 
     private boolean currentNodeCorrectSideOfAssignment(final ASTNode node, final AssignmentSide side) {

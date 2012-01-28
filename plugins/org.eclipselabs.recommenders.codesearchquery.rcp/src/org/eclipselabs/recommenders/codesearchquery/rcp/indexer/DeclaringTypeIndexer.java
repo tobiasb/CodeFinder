@@ -16,6 +16,8 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
+import com.google.common.base.Optional;
+
 public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndexer, IMethodIndexer, IClassIndexer,
         ITryCatchBlockIndexer {
 
@@ -36,10 +38,10 @@ public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndex
 
     private void addFieldForParentTypes(final Document document, final ASTNode n) {
 
-        final TypeDeclaration declaringType = getDeclaringType(n.getParent());
+        final Optional<TypeDeclaration> opt = getDeclaringType(n.getParent());
 
-        if (declaringType != null) {
-            final ITypeBinding b = (declaringType).resolveBinding();
+        if (opt.isPresent()) {
+            final ITypeBinding b = (opt.get()).resolveBinding();
             final ITypeName typeName = BindingUtils.toTypeName(b);
 
             addAnalyzedField(document, Fields.DECLARING_TYPE, typeName.getIdentifier());

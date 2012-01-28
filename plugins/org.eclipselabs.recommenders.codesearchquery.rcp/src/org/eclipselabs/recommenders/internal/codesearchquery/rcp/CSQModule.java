@@ -1,5 +1,6 @@
 package org.eclipselabs.recommenders.internal.codesearchquery.rcp;
 
+import static org.eclipse.recommenders.utils.Checks.ensureIsTrue;
 import static org.eclipse.recommenders.utils.Throws.throwUnhandledException;
 
 import java.io.File;
@@ -8,7 +9,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.SimpleFSDirectory;
+import org.apache.lucene.store.FSDirectory;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipselabs.recommenders.codesearchquery.rcp.CodeSearchQuery;
@@ -43,12 +44,21 @@ public class CSQModule extends AbstractModule {
     private void configureLuceneIndex() {
         try {
             final File folder = findOrCreateIndexFolder();
-            final SimpleFSDirectory directory = new SimpleFSDirectory(folder);
+            deleteOldLocks(folder);
+            final FSDirectory directory = FSDirectory.open(folder);
             bind(Directory.class).annotatedWith(CodeSearchQuery.class).toInstance(directory);
         } catch (final IOException e) {
             // this is critical!
             throwUnhandledException(e);
         }
+    }
+
+    private void deleteOldLocks(final File folder) {
+        final File file = new File(folder, "write.lock");
+        if (file.exists()) {
+            ensureIsTrue(file.delete(), "failed to remove old write lock file");
+        }
+
     }
 
     private File findOrCreateIndexFolder() {

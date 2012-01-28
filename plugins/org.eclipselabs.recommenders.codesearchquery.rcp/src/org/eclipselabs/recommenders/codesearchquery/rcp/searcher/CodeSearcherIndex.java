@@ -25,9 +25,12 @@ import com.google.common.collect.Sets;
 
 public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
     private QueryParser parser;
+    private final IndexReader reader;
 
     public CodeSearcherIndex(final Directory directory) throws IOException {
         super(directory);
+        reader = IndexReader.open(directory);
+
     }
 
     @Override
@@ -38,9 +41,6 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 
     public List<Document> search(final String queryString) throws CorruptIndexException, IOException, ParseException {
         final Query query = parser.parse(queryString);
-
-        return search(query);
-    }
 
     public List<Document> search(final Query query) throws IOException {
 
@@ -63,6 +63,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         searcher.search(query, collector);
 
         final List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
+
 
         System.out.println("Searching for: " + query.toString() + ". " + result.size() + " hits.");
 

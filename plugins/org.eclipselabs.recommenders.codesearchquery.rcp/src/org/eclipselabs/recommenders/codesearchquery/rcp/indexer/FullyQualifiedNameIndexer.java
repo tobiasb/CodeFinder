@@ -15,6 +15,8 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClas
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFieldIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 
+import com.google.common.base.Optional;
+
 public class FullyQualifiedNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
 
     @Override
@@ -29,15 +31,18 @@ public class FullyQualifiedNameIndexer extends AbstractIndexer implements IMetho
 
     @Override
     public void index(final Document document, final FieldDeclaration field) {
-        final TypeDeclaration declaringType = getDeclaringType(field);
-        final ITypeBinding b = declaringType.resolveBinding();
-        final ITypeName declaringTypeName = BindingUtils.toTypeName(b);
+        final Optional<TypeDeclaration> opt = getDeclaringType(field);
 
-        @SuppressWarnings("unchecked")
-        final List<VariableDeclarationFragment> fragments = field.fragments();
-        final VariableDeclarationFragment fragment = fragments.get(0);
+        if (opt.isPresent()) {
+            final ITypeBinding b = opt.get().resolveBinding();
+            final ITypeName declaringTypeName = BindingUtils.toTypeName(b);
 
-        addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME,
-                declaringTypeName.getIdentifier() + "." + fragment.getName());
+            @SuppressWarnings("unchecked")
+            final List<VariableDeclarationFragment> fragments = field.fragments();
+            final VariableDeclarationFragment fragment = fragments.get(0);
+
+            addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME,
+                    declaringTypeName.getIdentifier() + "." + fragment.getName());
+        }
     }
 }

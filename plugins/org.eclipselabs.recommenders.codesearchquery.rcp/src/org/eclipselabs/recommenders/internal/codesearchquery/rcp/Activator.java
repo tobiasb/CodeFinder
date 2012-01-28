@@ -1,7 +1,9 @@
 package org.eclipselabs.recommenders.internal.codesearchquery.rcp;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
 import org.osgi.framework.BundleContext;
 
 public class Activator extends AbstractUIPlugin {
@@ -73,6 +75,7 @@ public class Activator extends AbstractUIPlugin {
     public void stop(final BundleContext context) throws Exception {
         plugin = null;
         super.stop(context);
+        InjectionService.getInstance().requestInstance(CodeIndexerIndex.class).close();
     }
 
 }

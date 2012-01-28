@@ -42,9 +42,12 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     @Override
     protected void init() throws CorruptIndexException, LockObtainFailedException, IOException {
+        // don't do that (call an overridable method from (super) constructor... your fields in here are not
+        // initialized. commonly referred to as bad practice.
         final IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
-
+        IndexWriter.unlock(getIndex());
         m_writer = new IndexWriter(getIndex(), config);
+        m_writer.commit();
         searcherIndex = new CodeSearcherIndex(getIndex());
         indexInformationProvider = new IndexInformationCache();
     }
@@ -140,7 +143,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         commit(); // for correct num count
 
         final int numDeleted = numDocsBefore - m_writer.numDocs();
-        System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
+        // XXX MB: this is drastically slowing down Eclipse and indexing.
+        // use a logger instead w/ debug level
+        // System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
     }
 
     @Override
@@ -162,7 +167,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
         final Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
 
-        System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
+        // XXX MB: this is drastically slowing down Eclipse and indexing.
+        // use a logger instead w/ debug level
+        // System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
 
         document.add(field);
     }

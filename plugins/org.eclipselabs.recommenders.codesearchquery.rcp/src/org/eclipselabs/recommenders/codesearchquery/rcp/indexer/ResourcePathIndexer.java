@@ -19,6 +19,8 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
+import com.google.common.base.Optional;
+
 public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer, IFieldIndexer {
 
@@ -44,13 +46,20 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     }
 
     private void addField(final Document document, final ASTNode node) {
-        final IResource resource = getResource(node);
-
-        addAnalyzedField(document, Fields.RESOURCE_PATH, getResourcePath(resource));
+        final Optional<IResource> opt = getResource(node);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.RESOURCE_PATH, getResourcePath(opt.get()));
+        }
     }
 
     public String getResourcePath(final CompilationUnit cu) {
-        return getResourcePath(getResource(cu));
+        final Optional<IResource> opt = getResource(cu);
+        if (opt.isPresent()) {
+            return getResourcePath(opt.get());
+        } else {
+            // TODO MB: Tobias, the null case needs handling. Throw Exception? Return Optional?
+            return null;
+        }
     }
 
     public String getResourcePath(final IResource resource) {
