@@ -1,9 +1,7 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.searcher;
 
-import java.io.IOException;
 import java.util.List;
 
-import org.apache.lucene.store.Directory;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.IQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
@@ -23,18 +21,11 @@ public class GenericQueryProposalProvider implements IQueryProposalProvider {
     @Override
     public List<String> getProposals() {
 
-        try {
+        final CodeSearcherIndex searcherIndex = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
 
-            final Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
+        termVectorProvider.load(searcherIndex);
 
-            final CodeSearcherIndex searcherIndex = new CodeSearcherIndex(directory);
-
-            termVectorProvider.load(searcherIndex);
-
-            return termVectorProvider.getDisjunctTermVector();
-        } catch (final IOException e) {
-            return null;
-        }
+        return termVectorProvider.getDisjunctTermVector();
     }
 
     @Override
