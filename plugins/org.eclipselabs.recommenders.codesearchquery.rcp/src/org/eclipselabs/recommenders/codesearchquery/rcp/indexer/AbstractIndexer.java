@@ -1,11 +1,13 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.indexer;
 
 import static com.google.common.base.Optional.absent;
+import static com.google.common.base.Optional.fromNullable;
 import static com.google.common.base.Optional.of;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -44,15 +46,18 @@ public abstract class AbstractIndexer {
         return ((CompilationUnit) node).getTypeRoot().getJavaProject().getProject();
     }
 
-    protected IResource getResource(ASTNode node) {
+    protected Optional<IResource> getResource(ASTNode node) {
         while (node != null && !(node instanceof CompilationUnit)) {
             node = node.getParent();
         }
 
         try {
-            return ((CompilationUnit) node).getTypeRoot().getCorrespondingResource();
+            final CompilationUnit cu = (CompilationUnit) node;
+            final ITypeRoot root = cu.getTypeRoot();
+            final IResource resource = root.getCorrespondingResource();
+            return fromNullable(resource);
         } catch (final JavaModelException e) {
-            return null;
+            return absent();
         }
     }
 
@@ -66,13 +71,12 @@ public abstract class AbstractIndexer {
         return absent();
     }
 
-    protected MethodDeclaration getDeclaringMethod(ASTNode node) {
+    protected Optional<MethodDeclaration> getDeclaringMethod(ASTNode node) {
         for (; node != null; node = node.getParent()) {
             if (node instanceof MethodDeclaration) {
-                return (MethodDeclaration) node;
+                return of((MethodDeclaration) node);
             }
         }
-
-        return null;
+        return absent();
     }
 }

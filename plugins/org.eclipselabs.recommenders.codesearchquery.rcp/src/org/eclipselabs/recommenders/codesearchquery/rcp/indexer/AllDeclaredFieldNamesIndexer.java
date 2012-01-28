@@ -42,7 +42,10 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
     @Override
     public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         addFields(document, catchClause);
-        addFields(document, getDeclaringMethod(catchClause));
+        final Optional<MethodDeclaration> optMethod = getDeclaringMethod(catchClause);
+        if (optMethod.isPresent()) {
+            addFields(document, optMethod.get());
+        }
 
         final Optional<TypeDeclaration> opt = getDeclaringType(catchClause);
         if (opt.isPresent()) {

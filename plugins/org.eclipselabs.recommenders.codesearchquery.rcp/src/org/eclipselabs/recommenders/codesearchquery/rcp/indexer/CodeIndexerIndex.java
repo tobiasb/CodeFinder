@@ -35,7 +35,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
                                                                               // every time we index
 
     private IIndexInformationProvider indexInformationProvider;
-    
+
     public CodeIndexerIndex(final Directory directory) throws IOException {
         super(directory);
 
@@ -44,9 +44,12 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     @Override
     protected void init() throws CorruptIndexException, LockObtainFailedException, IOException {
-        IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
-
+        // don't do that (call an overridable method from (super) constructor... your fields in here are not
+        // initialized. commonly referred to as bad practice.
+        final IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
+        IndexWriter.unlock(getIndex());
         m_writer = new IndexWriter(getIndex(), config);
+        m_writer.commit();
         searcherIndex = new CodeSearcherIndex(getIndex());
         // m_writer.deleteAll(); // TODO probably shouldn't delete everyting here, dunno
         indexInformationProvider = new IndexInformationCache();
@@ -59,57 +62,61 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     @Override
     public long lastIndexed(final File location) {
-    	Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
-    	
-    	if(lastIndexed.isPresent()) {
-    		return lastIndexed.get();
-    	} else {
-    		lastIndexed = lastIndexedInternal(location);
-    	}
-    	
-    	if(lastIndexed.isPresent()) {
-    		indexInformationProvider.setLastIndexed(location, lastIndexed.get());
-    		return lastIndexed.get();
-    	}
-    	
+        Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
+
+        if (lastIndexed.isPresent()) {
+            return lastIndexed.get();
+        } else {
+            lastIndexed = lastIndexedInternal(location);
+        }
+
+        if (lastIndexed.isPresent()) {
+            indexInformationProvider.setLastIndexed(location, lastIndexed.get());
+            return lastIndexed.get();
+        }
+
         // last update 1.1.1970 ;)
         return 0;
     }
-    
+
     private Optional<Long> lastIndexedInternal(final File location) {
-    	String path = ResourcePathIndexer.getResourcePath(location);
-    	
-    	try {			
-			Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));
-			List<Document> docs = searcherIndex.search(q);
-			
-			if(docs.size() > 0)
-				return getMinTimestamp(docs);
-					
-		} catch (IOException e) {
-			Activator.logError(e);
-		}
-    	
-    	return Optional.absent();
+        final String path = ResourcePathIndexer.getResourcePath(location);
+
+        try {
+            final Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));
+            final List<Document> docs = searcherIndex.search(q);
+
+            if (docs.size() > 0) {
+                return getMinTimestamp(docs);
+            }
+
+        } catch (final IOException e) {
+            Activator.logError(e);
+        }
+
+        return Optional.absent();
     }
-    
-    private Optional<Long> getMinTimestamp(List<Document> documents) {
-    	long min = Long.MAX_VALUE;
-    	
-    	for(Document doc : documents) {
-    		String timestampString = doc.get(Fields.TIMESTAMP);
-    		
-    		try {
-        		Long timestampValue = Long.parseLong(timestampString);
-	    		if(min > timestampValue)
-	    			min = timestampValue;
-    		} catch(Exception ex) {}
-    	}
-    	
-    	if(min == Long.MAX_VALUE)
-    		return Optional.absent();
-    	
-    	return Optional.of(min);
+
+    private Optional<Long> getMinTimestamp(final List<Document> documents) {
+        long min = Long.MAX_VALUE;
+
+        for (final Document doc : documents) {
+            final String timestampString = doc.get(Fields.TIMESTAMP);
+
+            try {
+                final Long timestampValue = Long.parseLong(timestampString);
+                if (min > timestampValue) {
+                    min = timestampValue;
+                }
+            } catch (final Exception ex) {
+            }
+        }
+
+        if (min == Long.MAX_VALUE) {
+            return Optional.absent();
+        }
+
+        return Optional.of(min);
     }
 
     @Override
@@ -124,7 +131,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public void index(final CompilationUnit cu, final List<IIndexer> indexer) throws IOException {
         delete(cu);
 
-        CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
+        final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
         visitor.addIndexer(indexer);
 
         cu.accept(visitor);
@@ -134,18 +141,20 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     public void delete(final Term term) throws IOException {
 
-        int numDocsBefore = m_writer.numDocs();
+        final int numDocsBefore = m_writer.numDocs();
         m_writer.deleteDocuments(term);
         commit(); // for correct num count
 
-        int numDeleted = numDocsBefore - m_writer.numDocs();
-        System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
+        final int numDeleted = numDocsBefore - m_writer.numDocs();
+        // XXX MB: this is drastically slowing down Eclipse and indexing.
+        // use a logger instead w/ debug level
+        // System.out.println("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
     }
 
     @Override
     public void delete(final CompilationUnit cu) throws IOException {
-        ResourcePathIndexer indexer = new ResourcePathIndexer();
-        String cuPath = indexer.getResourcePath(cu);
+        final ResourcePathIndexer indexer = new ResourcePathIndexer();
+        final String cuPath = indexer.getResourcePath(cu);
 
         delete(new Term(Fields.RESOURCE_PATH, cuPath));
     }
@@ -159,9 +168,11 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             return;
         }
 
-        Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+        final Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
 
-        System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
+        // XXX MB: this is drastically slowing down Eclipse and indexing.
+        // use a logger instead w/ debug level
+        // System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
 
         document.add(field);
     }
@@ -169,10 +180,10 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public void commit() {
         try {
             m_writer.commit();
-        } catch (CorruptIndexException e) {
+        } catch (final CorruptIndexException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -187,7 +198,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         try {
             m_writer.deleteAll();
             m_writer.commit();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace(); // TODO: refactor
         }
     }
@@ -195,7 +206,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public void printStats() {
         try {
             Activator.logInfo("Stat - Docs in Index: " + m_writer.numDocs());
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace(); // TODO: refactor
         }
     }
@@ -206,15 +217,15 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             commit();
             m_writer.close();
             getIndex().close();
-        } catch (CorruptIndexException e) {
+        } catch (final CorruptIndexException e) {
             e.printStackTrace(); // TODO: refactor
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace(); // TODO: refactor
         }
     }
 
     public void addDocuments(final List<Document> docs) throws IOException {
-        for (Document doc : docs) {
+        for (final Document doc : docs) {
             addDocument(doc);
         }
     }
