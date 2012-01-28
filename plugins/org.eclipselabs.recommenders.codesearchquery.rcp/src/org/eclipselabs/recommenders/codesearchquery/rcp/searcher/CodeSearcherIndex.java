@@ -14,6 +14,7 @@ import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopScoreDocCollector;
+import org.apache.lucene.search.TotalHitCountCollector;
 import org.apache.lucene.store.Directory;
 import org.eclipselabs.recommenders.codesearchquery.rcp.AbstractIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
@@ -23,88 +24,95 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
 public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
-	private QueryParser parser;
-	
-	public CodeSearcherIndex(Directory directory) throws IOException {
-		super(directory);
-	}
-	
-	protected void init() {
-		parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, getAnalyzer());
-		parser.setLowercaseExpandedTerms(false);
-	}
-	
-	public List<Document> search(String queryString) throws CorruptIndexException, IOException, ParseException {
-		Query query = parser.parse(queryString);
-		
-		return search(query);
-	}
-	
-	public List<Document> search(Query query) throws IOException {
+    private QueryParser parser;
 
-		IndexReader reader = IndexReader.open(getIndex()); // TODO: Cache reader
+    public CodeSearcherIndex(Directory directory) throws IOException {
+        super(directory);
+    }
 
-		//TODO: Schränke Felder mit IFieldSelector ein
-		
-		IndexSearcher searcher = new IndexSearcher(reader);
+    protected void init() {
+        parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, getAnalyzer());
+        parser.setLowercaseExpandedTerms(false);
+    }
 
-		TopScoreDocCollector collector = TopScoreDocCollector.create(reader.numDocs(), true); //numDocs might not be the actual number
-		
-		searcher.search(query, collector);
+    public List<Document> search(String queryString) throws CorruptIndexException, IOException, ParseException {
+        Query query = parser.parse(queryString);
 
-		List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
+        return search(query);
+    }
+
+    public List<Document> search(Query query) throws IOException {
+
+        IndexReader reader = IndexReader.open(getIndex()); // TODO: Cache reader
+
+        // TODO: Schränke Felder mit IFieldSelector ein
+
+        IndexSearcher searcher = new IndexSearcher(reader);
+
+        // XXX This is super-redundant. Searching just to find out the total
+        // number of hits. Must be refactored
+        TotalHitCountCollector hitCounts = new TotalHitCountCollector();
+        searcher.search(query, hitCounts);
+
+        int collectorSize = hitCounts.getTotalHits() > 0 ? hitCounts.getTotalHits() : 1;
+
+        TopScoreDocCollector collector = TopScoreDocCollector.create(collectorSize, true);
+
+        searcher.search(query, collector);
+
+        List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
 
         System.out.println("Searching for: " + query.toString() + ". " + result.size() + " hits.");
-        
+
         searcher.close();
-        
-		return result;
-	}
-	
-	private static List<Document> toList(IndexSearcher searcher, ScoreDoc[] scoreDocs) {
-		
-		List<Document> result = Lists.newArrayList();
-		
+
+        return result;
+    }
+
+    private static List<Document> toList(IndexSearcher searcher, ScoreDoc[] scoreDocs) {
+
+        List<Document> result = Lists.newArrayList();
+
         for (final ScoreDoc doc : scoreDocs) {
             try {
-				result.add(searcher.doc(doc.doc));
-			} catch (CorruptIndexException e) {
-				e.printStackTrace(); //TODO refactor
-			} catch (IOException e) {
-				e.printStackTrace(); //TODO refactor
-			}
+                result.add(searcher.doc(doc.doc));
+            } catch (CorruptIndexException e) {
+                e.printStackTrace(); // TODO refactor
+            } catch (IOException e) {
+                e.printStackTrace(); // TODO refactor
+            }
         }
-        
+
         return result;
-	}
-	
-	public List<Document> getDocuments() throws IOException {
-		MatchAllDocsQuery allDocsQuery = new MatchAllDocsQuery();
+    }
 
-		return search(allDocsQuery);
-	}
+    public List<Document> getDocuments() throws IOException {
+        MatchAllDocsQuery allDocsQuery = new MatchAllDocsQuery();
 
-	@Override
-	public Set<String> getTermVector(String fieldName) {
-		Set<String> result = Sets.newHashSet();
-		
-		try {
-			List<Document> allDocs = getDocuments();
+        return search(allDocsQuery);
+    }
 
-			for(Document doc : allDocs) {
-				for(String value : doc.getValues(fieldName)) {
-					result.add(value);
-				}
-			}
-			
-		} catch (CorruptIndexException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return result;
-	}
+    @Override
+    public Set<String> getTermVector(String fieldName) {
+        Set<String> result = Sets.newHashSet();
+
+        try {
+            List<Document> allDocs = getDocuments();
+
+            for (Document doc : allDocs) {
+                for (String value : doc.getValues(fieldName)) {
+                    result.add(value);
+                }
+            }
+
+        } catch (CorruptIndexException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 }
