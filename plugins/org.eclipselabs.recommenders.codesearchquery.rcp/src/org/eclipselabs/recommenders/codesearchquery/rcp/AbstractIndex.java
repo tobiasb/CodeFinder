@@ -1,6 +1,7 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp;
 
 import java.io.IOException;
+import java.util.Map;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.KeywordAnalyzer;
@@ -8,6 +9,8 @@ import org.apache.lucene.analysis.PerFieldAnalyzerWrapper;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.util.Version;
+
+import com.google.common.collect.Maps;
 
 public abstract class AbstractIndex {
 
@@ -23,17 +26,11 @@ public abstract class AbstractIndex {
 
     public AbstractIndex(final Directory directory) throws IOException {
         m_index = directory;
-        // m_analyzer = new Analyzer(){
-        //
-        // @Override
-        // public TokenStream tokenStream(String fieldName, Reader reader) {
-        // //
-        // //return new KeywordTokenizer(reader);
-        // return new WhitespaceTokenizer(reader);
-        // }
-        // };
-        m_analyzer = new PerFieldAnalyzerWrapper(new KeywordAnalyzer());
-        ((PerFieldAnalyzerWrapper) m_analyzer).addAnalyzer(Fields.FULL_TEXT, new StandardAnalyzer(getVersion()));
+
+        Map<String, Analyzer> analyzerPerField = Maps.newHashMap();
+        analyzerPerField.put(Fields.FULL_TEXT, new StandardAnalyzer(getVersion()));
+
+        m_analyzer = new PerFieldAnalyzerWrapper(new KeywordAnalyzer(), analyzerPerField);
     }
 
     public static Version getVersion() {
