@@ -2,7 +2,6 @@ package org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions;
 
 import java.util.List;
 
-import org.apache.lucene.store.Directory;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.PlatformObject;
@@ -48,9 +47,8 @@ public class IndexAction implements IObjectActionDelegate {
     public void run(final IAction action) {
         try {
             final Long start = System.currentTimeMillis();
-            
-            Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
-            final CodeIndexerIndex index = new CodeIndexerIndex(directory);
+
+            final CodeIndexerIndex index = InjectionService.getInstance().requestInstance(CodeIndexerIndex.class);
 
             final IndexUpdaterJob job = new IndexUpdaterJob(index, ResourcesPlugin.getWorkspace().getRoot());
             job.addJobChangeListener(new JobChangeAdapter() {
@@ -60,7 +58,6 @@ public class IndexAction implements IObjectActionDelegate {
                     if (event.getResult().isOK()) {
 
                         index.printStats();
-                        index.close();
 
                         Long duration = System.currentTimeMillis() - start;
 

@@ -31,11 +31,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     private IndexWriter m_writer;
     private CodeSearcherIndex searcherIndex;
-    private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList(); // we don't want to create a new instance
-                                                                              // every time we index
-
+    private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList();
     private IIndexInformationProvider indexInformationProvider;
-    
+
     public CodeIndexerIndex(final Directory directory) throws IOException {
         super(directory);
 
@@ -48,7 +46,6 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
         m_writer = new IndexWriter(getIndex(), config);
         searcherIndex = new CodeSearcherIndex(getIndex());
-        // m_writer.deleteAll(); // TODO probably shouldn't delete everyting here, dunno
         indexInformationProvider = new IndexInformationCache();
     }
 
@@ -59,57 +56,58 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     @Override
     public long lastIndexed(final File location) {
-    	Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
-    	
-    	if(lastIndexed.isPresent()) {
-    		return lastIndexed.get();
-    	} else {
-    		lastIndexed = lastIndexedInternal(location);
-    	}
-    	
-    	if(lastIndexed.isPresent()) {
-    		indexInformationProvider.setLastIndexed(location, lastIndexed.get());
-    		return lastIndexed.get();
-    	}
-    	
+        Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
+
+        if (lastIndexed.isPresent()) {
+            return lastIndexed.get();
+        } else {
+            lastIndexed = lastIndexedInternal(location);
+        }
+
+        if (lastIndexed.isPresent()) {
+            indexInformationProvider.setLastIndexed(location, lastIndexed.get());
+            return lastIndexed.get();
+        }
+
         // last update 1.1.1970 ;)
         return 0;
     }
-    
+
     private Optional<Long> lastIndexedInternal(final File location) {
-    	String path = ResourcePathIndexer.getResourcePath(location);
-    	
-    	try {			
-			Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));
-			List<Document> docs = searcherIndex.search(q);
-			
-			if(docs.size() > 0)
-				return getMinTimestamp(docs);
-					
-		} catch (IOException e) {
-			Activator.logError(e);
-		}
-    	
-    	return Optional.absent();
+        String path = ResourcePathIndexer.getResourcePath(location);
+
+        try {
+            Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));
+            List<Document> docs = searcherIndex.search(q);
+
+            if (docs.size() > 0)
+                return getMinTimestamp(docs);
+
+        } catch (IOException e) {
+            Activator.logError(e);
+        }
+
+        return Optional.absent();
     }
-    
+
     private Optional<Long> getMinTimestamp(List<Document> documents) {
-    	long min = Long.MAX_VALUE;
-    	
-    	for(Document doc : documents) {
-    		String timestampString = doc.get(Fields.TIMESTAMP);
-    		
-    		try {
-        		Long timestampValue = Long.parseLong(timestampString);
-	    		if(min > timestampValue)
-	    			min = timestampValue;
-    		} catch(Exception ex) {}
-    	}
-    	
-    	if(min == Long.MAX_VALUE)
-    		return Optional.absent();
-    	
-    	return Optional.of(min);
+        long min = Long.MAX_VALUE;
+
+        for (Document doc : documents) {
+            String timestampString = doc.get(Fields.TIMESTAMP);
+
+            try {
+                Long timestampValue = Long.parseLong(timestampString);
+                if (min > timestampValue)
+                    min = timestampValue;
+            } catch (Exception ex) {
+            }
+        }
+
+        if (min == Long.MAX_VALUE)
+            return Optional.absent();
+
+        return Optional.of(min);
     }
 
     @Override
@@ -203,13 +201,13 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     @Override
     public void close() {
         try {
+            Activator.logInfo("Closing %s", CodeIndexerIndex.class.getName());
+
             commit();
-            m_writer.close();
-            getIndex().close();
-        } catch (CorruptIndexException e) {
-            e.printStackTrace(); // TODO: refactor
-        } catch (IOException e) {
-            e.printStackTrace(); // TODO: refactor
+            // m_writer.close();
+            // getIndex().close();
+        } catch (Exception ex) {
+            Activator.logError(ex);
         }
     }
 

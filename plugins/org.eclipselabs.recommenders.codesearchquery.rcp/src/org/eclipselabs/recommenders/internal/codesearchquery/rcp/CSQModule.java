@@ -13,6 +13,7 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipselabs.recommenders.codesearchquery.rcp.CodeSearchQuery;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.eclipselabs.recommenders.internal.codesearchquery.rcp.indexing.IndexUpdaterJob;
 import org.eclipselabs.recommenders.internal.codesearchquery.rcp.indexing.IndexUpdaterService;
 
@@ -44,7 +45,6 @@ public class CSQModule extends AbstractModule {
             File folder = findOrCreateIndexFolder();
             SimpleFSDirectory directory = new SimpleFSDirectory(folder);
             bind(Directory.class).annotatedWith(CodeSearchQuery.class).toInstance(directory);
-            bind(Directory.class).toInstance(directory);
         } catch (IOException e) {
             // this is critical!
             throwUnhandledException(e);
@@ -61,8 +61,14 @@ public class CSQModule extends AbstractModule {
 
     @Provides
     @Singleton
-    public CodeIndexerIndex provideCSQIndex(@CodeSearchQuery final Directory dir) throws IOException {
+    public CodeIndexerIndex provideCSQIndexForIndexing(@CodeSearchQuery final Directory dir) throws IOException {
         return new CodeIndexerIndex(dir);
+    }
+
+    @Provides
+    @Singleton
+    public CodeSearcherIndex provideCSQIndexForSearching(@CodeSearchQuery final Directory dir) throws IOException {
+        return new CodeSearcherIndex(dir);
     }
 
     private static class Services {

@@ -59,6 +59,8 @@ public class IndexUpdaterJob extends Job {
             return Status.OK_STATUS;
         } finally {
             monitor.done();
+
+            indexer.commit();
         }
     }
 }

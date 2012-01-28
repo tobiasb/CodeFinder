@@ -11,7 +11,6 @@ import java.util.List;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryParser.ParseException;
-import org.apache.lucene.store.Directory;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -186,12 +185,10 @@ public class SearchQueryView extends ViewPart {
                         try {
                             result.clear();
                             
-                            Directory index = InjectionService.getInstance().requestInstance(Directory.class);
-                            
                             final String searchQuery = handle.getDocument().readOnly(new QueryExtractor());
                             resetXtextQuery();
 
-                            codeSearcher = new CodeSearcherIndex(index);
+                            codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
                             
                             result.addAll(codeSearcher.search(searchQuery));
                         } catch (final CorruptIndexException e1) {
