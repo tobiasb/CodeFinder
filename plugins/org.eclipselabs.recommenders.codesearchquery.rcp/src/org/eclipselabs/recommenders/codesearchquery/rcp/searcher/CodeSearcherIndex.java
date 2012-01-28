@@ -49,7 +49,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
             reader.close();
             reader = newReader;
         }
-        final IndexSearcher searcher = new IndexSearcher(newReader);
+        final IndexSearcher searcher = new IndexSearcher(reader);
 
         // TODO MB: Tobias, not sure this is the intended way how to do this.
         // anyway, ensure that the number is at least in the case of a completly new created index.
