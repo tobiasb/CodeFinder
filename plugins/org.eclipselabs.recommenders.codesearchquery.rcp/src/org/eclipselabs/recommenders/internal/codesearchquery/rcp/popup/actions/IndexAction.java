@@ -59,9 +59,9 @@ public class IndexAction implements IObjectActionDelegate {
 
                         index.printStats();
 
-                        Long duration = System.currentTimeMillis() - start;
+                        final Long duration = System.currentTimeMillis() - start;
 
-                        String msg = "Index was built for " + projects.size() + " project(s). Took " + duration
+                        final String msg = "Index was built for " + projects.size() + " project(s). Took " + duration
                                 + " milliseconds.";
 
                         System.out.println(msg);
@@ -72,7 +72,7 @@ public class IndexAction implements IObjectActionDelegate {
 
             });
             job.schedule();
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
             Activator.logError(ex, "Error");
         }
     }
@@ -86,7 +86,7 @@ public class IndexAction implements IObjectActionDelegate {
 
         if (selection instanceof IStructuredSelection) {
 
-            for (Object o : ((IStructuredSelection) selection).toArray()) {
+            for (final Object o : ((IStructuredSelection) selection).toArray()) {
 
                 if (o instanceof IProject) {
                     projects.add((IProject) o);

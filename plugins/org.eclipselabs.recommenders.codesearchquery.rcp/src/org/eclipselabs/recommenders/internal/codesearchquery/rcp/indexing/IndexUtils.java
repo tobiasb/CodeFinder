@@ -37,13 +37,14 @@ public class IndexUtils {
             final IProgressMonitor monitor) {
 
         try {
-            // get all package fragments of this project (not including those of the projects it depends one
-            IPackageFragmentRoot[] roots = project.getPackageFragmentRoots();
+            // get all package fragments of this project (not including those of
+            // the projects it depends one
+            final IPackageFragmentRoot[] roots = project.getPackageFragmentRoots();
             monitor.beginTask(project.getElementName(), roots.length);
-            for (IPackageFragmentRoot root : roots) {
-                for (IJavaElement child : root.getChildren()) {
-                    IPackageFragment fragment = cast(child);
-                    for (ICompilationUnit cu : fragment.getCompilationUnits()) {
+            for (final IPackageFragmentRoot root : roots) {
+                for (final IJavaElement child : root.getChildren()) {
+                    final IPackageFragment fragment = cast(child);
+                    for (final ICompilationUnit cu : fragment.getCompilationUnits()) {
                         if (monitor.isCanceled()) {
                             return Status.CANCEL_STATUS;
                         }
@@ -57,7 +58,7 @@ public class IndexUtils {
                 }
                 monitor.worked(1);
             }
-        } catch (JavaModelException e) {
+        } catch (final JavaModelException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
@@ -65,9 +66,9 @@ public class IndexUtils {
         }
         return Status.OK_STATUS;
     }
-    
-    public static CompilationUnit getAST(ICompilationUnit cu) {
-    	return SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
+
+    public static CompilationUnit getAST(final ICompilationUnit cu) {
+        return SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
     }
 
     public static void addOrUpdateCompilationUnitToIndex(final ICompilationUnit cu, final CodeIndexerIndex indexer) {
@@ -75,14 +76,14 @@ public class IndexUtils {
             if (!shouldIndex(cu, indexer)) {
                 return;
             }
-            CompilationUnit ast = getAST(cu);
+            final CompilationUnit ast = getAST(cu);
             if (ast != null) {
                 indexer.index(ast);
             }
-        } catch (JavaModelException e) {
+        } catch (final JavaModelException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -90,13 +91,13 @@ public class IndexUtils {
 
     public static boolean shouldIndex(final ICompilationUnit cu, final CodeIndexerIndex indexer)
             throws JavaModelException {
-        IResource resource = cu.getUnderlyingResource();
-        File location = resource.getLocation().toFile();
+        final IResource resource = cu.getUnderlyingResource();
+        final File location = resource.getLocation().toFile();
         if (location == null) {
             return false;
         }
-        long lastModified = location.lastModified();
-        long lastIndexed = indexer.lastIndexed(location);
+        final long lastModified = location.lastModified();
+        final long lastIndexed = indexer.lastIndexed(location);
         return lastIndexed < lastModified;
     }
 }

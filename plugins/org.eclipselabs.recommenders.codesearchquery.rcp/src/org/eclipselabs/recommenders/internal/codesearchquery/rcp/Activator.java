@@ -47,14 +47,15 @@ public class Activator extends AbstractUIPlugin {
 
     private static void logConsole(final Throwable e, final String format, final Object... args) {
         try {
-        	if(format != null) {
-        		System.out.println(String.format(format, args));
-        	}
-        	if(e != null) {
+            if (format != null) {
+                System.out.println(String.format(format, args));
+            }
+            if (e != null) {
                 e.printStackTrace();
             }
-        }catch(Exception ex) {
-            System.out.println(String.format("String [%1$s] cannot be formatted correctly. Stacktrace: %2$s", format, ex.getStackTrace()));
+        } catch (final Exception ex) {
+            System.out.println(String.format("String [%1$s] cannot be formatted correctly. Stacktrace: %2$s", format,
+                    ex.getStackTrace()));
         }
     }
 

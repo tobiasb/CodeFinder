@@ -7,9 +7,9 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 
 public class FieldTypeIndexer extends AbstractIndexer implements IFieldIndexer {
 
-	@Override
-	public void index(Document document, FieldDeclaration field) {
+    @Override
+    public void index(final Document document, final FieldDeclaration field) {
         addAnalyzedField(document, Fields.FIELD_TYPE, BindingHelper.getIdentifier(field));
-	}
+    }
 
 }

@@ -20,87 +20,95 @@ import com.google.common.collect.Lists;
 
 public class AbstractTestIndex {
 
-	private CodeIndexerIndex index = null;
-	private List<Document> docs = Lists.newArrayList();
-	private Document currentDoc = null;
-	
-	public AbstractTestIndex() {	
-    	IndexUpdaterServiceSettings.setNoDispatch(true); // To prevent workspace events from being processed
-	}
-	
-	public AbstractTestIndex newIndex() throws IOException {
-		if(index != null)
-			finish();
-		
-		index = new CodeIndexerIndex(new RAMDirectory());
-		
-		return this;
-	}
-	
-	public CodeIndexerIndex getIndexer() {
-		return index;
-	}
-	
-	public CodeSearcherIndex getSearchIndexer() throws IOException {
-		return new CodeSearcherIndex(getIndexer().getIndex());
-	}
-	
-	public AbstractTestIndex newDocs() {
-		docs.clear();
-		
-		return this;
-	}
-	
-	public AbstractTestIndex newDoc() {
-		if(currentDoc != null)
-			docs.add(currentDoc);
-		
-		currentDoc = new Document();
-		
-		return this;
-	}
-	
-	public AbstractTestIndex addField(String fieldName, String fieldValue) {
-		if(currentDoc == null)
-			currentDoc = new Document();
-		
-		CodeIndexerIndex.addAnalyzedField(currentDoc, fieldName, fieldValue);
-		
-		return this;
-	}
-	
-	public AbstractTestIndex finish() throws IOException {
-		if(currentDoc != null)
-			docs.add(currentDoc);
-		
-		currentDoc = null;
+    private CodeIndexerIndex index = null;
+    private final List<Document> docs = Lists.newArrayList();
+    private Document currentDoc = null;
 
-		index.addDocuments(docs);
-		
-		index.commit();
-		
-		newDocs();
-		
-		return this;
-	}
-	
-	protected CompilationUnit getSampleCompilationUnit() throws Exception {
+    public AbstractTestIndex() {
+        IndexUpdaterServiceSettings.setNoDispatch(true); // To prevent workspace
+                                                         // events from being
+                                                         // processed
+    }
 
-		JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
-		Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers("public class MyInstanceOfClass {}", "MyClass.java");
-		
-		CompilationUnit cu = CompilationUnitHelper.parse(struct.getFirst());
-		
-		return cu;
-	}
-	
-	protected ICompilationUnit getSampleICompilationUnit() throws Exception {
+    public AbstractTestIndex newIndex() throws IOException {
+        if (index != null) {
+            finish();
+        }
 
-		JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
-		Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers("public class MyInstanceOfClass {}", "MyClass.java");
-		
-		ICompilationUnit cu = struct.getFirst();
-		
-		return cu;
-	}
+        index = new CodeIndexerIndex(new RAMDirectory());
+
+        return this;
+    }
+
+    public CodeIndexerIndex getIndexer() {
+        return index;
+    }
+
+    public CodeSearcherIndex getSearchIndexer() throws IOException {
+        return new CodeSearcherIndex(getIndexer().getIndex());
+    }
+
+    public AbstractTestIndex newDocs() {
+        docs.clear();
+
+        return this;
+    }
+
+    public AbstractTestIndex newDoc() {
+        if (currentDoc != null) {
+            docs.add(currentDoc);
+        }
+
+        currentDoc = new Document();
+
+        return this;
+    }
+
+    public AbstractTestIndex addField(final String fieldName, final String fieldValue) {
+        if (currentDoc == null) {
+            currentDoc = new Document();
+        }
+
+        CodeIndexerIndex.addAnalyzedField(currentDoc, fieldName, fieldValue);
+
+        return this;
+    }
+
+    public AbstractTestIndex finish() throws IOException {
+        if (currentDoc != null) {
+            docs.add(currentDoc);
+        }
+
+        currentDoc = null;
+
+        index.addDocuments(docs);
+
+        index.commit();
+
+        newDocs();
+
+        return this;
+    }
+
+    protected CompilationUnit getSampleCompilationUnit() throws Exception {
+
+        final JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
+        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers(
+                "public class MyInstanceOfClass {}", "MyClass.java");
+
+        final CompilationUnit cu = CompilationUnitHelper.parse(struct.getFirst());
+
+        return cu;
+    }
+
+    protected ICompilationUnit getSampleICompilationUnit() throws Exception {
+
+        final JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
+        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers(
+                "public class MyInstanceOfClass {}", "MyClass.java");
+
+        final ICompilationUnit cu = struct.getFirst();
+
+        return cu;
+    }
 }

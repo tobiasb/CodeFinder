@@ -12,7 +12,7 @@ public class ImplementedInterfacesIndexer extends AbstractIndexer implements ICl
 
     @Override
     public void index(final Document document, final TypeDeclaration type) {
-        ITypeBinding clazz = type.resolveBinding();
+        final ITypeBinding clazz = type.resolveBinding();
         if (clazz == null) {
             return;
         }

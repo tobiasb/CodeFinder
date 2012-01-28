@@ -6,50 +6,49 @@ import java.util.Set;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-
 public abstract class AbstractTermVectorProvider implements ITermVectorProvider {
-	private boolean done = false;
-	private List<String> termVector = null;
+    private boolean done = false;
+    private List<String> termVector = null;
 
-	public boolean isDone() {
-		return done;
-	}
+    public boolean isDone() {
+        return done;
+    }
 
-	protected void setDone(boolean done) {
-		this.done = done;
-	}
+    protected void setDone(final boolean done) {
+        this.done = done;
+    }
 
-	public List<String> getTermVector() {
-		return termVector;
-	}
+    public List<String> getTermVector() {
+        return termVector;
+    }
 
-	protected void setTermVector(List<String> termVector) {
-		this.termVector = termVector;
-	}
+    protected void setTermVector(final List<String> termVector) {
+        this.termVector = termVector;
+    }
 
-	@Override
-	public List<String> getDisjunctTermVector() {
-		return getTermVector();
-	}
-	
-	protected abstract String[] getFields();
+    @Override
+    public List<String> getDisjunctTermVector() {
+        return getTermVector();
+    }
 
-	@Override
-	public void load(ITermVectorConsumable consumable) {
-		final Set<String> result  = Sets.newHashSet();
-		
-		for(String fieldName : getFields()) {
-			//TODO: Schränke Felder mit IFieldSelector ein
-			Set<String> types = consumable.getTermVector(fieldName);
-			result.addAll(types);
-		}
+    protected abstract String[] getFields();
 
-		setTermVector(Lists.newArrayList(result));
-		setDone(true);
-	}
+    @Override
+    public void load(final ITermVectorConsumable consumable) {
+        final Set<String> result = Sets.newHashSet();
 
-	@Override
-	public boolean doneLoading() {
-		return isDone();
-	}
+        for (final String fieldName : getFields()) {
+            // TODO: Schränke Felder mit IFieldSelector ein
+            final Set<String> types = consumable.getTermVector(fieldName);
+            result.addAll(types);
+        }
+
+        setTermVector(Lists.newArrayList(result));
+        setDone(true);
+    }
+
+    @Override
+    public boolean doneLoading() {
+        return isDone();
+    }
 }

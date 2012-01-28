@@ -13,33 +13,32 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class ProjectNameIndexer extends AbstractIndexer implements
-		IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer, IFieldIndexer {
+public class ProjectNameIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
+        ITryCatchBlockIndexer, IFieldIndexer {
 
-	@Override
-	public void index(Document document, FieldDeclaration field) {
-		addField(document, field);
-	}
+    @Override
+    public void index(final Document document, final FieldDeclaration field) {
+        addField(document, field);
+    }
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
-		addField(document, method);
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        addField(document, method);
+    }
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		addField(document, type);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        addField(document, type);
+    }
 
-	@Override
-	public void index(Document document, TryStatement tryStatement,
-			CatchClause catchClause) {
-		addField(document, tryStatement);
-	}
-	
-	private void addField(final Document document, ASTNode node) {
-		String projectName = getProject(node).getName();
-		
-		addAnalyzedField(document, Fields.PROJECT_NAME, projectName);
-	}
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+        addField(document, tryStatement);
+    }
+
+    private void addField(final Document document, final ASTNode node) {
+        final String projectName = getProject(node).getName();
+
+        addAnalyzedField(document, Fields.PROJECT_NAME, projectName);
+    }
 }

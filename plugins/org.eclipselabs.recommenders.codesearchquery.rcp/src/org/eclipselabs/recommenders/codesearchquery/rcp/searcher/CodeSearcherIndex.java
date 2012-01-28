@@ -26,41 +26,43 @@ import com.google.common.collect.Sets;
 public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
     private QueryParser parser;
 
-    public CodeSearcherIndex(Directory directory) throws IOException {
+    public CodeSearcherIndex(final Directory directory) throws IOException {
         super(directory);
     }
 
+    @Override
     protected void init() {
         parser = new QueryParser(getVersion(), Fields.FULLY_QUALIFIED_NAME, getAnalyzer());
         parser.setLowercaseExpandedTerms(false);
     }
 
-    public List<Document> search(String queryString) throws CorruptIndexException, IOException, ParseException {
-        Query query = parser.parse(queryString);
+    public List<Document> search(final String queryString) throws CorruptIndexException, IOException, ParseException {
+        final Query query = parser.parse(queryString);
 
         return search(query);
     }
 
-    public List<Document> search(Query query) throws IOException {
+    public List<Document> search(final Query query) throws IOException {
 
-        IndexReader reader = IndexReader.open(getIndex()); // TODO: Cache reader
+        final IndexReader reader = IndexReader.open(getIndex()); // TODO: Cache
+                                                                 // reader
 
         // TODO: Schränke Felder mit IFieldSelector ein
 
-        IndexSearcher searcher = new IndexSearcher(reader);
+        final IndexSearcher searcher = new IndexSearcher(reader);
 
         // XXX This is super-redundant. Searching just to find out the total
         // number of hits. Must be refactored
-        TotalHitCountCollector hitCounts = new TotalHitCountCollector();
+        final TotalHitCountCollector hitCounts = new TotalHitCountCollector();
         searcher.search(query, hitCounts);
 
-        int collectorSize = hitCounts.getTotalHits() > 0 ? hitCounts.getTotalHits() : 1;
+        final int collectorSize = hitCounts.getTotalHits() > 0 ? hitCounts.getTotalHits() : 1;
 
-        TopScoreDocCollector collector = TopScoreDocCollector.create(collectorSize, true);
+        final TopScoreDocCollector collector = TopScoreDocCollector.create(collectorSize, true);
 
         searcher.search(query, collector);
 
-        List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
+        final List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
 
         System.out.println("Searching for: " + query.toString() + ". " + result.size() + " hits.");
 
@@ -69,16 +71,16 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         return result;
     }
 
-    private static List<Document> toList(IndexSearcher searcher, ScoreDoc[] scoreDocs) {
+    private static List<Document> toList(final IndexSearcher searcher, final ScoreDoc[] scoreDocs) {
 
-        List<Document> result = Lists.newArrayList();
+        final List<Document> result = Lists.newArrayList();
 
         for (final ScoreDoc doc : scoreDocs) {
             try {
                 result.add(searcher.doc(doc.doc));
-            } catch (CorruptIndexException e) {
+            } catch (final CorruptIndexException e) {
                 e.printStackTrace(); // TODO refactor
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 e.printStackTrace(); // TODO refactor
             }
         }
@@ -87,28 +89,28 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
     }
 
     public List<Document> getDocuments() throws IOException {
-        MatchAllDocsQuery allDocsQuery = new MatchAllDocsQuery();
+        final MatchAllDocsQuery allDocsQuery = new MatchAllDocsQuery();
 
         return search(allDocsQuery);
     }
 
     @Override
-    public Set<String> getTermVector(String fieldName) {
-        Set<String> result = Sets.newHashSet();
+    public Set<String> getTermVector(final String fieldName) {
+        final Set<String> result = Sets.newHashSet();
 
         try {
-            List<Document> allDocs = getDocuments();
+            final List<Document> allDocs = getDocuments();
 
-            for (Document doc : allDocs) {
-                for (String value : doc.getValues(fieldName)) {
+            for (final Document doc : allDocs) {
+                for (final String value : doc.getValues(fieldName)) {
                     result.add(value);
                 }
             }
 
-        } catch (CorruptIndexException e) {
+        } catch (final CorruptIndexException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

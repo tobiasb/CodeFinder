@@ -42,20 +42,20 @@ public class IndexUpdaterJob extends Job {
             monitor.beginTask("Indexing", workspace.getProjects().length + 1);
             // don't start from zero ;)
             monitor.worked(1);
-            for (IProject p : workspace.getProjects()) {
+            for (final IProject p : workspace.getProjects()) {
                 if (!JavaProject.hasJavaNature(p)) {
                     continue;
                 }
 
-                IJavaProject javaProject = JavaCore.create(p);
-                IStatus res = IndexUtils.indexProject(javaProject, indexer, new SubProgressMonitor(monitor, 1));
+                final IJavaProject javaProject = JavaCore.create(p);
+                final IStatus res = IndexUtils.indexProject(javaProject, indexer, new SubProgressMonitor(monitor, 1));
                 if (!res.isOK()) {
                     Activator.log(res);
                 }
                 monitor.worked(1);
             }
             return Status.OK_STATUS;
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return Status.OK_STATUS;
         } finally {
             monitor.done();

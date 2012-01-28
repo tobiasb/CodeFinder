@@ -13,49 +13,49 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClas
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class DeclaredFieldTypesIndexer extends AbstractIndexer implements
-		IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer {
+public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
+        ITryCatchBlockIndexer {
 
-	@Override
-	public void index(final Document document, MethodDeclaration method) {
-		final ASTVisitor visitor = new ASTVisitor() {
-			@Override
-			public boolean visit(VariableDeclarationStatement node) {
-            	addDeclaredFieldType(document, node);
-            	return false;
-			}
-		};
-        
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        final ASTVisitor visitor = new ASTVisitor() {
+            @Override
+            public boolean visit(final VariableDeclarationStatement node) {
+                addDeclaredFieldType(document, node);
+                return false;
+            }
+        };
+
         method.accept(visitor);
-	}
+    }
 
-	@Override
-	public void index(final Document document, TypeDeclaration type) {
-		final ASTVisitor visitor = new ASTVisitor() {
-			@Override
-			public boolean visit(FieldDeclaration node) {
-		        addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, BindingHelper.getIdentifier(node));
-            	return false;
-			}
-		};
-        
-		type.accept(visitor);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        final ASTVisitor visitor = new ASTVisitor() {
+            @Override
+            public boolean visit(final FieldDeclaration node) {
+                addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, BindingHelper.getIdentifier(node));
+                return false;
+            }
+        };
 
-	@Override
-	public void index(final Document document, TryStatement tryStatement, CatchClause catchClause) {
-		final ASTVisitor visitor = new ASTVisitor() {
-			@Override
-			public boolean visit(VariableDeclarationStatement node) {
-	        	addDeclaredFieldType(document, node);
-	        	return false;
-			}
-		};
-    
-		catchClause.accept(visitor);
-	}
+        type.accept(visitor);
+    }
 
-    private void addDeclaredFieldType(final Document document, VariableDeclarationStatement variableDeclaration) { 
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+        final ASTVisitor visitor = new ASTVisitor() {
+            @Override
+            public boolean visit(final VariableDeclarationStatement node) {
+                addDeclaredFieldType(document, node);
+                return false;
+            }
+        };
+
+        catchClause.accept(visitor);
+    }
+
+    private void addDeclaredFieldType(final Document document, final VariableDeclarationStatement variableDeclaration) {
         addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, BindingHelper.getIdentifier(variableDeclaration));
     }
 }

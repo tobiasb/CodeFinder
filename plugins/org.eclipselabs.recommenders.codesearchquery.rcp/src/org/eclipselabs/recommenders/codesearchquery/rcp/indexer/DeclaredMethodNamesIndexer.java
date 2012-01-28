@@ -13,14 +13,14 @@ public class DeclaredMethodNamesIndexer extends AbstractIndexer implements IClas
 
     @Override
     public void index(final Document document, final TypeDeclaration type) {
-        ITypeBinding superclass = type.resolveBinding();
+        final ITypeBinding superclass = type.resolveBinding();
         if (superclass != null) {
             addAllMethods(document, superclass);
         }
     }
 
     protected void addAllMethods(final Document document, final ITypeBinding superclass) {
-        for (IMethodBinding methodBinding : superclass.getDeclaredMethods()) {
+        for (final IMethodBinding methodBinding : superclass.getDeclaredMethods()) {
             addField(document, methodBinding);
         }
     }

@@ -7,12 +7,12 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClassIndexer;
 
 public class AllExtendedTypesIndexer extends ExtendedTypeIndexer implements IClassIndexer {
-    
+
     @Override
-    public void index(Document document, TypeDeclaration type) {
+    public void index(final Document document, final TypeDeclaration type) {
         final ITypeBinding clazz = type.resolveBinding();
         ITypeBinding superclass = clazz;
-        
+
         for (; superclass != null; superclass = superclass.getSuperclass()) {
             addAnalyzedExtendedTypeField(document, superclass, Fields.ALL_EXTENDED_TYPES);
         }

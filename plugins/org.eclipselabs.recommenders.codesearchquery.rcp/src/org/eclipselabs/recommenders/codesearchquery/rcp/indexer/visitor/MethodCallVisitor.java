@@ -43,8 +43,8 @@ public abstract class MethodCallVisitor extends ASTVisitor {
         handleMethodCall(b);
         return true;
     }
-    
-    protected void handleMethodCall(IMethodBinding methodBinding) {
-        //Let callers overwrite and handle methodBinding
+
+    protected void handleMethodCall(final IMethodBinding methodBinding) {
+        // Let callers overwrite and handle methodBinding
     }
 }

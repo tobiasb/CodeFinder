@@ -10,27 +10,27 @@ import com.google.common.collect.Maps;
 
 public class IndexInformationCache implements IIndexInformationProvider {
 
-	private HashMap<String, Long> cache = Maps.newHashMap();
-	
-	private String getPath(File location) {
-		return ResourcePathIndexer.getResourcePath(location);
-	}
-	
-	@Override
-	public Optional<Long> getLastIndexed(File location) {
-		String path = getPath(location);
-		
-		if(cache.containsKey(path)) {
-			return Optional.of(cache.get(path));
-		}
-		
-		return Optional.absent();
-	}
+    private final HashMap<String, Long> cache = Maps.newHashMap();
 
-	@Override
-	public void setLastIndexed(File location, Long lastIndexed) {
-		String path = getPath(location);
-		
-		cache.put(path, lastIndexed);
-	}
+    private String getPath(final File location) {
+        return ResourcePathIndexer.getResourcePath(location);
+    }
+
+    @Override
+    public Optional<Long> getLastIndexed(final File location) {
+        final String path = getPath(location);
+
+        if (cache.containsKey(path)) {
+            return Optional.of(cache.get(path));
+        }
+
+        return Optional.absent();
+    }
+
+    @Override
+    public void setLastIndexed(final File location, final Long lastIndexed) {
+        final String path = getPath(location);
+
+        cache.put(path, lastIndexed);
+    }
 }

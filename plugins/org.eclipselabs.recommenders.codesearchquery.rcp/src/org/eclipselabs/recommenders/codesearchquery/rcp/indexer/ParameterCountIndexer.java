@@ -8,18 +8,17 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 
-public class ParameterCountIndexer extends AbstractIndexer implements
-		IMethodIndexer {
+public class ParameterCountIndexer extends AbstractIndexer implements IMethodIndexer {
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
 
-        IMethodBinding b = method.resolveBinding();
+        final IMethodBinding b = method.resolveBinding();
         final IMethodName methodName = BindingUtils.toMethodName(b);
-        
-        if(methodName != null) {
+
+        if (methodName != null) {
             addAnalyzedField(document, Fields.PARAMETER_COUNT, methodName.getParameterTypes().length);
         }
-	}
+    }
 
 }

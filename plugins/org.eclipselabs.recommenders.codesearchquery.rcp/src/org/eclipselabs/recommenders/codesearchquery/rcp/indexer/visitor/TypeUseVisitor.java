@@ -14,12 +14,12 @@ import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jdt.core.dom.TryStatement;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
+import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.AbstractIndexer;
 
 public abstract class TypeUseVisitor extends ASTVisitor {
-    
+
     @Override
     public boolean visit(final SimpleType node) {
         final ITypeBinding b = node.resolveBinding();
@@ -40,22 +40,22 @@ public abstract class TypeUseVisitor extends ASTVisitor {
     public boolean visit(final SimpleName node) {
         final IBinding b = node.resolveBinding();
         if (b instanceof ITypeBinding) {
-        	handleTypeUseInternal((ITypeBinding)b);
+            handleTypeUseInternal((ITypeBinding) b);
         } else if (b instanceof IVariableBinding) {
             final IVariableBinding var = (IVariableBinding) b;
             handleTypeUseInternal(var.getType());
         }
-        
+
         return false;
     }
 
     @Override
     public boolean visit(final FieldDeclaration node) {
         final ITypeBinding typeBinding = node.getType().resolveBinding();
-		handleTypeUseInternal(typeBinding);
+        handleTypeUseInternal(typeBinding);
         return false;
     }
-    
+
     @Override
     public boolean visit(final MethodInvocation node) {
         return false;
@@ -83,17 +83,17 @@ public abstract class TypeUseVisitor extends ASTVisitor {
 
     @Override
     public boolean visit(final TryStatement node) {
-    	return true;
+        return true;
     };
-      
-    private void handleTypeUseInternal(ITypeBinding typeBinding) {
+
+    private void handleTypeUseInternal(final ITypeBinding typeBinding) {
         final ITypeName typeName = BindingUtils.toTypeName(typeBinding);
-    	if(!AbstractIndexer.isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
-    		handleTypeUse(typeBinding);
-    	}
+        if (!AbstractIndexer.isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
+            handleTypeUse(typeBinding);
+        }
     }
-    
-    protected void handleTypeUse(ITypeBinding typeBinding) {
-        //Let callers override and handle typeBinding
+
+    protected void handleTypeUse(final ITypeBinding typeBinding) {
+        // Let callers override and handle typeBinding
     }
 }

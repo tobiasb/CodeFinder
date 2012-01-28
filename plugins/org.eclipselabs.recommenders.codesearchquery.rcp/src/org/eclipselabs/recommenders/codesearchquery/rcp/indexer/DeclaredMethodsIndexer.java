@@ -10,16 +10,16 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClas
 public class DeclaredMethodsIndexer extends AbstractIndexer implements IClassIndexer {
 
     @Override
-    public void index(final Document document, TypeDeclaration type) {
+    public void index(final Document document, final TypeDeclaration type) {
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
-            public boolean visit(MethodDeclaration node) {
+            public boolean visit(final MethodDeclaration node) {
                 addAnalyzedField(document, Fields.DECLARED_METHODS, BindingHelper.getIdentifier(node));
-                
+
                 return false;
             }
         };
-        
+
         type.accept(visitor);
     }
 }

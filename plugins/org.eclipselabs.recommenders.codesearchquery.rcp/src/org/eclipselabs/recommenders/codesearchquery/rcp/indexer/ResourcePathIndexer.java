@@ -19,50 +19,49 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class ResourcePathIndexer extends AbstractIndexer implements
-		IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer, IFieldIndexer {
+public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
+        ITryCatchBlockIndexer, IFieldIndexer {
 
-	@Override
-	public void index(Document document, FieldDeclaration field) {
-		addField(document, field);
-	}
+    @Override
+    public void index(final Document document, final FieldDeclaration field) {
+        addField(document, field);
+    }
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
-		addField(document, method);
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        addField(document, method);
+    }
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		addField(document, type);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        addField(document, type);
+    }
 
-	@Override
-	public void index(Document document, TryStatement tryStatement,
-			CatchClause catchClause) {
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
 
-		addField(document, tryStatement);
-	}
+        addField(document, tryStatement);
+    }
 
-	private void addField(final Document document, ASTNode node) {
-		IResource resource = getResource(node);
-		
-		addAnalyzedField(document, Fields.RESOURCE_PATH, getResourcePath(resource));
-	}
-	
-	public String getResourcePath(CompilationUnit cu) {
-		return getResourcePath(getResource(cu));
-	}
-	
-	public String getResourcePath(IResource resource) {
-		return getResourcePath(resource.getLocation());
-	}
-	
-	public static String getResourcePath(IPath path) {
-		return path.toPortableString();
-	}
-	
-	public static String getResourcePath(File file) {
-		return getResourcePath(Path.fromOSString(file.getAbsolutePath()));
-	}
+    private void addField(final Document document, final ASTNode node) {
+        final IResource resource = getResource(node);
+
+        addAnalyzedField(document, Fields.RESOURCE_PATH, getResourcePath(resource));
+    }
+
+    public String getResourcePath(final CompilationUnit cu) {
+        return getResourcePath(getResource(cu));
+    }
+
+    public String getResourcePath(final IResource resource) {
+        return getResourcePath(resource.getLocation());
+    }
+
+    public static String getResourcePath(final IPath path) {
+        return path.toPortableString();
+    }
+
+    public static String getResourcePath(final File file) {
+        return getResourcePath(Path.fromOSString(file.getAbsolutePath()));
+    }
 }

@@ -12,32 +12,31 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class TimestampIndexer extends AbstractIndexer implements IClassIndexer,
-		IMethodIndexer, IFieldIndexer, ITryCatchBlockIndexer {
-	
-	@Override
-	public void index(Document document, TryStatement tryStatement,
-			CatchClause catchClause) {
-		addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
-	}
+public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer,
+        ITryCatchBlockIndexer {
 
-	@Override
-	public void index(Document document, FieldDeclaration field) {
-		addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
-	}
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+    }
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
-		addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
-	}
+    @Override
+    public void index(final Document document, final FieldDeclaration field) {
+        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+    }
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+    }
 
-	public static String getTimeString() {
-		long timestamp = System.currentTimeMillis();
-		return String.valueOf(timestamp);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+    }
+
+    public static String getTimeString() {
+        final long timestamp = System.currentTimeMillis();
+        return String.valueOf(timestamp);
+    }
 }

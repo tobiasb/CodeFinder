@@ -33,7 +33,7 @@ import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 import com.google.common.eventbus.Subscribe;
 
 public class IndexUpdaterService {
-	
+
     private final ISchedulingRule MUTEX = new ISchedulingRule() {
         @Override
         public boolean isConflicting(final ISchedulingRule rule) {
@@ -55,22 +55,24 @@ public class IndexUpdaterService {
 
     @Subscribe
     public void onEvent(final CompilationUnitAdded event) {
-    	if(IndexUpdaterServiceSettings.getNoDispatch())
-    		return;
-    	
+        if (IndexUpdaterServiceSettings.getNoDispatch()) {
+            return;
+        }
+
         addOrUpdateCompilationUnitToIndex(event.compilationUnit);
     }
 
     @Subscribe
     public void onEvent(final JavaProjectOpened event) {
-    	if(IndexUpdaterServiceSettings.getNoDispatch())
-    		return;
-    	
-        Job job = new Job("Updating code-search index") {
+        if (IndexUpdaterServiceSettings.getNoDispatch()) {
+            return;
+        }
+
+        final Job job = new Job("Updating code-search index") {
 
             @Override
             public IStatus run(final IProgressMonitor monitor) {
-                IJavaProject project = event.project;
+                final IJavaProject project = event.project;
                 return IndexUtils.indexProject(project, indexer, monitor);
             }
 
@@ -82,9 +84,10 @@ public class IndexUpdaterService {
 
     @Subscribe
     public void onEvent(final CompilationUnitSaved event) {
-    	if(IndexUpdaterServiceSettings.getNoDispatch())
-    		return;
-    	
+        if (IndexUpdaterServiceSettings.getNoDispatch()) {
+            return;
+        }
+
         addOrUpdateCompilationUnitToIndex(event.compilationUnit);
     }
 
@@ -94,14 +97,14 @@ public class IndexUpdaterService {
             if (!IndexUtils.shouldIndex(cu, indexer)) {
                 return;
             }
-            CompilationUnit ast = IndexUtils.getAST(cu);
+            final CompilationUnit ast = IndexUtils.getAST(cu);
             if (ast != null) {
                 indexer.index(ast);
             }
-        } catch (JavaModelException e) {
+        } catch (final JavaModelException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -109,18 +112,19 @@ public class IndexUpdaterService {
 
     @Subscribe
     public void onEvent(final CompilationUnitRemoved event) {
-    	if(IndexUpdaterServiceSettings.getNoDispatch())
-    		return;
-    	
-    	try {
-    		if(event.compilationUnit != null) {
-	            CompilationUnit ast = IndexUtils.getAST(event.compilationUnit);
-	            if(ast != null) {
-	            	indexer.delete(ast);
-	            }
-    		}
-    	} catch(IOException ex) {
-    		Activator.logError(ex);
-    	}
+        if (IndexUpdaterServiceSettings.getNoDispatch()) {
+            return;
+        }
+
+        try {
+            if (event.compilationUnit != null) {
+                final CompilationUnit ast = IndexUtils.getAST(event.compilationUnit);
+                if (ast != null) {
+                    indexer.delete(ast);
+                }
+            }
+        } catch (final IOException ex) {
+            Activator.logError(ex);
+        }
     }
 }

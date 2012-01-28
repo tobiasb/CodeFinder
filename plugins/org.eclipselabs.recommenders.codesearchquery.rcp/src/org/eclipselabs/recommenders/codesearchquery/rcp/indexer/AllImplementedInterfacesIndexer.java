@@ -13,7 +13,7 @@ public class AllImplementedInterfacesIndexer extends ImplementedInterfacesIndexe
     @Override
     public void index(final Document document, final TypeDeclaration type) {
 
-        ITypeBinding b = type.resolveBinding();
+        final ITypeBinding b = type.resolveBinding();
         if (b == null) {
             return;
         }

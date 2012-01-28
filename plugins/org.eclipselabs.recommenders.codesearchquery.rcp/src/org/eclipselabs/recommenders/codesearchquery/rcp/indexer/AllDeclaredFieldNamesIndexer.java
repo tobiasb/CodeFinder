@@ -24,7 +24,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
 
     @Override
     public void index(final Document document, final TypeDeclaration type) {
-        ITypeBinding typeBinding = type.resolveBinding();
+        final ITypeBinding typeBinding = type.resolveBinding();
         addFields(document, typeBinding);
     }
 
@@ -32,7 +32,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
     public void index(final Document document, final MethodDeclaration method) {
         addFields(document, method);
 
-        ITypeBinding typeBinding = getDeclaringType(method).resolveBinding();
+        final ITypeBinding typeBinding = getDeclaringType(method).resolveBinding();
         addFields(document, typeBinding);
     }
 
@@ -41,26 +41,26 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
         addFields(document, catchClause);
         addFields(document, getDeclaringMethod(catchClause));
 
-        ITypeBinding typeBinding = getDeclaringType(catchClause).resolveBinding();
+        final ITypeBinding typeBinding = getDeclaringType(catchClause).resolveBinding();
         addFields(document, typeBinding);
     }
 
     private void addFields(final Document document, final ITypeBinding type) {
-        Optional<IType> opt = BindingUtils.getType(type);
+        final Optional<IType> opt = BindingUtils.getType(type);
         if (!opt.isPresent()) {
             return;
         }
-        IType typeName = opt.get();
+        final IType typeName = opt.get();
 
         try {
-            for (IField field : typeName.getFields()) {
+            for (final IField field : typeName.getFields()) {
                 addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getElementName());
             }
-        } catch (JavaModelException e) {
+        } catch (final JavaModelException e) {
         }
 
         if (type.getSuperclass() != null) {
-            ITypeBinding superclass = type.getSuperclass();
+            final ITypeBinding superclass = type.getSuperclass();
             addFields(document, superclass);
         }
     }

@@ -85,7 +85,7 @@ public class SearchQueryView extends ViewPart {
 
     private EmbeddedEditorModelAccess partialEditor;
     private EmbeddedEditor handle;
-    
+
     public SearchQueryView() {
         super();
     }
@@ -103,67 +103,71 @@ public class SearchQueryView extends ViewPart {
 
         createSearchResultsViewer(parent);
         createTriggerSearchButton(parent);
-        
+
         parent.pack();
     }
 
-	@SuppressWarnings("restriction")
-	private void createSearchQueryViewerXtext(Composite parent) {
-		
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, 
-				new GenericQueryProposalProvider(new JavaTypeProvider(), new DotNotationConverter()));
-		
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH, 
-				new GenericQueryProposalProvider(new ResourcePathProvider(), new PathValueConverter()));
-		
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.PROJECT_NAME, 
-				new GenericQueryProposalProvider(new ProjectNameProvider(), null));
-		
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.MODIFIER, new ModifierQueryProposalProvider());
-		LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.DOCUMENT_TYPE, new DocumentTypeProposalProvider());
-		
-        IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
+    @SuppressWarnings("restriction")
+    private void createSearchQueryViewerXtext(final Composite parent) {
+
+        LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new GenericQueryProposalProvider(
+                new JavaTypeProvider(), new DotNotationConverter()));
+
+        LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH,
+                new GenericQueryProposalProvider(new ResourcePathProvider(), new PathValueConverter()));
+
+        LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.PROJECT_NAME,
+                new GenericQueryProposalProvider(new ProjectNameProvider(), null));
+
+        LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.MODIFIER,
+                new ModifierQueryProposalProvider());
+        LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.DOCUMENT_TYPE,
+                new DocumentTypeProposalProvider());
+
+        final IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 
             @Override
             public XtextResource createResource() {
                 try {
                     LuceneQueryStandaloneSetup.doSetup();
-                    ResourceSet resourceSet = new ResourceSetImpl();
-                    Resource resource = resourceSet.createResource(URI.createURI("embedded.lucenequery"));
+                    final ResourceSet resourceSet = new ResourceSetImpl();
+                    final Resource resource = resourceSet.createResource(URI.createURI("embedded.lucenequery"));
 
                     return (XtextResource) resource;
-                } catch (Exception e) {
+                } catch (final Exception e) {
                     return null; // What to return, how to create a resource?
                 }
             }
         };
-        
-        LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
-        Injector injector = activator
+
+        final LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
+        final Injector injector = activator
                 .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCHQUERY_RCP_DSL_LUCENEQUERY);
-        EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
-        handle = factory.newEditor(resourceProvider).withParent(
-                parent);
-                
-        // keep the partialEditor as instance var to read / write the edited text
+        final EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
+        handle = factory.newEditor(resourceProvider).withParent(parent);
+
+        // keep the partialEditor as instance var to read / write the edited
+        // text
         partialEditor = handle.createPartialEditor(true);
-//        handle.getViewer().addTextInputListener(new ITextInputListener() {
-//
-//            @Override
-//            public void inputDocumentChanged(final IDocument oldInput, final IDocument newInput) {
-//            }
-//
-//            @Override
-//            public void inputDocumentAboutToBeChanged(final IDocument oldInput, final IDocument newInput) {
-//                // no constraints...
-//            }
-//        });
-        
+        // handle.getViewer().addTextInputListener(new ITextInputListener() {
+        //
+        // @Override
+        // public void inputDocumentChanged(final IDocument oldInput, final
+        // IDocument newInput) {
+        // }
+        //
+        // @Override
+        // public void inputDocumentAboutToBeChanged(final IDocument oldInput,
+        // final IDocument newInput) {
+        // // no constraints...
+        // }
+        // });
+
         handle.getDocument().set("UsedTypes:java.util.List");
-	}
-    
+    }
+
     private void createTriggerSearchButton(final Composite parent) {
-    	triggerSearchButton = new Button(parent, SWT.PUSH);
+        triggerSearchButton = new Button(parent, SWT.PUSH);
         triggerSearchButton.setText("Search");
         triggerSearchButton.setLayoutData(new GridData());
         triggerSearchButton.addSelectionListener(new SelectionListener() {
@@ -177,19 +181,19 @@ public class SearchQueryView extends ViewPart {
                 final WorkspaceJob job = new WorkspaceJob("Searching...") {
 
                     @SuppressWarnings("restriction")
-					@Override
+                    @Override
                     public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
 
                         setSearching();
 
                         try {
                             result.clear();
-                            
+
                             final String searchQuery = handle.getDocument().readOnly(new QueryExtractor());
                             resetXtextQuery();
 
                             codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
-                            
+
                             result.addAll(codeSearcher.search(searchQuery));
                         } catch (final CorruptIndexException e1) {
                             e1.printStackTrace();
@@ -222,14 +226,15 @@ public class SearchQueryView extends ViewPart {
             }
         });
     }
-    
+
     private void resetXtextQuery() {
         Display.getDefault().syncExec(new Runnable() {
 
             @Override
             public void run() {
-                //TODO refactor: there should be a better way
-                // When we convert from dot- to L/-notation we actually modify the model. The next stmt is to undo that
+                // TODO refactor: there should be a better way
+                // When we convert from dot- to L/-notation we actually modify
+                // the model. The next stmt is to undo that
                 handle.getDocument().set(handle.getDocument().get());
             }
         });
@@ -269,8 +274,8 @@ public class SearchQueryView extends ViewPart {
 
             @Override
             public void run() {
-//                string.append(searchQueryText.getText());
-            	string.append(partialEditor.getSerializedModel());
+                // string.append(searchQueryText.getText());
+                string.append(partialEditor.getSerializedModel());
             }
         });
 
@@ -282,7 +287,7 @@ public class SearchQueryView extends ViewPart {
 
             @Override
             public void run() {
-                //searchQueryText.setEnabled(false);
+                // searchQueryText.setEnabled(false);
                 searchResultTable.setInput(emptyList());
                 triggerSearchButton.setEnabled(false);
             }
@@ -294,12 +299,12 @@ public class SearchQueryView extends ViewPart {
 
             @Override
             public void run() {
-                //searchQueryText.setEnabled(true);
-            	
+                // searchQueryText.setEnabled(true);
+
                 triggerSearchButton.setEnabled(true);
 
                 final List<IJavaElement> newInput = Lists.newArrayList();
-                
+
                 for (final Document doc : result) {
                     try {
                         final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
@@ -311,13 +316,11 @@ public class SearchQueryView extends ViewPart {
                                 final ITypeName typeName = VmTypeName.get(docId);
                                 final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                                 addIfNotNull(newInput, type);
-                            } 
-                            else if (docType.equals(Fields.TYPE_METHOD)) {
+                            } else if (docType.equals(Fields.TYPE_METHOD)) {
                                 final IMethodName methodName = VmMethodName.get(docId);
                                 final IMethod method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
                                 addIfNotNull(newInput, method);
-                            } 
-                            else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
+                            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
                                 final ITypeName typeName = VmTypeName.get(declaringType);
                                 final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                                 addIfNotNull(newInput, type);
@@ -329,21 +332,23 @@ public class SearchQueryView extends ViewPart {
                         e.printStackTrace();
                     }
                 }
-                
+
                 searchResultTable.setInput(newInput);
             }
-            
-            private <T>void addIfNotNull(List<T> list, T element) {
-            	if(element != null)
-            		list.add(element);
-            	//TODO: Elements are null if the workspace isn't built and the java elements couldn't be resolved
+
+            private <T> void addIfNotNull(final List<T> list, final T element) {
+                if (element != null) {
+                    list.add(element);
+                    // TODO: Elements are null if the workspace isn't built and
+                    // the java elements couldn't be resolved
+                }
             }
         });
     }
 
     @Override
     public void setFocus() {
-        //searchQueryText.setFocus();
+        // searchQueryText.setFocus();
     }
 
 }

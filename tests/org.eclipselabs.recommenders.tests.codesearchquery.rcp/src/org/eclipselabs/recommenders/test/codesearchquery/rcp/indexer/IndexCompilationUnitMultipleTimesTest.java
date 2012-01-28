@@ -10,48 +10,48 @@ import org.junit.Test;
 
 public class IndexCompilationUnitMultipleTimesTest extends AbstractTestIndex {
 
-	@Test
-	public void testOnce() throws Exception {
+    @Test
+    public void testOnce() throws Exception {
 
-		CompilationUnit cu = getSampleCompilationUnit();
-		
-		newIndex();
-		CodeIndexerIndex index = getIndexer(); 
-		
-		index.index(cu, new ResourcePathIndexer());
-		
-		Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
-	}
+        final CompilationUnit cu = getSampleCompilationUnit();
 
-	@Test
-	public void testTwice() throws Exception {
+        newIndex();
+        final CodeIndexerIndex index = getIndexer();
 
-		CompilationUnit cu = getSampleCompilationUnit();
-		
-		newIndex();
-		CodeIndexerIndex index = getIndexer(); 
-				
-		index.index(cu, new ResourcePathIndexer());
-		index.index(cu, new ResourcePathIndexer());
-		
-		Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
-	}
+        index.index(cu, new ResourcePathIndexer());
 
-	@Test
-	public void testMultipleTimes() throws Exception {
+        Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
+    }
 
-		CompilationUnit cu = getSampleCompilationUnit();
-		
-		newIndex();
-		CodeIndexerIndex index = getIndexer(); 
-		
-		index.index(cu, new ResourcePathIndexer());
-		index.index(cu, new ResourcePathIndexer());
-		index.index(cu, new ResourcePathIndexer());
-		index.index(cu, new ResourcePathIndexer());
-		index.index(cu, new ResourcePathIndexer());
-		index.index(cu, new ResourcePathIndexer());
-		
-		Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
-	}
+    @Test
+    public void testTwice() throws Exception {
+
+        final CompilationUnit cu = getSampleCompilationUnit();
+
+        newIndex();
+        final CodeIndexerIndex index = getIndexer();
+
+        index.index(cu, new ResourcePathIndexer());
+        index.index(cu, new ResourcePathIndexer());
+
+        Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
+    }
+
+    @Test
+    public void testMultipleTimes() throws Exception {
+
+        final CompilationUnit cu = getSampleCompilationUnit();
+
+        newIndex();
+        final CodeIndexerIndex index = getIndexer();
+
+        index.index(cu, new ResourcePathIndexer());
+        index.index(cu, new ResourcePathIndexer());
+        index.index(cu, new ResourcePathIndexer());
+        index.index(cu, new ResourcePathIndexer());
+        index.index(cu, new ResourcePathIndexer());
+        index.index(cu, new ResourcePathIndexer());
+
+        Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
+    }
 }

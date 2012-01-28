@@ -14,24 +14,25 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
 
     @Override
     public void index(final Document document, final TypeDeclaration type) {
-        ITypeBinding clazz = type.resolveBinding();
+        final ITypeBinding clazz = type.resolveBinding();
         if (clazz == null) {
             return;
         }
-        for (IAnnotationBinding annotation : clazz.getAnnotations()) {
+        for (final IAnnotationBinding annotation : clazz.getAnnotations()) {
 
-            ITypeName annotationTypeName = BindingUtils.toTypeName(annotation.getAnnotationType());
-            String annotationIdentifier = annotationTypeName.getIdentifier();
+            final ITypeName annotationTypeName = BindingUtils.toTypeName(annotation.getAnnotationType());
+            final String annotationIdentifier = annotationTypeName.getIdentifier();
 
             // Annotation type i.e @Deprecated
             addAnalyzedField(document, Fields.ANNOTATIONS, annotationIdentifier);
 
-            for (IMemberValuePairBinding valuePairBinding : annotation.getAllMemberValuePairs()) {
+            for (final IMemberValuePairBinding valuePairBinding : annotation.getAllMemberValuePairs()) {
 
                 if (valuePairBinding.getValue() instanceof Object[]) {
-                    for (Object valuePairValue : (Object[]) valuePairBinding.getValue()) {
-                        // Combination of annotation and value i.e @SuppressWarnings({"unchecked", "rawtypes"})
-                        String value = annotationIdentifier + ":" + valuePairValue;
+                    for (final Object valuePairValue : (Object[]) valuePairBinding.getValue()) {
+                        // Combination of annotation and value i.e
+                        // @SuppressWarnings({"unchecked", "rawtypes"})
+                        final String value = annotationIdentifier + ":" + valuePairValue;
                         addAnalyzedField(document, Fields.ANNOTATIONS, value);
                     }
                 }

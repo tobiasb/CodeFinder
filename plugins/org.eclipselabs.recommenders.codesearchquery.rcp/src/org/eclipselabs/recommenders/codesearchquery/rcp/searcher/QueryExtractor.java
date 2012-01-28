@@ -14,44 +14,44 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathV
 
 public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
 
-	@Override
-	public String exec(XtextResource state) throws Exception {
-		TreeIterator<EObject> iter = state.getAllContents();
-		
-		do {
-			EObject o = (EObject) iter.next();
-//			
-			System.out.println(o.getClass());
+    @Override
+    public String exec(final XtextResource state) throws Exception {
+        final TreeIterator<EObject> iter = state.getAllContents();
 
-			if(o instanceof ClauseExpressionImpl) {
-				ClauseExpressionImpl impl = (ClauseExpressionImpl)o;
-				EObject field = impl.getField();
-				
-				if(field instanceof TypeFieldImpl) {
+        do {
+            final EObject o = iter.next();
+            //
+            System.out.println(o.getClass());
 
-					DotNotationConverter conv = new DotNotationConverter();
-		              
-					String oldValue = impl.getValue();
-					String newValue = conv.convertFrom(oldValue);
-					
-					impl.setValue(newValue);
-				}
+            if (o instanceof ClauseExpressionImpl) {
+                final ClauseExpressionImpl impl = (ClauseExpressionImpl) o;
+                final EObject field = impl.getField();
 
-				if(field instanceof FilePathFieldImpl) {
-					PathValueConverter conv = new PathValueConverter();
-					
-					String oldValue = impl.getValue();
-					String newValue = conv.convertFrom(oldValue);
-					
-					impl.setValue(newValue);
-				}
-			}
-			
-		} while(iter.hasNext());
+                if (field instanceof TypeFieldImpl) {
 
-		ByteArrayOutputStream stream = new ByteArrayOutputStream();
-		state.save(stream, null);
-		return stream.toString();
-	}
+                    final DotNotationConverter conv = new DotNotationConverter();
+
+                    final String oldValue = impl.getValue();
+                    final String newValue = conv.convertFrom(oldValue);
+
+                    impl.setValue(newValue);
+                }
+
+                if (field instanceof FilePathFieldImpl) {
+                    final PathValueConverter conv = new PathValueConverter();
+
+                    final String oldValue = impl.getValue();
+                    final String newValue = conv.convertFrom(oldValue);
+
+                    impl.setValue(newValue);
+                }
+            }
+
+        } while (iter.hasNext());
+
+        final ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        state.save(stream, null);
+        return stream.toString();
+    }
 
 }

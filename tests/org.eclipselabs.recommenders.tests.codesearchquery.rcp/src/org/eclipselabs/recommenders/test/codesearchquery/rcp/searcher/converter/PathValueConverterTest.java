@@ -11,27 +11,27 @@ import com.google.common.collect.Lists;
 
 public class PathValueConverterTest {
 
-	@Test
-	public void testUnixPathToWindowsPath() {
+    @Test
+    public void testUnixPathToWindowsPath() {
 
-		IQueryPartConverter sut = new PathValueConverter();
-		String actual = sut.convertFrom("c:/xyz/abf/test.java");
-		
-		Assert.assertEquals("c\\:/xyz/abf/test.java", actual);
-	}
-	
-	@Test
-	public void testIdempotence() {
-		
-		List<String> testStrings = Lists.newArrayList();
-		IQueryPartConverter sut = new PathValueConverter();
-		
-		testStrings.clear();
-		testStrings.add("c:/xyz/abf/test.java");
-		//add more testpaths...
-		
-		for(String s : testStrings) {
-			Assert.assertEquals(s, sut.convertTo(sut.convertFrom(s)));
-		}
-	}
+        final IQueryPartConverter sut = new PathValueConverter();
+        final String actual = sut.convertFrom("c:/xyz/abf/test.java");
+
+        Assert.assertEquals("c\\:/xyz/abf/test.java", actual);
+    }
+
+    @Test
+    public void testIdempotence() {
+
+        final List<String> testStrings = Lists.newArrayList();
+        final IQueryPartConverter sut = new PathValueConverter();
+
+        testStrings.clear();
+        testStrings.add("c:/xyz/abf/test.java");
+        // add more testpaths...
+
+        for (final String s : testStrings) {
+            Assert.assertEquals(s, sut.convertTo(sut.convertFrom(s)));
+        }
+    }
 }

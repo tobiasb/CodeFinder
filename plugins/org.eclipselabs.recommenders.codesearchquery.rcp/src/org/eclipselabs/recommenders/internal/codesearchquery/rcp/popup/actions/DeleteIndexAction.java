@@ -9,28 +9,28 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex
 
 public class DeleteIndexAction implements IObjectActionDelegate {
 
-	public DeleteIndexAction() {
-		// TODO Auto-generated constructor stub
-	}
+    public DeleteIndexAction() {
+        // TODO Auto-generated constructor stub
+    }
 
-	@Override
-	public void run(IAction action) {
+    @Override
+    public void run(final IAction action) {
         final CodeIndexerIndex index = InjectionService.getInstance().requestInstance(CodeIndexerIndex.class);
 
         index.truncateIndex();
         index.printStats();
-	}
+    }
 
-	@Override
-	public void selectionChanged(IAction action, ISelection selection) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public void selectionChanged(final IAction action, final ISelection selection) {
+        // TODO Auto-generated method stub
 
-	@Override
-	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		// TODO Auto-generated method stub
-		
-	}
+    }
+
+    @Override
+    public void setActivePart(final IAction action, final IWorkbenchPart targetPart) {
+        // TODO Auto-generated method stub
+
+    }
 
 }

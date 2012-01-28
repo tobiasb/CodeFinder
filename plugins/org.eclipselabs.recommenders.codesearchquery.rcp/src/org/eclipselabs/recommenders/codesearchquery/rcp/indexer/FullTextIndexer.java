@@ -12,27 +12,26 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class FullTextIndexer extends AbstractIndexer implements
-		IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer, IFieldIndexer {
+public class FullTextIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer,
+        IFieldIndexer {
 
-	@Override
-	public void index(Document document, FieldDeclaration field) {
-		addAnalyzedField(document, Fields.FULL_TEXT, field.toString().trim());
-	}
+    @Override
+    public void index(final Document document, final FieldDeclaration field) {
+        addAnalyzedField(document, Fields.FULL_TEXT, field.toString().trim());
+    }
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
-		addAnalyzedField(document, Fields.FULL_TEXT, method.toString().trim());
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        addAnalyzedField(document, Fields.FULL_TEXT, method.toString().trim());
+    }
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		addAnalyzedField(document, Fields.FULL_TEXT, type.toString().trim());
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        addAnalyzedField(document, Fields.FULL_TEXT, type.toString().trim());
+    }
 
-	@Override
-	public void index(Document document, TryStatement tryStatement,
-			CatchClause catchClause) {
-		addAnalyzedField(document, Fields.FULL_TEXT, catchClause.toString().trim());
-	}
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+        addAnalyzedField(document, Fields.FULL_TEXT, catchClause.toString().trim());
+    }
 }

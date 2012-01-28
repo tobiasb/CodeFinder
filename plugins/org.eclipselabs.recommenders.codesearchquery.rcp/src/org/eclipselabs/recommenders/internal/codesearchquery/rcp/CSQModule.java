@@ -35,26 +35,26 @@ public class CSQModule extends AbstractModule {
     @Provides
     @Singleton
     public IndexUpdaterService providerIndexUpdateService(final EventBus workspaceBus, final CodeIndexerIndex indexer) {
-        IndexUpdaterService service = new IndexUpdaterService(indexer);
+        final IndexUpdaterService service = new IndexUpdaterService(indexer);
         workspaceBus.register(service);
         return service;
     }
 
     private void configureLuceneIndex() {
         try {
-            File folder = findOrCreateIndexFolder();
-            SimpleFSDirectory directory = new SimpleFSDirectory(folder);
+            final File folder = findOrCreateIndexFolder();
+            final SimpleFSDirectory directory = new SimpleFSDirectory(folder);
             bind(Directory.class).annotatedWith(CodeSearchQuery.class).toInstance(directory);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // this is critical!
             throwUnhandledException(e);
         }
     }
 
     private File findOrCreateIndexFolder() {
-        File basedir = org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator.getDefault()
+        final File basedir = org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator.getDefault()
                 .getStateLocation().toFile();
-        File indexdir = new File(basedir, "index");
+        final File indexdir = new File(basedir, "index");
         indexdir.mkdirs();
         return indexdir;
     }
@@ -77,7 +77,7 @@ public class CSQModule extends AbstractModule {
         public Services(final IndexUpdaterService service, final CodeIndexerIndex indexer,
                 final IWorkspaceRoot workspace) {
 
-            IndexUpdaterJob job = new IndexUpdaterJob(indexer, workspace);
+            final IndexUpdaterJob job = new IndexUpdaterJob(indexer, workspace);
             job.setPriority(Job.DECORATE);
             job.schedule();
         }

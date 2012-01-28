@@ -21,28 +21,27 @@ import com.google.common.collect.Lists;
 
 public class LastIndexedTimestampTest extends AbstractTestIndex {
 
-	@Test
-	public void testLastUpdatedGtZero() throws Exception {
+    @Test
+    public void testLastUpdatedGtZero() throws Exception {
 
-		ICompilationUnit icu = getSampleICompilationUnit();
-        
-        ResourcePathIndexer rpi = new ResourcePathIndexer();
-        IPath p = Path.fromPortableString(rpi.getResourcePath(CompilationUnitHelper.parse(icu)));
-        File location = p.toFile();
-		        
-		newIndex();
-		CodeIndexerIndex index = getIndexer(); 
-		
-		List<IIndexer> indexer = Lists.newArrayList();
-		indexer.add(rpi);
-		indexer.add(new TimestampIndexer());
+        final ICompilationUnit icu = getSampleICompilationUnit();
 
-        CompilationUnit cu = CompilationUnitHelper.parse(icu);
-		index.index(cu, indexer);
-		
-		long lastUpdated = index.lastIndexed(location);
-		
-		
-		Assert.assertTrue(lastUpdated > 0);
-	}
+        final ResourcePathIndexer rpi = new ResourcePathIndexer();
+        final IPath p = Path.fromPortableString(rpi.getResourcePath(CompilationUnitHelper.parse(icu)));
+        final File location = p.toFile();
+
+        newIndex();
+        final CodeIndexerIndex index = getIndexer();
+
+        final List<IIndexer> indexer = Lists.newArrayList();
+        indexer.add(rpi);
+        indexer.add(new TimestampIndexer());
+
+        final CompilationUnit cu = CompilationUnitHelper.parse(icu);
+        index.index(cu, indexer);
+
+        final long lastUpdated = index.lastIndexed(location);
+
+        Assert.assertTrue(lastUpdated > 0);
+    }
 }

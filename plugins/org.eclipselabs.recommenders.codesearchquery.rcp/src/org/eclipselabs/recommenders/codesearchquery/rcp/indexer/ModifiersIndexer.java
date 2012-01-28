@@ -10,34 +10,45 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClas
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFieldIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 
-public class ModifiersIndexer extends AbstractIndexer implements
-		IClassIndexer, IMethodIndexer, IFieldIndexer {
+public class ModifiersIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer {
 
-	@Override
-	public void index(Document document, FieldDeclaration field) {
-		addFields(document, field.getModifiers());
-	}
+    @Override
+    public void index(final Document document, final FieldDeclaration field) {
+        addFields(document, field.getModifiers());
+    }
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
-		addFields(document, method.getModifiers());
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        addFields(document, method.getModifiers());
+    }
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		addFields(document, type.getModifiers());
-	}
-	
-	private void addFields(Document document, int flags) {
-		if(Modifier.isPublic(flags)) addField(document, Fields.MODIFIER_PUBLIC);
-		if(Modifier.isFinal(flags)) addField(document, Fields.MODIFIER_FINAL);
-		if(Modifier.isPrivate(flags)) addField(document, Fields.MODIFIER_PRIVATE);
-		if(Modifier.isProtected(flags)) addField(document, Fields.MODIFIER_PROTECTED);
-		if(Modifier.isStatic(flags)) addField(document, Fields.MODIFIER_STATIC);
-		if(Modifier.isAbstract(flags)) addField(document, Fields.MODIFIER_ABSTRACT);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        addFields(document, type.getModifiers());
+    }
 
-	private void addField(final Document document, String modifier) {
-		addAnalyzedField(document, Fields.MODIFIERS, modifier);
-	}
+    private void addFields(final Document document, final int flags) {
+        if (Modifier.isPublic(flags)) {
+            addField(document, Fields.MODIFIER_PUBLIC);
+        }
+        if (Modifier.isFinal(flags)) {
+            addField(document, Fields.MODIFIER_FINAL);
+        }
+        if (Modifier.isPrivate(flags)) {
+            addField(document, Fields.MODIFIER_PRIVATE);
+        }
+        if (Modifier.isProtected(flags)) {
+            addField(document, Fields.MODIFIER_PROTECTED);
+        }
+        if (Modifier.isStatic(flags)) {
+            addField(document, Fields.MODIFIER_STATIC);
+        }
+        if (Modifier.isAbstract(flags)) {
+            addField(document, Fields.MODIFIER_ABSTRACT);
+        }
+    }
+
+    private void addField(final Document document, final String modifier) {
+        addAnalyzedField(document, Fields.MODIFIERS, modifier);
+    }
 }

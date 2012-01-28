@@ -10,22 +10,21 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClas
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class FieldsReadIndexer extends AbstractFieldsAccessIndexer implements
-		IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer {
+public class FieldsReadIndexer extends AbstractFieldsAccessIndexer implements IClassIndexer, IMethodIndexer,
+        ITryCatchBlockIndexer {
 
-	@Override
-	public void index(final Document document, MethodDeclaration method) {
-		addFields(document, method, Fields.FIELDS_READ, AssignmentSide.RIGHT);
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        addFields(document, method, Fields.FIELDS_READ, AssignmentSide.RIGHT);
+    }
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		addFields(document, type, Fields.FIELDS_READ, AssignmentSide.RIGHT);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        addFields(document, type, Fields.FIELDS_READ, AssignmentSide.RIGHT);
+    }
 
-	@Override
-	public void index(Document document, TryStatement tryStatement,
-			CatchClause catchClause) {
-		addFields(document, catchClause, Fields.FIELDS_READ, AssignmentSide.RIGHT);
-	}
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+        addFields(document, catchClause, Fields.FIELDS_READ, AssignmentSide.RIGHT);
+    }
 }

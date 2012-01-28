@@ -11,35 +11,38 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ITermVectorPr
 
 public class GenericQueryProposalProvider implements IQueryProposalProvider {
 
-	private ITermVectorProvider termVectorProvider;
-	private IQueryPartConverter queryPartConverter;
-	
-	public GenericQueryProposalProvider(ITermVectorProvider termVectorProvider, IQueryPartConverter queryPartConverter) {
-		this.termVectorProvider = termVectorProvider;
-		this.queryPartConverter = queryPartConverter;
-	}
-	
-	@Override
-	public List<String> getProposals() {
+    private final ITermVectorProvider termVectorProvider;
+    private final IQueryPartConverter queryPartConverter;
 
-		try {
+    public GenericQueryProposalProvider(final ITermVectorProvider termVectorProvider,
+            final IQueryPartConverter queryPartConverter) {
+        this.termVectorProvider = termVectorProvider;
+        this.queryPartConverter = queryPartConverter;
+    }
 
-            Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
-	        
-			CodeSearcherIndex searcherIndex = new CodeSearcherIndex(directory);
-			
-			termVectorProvider.load(searcherIndex);
-			
-			return termVectorProvider.getDisjunctTermVector();
-		} catch (IOException e) {
-			return null;
-		}
-	}
+    @Override
+    public List<String> getProposals() {
 
-	@Override
-	public String convert(String source) {
-		if(queryPartConverter == null) return source;
-		
-		return queryPartConverter.convertTo(source);
-	}
+        try {
+
+            final Directory directory = InjectionService.getInstance().requestInstance(Directory.class);
+
+            final CodeSearcherIndex searcherIndex = new CodeSearcherIndex(directory);
+
+            termVectorProvider.load(searcherIndex);
+
+            return termVectorProvider.getDisjunctTermVector();
+        } catch (final IOException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public String convert(final String source) {
+        if (queryPartConverter == null) {
+            return source;
+        }
+
+        return queryPartConverter.convertTo(source);
+    }
 }

@@ -8,46 +8,48 @@ import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
+import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
-import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.*;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClassIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFieldIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class DeclaringTypeIndexer extends AbstractIndexer implements
-		IFieldIndexer, IMethodIndexer, IClassIndexer, ITryCatchBlockIndexer {
+public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndexer, IMethodIndexer, IClassIndexer,
+        ITryCatchBlockIndexer {
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		addFieldForParentTypes(document, type);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        addFieldForParentTypes(document, type);
+    }
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
-		addFieldForParentTypes(document, method);
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        addFieldForParentTypes(document, method);
+    }
 
-	@Override
-	public void index(Document document, FieldDeclaration field) {
-		addFieldForParentTypes(document, field);
-	}
+    @Override
+    public void index(final Document document, final FieldDeclaration field) {
+        addFieldForParentTypes(document, field);
+    }
 
-	private void addFieldForParentTypes(Document document, ASTNode n) {
+    private void addFieldForParentTypes(final Document document, final ASTNode n) {
 
-		TypeDeclaration declaringType = getDeclaringType(n.getParent());
-		
-		if(declaringType != null) {
-	        ITypeBinding b = (declaringType).resolveBinding();
-	        final ITypeName typeName = BindingUtils.toTypeName(b);
-	        
-	        addAnalyzedField(document, Fields.DECLARING_TYPE, typeName.getIdentifier());
-		}
+        final TypeDeclaration declaringType = getDeclaringType(n.getParent());
 
-	}
+        if (declaringType != null) {
+            final ITypeBinding b = (declaringType).resolveBinding();
+            final ITypeName typeName = BindingUtils.toTypeName(b);
 
-	@Override
-	public void index(Document document, TryStatement tryStatement,
-			CatchClause catchClause) {
+            addAnalyzedField(document, Fields.DECLARING_TYPE, typeName.getIdentifier());
+        }
 
-		addFieldForParentTypes(document, tryStatement);
-	}
+    }
+
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+
+        addFieldForParentTypes(document, tryStatement);
+    }
 }

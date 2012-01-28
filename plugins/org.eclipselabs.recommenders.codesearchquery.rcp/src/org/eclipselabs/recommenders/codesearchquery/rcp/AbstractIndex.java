@@ -9,43 +9,43 @@ import org.apache.lucene.util.Version;
 
 public abstract class AbstractIndex {
 
-	private Directory m_index = null;
-	private Analyzer m_analyzer = null;
-	
-	private final static Version luceneVersion = Version.LUCENE_35;
-	
-//	public AbstractIndex(Directory directory, Analyzer analyzer) {
-//		m_index = directory;
-//		m_analyzer = analyzer;
-//	}
-	
-	public AbstractIndex(Directory directory) throws IOException {
-		m_index = directory;
-//		m_analyzer = new Analyzer(){
-//
-//	    	@Override
-//	    	public TokenStream tokenStream(String fieldName, Reader reader) {
-////
-//	    		//return new KeywordTokenizer(reader);
-//	    		return new WhitespaceTokenizer(reader);
-//	    	}
-//	    };
-		m_analyzer = new KeywordAnalyzer();
-		
-		init();
-	}
-	
-	protected abstract void init() throws IOException;
-	
-	public static Version getVersion() {
-		return luceneVersion;
-	}
-	
-	public Directory getIndex() {
-		return m_index;
-	}
-	
-	public Analyzer getAnalyzer() {
-		return m_analyzer;
-	}
+    private Directory m_index = null;
+    private Analyzer m_analyzer = null;
+
+    private final static Version luceneVersion = Version.LUCENE_35;
+
+    // public AbstractIndex(Directory directory, Analyzer analyzer) {
+    // m_index = directory;
+    // m_analyzer = analyzer;
+    // }
+
+    public AbstractIndex(final Directory directory) throws IOException {
+        m_index = directory;
+        // m_analyzer = new Analyzer(){
+        //
+        // @Override
+        // public TokenStream tokenStream(String fieldName, Reader reader) {
+        // //
+        // //return new KeywordTokenizer(reader);
+        // return new WhitespaceTokenizer(reader);
+        // }
+        // };
+        m_analyzer = new KeywordAnalyzer();
+
+        init();
+    }
+
+    protected abstract void init() throws IOException;
+
+    public static Version getVersion() {
+        return luceneVersion;
+    }
+
+    public Directory getIndex() {
+        return m_index;
+    }
+
+    public Analyzer getAnalyzer() {
+        return m_analyzer;
+    }
 }

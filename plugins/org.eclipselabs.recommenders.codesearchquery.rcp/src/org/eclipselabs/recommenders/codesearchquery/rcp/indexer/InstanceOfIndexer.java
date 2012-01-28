@@ -15,44 +15,42 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IClas
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class InstanceOfIndexer extends AbstractIndexer implements
-		IMethodIndexer, ITryCatchBlockIndexer, IClassIndexer {
+public class InstanceOfIndexer extends AbstractIndexer implements IMethodIndexer, ITryCatchBlockIndexer, IClassIndexer {
 
-	@Override
-	public void index(Document document, TypeDeclaration type) {
-		InstanceOfVisitor visitor = new InstanceOfVisitor(document);
-		type.accept(visitor);
-	}
+    @Override
+    public void index(final Document document, final TypeDeclaration type) {
+        final InstanceOfVisitor visitor = new InstanceOfVisitor(document);
+        type.accept(visitor);
+    }
 
-	@Override
-	public void index(Document document, TryStatement tryStatement,
-			CatchClause catchClause) {
-		InstanceOfVisitor visitor = new InstanceOfVisitor(document);
-		catchClause.accept(visitor);
-	}
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+        final InstanceOfVisitor visitor = new InstanceOfVisitor(document);
+        catchClause.accept(visitor);
+    }
 
-	@Override
-	public void index(Document document, MethodDeclaration method) {
-		InstanceOfVisitor visitor = new InstanceOfVisitor(document);
-		method.accept(visitor);
-	}
-	
-	private class InstanceOfVisitor extends ASTVisitor {
-		private final Document document;
-		
-		public InstanceOfVisitor(Document document) {
-			this.document = document;
-		}
-		
-		@Override
-		public boolean visit(InstanceofExpression node) {
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        final InstanceOfVisitor visitor = new InstanceOfVisitor(document);
+        method.accept(visitor);
+    }
 
-			ITypeBinding type = node.getRightOperand().resolveBinding();
-			ITypeName typeName = BindingUtils.toTypeName(type);
-			
-			addAnalyzedField(document, Fields.INSTANCEOF_TYPES, BindingHelper.getIdentifier(typeName));
-			
-			return false;
-		}
-	};
+    private class InstanceOfVisitor extends ASTVisitor {
+        private final Document document;
+
+        public InstanceOfVisitor(final Document document) {
+            this.document = document;
+        }
+
+        @Override
+        public boolean visit(final InstanceofExpression node) {
+
+            final ITypeBinding type = node.getRightOperand().resolveBinding();
+            final ITypeName typeName = BindingUtils.toTypeName(type);
+
+            addAnalyzedField(document, Fields.INSTANCEOF_TYPES, BindingHelper.getIdentifier(typeName));
+
+            return false;
+        }
+    };
 }

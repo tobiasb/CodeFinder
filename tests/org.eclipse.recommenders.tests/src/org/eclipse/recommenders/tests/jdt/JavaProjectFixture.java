@@ -57,7 +57,8 @@ public class JavaProjectFixture {
     private void createParser() {
         parser = ASTParser.newParser(AST.JLS3);
         // parser.setEnvironment(...) enables bindings resolving
-        parser.setProject(javaProject); // enables bindings and IJavaElement resolving
+        parser.setProject(javaProject); // enables bindings and IJavaElement
+                                        // resolving
         parser.setKind(ASTParser.K_COMPILATION_UNIT);
         parser.setResolveBindings(true);
     }
@@ -119,8 +120,9 @@ public class JavaProjectFixture {
 
     /**
      * @param fileName
-     *            should match the name of the primary type given in the content, i.e., if content = "class X {}" �
-     *            unitName = "X.java".
+     *            should match the name of the primary type given in the
+     *            content, i.e., if content = "class X {}" � unitName =
+     *            "X.java".
      */
     public CompilationUnit parse(final String content, final String fileName) {
 

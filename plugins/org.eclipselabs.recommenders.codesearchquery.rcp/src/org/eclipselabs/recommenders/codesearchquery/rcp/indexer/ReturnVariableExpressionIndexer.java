@@ -7,23 +7,22 @@ import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 
-public class ReturnVariableExpressionIndexer extends AbstractIndexer implements
-		IMethodIndexer {
+public class ReturnVariableExpressionIndexer extends AbstractIndexer implements IMethodIndexer {
 
-	@Override
-	public void index(final Document document, final MethodDeclaration method) {
-		ASTVisitor visitor = new ASTVisitor() {
-			@Override
-			public boolean visit(ReturnStatement node) {
-				if(node.getExpression() != null) {
-					addAnalyzedField(document, Fields.RETURN_VARIABLE_EXPRESSIONS, node.getExpression().toString());
-				}
-				
-				return false;
-			}
-		};
-		
-		method.accept(visitor);
-	}
+    @Override
+    public void index(final Document document, final MethodDeclaration method) {
+        final ASTVisitor visitor = new ASTVisitor() {
+            @Override
+            public boolean visit(final ReturnStatement node) {
+                if (node.getExpression() != null) {
+                    addAnalyzedField(document, Fields.RETURN_VARIABLE_EXPRESSIONS, node.getExpression().toString());
+                }
+
+                return false;
+            }
+        };
+
+        method.accept(visitor);
+    }
 
 }

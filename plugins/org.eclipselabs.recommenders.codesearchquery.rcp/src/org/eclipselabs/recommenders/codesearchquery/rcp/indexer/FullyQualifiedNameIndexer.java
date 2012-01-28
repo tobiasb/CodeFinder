@@ -18,25 +18,26 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMeth
 public class FullyQualifiedNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
 
     @Override
-    public void index(Document document, MethodDeclaration method) {        
+    public void index(final Document document, final MethodDeclaration method) {
         addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME, BindingHelper.getIdentifier(method));
     }
 
     @Override
-    public void index(Document document, TypeDeclaration type) {        
+    public void index(final Document document, final TypeDeclaration type) {
         addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME, BindingHelper.getIdentifier(type));
     }
 
     @Override
-    public void index(Document document, FieldDeclaration field) {
-        TypeDeclaration declaringType = getDeclaringType(field);
-        ITypeBinding b = declaringType.resolveBinding();
+    public void index(final Document document, final FieldDeclaration field) {
+        final TypeDeclaration declaringType = getDeclaringType(field);
+        final ITypeBinding b = declaringType.resolveBinding();
         final ITypeName declaringTypeName = BindingUtils.toTypeName(b);
-        
+
         @SuppressWarnings("unchecked")
-		List<VariableDeclarationFragment> fragments = field.fragments();
-        VariableDeclarationFragment fragment = fragments.get(0);
-        
-        addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME, declaringTypeName.getIdentifier() + "." + fragment.getName());
+        final List<VariableDeclarationFragment> fragments = field.fragments();
+        final VariableDeclarationFragment fragment = fragments.get(0);
+
+        addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME,
+                declaringTypeName.getIdentifier() + "." + fragment.getName());
     }
 }

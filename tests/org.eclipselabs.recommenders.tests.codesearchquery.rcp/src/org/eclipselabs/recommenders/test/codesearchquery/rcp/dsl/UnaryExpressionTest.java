@@ -4,52 +4,52 @@ import org.junit.Test;
 
 public class UnaryExpressionTest extends DslTestBase {
 
-	@Test
-	public void testNot01() throws Exception {
+    @Test
+    public void testNot01() throws Exception {
 
-    	super.setUp();
+        super.setUp();
         getParseResultAndExpect("!UsedTypes:java.util.List", 0);
-	}
+    }
 
-	@Test
-	public void testNot02() throws Exception {
+    @Test
+    public void testNot02() throws Exception {
 
-    	super.setUp();
+        super.setUp();
         getParseResultAndExpect("! UsedTypes:java.util.List", 0);
-	}
+    }
 
-	@Test
-	public void testNot03() throws Exception {
+    @Test
+    public void testNot03() throws Exception {
 
-    	super.setUp();
+        super.setUp();
         getParseResultAndExpect("NOT UsedTypes:java.util.List", 0);
-	}
+    }
 
-	@Test
-	public void testNot04Brackets() throws Exception {
+    @Test
+    public void testNot04Brackets() throws Exception {
 
-    	super.setUp();
+        super.setUp();
         getParseResultAndExpect("NOT(UsedTypes:java.util.List)", 0);
-	}
+    }
 
-	@Test
-	public void testMust01() throws Exception {
+    @Test
+    public void testMust01() throws Exception {
 
-    	super.setUp();
+        super.setUp();
         getParseResultAndExpect("!UsedTypes:java.util.List", 0);
-	}
+    }
 
-	@Test
-	public void testMust02() throws Exception {
+    @Test
+    public void testMust02() throws Exception {
 
-    	super.setUp();
+        super.setUp();
         getParseResultAndExpect("! UsedTypes:java.util.List", 0);
-	}
+    }
 
-	@Test
-	public void testMust03Brackets() throws Exception {
+    @Test
+    public void testMust03Brackets() throws Exception {
 
-    	super.setUp();
+        super.setUp();
         getParseResultAndExpect("!(UsedTypes:java.util.List)", 0);
-	}
+    }
 }
