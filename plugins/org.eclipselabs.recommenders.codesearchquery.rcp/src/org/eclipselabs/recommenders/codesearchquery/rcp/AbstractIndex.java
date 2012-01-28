@@ -6,9 +6,9 @@ import java.util.Map;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.KeywordAnalyzer;
 import org.apache.lucene.analysis.PerFieldAnalyzerWrapper;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.util.Version;
+import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.analyzer.JavaSourceCodeAnalyzer;
 
 import com.google.common.collect.Maps;
 
@@ -28,7 +28,7 @@ public abstract class AbstractIndex {
         m_index = directory;
 
         Map<String, Analyzer> analyzerPerField = Maps.newHashMap();
-        analyzerPerField.put(Fields.FULL_TEXT, new StandardAnalyzer(getVersion()));
+        analyzerPerField.put(Fields.FULL_TEXT, new JavaSourceCodeAnalyzer());
 
         m_analyzer = new PerFieldAnalyzerWrapper(new KeywordAnalyzer(), analyzerPerField);
     }
