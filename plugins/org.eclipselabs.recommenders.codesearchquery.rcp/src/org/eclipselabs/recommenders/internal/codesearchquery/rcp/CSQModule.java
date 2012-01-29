@@ -47,6 +47,8 @@ public class CSQModule extends AbstractModule {
             deleteOldLocks(folder);
             final FSDirectory directory = FSDirectory.open(folder);
             bind(Directory.class).annotatedWith(CodeSearchQuery.class).toInstance(directory);
+            // this is needed by GenericQueryProposalProvider ATM
+            bind(Directory.class).toInstance(directory);
         } catch (final IOException e) {
             // this is critical!
             throwUnhandledException(e);
