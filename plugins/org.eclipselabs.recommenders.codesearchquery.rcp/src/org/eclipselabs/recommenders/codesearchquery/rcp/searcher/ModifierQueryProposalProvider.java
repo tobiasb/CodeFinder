@@ -2,6 +2,8 @@ package org.eclipselabs.recommenders.codesearchquery.rcp.searcher;
 
 import java.util.List;
 
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.ui.PlatformUI;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.IQueryProposalProvider;
 
@@ -26,6 +28,12 @@ public class ModifierQueryProposalProvider implements IQueryProposalProvider {
     @Override
     public String convert(final String source) {
         return source;
+    }
+
+    @Override
+    public Image getImage() {
+        return PlatformUI.getWorkbench().getSharedImages()
+                .getImage(org.eclipse.ui.ide.IDE.SharedImages.IMG_OBJS_BKMRK_TSK);
     }
 
 }

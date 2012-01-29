@@ -68,6 +68,8 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryPr
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.utils.ProjectImageProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.utils.TypeImageProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ProjectNameProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ResourcePathProvider;
@@ -111,16 +113,17 @@ public class SearchQueryView extends ViewPart {
     private void createSearchQueryViewerXtext(final Composite parent) {
 
         LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new GenericQueryProposalProvider(
-                new JavaTypeProvider(), new DotNotationConverter()));
+                new JavaTypeProvider(), new DotNotationConverter(), new TypeImageProvider()));
 
         LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.FILE_PATH,
                 new GenericQueryProposalProvider(new ResourcePathProvider(), new PathValueConverter()));
 
         LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.PROJECT_NAME,
-                new GenericQueryProposalProvider(new ProjectNameProvider(), null));
+                new GenericQueryProposalProvider(new ProjectNameProvider(), null, new ProjectImageProvider()));
 
         LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.MODIFIER,
                 new ModifierQueryProposalProvider());
+
         LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.DOCUMENT_TYPE,
                 new DocumentTypeProposalProvider());
 

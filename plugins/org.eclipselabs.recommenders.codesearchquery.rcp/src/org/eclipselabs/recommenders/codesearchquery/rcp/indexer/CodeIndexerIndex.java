@@ -136,7 +136,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         m_writer.deleteDocuments(term);
         commit(); // for correct num count
 
-        final int numDeleted = numDocsBefore - m_writer.numDocs();
+        // final int numDeleted = numDocsBefore - m_writer.numDocs();
         // XXX MB: this is drastically slowing down Eclipse and indexing.
         // use a logger instead w/ debug level
         // System.out.println("Deleting: " + numDeleted + "x " + term.field() +
