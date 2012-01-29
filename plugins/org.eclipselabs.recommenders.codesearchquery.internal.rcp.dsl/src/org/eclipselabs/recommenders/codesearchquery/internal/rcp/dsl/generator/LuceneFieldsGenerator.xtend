@@ -33,7 +33,13 @@ class LuceneFieldsGenerator implements IGenerator {
 			default=SimpleFieldValue | // Default field
 			(
 			«FOR category : m.fieldCategories»
-				«if(m.fieldCategories.indexOf(category)>0){'| '}»field=«category.categoryName» ':' value=«category.categoryName»Value
+				«if(m.fieldCategories.indexOf(category)>0){'| '}»	(
+						field=«category.categoryName» ':' 
+						(
+							(UnaryExpression? values+=«category.categoryName»Value)
+							| ('('(UnaryExpression? values+=«category.categoryName»Value)*')')
+						)
+					)
 			«ENDFOR»
 			)
 		)
@@ -51,7 +57,7 @@ class LuceneFieldsGenerator implements IGenerator {
 	«ENDFOR»
 	/*
 	End of generated rules.
-*/
+	*/
 '''
 
 	}

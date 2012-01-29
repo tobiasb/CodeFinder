@@ -77,14 +77,41 @@ public class LuceneFieldsGenerator implements IGenerator {
             _xifexpression = "| ";
           }
           _builder.append(_xifexpression, "			");
+          _builder.append("\t(");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("field=");
           String _categoryName = category.getCategoryName();
-          _builder.append(_categoryName, "			");
-          _builder.append(" \':\' value=");
-          String _categoryName_1 = category.getCategoryName();
-          _builder.append(_categoryName_1, "			");
-          _builder.append("Value");
+          _builder.append(_categoryName, "					");
+          _builder.append(" \':\' ");
           _builder.newLineIfNotEmpty();
+          _builder.append("\t\t\t");
+          _builder.append("\t\t");
+          _builder.append("(");
+          _builder.newLine();
+          _builder.append("\t\t\t");
+          _builder.append("\t\t\t");
+          _builder.append("(UnaryExpression? values+=");
+          String _categoryName_1 = category.getCategoryName();
+          _builder.append(_categoryName_1, "						");
+          _builder.append("Value)");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t\t");
+          _builder.append("\t\t\t");
+          _builder.append("| (\'(\'(UnaryExpression? values+=");
+          String _categoryName_2 = category.getCategoryName();
+          _builder.append(_categoryName_2, "						");
+          _builder.append("Value)*\')\')");
+          _builder.newLineIfNotEmpty();
+          _builder.append("\t\t\t");
+          _builder.append("\t\t");
+          _builder.append(")");
+          _builder.newLine();
+          _builder.append("\t\t\t");
+          _builder.append("\t");
+          _builder.append(")");
+          _builder.newLine();
         }
       }
       _builder.append("\t\t\t");
@@ -101,8 +128,8 @@ public class LuceneFieldsGenerator implements IGenerator {
         EList<FieldCategory> _fieldCategories_2 = m.getFieldCategories();
         for(final FieldCategory category_1 : _fieldCategories_2) {
           _builder.append("\t");
-          String _categoryName_2 = category_1.getCategoryName();
-          _builder.append(_categoryName_2, "	");
+          String _categoryName_3 = category_1.getCategoryName();
+          _builder.append(_categoryName_3, "	");
           _builder.append(":");
           _builder.newLineIfNotEmpty();
           {
@@ -147,6 +174,7 @@ public class LuceneFieldsGenerator implements IGenerator {
       _builder.append("\t");
       _builder.append("End of generated rules.");
       _builder.newLine();
+      _builder.append("\t");
       _builder.append("*/");
       _builder.newLine();
       _xblockexpression = (_builder);

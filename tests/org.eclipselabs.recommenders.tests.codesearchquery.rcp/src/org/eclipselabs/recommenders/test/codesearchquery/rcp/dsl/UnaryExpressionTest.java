@@ -52,4 +52,19 @@ public class UnaryExpressionTest extends DslTestBase {
         super.setUp();
         getParseResultAndExpect("!(UsedTypes:java.util.List)", 0);
     }
+
+    @Test
+    public void testMust04() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect("+UsedTypes:java.util.List", 0);
+    }
+
+    @Test
+    public void testInFieldValue01() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect("UsedTypes:+java.util.List", 0);
+        getParseResultAndExpect("UsedTypes:-java.util.List", 0);
+    }
 }

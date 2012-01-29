@@ -118,13 +118,13 @@ public interface LuceneQueryPackage extends EPackage
   int CLAUSE_EXPRESSION__FIELD = 1;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Values</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLAUSE_EXPRESSION__VALUE = 2;
+  int CLAUSE_EXPRESSION__VALUES = 2;
 
   /**
    * The number of structural features of the '<em>Clause Expression</em>' class.
@@ -787,15 +787,15 @@ public interface LuceneQueryPackage extends EPackage
   EReference getClauseExpression_Field();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute list '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getValues <em>Values</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getValue()
+   * @return the meta object for the attribute list '<em>Values</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression#getValues()
    * @see #getClauseExpression()
    * @generated
    */
-  EAttribute getClauseExpression_Value();
+  EAttribute getClauseExpression_Values();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField <em>Type Field</em>}'.
@@ -1436,12 +1436,12 @@ public interface LuceneQueryPackage extends EPackage
     EReference CLAUSE_EXPRESSION__FIELD = eINSTANCE.getClauseExpression_Field();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CLAUSE_EXPRESSION__VALUE = eINSTANCE.getClauseExpression_Value();
+    EAttribute CLAUSE_EXPRESSION__VALUES = eINSTANCE.getClauseExpression_Values();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl <em>Type Field</em>}' class.

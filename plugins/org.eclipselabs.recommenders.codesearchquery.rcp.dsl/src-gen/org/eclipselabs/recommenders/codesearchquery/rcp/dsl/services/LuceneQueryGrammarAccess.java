@@ -117,84 +117,198 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cFieldAssignment_1_1_0_0 = (Assignment)cGroup_1_1_0.eContents().get(0);
 		private final RuleCall cFieldSimpleFieldParserRuleCall_1_1_0_0_0 = (RuleCall)cFieldAssignment_1_1_0_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_0_1 = (Keyword)cGroup_1_1_0.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_0_2 = (Assignment)cGroup_1_1_0.eContents().get(2);
-		private final RuleCall cValueSimpleFieldValueParserRuleCall_1_1_0_2_0 = (RuleCall)cValueAssignment_1_1_0_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_0_2 = (Alternatives)cGroup_1_1_0.eContents().get(2);
+		private final Group cGroup_1_1_0_2_0 = (Group)cAlternatives_1_1_0_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_0_2_0_0 = (RuleCall)cGroup_1_1_0_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_0_2_0_1 = (Assignment)cGroup_1_1_0_2_0.eContents().get(1);
+		private final RuleCall cValuesSimpleFieldValueParserRuleCall_1_1_0_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_0_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_0_2_1 = (Group)cAlternatives_1_1_0_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_0_2_1_0 = (Keyword)cGroup_1_1_0_2_1.eContents().get(0);
+		private final Group cGroup_1_1_0_2_1_1 = (Group)cGroup_1_1_0_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_0_2_1_1_0 = (RuleCall)cGroup_1_1_0_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_0_2_1_1_1 = (Assignment)cGroup_1_1_0_2_1_1.eContents().get(1);
+		private final RuleCall cValuesSimpleFieldValueParserRuleCall_1_1_0_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_0_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_0_2_1_2 = (Keyword)cGroup_1_1_0_2_1.eContents().get(2);
 		private final Group cGroup_1_1_1 = (Group)cAlternatives_1_1.eContents().get(1);
 		private final Assignment cFieldAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
 		private final RuleCall cFieldTypeFieldParserRuleCall_1_1_1_0_0 = (RuleCall)cFieldAssignment_1_1_1_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_1_1 = (Keyword)cGroup_1_1_1.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_1_2 = (Assignment)cGroup_1_1_1.eContents().get(2);
-		private final RuleCall cValueTypeFieldValueParserRuleCall_1_1_1_2_0 = (RuleCall)cValueAssignment_1_1_1_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_1_2 = (Alternatives)cGroup_1_1_1.eContents().get(2);
+		private final Group cGroup_1_1_1_2_0 = (Group)cAlternatives_1_1_1_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_1_2_0_0 = (RuleCall)cGroup_1_1_1_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_1_2_0_1 = (Assignment)cGroup_1_1_1_2_0.eContents().get(1);
+		private final RuleCall cValuesTypeFieldValueParserRuleCall_1_1_1_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_1_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_1_2_1 = (Group)cAlternatives_1_1_1_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_1_2_1_0 = (Keyword)cGroup_1_1_1_2_1.eContents().get(0);
+		private final Group cGroup_1_1_1_2_1_1 = (Group)cGroup_1_1_1_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_1_2_1_1_0 = (RuleCall)cGroup_1_1_1_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_1_2_1_1_1 = (Assignment)cGroup_1_1_1_2_1_1.eContents().get(1);
+		private final RuleCall cValuesTypeFieldValueParserRuleCall_1_1_1_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_1_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_1_2_1_2 = (Keyword)cGroup_1_1_1_2_1.eContents().get(2);
 		private final Group cGroup_1_1_2 = (Group)cAlternatives_1_1.eContents().get(2);
 		private final Assignment cFieldAssignment_1_1_2_0 = (Assignment)cGroup_1_1_2.eContents().get(0);
 		private final RuleCall cFieldMethodFieldParserRuleCall_1_1_2_0_0 = (RuleCall)cFieldAssignment_1_1_2_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_2_1 = (Keyword)cGroup_1_1_2.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_2_2 = (Assignment)cGroup_1_1_2.eContents().get(2);
-		private final RuleCall cValueMethodFieldValueParserRuleCall_1_1_2_2_0 = (RuleCall)cValueAssignment_1_1_2_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_2_2 = (Alternatives)cGroup_1_1_2.eContents().get(2);
+		private final Group cGroup_1_1_2_2_0 = (Group)cAlternatives_1_1_2_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_2_2_0_0 = (RuleCall)cGroup_1_1_2_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_2_2_0_1 = (Assignment)cGroup_1_1_2_2_0.eContents().get(1);
+		private final RuleCall cValuesMethodFieldValueParserRuleCall_1_1_2_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_2_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_2_2_1 = (Group)cAlternatives_1_1_2_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_2_2_1_0 = (Keyword)cGroup_1_1_2_2_1.eContents().get(0);
+		private final Group cGroup_1_1_2_2_1_1 = (Group)cGroup_1_1_2_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_2_2_1_1_0 = (RuleCall)cGroup_1_1_2_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_2_2_1_1_1 = (Assignment)cGroup_1_1_2_2_1_1.eContents().get(1);
+		private final RuleCall cValuesMethodFieldValueParserRuleCall_1_1_2_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_2_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_2_2_1_2 = (Keyword)cGroup_1_1_2_2_1.eContents().get(2);
 		private final Group cGroup_1_1_3 = (Group)cAlternatives_1_1.eContents().get(3);
 		private final Assignment cFieldAssignment_1_1_3_0 = (Assignment)cGroup_1_1_3.eContents().get(0);
 		private final RuleCall cFieldFilePathFieldParserRuleCall_1_1_3_0_0 = (RuleCall)cFieldAssignment_1_1_3_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_3_1 = (Keyword)cGroup_1_1_3.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_3_2 = (Assignment)cGroup_1_1_3.eContents().get(2);
-		private final RuleCall cValueFilePathFieldValueParserRuleCall_1_1_3_2_0 = (RuleCall)cValueAssignment_1_1_3_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_3_2 = (Alternatives)cGroup_1_1_3.eContents().get(2);
+		private final Group cGroup_1_1_3_2_0 = (Group)cAlternatives_1_1_3_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_3_2_0_0 = (RuleCall)cGroup_1_1_3_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_3_2_0_1 = (Assignment)cGroup_1_1_3_2_0.eContents().get(1);
+		private final RuleCall cValuesFilePathFieldValueParserRuleCall_1_1_3_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_3_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_3_2_1 = (Group)cAlternatives_1_1_3_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_3_2_1_0 = (Keyword)cGroup_1_1_3_2_1.eContents().get(0);
+		private final Group cGroup_1_1_3_2_1_1 = (Group)cGroup_1_1_3_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_3_2_1_1_0 = (RuleCall)cGroup_1_1_3_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_3_2_1_1_1 = (Assignment)cGroup_1_1_3_2_1_1.eContents().get(1);
+		private final RuleCall cValuesFilePathFieldValueParserRuleCall_1_1_3_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_3_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_3_2_1_2 = (Keyword)cGroup_1_1_3_2_1.eContents().get(2);
 		private final Group cGroup_1_1_4 = (Group)cAlternatives_1_1.eContents().get(4);
 		private final Assignment cFieldAssignment_1_1_4_0 = (Assignment)cGroup_1_1_4.eContents().get(0);
 		private final RuleCall cFieldNumberFieldParserRuleCall_1_1_4_0_0 = (RuleCall)cFieldAssignment_1_1_4_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_4_1 = (Keyword)cGroup_1_1_4.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_4_2 = (Assignment)cGroup_1_1_4.eContents().get(2);
-		private final RuleCall cValueNumberFieldValueParserRuleCall_1_1_4_2_0 = (RuleCall)cValueAssignment_1_1_4_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_4_2 = (Alternatives)cGroup_1_1_4.eContents().get(2);
+		private final Group cGroup_1_1_4_2_0 = (Group)cAlternatives_1_1_4_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_4_2_0_0 = (RuleCall)cGroup_1_1_4_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_4_2_0_1 = (Assignment)cGroup_1_1_4_2_0.eContents().get(1);
+		private final RuleCall cValuesNumberFieldValueParserRuleCall_1_1_4_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_4_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_4_2_1 = (Group)cAlternatives_1_1_4_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_4_2_1_0 = (Keyword)cGroup_1_1_4_2_1.eContents().get(0);
+		private final Group cGroup_1_1_4_2_1_1 = (Group)cGroup_1_1_4_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_4_2_1_1_0 = (RuleCall)cGroup_1_1_4_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_4_2_1_1_1 = (Assignment)cGroup_1_1_4_2_1_1.eContents().get(1);
+		private final RuleCall cValuesNumberFieldValueParserRuleCall_1_1_4_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_4_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_4_2_1_2 = (Keyword)cGroup_1_1_4_2_1.eContents().get(2);
 		private final Group cGroup_1_1_5 = (Group)cAlternatives_1_1.eContents().get(5);
 		private final Assignment cFieldAssignment_1_1_5_0 = (Assignment)cGroup_1_1_5.eContents().get(0);
 		private final RuleCall cFieldModifierFieldParserRuleCall_1_1_5_0_0 = (RuleCall)cFieldAssignment_1_1_5_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_5_1 = (Keyword)cGroup_1_1_5.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_5_2 = (Assignment)cGroup_1_1_5.eContents().get(2);
-		private final RuleCall cValueModifierFieldValueParserRuleCall_1_1_5_2_0 = (RuleCall)cValueAssignment_1_1_5_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_5_2 = (Alternatives)cGroup_1_1_5.eContents().get(2);
+		private final Group cGroup_1_1_5_2_0 = (Group)cAlternatives_1_1_5_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_5_2_0_0 = (RuleCall)cGroup_1_1_5_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_5_2_0_1 = (Assignment)cGroup_1_1_5_2_0.eContents().get(1);
+		private final RuleCall cValuesModifierFieldValueParserRuleCall_1_1_5_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_5_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_5_2_1 = (Group)cAlternatives_1_1_5_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_5_2_1_0 = (Keyword)cGroup_1_1_5_2_1.eContents().get(0);
+		private final Group cGroup_1_1_5_2_1_1 = (Group)cGroup_1_1_5_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_5_2_1_1_0 = (RuleCall)cGroup_1_1_5_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_5_2_1_1_1 = (Assignment)cGroup_1_1_5_2_1_1.eContents().get(1);
+		private final RuleCall cValuesModifierFieldValueParserRuleCall_1_1_5_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_5_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_5_2_1_2 = (Keyword)cGroup_1_1_5_2_1.eContents().get(2);
 		private final Group cGroup_1_1_6 = (Group)cAlternatives_1_1.eContents().get(6);
 		private final Assignment cFieldAssignment_1_1_6_0 = (Assignment)cGroup_1_1_6.eContents().get(0);
 		private final RuleCall cFieldTimeFieldParserRuleCall_1_1_6_0_0 = (RuleCall)cFieldAssignment_1_1_6_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_6_1 = (Keyword)cGroup_1_1_6.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_6_2 = (Assignment)cGroup_1_1_6.eContents().get(2);
-		private final RuleCall cValueTimeFieldValueParserRuleCall_1_1_6_2_0 = (RuleCall)cValueAssignment_1_1_6_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_6_2 = (Alternatives)cGroup_1_1_6.eContents().get(2);
+		private final Group cGroup_1_1_6_2_0 = (Group)cAlternatives_1_1_6_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_6_2_0_0 = (RuleCall)cGroup_1_1_6_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_6_2_0_1 = (Assignment)cGroup_1_1_6_2_0.eContents().get(1);
+		private final RuleCall cValuesTimeFieldValueParserRuleCall_1_1_6_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_6_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_6_2_1 = (Group)cAlternatives_1_1_6_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_6_2_1_0 = (Keyword)cGroup_1_1_6_2_1.eContents().get(0);
+		private final Group cGroup_1_1_6_2_1_1 = (Group)cGroup_1_1_6_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_6_2_1_1_0 = (RuleCall)cGroup_1_1_6_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_6_2_1_1_1 = (Assignment)cGroup_1_1_6_2_1_1.eContents().get(1);
+		private final RuleCall cValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_6_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_6_2_1_2 = (Keyword)cGroup_1_1_6_2_1.eContents().get(2);
 		private final Group cGroup_1_1_7 = (Group)cAlternatives_1_1.eContents().get(7);
 		private final Assignment cFieldAssignment_1_1_7_0 = (Assignment)cGroup_1_1_7.eContents().get(0);
 		private final RuleCall cFieldDocumentTypeFieldParserRuleCall_1_1_7_0_0 = (RuleCall)cFieldAssignment_1_1_7_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_7_1 = (Keyword)cGroup_1_1_7.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_7_2 = (Assignment)cGroup_1_1_7.eContents().get(2);
-		private final RuleCall cValueDocumentTypeFieldValueParserRuleCall_1_1_7_2_0 = (RuleCall)cValueAssignment_1_1_7_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_7_2 = (Alternatives)cGroup_1_1_7.eContents().get(2);
+		private final Group cGroup_1_1_7_2_0 = (Group)cAlternatives_1_1_7_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_7_2_0_0 = (RuleCall)cGroup_1_1_7_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_7_2_0_1 = (Assignment)cGroup_1_1_7_2_0.eContents().get(1);
+		private final RuleCall cValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_7_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_7_2_1 = (Group)cAlternatives_1_1_7_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_7_2_1_0 = (Keyword)cGroup_1_1_7_2_1.eContents().get(0);
+		private final Group cGroup_1_1_7_2_1_1 = (Group)cGroup_1_1_7_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_7_2_1_1_0 = (RuleCall)cGroup_1_1_7_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_7_2_1_1_1 = (Assignment)cGroup_1_1_7_2_1_1.eContents().get(1);
+		private final RuleCall cValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_7_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_7_2_1_2 = (Keyword)cGroup_1_1_7_2_1.eContents().get(2);
 		private final Group cGroup_1_1_8 = (Group)cAlternatives_1_1.eContents().get(8);
 		private final Assignment cFieldAssignment_1_1_8_0 = (Assignment)cGroup_1_1_8.eContents().get(0);
 		private final RuleCall cFieldProjectNameFieldParserRuleCall_1_1_8_0_0 = (RuleCall)cFieldAssignment_1_1_8_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_8_1 = (Keyword)cGroup_1_1_8.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_8_2 = (Assignment)cGroup_1_1_8.eContents().get(2);
-		private final RuleCall cValueProjectNameFieldValueParserRuleCall_1_1_8_2_0 = (RuleCall)cValueAssignment_1_1_8_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_8_2 = (Alternatives)cGroup_1_1_8.eContents().get(2);
+		private final Group cGroup_1_1_8_2_0 = (Group)cAlternatives_1_1_8_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_8_2_0_0 = (RuleCall)cGroup_1_1_8_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_8_2_0_1 = (Assignment)cGroup_1_1_8_2_0.eContents().get(1);
+		private final RuleCall cValuesProjectNameFieldValueParserRuleCall_1_1_8_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_8_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_8_2_1 = (Group)cAlternatives_1_1_8_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_8_2_1_0 = (Keyword)cGroup_1_1_8_2_1.eContents().get(0);
+		private final Group cGroup_1_1_8_2_1_1 = (Group)cGroup_1_1_8_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_8_2_1_1_0 = (RuleCall)cGroup_1_1_8_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_8_2_1_1_1 = (Assignment)cGroup_1_1_8_2_1_1.eContents().get(1);
+		private final RuleCall cValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_8_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_8_2_1_2 = (Keyword)cGroup_1_1_8_2_1.eContents().get(2);
 		private final Group cGroup_1_1_9 = (Group)cAlternatives_1_1.eContents().get(9);
 		private final Assignment cFieldAssignment_1_1_9_0 = (Assignment)cGroup_1_1_9.eContents().get(0);
 		private final RuleCall cFieldAnnotationFieldParserRuleCall_1_1_9_0_0 = (RuleCall)cFieldAssignment_1_1_9_0.eContents().get(0);
 		private final Keyword cColonKeyword_1_1_9_1 = (Keyword)cGroup_1_1_9.eContents().get(1);
-		private final Assignment cValueAssignment_1_1_9_2 = (Assignment)cGroup_1_1_9.eContents().get(2);
-		private final RuleCall cValueAnnotationFieldValueParserRuleCall_1_1_9_2_0 = (RuleCall)cValueAssignment_1_1_9_2.eContents().get(0);
+		private final Alternatives cAlternatives_1_1_9_2 = (Alternatives)cGroup_1_1_9.eContents().get(2);
+		private final Group cGroup_1_1_9_2_0 = (Group)cAlternatives_1_1_9_2.eContents().get(0);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_9_2_0_0 = (RuleCall)cGroup_1_1_9_2_0.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_9_2_0_1 = (Assignment)cGroup_1_1_9_2_0.eContents().get(1);
+		private final RuleCall cValuesAnnotationFieldValueParserRuleCall_1_1_9_2_0_1_0 = (RuleCall)cValuesAssignment_1_1_9_2_0_1.eContents().get(0);
+		private final Group cGroup_1_1_9_2_1 = (Group)cAlternatives_1_1_9_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_9_2_1_0 = (Keyword)cGroup_1_1_9_2_1.eContents().get(0);
+		private final Group cGroup_1_1_9_2_1_1 = (Group)cGroup_1_1_9_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_9_2_1_1_0 = (RuleCall)cGroup_1_1_9_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_9_2_1_1_1 = (Assignment)cGroup_1_1_9_2_1_1.eContents().get(1);
+		private final RuleCall cValuesAnnotationFieldValueParserRuleCall_1_1_9_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_9_2_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_1_9_2_1_2 = (Keyword)cGroup_1_1_9_2_1.eContents().get(2);
 		
 		/// *
 		//
 		//	The following rules are generated. Do not modify. Modify source file instead.
 		//
-		// * / ClauseExpression:
+		// * / ClauseExpression hidden(WS):
 		//	UnaryExpression? (default=SimpleFieldValue // Default field
 		//
-		//	| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
-		//	value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
-		//	value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
-		//	field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
-		//	field=AnnotationField ":" value=AnnotationFieldValue));
+		//	| (field=SimpleField ":" (UnaryExpression? values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)*
+		//	")") | field=TypeField ":" (UnaryExpression? values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)*
+		//	")") | field=MethodField ":" (UnaryExpression? values+=MethodFieldValue | "(" (UnaryExpression?
+		//	values+=MethodFieldValue)* ")") | field=FilePathField ":" (UnaryExpression? values+=FilePathFieldValue | "("
+		//	(UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":" (UnaryExpression? values+=NumberFieldValue
+		//	| "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":" (UnaryExpression?
+		//	values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
+		//	(UnaryExpression? values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") |
+		//	field=DocumentTypeField ":" (UnaryExpression? values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//	values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField ":" (UnaryExpression? values+=ProjectNameFieldValue |
+		//	"(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField ":" (UnaryExpression?
+		//	values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")));
 		public ParserRule getRule() { return rule; }
 
 		//UnaryExpression? (default=SimpleFieldValue // Default field
 		//
-		//| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
-		//value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
-		//value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
-		//field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
-		//field=AnnotationField ":" value=AnnotationFieldValue))
+		//| (field=SimpleField ":" (UnaryExpression? values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)*
+		//")") | field=TypeField ":" (UnaryExpression? values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)*
+		//")") | field=MethodField ":" (UnaryExpression? values+=MethodFieldValue | "(" (UnaryExpression?
+		//values+=MethodFieldValue)* ")") | field=FilePathField ":" (UnaryExpression? values+=FilePathFieldValue | "("
+		//(UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":" (UnaryExpression? values+=NumberFieldValue
+		//| "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":" (UnaryExpression?
+		//values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
+		//(UnaryExpression? values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") |
+		//field=DocumentTypeField ":" (UnaryExpression? values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField ":" (UnaryExpression? values+=ProjectNameFieldValue |
+		//"(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField ":" (UnaryExpression?
+		//values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")))
 		public Group getGroup() { return cGroup; }
 
 		//UnaryExpression?
@@ -202,11 +316,18 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//default=SimpleFieldValue // Default field
 		//
-		//| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
-		//value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
-		//value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
-		//field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
-		//field=AnnotationField ":" value=AnnotationFieldValue)
+		//| (field=SimpleField ":" (UnaryExpression? values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)*
+		//")") | field=TypeField ":" (UnaryExpression? values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)*
+		//")") | field=MethodField ":" (UnaryExpression? values+=MethodFieldValue | "(" (UnaryExpression?
+		//values+=MethodFieldValue)* ")") | field=FilePathField ":" (UnaryExpression? values+=FilePathFieldValue | "("
+		//(UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":" (UnaryExpression? values+=NumberFieldValue
+		//| "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":" (UnaryExpression?
+		//values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
+		//(UnaryExpression? values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") |
+		//field=DocumentTypeField ":" (UnaryExpression? values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField ":" (UnaryExpression? values+=ProjectNameFieldValue |
+		//"(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField ":" (UnaryExpression?
+		//values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")"))
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
 		//default=SimpleFieldValue
@@ -215,14 +336,21 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//SimpleFieldValue
 		public RuleCall getDefaultSimpleFieldValueParserRuleCall_1_0_0() { return cDefaultSimpleFieldValueParserRuleCall_1_0_0; }
 
-		//field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
-		//value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
-		//value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
-		//field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
-		//field=AnnotationField ":" value=AnnotationFieldValue
+		//field=SimpleField ":" (UnaryExpression? values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")")
+		//| field=TypeField ":" (UnaryExpression? values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")") |
+		//field=MethodField ":" (UnaryExpression? values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)*
+		//")") | field=FilePathField ":" (UnaryExpression? values+=FilePathFieldValue | "(" (UnaryExpression?
+		//values+=FilePathFieldValue)* ")") | field=NumberField ":" (UnaryExpression? values+=NumberFieldValue | "("
+		//(UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":" (UnaryExpression?
+		//values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
+		//(UnaryExpression? values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") |
+		//field=DocumentTypeField ":" (UnaryExpression? values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField ":" (UnaryExpression? values+=ProjectNameFieldValue |
+		//"(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField ":" (UnaryExpression?
+		//values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
-		//field=SimpleField ":" value=SimpleFieldValue
+		//field=SimpleField ":" (UnaryExpression? values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")")
 		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
 
 		//field=SimpleField
@@ -234,13 +362,43 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_0_1() { return cColonKeyword_1_1_0_1; }
 
-		//value=SimpleFieldValue
-		public Assignment getValueAssignment_1_1_0_2() { return cValueAssignment_1_1_0_2; }
+		//UnaryExpression? values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_0_2() { return cAlternatives_1_1_0_2; }
+
+		//UnaryExpression? values+=SimpleFieldValue
+		public Group getGroup_1_1_0_2_0() { return cGroup_1_1_0_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_0_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_0_2_0_0; }
+
+		//values+=SimpleFieldValue
+		public Assignment getValuesAssignment_1_1_0_2_0_1() { return cValuesAssignment_1_1_0_2_0_1; }
 
 		//SimpleFieldValue
-		public RuleCall getValueSimpleFieldValueParserRuleCall_1_1_0_2_0() { return cValueSimpleFieldValueParserRuleCall_1_1_0_2_0; }
+		public RuleCall getValuesSimpleFieldValueParserRuleCall_1_1_0_2_0_1_0() { return cValuesSimpleFieldValueParserRuleCall_1_1_0_2_0_1_0; }
 
-		//field=TypeField ":" value=TypeFieldValue
+		//"(" (UnaryExpression? values+=SimpleFieldValue)* ")"
+		public Group getGroup_1_1_0_2_1() { return cGroup_1_1_0_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_0_2_1_0() { return cLeftParenthesisKeyword_1_1_0_2_1_0; }
+
+		//(UnaryExpression? values+=SimpleFieldValue)*
+		public Group getGroup_1_1_0_2_1_1() { return cGroup_1_1_0_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_0_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_0_2_1_1_0; }
+
+		//values+=SimpleFieldValue
+		public Assignment getValuesAssignment_1_1_0_2_1_1_1() { return cValuesAssignment_1_1_0_2_1_1_1; }
+
+		//SimpleFieldValue
+		public RuleCall getValuesSimpleFieldValueParserRuleCall_1_1_0_2_1_1_1_0() { return cValuesSimpleFieldValueParserRuleCall_1_1_0_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_0_2_1_2() { return cRightParenthesisKeyword_1_1_0_2_1_2; }
+
+		//field=TypeField ":" (UnaryExpression? values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")")
 		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
 
 		//field=TypeField
@@ -252,13 +410,43 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_1_1() { return cColonKeyword_1_1_1_1; }
 
-		//value=TypeFieldValue
-		public Assignment getValueAssignment_1_1_1_2() { return cValueAssignment_1_1_1_2; }
+		//UnaryExpression? values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_1_2() { return cAlternatives_1_1_1_2; }
+
+		//UnaryExpression? values+=TypeFieldValue
+		public Group getGroup_1_1_1_2_0() { return cGroup_1_1_1_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_1_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_1_2_0_0; }
+
+		//values+=TypeFieldValue
+		public Assignment getValuesAssignment_1_1_1_2_0_1() { return cValuesAssignment_1_1_1_2_0_1; }
 
 		//TypeFieldValue
-		public RuleCall getValueTypeFieldValueParserRuleCall_1_1_1_2_0() { return cValueTypeFieldValueParserRuleCall_1_1_1_2_0; }
+		public RuleCall getValuesTypeFieldValueParserRuleCall_1_1_1_2_0_1_0() { return cValuesTypeFieldValueParserRuleCall_1_1_1_2_0_1_0; }
 
-		//field=MethodField ":" value=MethodFieldValue
+		//"(" (UnaryExpression? values+=TypeFieldValue)* ")"
+		public Group getGroup_1_1_1_2_1() { return cGroup_1_1_1_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_1_2_1_0() { return cLeftParenthesisKeyword_1_1_1_2_1_0; }
+
+		//(UnaryExpression? values+=TypeFieldValue)*
+		public Group getGroup_1_1_1_2_1_1() { return cGroup_1_1_1_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_1_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_1_2_1_1_0; }
+
+		//values+=TypeFieldValue
+		public Assignment getValuesAssignment_1_1_1_2_1_1_1() { return cValuesAssignment_1_1_1_2_1_1_1; }
+
+		//TypeFieldValue
+		public RuleCall getValuesTypeFieldValueParserRuleCall_1_1_1_2_1_1_1_0() { return cValuesTypeFieldValueParserRuleCall_1_1_1_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_1_2_1_2() { return cRightParenthesisKeyword_1_1_1_2_1_2; }
+
+		//field=MethodField ":" (UnaryExpression? values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")")
 		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
 
 		//field=MethodField
@@ -270,13 +458,44 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_2_1() { return cColonKeyword_1_1_2_1; }
 
-		//value=MethodFieldValue
-		public Assignment getValueAssignment_1_1_2_2() { return cValueAssignment_1_1_2_2; }
+		//UnaryExpression? values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_2_2() { return cAlternatives_1_1_2_2; }
+
+		//UnaryExpression? values+=MethodFieldValue
+		public Group getGroup_1_1_2_2_0() { return cGroup_1_1_2_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_2_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_2_2_0_0; }
+
+		//values+=MethodFieldValue
+		public Assignment getValuesAssignment_1_1_2_2_0_1() { return cValuesAssignment_1_1_2_2_0_1; }
 
 		//MethodFieldValue
-		public RuleCall getValueMethodFieldValueParserRuleCall_1_1_2_2_0() { return cValueMethodFieldValueParserRuleCall_1_1_2_2_0; }
+		public RuleCall getValuesMethodFieldValueParserRuleCall_1_1_2_2_0_1_0() { return cValuesMethodFieldValueParserRuleCall_1_1_2_2_0_1_0; }
 
-		//field=FilePathField ":" value=FilePathFieldValue
+		//"(" (UnaryExpression? values+=MethodFieldValue)* ")"
+		public Group getGroup_1_1_2_2_1() { return cGroup_1_1_2_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_2_2_1_0() { return cLeftParenthesisKeyword_1_1_2_2_1_0; }
+
+		//(UnaryExpression? values+=MethodFieldValue)*
+		public Group getGroup_1_1_2_2_1_1() { return cGroup_1_1_2_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_2_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_2_2_1_1_0; }
+
+		//values+=MethodFieldValue
+		public Assignment getValuesAssignment_1_1_2_2_1_1_1() { return cValuesAssignment_1_1_2_2_1_1_1; }
+
+		//MethodFieldValue
+		public RuleCall getValuesMethodFieldValueParserRuleCall_1_1_2_2_1_1_1_0() { return cValuesMethodFieldValueParserRuleCall_1_1_2_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_2_2_1_2() { return cRightParenthesisKeyword_1_1_2_2_1_2; }
+
+		//field=FilePathField ":" (UnaryExpression? values+=FilePathFieldValue | "(" (UnaryExpression?
+		//values+=FilePathFieldValue)* ")")
 		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
 
 		//field=FilePathField
@@ -288,13 +507,43 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_3_1() { return cColonKeyword_1_1_3_1; }
 
-		//value=FilePathFieldValue
-		public Assignment getValueAssignment_1_1_3_2() { return cValueAssignment_1_1_3_2; }
+		//UnaryExpression? values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_3_2() { return cAlternatives_1_1_3_2; }
+
+		//UnaryExpression? values+=FilePathFieldValue
+		public Group getGroup_1_1_3_2_0() { return cGroup_1_1_3_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_3_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_3_2_0_0; }
+
+		//values+=FilePathFieldValue
+		public Assignment getValuesAssignment_1_1_3_2_0_1() { return cValuesAssignment_1_1_3_2_0_1; }
 
 		//FilePathFieldValue
-		public RuleCall getValueFilePathFieldValueParserRuleCall_1_1_3_2_0() { return cValueFilePathFieldValueParserRuleCall_1_1_3_2_0; }
+		public RuleCall getValuesFilePathFieldValueParserRuleCall_1_1_3_2_0_1_0() { return cValuesFilePathFieldValueParserRuleCall_1_1_3_2_0_1_0; }
 
-		//field=NumberField ":" value=NumberFieldValue
+		//"(" (UnaryExpression? values+=FilePathFieldValue)* ")"
+		public Group getGroup_1_1_3_2_1() { return cGroup_1_1_3_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_3_2_1_0() { return cLeftParenthesisKeyword_1_1_3_2_1_0; }
+
+		//(UnaryExpression? values+=FilePathFieldValue)*
+		public Group getGroup_1_1_3_2_1_1() { return cGroup_1_1_3_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_3_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_3_2_1_1_0; }
+
+		//values+=FilePathFieldValue
+		public Assignment getValuesAssignment_1_1_3_2_1_1_1() { return cValuesAssignment_1_1_3_2_1_1_1; }
+
+		//FilePathFieldValue
+		public RuleCall getValuesFilePathFieldValueParserRuleCall_1_1_3_2_1_1_1_0() { return cValuesFilePathFieldValueParserRuleCall_1_1_3_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_3_2_1_2() { return cRightParenthesisKeyword_1_1_3_2_1_2; }
+
+		//field=NumberField ":" (UnaryExpression? values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")")
 		public Group getGroup_1_1_4() { return cGroup_1_1_4; }
 
 		//field=NumberField
@@ -306,13 +555,44 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_4_1() { return cColonKeyword_1_1_4_1; }
 
-		//value=NumberFieldValue
-		public Assignment getValueAssignment_1_1_4_2() { return cValueAssignment_1_1_4_2; }
+		//UnaryExpression? values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_4_2() { return cAlternatives_1_1_4_2; }
+
+		//UnaryExpression? values+=NumberFieldValue
+		public Group getGroup_1_1_4_2_0() { return cGroup_1_1_4_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_4_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_4_2_0_0; }
+
+		//values+=NumberFieldValue
+		public Assignment getValuesAssignment_1_1_4_2_0_1() { return cValuesAssignment_1_1_4_2_0_1; }
 
 		//NumberFieldValue
-		public RuleCall getValueNumberFieldValueParserRuleCall_1_1_4_2_0() { return cValueNumberFieldValueParserRuleCall_1_1_4_2_0; }
+		public RuleCall getValuesNumberFieldValueParserRuleCall_1_1_4_2_0_1_0() { return cValuesNumberFieldValueParserRuleCall_1_1_4_2_0_1_0; }
 
-		//field=ModifierField ":" value=ModifierFieldValue
+		//"(" (UnaryExpression? values+=NumberFieldValue)* ")"
+		public Group getGroup_1_1_4_2_1() { return cGroup_1_1_4_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_4_2_1_0() { return cLeftParenthesisKeyword_1_1_4_2_1_0; }
+
+		//(UnaryExpression? values+=NumberFieldValue)*
+		public Group getGroup_1_1_4_2_1_1() { return cGroup_1_1_4_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_4_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_4_2_1_1_0; }
+
+		//values+=NumberFieldValue
+		public Assignment getValuesAssignment_1_1_4_2_1_1_1() { return cValuesAssignment_1_1_4_2_1_1_1; }
+
+		//NumberFieldValue
+		public RuleCall getValuesNumberFieldValueParserRuleCall_1_1_4_2_1_1_1_0() { return cValuesNumberFieldValueParserRuleCall_1_1_4_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_4_2_1_2() { return cRightParenthesisKeyword_1_1_4_2_1_2; }
+
+		//field=ModifierField ":" (UnaryExpression? values+=ModifierFieldValue | "(" (UnaryExpression?
+		//values+=ModifierFieldValue)* ")")
 		public Group getGroup_1_1_5() { return cGroup_1_1_5; }
 
 		//field=ModifierField
@@ -324,13 +604,43 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_5_1() { return cColonKeyword_1_1_5_1; }
 
-		//value=ModifierFieldValue
-		public Assignment getValueAssignment_1_1_5_2() { return cValueAssignment_1_1_5_2; }
+		//UnaryExpression? values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_5_2() { return cAlternatives_1_1_5_2; }
+
+		//UnaryExpression? values+=ModifierFieldValue
+		public Group getGroup_1_1_5_2_0() { return cGroup_1_1_5_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_5_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_5_2_0_0; }
+
+		//values+=ModifierFieldValue
+		public Assignment getValuesAssignment_1_1_5_2_0_1() { return cValuesAssignment_1_1_5_2_0_1; }
 
 		//ModifierFieldValue
-		public RuleCall getValueModifierFieldValueParserRuleCall_1_1_5_2_0() { return cValueModifierFieldValueParserRuleCall_1_1_5_2_0; }
+		public RuleCall getValuesModifierFieldValueParserRuleCall_1_1_5_2_0_1_0() { return cValuesModifierFieldValueParserRuleCall_1_1_5_2_0_1_0; }
 
-		//field=TimeField ":" value=TimeFieldValue
+		//"(" (UnaryExpression? values+=ModifierFieldValue)* ")"
+		public Group getGroup_1_1_5_2_1() { return cGroup_1_1_5_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_5_2_1_0() { return cLeftParenthesisKeyword_1_1_5_2_1_0; }
+
+		//(UnaryExpression? values+=ModifierFieldValue)*
+		public Group getGroup_1_1_5_2_1_1() { return cGroup_1_1_5_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_5_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_5_2_1_1_0; }
+
+		//values+=ModifierFieldValue
+		public Assignment getValuesAssignment_1_1_5_2_1_1_1() { return cValuesAssignment_1_1_5_2_1_1_1; }
+
+		//ModifierFieldValue
+		public RuleCall getValuesModifierFieldValueParserRuleCall_1_1_5_2_1_1_1_0() { return cValuesModifierFieldValueParserRuleCall_1_1_5_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_5_2_1_2() { return cRightParenthesisKeyword_1_1_5_2_1_2; }
+
+		//field=TimeField ":" (UnaryExpression? values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")")
 		public Group getGroup_1_1_6() { return cGroup_1_1_6; }
 
 		//field=TimeField
@@ -342,13 +652,44 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_6_1() { return cColonKeyword_1_1_6_1; }
 
-		//value=TimeFieldValue
-		public Assignment getValueAssignment_1_1_6_2() { return cValueAssignment_1_1_6_2; }
+		//UnaryExpression? values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_6_2() { return cAlternatives_1_1_6_2; }
+
+		//UnaryExpression? values+=TimeFieldValue
+		public Group getGroup_1_1_6_2_0() { return cGroup_1_1_6_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_6_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_6_2_0_0; }
+
+		//values+=TimeFieldValue
+		public Assignment getValuesAssignment_1_1_6_2_0_1() { return cValuesAssignment_1_1_6_2_0_1; }
 
 		//TimeFieldValue
-		public RuleCall getValueTimeFieldValueParserRuleCall_1_1_6_2_0() { return cValueTimeFieldValueParserRuleCall_1_1_6_2_0; }
+		public RuleCall getValuesTimeFieldValueParserRuleCall_1_1_6_2_0_1_0() { return cValuesTimeFieldValueParserRuleCall_1_1_6_2_0_1_0; }
 
-		//field=DocumentTypeField ":" value=DocumentTypeFieldValue
+		//"(" (UnaryExpression? values+=TimeFieldValue)* ")"
+		public Group getGroup_1_1_6_2_1() { return cGroup_1_1_6_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_6_2_1_0() { return cLeftParenthesisKeyword_1_1_6_2_1_0; }
+
+		//(UnaryExpression? values+=TimeFieldValue)*
+		public Group getGroup_1_1_6_2_1_1() { return cGroup_1_1_6_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_6_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_6_2_1_1_0; }
+
+		//values+=TimeFieldValue
+		public Assignment getValuesAssignment_1_1_6_2_1_1_1() { return cValuesAssignment_1_1_6_2_1_1_1; }
+
+		//TimeFieldValue
+		public RuleCall getValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0() { return cValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_6_2_1_2() { return cRightParenthesisKeyword_1_1_6_2_1_2; }
+
+		//field=DocumentTypeField ":" (UnaryExpression? values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//values+=DocumentTypeFieldValue)* ")")
 		public Group getGroup_1_1_7() { return cGroup_1_1_7; }
 
 		//field=DocumentTypeField
@@ -360,13 +701,44 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_7_1() { return cColonKeyword_1_1_7_1; }
 
-		//value=DocumentTypeFieldValue
-		public Assignment getValueAssignment_1_1_7_2() { return cValueAssignment_1_1_7_2; }
+		//UnaryExpression? values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_7_2() { return cAlternatives_1_1_7_2; }
+
+		//UnaryExpression? values+=DocumentTypeFieldValue
+		public Group getGroup_1_1_7_2_0() { return cGroup_1_1_7_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_7_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_7_2_0_0; }
+
+		//values+=DocumentTypeFieldValue
+		public Assignment getValuesAssignment_1_1_7_2_0_1() { return cValuesAssignment_1_1_7_2_0_1; }
 
 		//DocumentTypeFieldValue
-		public RuleCall getValueDocumentTypeFieldValueParserRuleCall_1_1_7_2_0() { return cValueDocumentTypeFieldValueParserRuleCall_1_1_7_2_0; }
+		public RuleCall getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_0_1_0() { return cValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_0_1_0; }
 
-		//field=ProjectNameField ":" value=ProjectNameFieldValue
+		//"(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")"
+		public Group getGroup_1_1_7_2_1() { return cGroup_1_1_7_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_7_2_1_0() { return cLeftParenthesisKeyword_1_1_7_2_1_0; }
+
+		//(UnaryExpression? values+=DocumentTypeFieldValue)*
+		public Group getGroup_1_1_7_2_1_1() { return cGroup_1_1_7_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_7_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_7_2_1_1_0; }
+
+		//values+=DocumentTypeFieldValue
+		public Assignment getValuesAssignment_1_1_7_2_1_1_1() { return cValuesAssignment_1_1_7_2_1_1_1; }
+
+		//DocumentTypeFieldValue
+		public RuleCall getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0() { return cValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_7_2_1_2() { return cRightParenthesisKeyword_1_1_7_2_1_2; }
+
+		//field=ProjectNameField ":" (UnaryExpression? values+=ProjectNameFieldValue | "(" (UnaryExpression?
+		//values+=ProjectNameFieldValue)* ")")
 		public Group getGroup_1_1_8() { return cGroup_1_1_8; }
 
 		//field=ProjectNameField
@@ -378,13 +750,44 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_8_1() { return cColonKeyword_1_1_8_1; }
 
-		//value=ProjectNameFieldValue
-		public Assignment getValueAssignment_1_1_8_2() { return cValueAssignment_1_1_8_2; }
+		//UnaryExpression? values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_8_2() { return cAlternatives_1_1_8_2; }
+
+		//UnaryExpression? values+=ProjectNameFieldValue
+		public Group getGroup_1_1_8_2_0() { return cGroup_1_1_8_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_8_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_8_2_0_0; }
+
+		//values+=ProjectNameFieldValue
+		public Assignment getValuesAssignment_1_1_8_2_0_1() { return cValuesAssignment_1_1_8_2_0_1; }
 
 		//ProjectNameFieldValue
-		public RuleCall getValueProjectNameFieldValueParserRuleCall_1_1_8_2_0() { return cValueProjectNameFieldValueParserRuleCall_1_1_8_2_0; }
+		public RuleCall getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_0_1_0() { return cValuesProjectNameFieldValueParserRuleCall_1_1_8_2_0_1_0; }
 
-		//field=AnnotationField ":" value=AnnotationFieldValue
+		//"(" (UnaryExpression? values+=ProjectNameFieldValue)* ")"
+		public Group getGroup_1_1_8_2_1() { return cGroup_1_1_8_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_8_2_1_0() { return cLeftParenthesisKeyword_1_1_8_2_1_0; }
+
+		//(UnaryExpression? values+=ProjectNameFieldValue)*
+		public Group getGroup_1_1_8_2_1_1() { return cGroup_1_1_8_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_8_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_8_2_1_1_0; }
+
+		//values+=ProjectNameFieldValue
+		public Assignment getValuesAssignment_1_1_8_2_1_1_1() { return cValuesAssignment_1_1_8_2_1_1_1; }
+
+		//ProjectNameFieldValue
+		public RuleCall getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0() { return cValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_8_2_1_2() { return cRightParenthesisKeyword_1_1_8_2_1_2; }
+
+		//field=AnnotationField ":" (UnaryExpression? values+=AnnotationFieldValue | "(" (UnaryExpression?
+		//values+=AnnotationFieldValue)* ")")
 		public Group getGroup_1_1_9() { return cGroup_1_1_9; }
 
 		//field=AnnotationField
@@ -396,11 +799,41 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_9_1() { return cColonKeyword_1_1_9_1; }
 
-		//value=AnnotationFieldValue
-		public Assignment getValueAssignment_1_1_9_2() { return cValueAssignment_1_1_9_2; }
+		//UnaryExpression? values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")"
+		public Alternatives getAlternatives_1_1_9_2() { return cAlternatives_1_1_9_2; }
+
+		//UnaryExpression? values+=AnnotationFieldValue
+		public Group getGroup_1_1_9_2_0() { return cGroup_1_1_9_2_0; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_9_2_0_0() { return cUnaryExpressionParserRuleCall_1_1_9_2_0_0; }
+
+		//values+=AnnotationFieldValue
+		public Assignment getValuesAssignment_1_1_9_2_0_1() { return cValuesAssignment_1_1_9_2_0_1; }
 
 		//AnnotationFieldValue
-		public RuleCall getValueAnnotationFieldValueParserRuleCall_1_1_9_2_0() { return cValueAnnotationFieldValueParserRuleCall_1_1_9_2_0; }
+		public RuleCall getValuesAnnotationFieldValueParserRuleCall_1_1_9_2_0_1_0() { return cValuesAnnotationFieldValueParserRuleCall_1_1_9_2_0_1_0; }
+
+		//"(" (UnaryExpression? values+=AnnotationFieldValue)* ")"
+		public Group getGroup_1_1_9_2_1() { return cGroup_1_1_9_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_9_2_1_0() { return cLeftParenthesisKeyword_1_1_9_2_1_0; }
+
+		//(UnaryExpression? values+=AnnotationFieldValue)*
+		public Group getGroup_1_1_9_2_1_1() { return cGroup_1_1_9_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_9_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_9_2_1_1_0; }
+
+		//values+=AnnotationFieldValue
+		public Assignment getValuesAssignment_1_1_9_2_1_1_1() { return cValuesAssignment_1_1_9_2_1_1_1; }
+
+		//AnnotationFieldValue
+		public RuleCall getValuesAnnotationFieldValueParserRuleCall_1_1_9_2_1_1_1_0() { return cValuesAnnotationFieldValueParserRuleCall_1_1_9_2_1_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_9_2_1_2() { return cRightParenthesisKeyword_1_1_9_2_1_2; }
 	}
 
 	public class TypeFieldElements extends AbstractParserRuleElementFinder {
@@ -1017,14 +1450,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAnd1ANDKeyword_0_0 = (Keyword)cAnd1EnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cOr1EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cOr1ORKeyword_1_0 = (Keyword)cOr1EnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cOr2EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cOr2VerticalLineVerticalLineKeyword_2_0 = (Keyword)cOr2EnumLiteralDeclaration_2.eContents().get(0);
 		
 		////-----------------
 		//
 		//enum BinaryExp:
-		//	and1="AND" | or1="OR";
+		//	and1="AND" | or1="OR" | or2="||";
 		public EnumRule getRule() { return rule; }
 
-		//and1="AND" | or1="OR"
+		//and1="AND" | or1="OR" | or2="||"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//and1="AND"
@@ -1038,6 +1473,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"OR"
 		public Keyword getOr1ORKeyword_1_0() { return cOr1ORKeyword_1_0; }
+
+		//or2="||"
+		public EnumLiteralDeclaration getOr2EnumLiteralDeclaration_2() { return cOr2EnumLiteralDeclaration_2; }
+
+		//"||"
+		public Keyword getOr2VerticalLineVerticalLineKeyword_2_0() { return cOr2VerticalLineVerticalLineKeyword_2_0; }
 	}
 	
 	private Exp1Elements pExp1;
@@ -1121,14 +1562,21 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//	The following rules are generated. Do not modify. Modify source file instead.
 	//
-	// * / ClauseExpression:
+	// * / ClauseExpression hidden(WS):
 	//	UnaryExpression? (default=SimpleFieldValue // Default field
 	//
-	//	| (field=SimpleField ":" value=SimpleFieldValue | field=TypeField ":" value=TypeFieldValue | field=MethodField ":"
-	//	value=MethodFieldValue | field=FilePathField ":" value=FilePathFieldValue | field=NumberField ":"
-	//	value=NumberFieldValue | field=ModifierField ":" value=ModifierFieldValue | field=TimeField ":" value=TimeFieldValue |
-	//	field=DocumentTypeField ":" value=DocumentTypeFieldValue | field=ProjectNameField ":" value=ProjectNameFieldValue |
-	//	field=AnnotationField ":" value=AnnotationFieldValue));
+	//	| (field=SimpleField ":" (UnaryExpression? values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)*
+	//	")") | field=TypeField ":" (UnaryExpression? values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)*
+	//	")") | field=MethodField ":" (UnaryExpression? values+=MethodFieldValue | "(" (UnaryExpression?
+	//	values+=MethodFieldValue)* ")") | field=FilePathField ":" (UnaryExpression? values+=FilePathFieldValue | "("
+	//	(UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":" (UnaryExpression? values+=NumberFieldValue
+	//	| "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":" (UnaryExpression?
+	//	values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
+	//	(UnaryExpression? values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") |
+	//	field=DocumentTypeField ":" (UnaryExpression? values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+	//	values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField ":" (UnaryExpression? values+=ProjectNameFieldValue |
+	//	"(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField ":" (UnaryExpression?
+	//	values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")));
 	public ClauseExpressionElements getClauseExpressionAccess() {
 		return (pClauseExpression != null) ? pClauseExpression : (pClauseExpression = new ClauseExpressionElements());
 	}
@@ -1366,7 +1814,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	////-----------------
 	//
 	//enum BinaryExp:
-	//	and1="AND" | or1="OR";
+	//	and1="AND" | or1="OR" | or2="||";
 	public BinaryExpElements getBinaryExpAccess() {
 		return (unknownRuleBinaryExp != null) ? unknownRuleBinaryExp : (unknownRuleBinaryExp = new BinaryExpElements());
 	}

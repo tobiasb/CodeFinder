@@ -6,8 +6,12 @@
  */
 package org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -15,6 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage;
@@ -28,7 +34,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getDefault <em>Default</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getField <em>Field</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,24 +73,14 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
   protected EObject field;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getValues()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected EList<String> values;
 
   /**
    * <!-- begin-user-doc -->
@@ -183,22 +179,13 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public EList<String> getValues()
   {
-    return value;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue(String newValue)
-  {
-    String oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE, oldValue, value));
+    if (values == null)
+    {
+      values = new EDataTypeEList<String>(String.class, this, LuceneQueryPackage.CLAUSE_EXPRESSION__VALUES);
+    }
+    return values;
   }
 
   /**
@@ -231,8 +218,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
         return getDefault();
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         return getField();
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
-        return getValue();
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUES:
+        return getValues();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -242,6 +229,7 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -253,8 +241,9 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         setField((EObject)newValue);
         return;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
-        setValue((String)newValue);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUES:
+        getValues().clear();
+        getValues().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -276,8 +265,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         setField((EObject)null);
         return;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUES:
+        getValues().clear();
         return;
     }
     super.eUnset(featureID);
@@ -297,8 +286,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
         return DEFAULT_EDEFAULT == null ? default_ != null : !DEFAULT_EDEFAULT.equals(default_);
       case LuceneQueryPackage.CLAUSE_EXPRESSION__FIELD:
         return field != null;
-      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case LuceneQueryPackage.CLAUSE_EXPRESSION__VALUES:
+        return values != null && !values.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -316,8 +305,8 @@ public class ClauseExpressionImpl extends MinimalEObjectImpl.Container implement
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (default: ");
     result.append(default_);
-    result.append(", value: ");
-    result.append(value);
+    result.append(", values: ");
+    result.append(values);
     result.append(')');
     return result.toString();
   }

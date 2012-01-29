@@ -19,6 +19,26 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 
 	protected LuceneQueryGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_0_0_q;
+	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q;
 	protected AbstractElementAlias match_Exp2___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__a;
 	protected AbstractElementAlias match_Exp2___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__p;
 	
@@ -26,6 +46,26 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (LuceneQueryGrammarAccess) access;
 		match_ClauseExpression_UnaryExpressionParserRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_0_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_0_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_1_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_1_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_2_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_2_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_3_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_3_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_4_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_4_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_5_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_5_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_6_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_6_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_7_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_7_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_8_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_8_2_1_1_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_0_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_9_2_0_0());
+		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_9_2_1_1_0());
 		match_Exp2___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__a = new GroupAlias(true, true, new TokenAlias(false, true, grammarAccess.getExp2Access().getUnaryExpressionParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getExp2Access().getLeftParenthesisKeyword_1_1()));
 		match_Exp2___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__p = new GroupAlias(true, false, new TokenAlias(false, true, grammarAccess.getExp2Access().getUnaryExpressionParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getExp2Access().getLeftParenthesisKeyword_1_1()));
 	}
@@ -51,6 +91,46 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if(match_ClauseExpression_UnaryExpressionParserRuleCall_0_q.equals(syntax))
 				emit_ClauseExpression_UnaryExpressionParserRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_0_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_0_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q.equals(syntax))
+				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Exp2___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__a.equals(syntax))
 				emit_Exp2___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Exp2___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__p.equals(syntax))
@@ -64,6 +144,166 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	 *     UnaryExpression?
 	 */
 	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_2_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_3_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_4_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_5_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_0_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     UnaryExpression?
+	 */
+	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

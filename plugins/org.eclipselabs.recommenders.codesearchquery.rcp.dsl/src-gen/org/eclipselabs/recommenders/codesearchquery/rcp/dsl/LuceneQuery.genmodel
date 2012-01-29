@@ -13,6 +13,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//BinaryExp">
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BinaryExp/and1"/>
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BinaryExp/or1"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BinaryExp/or2"/>
     </genEnums>
     <genClasses ecoreClass="LuceneQuery.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Expression/value"/>
@@ -20,7 +21,7 @@
     <genClasses ecoreClass="LuceneQuery.ecore#//ClauseExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/default"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//ClauseExpression/field"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/values"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//TypeField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/ImplementedTypes"/>

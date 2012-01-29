@@ -255,7 +255,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getClauseExpression_Value()
+  public EAttribute getClauseExpression_Values()
   {
     return (EAttribute)clauseExpressionEClass.getEStructuralFeatures().get(2);
   }
@@ -826,7 +826,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     clauseExpressionEClass = createEClass(CLAUSE_EXPRESSION);
     createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__DEFAULT);
     createEReference(clauseExpressionEClass, CLAUSE_EXPRESSION__FIELD);
-    createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__VALUE);
+    createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__VALUES);
 
     typeFieldEClass = createEClass(TYPE_FIELD);
     createEAttribute(typeFieldEClass, TYPE_FIELD__IMPLEMENTED_TYPES);
@@ -933,7 +933,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEClass(clauseExpressionEClass, ClauseExpression.class, "ClauseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClauseExpression_Default(), ecorePackage.getEString(), "default", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getClauseExpression_Field(), ecorePackage.getEObject(), null, "field", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getClauseExpression_Value(), ecorePackage.getEString(), "value", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getClauseExpression_Values(), ecorePackage.getEString(), "values", null, 0, -1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeFieldEClass, TypeField.class, "TypeField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeField_ImplementedTypes(), ecorePackage.getEString(), "ImplementedTypes", null, 0, 1, TypeField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1002,6 +1002,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEEnum(binaryExpEEnum, BinaryExp.class, "BinaryExp");
     addEEnumLiteral(binaryExpEEnum, BinaryExp.AND1);
     addEEnumLiteral(binaryExpEEnum, BinaryExp.OR1);
+    addEEnumLiteral(binaryExpEEnum, BinaryExp.OR2);
 
     // Create resource
     createResource(eNS_URI);

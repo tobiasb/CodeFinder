@@ -163,16 +163,16 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 * Constraint:
 	 *     (
 	 *         default=SimpleFieldValue | 
-	 *         (field=SimpleField value=SimpleFieldValue) | 
-	 *         (field=TypeField value=TypeFieldValue) | 
-	 *         (field=MethodField value=MethodFieldValue) | 
-	 *         (field=FilePathField value=FilePathFieldValue) | 
-	 *         (field=NumberField value=NumberFieldValue) | 
-	 *         (field=ModifierField value=ModifierFieldValue) | 
-	 *         (field=TimeField value=TimeFieldValue) | 
-	 *         (field=DocumentTypeField value=DocumentTypeFieldValue) | 
-	 *         (field=ProjectNameField value=ProjectNameFieldValue) | 
-	 *         (field=AnnotationField value=AnnotationFieldValue)
+	 *         (field=SimpleField (values+=SimpleFieldValue | values+=SimpleFieldValue*)) | 
+	 *         (field=TypeField (values+=TypeFieldValue | values+=TypeFieldValue*)) | 
+	 *         (field=MethodField (values+=MethodFieldValue | values+=MethodFieldValue*)) | 
+	 *         (field=FilePathField (values+=FilePathFieldValue | values+=FilePathFieldValue*)) | 
+	 *         (field=NumberField (values+=NumberFieldValue | values+=NumberFieldValue*)) | 
+	 *         (field=ModifierField (values+=ModifierFieldValue | values+=ModifierFieldValue*)) | 
+	 *         (field=TimeField (values+=TimeFieldValue | values+=TimeFieldValue*)) | 
+	 *         (field=DocumentTypeField (values+=DocumentTypeFieldValue | values+=DocumentTypeFieldValue*)) | 
+	 *         (field=ProjectNameField (values+=ProjectNameFieldValue | values+=ProjectNameFieldValue*)) | 
+	 *         (field=AnnotationField (values+=AnnotationFieldValue | values+=AnnotationFieldValue*))
 	 *     )
 	 */
 	protected void sequence_ClauseExpression(EObject context, ClauseExpression semanticObject) {

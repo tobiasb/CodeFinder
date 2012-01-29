@@ -23,20 +23,96 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 		(
 			default=SimpleFieldValue | // Default field
 			(
-				(field=SimpleField ':' value=SimpleFieldValue)
-				| (field=TypeField ':' value=TypeFieldValue)
-				| (field=MethodField ':' value=MethodFieldValue)
-				| (field=FilePathField ':' value=FilePathFieldValue)
-				| (field=NumberField ':' value=NumberFieldValue)
-				| (field=ModifierField ':' value=ModifierFieldValue)
-				| (field=TimeField ':' value=TimeFieldValue)
-				| (field=DocumentTypeField ':' value=DocumentTypeFieldValue)
-				| (field=ProjectNameField ':' value=ProjectNameFieldValue)
-				| (field=AnnotationField ':' value=AnnotationFieldValue)
+				(
+					field=SimpleField ':' 
+					(
+						(UnaryExpression? values+=SimpleFieldValue)
+						| ('('(UnaryExpression? values+=SimpleFieldValue)*')')
+					)
+				)
+			| 	(
+					field=TypeField ':' 
+					(
+						(UnaryExpression? values+=TypeFieldValue)
+						| ('('(UnaryExpression? values+=TypeFieldValue)*')')
+					)
+				)
+			| 	(
+					field=MethodField ':' 
+					(
+						(UnaryExpression? values+=MethodFieldValue)
+						| ('('(UnaryExpression? values+=MethodFieldValue)*')')
+					)
+				)
+			| 	(
+					field=FilePathField ':' 
+					(
+						(UnaryExpression? values+=FilePathFieldValue)
+						| ('('(UnaryExpression? values+=FilePathFieldValue)*')')
+					)
+				)
+			| 	(
+					field=NumberField ':' 
+					(
+						(UnaryExpression? values+=NumberFieldValue)
+						| ('('(UnaryExpression? values+=NumberFieldValue)*')')
+					)
+				)
+			| 	(
+					field=ModifierField ':' 
+					(
+						(UnaryExpression? values+=ModifierFieldValue)
+						| ('('(UnaryExpression? values+=ModifierFieldValue)*')')
+					)
+				)
+			| 	(
+					field=TimeField ':' 
+					(
+						(UnaryExpression? values+=TimeFieldValue)
+						| ('('(UnaryExpression? values+=TimeFieldValue)*')')
+					)
+				)
+			| 	(
+					field=DocumentTypeField ':' 
+					(
+						(UnaryExpression? values+=DocumentTypeFieldValue)
+						| ('('(UnaryExpression? values+=DocumentTypeFieldValue)*')')
+					)
+				)
+			| 	(
+					field=ProjectNameField ':' 
+					(
+						(UnaryExpression? values+=ProjectNameFieldValue)
+						| ('('(UnaryExpression? values+=ProjectNameFieldValue)*')')
+					)
+				)
+			| 	(
+					field=AnnotationField ':' 
+					(
+						(UnaryExpression? values+=AnnotationFieldValue)
+						| ('('(UnaryExpression? values+=AnnotationFieldValue)*')')
+					)
+				)
 			)
 		)
 	;
 
+	SimpleField:
+			FullyQualifiedName='FullyQualifiedName'
+		| 	FriendlyName='FriendlyName'
+		| 	DeclaredMethods='DeclaredMethods'
+		| 	ReturnVariableEexpressions='ReturnVariableEexpressions'
+		| 	AllDeclaredMethodNames='AllDeclaredMethodNames'
+		| 	DeclaredMethodNames='DeclaredMethodNames'
+		| 	DeclaredFieldNames='DeclaredFieldNames'
+		| 	AllDeclaredFieldNames='AllDeclaredFieldNames'
+		| 	FullText='FullText'
+		| 	FieldsRead='FieldsRead'
+		| 	FieldsWritten='FieldsWritten'
+		| 	UsedFieldsInFinally='UsedFieldsInFinally'
+		| 	UsedFieldsInTry='UsedFieldsInTry'
+	;
+	
 	TypeField:
 			ImplementedTypes='ImplementedTypes'
 		| 	ExtendedTypes='ExtendedTypes'
@@ -89,26 +165,9 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 			Annotations='Annotations'
 	;
 	
-	SimpleField:
-			FullyQualifiedName='FullyQualifiedName'
-		| 	FriendlyName='FriendlyName'
-		| 	DeclaredMethods='DeclaredMethods'
-		| 	ReturnVariableEexpressions='ReturnVariableEexpressions'
-		| 	AllDeclaredMethodNames='AllDeclaredMethodNames'
-		| 	DeclaredMethodNames='DeclaredMethodNames'
-		| 	DeclaredFieldNames='DeclaredFieldNames'
-		| 	AllDeclaredFieldNames='AllDeclaredFieldNames'
-		| 	FullText='FullText'
-		| 	FieldsRead='FieldsRead'
-		| 	FieldsWritten='FieldsWritten'
-		| 	UsedFieldsInFinally='UsedFieldsInFinally'
-		| 	UsedFieldsInTry='UsedFieldsInTry'
-	;
-	
 	/*
 	End of generated rules.
-*/
-
+	*/
 		
 
 	SimpleFieldValue:
@@ -164,7 +223,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	//-----------------
 	
 	enum BinaryExp:
-		and1='AND' | or1='OR'
+		and1='AND' | or1='OR' | or2='||'
 	;
 
 	UnaryExpression:

@@ -31,19 +31,21 @@ public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
 
                     final DotNotationConverter conv = new DotNotationConverter();
 
-                    final String oldValue = impl.getValue();
-                    final String newValue = conv.convertFrom(oldValue);
-
-                    impl.setValue(newValue);
+                    for (int i = 0; i < impl.getValues().size(); i++) {
+                        final String oldValue = impl.getValues().get(i);
+                        final String newValue = conv.convertFrom(oldValue);
+                        impl.getValues().set(i, newValue);
+                    }
                 }
 
                 if (field instanceof FilePathFieldImpl) {
                     final PathValueConverter conv = new PathValueConverter();
 
-                    final String oldValue = impl.getValue();
-                    final String newValue = conv.convertFrom(oldValue);
-
-                    impl.setValue(newValue);
+                    for (int i = 0; i < impl.getValues().size(); i++) {
+                        final String oldValue = impl.getValues().get(i);
+                        final String newValue = conv.convertFrom(oldValue);
+                        impl.getValues().set(i, newValue);
+                    }
                 }
             }
 
@@ -53,5 +55,4 @@ public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
         state.save(stream, null);
         return stream.toString();
     }
-
 }
