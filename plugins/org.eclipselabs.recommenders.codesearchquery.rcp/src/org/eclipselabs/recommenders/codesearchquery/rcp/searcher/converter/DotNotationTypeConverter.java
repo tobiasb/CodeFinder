@@ -1,6 +1,6 @@
 package org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter;
 
-public class DotNotationConverter extends AbstractQueryPartConverter {
+public class DotNotationTypeConverter extends AbstractQueryPartConverter {
 
     @Override
     public String convertFrom(final String queryPart) {

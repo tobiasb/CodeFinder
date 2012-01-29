@@ -9,7 +9,7 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FilePathFieldImpl;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationTypeConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
 
 public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
@@ -29,7 +29,7 @@ public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
 
                 if (field instanceof TypeFieldImpl) {
 
-                    final DotNotationConverter conv = new DotNotationConverter();
+                    final DotNotationTypeConverter conv = new DotNotationTypeConverter();
 
                     for (int i = 0; i < impl.getValues().size(); i++) {
                         final String oldValue = impl.getValues().get(i);
