@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            adaptable="true"
-            objectClass="org.eclipse.core.resources.IProject"
-            id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.contribution1">
-         <action
-               label="CodeSearch - Index"
-               class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions.IndexAction"
-	       		menubarPath="additions"
-               enablesFor="+"
-               id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.indexAction">
-         </action>
-      </objectContribution>
-      
-            <objectContribution
-            adaptable="true"
-            objectClass="org.eclipse.core.resources.IProject"
-            id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.contribution2">
-         <action
-               label="CodeSearch - Delete Index"
-               class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions.DeleteIndexAction"
-	       		menubarPath="additions"
-               enablesFor="+"
-               id="org.eclipselabs.recommenders.codesearchquery.rcp.popup.actions.deleteIndexAction">
-         </action>
-      </objectContribution>
-   </extension>
-
+	<extension
+	      point="org.eclipse.ui.viewActions">
+	      
+	      <viewContribution
+	            id="org.eclipselabs.recommenders.codesearchquery.rcp.view.actions.indexAction"
+	            targetID="org.eclipselabs.recommenders.codesearchquery.rcp.searchQueryView">
+	            
+	            <action
+                   class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.views.actions.IndexAction"
+                   icon="icons/obj16/index.gif"
+                   id="org.eclipselabs.recommenders.codesearchquery.rcp.IndexAction"
+                   label="Index Workspace"
+                   menubarPath="additions">
+	            </action>            
+	      </viewContribution>
+	      
+	      <viewContribution
+	            id="org.eclipselabs.recommenders.codesearchquery.rcp.view.actions.deleteIndexAction"
+	            targetID="org.eclipselabs.recommenders.codesearchquery.rcp.searchQueryView">
+	            
+	            <action
+                   class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.views.actions.DeleteIndexAction"
+                   icon="icons/obj16/truncate.png"
+                   id="org.eclipselabs.recommenders.codesearchquery.rcp.TruncateAction"
+                   label="Truncate Index"
+                   menubarPath="additions">
+	            </action>            
+	      </viewContribution>>
+	</extension>
 	<extension
 	      point="org.eclipse.ui.views">
 	      <view
              category="org.eclipse.recommenders.rcp.category.views"
              class="org.eclipselabs.recommenders.internal.codesearchquery.rcp.views.SearchQueryView"
+             icon="icons/obj16/search.png"
              id="org.eclipselabs.recommenders.codesearchquery.rcp.searchQueryView"
              name="Code Search Query-View"/>
 	</extension>

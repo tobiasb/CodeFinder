@@ -1,13 +1,13 @@
-package org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions;
+package org.eclipselabs.recommenders.internal.codesearchquery.rcp.views.actions;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.recommenders.injection.InjectionService;
-import org.eclipse.ui.IObjectActionDelegate;
-import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IViewActionDelegate;
+import org.eclipse.ui.IViewPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
 
-public class DeleteIndexAction implements IObjectActionDelegate {
+public class DeleteIndexAction implements IViewActionDelegate {
 
     public DeleteIndexAction() {
         // TODO Auto-generated constructor stub
@@ -28,7 +28,7 @@ public class DeleteIndexAction implements IObjectActionDelegate {
     }
 
     @Override
-    public void setActivePart(final IAction action, final IWorkbenchPart targetPart) {
+    public void init(IViewPart view) {
         // TODO Auto-generated method stub
 
     }

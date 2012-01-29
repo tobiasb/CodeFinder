@@ -1,43 +1,28 @@
-package org.eclipselabs.recommenders.internal.codesearchquery.rcp.popup.actions;
+package org.eclipselabs.recommenders.internal.codesearchquery.rcp.views.actions;
 
-import java.util.List;
-
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.ui.IActionDelegate;
-import org.eclipse.ui.IObjectActionDelegate;
-import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.IViewActionDelegate;
+import org.eclipse.ui.IViewPart;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
 import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 import org.eclipselabs.recommenders.internal.codesearchquery.rcp.indexing.IndexUpdaterJob;
 
-import com.google.common.collect.Lists;
-
-public class IndexAction implements IObjectActionDelegate {
+public class IndexAction implements IViewActionDelegate {
 
     // private Shell shell;
-    List<IProject> projects = null;
+    // List<IProject> projects = null;
 
     /**
      * Constructor for Action1.
      */
     public IndexAction() {
         super();
-    }
-
-    /**
-     * @see IObjectActionDelegate#setActivePart(IAction, IWorkbenchPart)
-     */
-    @Override
-    public void setActivePart(final IAction action, final IWorkbenchPart targetPart) {
-        // shell = targetPart.getSite().getShell();
     }
 
     /**
@@ -61,8 +46,9 @@ public class IndexAction implements IObjectActionDelegate {
 
                         final Long duration = System.currentTimeMillis() - start;
 
-                        final String msg = "Index was built for " + projects.size() + " project(s). Took " + duration
-                                + " milliseconds.";
+                        final String msg = "Index was built for "
+                                + ResourcesPlugin.getWorkspace().getRoot().getProjects().length + " project(s). Took "
+                                + duration + " milliseconds.";
 
                         System.out.println(msg);
                     } else {
@@ -82,19 +68,26 @@ public class IndexAction implements IObjectActionDelegate {
      */
     @Override
     public void selectionChanged(final IAction action, final ISelection selection) {
-        projects = Lists.newLinkedList();
+        // projects = Lists.newLinkedList();
+        //
+        // if (selection instanceof IStructuredSelection) {
+        //
+        // for (final Object o : ((IStructuredSelection) selection).toArray()) {
+        //
+        // if (o instanceof IProject) {
+        // projects.add((IProject) o);
+        // } else if (o instanceof PlatformObject) {
+        // projects.add((IProject) ((PlatformObject)
+        // o).getAdapter(IProject.class));
+        // }
+        // }
+        // }
+    }
 
-        if (selection instanceof IStructuredSelection) {
+    @Override
+    public void init(IViewPart view) {
+        // TODO Auto-generated method stub
 
-            for (final Object o : ((IStructuredSelection) selection).toArray()) {
-
-                if (o instanceof IProject) {
-                    projects.add((IProject) o);
-                } else if (o instanceof PlatformObject) {
-                    projects.add((IProject) ((PlatformObject) o).getAdapter(IProject.class));
-                }
-            }
-        }
     }
 
 }
