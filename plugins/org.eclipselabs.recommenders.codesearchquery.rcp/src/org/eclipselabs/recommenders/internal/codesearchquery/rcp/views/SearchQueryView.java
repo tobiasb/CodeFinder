@@ -304,9 +304,12 @@ public class SearchQueryView extends ViewPart {
                                         }
                                         for (final String v : value2.getValues()) {
                                             final String lowerCase = v.toLowerCase();
-                                            final String[] segments = lowerCase.split(".");
+                                            final String[] segments = lowerCase.split("\\W");
                                             for (final String term : segments) {
-                                                res.add(term.replaceAll("\\W", "").toLowerCase());
+                                                if (term.isEmpty()) {
+                                                    continue;
+                                                }
+                                                res.add(term);
                                             }
                                         }
                                         return res;
@@ -319,6 +322,7 @@ public class SearchQueryView extends ViewPart {
                             public void applyTextPresentation(final TextPresentation textPresentation) {
                                 final ICompilationUnit cu = (ICompilationUnit) EditorUtility.getActiveEditorJavaInput();
                                 final Color foreground = JavaUI.getColorManager().getColor(new RGB(255, 0, 0));
+                                final Color white = JavaUI.getColorManager().getColor(new RGB(255, 255, 255));
                                 final Color background = JavaUI.getColorManager().getColor(new RGB(255, 255, 128));
                                 final Color heuristic = JavaUI.getColorManager().getColor(new RGB(220, 245, 139));
                                 SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null).accept(new ASTVisitor() {
@@ -326,9 +330,13 @@ public class SearchQueryView extends ViewPart {
                                     public boolean visit(final SimpleName node) {
                                         final String word = node.getIdentifier().toLowerCase();
                                         for (final String searchterm : searchTerms) {
-                                            if (word.contains(searchterm)) {
+                                            final Color gray = Display.getDefault().getSystemColor(SWT.COLOR_GRAY);
+                                            if (word.equals(searchterm)) {
                                                 setHighlightStyleForNode(textPresentation, foreground, background, node);
+                                            } else if (word.contains(searchterm)) {
+                                                setHighlightStyleForNode(textPresentation, heuristic, gray, node);
                                             }
+
                                         }
                                         return true;
                                     }

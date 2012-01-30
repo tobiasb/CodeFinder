@@ -58,7 +58,7 @@ public class IndexUpdaterService {
         };
         job.setPriority(Job.DECORATE);
         job.setRule(MUTEX);
-        job.schedule();
+        job.schedule(5000);
 
     }
 
