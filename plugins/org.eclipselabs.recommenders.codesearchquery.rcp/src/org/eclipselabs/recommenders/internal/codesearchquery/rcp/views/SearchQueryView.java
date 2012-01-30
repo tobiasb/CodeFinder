@@ -303,9 +303,12 @@ public class SearchQueryView extends ViewPart {
                                             res.add(_default.replaceAll("\\W", "").toLowerCase());
                                         }
                                         for (final String v : value2.getValues()) {
-                                            res.add(v.replaceAll("\\W", "").toLowerCase());
+                                            final String lowerCase = v.toLowerCase();
+                                            final String[] segments = lowerCase.split(".");
+                                            for (final String term : segments) {
+                                                res.add(term.replaceAll("\\W", "").toLowerCase());
+                                            }
                                         }
-
                                         return res;
                                     }
                                 });
@@ -323,8 +326,9 @@ public class SearchQueryView extends ViewPart {
                                     public boolean visit(final SimpleName node) {
                                         final String word = node.getIdentifier().toLowerCase();
                                         for (final String searchterm : searchTerms) {
-                                            word.contains(searchterm);
-                                            setHighlightStyleForNode(textPresentation, foreground, background, node);
+                                            if (word.contains(searchterm)) {
+                                                setHighlightStyleForNode(textPresentation, foreground, background, node);
+                                            }
                                         }
                                         return true;
                                     }
