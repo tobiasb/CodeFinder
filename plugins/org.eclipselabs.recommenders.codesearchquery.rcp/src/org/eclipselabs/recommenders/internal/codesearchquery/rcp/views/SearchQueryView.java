@@ -296,12 +296,16 @@ public class SearchQueryView extends ViewPart {
                                         final Expression luceneQuery = (Expression) rootASTElement;
                                         final ClauseExpression value2 = luceneQuery.getValue();
                                         final EObject field = value2.getField();
-                                        final String value = value2.getValue();
+
                                         final String _default = value2.getDefault();
                                         final Set<String> res = Sets.newHashSet();
                                         if (_default != null) {
                                             res.add(_default.replaceAll("\\W", "").toLowerCase());
                                         }
+                                        for (final String v : value2.getValues()) {
+                                            res.add(v.replaceAll("\\W", "").toLowerCase());
+                                        }
+
                                         return res;
                                     }
                                 });
