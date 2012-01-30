@@ -18,6 +18,7 @@
 	<modules>
 		<module>org.eclipselabs.recommenders.feature.codesearchquery</module>
 		<module>org.eclipselabs.recommenders.feature.codesearchquery.source</module>
+		<module>org.eclipselabs.recommenders.feature.dependencies</module>
 	</modules>
 
 	<build>
