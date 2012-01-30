@@ -34,7 +34,7 @@ import com.google.common.eventbus.Subscribe;
 
 public class IndexUpdaterService {
 
-    private final ISchedulingRule MUTEX = new ISchedulingRule() {
+    public static final ISchedulingRule MUTEX = new ISchedulingRule() {
         @Override
         public boolean isConflicting(final ISchedulingRule rule) {
             return rule == this;
@@ -44,7 +44,23 @@ public class IndexUpdaterService {
         public boolean contains(final ISchedulingRule rule) {
             return rule == this;
         }
+
     };
+
+    public static void scheduleIndexingJob(final IJavaProject javaProject, final CodeIndexerIndex indexer) {
+        final Job job = new Job("Updating code-search index") {
+
+            @Override
+            public IStatus run(final IProgressMonitor monitor) {
+                return IndexUtils.indexProject(javaProject, indexer, monitor);
+            }
+
+        };
+        job.setPriority(Job.DECORATE);
+        job.setRule(MUTEX);
+        job.schedule();
+
+    }
 
     private final CodeIndexerIndex indexer;
 
@@ -67,19 +83,7 @@ public class IndexUpdaterService {
         if (IndexUpdaterServiceSettings.getNoDispatch()) {
             return;
         }
-
-        final Job job = new Job("Updating code-search index") {
-
-            @Override
-            public IStatus run(final IProgressMonitor monitor) {
-                final IJavaProject project = event.project;
-                return IndexUtils.indexProject(project, indexer, monitor);
-            }
-
-        };
-        job.setPriority(Job.DECORATE);
-        job.setRule(MUTEX);
-        job.schedule();
+        scheduleIndexingJob(event.project, indexer);
     }
 
     @Subscribe
