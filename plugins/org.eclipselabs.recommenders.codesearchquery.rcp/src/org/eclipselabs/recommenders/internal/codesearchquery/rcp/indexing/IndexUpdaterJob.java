@@ -15,13 +15,11 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.internal.core.JavaProject;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
-import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 @SuppressWarnings("restriction")
 public class IndexUpdaterJob extends Job {
@@ -48,11 +46,7 @@ public class IndexUpdaterJob extends Job {
                 }
 
                 final IJavaProject javaProject = JavaCore.create(p);
-                final IStatus res = IndexUtils.indexProject(javaProject, indexer, new SubProgressMonitor(monitor, 1));
-                if (!res.isOK()) {
-                    Activator.log(res);
-                }
-                monitor.worked(1);
+                IndexUpdaterService.scheduleIndexingJob(javaProject, indexer);
             }
             return Status.OK_STATUS;
         } catch (final Exception e) {
