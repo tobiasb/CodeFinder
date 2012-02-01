@@ -79,9 +79,9 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
             try {
                 result.add(searcher.doc(doc.doc));
             } catch (final CorruptIndexException e) {
-                e.printStackTrace(); // TODO refactor
+                Activator.logError(e);
             } catch (final IOException e) {
-                e.printStackTrace(); // TODO refactor
+                Activator.logError(e);
             }
         }
 
@@ -108,11 +108,9 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
             }
 
         } catch (final CorruptIndexException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         }
 
         return result;

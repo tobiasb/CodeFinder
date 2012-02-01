@@ -50,9 +50,9 @@ public class IndexAction implements IViewActionDelegate {
                                 + ResourcesPlugin.getWorkspace().getRoot().getProjects().length + " project(s). Took "
                                 + duration + " milliseconds.";
 
-                        System.out.println(msg);
+                        Activator.logInfo(msg);
                     } else {
-                        System.out.println(event.getResult().getMessage());
+                        Activator.logWarning(event.getResult().getMessage());
                     }
                 }
 

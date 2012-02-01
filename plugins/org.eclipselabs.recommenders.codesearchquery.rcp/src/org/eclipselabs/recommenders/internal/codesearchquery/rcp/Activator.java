@@ -19,28 +19,23 @@ public class Activator extends AbstractUIPlugin {
     }
 
     public static void logError(final Throwable e, final String format, final Object... args) {
-        // LoggingUtils.logError(e, getDefault(), format, args);
         logConsole(e, format, args);
     }
 
     public static void logError(final Throwable e) {
-        // LoggingUtils.logError(e, getDefault(), format, args);
         logConsole(e, null);
     }
 
     public static void logWarning(final Throwable e, final String format, final Object... args) {
-        // LoggingUtils.logError(e, getDefault(), format, args);
         logConsole(e, format, args);
     }
 
     public static void logWarning(final String format, final Object... args) {
-        // LoggingUtils.logWarning(null, getDefault(), format, args);
         logConsole(null, format, args);
     }
 
     public static void logInfo(final String format, final Object... args) {
-        // LoggingUtils.newInfo(Activator.PLUGIN_ID, format, args);
-        logConsole(null, format, args);
+        // logConsole(null, format, args);
     }
 
     public static void log(final IStatus s) {

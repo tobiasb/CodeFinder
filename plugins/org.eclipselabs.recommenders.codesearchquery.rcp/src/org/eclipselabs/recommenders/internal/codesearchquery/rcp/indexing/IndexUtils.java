@@ -28,6 +28,7 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 public class IndexUtils {
 
@@ -59,8 +60,7 @@ public class IndexUtils {
                 monitor.worked(1);
             }
         } catch (final JavaModelException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         } finally {
             monitor.done();
         }
@@ -81,11 +81,9 @@ public class IndexUtils {
                 indexer.index(ast);
             }
         } catch (final JavaModelException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         }
     }
 

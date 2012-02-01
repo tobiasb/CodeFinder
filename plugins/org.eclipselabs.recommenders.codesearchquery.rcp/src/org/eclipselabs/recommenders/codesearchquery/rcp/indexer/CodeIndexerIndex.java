@@ -136,11 +136,8 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         m_writer.deleteDocuments(term);
         commit(); // for correct num count
 
-        // final int numDeleted = numDocsBefore - m_writer.numDocs();
-        // XXX MB: this is drastically slowing down Eclipse and indexing.
-        // use a logger instead w/ debug level
-        // System.out.println("Deleting: " + numDeleted + "x " + term.field() +
-        // "=" + term.text() + ".");
+        final int numDeleted = numDocsBefore - m_writer.numDocs();
+        Activator.logInfo("Deleting: " + numDeleted + "x " + term.field() + "=" + term.text() + ".");
     }
 
     @Override
@@ -171,11 +168,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         try {
             m_writer.commit();
         } catch (final CorruptIndexException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         }
     }
 
@@ -189,7 +184,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             m_writer.deleteAll();
             m_writer.commit();
         } catch (final IOException e) {
-            e.printStackTrace(); // TODO: refactor
+            Activator.logError(e);
         }
     }
 
@@ -197,7 +192,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         try {
             Activator.logInfo("Stat - Docs in Index: " + m_writer.numDocs());
         } catch (final IOException e) {
-            e.printStackTrace(); // TODO: refactor
+            Activator.logError(e);
         }
     }
 

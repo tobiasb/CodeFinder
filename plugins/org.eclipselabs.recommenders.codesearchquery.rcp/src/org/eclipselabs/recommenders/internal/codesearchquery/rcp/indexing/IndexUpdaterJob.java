@@ -20,6 +20,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.internal.core.JavaProject;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.CodeIndexerIndex;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 @SuppressWarnings("restriction")
 public class IndexUpdaterJob extends Job {
@@ -50,7 +51,7 @@ public class IndexUpdaterJob extends Job {
             }
             return Status.OK_STATUS;
         } catch (final Exception e) {
-            e.printStackTrace();
+            Activator.logError(e);
             return Status.OK_STATUS;
         } finally {
             monitor.done();

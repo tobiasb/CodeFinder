@@ -106,11 +106,9 @@ public class IndexUpdaterService {
                 indexer.index(ast);
             }
         } catch (final JavaModelException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         } catch (final IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            Activator.logError(e);
         }
     }
 

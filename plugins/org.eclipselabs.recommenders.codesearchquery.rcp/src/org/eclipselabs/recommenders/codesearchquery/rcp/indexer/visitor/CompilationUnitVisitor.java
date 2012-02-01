@@ -55,6 +55,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IFiel
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.IMethodIndexer;
 import org.eclipselabs.recommenders.codesearchquery.rcp.indexer.interfaces.ITryCatchBlockIndexer;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.collect.Lists;
 
@@ -191,7 +192,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         try {
             index.addDocument(document);
         } catch (final IOException e) {
-            e.printStackTrace();
+            Activator.logError(e);
         }
     }
 }
