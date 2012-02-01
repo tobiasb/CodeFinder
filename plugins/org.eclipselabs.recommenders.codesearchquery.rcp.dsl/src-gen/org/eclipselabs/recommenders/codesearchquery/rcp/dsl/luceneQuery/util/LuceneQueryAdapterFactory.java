@@ -89,6 +89,11 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createClauseExpressionAdapter();
       }
       @Override
+      public Adapter caseSimpleField(SimpleField object)
+      {
+        return createSimpleFieldAdapter();
+      }
+      @Override
       public Adapter caseTypeField(TypeField object)
       {
         return createTypeFieldAdapter();
@@ -132,11 +137,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAnnotationField(AnnotationField object)
       {
         return createAnnotationFieldAdapter();
-      }
-      @Override
-      public Adapter caseSimpleField(SimpleField object)
-      {
-        return createSimpleFieldAdapter();
       }
       @Override
       public Adapter caseExp1(Exp1 object)
@@ -191,6 +191,21 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createClauseExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField <em>Simple Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField
+   * @generated
+   */
+  public Adapter createSimpleFieldAdapter()
   {
     return null;
   }
@@ -326,21 +341,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAnnotationFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField <em>Simple Field</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField
-   * @generated
-   */
-  public Adapter createSimpleFieldAdapter()
   {
     return null;
   }

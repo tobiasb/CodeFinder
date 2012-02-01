@@ -26,70 +26,70 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 				(
 					field=SimpleField ':' 
 					(
-						(UnaryExpression? values+=SimpleFieldValue)
+						(values+=SimpleFieldValue)
 						| ('('(UnaryExpression? values+=SimpleFieldValue)*')')
 					)
 				)
 			| 	(
 					field=TypeField ':' 
 					(
-						(UnaryExpression? values+=TypeFieldValue)
+						(values+=TypeFieldValue)
 						| ('('(UnaryExpression? values+=TypeFieldValue)*')')
 					)
 				)
 			| 	(
 					field=MethodField ':' 
 					(
-						(UnaryExpression? values+=MethodFieldValue)
+						(values+=MethodFieldValue)
 						| ('('(UnaryExpression? values+=MethodFieldValue)*')')
 					)
 				)
 			| 	(
 					field=FilePathField ':' 
 					(
-						(UnaryExpression? values+=FilePathFieldValue)
+						(values+=FilePathFieldValue)
 						| ('('(UnaryExpression? values+=FilePathFieldValue)*')')
 					)
 				)
 			| 	(
 					field=NumberField ':' 
 					(
-						(UnaryExpression? values+=NumberFieldValue)
+						(values+=NumberFieldValue)
 						| ('('(UnaryExpression? values+=NumberFieldValue)*')')
 					)
 				)
 			| 	(
 					field=ModifierField ':' 
 					(
-						(UnaryExpression? values+=ModifierFieldValue)
+						(values+=ModifierFieldValue)
 						| ('('(UnaryExpression? values+=ModifierFieldValue)*')')
 					)
 				)
 			| 	(
 					field=TimeField ':' 
 					(
-						(UnaryExpression? values+=TimeFieldValue)
+						(values+=TimeFieldValue)
 						| ('('(UnaryExpression? values+=TimeFieldValue)*')')
 					)
 				)
 			| 	(
 					field=DocumentTypeField ':' 
 					(
-						(UnaryExpression? values+=DocumentTypeFieldValue)
+						(values+=DocumentTypeFieldValue)
 						| ('('(UnaryExpression? values+=DocumentTypeFieldValue)*')')
 					)
 				)
 			| 	(
 					field=ProjectNameField ':' 
 					(
-						(UnaryExpression? values+=ProjectNameFieldValue)
+						(values+=ProjectNameFieldValue)
 						| ('('(UnaryExpression? values+=ProjectNameFieldValue)*')')
 					)
 				)
 			| 	(
 					field=AnnotationField ':' 
 					(
-						(UnaryExpression? values+=AnnotationFieldValue)
+						(values+=AnnotationFieldValue)
 						| ('('(UnaryExpression? values+=AnnotationFieldValue)*')')
 					)
 				)
@@ -214,14 +214,6 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 		NameWithWC
 	;
 	
-	terminal NameWithWC				: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
-	terminal PathWithWC  			: (('A'..'Z' ':') | ('a'..'z'|'A'..'Z'|'_'|'/')) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
-	
-	FilePathFieldValue:
-		PathWithWC
-	;
-	//-----------------
-	
 	enum BinaryExp:
 		and1='AND' | or1='OR' | or2='||'
 	;
@@ -229,4 +221,12 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	UnaryExpression:
 		('-' | 'NOT' | '!' | '+')
 	;
+	
+	terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
+	terminal PathWithWC  	: (('A'..'Z' ':') | ('a'..'z'|'A'..'Z'|'_'|'/')) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
+	
+	FilePathFieldValue:
+		PathWithWC
+	;
+	//-----------------
 

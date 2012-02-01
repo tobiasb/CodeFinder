@@ -90,6 +90,13 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LuceneQueryPackage.SIMPLE_FIELD:
+      {
+        SimpleField simpleField = (SimpleField)theEObject;
+        T result = caseSimpleField(simpleField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LuceneQueryPackage.TYPE_FIELD:
       {
         TypeField typeField = (TypeField)theEObject;
@@ -153,13 +160,6 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.SIMPLE_FIELD:
-      {
-        SimpleField simpleField = (SimpleField)theEObject;
-        T result = caseSimpleField(simpleField);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case LuceneQueryPackage.EXP1:
       {
         Exp1 exp1 = (Exp1)theEObject;
@@ -200,6 +200,22 @@ public class LuceneQuerySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClauseExpression(ClauseExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleField(SimpleField object)
   {
     return null;
   }
@@ -344,22 +360,6 @@ public class LuceneQuerySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAnnotationField(AnnotationField object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Simple Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Simple Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSimpleField(SimpleField object)
   {
     return null;
   }

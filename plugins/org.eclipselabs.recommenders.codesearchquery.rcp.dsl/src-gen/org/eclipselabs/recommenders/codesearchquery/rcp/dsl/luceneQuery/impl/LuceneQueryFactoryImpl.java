@@ -71,6 +71,7 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
     {
       case LuceneQueryPackage.EXPRESSION: return createExpression();
       case LuceneQueryPackage.CLAUSE_EXPRESSION: return createClauseExpression();
+      case LuceneQueryPackage.SIMPLE_FIELD: return createSimpleField();
       case LuceneQueryPackage.TYPE_FIELD: return createTypeField();
       case LuceneQueryPackage.METHOD_FIELD: return createMethodField();
       case LuceneQueryPackage.FILE_PATH_FIELD: return createFilePathField();
@@ -80,7 +81,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
       case LuceneQueryPackage.DOCUMENT_TYPE_FIELD: return createDocumentTypeField();
       case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
       case LuceneQueryPackage.ANNOTATION_FIELD: return createAnnotationField();
-      case LuceneQueryPackage.SIMPLE_FIELD: return createSimpleField();
       case LuceneQueryPackage.EXP1: return createExp1();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -141,6 +141,17 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     ClauseExpressionImpl clauseExpression = new ClauseExpressionImpl();
     return clauseExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleField createSimpleField()
+  {
+    SimpleFieldImpl simpleField = new SimpleFieldImpl();
+    return simpleField;
   }
 
   /**
@@ -240,17 +251,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     AnnotationFieldImpl annotationField = new AnnotationFieldImpl();
     return annotationField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SimpleField createSimpleField()
-  {
-    SimpleFieldImpl simpleField = new SimpleFieldImpl();
-    return simpleField;
   }
 
   /**

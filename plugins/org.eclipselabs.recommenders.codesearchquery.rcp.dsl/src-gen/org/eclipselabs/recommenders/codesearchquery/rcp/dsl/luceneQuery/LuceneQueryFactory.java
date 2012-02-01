@@ -45,6 +45,15 @@ public interface LuceneQueryFactory extends EFactory
   ClauseExpression createClauseExpression();
 
   /**
+   * Returns a new object of class '<em>Simple Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Field</em>'.
+   * @generated
+   */
+  SimpleField createSimpleField();
+
+  /**
    * Returns a new object of class '<em>Type Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -124,15 +133,6 @@ public interface LuceneQueryFactory extends EFactory
    * @generated
    */
   AnnotationField createAnnotationField();
-
-  /**
-   * Returns a new object of class '<em>Simple Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Field</em>'.
-   * @generated
-   */
-  SimpleField createSimpleField();
 
   /**
    * Returns a new object of class '<em>Exp1</em>'.

@@ -136,6 +136,142 @@ public interface LuceneQueryPackage extends EPackage
   int CLAUSE_EXPRESSION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl <em>Simple Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getSimpleField()
+   * @generated
+   */
+  int SIMPLE_FIELD = 2;
+
+  /**
+   * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__FULLY_QUALIFIED_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Friendly Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__FRIENDLY_NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Declared Methods</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__DECLARED_METHODS = 2;
+
+  /**
+   * The feature id for the '<em><b>Return Variable Eexpressions</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS = 3;
+
+  /**
+   * The feature id for the '<em><b>All Declared Method Names</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = 4;
+
+  /**
+   * The feature id for the '<em><b>Declared Method Names</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__DECLARED_METHOD_NAMES = 5;
+
+  /**
+   * The feature id for the '<em><b>Declared Field Names</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__DECLARED_FIELD_NAMES = 6;
+
+  /**
+   * The feature id for the '<em><b>All Declared Field Names</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = 7;
+
+  /**
+   * The feature id for the '<em><b>Full Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__FULL_TEXT = 8;
+
+  /**
+   * The feature id for the '<em><b>Fields Read</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__FIELDS_READ = 9;
+
+  /**
+   * The feature id for the '<em><b>Fields Written</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__FIELDS_WRITTEN = 10;
+
+  /**
+   * The feature id for the '<em><b>Used Fields In Finally</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = 11;
+
+  /**
+   * The feature id for the '<em><b>Used Fields In Try</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD__USED_FIELDS_IN_TRY = 12;
+
+  /**
+   * The number of structural features of the '<em>Simple Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_FIELD_FEATURE_COUNT = 13;
+
+  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl <em>Type Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -143,7 +279,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTypeField()
    * @generated
    */
-  int TYPE_FIELD = 2;
+  int TYPE_FIELD = 3;
 
   /**
    * The feature id for the '<em><b>Implemented Types</b></em>' attribute.
@@ -288,7 +424,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getMethodField()
    * @generated
    */
-  int METHOD_FIELD = 3;
+  int METHOD_FIELD = 4;
 
   /**
    * The feature id for the '<em><b>Used Methods</b></em>' attribute.
@@ -343,7 +479,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getFilePathField()
    * @generated
    */
-  int FILE_PATH_FIELD = 4;
+  int FILE_PATH_FIELD = 5;
 
   /**
    * The feature id for the '<em><b>Resource Path</b></em>' attribute.
@@ -371,7 +507,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getNumberField()
    * @generated
    */
-  int NUMBER_FIELD = 5;
+  int NUMBER_FIELD = 6;
 
   /**
    * The feature id for the '<em><b>Parameter Count</b></em>' attribute.
@@ -399,7 +535,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getModifierField()
    * @generated
    */
-  int MODIFIER_FIELD = 6;
+  int MODIFIER_FIELD = 7;
 
   /**
    * The feature id for the '<em><b>Modifiers</b></em>' attribute.
@@ -427,7 +563,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTimeField()
    * @generated
    */
-  int TIME_FIELD = 7;
+  int TIME_FIELD = 8;
 
   /**
    * The feature id for the '<em><b>Timestamp</b></em>' attribute.
@@ -455,7 +591,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDocumentTypeField()
    * @generated
    */
-  int DOCUMENT_TYPE_FIELD = 8;
+  int DOCUMENT_TYPE_FIELD = 9;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -483,7 +619,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getProjectNameField()
    * @generated
    */
-  int PROJECT_NAME_FIELD = 9;
+  int PROJECT_NAME_FIELD = 10;
 
   /**
    * The feature id for the '<em><b>Project Name</b></em>' attribute.
@@ -511,7 +647,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getAnnotationField()
    * @generated
    */
-  int ANNOTATION_FIELD = 10;
+  int ANNOTATION_FIELD = 11;
 
   /**
    * The feature id for the '<em><b>Annotations</b></em>' attribute.
@@ -530,142 +666,6 @@ public interface LuceneQueryPackage extends EPackage
    * @ordered
    */
   int ANNOTATION_FIELD_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl <em>Simple Field</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getSimpleField()
-   * @generated
-   */
-  int SIMPLE_FIELD = 11;
-
-  /**
-   * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FULLY_QUALIFIED_NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Friendly Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FRIENDLY_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Declared Methods</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__DECLARED_METHODS = 2;
-
-  /**
-   * The feature id for the '<em><b>Return Variable Eexpressions</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS = 3;
-
-  /**
-   * The feature id for the '<em><b>All Declared Method Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = 4;
-
-  /**
-   * The feature id for the '<em><b>Declared Method Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__DECLARED_METHOD_NAMES = 5;
-
-  /**
-   * The feature id for the '<em><b>Declared Field Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__DECLARED_FIELD_NAMES = 6;
-
-  /**
-   * The feature id for the '<em><b>All Declared Field Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = 7;
-
-  /**
-   * The feature id for the '<em><b>Full Text</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FULL_TEXT = 8;
-
-  /**
-   * The feature id for the '<em><b>Fields Read</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FIELDS_READ = 9;
-
-  /**
-   * The feature id for the '<em><b>Fields Written</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FIELDS_WRITTEN = 10;
-
-  /**
-   * The feature id for the '<em><b>Used Fields In Finally</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = 11;
-
-  /**
-   * The feature id for the '<em><b>Used Fields In Try</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__USED_FIELDS_IN_TRY = 12;
-
-  /**
-   * The number of structural features of the '<em>Simple Field</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD_FEATURE_COUNT = 13;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.
@@ -796,6 +796,159 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EAttribute getClauseExpression_Values();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField <em>Simple Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Field</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField
+   * @generated
+   */
+  EClass getSimpleField();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullyQualifiedName <em>Fully Qualified Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fully Qualified Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullyQualifiedName()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_FullyQualifiedName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFriendlyName <em>Friendly Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Friendly Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFriendlyName()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_FriendlyName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods <em>Declared Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Declared Methods</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_DeclaredMethods();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions <em>Return Variable Eexpressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Return Variable Eexpressions</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_ReturnVariableEexpressions();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames <em>All Declared Method Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>All Declared Method Names</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_AllDeclaredMethodNames();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethodNames <em>Declared Method Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Declared Method Names</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethodNames()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_DeclaredMethodNames();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredFieldNames <em>Declared Field Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Declared Field Names</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredFieldNames()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_DeclaredFieldNames();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredFieldNames <em>All Declared Field Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>All Declared Field Names</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredFieldNames()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_AllDeclaredFieldNames();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullText <em>Full Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Full Text</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullText()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_FullText();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsRead <em>Fields Read</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fields Read</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsRead()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_FieldsRead();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsWritten <em>Fields Written</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fields Written</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsWritten()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_FieldsWritten();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInFinally <em>Used Fields In Finally</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Used Fields In Finally</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInFinally()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_UsedFieldsInFinally();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInTry <em>Used Fields In Try</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Used Fields In Try</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInTry()
+   * @see #getSimpleField()
+   * @generated
+   */
+  EAttribute getSimpleField_UsedFieldsInTry();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField <em>Type Field</em>}'.
@@ -1163,159 +1316,6 @@ public interface LuceneQueryPackage extends EPackage
   EAttribute getAnnotationField_Annotations();
 
   /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField <em>Simple Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Simple Field</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField
-   * @generated
-   */
-  EClass getSimpleField();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullyQualifiedName <em>Fully Qualified Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fully Qualified Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullyQualifiedName()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FullyQualifiedName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFriendlyName <em>Friendly Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Friendly Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFriendlyName()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FriendlyName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods <em>Declared Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Methods</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_DeclaredMethods();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions <em>Return Variable Eexpressions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Return Variable Eexpressions</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_ReturnVariableEexpressions();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames <em>All Declared Method Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>All Declared Method Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_AllDeclaredMethodNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethodNames <em>Declared Method Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Method Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethodNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_DeclaredMethodNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredFieldNames <em>Declared Field Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Field Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredFieldNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_DeclaredFieldNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredFieldNames <em>All Declared Field Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>All Declared Field Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredFieldNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_AllDeclaredFieldNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullText <em>Full Text</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Full Text</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullText()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FullText();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsRead <em>Fields Read</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fields Read</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsRead()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FieldsRead();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsWritten <em>Fields Written</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fields Written</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsWritten()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FieldsWritten();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInFinally <em>Used Fields In Finally</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Fields In Finally</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInFinally()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_UsedFieldsInFinally();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInTry <em>Used Fields In Try</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Fields In Try</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInTry()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_UsedFieldsInTry();
-
-  /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Exp1 <em>Exp1</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1442,6 +1442,120 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute CLAUSE_EXPRESSION__VALUES = eINSTANCE.getClauseExpression_Values();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl <em>Simple Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl
+     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getSimpleField()
+     * @generated
+     */
+    EClass SIMPLE_FIELD = eINSTANCE.getSimpleField();
+
+    /**
+     * The meta object literal for the '<em><b>Fully Qualified Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__FULLY_QUALIFIED_NAME = eINSTANCE.getSimpleField_FullyQualifiedName();
+
+    /**
+     * The meta object literal for the '<em><b>Friendly Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__FRIENDLY_NAME = eINSTANCE.getSimpleField_FriendlyName();
+
+    /**
+     * The meta object literal for the '<em><b>Declared Methods</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__DECLARED_METHODS = eINSTANCE.getSimpleField_DeclaredMethods();
+
+    /**
+     * The meta object literal for the '<em><b>Return Variable Eexpressions</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS = eINSTANCE.getSimpleField_ReturnVariableEexpressions();
+
+    /**
+     * The meta object literal for the '<em><b>All Declared Method Names</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = eINSTANCE.getSimpleField_AllDeclaredMethodNames();
+
+    /**
+     * The meta object literal for the '<em><b>Declared Method Names</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__DECLARED_METHOD_NAMES = eINSTANCE.getSimpleField_DeclaredMethodNames();
+
+    /**
+     * The meta object literal for the '<em><b>Declared Field Names</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__DECLARED_FIELD_NAMES = eINSTANCE.getSimpleField_DeclaredFieldNames();
+
+    /**
+     * The meta object literal for the '<em><b>All Declared Field Names</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = eINSTANCE.getSimpleField_AllDeclaredFieldNames();
+
+    /**
+     * The meta object literal for the '<em><b>Full Text</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__FULL_TEXT = eINSTANCE.getSimpleField_FullText();
+
+    /**
+     * The meta object literal for the '<em><b>Fields Read</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__FIELDS_READ = eINSTANCE.getSimpleField_FieldsRead();
+
+    /**
+     * The meta object literal for the '<em><b>Fields Written</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__FIELDS_WRITTEN = eINSTANCE.getSimpleField_FieldsWritten();
+
+    /**
+     * The meta object literal for the '<em><b>Used Fields In Finally</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = eINSTANCE.getSimpleField_UsedFieldsInFinally();
+
+    /**
+     * The meta object literal for the '<em><b>Used Fields In Try</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_FIELD__USED_FIELDS_IN_TRY = eINSTANCE.getSimpleField_UsedFieldsInTry();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl <em>Type Field</em>}' class.
@@ -1732,120 +1846,6 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute ANNOTATION_FIELD__ANNOTATIONS = eINSTANCE.getAnnotationField_Annotations();
-
-    /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl <em>Simple Field</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl
-     * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getSimpleField()
-     * @generated
-     */
-    EClass SIMPLE_FIELD = eINSTANCE.getSimpleField();
-
-    /**
-     * The meta object literal for the '<em><b>Fully Qualified Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FULLY_QUALIFIED_NAME = eINSTANCE.getSimpleField_FullyQualifiedName();
-
-    /**
-     * The meta object literal for the '<em><b>Friendly Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FRIENDLY_NAME = eINSTANCE.getSimpleField_FriendlyName();
-
-    /**
-     * The meta object literal for the '<em><b>Declared Methods</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__DECLARED_METHODS = eINSTANCE.getSimpleField_DeclaredMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Return Variable Eexpressions</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS = eINSTANCE.getSimpleField_ReturnVariableEexpressions();
-
-    /**
-     * The meta object literal for the '<em><b>All Declared Method Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = eINSTANCE.getSimpleField_AllDeclaredMethodNames();
-
-    /**
-     * The meta object literal for the '<em><b>Declared Method Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__DECLARED_METHOD_NAMES = eINSTANCE.getSimpleField_DeclaredMethodNames();
-
-    /**
-     * The meta object literal for the '<em><b>Declared Field Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__DECLARED_FIELD_NAMES = eINSTANCE.getSimpleField_DeclaredFieldNames();
-
-    /**
-     * The meta object literal for the '<em><b>All Declared Field Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = eINSTANCE.getSimpleField_AllDeclaredFieldNames();
-
-    /**
-     * The meta object literal for the '<em><b>Full Text</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FULL_TEXT = eINSTANCE.getSimpleField_FullText();
-
-    /**
-     * The meta object literal for the '<em><b>Fields Read</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FIELDS_READ = eINSTANCE.getSimpleField_FieldsRead();
-
-    /**
-     * The meta object literal for the '<em><b>Fields Written</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FIELDS_WRITTEN = eINSTANCE.getSimpleField_FieldsWritten();
-
-    /**
-     * The meta object literal for the '<em><b>Used Fields In Finally</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = eINSTANCE.getSimpleField_UsedFieldsInFinally();
-
-    /**
-     * The meta object literal for the '<em><b>Used Fields In Try</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__USED_FIELDS_IN_TRY = eINSTANCE.getSimpleField_UsedFieldsInTry();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.

@@ -92,7 +92,7 @@ public class LuceneFieldsGenerator implements IGenerator {
           _builder.newLine();
           _builder.append("\t\t\t");
           _builder.append("\t\t\t");
-          _builder.append("(UnaryExpression? values+=");
+          _builder.append("(values+=");
           String _categoryName_1 = category.getCategoryName();
           _builder.append(_categoryName_1, "						");
           _builder.append("Value)");

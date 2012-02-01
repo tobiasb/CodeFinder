@@ -29,7 +29,7 @@ public class UnaryExpressionTest extends DslTestBase {
     public void testNot04Brackets() throws Exception {
 
         super.setUp();
-        getParseResultAndExpect("NOT(UsedTypes:java.util.List)", 0);
+        getParseResultAndExpect("NOT (UsedTypes:java.util.List)", 0);
     }
 
     @Test
@@ -64,7 +64,11 @@ public class UnaryExpressionTest extends DslTestBase {
     public void testInFieldValue01() throws Exception {
 
         super.setUp();
-        getParseResultAndExpect("UsedTypes:+java.util.List", 0);
-        getParseResultAndExpect("UsedTypes:-java.util.List", 0);
+        getParseResultAndExpect("UsedTypes:+java.util.List", 1);
+        getParseResultAndExpect("UsedTypes:-java.util.List", 1);
+        getParseResultAndExpect("UsedTypes:(+java.util.List)", 0);
+        getParseResultAndExpect("UsedTypes:(-java.util.List)", 0);
+        assertNoErrors("UsedTypes:(+java.util.List -java.util.Map)");
+        assertNoErrors("UsedTypes:(-java.util.List +java.util.Map)");
     }
 }

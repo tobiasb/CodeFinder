@@ -36,7 +36,7 @@ class LuceneFieldsGenerator implements IGenerator {
 				«if(m.fieldCategories.indexOf(category)>0){'| '}»	(
 						field=«category.categoryName» ':' 
 						(
-							(UnaryExpression? values+=«category.categoryName»Value)
+							(values+=«category.categoryName»Value)
 							| ('('(UnaryExpression? values+=«category.categoryName»Value)*')')
 						)
 					)
