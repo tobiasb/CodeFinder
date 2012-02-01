@@ -63,6 +63,7 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
@@ -89,8 +90,8 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.DocumentTypePro
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.GenericQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationTypeConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationMethodConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationTypeConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.utils.MethodImageProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.utils.ProjectImageProvider;
@@ -131,9 +132,37 @@ public class SearchQueryView extends ViewPart {
         createSearchQueryViewerXtext(parent);
 
         createSearchResultsViewer(parent);
+        createSearchExampleCombobox(parent);
         createTriggerSearchButton(parent);
 
         parent.pack();
+    }
+
+    private void createSearchExampleCombobox(final Composite parent) {
+        final Combo combo = new Combo(parent, SWT.READ_ONLY);
+        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        gridData.horizontalSpan = 2;
+        String items[] = { "Example Queries...", "UsedTypes:java.util.List",
+                "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)" };
+        combo.setItems(items);
+        combo.select(0);
+        combo.setLayoutData(gridData);
+        combo.addSelectionListener(new SelectionListener() {
+
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                if (combo.getSelectionIndex() > 0) {
+                    setSearchQuery(combo.getItems()[combo.getSelectionIndex()]);
+                    combo.select(0);
+                }
+            }
+
+            @Override
+            public void widgetDefaultSelected(SelectionEvent e) {
+                // TODO Auto-generated method stub
+
+            }
+        });
     }
 
     @SuppressWarnings("restriction")
@@ -196,14 +225,14 @@ public class SearchQueryView extends ViewPart {
         // // no constraints...
         // }
         // });
-
-        handle.getDocument().set("UsedTypes:java.util.List");
     }
 
     private void createTriggerSearchButton(final Composite parent) {
         triggerSearchButton = new Button(parent, SWT.PUSH);
         triggerSearchButton.setText("Search");
-        triggerSearchButton.setLayoutData(new GridData());
+        GridData gridData = new GridData();
+        gridData.horizontalSpan = 2;
+        triggerSearchButton.setLayoutData(gridData);
         triggerSearchButton.addSelectionListener(new SelectionListener() {
 
             @Override
@@ -279,7 +308,9 @@ public class SearchQueryView extends ViewPart {
         searchResultTable.setContentProvider(new ArrayContentProvider());
         searchResultTable.setLabelProvider(new JavaElementLabelProvider(SHOW_OVERLAY_ICONS | SHOW_POST_QUALIFIED
                 | SHOW_PARAMETERS));
-        searchResultTable.getControl().setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL));
+        GridData gridData = new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL);
+        gridData.horizontalSpan = 1;
+        searchResultTable.getControl().setLayoutData(gridData);
         searchResultTable.addDoubleClickListener(new IDoubleClickListener() {
 
             @Override
@@ -416,6 +447,17 @@ public class SearchQueryView extends ViewPart {
         });
 
         return string.toString();
+    }
+
+    public void setSearchQuery(final String q) {
+
+        Display.getDefault().syncExec(new Runnable() {
+
+            @Override
+            public void run() {
+                handle.getDocument().set(q);
+            }
+        });
     }
 
     public void setSearching() {
