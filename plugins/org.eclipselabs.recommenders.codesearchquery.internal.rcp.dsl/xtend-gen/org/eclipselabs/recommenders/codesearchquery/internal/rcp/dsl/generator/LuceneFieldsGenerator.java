@@ -50,6 +50,10 @@ public class LuceneFieldsGenerator implements IGenerator {
       _builder.newLine();
       _builder.append("*/");
       _builder.newLine();
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("//Generated Rule. Do not modify!");
+      _builder.newLine();
       _builder.append("\t");
       _builder.append("ClauseExpression:");
       _builder.newLine();
@@ -60,7 +64,7 @@ public class LuceneFieldsGenerator implements IGenerator {
       _builder.append("(");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("default=SimpleFieldValue | // Default field");
+      _builder.append("default=SimpleFieldValue Boost? | // Default field");
       _builder.newLine();
       _builder.append("\t\t\t");
       _builder.append("(");
@@ -102,11 +106,11 @@ public class LuceneFieldsGenerator implements IGenerator {
           _builder.append("| (\'(\'(UnaryExpression? values+=");
           String _categoryName_2 = category.getCategoryName();
           _builder.append(_categoryName_2, "						");
-          _builder.append("Value)*\')\')");
+          _builder.append("Value Boost?)*\')\')");
           _builder.newLineIfNotEmpty();
           _builder.append("\t\t\t");
           _builder.append("\t\t");
-          _builder.append(")");
+          _builder.append(") Boost?");
           _builder.newLine();
           _builder.append("\t\t\t");
           _builder.append("\t");
@@ -127,6 +131,9 @@ public class LuceneFieldsGenerator implements IGenerator {
       {
         EList<FieldCategory> _fieldCategories_2 = m.getFieldCategories();
         for(final FieldCategory category_1 : _fieldCategories_2) {
+          _builder.append("\t");
+          _builder.append("//Generated Rule. Do not modify!");
+          _builder.newLine();
           _builder.append("\t");
           String _categoryName_3 = category_1.getCategoryName();
           _builder.append(_categoryName_3, "	");

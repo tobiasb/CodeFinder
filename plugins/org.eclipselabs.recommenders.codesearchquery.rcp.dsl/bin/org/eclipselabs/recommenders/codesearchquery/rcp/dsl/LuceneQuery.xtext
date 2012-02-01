@@ -13,90 +13,93 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	 Exp2 ( {Exp1.left=current} b=BinaryExp? right=Exp1 )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	
 	Exp2 returns Expression:
-	 value=ClauseExpression | (UnaryExpression? '(' Exp1 ')');
+	 value=ClauseExpression | (UnaryExpression? '(' Exp1 ')' Boost?);
 	 
 /*
 	The following rules are generated. Do not modify. Modify source file instead.
 */
+
+	//Generated Rule. Do not modify!
 	ClauseExpression:
 		(UnaryExpression)? 
 		(
-			default=SimpleFieldValue | // Default field
+			default=SimpleFieldValue Boost? | // Default field
 			(
 				(
 					field=SimpleField ':' 
 					(
 						(values+=SimpleFieldValue)
-						| ('('(UnaryExpression? values+=SimpleFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=SimpleFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=TypeField ':' 
 					(
 						(values+=TypeFieldValue)
-						| ('('(UnaryExpression? values+=TypeFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=TypeFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=MethodField ':' 
 					(
 						(values+=MethodFieldValue)
-						| ('('(UnaryExpression? values+=MethodFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=MethodFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=FilePathField ':' 
 					(
 						(values+=FilePathFieldValue)
-						| ('('(UnaryExpression? values+=FilePathFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=FilePathFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=NumberField ':' 
 					(
 						(values+=NumberFieldValue)
-						| ('('(UnaryExpression? values+=NumberFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=NumberFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=ModifierField ':' 
 					(
 						(values+=ModifierFieldValue)
-						| ('('(UnaryExpression? values+=ModifierFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=ModifierFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=TimeField ':' 
 					(
 						(values+=TimeFieldValue)
-						| ('('(UnaryExpression? values+=TimeFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=TimeFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=DocumentTypeField ':' 
 					(
 						(values+=DocumentTypeFieldValue)
-						| ('('(UnaryExpression? values+=DocumentTypeFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=DocumentTypeFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=ProjectNameField ':' 
 					(
 						(values+=ProjectNameFieldValue)
-						| ('('(UnaryExpression? values+=ProjectNameFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=ProjectNameFieldValue Boost?)*')')
+					)  Boost?
 				)
 			| 	(
 					field=AnnotationField ':' 
 					(
 						(values+=AnnotationFieldValue)
-						| ('('(UnaryExpression? values+=AnnotationFieldValue)*')')
-					)
+						| ('('(UnaryExpression? values+=AnnotationFieldValue Boost?)*')')
+					)  Boost?
 				)
 			)
 		)
 	;
 
+	//Generated Rule. Do not modify!
 	SimpleField:
 			FullyQualifiedName='FullyQualifiedName'
 		| 	FriendlyName='FriendlyName'
@@ -113,6 +116,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 		| 	UsedFieldsInTry='UsedFieldsInTry'
 	;
 	
+	//Generated Rule. Do not modify!
 	TypeField:
 			ImplementedTypes='ImplementedTypes'
 		| 	ExtendedTypes='ExtendedTypes'
@@ -130,6 +134,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 		| 	DeclaringType='DeclaringType'
 	;
 	
+	//Generated Rule. Do not modify!
 	MethodField:
 			UsedMethods='UsedMethods'
 		| 	UsedMethodsInTry='UsedMethodsInTry'
@@ -137,30 +142,37 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 		| 	OverriddenMethods='OverriddenMethods'
 	;
 	
+	//Generated Rule. Do not modify!
 	FilePathField:
 			ResourcePath='ResourcePath'
 	;
 	
+	//Generated Rule. Do not modify!
 	NumberField:
 			ParameterCount='ParameterCount'
 	;
 	
+	//Generated Rule. Do not modify!
 	ModifierField:
 			Modifiers='Modifiers'
 	;
 	
+	//Generated Rule. Do not modify!
 	TimeField:
 			Timestamp='Timestamp'
 	;
 	
+	//Generated Rule. Do not modify!
 	DocumentTypeField:
 			Type='Type'
 	;
 	
+	//Generated Rule. Do not modify!
 	ProjectNameField:
 			ProjectName='ProjectName'
 	;
 	
+	//Generated Rule. Do not modify!
 	AnnotationField:
 			Annotations='Annotations'
 	;
@@ -168,7 +180,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	/*
 	End of generated rules.
 	*/
-		
+	
 
 	SimpleFieldValue:
 		NameWithWC
@@ -220,6 +232,10 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 
 	UnaryExpression:
 		('-' | 'NOT' | '!' | '+')
+	;
+	
+	terminal Boost:
+		'^' ('0'..'9')+ ('.' ('0'..'9')+)? 
 	;
 	
 	terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;

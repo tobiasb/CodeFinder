@@ -27,18 +27,20 @@ class LuceneFieldsGenerator implements IGenerator {
 '''/*
 	The following rules are generated. Do not modify. Modify source file instead.
 */
+
+	//Generated Rule. Do not modify!
 	ClauseExpression:
 		(UnaryExpression)? 
 		(
-			default=SimpleFieldValue | // Default field
+			default=SimpleFieldValue Boost? | // Default field
 			(
 			«FOR category : m.fieldCategories»
 				«if(m.fieldCategories.indexOf(category)>0){'| '}»	(
 						field=«category.categoryName» ':' 
 						(
 							(values+=«category.categoryName»Value)
-							| ('('(UnaryExpression? values+=«category.categoryName»Value)*')')
-						)
+							| ('('(UnaryExpression? values+=«category.categoryName»Value Boost?)*')')
+						) Boost?
 					)
 			«ENDFOR»
 			)
@@ -46,6 +48,7 @@ class LuceneFieldsGenerator implements IGenerator {
 	;
 
 	«FOR category : m.fieldCategories»
+	//Generated Rule. Do not modify!
 	«category.categoryName»:
 		«FOR field : category.fields»
 			«if(!b.value){'| '}»	«field.value»='«field.value»'

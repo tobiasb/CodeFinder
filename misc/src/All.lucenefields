@@ -4,7 +4,7 @@ class Fields
 SimpleField {
 	FULLY_QUALIFIED_NAME 		= "FullyQualifiedName" 
 	{ class, method, field, trycatch }
-	
+
 	FRIENDLY_NAME 				= "FriendlyName" 
 	{ class, method, field, trycatch }
 	

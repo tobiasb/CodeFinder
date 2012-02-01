@@ -75,12 +75,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
 		private final RuleCall cExp1ParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final RuleCall cBoostTerminalRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
 		
 		//Exp2 returns Expression:
-		//	value=ClauseExpression | UnaryExpression? "(" Exp1 ")";
+		//	value=ClauseExpression | UnaryExpression? "(" Exp1 ")" Boost?;
 		public ParserRule getRule() { return rule; }
 
-		//value=ClauseExpression | UnaryExpression? "(" Exp1 ")"
+		//value=ClauseExpression | UnaryExpression? "(" Exp1 ")" Boost?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value=ClauseExpression
@@ -89,7 +90,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//ClauseExpression
 		public RuleCall getValueClauseExpressionParserRuleCall_0_0() { return cValueClauseExpressionParserRuleCall_0_0; }
 
-		//UnaryExpression? "(" Exp1 ")"
+		//UnaryExpression? "(" Exp1 ")" Boost?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//UnaryExpression?
@@ -103,6 +104,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_4() { return cBoostTerminalRuleCall_1_4; }
 	}
 
 	public class ClauseExpressionElements extends AbstractParserRuleElementFinder {
@@ -110,8 +114,10 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cUnaryExpressionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cDefaultAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cDefaultSimpleFieldValueParserRuleCall_1_0_0 = (RuleCall)cDefaultAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Assignment cDefaultAssignment_1_0_0 = (Assignment)cGroup_1_0.eContents().get(0);
+		private final RuleCall cDefaultSimpleFieldValueParserRuleCall_1_0_0_0 = (RuleCall)cDefaultAssignment_1_0_0.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_0_1 = (RuleCall)cGroup_1_0.eContents().get(1);
 		private final Alternatives cAlternatives_1_1 = (Alternatives)cAlternatives_1.eContents().get(1);
 		private final Group cGroup_1_1_0 = (Group)cAlternatives_1_1.eContents().get(0);
 		private final Assignment cFieldAssignment_1_1_0_0 = (Assignment)cGroup_1_1_0.eContents().get(0);
@@ -126,7 +132,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_0_2_1_1_0 = (RuleCall)cGroup_1_1_0_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_0_2_1_1_1 = (Assignment)cGroup_1_1_0_2_1_1.eContents().get(1);
 		private final RuleCall cValuesSimpleFieldValueParserRuleCall_1_1_0_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_0_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_0_2_1_1_2 = (RuleCall)cGroup_1_1_0_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_0_2_1_2 = (Keyword)cGroup_1_1_0_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_0_3 = (RuleCall)cGroup_1_1_0.eContents().get(3);
 		private final Group cGroup_1_1_1 = (Group)cAlternatives_1_1.eContents().get(1);
 		private final Assignment cFieldAssignment_1_1_1_0 = (Assignment)cGroup_1_1_1.eContents().get(0);
 		private final RuleCall cFieldTypeFieldParserRuleCall_1_1_1_0_0 = (RuleCall)cFieldAssignment_1_1_1_0.eContents().get(0);
@@ -140,7 +148,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_1_2_1_1_0 = (RuleCall)cGroup_1_1_1_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_1_2_1_1_1 = (Assignment)cGroup_1_1_1_2_1_1.eContents().get(1);
 		private final RuleCall cValuesTypeFieldValueParserRuleCall_1_1_1_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_1_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_1_2_1_1_2 = (RuleCall)cGroup_1_1_1_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_1_2_1_2 = (Keyword)cGroup_1_1_1_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_1_3 = (RuleCall)cGroup_1_1_1.eContents().get(3);
 		private final Group cGroup_1_1_2 = (Group)cAlternatives_1_1.eContents().get(2);
 		private final Assignment cFieldAssignment_1_1_2_0 = (Assignment)cGroup_1_1_2.eContents().get(0);
 		private final RuleCall cFieldMethodFieldParserRuleCall_1_1_2_0_0 = (RuleCall)cFieldAssignment_1_1_2_0.eContents().get(0);
@@ -154,7 +164,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_2_2_1_1_0 = (RuleCall)cGroup_1_1_2_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_2_2_1_1_1 = (Assignment)cGroup_1_1_2_2_1_1.eContents().get(1);
 		private final RuleCall cValuesMethodFieldValueParserRuleCall_1_1_2_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_2_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_2_2_1_1_2 = (RuleCall)cGroup_1_1_2_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_2_2_1_2 = (Keyword)cGroup_1_1_2_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_2_3 = (RuleCall)cGroup_1_1_2.eContents().get(3);
 		private final Group cGroup_1_1_3 = (Group)cAlternatives_1_1.eContents().get(3);
 		private final Assignment cFieldAssignment_1_1_3_0 = (Assignment)cGroup_1_1_3.eContents().get(0);
 		private final RuleCall cFieldFilePathFieldParserRuleCall_1_1_3_0_0 = (RuleCall)cFieldAssignment_1_1_3_0.eContents().get(0);
@@ -168,7 +180,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_3_2_1_1_0 = (RuleCall)cGroup_1_1_3_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_3_2_1_1_1 = (Assignment)cGroup_1_1_3_2_1_1.eContents().get(1);
 		private final RuleCall cValuesFilePathFieldValueParserRuleCall_1_1_3_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_3_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_3_2_1_1_2 = (RuleCall)cGroup_1_1_3_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_3_2_1_2 = (Keyword)cGroup_1_1_3_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_3_3 = (RuleCall)cGroup_1_1_3.eContents().get(3);
 		private final Group cGroup_1_1_4 = (Group)cAlternatives_1_1.eContents().get(4);
 		private final Assignment cFieldAssignment_1_1_4_0 = (Assignment)cGroup_1_1_4.eContents().get(0);
 		private final RuleCall cFieldNumberFieldParserRuleCall_1_1_4_0_0 = (RuleCall)cFieldAssignment_1_1_4_0.eContents().get(0);
@@ -182,7 +196,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_4_2_1_1_0 = (RuleCall)cGroup_1_1_4_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_4_2_1_1_1 = (Assignment)cGroup_1_1_4_2_1_1.eContents().get(1);
 		private final RuleCall cValuesNumberFieldValueParserRuleCall_1_1_4_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_4_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_4_2_1_1_2 = (RuleCall)cGroup_1_1_4_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_4_2_1_2 = (Keyword)cGroup_1_1_4_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_4_3 = (RuleCall)cGroup_1_1_4.eContents().get(3);
 		private final Group cGroup_1_1_5 = (Group)cAlternatives_1_1.eContents().get(5);
 		private final Assignment cFieldAssignment_1_1_5_0 = (Assignment)cGroup_1_1_5.eContents().get(0);
 		private final RuleCall cFieldModifierFieldParserRuleCall_1_1_5_0_0 = (RuleCall)cFieldAssignment_1_1_5_0.eContents().get(0);
@@ -196,7 +212,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_5_2_1_1_0 = (RuleCall)cGroup_1_1_5_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_5_2_1_1_1 = (Assignment)cGroup_1_1_5_2_1_1.eContents().get(1);
 		private final RuleCall cValuesModifierFieldValueParserRuleCall_1_1_5_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_5_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_5_2_1_1_2 = (RuleCall)cGroup_1_1_5_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_5_2_1_2 = (Keyword)cGroup_1_1_5_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_5_3 = (RuleCall)cGroup_1_1_5.eContents().get(3);
 		private final Group cGroup_1_1_6 = (Group)cAlternatives_1_1.eContents().get(6);
 		private final Assignment cFieldAssignment_1_1_6_0 = (Assignment)cGroup_1_1_6.eContents().get(0);
 		private final RuleCall cFieldTimeFieldParserRuleCall_1_1_6_0_0 = (RuleCall)cFieldAssignment_1_1_6_0.eContents().get(0);
@@ -210,7 +228,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_6_2_1_1_0 = (RuleCall)cGroup_1_1_6_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_6_2_1_1_1 = (Assignment)cGroup_1_1_6_2_1_1.eContents().get(1);
 		private final RuleCall cValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_6_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_6_2_1_1_2 = (RuleCall)cGroup_1_1_6_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_6_2_1_2 = (Keyword)cGroup_1_1_6_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_6_3 = (RuleCall)cGroup_1_1_6.eContents().get(3);
 		private final Group cGroup_1_1_7 = (Group)cAlternatives_1_1.eContents().get(7);
 		private final Assignment cFieldAssignment_1_1_7_0 = (Assignment)cGroup_1_1_7.eContents().get(0);
 		private final RuleCall cFieldDocumentTypeFieldParserRuleCall_1_1_7_0_0 = (RuleCall)cFieldAssignment_1_1_7_0.eContents().get(0);
@@ -224,7 +244,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_7_2_1_1_0 = (RuleCall)cGroup_1_1_7_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_7_2_1_1_1 = (Assignment)cGroup_1_1_7_2_1_1.eContents().get(1);
 		private final RuleCall cValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_7_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_7_2_1_1_2 = (RuleCall)cGroup_1_1_7_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_7_2_1_2 = (Keyword)cGroup_1_1_7_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_7_3 = (RuleCall)cGroup_1_1_7.eContents().get(3);
 		private final Group cGroup_1_1_8 = (Group)cAlternatives_1_1.eContents().get(8);
 		private final Assignment cFieldAssignment_1_1_8_0 = (Assignment)cGroup_1_1_8.eContents().get(0);
 		private final RuleCall cFieldProjectNameFieldParserRuleCall_1_1_8_0_0 = (RuleCall)cFieldAssignment_1_1_8_0.eContents().get(0);
@@ -238,7 +260,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_8_2_1_1_0 = (RuleCall)cGroup_1_1_8_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_8_2_1_1_1 = (Assignment)cGroup_1_1_8_2_1_1.eContents().get(1);
 		private final RuleCall cValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_8_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_8_2_1_1_2 = (RuleCall)cGroup_1_1_8_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_8_2_1_2 = (Keyword)cGroup_1_1_8_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_8_3 = (RuleCall)cGroup_1_1_8.eContents().get(3);
 		private final Group cGroup_1_1_9 = (Group)cAlternatives_1_1.eContents().get(9);
 		private final Assignment cFieldAssignment_1_1_9_0 = (Assignment)cGroup_1_1_9.eContents().get(0);
 		private final RuleCall cFieldAnnotationFieldParserRuleCall_1_1_9_0_0 = (RuleCall)cFieldAssignment_1_1_9_0.eContents().get(0);
@@ -252,77 +276,92 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnaryExpressionParserRuleCall_1_1_9_2_1_1_0 = (RuleCall)cGroup_1_1_9_2_1_1.eContents().get(0);
 		private final Assignment cValuesAssignment_1_1_9_2_1_1_1 = (Assignment)cGroup_1_1_9_2_1_1.eContents().get(1);
 		private final RuleCall cValuesAnnotationFieldValueParserRuleCall_1_1_9_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_9_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_9_2_1_1_2 = (RuleCall)cGroup_1_1_9_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_9_2_1_2 = (Keyword)cGroup_1_1_9_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_9_3 = (RuleCall)cGroup_1_1_9.eContents().get(3);
 		
 		/// *
 		//
 		//	The following rules are generated. Do not modify. Modify source file instead.
 		//
-		// * / ClauseExpression:
-		//	UnaryExpression? (default=SimpleFieldValue // Default field
+		// * / //Generated Rule. Do not modify!
 		//
-		//	| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")") |
-		//	field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")") | field=MethodField
-		//	":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")") | field=FilePathField ":"
-		//	(values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":"
-		//	(values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":"
-		//	(values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
-		//	(values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") | field=DocumentTypeField ":"
-		//	(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField
-		//	":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") |
-		//	field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")));
+		//ClauseExpression:
+		//	UnaryExpression? (default=SimpleFieldValue Boost? // Default field
+		//
+		//	| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")")
+		//	Boost? | field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")")
+		//	Boost? | field=MethodField ":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue Boost?)*
+		//	")") Boost? | field=FilePathField ":" (values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue
+		//	Boost?)* ")") Boost? | field=NumberField ":" (values+=NumberFieldValue | "(" (UnaryExpression?
+		//	values+=NumberFieldValue Boost?)* ")") Boost? | field=ModifierField ":" (values+=ModifierFieldValue | "("
+		//	(UnaryExpression? values+=ModifierFieldValue Boost?)* ")") Boost? | field=TimeField ":" (values+=TimeFieldValue | "("
+		//	(UnaryExpression? values+=TimeFieldValue Boost?)* ")") Boost? | field=DocumentTypeField ":"
+		//	(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue Boost?)* ")") Boost? |
+		//	field=ProjectNameField ":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue
+		//	Boost?)* ")") Boost? | field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression?
+		//	values+=AnnotationFieldValue Boost?)* ")") Boost?));
 		public ParserRule getRule() { return rule; }
 
-		//UnaryExpression? (default=SimpleFieldValue // Default field
+		//UnaryExpression? (default=SimpleFieldValue Boost? // Default field
 		//
-		//| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")") |
-		//field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")") | field=MethodField
-		//":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")") | field=FilePathField ":"
-		//(values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":"
-		//(values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":"
-		//(values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
-		//(values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") | field=DocumentTypeField ":"
-		//(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField
-		//":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField
-		//":" (values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")))
+		//| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")") Boost?
+		//| field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")") Boost? |
+		//field=MethodField ":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue Boost?)* ")") Boost? |
+		//field=FilePathField ":" (values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue Boost?)* ")")
+		//Boost? | field=NumberField ":" (values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue Boost?)* ")")
+		//Boost? | field=ModifierField ":" (values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue
+		//Boost?)* ")") Boost? | field=TimeField ":" (values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue
+		//Boost?)* ")") Boost? | field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//values+=DocumentTypeFieldValue Boost?)* ")") Boost? | field=ProjectNameField ":" (values+=ProjectNameFieldValue | "("
+		//(UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")") Boost? | field=AnnotationField ":"
+		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost?))
 		public Group getGroup() { return cGroup; }
 
 		//UnaryExpression?
 		public RuleCall getUnaryExpressionParserRuleCall_0() { return cUnaryExpressionParserRuleCall_0; }
 
-		//default=SimpleFieldValue // Default field
+		//default=SimpleFieldValue Boost? // Default field
 		//
-		//| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")") |
-		//field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")") | field=MethodField
-		//":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")") | field=FilePathField ":"
-		//(values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":"
-		//(values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":"
-		//(values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
-		//(values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") | field=DocumentTypeField ":"
-		//(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField
-		//":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField
-		//":" (values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")"))
+		//| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")") Boost?
+		//| field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")") Boost? |
+		//field=MethodField ":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue Boost?)* ")") Boost? |
+		//field=FilePathField ":" (values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue Boost?)* ")")
+		//Boost? | field=NumberField ":" (values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue Boost?)* ")")
+		//Boost? | field=ModifierField ":" (values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue
+		//Boost?)* ")") Boost? | field=TimeField ":" (values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue
+		//Boost?)* ")") Boost? | field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//values+=DocumentTypeFieldValue Boost?)* ")") Boost? | field=ProjectNameField ":" (values+=ProjectNameFieldValue | "("
+		//(UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")") Boost? | field=AnnotationField ":"
+		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost?)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
+		//default=SimpleFieldValue Boost?
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
 		//default=SimpleFieldValue
-		public Assignment getDefaultAssignment_1_0() { return cDefaultAssignment_1_0; }
+		public Assignment getDefaultAssignment_1_0_0() { return cDefaultAssignment_1_0_0; }
 
 		//SimpleFieldValue
-		public RuleCall getDefaultSimpleFieldValueParserRuleCall_1_0_0() { return cDefaultSimpleFieldValueParserRuleCall_1_0_0; }
+		public RuleCall getDefaultSimpleFieldValueParserRuleCall_1_0_0_0() { return cDefaultSimpleFieldValueParserRuleCall_1_0_0_0; }
 
-		//field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")") |
-		//field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")") | field=MethodField
-		//":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")") | field=FilePathField ":"
-		//(values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":"
-		//(values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":"
-		//(values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
-		//(values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") | field=DocumentTypeField ":"
-		//(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField
-		//":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") | field=AnnotationField
-		//":" (values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_0_1() { return cBoostTerminalRuleCall_1_0_1; }
+
+		//field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")") Boost? |
+		//field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")") Boost? |
+		//field=MethodField ":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue Boost?)* ")") Boost? |
+		//field=FilePathField ":" (values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue Boost?)* ")")
+		//Boost? | field=NumberField ":" (values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue Boost?)* ")")
+		//Boost? | field=ModifierField ":" (values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue
+		//Boost?)* ")") Boost? | field=TimeField ":" (values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue
+		//Boost?)* ")") Boost? | field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression?
+		//values+=DocumentTypeFieldValue Boost?)* ")") Boost? | field=ProjectNameField ":" (values+=ProjectNameFieldValue | "("
+		//(UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")") Boost? | field=AnnotationField ":"
+		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost?
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
-		//field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")")
+		//field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")") Boost?
 		public Group getGroup_1_1_0() { return cGroup_1_1_0; }
 
 		//field=SimpleField
@@ -334,7 +373,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_0_1() { return cColonKeyword_1_1_0_1; }
 
-		//values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")"
+		//values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_0_2() { return cAlternatives_1_1_0_2; }
 
 		//values+=SimpleFieldValue
@@ -343,13 +382,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//SimpleFieldValue
 		public RuleCall getValuesSimpleFieldValueParserRuleCall_1_1_0_2_0_0() { return cValuesSimpleFieldValueParserRuleCall_1_1_0_2_0_0; }
 
-		//"(" (UnaryExpression? values+=SimpleFieldValue)* ")"
+		//"(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")"
 		public Group getGroup_1_1_0_2_1() { return cGroup_1_1_0_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_0_2_1_0() { return cLeftParenthesisKeyword_1_1_0_2_1_0; }
 
-		//(UnaryExpression? values+=SimpleFieldValue)*
+		//(UnaryExpression? values+=SimpleFieldValue Boost?)*
 		public Group getGroup_1_1_0_2_1_1() { return cGroup_1_1_0_2_1_1; }
 
 		//UnaryExpression?
@@ -361,10 +400,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//SimpleFieldValue
 		public RuleCall getValuesSimpleFieldValueParserRuleCall_1_1_0_2_1_1_1_0() { return cValuesSimpleFieldValueParserRuleCall_1_1_0_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_0_2_1_1_2() { return cBoostTerminalRuleCall_1_1_0_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_0_2_1_2() { return cRightParenthesisKeyword_1_1_0_2_1_2; }
 
-		//field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_0_3() { return cBoostTerminalRuleCall_1_1_0_3; }
+
+		//field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")") Boost?
 		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
 
 		//field=TypeField
@@ -376,7 +421,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_1_1() { return cColonKeyword_1_1_1_1; }
 
-		//values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")"
+		//values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_1_2() { return cAlternatives_1_1_1_2; }
 
 		//values+=TypeFieldValue
@@ -385,13 +430,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//TypeFieldValue
 		public RuleCall getValuesTypeFieldValueParserRuleCall_1_1_1_2_0_0() { return cValuesTypeFieldValueParserRuleCall_1_1_1_2_0_0; }
 
-		//"(" (UnaryExpression? values+=TypeFieldValue)* ")"
+		//"(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")"
 		public Group getGroup_1_1_1_2_1() { return cGroup_1_1_1_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_1_2_1_0() { return cLeftParenthesisKeyword_1_1_1_2_1_0; }
 
-		//(UnaryExpression? values+=TypeFieldValue)*
+		//(UnaryExpression? values+=TypeFieldValue Boost?)*
 		public Group getGroup_1_1_1_2_1_1() { return cGroup_1_1_1_2_1_1; }
 
 		//UnaryExpression?
@@ -403,10 +448,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//TypeFieldValue
 		public RuleCall getValuesTypeFieldValueParserRuleCall_1_1_1_2_1_1_1_0() { return cValuesTypeFieldValueParserRuleCall_1_1_1_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_1_2_1_1_2() { return cBoostTerminalRuleCall_1_1_1_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_1_2_1_2() { return cRightParenthesisKeyword_1_1_1_2_1_2; }
 
-		//field=MethodField ":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_1_3() { return cBoostTerminalRuleCall_1_1_1_3; }
+
+		//field=MethodField ":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue Boost?)* ")") Boost?
 		public Group getGroup_1_1_2() { return cGroup_1_1_2; }
 
 		//field=MethodField
@@ -418,7 +469,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_2_1() { return cColonKeyword_1_1_2_1; }
 
-		//values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")"
+		//values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_2_2() { return cAlternatives_1_1_2_2; }
 
 		//values+=MethodFieldValue
@@ -427,13 +478,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//MethodFieldValue
 		public RuleCall getValuesMethodFieldValueParserRuleCall_1_1_2_2_0_0() { return cValuesMethodFieldValueParserRuleCall_1_1_2_2_0_0; }
 
-		//"(" (UnaryExpression? values+=MethodFieldValue)* ")"
+		//"(" (UnaryExpression? values+=MethodFieldValue Boost?)* ")"
 		public Group getGroup_1_1_2_2_1() { return cGroup_1_1_2_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_2_2_1_0() { return cLeftParenthesisKeyword_1_1_2_2_1_0; }
 
-		//(UnaryExpression? values+=MethodFieldValue)*
+		//(UnaryExpression? values+=MethodFieldValue Boost?)*
 		public Group getGroup_1_1_2_2_1_1() { return cGroup_1_1_2_2_1_1; }
 
 		//UnaryExpression?
@@ -445,10 +496,17 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//MethodFieldValue
 		public RuleCall getValuesMethodFieldValueParserRuleCall_1_1_2_2_1_1_1_0() { return cValuesMethodFieldValueParserRuleCall_1_1_2_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_2_2_1_1_2() { return cBoostTerminalRuleCall_1_1_2_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_2_2_1_2() { return cRightParenthesisKeyword_1_1_2_2_1_2; }
 
-		//field=FilePathField ":" (values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_2_3() { return cBoostTerminalRuleCall_1_1_2_3; }
+
+		//field=FilePathField ":" (values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue Boost?)* ")")
+		//Boost?
 		public Group getGroup_1_1_3() { return cGroup_1_1_3; }
 
 		//field=FilePathField
@@ -460,7 +518,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_3_1() { return cColonKeyword_1_1_3_1; }
 
-		//values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")"
+		//values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_3_2() { return cAlternatives_1_1_3_2; }
 
 		//values+=FilePathFieldValue
@@ -469,13 +527,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//FilePathFieldValue
 		public RuleCall getValuesFilePathFieldValueParserRuleCall_1_1_3_2_0_0() { return cValuesFilePathFieldValueParserRuleCall_1_1_3_2_0_0; }
 
-		//"(" (UnaryExpression? values+=FilePathFieldValue)* ")"
+		//"(" (UnaryExpression? values+=FilePathFieldValue Boost?)* ")"
 		public Group getGroup_1_1_3_2_1() { return cGroup_1_1_3_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_3_2_1_0() { return cLeftParenthesisKeyword_1_1_3_2_1_0; }
 
-		//(UnaryExpression? values+=FilePathFieldValue)*
+		//(UnaryExpression? values+=FilePathFieldValue Boost?)*
 		public Group getGroup_1_1_3_2_1_1() { return cGroup_1_1_3_2_1_1; }
 
 		//UnaryExpression?
@@ -487,10 +545,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//FilePathFieldValue
 		public RuleCall getValuesFilePathFieldValueParserRuleCall_1_1_3_2_1_1_1_0() { return cValuesFilePathFieldValueParserRuleCall_1_1_3_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_3_2_1_1_2() { return cBoostTerminalRuleCall_1_1_3_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_3_2_1_2() { return cRightParenthesisKeyword_1_1_3_2_1_2; }
 
-		//field=NumberField ":" (values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_3_3() { return cBoostTerminalRuleCall_1_1_3_3; }
+
+		//field=NumberField ":" (values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue Boost?)* ")") Boost?
 		public Group getGroup_1_1_4() { return cGroup_1_1_4; }
 
 		//field=NumberField
@@ -502,7 +566,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_4_1() { return cColonKeyword_1_1_4_1; }
 
-		//values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")"
+		//values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_4_2() { return cAlternatives_1_1_4_2; }
 
 		//values+=NumberFieldValue
@@ -511,13 +575,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//NumberFieldValue
 		public RuleCall getValuesNumberFieldValueParserRuleCall_1_1_4_2_0_0() { return cValuesNumberFieldValueParserRuleCall_1_1_4_2_0_0; }
 
-		//"(" (UnaryExpression? values+=NumberFieldValue)* ")"
+		//"(" (UnaryExpression? values+=NumberFieldValue Boost?)* ")"
 		public Group getGroup_1_1_4_2_1() { return cGroup_1_1_4_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_4_2_1_0() { return cLeftParenthesisKeyword_1_1_4_2_1_0; }
 
-		//(UnaryExpression? values+=NumberFieldValue)*
+		//(UnaryExpression? values+=NumberFieldValue Boost?)*
 		public Group getGroup_1_1_4_2_1_1() { return cGroup_1_1_4_2_1_1; }
 
 		//UnaryExpression?
@@ -529,10 +593,17 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//NumberFieldValue
 		public RuleCall getValuesNumberFieldValueParserRuleCall_1_1_4_2_1_1_1_0() { return cValuesNumberFieldValueParserRuleCall_1_1_4_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_4_2_1_1_2() { return cBoostTerminalRuleCall_1_1_4_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_4_2_1_2() { return cRightParenthesisKeyword_1_1_4_2_1_2; }
 
-		//field=ModifierField ":" (values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_4_3() { return cBoostTerminalRuleCall_1_1_4_3; }
+
+		//field=ModifierField ":" (values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue Boost?)* ")")
+		//Boost?
 		public Group getGroup_1_1_5() { return cGroup_1_1_5; }
 
 		//field=ModifierField
@@ -544,7 +615,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_5_1() { return cColonKeyword_1_1_5_1; }
 
-		//values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")"
+		//values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_5_2() { return cAlternatives_1_1_5_2; }
 
 		//values+=ModifierFieldValue
@@ -553,13 +624,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//ModifierFieldValue
 		public RuleCall getValuesModifierFieldValueParserRuleCall_1_1_5_2_0_0() { return cValuesModifierFieldValueParserRuleCall_1_1_5_2_0_0; }
 
-		//"(" (UnaryExpression? values+=ModifierFieldValue)* ")"
+		//"(" (UnaryExpression? values+=ModifierFieldValue Boost?)* ")"
 		public Group getGroup_1_1_5_2_1() { return cGroup_1_1_5_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_5_2_1_0() { return cLeftParenthesisKeyword_1_1_5_2_1_0; }
 
-		//(UnaryExpression? values+=ModifierFieldValue)*
+		//(UnaryExpression? values+=ModifierFieldValue Boost?)*
 		public Group getGroup_1_1_5_2_1_1() { return cGroup_1_1_5_2_1_1; }
 
 		//UnaryExpression?
@@ -571,10 +642,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//ModifierFieldValue
 		public RuleCall getValuesModifierFieldValueParserRuleCall_1_1_5_2_1_1_1_0() { return cValuesModifierFieldValueParserRuleCall_1_1_5_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_5_2_1_1_2() { return cBoostTerminalRuleCall_1_1_5_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_5_2_1_2() { return cRightParenthesisKeyword_1_1_5_2_1_2; }
 
-		//field=TimeField ":" (values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_5_3() { return cBoostTerminalRuleCall_1_1_5_3; }
+
+		//field=TimeField ":" (values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue Boost?)* ")") Boost?
 		public Group getGroup_1_1_6() { return cGroup_1_1_6; }
 
 		//field=TimeField
@@ -586,7 +663,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_6_1() { return cColonKeyword_1_1_6_1; }
 
-		//values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")"
+		//values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_6_2() { return cAlternatives_1_1_6_2; }
 
 		//values+=TimeFieldValue
@@ -595,13 +672,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//TimeFieldValue
 		public RuleCall getValuesTimeFieldValueParserRuleCall_1_1_6_2_0_0() { return cValuesTimeFieldValueParserRuleCall_1_1_6_2_0_0; }
 
-		//"(" (UnaryExpression? values+=TimeFieldValue)* ")"
+		//"(" (UnaryExpression? values+=TimeFieldValue Boost?)* ")"
 		public Group getGroup_1_1_6_2_1() { return cGroup_1_1_6_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_6_2_1_0() { return cLeftParenthesisKeyword_1_1_6_2_1_0; }
 
-		//(UnaryExpression? values+=TimeFieldValue)*
+		//(UnaryExpression? values+=TimeFieldValue Boost?)*
 		public Group getGroup_1_1_6_2_1_1() { return cGroup_1_1_6_2_1_1; }
 
 		//UnaryExpression?
@@ -613,11 +690,17 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//TimeFieldValue
 		public RuleCall getValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0() { return cValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_6_2_1_1_2() { return cBoostTerminalRuleCall_1_1_6_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_6_2_1_2() { return cRightParenthesisKeyword_1_1_6_2_1_2; }
 
-		//field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)*
-		//")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_6_3() { return cBoostTerminalRuleCall_1_1_6_3; }
+
+		//field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue
+		//Boost?)* ")") Boost?
 		public Group getGroup_1_1_7() { return cGroup_1_1_7; }
 
 		//field=DocumentTypeField
@@ -629,7 +712,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_7_1() { return cColonKeyword_1_1_7_1; }
 
-		//values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")"
+		//values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_7_2() { return cAlternatives_1_1_7_2; }
 
 		//values+=DocumentTypeFieldValue
@@ -638,13 +721,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//DocumentTypeFieldValue
 		public RuleCall getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_0_0() { return cValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_0_0; }
 
-		//"(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")"
+		//"(" (UnaryExpression? values+=DocumentTypeFieldValue Boost?)* ")"
 		public Group getGroup_1_1_7_2_1() { return cGroup_1_1_7_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_7_2_1_0() { return cLeftParenthesisKeyword_1_1_7_2_1_0; }
 
-		//(UnaryExpression? values+=DocumentTypeFieldValue)*
+		//(UnaryExpression? values+=DocumentTypeFieldValue Boost?)*
 		public Group getGroup_1_1_7_2_1_1() { return cGroup_1_1_7_2_1_1; }
 
 		//UnaryExpression?
@@ -656,10 +739,17 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//DocumentTypeFieldValue
 		public RuleCall getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0() { return cValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_7_2_1_1_2() { return cBoostTerminalRuleCall_1_1_7_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_7_2_1_2() { return cRightParenthesisKeyword_1_1_7_2_1_2; }
 
-		//field=ProjectNameField ":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_7_3() { return cBoostTerminalRuleCall_1_1_7_3; }
+
+		//field=ProjectNameField ":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue Boost?)*
+		//")") Boost?
 		public Group getGroup_1_1_8() { return cGroup_1_1_8; }
 
 		//field=ProjectNameField
@@ -671,7 +761,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_8_1() { return cColonKeyword_1_1_8_1; }
 
-		//values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")"
+		//values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_8_2() { return cAlternatives_1_1_8_2; }
 
 		//values+=ProjectNameFieldValue
@@ -680,13 +770,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//ProjectNameFieldValue
 		public RuleCall getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_0_0() { return cValuesProjectNameFieldValueParserRuleCall_1_1_8_2_0_0; }
 
-		//"(" (UnaryExpression? values+=ProjectNameFieldValue)* ")"
+		//"(" (UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")"
 		public Group getGroup_1_1_8_2_1() { return cGroup_1_1_8_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_8_2_1_0() { return cLeftParenthesisKeyword_1_1_8_2_1_0; }
 
-		//(UnaryExpression? values+=ProjectNameFieldValue)*
+		//(UnaryExpression? values+=ProjectNameFieldValue Boost?)*
 		public Group getGroup_1_1_8_2_1_1() { return cGroup_1_1_8_2_1_1; }
 
 		//UnaryExpression?
@@ -698,10 +788,17 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//ProjectNameFieldValue
 		public RuleCall getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0() { return cValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_8_2_1_1_2() { return cBoostTerminalRuleCall_1_1_8_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_8_2_1_2() { return cRightParenthesisKeyword_1_1_8_2_1_2; }
 
-		//field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_8_3() { return cBoostTerminalRuleCall_1_1_8_3; }
+
+		//field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)*
+		//")") Boost?
 		public Group getGroup_1_1_9() { return cGroup_1_1_9; }
 
 		//field=AnnotationField
@@ -713,7 +810,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_1_1_9_1() { return cColonKeyword_1_1_9_1; }
 
-		//values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")"
+		//values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")"
 		public Alternatives getAlternatives_1_1_9_2() { return cAlternatives_1_1_9_2; }
 
 		//values+=AnnotationFieldValue
@@ -722,13 +819,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//AnnotationFieldValue
 		public RuleCall getValuesAnnotationFieldValueParserRuleCall_1_1_9_2_0_0() { return cValuesAnnotationFieldValueParserRuleCall_1_1_9_2_0_0; }
 
-		//"(" (UnaryExpression? values+=AnnotationFieldValue)* ")"
+		//"(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")"
 		public Group getGroup_1_1_9_2_1() { return cGroup_1_1_9_2_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1_9_2_1_0() { return cLeftParenthesisKeyword_1_1_9_2_1_0; }
 
-		//(UnaryExpression? values+=AnnotationFieldValue)*
+		//(UnaryExpression? values+=AnnotationFieldValue Boost?)*
 		public Group getGroup_1_1_9_2_1_1() { return cGroup_1_1_9_2_1_1; }
 
 		//UnaryExpression?
@@ -740,8 +837,14 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//AnnotationFieldValue
 		public RuleCall getValuesAnnotationFieldValueParserRuleCall_1_1_9_2_1_1_1_0() { return cValuesAnnotationFieldValueParserRuleCall_1_1_9_2_1_1_1_0; }
 
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_9_2_1_1_2() { return cBoostTerminalRuleCall_1_1_9_2_1_1_2; }
+
 		//")"
 		public Keyword getRightParenthesisKeyword_1_1_9_2_1_2() { return cRightParenthesisKeyword_1_1_9_2_1_2; }
+
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_9_3() { return cBoostTerminalRuleCall_1_1_9_3; }
 	}
 
 	public class SimpleFieldElements extends AbstractParserRuleElementFinder {
@@ -774,6 +877,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cUsedFieldsInTryAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
 		private final Keyword cUsedFieldsInTryUsedFieldsInTryKeyword_12_0 = (Keyword)cUsedFieldsInTryAssignment_12.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//SimpleField:
 		//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
 		//	ReturnVariableEexpressions="ReturnVariableEexpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
@@ -900,6 +1005,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDeclaringTypeAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
 		private final Keyword cDeclaringTypeDeclaringTypeKeyword_13_0 = (Keyword)cDeclaringTypeAssignment_13.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//TypeField:
 		//	ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
 		//	UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
@@ -1012,6 +1119,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cOverriddenMethodsAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
 		private final Keyword cOverriddenMethodsOverriddenMethodsKeyword_3_0 = (Keyword)cOverriddenMethodsAssignment_3.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//MethodField:
 		//	UsedMethods="UsedMethods" | UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
 		//	OverriddenMethods="OverriddenMethods";
@@ -1051,6 +1160,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cResourcePathAssignment = (Assignment)rule.eContents().get(1);
 		private final Keyword cResourcePathResourcePathKeyword_0 = (Keyword)cResourcePathAssignment.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//FilePathField:
 		//	ResourcePath="ResourcePath";
 		public ParserRule getRule() { return rule; }
@@ -1067,6 +1178,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cParameterCountAssignment = (Assignment)rule.eContents().get(1);
 		private final Keyword cParameterCountParameterCountKeyword_0 = (Keyword)cParameterCountAssignment.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//NumberField:
 		//	ParameterCount="ParameterCount";
 		public ParserRule getRule() { return rule; }
@@ -1083,6 +1196,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cModifiersAssignment = (Assignment)rule.eContents().get(1);
 		private final Keyword cModifiersModifiersKeyword_0 = (Keyword)cModifiersAssignment.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//ModifierField:
 		//	Modifiers="Modifiers";
 		public ParserRule getRule() { return rule; }
@@ -1099,6 +1214,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTimestampAssignment = (Assignment)rule.eContents().get(1);
 		private final Keyword cTimestampTimestampKeyword_0 = (Keyword)cTimestampAssignment.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//TimeField:
 		//	Timestamp="Timestamp";
 		public ParserRule getRule() { return rule; }
@@ -1115,6 +1232,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment = (Assignment)rule.eContents().get(1);
 		private final Keyword cTypeTypeKeyword_0 = (Keyword)cTypeAssignment.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//DocumentTypeField:
 		//	Type="Type";
 		public ParserRule getRule() { return rule; }
@@ -1131,6 +1250,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cProjectNameAssignment = (Assignment)rule.eContents().get(1);
 		private final Keyword cProjectNameProjectNameKeyword_0 = (Keyword)cProjectNameAssignment.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//ProjectNameField:
 		//	ProjectName="ProjectName";
 		public ParserRule getRule() { return rule; }
@@ -1147,6 +1268,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAnnotationsAssignment = (Assignment)rule.eContents().get(1);
 		private final Keyword cAnnotationsAnnotationsKeyword_0 = (Keyword)cAnnotationsAssignment.eContents().get(0);
 		
+		////Generated Rule. Do not modify!
+		//
 		//AnnotationField:
 		//	Annotations="Annotations";
 		public ParserRule getRule() { return rule; }
@@ -1413,6 +1536,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	private TypeFieldValueElements pTypeFieldValue;
 	private BinaryExpElements unknownRuleBinaryExp;
 	private UnaryExpressionElements pUnaryExpression;
+	private TerminalRule tBoost;
 	private TerminalRule tNameWithWC;
 	private TerminalRule tPathWithWC;
 	private FilePathFieldValueElements pFilePathFieldValue;
@@ -1457,7 +1581,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Exp2 returns Expression:
-	//	value=ClauseExpression | UnaryExpression? "(" Exp1 ")";
+	//	value=ClauseExpression | UnaryExpression? "(" Exp1 ")" Boost?;
 	public Exp2Elements getExp2Access() {
 		return (pExp2 != null) ? pExp2 : (pExp2 = new Exp2Elements());
 	}
@@ -1470,19 +1594,23 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//	The following rules are generated. Do not modify. Modify source file instead.
 	//
-	// * / ClauseExpression:
-	//	UnaryExpression? (default=SimpleFieldValue // Default field
+	// * / //Generated Rule. Do not modify!
 	//
-	//	| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue)* ")") |
-	//	field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue)* ")") | field=MethodField
-	//	":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue)* ")") | field=FilePathField ":"
-	//	(values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue)* ")") | field=NumberField ":"
-	//	(values+=NumberFieldValue | "(" (UnaryExpression? values+=NumberFieldValue)* ")") | field=ModifierField ":"
-	//	(values+=ModifierFieldValue | "(" (UnaryExpression? values+=ModifierFieldValue)* ")") | field=TimeField ":"
-	//	(values+=TimeFieldValue | "(" (UnaryExpression? values+=TimeFieldValue)* ")") | field=DocumentTypeField ":"
-	//	(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue)* ")") | field=ProjectNameField
-	//	":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue)* ")") |
-	//	field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue)* ")")));
+	//ClauseExpression:
+	//	UnaryExpression? (default=SimpleFieldValue Boost? // Default field
+	//
+	//	| (field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")")
+	//	Boost? | field=TypeField ":" (values+=TypeFieldValue | "(" (UnaryExpression? values+=TypeFieldValue Boost?)* ")")
+	//	Boost? | field=MethodField ":" (values+=MethodFieldValue | "(" (UnaryExpression? values+=MethodFieldValue Boost?)*
+	//	")") Boost? | field=FilePathField ":" (values+=FilePathFieldValue | "(" (UnaryExpression? values+=FilePathFieldValue
+	//	Boost?)* ")") Boost? | field=NumberField ":" (values+=NumberFieldValue | "(" (UnaryExpression?
+	//	values+=NumberFieldValue Boost?)* ")") Boost? | field=ModifierField ":" (values+=ModifierFieldValue | "("
+	//	(UnaryExpression? values+=ModifierFieldValue Boost?)* ")") Boost? | field=TimeField ":" (values+=TimeFieldValue | "("
+	//	(UnaryExpression? values+=TimeFieldValue Boost?)* ")") Boost? | field=DocumentTypeField ":"
+	//	(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue Boost?)* ")") Boost? |
+	//	field=ProjectNameField ":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue
+	//	Boost?)* ")") Boost? | field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression?
+	//	values+=AnnotationFieldValue Boost?)* ")") Boost?));
 	public ClauseExpressionElements getClauseExpressionAccess() {
 		return (pClauseExpression != null) ? pClauseExpression : (pClauseExpression = new ClauseExpressionElements());
 	}
@@ -1491,6 +1619,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getClauseExpressionAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//SimpleField:
 	//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
 	//	ReturnVariableEexpressions="ReturnVariableEexpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
@@ -1505,6 +1635,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getSimpleFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//TypeField:
 	//	ImplementedTypes="ImplementedTypes" | ExtendedTypes="ExtendedTypes" | UsedTypes="UsedTypes" |
 	//	UsedTypesInTry="UsedTypesInTry" | UsedTypesInFinally="UsedTypesInFinally" | ParameterTypes="ParameterTypes" |
@@ -1519,6 +1651,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//MethodField:
 	//	UsedMethods="UsedMethods" | UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
 	//	OverriddenMethods="OverriddenMethods";
@@ -1530,6 +1664,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getMethodFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//FilePathField:
 	//	ResourcePath="ResourcePath";
 	public FilePathFieldElements getFilePathFieldAccess() {
@@ -1540,6 +1676,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getFilePathFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//NumberField:
 	//	ParameterCount="ParameterCount";
 	public NumberFieldElements getNumberFieldAccess() {
@@ -1550,6 +1688,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getNumberFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//ModifierField:
 	//	Modifiers="Modifiers";
 	public ModifierFieldElements getModifierFieldAccess() {
@@ -1560,6 +1700,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getModifierFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//TimeField:
 	//	Timestamp="Timestamp";
 	public TimeFieldElements getTimeFieldAccess() {
@@ -1570,6 +1712,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getTimeFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//DocumentTypeField:
 	//	Type="Type";
 	public DocumentTypeFieldElements getDocumentTypeFieldAccess() {
@@ -1580,6 +1724,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getDocumentTypeFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//ProjectNameField:
 	//	ProjectName="ProjectName";
 	public ProjectNameFieldElements getProjectNameFieldAccess() {
@@ -1590,6 +1736,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getProjectNameFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
 	//AnnotationField:
 	//	Annotations="Annotations";
 	public AnnotationFieldElements getAnnotationFieldAccess() {
@@ -1713,6 +1861,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	public ParserRule getUnaryExpressionRule() {
 		return getUnaryExpressionAccess().getRule();
 	}
+
+	//terminal Boost:
+	//	"^" "0".."9"+ ("." "0".."9"+)?;
+	public TerminalRule getBoostRule() {
+		return (tBoost != null) ? tBoost : (tBoost = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Boost"));
+	} 
 
 	//terminal NameWithWC:
 	//	("a".."z" | "A".."Z" | "_" | "*" | "?" | "<" | ">" | "[" | "]") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" |

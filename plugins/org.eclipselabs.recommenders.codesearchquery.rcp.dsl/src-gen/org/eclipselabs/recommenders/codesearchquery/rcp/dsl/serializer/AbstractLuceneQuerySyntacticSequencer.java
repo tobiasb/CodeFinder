@@ -18,6 +18,27 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.services.LuceneQuery
 public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected LuceneQueryGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_0_1_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_0_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_0_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_1_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_1_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_2_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_2_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_3_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_3_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_4_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_4_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_5_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_5_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_6_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_6_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_7_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_7_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q;
+	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_0_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q;
@@ -35,6 +56,27 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (LuceneQueryGrammarAccess) access;
+		match_ClauseExpression_BoostTerminalRuleCall_1_0_1_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_0_1());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_0_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_0_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_0_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_0_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_1_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_1_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_1_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_1_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_2_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_2_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_2_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_2_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_3_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_3_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_3_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_3_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_4_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_4_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_4_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_4_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_5_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_5_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_5_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_5_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_6_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_6_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_6_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_6_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_7_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_7_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_7_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_7_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_8_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_8_3());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_2_1_1_2());
+		match_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_3());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_0());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_0_2_1_1_0());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_1_2_1_1_0());
@@ -52,11 +94,18 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	
 	@Override
 	protected String getUnassignedRuleCallToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if(ruleCall.getRule() == grammarAccess.getUnaryExpressionRule())
+		if(ruleCall.getRule() == grammarAccess.getBoostRule())
+			return getBoostToken(semanticObject, ruleCall, node);
+		else if(ruleCall.getRule() == grammarAccess.getUnaryExpressionRule())
 			return getUnaryExpressionToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
+	protected String getBoostToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "^";
+	}
 	protected String getUnaryExpressionToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)
 			return getTokenText(node);
@@ -69,7 +118,49 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_ClauseExpression_UnaryExpressionParserRuleCall_0_q.equals(syntax))
+			if(match_ClauseExpression_BoostTerminalRuleCall_1_0_1_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_0_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_0_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_0_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_0_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_0_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_1_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_1_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_1_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_1_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_2_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_2_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_2_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_2_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_3_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_3_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_3_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_3_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_4_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_4_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_4_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_4_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_5_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_5_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_5_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_5_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_6_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_6_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_6_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_6_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_7_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_7_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_7_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_7_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q.equals(syntax))
+				emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_0_q.equals(syntax))
 				emit_ClauseExpression_UnaryExpressionParserRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q.equals(syntax))
 				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
@@ -99,6 +190,174 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 		}
 	}
 
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_0_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_0_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_0_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_1_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_1_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_2_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_2_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_3_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_3_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_4_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_4_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_5_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_5_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_6_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_6_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_7_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_7_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Syntax:
+	 *     Boost?
+	 */
+	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 	/**
 	 * Syntax:
 	 *     UnaryExpression?
