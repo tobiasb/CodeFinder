@@ -18,6 +18,7 @@ import org.apache.lucene.store.Directory;
 import org.eclipselabs.recommenders.codesearchquery.rcp.AbstractIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ITermVectorConsumable;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -52,7 +53,8 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         final IndexSearcher searcher = new IndexSearcher(reader);
 
         // TODO MB: Tobias, not sure this is the intended way how to do this.
-        // anyway, ensure that the number is at least in the case of a completly new created index.
+        // anyway, ensure that the number is at least in the case of a completly
+        // new created index.
         final int collectorSize = reader.numDocs() > 0 ? reader.numDocs() : 1;
 
         final TopScoreDocCollector collector = TopScoreDocCollector.create(collectorSize, true);
@@ -61,8 +63,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 
         final List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
 
-        // System.out.println("Searching for: " + query.toString() + ". " +
-        // result.size() + " hits.");
+        Activator.logInfo("Searching for: %s. %s hits.", query.toString(), result.size());
 
         searcher.close();
 
