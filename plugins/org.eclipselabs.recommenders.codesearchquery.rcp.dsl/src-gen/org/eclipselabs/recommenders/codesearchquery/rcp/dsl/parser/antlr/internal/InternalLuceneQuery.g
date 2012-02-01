@@ -1144,176 +1144,160 @@ ruleSimpleField returns [EObject current=null]
 )
     |(
 (
-		lv_DeclaredMethods_2_0=	'DeclaredMethods' 
+		lv_ReturnVariableExpressions_2_0=	'ReturnVariableExpressions' 
     {
-        newLeafNode(lv_DeclaredMethods_2_0, grammarAccess.getSimpleFieldAccess().getDeclaredMethodsDeclaredMethodsKeyword_2_0());
+        newLeafNode(lv_ReturnVariableExpressions_2_0, grammarAccess.getSimpleFieldAccess().getReturnVariableExpressionsReturnVariableExpressionsKeyword_2_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "DeclaredMethods", lv_DeclaredMethods_2_0, "DeclaredMethods");
+       		setWithLastConsumed($current, "ReturnVariableExpressions", lv_ReturnVariableExpressions_2_0, "ReturnVariableExpressions");
 	    }
 
 )
 )
     |(
 (
-		lv_ReturnVariableEexpressions_3_0=	'ReturnVariableEexpressions' 
+		lv_AllDeclaredMethodNames_3_0=	'AllDeclaredMethodNames' 
     {
-        newLeafNode(lv_ReturnVariableEexpressions_3_0, grammarAccess.getSimpleFieldAccess().getReturnVariableEexpressionsReturnVariableEexpressionsKeyword_3_0());
+        newLeafNode(lv_AllDeclaredMethodNames_3_0, grammarAccess.getSimpleFieldAccess().getAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_3_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "ReturnVariableEexpressions", lv_ReturnVariableEexpressions_3_0, "ReturnVariableEexpressions");
+       		setWithLastConsumed($current, "AllDeclaredMethodNames", lv_AllDeclaredMethodNames_3_0, "AllDeclaredMethodNames");
 	    }
 
 )
 )
     |(
 (
-		lv_AllDeclaredMethodNames_4_0=	'AllDeclaredMethodNames' 
+		lv_DeclaredMethodNames_4_0=	'DeclaredMethodNames' 
     {
-        newLeafNode(lv_AllDeclaredMethodNames_4_0, grammarAccess.getSimpleFieldAccess().getAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_4_0());
+        newLeafNode(lv_DeclaredMethodNames_4_0, grammarAccess.getSimpleFieldAccess().getDeclaredMethodNamesDeclaredMethodNamesKeyword_4_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "AllDeclaredMethodNames", lv_AllDeclaredMethodNames_4_0, "AllDeclaredMethodNames");
+       		setWithLastConsumed($current, "DeclaredMethodNames", lv_DeclaredMethodNames_4_0, "DeclaredMethodNames");
 	    }
 
 )
 )
     |(
 (
-		lv_DeclaredMethodNames_5_0=	'DeclaredMethodNames' 
+		lv_DeclaredFieldNames_5_0=	'DeclaredFieldNames' 
     {
-        newLeafNode(lv_DeclaredMethodNames_5_0, grammarAccess.getSimpleFieldAccess().getDeclaredMethodNamesDeclaredMethodNamesKeyword_5_0());
+        newLeafNode(lv_DeclaredFieldNames_5_0, grammarAccess.getSimpleFieldAccess().getDeclaredFieldNamesDeclaredFieldNamesKeyword_5_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "DeclaredMethodNames", lv_DeclaredMethodNames_5_0, "DeclaredMethodNames");
+       		setWithLastConsumed($current, "DeclaredFieldNames", lv_DeclaredFieldNames_5_0, "DeclaredFieldNames");
 	    }
 
 )
 )
     |(
 (
-		lv_DeclaredFieldNames_6_0=	'DeclaredFieldNames' 
+		lv_AllDeclaredFieldNames_6_0=	'AllDeclaredFieldNames' 
     {
-        newLeafNode(lv_DeclaredFieldNames_6_0, grammarAccess.getSimpleFieldAccess().getDeclaredFieldNamesDeclaredFieldNamesKeyword_6_0());
+        newLeafNode(lv_AllDeclaredFieldNames_6_0, grammarAccess.getSimpleFieldAccess().getAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_6_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "DeclaredFieldNames", lv_DeclaredFieldNames_6_0, "DeclaredFieldNames");
+       		setWithLastConsumed($current, "AllDeclaredFieldNames", lv_AllDeclaredFieldNames_6_0, "AllDeclaredFieldNames");
 	    }
 
 )
 )
     |(
 (
-		lv_AllDeclaredFieldNames_7_0=	'AllDeclaredFieldNames' 
+		lv_FullText_7_0=	'FullText' 
     {
-        newLeafNode(lv_AllDeclaredFieldNames_7_0, grammarAccess.getSimpleFieldAccess().getAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_7_0());
+        newLeafNode(lv_FullText_7_0, grammarAccess.getSimpleFieldAccess().getFullTextFullTextKeyword_7_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "AllDeclaredFieldNames", lv_AllDeclaredFieldNames_7_0, "AllDeclaredFieldNames");
+       		setWithLastConsumed($current, "FullText", lv_FullText_7_0, "FullText");
 	    }
 
 )
 )
     |(
 (
-		lv_FullText_8_0=	'FullText' 
+		lv_FieldsRead_8_0=	'FieldsRead' 
     {
-        newLeafNode(lv_FullText_8_0, grammarAccess.getSimpleFieldAccess().getFullTextFullTextKeyword_8_0());
+        newLeafNode(lv_FieldsRead_8_0, grammarAccess.getSimpleFieldAccess().getFieldsReadFieldsReadKeyword_8_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "FullText", lv_FullText_8_0, "FullText");
+       		setWithLastConsumed($current, "FieldsRead", lv_FieldsRead_8_0, "FieldsRead");
 	    }
 
 )
 )
     |(
 (
-		lv_FieldsRead_9_0=	'FieldsRead' 
+		lv_FieldsWritten_9_0=	'FieldsWritten' 
     {
-        newLeafNode(lv_FieldsRead_9_0, grammarAccess.getSimpleFieldAccess().getFieldsReadFieldsReadKeyword_9_0());
+        newLeafNode(lv_FieldsWritten_9_0, grammarAccess.getSimpleFieldAccess().getFieldsWrittenFieldsWrittenKeyword_9_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "FieldsRead", lv_FieldsRead_9_0, "FieldsRead");
+       		setWithLastConsumed($current, "FieldsWritten", lv_FieldsWritten_9_0, "FieldsWritten");
 	    }
 
 )
 )
     |(
 (
-		lv_FieldsWritten_10_0=	'FieldsWritten' 
+		lv_UsedFieldsInFinally_10_0=	'UsedFieldsInFinally' 
     {
-        newLeafNode(lv_FieldsWritten_10_0, grammarAccess.getSimpleFieldAccess().getFieldsWrittenFieldsWrittenKeyword_10_0());
+        newLeafNode(lv_UsedFieldsInFinally_10_0, grammarAccess.getSimpleFieldAccess().getUsedFieldsInFinallyUsedFieldsInFinallyKeyword_10_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "FieldsWritten", lv_FieldsWritten_10_0, "FieldsWritten");
+       		setWithLastConsumed($current, "UsedFieldsInFinally", lv_UsedFieldsInFinally_10_0, "UsedFieldsInFinally");
 	    }
 
 )
 )
     |(
 (
-		lv_UsedFieldsInFinally_11_0=	'UsedFieldsInFinally' 
+		lv_UsedFieldsInTry_11_0=	'UsedFieldsInTry' 
     {
-        newLeafNode(lv_UsedFieldsInFinally_11_0, grammarAccess.getSimpleFieldAccess().getUsedFieldsInFinallyUsedFieldsInFinallyKeyword_11_0());
+        newLeafNode(lv_UsedFieldsInTry_11_0, grammarAccess.getSimpleFieldAccess().getUsedFieldsInTryUsedFieldsInTryKeyword_11_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
-       		setWithLastConsumed($current, "UsedFieldsInFinally", lv_UsedFieldsInFinally_11_0, "UsedFieldsInFinally");
-	    }
-
-)
-)
-    |(
-(
-		lv_UsedFieldsInTry_12_0=	'UsedFieldsInTry' 
-    {
-        newLeafNode(lv_UsedFieldsInTry_12_0, grammarAccess.getSimpleFieldAccess().getUsedFieldsInTryUsedFieldsInTryKeyword_12_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
-	        }
-       		setWithLastConsumed($current, "UsedFieldsInTry", lv_UsedFieldsInTry_12_0, "UsedFieldsInTry");
+       		setWithLastConsumed($current, "UsedFieldsInTry", lv_UsedFieldsInTry_11_0, "UsedFieldsInTry");
 	    }
 
 )
@@ -1642,6 +1626,22 @@ ruleMethodField returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getMethodFieldRule());
 	        }
        		setWithLastConsumed($current, "OverriddenMethods", lv_OverriddenMethods_3_0, "OverriddenMethods");
+	    }
+
+)
+)
+    |(
+(
+		lv_DeclaredMethods_4_0=	'DeclaredMethods' 
+    {
+        newLeafNode(lv_DeclaredMethods_4_0, grammarAccess.getMethodFieldAccess().getDeclaredMethodsDeclaredMethodsKeyword_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMethodFieldRule());
+	        }
+       		setWithLastConsumed($current, "DeclaredMethods", lv_DeclaredMethods_4_0, "DeclaredMethods");
 	    }
 
 )

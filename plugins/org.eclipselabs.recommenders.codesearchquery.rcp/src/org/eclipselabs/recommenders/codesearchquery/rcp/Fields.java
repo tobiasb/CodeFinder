@@ -93,7 +93,7 @@ public class Fields {
     /** Can be applied to: class */
     public final static String DECLARED_METHODS = "DeclaredMethods";
     /** Can be applied to: method */
-    public final static String RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableEexpressions";
+    public final static String RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions";
     /** Can be applied to: class */
     public final static String ALL_DELCARED_METHOD_NAMES = "AllDeclaredMethodNames";
     /** Can be applied to: class */

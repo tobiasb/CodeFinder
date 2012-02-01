@@ -295,7 +295,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_DeclaredMethods()
+  public EAttribute getSimpleField_ReturnVariableExpressions()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(2);
   }
@@ -305,7 +305,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_ReturnVariableEexpressions()
+  public EAttribute getSimpleField_AllDeclaredMethodNames()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(3);
   }
@@ -315,7 +315,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_AllDeclaredMethodNames()
+  public EAttribute getSimpleField_DeclaredMethodNames()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(4);
   }
@@ -325,7 +325,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_DeclaredMethodNames()
+  public EAttribute getSimpleField_DeclaredFieldNames()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(5);
   }
@@ -335,7 +335,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_DeclaredFieldNames()
+  public EAttribute getSimpleField_AllDeclaredFieldNames()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(6);
   }
@@ -345,7 +345,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_AllDeclaredFieldNames()
+  public EAttribute getSimpleField_FullText()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(7);
   }
@@ -355,7 +355,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_FullText()
+  public EAttribute getSimpleField_FieldsRead()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(8);
   }
@@ -365,7 +365,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_FieldsRead()
+  public EAttribute getSimpleField_FieldsWritten()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(9);
   }
@@ -375,7 +375,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_FieldsWritten()
+  public EAttribute getSimpleField_UsedFieldsInFinally()
   {
     return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(10);
   }
@@ -385,19 +385,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSimpleField_UsedFieldsInFinally()
-  {
-    return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(11);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getSimpleField_UsedFieldsInTry()
   {
-    return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(12);
+    return (EAttribute)simpleFieldEClass.getEStructuralFeatures().get(11);
   }
 
   /**
@@ -598,6 +588,16 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
   public EAttribute getMethodField_OverriddenMethods()
   {
     return (EAttribute)methodFieldEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethodField_DeclaredMethods()
+  {
+    return (EAttribute)methodFieldEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -831,8 +831,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     simpleFieldEClass = createEClass(SIMPLE_FIELD);
     createEAttribute(simpleFieldEClass, SIMPLE_FIELD__FULLY_QUALIFIED_NAME);
     createEAttribute(simpleFieldEClass, SIMPLE_FIELD__FRIENDLY_NAME);
-    createEAttribute(simpleFieldEClass, SIMPLE_FIELD__DECLARED_METHODS);
-    createEAttribute(simpleFieldEClass, SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS);
+    createEAttribute(simpleFieldEClass, SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS);
     createEAttribute(simpleFieldEClass, SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES);
     createEAttribute(simpleFieldEClass, SIMPLE_FIELD__DECLARED_METHOD_NAMES);
     createEAttribute(simpleFieldEClass, SIMPLE_FIELD__DECLARED_FIELD_NAMES);
@@ -864,6 +863,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     createEAttribute(methodFieldEClass, METHOD_FIELD__USED_METHODS_IN_TRY);
     createEAttribute(methodFieldEClass, METHOD_FIELD__USED_METHODS_IN_FINALLY);
     createEAttribute(methodFieldEClass, METHOD_FIELD__OVERRIDDEN_METHODS);
+    createEAttribute(methodFieldEClass, METHOD_FIELD__DECLARED_METHODS);
 
     filePathFieldEClass = createEClass(FILE_PATH_FIELD);
     createEAttribute(filePathFieldEClass, FILE_PATH_FIELD__RESOURCE_PATH);
@@ -938,8 +938,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEClass(simpleFieldEClass, SimpleField.class, "SimpleField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSimpleField_FullyQualifiedName(), ecorePackage.getEString(), "FullyQualifiedName", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSimpleField_FriendlyName(), ecorePackage.getEString(), "FriendlyName", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSimpleField_DeclaredMethods(), ecorePackage.getEString(), "DeclaredMethods", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSimpleField_ReturnVariableEexpressions(), ecorePackage.getEString(), "ReturnVariableEexpressions", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSimpleField_ReturnVariableExpressions(), ecorePackage.getEString(), "ReturnVariableExpressions", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSimpleField_AllDeclaredMethodNames(), ecorePackage.getEString(), "AllDeclaredMethodNames", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSimpleField_DeclaredMethodNames(), ecorePackage.getEString(), "DeclaredMethodNames", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSimpleField_DeclaredFieldNames(), ecorePackage.getEString(), "DeclaredFieldNames", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -971,6 +970,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEAttribute(getMethodField_UsedMethodsInTry(), ecorePackage.getEString(), "UsedMethodsInTry", null, 0, 1, MethodField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodField_UsedMethodsInFinally(), ecorePackage.getEString(), "UsedMethodsInFinally", null, 0, 1, MethodField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodField_OverriddenMethods(), ecorePackage.getEString(), "OverriddenMethods", null, 0, 1, MethodField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethodField_DeclaredMethods(), ecorePackage.getEString(), "DeclaredMethods", null, 0, 1, MethodField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(filePathFieldEClass, FilePathField.class, "FilePathField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFilePathField_ResourcePath(), ecorePackage.getEString(), "ResourcePath", null, 0, 1, FilePathField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

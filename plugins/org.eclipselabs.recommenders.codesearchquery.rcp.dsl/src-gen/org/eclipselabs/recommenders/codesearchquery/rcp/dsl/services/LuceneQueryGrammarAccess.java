@@ -282,9 +282,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		/// *
 		//
-		//	The following rules are generated. Do not modify. Modify source file instead.
+		//		The following rules are generated. Do not modify. Modify source file instead.
 		//
-		// * / //Generated Rule. Do not modify!
+		//	* / //Generated Rule. Do not modify!
 		//
 		//ClauseExpression:
 		//	UnaryExpression? (default=SimpleFieldValue Boost? // Default field
@@ -854,41 +854,39 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFullyQualifiedNameFullyQualifiedNameKeyword_0_0 = (Keyword)cFullyQualifiedNameAssignment_0.eContents().get(0);
 		private final Assignment cFriendlyNameAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final Keyword cFriendlyNameFriendlyNameKeyword_1_0 = (Keyword)cFriendlyNameAssignment_1.eContents().get(0);
-		private final Assignment cDeclaredMethodsAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final Keyword cDeclaredMethodsDeclaredMethodsKeyword_2_0 = (Keyword)cDeclaredMethodsAssignment_2.eContents().get(0);
-		private final Assignment cReturnVariableEexpressionsAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final Keyword cReturnVariableEexpressionsReturnVariableEexpressionsKeyword_3_0 = (Keyword)cReturnVariableEexpressionsAssignment_3.eContents().get(0);
-		private final Assignment cAllDeclaredMethodNamesAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
-		private final Keyword cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_4_0 = (Keyword)cAllDeclaredMethodNamesAssignment_4.eContents().get(0);
-		private final Assignment cDeclaredMethodNamesAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
-		private final Keyword cDeclaredMethodNamesDeclaredMethodNamesKeyword_5_0 = (Keyword)cDeclaredMethodNamesAssignment_5.eContents().get(0);
-		private final Assignment cDeclaredFieldNamesAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
-		private final Keyword cDeclaredFieldNamesDeclaredFieldNamesKeyword_6_0 = (Keyword)cDeclaredFieldNamesAssignment_6.eContents().get(0);
-		private final Assignment cAllDeclaredFieldNamesAssignment_7 = (Assignment)cAlternatives.eContents().get(7);
-		private final Keyword cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_7_0 = (Keyword)cAllDeclaredFieldNamesAssignment_7.eContents().get(0);
-		private final Assignment cFullTextAssignment_8 = (Assignment)cAlternatives.eContents().get(8);
-		private final Keyword cFullTextFullTextKeyword_8_0 = (Keyword)cFullTextAssignment_8.eContents().get(0);
-		private final Assignment cFieldsReadAssignment_9 = (Assignment)cAlternatives.eContents().get(9);
-		private final Keyword cFieldsReadFieldsReadKeyword_9_0 = (Keyword)cFieldsReadAssignment_9.eContents().get(0);
-		private final Assignment cFieldsWrittenAssignment_10 = (Assignment)cAlternatives.eContents().get(10);
-		private final Keyword cFieldsWrittenFieldsWrittenKeyword_10_0 = (Keyword)cFieldsWrittenAssignment_10.eContents().get(0);
-		private final Assignment cUsedFieldsInFinallyAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
-		private final Keyword cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_11_0 = (Keyword)cUsedFieldsInFinallyAssignment_11.eContents().get(0);
-		private final Assignment cUsedFieldsInTryAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
-		private final Keyword cUsedFieldsInTryUsedFieldsInTryKeyword_12_0 = (Keyword)cUsedFieldsInTryAssignment_12.eContents().get(0);
+		private final Assignment cReturnVariableExpressionsAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cReturnVariableExpressionsReturnVariableExpressionsKeyword_2_0 = (Keyword)cReturnVariableExpressionsAssignment_2.eContents().get(0);
+		private final Assignment cAllDeclaredMethodNamesAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final Keyword cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_3_0 = (Keyword)cAllDeclaredMethodNamesAssignment_3.eContents().get(0);
+		private final Assignment cDeclaredMethodNamesAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final Keyword cDeclaredMethodNamesDeclaredMethodNamesKeyword_4_0 = (Keyword)cDeclaredMethodNamesAssignment_4.eContents().get(0);
+		private final Assignment cDeclaredFieldNamesAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
+		private final Keyword cDeclaredFieldNamesDeclaredFieldNamesKeyword_5_0 = (Keyword)cDeclaredFieldNamesAssignment_5.eContents().get(0);
+		private final Assignment cAllDeclaredFieldNamesAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
+		private final Keyword cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_6_0 = (Keyword)cAllDeclaredFieldNamesAssignment_6.eContents().get(0);
+		private final Assignment cFullTextAssignment_7 = (Assignment)cAlternatives.eContents().get(7);
+		private final Keyword cFullTextFullTextKeyword_7_0 = (Keyword)cFullTextAssignment_7.eContents().get(0);
+		private final Assignment cFieldsReadAssignment_8 = (Assignment)cAlternatives.eContents().get(8);
+		private final Keyword cFieldsReadFieldsReadKeyword_8_0 = (Keyword)cFieldsReadAssignment_8.eContents().get(0);
+		private final Assignment cFieldsWrittenAssignment_9 = (Assignment)cAlternatives.eContents().get(9);
+		private final Keyword cFieldsWrittenFieldsWrittenKeyword_9_0 = (Keyword)cFieldsWrittenAssignment_9.eContents().get(0);
+		private final Assignment cUsedFieldsInFinallyAssignment_10 = (Assignment)cAlternatives.eContents().get(10);
+		private final Keyword cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_10_0 = (Keyword)cUsedFieldsInFinallyAssignment_10.eContents().get(0);
+		private final Assignment cUsedFieldsInTryAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
+		private final Keyword cUsedFieldsInTryUsedFieldsInTryKeyword_11_0 = (Keyword)cUsedFieldsInTryAssignment_11.eContents().get(0);
 		
 		////Generated Rule. Do not modify!
 		//
 		//SimpleField:
-		//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
-		//	ReturnVariableEexpressions="ReturnVariableEexpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
+		//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" |
+		//	ReturnVariableExpressions="ReturnVariableExpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
 		//	DeclaredMethodNames="DeclaredMethodNames" | DeclaredFieldNames="DeclaredFieldNames" |
 		//	AllDeclaredFieldNames="AllDeclaredFieldNames" | FullText="FullText" | FieldsRead="FieldsRead" |
 		//	FieldsWritten="FieldsWritten" | UsedFieldsInFinally="UsedFieldsInFinally" | UsedFieldsInTry="UsedFieldsInTry";
 		public ParserRule getRule() { return rule; }
 
-		//FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
-		//ReturnVariableEexpressions="ReturnVariableEexpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
+		//FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" |
+		//ReturnVariableExpressions="ReturnVariableExpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
 		//DeclaredMethodNames="DeclaredMethodNames" | DeclaredFieldNames="DeclaredFieldNames" |
 		//AllDeclaredFieldNames="AllDeclaredFieldNames" | FullText="FullText" | FieldsRead="FieldsRead" |
 		//FieldsWritten="FieldsWritten" | UsedFieldsInFinally="UsedFieldsInFinally" | UsedFieldsInTry="UsedFieldsInTry"
@@ -906,71 +904,65 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//"FriendlyName"
 		public Keyword getFriendlyNameFriendlyNameKeyword_1_0() { return cFriendlyNameFriendlyNameKeyword_1_0; }
 
-		//DeclaredMethods="DeclaredMethods"
-		public Assignment getDeclaredMethodsAssignment_2() { return cDeclaredMethodsAssignment_2; }
+		//ReturnVariableExpressions="ReturnVariableExpressions"
+		public Assignment getReturnVariableExpressionsAssignment_2() { return cReturnVariableExpressionsAssignment_2; }
 
-		//"DeclaredMethods"
-		public Keyword getDeclaredMethodsDeclaredMethodsKeyword_2_0() { return cDeclaredMethodsDeclaredMethodsKeyword_2_0; }
-
-		//ReturnVariableEexpressions="ReturnVariableEexpressions"
-		public Assignment getReturnVariableEexpressionsAssignment_3() { return cReturnVariableEexpressionsAssignment_3; }
-
-		//"ReturnVariableEexpressions"
-		public Keyword getReturnVariableEexpressionsReturnVariableEexpressionsKeyword_3_0() { return cReturnVariableEexpressionsReturnVariableEexpressionsKeyword_3_0; }
+		//"ReturnVariableExpressions"
+		public Keyword getReturnVariableExpressionsReturnVariableExpressionsKeyword_2_0() { return cReturnVariableExpressionsReturnVariableExpressionsKeyword_2_0; }
 
 		//AllDeclaredMethodNames="AllDeclaredMethodNames"
-		public Assignment getAllDeclaredMethodNamesAssignment_4() { return cAllDeclaredMethodNamesAssignment_4; }
+		public Assignment getAllDeclaredMethodNamesAssignment_3() { return cAllDeclaredMethodNamesAssignment_3; }
 
 		//"AllDeclaredMethodNames"
-		public Keyword getAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_4_0() { return cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_4_0; }
+		public Keyword getAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_3_0() { return cAllDeclaredMethodNamesAllDeclaredMethodNamesKeyword_3_0; }
 
 		//DeclaredMethodNames="DeclaredMethodNames"
-		public Assignment getDeclaredMethodNamesAssignment_5() { return cDeclaredMethodNamesAssignment_5; }
+		public Assignment getDeclaredMethodNamesAssignment_4() { return cDeclaredMethodNamesAssignment_4; }
 
 		//"DeclaredMethodNames"
-		public Keyword getDeclaredMethodNamesDeclaredMethodNamesKeyword_5_0() { return cDeclaredMethodNamesDeclaredMethodNamesKeyword_5_0; }
+		public Keyword getDeclaredMethodNamesDeclaredMethodNamesKeyword_4_0() { return cDeclaredMethodNamesDeclaredMethodNamesKeyword_4_0; }
 
 		//DeclaredFieldNames="DeclaredFieldNames"
-		public Assignment getDeclaredFieldNamesAssignment_6() { return cDeclaredFieldNamesAssignment_6; }
+		public Assignment getDeclaredFieldNamesAssignment_5() { return cDeclaredFieldNamesAssignment_5; }
 
 		//"DeclaredFieldNames"
-		public Keyword getDeclaredFieldNamesDeclaredFieldNamesKeyword_6_0() { return cDeclaredFieldNamesDeclaredFieldNamesKeyword_6_0; }
+		public Keyword getDeclaredFieldNamesDeclaredFieldNamesKeyword_5_0() { return cDeclaredFieldNamesDeclaredFieldNamesKeyword_5_0; }
 
 		//AllDeclaredFieldNames="AllDeclaredFieldNames"
-		public Assignment getAllDeclaredFieldNamesAssignment_7() { return cAllDeclaredFieldNamesAssignment_7; }
+		public Assignment getAllDeclaredFieldNamesAssignment_6() { return cAllDeclaredFieldNamesAssignment_6; }
 
 		//"AllDeclaredFieldNames"
-		public Keyword getAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_7_0() { return cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_7_0; }
+		public Keyword getAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_6_0() { return cAllDeclaredFieldNamesAllDeclaredFieldNamesKeyword_6_0; }
 
 		//FullText="FullText"
-		public Assignment getFullTextAssignment_8() { return cFullTextAssignment_8; }
+		public Assignment getFullTextAssignment_7() { return cFullTextAssignment_7; }
 
 		//"FullText"
-		public Keyword getFullTextFullTextKeyword_8_0() { return cFullTextFullTextKeyword_8_0; }
+		public Keyword getFullTextFullTextKeyword_7_0() { return cFullTextFullTextKeyword_7_0; }
 
 		//FieldsRead="FieldsRead"
-		public Assignment getFieldsReadAssignment_9() { return cFieldsReadAssignment_9; }
+		public Assignment getFieldsReadAssignment_8() { return cFieldsReadAssignment_8; }
 
 		//"FieldsRead"
-		public Keyword getFieldsReadFieldsReadKeyword_9_0() { return cFieldsReadFieldsReadKeyword_9_0; }
+		public Keyword getFieldsReadFieldsReadKeyword_8_0() { return cFieldsReadFieldsReadKeyword_8_0; }
 
 		//FieldsWritten="FieldsWritten"
-		public Assignment getFieldsWrittenAssignment_10() { return cFieldsWrittenAssignment_10; }
+		public Assignment getFieldsWrittenAssignment_9() { return cFieldsWrittenAssignment_9; }
 
 		//"FieldsWritten"
-		public Keyword getFieldsWrittenFieldsWrittenKeyword_10_0() { return cFieldsWrittenFieldsWrittenKeyword_10_0; }
+		public Keyword getFieldsWrittenFieldsWrittenKeyword_9_0() { return cFieldsWrittenFieldsWrittenKeyword_9_0; }
 
 		//UsedFieldsInFinally="UsedFieldsInFinally"
-		public Assignment getUsedFieldsInFinallyAssignment_11() { return cUsedFieldsInFinallyAssignment_11; }
+		public Assignment getUsedFieldsInFinallyAssignment_10() { return cUsedFieldsInFinallyAssignment_10; }
 
 		//"UsedFieldsInFinally"
-		public Keyword getUsedFieldsInFinallyUsedFieldsInFinallyKeyword_11_0() { return cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_11_0; }
+		public Keyword getUsedFieldsInFinallyUsedFieldsInFinallyKeyword_10_0() { return cUsedFieldsInFinallyUsedFieldsInFinallyKeyword_10_0; }
 
 		//UsedFieldsInTry="UsedFieldsInTry"
-		public Assignment getUsedFieldsInTryAssignment_12() { return cUsedFieldsInTryAssignment_12; }
+		public Assignment getUsedFieldsInTryAssignment_11() { return cUsedFieldsInTryAssignment_11; }
 
 		//"UsedFieldsInTry"
-		public Keyword getUsedFieldsInTryUsedFieldsInTryKeyword_12_0() { return cUsedFieldsInTryUsedFieldsInTryKeyword_12_0; }
+		public Keyword getUsedFieldsInTryUsedFieldsInTryKeyword_11_0() { return cUsedFieldsInTryUsedFieldsInTryKeyword_11_0; }
 	}
 
 	public class TypeFieldElements extends AbstractParserRuleElementFinder {
@@ -1118,16 +1110,18 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cUsedMethodsInFinallyUsedMethodsInFinallyKeyword_2_0 = (Keyword)cUsedMethodsInFinallyAssignment_2.eContents().get(0);
 		private final Assignment cOverriddenMethodsAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
 		private final Keyword cOverriddenMethodsOverriddenMethodsKeyword_3_0 = (Keyword)cOverriddenMethodsAssignment_3.eContents().get(0);
+		private final Assignment cDeclaredMethodsAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final Keyword cDeclaredMethodsDeclaredMethodsKeyword_4_0 = (Keyword)cDeclaredMethodsAssignment_4.eContents().get(0);
 		
 		////Generated Rule. Do not modify!
 		//
 		//MethodField:
 		//	UsedMethods="UsedMethods" | UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
-		//	OverriddenMethods="OverriddenMethods";
+		//	OverriddenMethods="OverriddenMethods" | DeclaredMethods="DeclaredMethods";
 		public ParserRule getRule() { return rule; }
 
 		//UsedMethods="UsedMethods" | UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
-		//OverriddenMethods="OverriddenMethods"
+		//OverriddenMethods="OverriddenMethods" | DeclaredMethods="DeclaredMethods"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//UsedMethods="UsedMethods"
@@ -1153,6 +1147,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"OverriddenMethods"
 		public Keyword getOverriddenMethodsOverriddenMethodsKeyword_3_0() { return cOverriddenMethodsOverriddenMethodsKeyword_3_0; }
+
+		//DeclaredMethods="DeclaredMethods"
+		public Assignment getDeclaredMethodsAssignment_4() { return cDeclaredMethodsAssignment_4; }
+
+		//"DeclaredMethods"
+		public Keyword getDeclaredMethodsDeclaredMethodsKeyword_4_0() { return cDeclaredMethodsDeclaredMethodsKeyword_4_0; }
 	}
 
 	public class FilePathFieldElements extends AbstractParserRuleElementFinder {
@@ -1592,9 +1592,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	/// *
 	//
-	//	The following rules are generated. Do not modify. Modify source file instead.
+	//		The following rules are generated. Do not modify. Modify source file instead.
 	//
-	// * / //Generated Rule. Do not modify!
+	//	* / //Generated Rule. Do not modify!
 	//
 	//ClauseExpression:
 	//	UnaryExpression? (default=SimpleFieldValue Boost? // Default field
@@ -1622,8 +1622,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	////Generated Rule. Do not modify!
 	//
 	//SimpleField:
-	//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" | DeclaredMethods="DeclaredMethods" |
-	//	ReturnVariableEexpressions="ReturnVariableEexpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
+	//	FullyQualifiedName="FullyQualifiedName" | FriendlyName="FriendlyName" |
+	//	ReturnVariableExpressions="ReturnVariableExpressions" | AllDeclaredMethodNames="AllDeclaredMethodNames" |
 	//	DeclaredMethodNames="DeclaredMethodNames" | DeclaredFieldNames="DeclaredFieldNames" |
 	//	AllDeclaredFieldNames="AllDeclaredFieldNames" | FullText="FullText" | FieldsRead="FieldsRead" |
 	//	FieldsWritten="FieldsWritten" | UsedFieldsInFinally="UsedFieldsInFinally" | UsedFieldsInTry="UsedFieldsInTry";
@@ -1655,7 +1655,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//MethodField:
 	//	UsedMethods="UsedMethods" | UsedMethodsInTry="UsedMethodsInTry" | UsedMethodsInFinally="UsedMethodsInFinally" |
-	//	OverriddenMethods="OverriddenMethods";
+	//	OverriddenMethods="OverriddenMethods" | DeclaredMethods="DeclaredMethods";
 	public MethodFieldElements getMethodFieldAccess() {
 		return (pMethodField != null) ? pMethodField : (pMethodField = new MethodFieldElements());
 	}

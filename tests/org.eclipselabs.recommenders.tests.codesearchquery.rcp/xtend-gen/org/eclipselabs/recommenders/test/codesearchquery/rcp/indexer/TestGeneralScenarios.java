@@ -2064,6 +2064,43 @@ public class TestGeneralScenarios extends TestBase {
   }
   
   @Test
+  public void testAnnotationIndexer03() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.List;");
+      _builder.newLine();
+      _builder.append("public class MyAnnotatedClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("@SuppressWarnings(\"rawtypes\")");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public static String printLabel(List l) {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      AnnotationsIndexer _annotationsIndexer = new AnnotationsIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _annotationsIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      CodeIndexerIndex _exercise = this.exercise(code, _i);
+      CodeIndexerIndex index = _exercise;
+      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_1 = this.s(Fields.ANNOTATIONS, "Ljava/lang/SuppressWarnings");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(index, _l);
+      String _s_2 = this.s(Fields.TYPE, Fields.TYPE_METHOD);
+      String _s_3 = this.s(Fields.ANNOTATIONS, "Ljava/lang/SuppressWarnings:rawtypes");
+      ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
+      List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
+      this.assertField(index, _l_1);
+  }
+  
+  @Test
   public void testInstanceOfIndexerClass() {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("public class MyInstanceOfClass {");

@@ -27,6 +27,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodFi
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getUsedMethodsInTry <em>Used Methods In Try</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getUsedMethodsInFinally <em>Used Methods In Finally</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getOverriddenMethods <em>Overridden Methods</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getDeclaredMethods <em>Declared Methods</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +114,26 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
    * @ordered
    */
   protected String overriddenMethods = OVERRIDDEN_METHODS_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDeclaredMethods() <em>Declared Methods</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeclaredMethods()
+   * @generated
+   * @ordered
+   */
+  protected static final String DECLARED_METHODS_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDeclaredMethods() <em>Declared Methods</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeclaredMethods()
+   * @generated
+   * @ordered
+   */
+  protected String declaredMethods = DECLARED_METHODS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -232,6 +253,29 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDeclaredMethods()
+  {
+    return declaredMethods;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDeclaredMethods(String newDeclaredMethods)
+  {
+    String oldDeclaredMethods = declaredMethods;
+    declaredMethods = newDeclaredMethods;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS, oldDeclaredMethods, declaredMethods));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -245,6 +289,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
         return getUsedMethodsInFinally();
       case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
         return getOverriddenMethods();
+      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
+        return getDeclaredMethods();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,6 +316,9 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
         return;
       case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
         setOverriddenMethods((String)newValue);
+        return;
+      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
+        setDeclaredMethods((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -297,6 +346,9 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
       case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
         setOverriddenMethods(OVERRIDDEN_METHODS_EDEFAULT);
         return;
+      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
+        setDeclaredMethods(DECLARED_METHODS_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -319,6 +371,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
         return USED_METHODS_IN_FINALLY_EDEFAULT == null ? usedMethodsInFinally != null : !USED_METHODS_IN_FINALLY_EDEFAULT.equals(usedMethodsInFinally);
       case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
         return OVERRIDDEN_METHODS_EDEFAULT == null ? overriddenMethods != null : !OVERRIDDEN_METHODS_EDEFAULT.equals(overriddenMethods);
+      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
+        return DECLARED_METHODS_EDEFAULT == null ? declaredMethods != null : !DECLARED_METHODS_EDEFAULT.equals(declaredMethods);
     }
     return super.eIsSet(featureID);
   }
@@ -342,6 +396,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
     result.append(usedMethodsInFinally);
     result.append(", OverriddenMethods: ");
     result.append(overriddenMethods);
+    result.append(", DeclaredMethods: ");
+    result.append(declaredMethods);
     result.append(')');
     return result.toString();
   }

@@ -1259,6 +1259,30 @@ class TestGeneralScenarios extends TestBase {
 	}
 	
 	@Test
+	def void testAnnotationIndexer03(){
+		val code = '''
+		import java.util.List;
+		public class MyAnnotatedClass {
+			@SuppressWarnings("rawtypes")
+			public static String printLabel(List l) {
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AnnotationsIndexer())))
+				
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings")
+		)))
+			
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_METHOD),
+			s(Fields::ANNOTATIONS, "Ljava/lang/SuppressWarnings:rawtypes")
+		)))
+	}
+	
+	@Test
 	def void testInstanceOfIndexerClass(){
 		val code = '''
 		public class MyInstanceOfClass {

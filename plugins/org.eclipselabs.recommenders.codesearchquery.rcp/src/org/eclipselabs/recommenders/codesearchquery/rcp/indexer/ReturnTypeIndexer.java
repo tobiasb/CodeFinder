@@ -19,7 +19,7 @@ public class ReturnTypeIndexer extends AbstractIndexer implements IMethodIndexer
         if (methodName != null) {
             final ITypeName returnType = methodName.getReturnType();
 
-            if (!isPrimitiveOrArrayOrNullOrObjectOrString(returnType)) {
+            if (!isNullOrArrayType(returnType)) {
                 addAnalyzedField(document, Fields.RETURN_TYPE, returnType.getIdentifier());
             }
         }

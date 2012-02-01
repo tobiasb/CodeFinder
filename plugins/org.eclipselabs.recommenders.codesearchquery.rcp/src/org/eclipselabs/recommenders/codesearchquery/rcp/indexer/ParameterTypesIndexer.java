@@ -19,7 +19,7 @@ public class ParameterTypesIndexer extends AbstractIndexer implements IMethodInd
 
         if (methodName != null) {
             for (final ITypeName typeName : methodName.getParameterTypes()) {
-                if (!isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
+                if (!isNullOrArrayType(typeName)) {
                     addAnalyzedField(document, Fields.PARAMETER_TYPES, typeName.getIdentifier());
                 }
             }

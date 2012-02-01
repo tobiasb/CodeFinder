@@ -162,12 +162,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
         final Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
 
-        // XXX MB: this is drastically slowing down Eclipse and indexing.
-        // use a logger instead w/ debug level
-        // System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]",
-        // fieldName, field.stringValue()));
-        // Activator.logInfo(String.format("Adding field: [%1$30s] = [%2$50s]",
-        // fieldName, field.stringValue()));
+        Activator.logInfo(String.format("Adding field: [%1$30s] = [%2$50s]", fieldName, field.stringValue()));
 
         document.add(field);
     }

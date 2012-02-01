@@ -26,8 +26,7 @@
     <genClasses ecoreClass="LuceneQuery.ecore#//SimpleField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/FullyQualifiedName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/FriendlyName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/DeclaredMethods"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/ReturnVariableEexpressions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/ReturnVariableExpressions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/AllDeclaredMethodNames"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/DeclaredMethodNames"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/DeclaredFieldNames"/>
@@ -59,6 +58,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/UsedMethodsInTry"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/UsedMethodsInFinally"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/OverriddenMethods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/DeclaredMethods"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//FilePathField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FilePathField/ResourcePath"/>

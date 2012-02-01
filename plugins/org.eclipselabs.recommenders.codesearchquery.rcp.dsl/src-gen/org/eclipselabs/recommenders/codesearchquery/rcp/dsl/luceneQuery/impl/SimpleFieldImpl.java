@@ -25,8 +25,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleFi
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getFriendlyName <em>Friendly Name</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getDeclaredMethods <em>Declared Methods</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getReturnVariableEexpressions <em>Return Variable Eexpressions</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getReturnVariableExpressions <em>Return Variable Expressions</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getAllDeclaredMethodNames <em>All Declared Method Names</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getDeclaredMethodNames <em>Declared Method Names</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.SimpleFieldImpl#getDeclaredFieldNames <em>Declared Field Names</em>}</li>
@@ -84,44 +83,24 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
   protected String friendlyName = FRIENDLY_NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getDeclaredMethods() <em>Declared Methods</em>}' attribute.
+   * The default value of the '{@link #getReturnVariableExpressions() <em>Return Variable Expressions</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDeclaredMethods()
+   * @see #getReturnVariableExpressions()
    * @generated
    * @ordered
    */
-  protected static final String DECLARED_METHODS_EDEFAULT = null;
+  protected static final String RETURN_VARIABLE_EXPRESSIONS_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getDeclaredMethods() <em>Declared Methods</em>}' attribute.
+   * The cached value of the '{@link #getReturnVariableExpressions() <em>Return Variable Expressions</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDeclaredMethods()
+   * @see #getReturnVariableExpressions()
    * @generated
    * @ordered
    */
-  protected String declaredMethods = DECLARED_METHODS_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getReturnVariableEexpressions() <em>Return Variable Eexpressions</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReturnVariableEexpressions()
-   * @generated
-   * @ordered
-   */
-  protected static final String RETURN_VARIABLE_EEXPRESSIONS_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getReturnVariableEexpressions() <em>Return Variable Eexpressions</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReturnVariableEexpressions()
-   * @generated
-   * @ordered
-   */
-  protected String returnVariableEexpressions = RETURN_VARIABLE_EEXPRESSIONS_EDEFAULT;
+  protected String returnVariableExpressions = RETURN_VARIABLE_EXPRESSIONS_EDEFAULT;
 
   /**
    * The default value of the '{@link #getAllDeclaredMethodNames() <em>All Declared Method Names</em>}' attribute.
@@ -375,9 +354,9 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDeclaredMethods()
+  public String getReturnVariableExpressions()
   {
-    return declaredMethods;
+    return returnVariableExpressions;
   }
 
   /**
@@ -385,35 +364,12 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDeclaredMethods(String newDeclaredMethods)
+  public void setReturnVariableExpressions(String newReturnVariableExpressions)
   {
-    String oldDeclaredMethods = declaredMethods;
-    declaredMethods = newDeclaredMethods;
+    String oldReturnVariableExpressions = returnVariableExpressions;
+    returnVariableExpressions = newReturnVariableExpressions;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.SIMPLE_FIELD__DECLARED_METHODS, oldDeclaredMethods, declaredMethods));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getReturnVariableEexpressions()
-  {
-    return returnVariableEexpressions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setReturnVariableEexpressions(String newReturnVariableEexpressions)
-  {
-    String oldReturnVariableEexpressions = returnVariableEexpressions;
-    returnVariableEexpressions = newReturnVariableEexpressions;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS, oldReturnVariableEexpressions, returnVariableEexpressions));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS, oldReturnVariableExpressions, returnVariableExpressions));
   }
 
   /**
@@ -637,10 +593,8 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
         return getFullyQualifiedName();
       case LuceneQueryPackage.SIMPLE_FIELD__FRIENDLY_NAME:
         return getFriendlyName();
-      case LuceneQueryPackage.SIMPLE_FIELD__DECLARED_METHODS:
-        return getDeclaredMethods();
-      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS:
-        return getReturnVariableEexpressions();
+      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS:
+        return getReturnVariableExpressions();
       case LuceneQueryPackage.SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES:
         return getAllDeclaredMethodNames();
       case LuceneQueryPackage.SIMPLE_FIELD__DECLARED_METHOD_NAMES:
@@ -679,11 +633,8 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
       case LuceneQueryPackage.SIMPLE_FIELD__FRIENDLY_NAME:
         setFriendlyName((String)newValue);
         return;
-      case LuceneQueryPackage.SIMPLE_FIELD__DECLARED_METHODS:
-        setDeclaredMethods((String)newValue);
-        return;
-      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS:
-        setReturnVariableEexpressions((String)newValue);
+      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS:
+        setReturnVariableExpressions((String)newValue);
         return;
       case LuceneQueryPackage.SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES:
         setAllDeclaredMethodNames((String)newValue);
@@ -732,11 +683,8 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
       case LuceneQueryPackage.SIMPLE_FIELD__FRIENDLY_NAME:
         setFriendlyName(FRIENDLY_NAME_EDEFAULT);
         return;
-      case LuceneQueryPackage.SIMPLE_FIELD__DECLARED_METHODS:
-        setDeclaredMethods(DECLARED_METHODS_EDEFAULT);
-        return;
-      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS:
-        setReturnVariableEexpressions(RETURN_VARIABLE_EEXPRESSIONS_EDEFAULT);
+      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS:
+        setReturnVariableExpressions(RETURN_VARIABLE_EXPRESSIONS_EDEFAULT);
         return;
       case LuceneQueryPackage.SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES:
         setAllDeclaredMethodNames(ALL_DECLARED_METHOD_NAMES_EDEFAULT);
@@ -783,10 +731,8 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
         return FULLY_QUALIFIED_NAME_EDEFAULT == null ? fullyQualifiedName != null : !FULLY_QUALIFIED_NAME_EDEFAULT.equals(fullyQualifiedName);
       case LuceneQueryPackage.SIMPLE_FIELD__FRIENDLY_NAME:
         return FRIENDLY_NAME_EDEFAULT == null ? friendlyName != null : !FRIENDLY_NAME_EDEFAULT.equals(friendlyName);
-      case LuceneQueryPackage.SIMPLE_FIELD__DECLARED_METHODS:
-        return DECLARED_METHODS_EDEFAULT == null ? declaredMethods != null : !DECLARED_METHODS_EDEFAULT.equals(declaredMethods);
-      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS:
-        return RETURN_VARIABLE_EEXPRESSIONS_EDEFAULT == null ? returnVariableEexpressions != null : !RETURN_VARIABLE_EEXPRESSIONS_EDEFAULT.equals(returnVariableEexpressions);
+      case LuceneQueryPackage.SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS:
+        return RETURN_VARIABLE_EXPRESSIONS_EDEFAULT == null ? returnVariableExpressions != null : !RETURN_VARIABLE_EXPRESSIONS_EDEFAULT.equals(returnVariableExpressions);
       case LuceneQueryPackage.SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES:
         return ALL_DECLARED_METHOD_NAMES_EDEFAULT == null ? allDeclaredMethodNames != null : !ALL_DECLARED_METHOD_NAMES_EDEFAULT.equals(allDeclaredMethodNames);
       case LuceneQueryPackage.SIMPLE_FIELD__DECLARED_METHOD_NAMES:
@@ -824,10 +770,8 @@ public class SimpleFieldImpl extends MinimalEObjectImpl.Container implements Sim
     result.append(fullyQualifiedName);
     result.append(", FriendlyName: ");
     result.append(friendlyName);
-    result.append(", DeclaredMethods: ");
-    result.append(declaredMethods);
-    result.append(", ReturnVariableEexpressions: ");
-    result.append(returnVariableEexpressions);
+    result.append(", ReturnVariableExpressions: ");
+    result.append(returnVariableExpressions);
     result.append(", AllDeclaredMethodNames: ");
     result.append(allDeclaredMethodNames);
     result.append(", DeclaredMethodNames: ");

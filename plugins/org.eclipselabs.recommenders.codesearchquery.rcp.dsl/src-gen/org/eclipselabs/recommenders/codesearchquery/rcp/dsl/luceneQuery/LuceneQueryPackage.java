@@ -164,22 +164,13 @@ public interface LuceneQueryPackage extends EPackage
   int SIMPLE_FIELD__FRIENDLY_NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Declared Methods</b></em>' attribute.
+   * The feature id for the '<em><b>Return Variable Expressions</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__DECLARED_METHODS = 2;
-
-  /**
-   * The feature id for the '<em><b>Return Variable Eexpressions</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS = 3;
+  int SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS = 2;
 
   /**
    * The feature id for the '<em><b>All Declared Method Names</b></em>' attribute.
@@ -188,7 +179,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = 4;
+  int SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = 3;
 
   /**
    * The feature id for the '<em><b>Declared Method Names</b></em>' attribute.
@@ -197,7 +188,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__DECLARED_METHOD_NAMES = 5;
+  int SIMPLE_FIELD__DECLARED_METHOD_NAMES = 4;
 
   /**
    * The feature id for the '<em><b>Declared Field Names</b></em>' attribute.
@@ -206,7 +197,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__DECLARED_FIELD_NAMES = 6;
+  int SIMPLE_FIELD__DECLARED_FIELD_NAMES = 5;
 
   /**
    * The feature id for the '<em><b>All Declared Field Names</b></em>' attribute.
@@ -215,7 +206,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = 7;
+  int SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = 6;
 
   /**
    * The feature id for the '<em><b>Full Text</b></em>' attribute.
@@ -224,7 +215,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__FULL_TEXT = 8;
+  int SIMPLE_FIELD__FULL_TEXT = 7;
 
   /**
    * The feature id for the '<em><b>Fields Read</b></em>' attribute.
@@ -233,7 +224,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__FIELDS_READ = 9;
+  int SIMPLE_FIELD__FIELDS_READ = 8;
 
   /**
    * The feature id for the '<em><b>Fields Written</b></em>' attribute.
@@ -242,7 +233,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__FIELDS_WRITTEN = 10;
+  int SIMPLE_FIELD__FIELDS_WRITTEN = 9;
 
   /**
    * The feature id for the '<em><b>Used Fields In Finally</b></em>' attribute.
@@ -251,7 +242,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = 11;
+  int SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = 10;
 
   /**
    * The feature id for the '<em><b>Used Fields In Try</b></em>' attribute.
@@ -260,7 +251,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__USED_FIELDS_IN_TRY = 12;
+  int SIMPLE_FIELD__USED_FIELDS_IN_TRY = 11;
 
   /**
    * The number of structural features of the '<em>Simple Field</em>' class.
@@ -269,7 +260,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD_FEATURE_COUNT = 13;
+  int SIMPLE_FIELD_FEATURE_COUNT = 12;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl <em>Type Field</em>}' class.
@@ -463,13 +454,22 @@ public interface LuceneQueryPackage extends EPackage
   int METHOD_FIELD__OVERRIDDEN_METHODS = 3;
 
   /**
+   * The feature id for the '<em><b>Declared Methods</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_FIELD__DECLARED_METHODS = 4;
+
+  /**
    * The number of structural features of the '<em>Method Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_FIELD_FEATURE_COUNT = 4;
+  int METHOD_FIELD_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FilePathFieldImpl <em>File Path Field</em>}' class.
@@ -830,26 +830,15 @@ public interface LuceneQueryPackage extends EPackage
   EAttribute getSimpleField_FriendlyName();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods <em>Declared Methods</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableExpressions <em>Return Variable Expressions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Methods</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods()
+   * @return the meta object for the attribute '<em>Return Variable Expressions</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableExpressions()
    * @see #getSimpleField()
    * @generated
    */
-  EAttribute getSimpleField_DeclaredMethods();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions <em>Return Variable Eexpressions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Return Variable Eexpressions</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_ReturnVariableEexpressions();
+  EAttribute getSimpleField_ReturnVariableExpressions();
 
   /**
    * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames <em>All Declared Method Names</em>}'.
@@ -1169,6 +1158,17 @@ public interface LuceneQueryPackage extends EPackage
   EAttribute getMethodField_OverriddenMethods();
 
   /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getDeclaredMethods <em>Declared Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Declared Methods</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getDeclaredMethods()
+   * @see #getMethodField()
+   * @generated
+   */
+  EAttribute getMethodField_DeclaredMethods();
+
+  /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField <em>File Path Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1470,20 +1470,12 @@ public interface LuceneQueryPackage extends EPackage
     EAttribute SIMPLE_FIELD__FRIENDLY_NAME = eINSTANCE.getSimpleField_FriendlyName();
 
     /**
-     * The meta object literal for the '<em><b>Declared Methods</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Return Variable Expressions</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SIMPLE_FIELD__DECLARED_METHODS = eINSTANCE.getSimpleField_DeclaredMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Return Variable Eexpressions</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__RETURN_VARIABLE_EEXPRESSIONS = eINSTANCE.getSimpleField_ReturnVariableEexpressions();
+    EAttribute SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS = eINSTANCE.getSimpleField_ReturnVariableExpressions();
 
     /**
      * The meta object literal for the '<em><b>All Declared Method Names</b></em>' attribute feature.
@@ -1720,6 +1712,14 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute METHOD_FIELD__OVERRIDDEN_METHODS = eINSTANCE.getMethodField_OverriddenMethods();
+
+    /**
+     * The meta object literal for the '<em><b>Declared Methods</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD_FIELD__DECLARED_METHODS = eINSTANCE.getMethodField_DeclaredMethods();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FilePathFieldImpl <em>File Path Field</em>}' class.

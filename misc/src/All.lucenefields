@@ -8,12 +8,9 @@ SimpleField {
 	FRIENDLY_NAME 				= "FriendlyName" 
 	{ class, method, field, trycatch }
 	
-	DECLARED_METHODS 			= "DeclaredMethods" 
-	{ class }
-	
-	RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableEexpressions" 
+	RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions" 
 	{ method }
-	
+
 	ALL_DELCARED_METHOD_NAMES 	= "AllDeclaredMethodNames"
 	{ class }
 	
@@ -97,6 +94,9 @@ MethodField {
 	{ trycatch }
 	
 	OVERRIDDEN_METHODS	 		= "OverriddenMethods"
+	{ class }
+	
+	DECLARED_METHODS 			= "DeclaredMethods" 
 	{ class }
 }
 

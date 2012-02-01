@@ -239,7 +239,13 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (UsedMethods='UsedMethods' | UsedMethodsInTry='UsedMethodsInTry' | UsedMethodsInFinally='UsedMethodsInFinally' | OverriddenMethods='OverriddenMethods')
+	 *     (
+	 *         UsedMethods='UsedMethods' | 
+	 *         UsedMethodsInTry='UsedMethodsInTry' | 
+	 *         UsedMethodsInFinally='UsedMethodsInFinally' | 
+	 *         OverriddenMethods='OverriddenMethods' | 
+	 *         DeclaredMethods='DeclaredMethods'
+	 *     )
 	 */
 	protected void sequence_MethodField(EObject context, MethodField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -299,8 +305,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *     (
 	 *         FullyQualifiedName='FullyQualifiedName' | 
 	 *         FriendlyName='FriendlyName' | 
-	 *         DeclaredMethods='DeclaredMethods' | 
-	 *         ReturnVariableEexpressions='ReturnVariableEexpressions' | 
+	 *         ReturnVariableExpressions='ReturnVariableExpressions' | 
 	 *         AllDeclaredMethodNames='AllDeclaredMethodNames' | 
 	 *         DeclaredMethodNames='DeclaredMethodNames' | 
 	 *         DeclaredFieldNames='DeclaredFieldNames' | 

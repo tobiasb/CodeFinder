@@ -18,8 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullyQualifiedName <em>Fully Qualified Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFriendlyName <em>Friendly Name</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods <em>Declared Methods</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions <em>Return Variable Eexpressions</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableExpressions <em>Return Variable Expressions</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames <em>All Declared Method Names</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethodNames <em>Declared Method Names</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredFieldNames <em>Declared Field Names</em>}</li>
@@ -91,56 +90,30 @@ public interface SimpleField extends EObject
   void setFriendlyName(String value);
 
   /**
-   * Returns the value of the '<em><b>Declared Methods</b></em>' attribute.
+   * Returns the value of the '<em><b>Return Variable Expressions</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Declared Methods</em>' attribute isn't clear,
+   * If the meaning of the '<em>Return Variable Expressions</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Declared Methods</em>' attribute.
-   * @see #setDeclaredMethods(String)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getSimpleField_DeclaredMethods()
+   * @return the value of the '<em>Return Variable Expressions</em>' attribute.
+   * @see #setReturnVariableExpressions(String)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getSimpleField_ReturnVariableExpressions()
    * @model
    * @generated
    */
-  String getDeclaredMethods();
+  String getReturnVariableExpressions();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethods <em>Declared Methods</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableExpressions <em>Return Variable Expressions</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Declared Methods</em>' attribute.
-   * @see #getDeclaredMethods()
+   * @param value the new value of the '<em>Return Variable Expressions</em>' attribute.
+   * @see #getReturnVariableExpressions()
    * @generated
    */
-  void setDeclaredMethods(String value);
-
-  /**
-   * Returns the value of the '<em><b>Return Variable Eexpressions</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Return Variable Eexpressions</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Variable Eexpressions</em>' attribute.
-   * @see #setReturnVariableEexpressions(String)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getSimpleField_ReturnVariableEexpressions()
-   * @model
-   * @generated
-   */
-  String getReturnVariableEexpressions();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableEexpressions <em>Return Variable Eexpressions</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return Variable Eexpressions</em>' attribute.
-   * @see #getReturnVariableEexpressions()
-   * @generated
-   */
-  void setReturnVariableEexpressions(String value);
+  void setReturnVariableExpressions(String value);
 
   /**
    * Returns the value of the '<em><b>All Declared Method Names</b></em>' attribute.

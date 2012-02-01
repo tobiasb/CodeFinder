@@ -29,8 +29,12 @@ public abstract class AbstractIndexer {
     }
 
     public static boolean isPrimitiveOrArrayOrNullOrObjectOrString(final ITypeName type) {
-        return type == null || type.isPrimitiveType() || type.isArrayType() || type == VmTypeName.OBJECT
+        return isNullOrArrayType(type) || type.isPrimitiveType() || type == VmTypeName.OBJECT
                 || type == VmTypeName.STRING;
+    }
+
+    public static boolean isNullOrArrayType(final ITypeName type) {
+        return type == null || type.isArrayType();
     }
 
     // protected void debugOut(String msg, String origin) {

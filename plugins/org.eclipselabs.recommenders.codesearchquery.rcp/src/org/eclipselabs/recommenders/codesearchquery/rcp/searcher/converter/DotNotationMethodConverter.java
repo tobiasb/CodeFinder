@@ -29,7 +29,7 @@ public class DotNotationMethodConverter extends AbstractQueryPartConverter imple
         tmp = tmp.replace("/", ".");
 
         // Removes trailing "(...)V"-Part
-        tmp = tmp.replaceAll("\\(.*?\\)V", "");
+        tmp = tmp.replaceAll("\\(.*?$", "");
 
         return tmp;
     }

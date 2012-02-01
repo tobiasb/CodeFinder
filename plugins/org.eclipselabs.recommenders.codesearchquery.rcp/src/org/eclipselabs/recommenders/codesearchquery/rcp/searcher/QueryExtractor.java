@@ -22,8 +22,6 @@ public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
 
         do {
             final EObject o = iter.next();
-            //
-            System.out.println(o.getClass());
 
             if (o instanceof ClauseExpressionImpl) {
                 final ClauseExpressionImpl impl = (ClauseExpressionImpl) o;

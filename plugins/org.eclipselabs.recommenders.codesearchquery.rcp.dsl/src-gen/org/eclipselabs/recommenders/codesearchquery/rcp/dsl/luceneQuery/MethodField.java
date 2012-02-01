@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethodsInTry <em>Used Methods In Try</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethodsInFinally <em>Used Methods In Finally</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getOverriddenMethods <em>Overridden Methods</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getDeclaredMethods <em>Declared Methods</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,5 +133,31 @@ public interface MethodField extends EObject
    * @generated
    */
   void setOverriddenMethods(String value);
+
+  /**
+   * Returns the value of the '<em><b>Declared Methods</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Declared Methods</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Declared Methods</em>' attribute.
+   * @see #setDeclaredMethods(String)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getMethodField_DeclaredMethods()
+   * @model
+   * @generated
+   */
+  String getDeclaredMethods();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getDeclaredMethods <em>Declared Methods</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Declared Methods</em>' attribute.
+   * @see #getDeclaredMethods()
+   * @generated
+   */
+  void setDeclaredMethods(String value);
 
 } // MethodField

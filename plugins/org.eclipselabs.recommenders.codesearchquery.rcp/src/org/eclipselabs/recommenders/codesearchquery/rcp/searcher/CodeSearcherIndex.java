@@ -32,6 +32,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         reader = IndexReader.open(directory);
         parser = new QueryParser(getVersion(), Fields.FULL_TEXT, getAnalyzer());
         parser.setLowercaseExpandedTerms(false);
+        parser.setAllowLeadingWildcard(true);
     }
 
     public List<Document> search(final String queryString) throws CorruptIndexException, IOException, ParseException {
