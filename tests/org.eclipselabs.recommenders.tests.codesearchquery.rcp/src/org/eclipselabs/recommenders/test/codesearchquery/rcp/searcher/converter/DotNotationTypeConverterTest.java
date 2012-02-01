@@ -5,7 +5,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQuer
 import org.junit.Assert;
 import org.junit.Test;
 
-public class DotNotationConverterTest {
+public class DotNotationTypeConverterTest {
 
     @Test
     public void testPackageNameToDotNotation() {
