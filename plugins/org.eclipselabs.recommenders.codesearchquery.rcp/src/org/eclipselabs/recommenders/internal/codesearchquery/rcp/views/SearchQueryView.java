@@ -74,12 +74,13 @@ import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 @SuppressWarnings("restriction")
-public class SearchQueryView extends ViewPart {
+public class SearchQueryView extends ViewPart implements ISearchView {
     public static final String ID = SearchQueryView.class.getName();
     protected Button triggerSearchButton;
     protected Text searchQueryText;
     protected TableViewer searchResultTable;
     private Combo exampleCombo;
+    final List<Document> result = Lists.newArrayList();
 
     private int selectedLanguageIndex = 0;
     private AbstractEmbeddedEditorWrapper currentEditor = null;
@@ -106,7 +107,7 @@ public class SearchQueryView extends ViewPart {
 
         // Default editor
         currentEditor = new LuceneQueryEditorWrapper();
-        currentEditor.createQueryEditor(compositeForEditor, exampleCombo);
+        currentEditor.createQueryEditor(compositeForEditor, exampleCombo, this);
 
         createLanguageSelectionComboBox(parent, compositeForEditor);
 
@@ -166,10 +167,12 @@ public class SearchQueryView extends ViewPart {
 
                 if (selectedLanguageIndex == 0) {
                     currentEditor = new LuceneQueryEditorWrapper();
-                    currentEditor.createQueryEditor(createEmbeddedEditorInComposite, exampleCombo);
+                    currentEditor
+                            .createQueryEditor(createEmbeddedEditorInComposite, exampleCombo, SearchQueryView.this);
                 } else if (selectedLanguageIndex == 1) {
                     currentEditor = new QL1EditorWrapper();
-                    currentEditor.createQueryEditor(createEmbeddedEditorInComposite, exampleCombo);
+                    currentEditor
+                            .createQueryEditor(createEmbeddedEditorInComposite, exampleCombo, SearchQueryView.this);
                 }
             }
 
@@ -189,47 +192,11 @@ public class SearchQueryView extends ViewPart {
 
             @Override
             public void widgetSelected(final SelectionEvent e) {
-
-                final List<Document> result = Lists.newArrayList();
-
-                // Search
-                final WorkspaceJob job = new WorkspaceJob("Searching...") {
-
-                    @Override
-                    public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
-
-                        setSearching();
-
-                        try {
-                            result.clear();
-
-                            if (currentEditor != null) {
-                                result.addAll(currentEditor.search());
-                            }
-                        } catch (final CorruptIndexException e1) {
-                            e1.printStackTrace();
-                            return Status.CANCEL_STATUS;
-                        } catch (final IOException e1) {
-                            e1.printStackTrace();
-                            return Status.CANCEL_STATUS;
-                        } catch (final ParseException e) {
-                            e.printStackTrace();
-                            return Status.CANCEL_STATUS;
-                        }
-
-                        return Status.OK_STATUS;
-                    }
-
-                };
-
-                job.addJobChangeListener(new JobChangeAdapter() {
-                    @Override
-                    public void done(final IJobChangeEvent event) {
-                        setResult(result);
-                    }
-                });
-
-                job.schedule();
+                try {
+                    doSearch();
+                } catch (Exception e1) {
+                    Activator.logError(e1);
+                }
             }
 
             @Override
@@ -423,6 +390,54 @@ public class SearchQueryView extends ViewPart {
     @Override
     public void setFocus() {
         // searchQueryText.setFocus();
+    }
+
+    @Override
+    public void doSearch() throws Exception {
+        Display.getDefault().syncExec(new Runnable() {
+
+            @Override
+            public void run() {
+                // Search
+                final WorkspaceJob job = new WorkspaceJob("Searching...") {
+
+                    @Override
+                    public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
+
+                        setSearching();
+
+                        try {
+                            result.clear();
+
+                            if (currentEditor != null) {
+                                result.addAll(currentEditor.search());
+                            }
+                        } catch (final CorruptIndexException e1) {
+                            Activator.logError(e1);
+                            return Status.CANCEL_STATUS;
+                        } catch (final IOException e1) {
+                            Activator.logError(e1);
+                            return Status.CANCEL_STATUS;
+                        } catch (final ParseException e) {
+                            Activator.logError(e);
+                            return Status.CANCEL_STATUS;
+                        }
+
+                        return Status.OK_STATUS;
+                    }
+                };
+
+                job.addJobChangeListener(new JobChangeAdapter() {
+                    @Override
+                    public void done(final IJobChangeEvent event) {
+                        setResult(result);
+                    }
+                });
+
+                job.schedule();
+            }
+        });
+
     }
 
 }

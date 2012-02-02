@@ -7,9 +7,13 @@ import java.util.Set;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryParser.ParseException;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.xtext.builder.internal.Activator;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
@@ -30,7 +34,7 @@ public abstract class AbstractEmbeddedEditorWrapper {
 
     abstract void createQueryEditorInternal();
 
-    public void createQueryEditor(final Composite parent, final Combo exampleCombo) {
+    public void createQueryEditor(final Composite parent, final Combo exampleCombo, final ISearchView searchView) {
         this.parent = parent;
 
         exampleCombo.setItems(getExampleQueries());
@@ -41,6 +45,31 @@ public abstract class AbstractEmbeddedEditorWrapper {
         }
 
         createQueryEditorInternal();
+
+        parent.getChildren()[0].addKeyListener(new KeyListener() {
+
+            boolean ctrlPressed = false;
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if (e.keyCode == SWT.CTRL)
+                    ctrlPressed = false;
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.keyCode == SWT.CTRL)
+                    ctrlPressed = true;
+
+                if (e.character == '\r' && ctrlPressed) {
+                    try {
+                        searchView.doSearch();
+                    } catch (Exception e1) {
+                        Activator.log(e1);
+                    }
+                }
+            }
+        });
 
         parent.layout();
         parent.getParent().layout();

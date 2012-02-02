@@ -39,7 +39,7 @@ public class Activator extends AbstractUIPlugin {
     }
 
     public static void log(final IStatus s) {
-        logConsole(s);
+        // logConsole(s);
     }
 
     private static void logConsole(final Throwable e, final String format, final Object... args) {
