@@ -10,7 +10,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.Cla
 
 import com.google.common.collect.Sets;
 
-public class SearchTermExtractor implements IUnitOfWork<Set<String>, XtextResource> {
+public class LuceneSearchTermExtractor implements IUnitOfWork<Set<String>, XtextResource> {
 
     @Override
     public Set<String> exec(XtextResource state) throws Exception {

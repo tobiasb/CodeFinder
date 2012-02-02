@@ -1,0 +1,9 @@
+grammar org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.QL1 with org.eclipse.xtext.common.Terminals
+
+generate qL1 "http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dslQL1/QL1"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

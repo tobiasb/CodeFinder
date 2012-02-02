@@ -44,7 +44,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 
     private void renewReader() {
         try {
-            final IndexReader newReader = reader.openIfChanged(reader);
+            final IndexReader newReader = IndexReader.openIfChanged(reader);
             if (newReader != null) {
                 // reader was reopened
                 reader.close();

@@ -28,7 +28,7 @@
                    label="Truncate Index"
                    menubarPath="additions">
 	            </action>            
-	      </viewContribution>>
+	      </viewContribution>
 	</extension>
 	<extension
 	      point="org.eclipse.ui.views">

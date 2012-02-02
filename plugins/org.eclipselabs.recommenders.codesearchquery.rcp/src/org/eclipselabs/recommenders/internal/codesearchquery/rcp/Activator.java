@@ -35,7 +35,7 @@ public class Activator extends AbstractUIPlugin {
     }
 
     public static void logInfo(final String format, final Object... args) {
-        // logConsole(null, format, args);
+        logConsole(null, format, args);
     }
 
     public static void log(final IStatus s) {
