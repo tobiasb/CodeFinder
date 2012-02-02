@@ -14,7 +14,7 @@ public class TermVectorTest extends AbstractTestIndex {
     public void testSimpleTermVector() throws IOException {
         newIndex().newDoc().addField(Fields.USED_TYPES, "testTermVector01").finish();
 
-        final Set<String> vec = getSearchIndexer().getTermVector(Fields.USED_TYPES);
+        final Set<String> vec = getSearchIndexer().getTermVector(new String[] { Fields.USED_TYPES });
 
         Assert.assertEquals(1, vec.size());
         Assert.assertTrue(vec.contains("testTermVector01"));

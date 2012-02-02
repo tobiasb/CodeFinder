@@ -74,6 +74,9 @@ public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProv
 
         if (p != null) {
             for (String type : p.getProposals()) {
+                if (type == null)
+                    continue;
+
                 String proposal = p.convert(type);
                 acceptor.accept(createCompletionProposal(proposal, proposal, p.getImage(), context));
             }

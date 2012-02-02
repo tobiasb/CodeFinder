@@ -9,6 +9,7 @@ import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.search.FieldCache;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
@@ -41,16 +42,25 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         return search(query);
     }
 
+    private void renewReader() {
+        try {
+            final IndexReader newReader = reader.openIfChanged(reader);
+            if (newReader != null) {
+                // reader was reopened
+                reader.close();
+                reader = newReader;
+            }
+        } catch (Exception ex) {
+            Activator.logError(ex);
+        }
+    }
+
     public List<Document> search(final Query query) throws IOException {
 
         // TODO: Schränke Felder mit IFieldSelector ein
 
-        final IndexReader newReader = reader.openIfChanged(reader);
-        if (newReader != null) {
-            // reader was reopened
-            reader.close();
-            reader = newReader;
-        }
+        renewReader();
+
         final IndexSearcher searcher = new IndexSearcher(reader);
 
         // TODO MB: Tobias, not sure this is the intended way how to do this.
@@ -95,22 +105,27 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
     }
 
     @Override
-    public Set<String> getTermVector(final String fieldName) {
+    public Set<String> getTermVector(final String[] fieldNames) {
+
+        renewReader();
+
         final Set<String> result = Sets.newHashSet();
 
-        try {
-            final List<Document> allDocs = getDocuments();
+        for (String field : fieldNames) {
+            try {
+                String[] values = FieldCache.DEFAULT.getStrings(reader, field);
 
-            for (final Document doc : allDocs) {
-                for (final String value : doc.getValues(fieldName)) {
-                    result.add(value);
+                // AddAll would probably more efficient but we must filter out
+                // the null-value
+                for (String s : Lists.newArrayList(values)) {
+                    if (s == null)
+                        continue;
+
+                    result.add(s);
                 }
+            } catch (IOException e) {
+                Activator.logError(e);
             }
-
-        } catch (final CorruptIndexException e) {
-            Activator.logError(e);
-        } catch (final IOException e) {
-            Activator.logError(e);
         }
 
         return result;

@@ -8,6 +8,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.IQu
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.utils.IImageProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ITermVectorProvider;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 public class GenericQueryProposalProvider implements IQueryProposalProvider {
 
@@ -34,9 +35,14 @@ public class GenericQueryProposalProvider implements IQueryProposalProvider {
 
         final CodeSearcherIndex searcherIndex = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
 
+        final Long start = System.currentTimeMillis();
         termVectorProvider.load(searcherIndex);
+        List<String> disjunctTermVector = termVectorProvider.getDisjunctTermVector();
+        final Long duration = System.currentTimeMillis() - start;
 
-        return termVectorProvider.getDisjunctTermVector();
+        Activator.logInfo("Loading proposals took %sms", duration);
+
+        return disjunctTermVector;
     }
 
     @Override

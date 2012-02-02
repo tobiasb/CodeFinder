@@ -37,11 +37,8 @@ public abstract class AbstractTermVectorProvider implements ITermVectorProvider 
     public void load(final ITermVectorConsumable consumable) {
         final Set<String> result = Sets.newHashSet();
 
-        for (final String fieldName : getFields()) {
-            // TODO: Schränke Felder mit IFieldSelector ein
-            final Set<String> types = consumable.getTermVector(fieldName);
-            result.addAll(types);
-        }
+        final Set<String> types = consumable.getTermVector(getFields());
+        result.addAll(types);
 
         setTermVector(Lists.newArrayList(result));
         setDone(true);
