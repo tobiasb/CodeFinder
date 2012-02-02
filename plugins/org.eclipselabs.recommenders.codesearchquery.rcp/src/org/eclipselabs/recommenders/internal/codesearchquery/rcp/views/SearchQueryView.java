@@ -22,7 +22,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -70,18 +69,14 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
-import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearchquery.rcp.Fields;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.LuceneQueryStandaloneSetup;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ClauseExpression;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.LuceneQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQueryActivator;
@@ -90,6 +85,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.DocumentTypePro
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.GenericQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.SearchTermExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationMethodConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationTypeConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
@@ -100,11 +96,9 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaMethodPro
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ProjectNameProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ResourcePathProvider;
-import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import com.google.inject.Injector;
 
 public class SearchQueryView extends ViewPart {
@@ -332,41 +326,8 @@ public class SearchQueryView extends ViewPart {
                         final JavaEditor editor = cast(JavaUI.openInEditor(first.get()));
                         final SourceViewer s = (SourceViewer) editor.getViewer();
                         final XtextDocument document = handle.getDocument();
-                        final Set<String> searchTerms = document
-                                .readOnly(new IUnitOfWork<Set<String>, XtextResource>() {
 
-                                    @Override
-                                    public Set<String> exec(final XtextResource state) throws Exception {
-                                        final Set<String> res = Sets.newHashSet();
-                                        try {
-                                            final IParseResult parse = state.getParseResult();
-                                            final EObject rootASTElement = parse.getRootASTElement();
-                                            // TODO Auto-generated method stub
-                                            final Expression luceneQuery = (Expression) rootASTElement;
-                                            final ClauseExpression value2 = luceneQuery.getValue();
-                                            final EObject field = value2.getField();
-
-                                            final String _default = value2.getDefault();
-                                            if (_default != null) {
-                                                res.add(_default.replaceAll("\\W", "").toLowerCase());
-                                            }
-                                            for (final String v : value2.getValues()) {
-                                                final String lowerCase = v.toLowerCase();
-                                                final String[] segments = lowerCase.split("\\W");
-                                                for (final String term : segments) {
-                                                    if (term.isEmpty()) {
-                                                        continue;
-                                                    }
-                                                    res.add(term);
-                                                }
-                                            }
-                                        } catch (Exception ex) {
-                                            Activator.logError(ex);
-                                        }
-
-                                        return res;
-                                    }
-                                });
+                        final Set<String> searchTerms = document.readOnly(new SearchTermExtractor());
 
                         s.addTextPresentationListener(new ITextPresentationListener() {
 
