@@ -116,6 +116,11 @@ public class SearchQueryView extends ViewPart {
     private EmbeddedEditorModelAccess partialEditor;
     private EmbeddedEditor handle;
 
+    private List<String> exampleQueries = Lists.newArrayList(new String[] { "Example Queries...",
+            "UsedTypes:java.util.List",
+            "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)",
+            "UsedTypes:java.util.List AND Type:method" });
+
     public SearchQueryView() {
         super();
     }
@@ -142,9 +147,12 @@ public class SearchQueryView extends ViewPart {
         final Combo combo = new Combo(parent, SWT.READ_ONLY);
         GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 2;
-        String items[] = { "Example Queries...", "UsedTypes:java.util.List",
-                "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)" };
+
+        String[] items = new String[exampleQueries.size()];
+        exampleQueries.toArray(items);
+
         combo.setItems(items);
+
         combo.select(0);
         combo.setLayoutData(gridData);
         combo.addSelectionListener(new SelectionListener() {
