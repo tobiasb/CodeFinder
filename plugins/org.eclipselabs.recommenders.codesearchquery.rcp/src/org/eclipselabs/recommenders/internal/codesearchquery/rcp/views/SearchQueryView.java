@@ -111,8 +111,7 @@ public class SearchQueryView extends ViewPart {
     private EmbeddedEditorModelAccess partialEditor;
     private EmbeddedEditor handle;
 
-    private List<String> exampleQueries = Lists.newArrayList(new String[] { "Example Queries...",
-            "UsedTypes:java.util.List",
+    private List<String> exampleQueries = Lists.newArrayList(new String[] { "UsedTypes:java.util.List",
             "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)",
             "UsedTypes:java.util.List AND Type:method" });
 
@@ -143,8 +142,8 @@ public class SearchQueryView extends ViewPart {
         GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 2;
 
-        String[] items = new String[exampleQueries.size()];
-        exampleQueries.toArray(items);
+        String[] items = new String[exampleQueries.size() + 1];
+        Lists.asList("Select Example Query...", exampleQueries.toArray()).toArray(items);
 
         combo.setItems(items);
 
