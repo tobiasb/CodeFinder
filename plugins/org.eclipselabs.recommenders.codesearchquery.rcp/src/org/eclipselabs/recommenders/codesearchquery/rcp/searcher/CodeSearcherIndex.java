@@ -114,19 +114,13 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         for (String field : fieldNames) {
             try {
                 String[] values = FieldCache.DEFAULT.getStrings(reader, field);
-
-                // AddAll would probably more efficient but we must filter out
-                // the null-value
-                for (String s : Lists.newArrayList(values)) {
-                    if (s == null)
-                        continue;
-
-                    result.add(s);
-                }
+                result.addAll(Lists.newArrayList(values));
             } catch (IOException e) {
                 Activator.logError(e);
             }
         }
+
+        result.remove(null);
 
         return result;
     }
