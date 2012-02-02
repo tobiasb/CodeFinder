@@ -25,7 +25,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.DocumentTypePro
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.GenericQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.LuceneSearchTermExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.QueryExtractor;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationMethodConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationTypeConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
@@ -105,7 +105,7 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
     @Override
     List<Document> search() throws ParseException, CorruptIndexException, IOException {
-        final String searchQuery = handle.getDocument().readOnly(new QueryExtractor());
+        final String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor());
         resetXtextQuery();
 
         codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
