@@ -12,6 +12,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.Met
 import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationMethodConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationTypeConverter;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.IQueryPartConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
 
 public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
@@ -27,32 +28,17 @@ public class QueryExtractor implements IUnitOfWork<String, XtextResource> {
                 final ClauseExpressionImpl impl = (ClauseExpressionImpl) o;
                 final EObject field = impl.getField();
 
-                // XXX: There seems to be a pattern here. Refactor!
+                IQueryPartConverter conv = null;
 
                 if (field instanceof TypeFieldImpl) {
-
-                    final DotNotationTypeConverter conv = new DotNotationTypeConverter();
-
-                    for (int i = 0; i < impl.getValues().size(); i++) {
-                        final String oldValue = impl.getValues().get(i);
-                        final String newValue = conv.convertFrom(oldValue);
-                        impl.getValues().set(i, newValue);
-                    }
+                    conv = new DotNotationTypeConverter();
+                } else if (field instanceof FilePathFieldImpl) {
+                    conv = new PathValueConverter();
+                } else if (field instanceof MethodFieldImpl) {
+                    conv = new DotNotationMethodConverter();
                 }
 
-                if (field instanceof FilePathFieldImpl) {
-                    final PathValueConverter conv = new PathValueConverter();
-
-                    for (int i = 0; i < impl.getValues().size(); i++) {
-                        final String oldValue = impl.getValues().get(i);
-                        final String newValue = conv.convertFrom(oldValue);
-                        impl.getValues().set(i, newValue);
-                    }
-                }
-
-                if (field instanceof MethodFieldImpl) {
-                    final DotNotationMethodConverter conv = new DotNotationMethodConverter();
-
+                if (conv != null) {
                     for (int i = 0; i < impl.getValues().size(); i++) {
                         final String oldValue = impl.getValues().get(i);
                         final String newValue = conv.convertFrom(oldValue);
