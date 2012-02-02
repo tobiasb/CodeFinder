@@ -6,14 +6,11 @@ import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_PARAMETERS;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_POST_QUALIFIED;
 import static org.eclipse.recommenders.utils.Checks.cast;
 
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.lucene.document.Document;
-import org.apache.lucene.index.CorruptIndexException;
-import org.apache.lucene.queryParser.ParseException;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -412,13 +409,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                             if (currentEditor != null) {
                                 result.addAll(currentEditor.search());
                             }
-                        } catch (final CorruptIndexException e1) {
-                            Activator.logError(e1);
-                            return Status.CANCEL_STATUS;
-                        } catch (final IOException e1) {
-                            Activator.logError(e1);
-                            return Status.CANCEL_STATUS;
-                        } catch (final ParseException e) {
+                        } catch (final Exception e) {
                             Activator.logError(e);
                             return Status.CANCEL_STATUS;
                         }

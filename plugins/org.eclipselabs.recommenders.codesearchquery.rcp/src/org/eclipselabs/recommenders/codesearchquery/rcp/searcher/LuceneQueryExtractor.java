@@ -20,6 +20,8 @@ public class LuceneQueryExtractor implements IUnitOfWork<String, XtextResource> 
     @Override
     public String exec(final XtextResource state) throws Exception {
         final TreeIterator<EObject> iter = state.getAllContents();
+        if (!iter.hasNext())
+            return "";
 
         do {
             final EObject o = iter.next();

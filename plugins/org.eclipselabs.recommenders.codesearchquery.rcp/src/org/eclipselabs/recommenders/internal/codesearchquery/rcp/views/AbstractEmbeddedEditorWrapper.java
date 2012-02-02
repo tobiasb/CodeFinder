@@ -31,11 +31,13 @@ public abstract class AbstractEmbeddedEditorWrapper {
     protected Composite parent;
     protected Combo exampleCombo;
     protected CodeSearcherIndex codeSearcher;
+    protected ISearchView searchView;
 
     abstract void createQueryEditorInternal();
 
     public void createQueryEditor(final Composite parent, final Combo exampleCombo, final ISearchView searchView) {
         this.parent = parent;
+        this.searchView = searchView;
 
         exampleCombo.setItems(getExampleQueries());
         exampleCombo.select(0);
