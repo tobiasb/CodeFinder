@@ -300,7 +300,7 @@ public class SearchQueryView extends ViewPart {
                 // TODO refactor: there should be a better way
                 // When we convert from dot- to L/-notation we actually modify
                 // the model. The next stmt is to undo that
-                handle.getDocument().set(handle.getDocument().get());
+                handle.getDocument().set(handle.getDocument().get().trim());
             }
         });
     }
