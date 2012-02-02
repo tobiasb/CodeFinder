@@ -100,6 +100,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaMethodPro
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.JavaTypeProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ProjectNameProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.termvector.ResourcePathProvider;
+import org.eclipselabs.recommenders.internal.codesearchquery.rcp.Activator;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -336,28 +337,33 @@ public class SearchQueryView extends ViewPart {
 
                                     @Override
                                     public Set<String> exec(final XtextResource state) throws Exception {
-                                        final IParseResult parse = state.getParseResult();
-                                        final EObject rootASTElement = parse.getRootASTElement();
-                                        // TODO Auto-generated method stub
-                                        final Expression luceneQuery = (Expression) rootASTElement;
-                                        final ClauseExpression value2 = luceneQuery.getValue();
-                                        final EObject field = value2.getField();
-
-                                        final String _default = value2.getDefault();
                                         final Set<String> res = Sets.newHashSet();
-                                        if (_default != null) {
-                                            res.add(_default.replaceAll("\\W", "").toLowerCase());
-                                        }
-                                        for (final String v : value2.getValues()) {
-                                            final String lowerCase = v.toLowerCase();
-                                            final String[] segments = lowerCase.split("\\W");
-                                            for (final String term : segments) {
-                                                if (term.isEmpty()) {
-                                                    continue;
-                                                }
-                                                res.add(term);
+                                        try {
+                                            final IParseResult parse = state.getParseResult();
+                                            final EObject rootASTElement = parse.getRootASTElement();
+                                            // TODO Auto-generated method stub
+                                            final Expression luceneQuery = (Expression) rootASTElement;
+                                            final ClauseExpression value2 = luceneQuery.getValue();
+                                            final EObject field = value2.getField();
+
+                                            final String _default = value2.getDefault();
+                                            if (_default != null) {
+                                                res.add(_default.replaceAll("\\W", "").toLowerCase());
                                             }
+                                            for (final String v : value2.getValues()) {
+                                                final String lowerCase = v.toLowerCase();
+                                                final String[] segments = lowerCase.split("\\W");
+                                                for (final String term : segments) {
+                                                    if (term.isEmpty()) {
+                                                        continue;
+                                                    }
+                                                    res.add(term);
+                                                }
+                                            }
+                                        } catch (Exception ex) {
+                                            Activator.logError(ex);
                                         }
+
                                         return res;
                                     }
                                 });
