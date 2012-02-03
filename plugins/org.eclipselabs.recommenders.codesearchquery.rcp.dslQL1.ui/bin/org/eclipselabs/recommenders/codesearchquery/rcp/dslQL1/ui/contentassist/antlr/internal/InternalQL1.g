@@ -915,7 +915,7 @@ rule__MultiValueField__Group_2_1__2__Impl
 :
 (
 { before(grammarAccess.getMultiValueFieldAccess().getGroup_2_1_2()); }
-(rule__MultiValueField__Group_2_1_2__0)
+(rule__MultiValueField__Group_2_1_2__0)*
 { after(grammarAccess.getMultiValueFieldAccess().getGroup_2_1_2()); }
 )
 

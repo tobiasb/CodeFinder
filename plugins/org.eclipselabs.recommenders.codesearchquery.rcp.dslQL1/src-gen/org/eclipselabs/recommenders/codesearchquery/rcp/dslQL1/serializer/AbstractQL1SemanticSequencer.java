@@ -153,7 +153,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=MultiValueFieldName (values+=NameWithWC | (values+=NameWithWC values+=NameWithWC)))
+	 *     (name=MultiValueFieldName (values+=NameWithWC | (values+=NameWithWC values+=NameWithWC*)))
 	 */
 	protected void sequence_MultiValueField(EObject context, MultiValueField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

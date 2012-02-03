@@ -177,10 +177,10 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2_1_3 = (Keyword)cGroup_2_1.eContents().get(3);
 		
 		//MultiValueField:
-		//	name=MultiValueFieldName "has" (values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC) ")");
+		//	name=MultiValueFieldName "has" (values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC)* ")");
 		public ParserRule getRule() { return rule; }
 
-		//name=MultiValueFieldName "has" (values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC) ")")
+		//name=MultiValueFieldName "has" (values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC)* ")")
 		public Group getGroup() { return cGroup; }
 
 		//name=MultiValueFieldName
@@ -192,7 +192,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//"has"
 		public Keyword getHasKeyword_1() { return cHasKeyword_1; }
 
-		//values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC) ")"
+		//values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC)* ")"
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//values+=NameWithWC
@@ -201,7 +201,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//NameWithWC
 		public RuleCall getValuesNameWithWCTerminalRuleCall_2_0_0() { return cValuesNameWithWCTerminalRuleCall_2_0_0; }
 
-		//"(" values+=NameWithWC ("," values+=NameWithWC) ")"
+		//"(" values+=NameWithWC ("," values+=NameWithWC)* ")"
 		public Group getGroup_2_1() { return cGroup_2_1; }
 
 		//"("
@@ -213,7 +213,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//NameWithWC
 		public RuleCall getValuesNameWithWCTerminalRuleCall_2_1_1_0() { return cValuesNameWithWCTerminalRuleCall_2_1_1_0; }
 
-		//"," values+=NameWithWC
+		//("," values+=NameWithWC)*
 		public Group getGroup_2_1_2() { return cGroup_2_1_2; }
 
 		//","
@@ -425,7 +425,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MultiValueField:
-	//	name=MultiValueFieldName "has" (values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC) ")");
+	//	name=MultiValueFieldName "has" (values+=NameWithWC | "(" values+=NameWithWC ("," values+=NameWithWC)* ")");
 	public MultiValueFieldElements getMultiValueFieldAccess() {
 		return (pMultiValueField != null) ? pMultiValueField : (pMultiValueField = new MultiValueFieldElements());
 	}

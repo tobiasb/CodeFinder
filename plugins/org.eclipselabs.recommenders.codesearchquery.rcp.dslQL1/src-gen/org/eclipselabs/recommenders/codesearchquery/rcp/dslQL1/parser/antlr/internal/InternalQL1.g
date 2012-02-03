@@ -426,7 +426,7 @@ ruleMultiValueField returns [EObject current=null]
 	    }
 
 )
-))	otherlv_7=')' 
+))*	otherlv_7=')' 
     {
     	newLeafNode(otherlv_7, grammarAccess.getMultiValueFieldAccess().getRightParenthesisKeyword_2_1_3());
     }

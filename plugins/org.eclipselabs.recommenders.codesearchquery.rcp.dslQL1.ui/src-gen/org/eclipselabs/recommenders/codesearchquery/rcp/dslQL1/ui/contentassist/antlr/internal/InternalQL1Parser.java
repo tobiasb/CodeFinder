@@ -2564,29 +2564,47 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiValueField__Group_2_1__2__Impl"
-    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:911:1: rule__MultiValueField__Group_2_1__2__Impl : ( ( rule__MultiValueField__Group_2_1_2__0 ) ) ;
+    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:911:1: rule__MultiValueField__Group_2_1__2__Impl : ( ( rule__MultiValueField__Group_2_1_2__0 )* ) ;
     public final void rule__MultiValueField__Group_2_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:915:1: ( ( ( rule__MultiValueField__Group_2_1_2__0 ) ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:916:1: ( ( rule__MultiValueField__Group_2_1_2__0 ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:915:1: ( ( ( rule__MultiValueField__Group_2_1_2__0 )* ) )
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:916:1: ( ( rule__MultiValueField__Group_2_1_2__0 )* )
             {
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:916:1: ( ( rule__MultiValueField__Group_2_1_2__0 ) )
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:917:1: ( rule__MultiValueField__Group_2_1_2__0 )
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:916:1: ( ( rule__MultiValueField__Group_2_1_2__0 )* )
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:917:1: ( rule__MultiValueField__Group_2_1_2__0 )*
             {
              before(grammarAccess.getMultiValueFieldAccess().getGroup_2_1_2()); 
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:918:1: ( rule__MultiValueField__Group_2_1_2__0 )
-            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:918:2: rule__MultiValueField__Group_2_1_2__0
-            {
-            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__0_in_rule__MultiValueField__Group_2_1__2__Impl1855);
-            rule__MultiValueField__Group_2_1_2__0();
+            // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:918:1: ( rule__MultiValueField__Group_2_1_2__0 )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-            state._fsp--;
+                if ( (LA7_0==13) ) {
+                    alt7=1;
+                }
 
 
-            }
+                switch (alt7) {
+            	case 1 :
+            	    // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:918:2: rule__MultiValueField__Group_2_1_2__0
+            	    {
+            	    pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__0_in_rule__MultiValueField__Group_2_1__2__Impl1855);
+            	    rule__MultiValueField__Group_2_1_2__0();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
 
              after(grammarAccess.getMultiValueFieldAccess().getGroup_2_1_2()); 
 
@@ -2620,7 +2638,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:932:1: ( rule__MultiValueField__Group_2_1__3__Impl )
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:933:2: rule__MultiValueField__Group_2_1__3__Impl
             {
-            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1__3__Impl_in_rule__MultiValueField__Group_2_1__31885);
+            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1__3__Impl_in_rule__MultiValueField__Group_2_1__31886);
             rule__MultiValueField__Group_2_1__3__Impl();
 
             state._fsp--;
@@ -2657,7 +2675,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:945:1: ')'
             {
              before(grammarAccess.getMultiValueFieldAccess().getRightParenthesisKeyword_2_1_3()); 
-            match(input,17,FOLLOW_17_in_rule__MultiValueField__Group_2_1__3__Impl1913); 
+            match(input,17,FOLLOW_17_in_rule__MultiValueField__Group_2_1__3__Impl1914); 
              after(grammarAccess.getMultiValueFieldAccess().getRightParenthesisKeyword_2_1_3()); 
 
             }
@@ -2690,12 +2708,12 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:970:1: ( rule__MultiValueField__Group_2_1_2__0__Impl rule__MultiValueField__Group_2_1_2__1 )
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:971:2: rule__MultiValueField__Group_2_1_2__0__Impl rule__MultiValueField__Group_2_1_2__1
             {
-            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__0__Impl_in_rule__MultiValueField__Group_2_1_2__01952);
+            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__0__Impl_in_rule__MultiValueField__Group_2_1_2__01953);
             rule__MultiValueField__Group_2_1_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__1_in_rule__MultiValueField__Group_2_1_2__01955);
+            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__1_in_rule__MultiValueField__Group_2_1_2__01956);
             rule__MultiValueField__Group_2_1_2__1();
 
             state._fsp--;
@@ -2732,7 +2750,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:984:1: ','
             {
              before(grammarAccess.getMultiValueFieldAccess().getCommaKeyword_2_1_2_0()); 
-            match(input,13,FOLLOW_13_in_rule__MultiValueField__Group_2_1_2__0__Impl1983); 
+            match(input,13,FOLLOW_13_in_rule__MultiValueField__Group_2_1_2__0__Impl1984); 
              after(grammarAccess.getMultiValueFieldAccess().getCommaKeyword_2_1_2_0()); 
 
             }
@@ -2765,7 +2783,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1001:1: ( rule__MultiValueField__Group_2_1_2__1__Impl )
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1002:2: rule__MultiValueField__Group_2_1_2__1__Impl
             {
-            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__1__Impl_in_rule__MultiValueField__Group_2_1_2__12014);
+            pushFollow(FOLLOW_rule__MultiValueField__Group_2_1_2__1__Impl_in_rule__MultiValueField__Group_2_1_2__12015);
             rule__MultiValueField__Group_2_1_2__1__Impl();
 
             state._fsp--;
@@ -2805,7 +2823,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1015:1: ( rule__MultiValueField__ValuesAssignment_2_1_2_1 )
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1015:2: rule__MultiValueField__ValuesAssignment_2_1_2_1
             {
-            pushFollow(FOLLOW_rule__MultiValueField__ValuesAssignment_2_1_2_1_in_rule__MultiValueField__Group_2_1_2__1__Impl2041);
+            pushFollow(FOLLOW_rule__MultiValueField__ValuesAssignment_2_1_2_1_in_rule__MultiValueField__Group_2_1_2__1__Impl2042);
             rule__MultiValueField__ValuesAssignment_2_1_2_1();
 
             state._fsp--;
@@ -2845,12 +2863,12 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1033:1: ( rule__BooleanField__Group__0__Impl rule__BooleanField__Group__1 )
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1034:2: rule__BooleanField__Group__0__Impl rule__BooleanField__Group__1
             {
-            pushFollow(FOLLOW_rule__BooleanField__Group__0__Impl_in_rule__BooleanField__Group__02075);
+            pushFollow(FOLLOW_rule__BooleanField__Group__0__Impl_in_rule__BooleanField__Group__02076);
             rule__BooleanField__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__BooleanField__Group__1_in_rule__BooleanField__Group__02078);
+            pushFollow(FOLLOW_rule__BooleanField__Group__1_in_rule__BooleanField__Group__02079);
             rule__BooleanField__Group__1();
 
             state._fsp--;
@@ -2888,17 +2906,17 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             {
              before(grammarAccess.getBooleanFieldAccess().getNAssignment_0()); 
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1048:1: ( rule__BooleanField__NAssignment_0 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==28) ) {
-                alt7=1;
+            if ( (LA8_0==28) ) {
+                alt8=1;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1048:2: rule__BooleanField__NAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__BooleanField__NAssignment_0_in_rule__BooleanField__Group__0__Impl2105);
+                    pushFollow(FOLLOW_rule__BooleanField__NAssignment_0_in_rule__BooleanField__Group__0__Impl2106);
                     rule__BooleanField__NAssignment_0();
 
                     state._fsp--;
@@ -2941,7 +2959,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1062:1: ( rule__BooleanField__Group__1__Impl )
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1063:2: rule__BooleanField__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__BooleanField__Group__1__Impl_in_rule__BooleanField__Group__12136);
+            pushFollow(FOLLOW_rule__BooleanField__Group__1__Impl_in_rule__BooleanField__Group__12137);
             rule__BooleanField__Group__1__Impl();
 
             state._fsp--;
@@ -2981,7 +2999,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1076:1: ( rule__BooleanField__Alternatives_1 )
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1076:2: rule__BooleanField__Alternatives_1
             {
-            pushFollow(FOLLOW_rule__BooleanField__Alternatives_1_in_rule__BooleanField__Group__1__Impl2163);
+            pushFollow(FOLLOW_rule__BooleanField__Alternatives_1_in_rule__BooleanField__Group__1__Impl2164);
             rule__BooleanField__Alternatives_1();
 
             state._fsp--;
@@ -3025,7 +3043,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1097:1: ruleType
             {
              before(grammarAccess.getExp1Access().getTypeTypeParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleType_in_rule__Exp1__TypeAssignment_02202);
+            pushFollow(FOLLOW_ruleType_in_rule__Exp1__TypeAssignment_02203);
             ruleType();
 
             state._fsp--;
@@ -3066,7 +3084,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1112:1: ruleFieldExpr
             {
              before(grammarAccess.getExp1Access().getFieldExprFieldExprParserRuleCall_2_0()); 
-            pushFollow(FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_22233);
+            pushFollow(FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_22234);
             ruleFieldExpr();
 
             state._fsp--;
@@ -3107,7 +3125,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1127:1: ruleFieldExpr
             {
              before(grammarAccess.getExp1Access().getFieldExprFieldExprParserRuleCall_3_1_0()); 
-            pushFollow(FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_3_12264);
+            pushFollow(FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_3_12265);
             ruleFieldExpr();
 
             state._fsp--;
@@ -3152,7 +3170,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1144:1: 'Methods'
             {
              before(grammarAccess.getTypeAccess().getValueMethodsKeyword_0_0()); 
-            match(input,18,FOLLOW_18_in_rule__Type__ValueAssignment_02300); 
+            match(input,18,FOLLOW_18_in_rule__Type__ValueAssignment_02301); 
              after(grammarAccess.getTypeAccess().getValueMethodsKeyword_0_0()); 
 
             }
@@ -3197,7 +3215,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1167:1: 'Types'
             {
              before(grammarAccess.getTypeAccess().getMethodTypesKeyword_1_0()); 
-            match(input,19,FOLLOW_19_in_rule__Type__MethodAssignment_12344); 
+            match(input,19,FOLLOW_19_in_rule__Type__MethodAssignment_12345); 
              after(grammarAccess.getTypeAccess().getMethodTypesKeyword_1_0()); 
 
             }
@@ -3238,7 +3256,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1188:1: ruleSingleValueFieldName
             {
              before(grammarAccess.getSingleValueFieldAccess().getNameSingleValueFieldNameParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleSingleValueFieldName_in_rule__SingleValueField__NameAssignment_02383);
+            pushFollow(FOLLOW_ruleSingleValueFieldName_in_rule__SingleValueField__NameAssignment_02384);
             ruleSingleValueFieldName();
 
             state._fsp--;
@@ -3279,7 +3297,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1203:1: ruleNegation
             {
              before(grammarAccess.getSingleValueFieldAccess().getNNegationParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleNegation_in_rule__SingleValueField__NAssignment_12414);
+            pushFollow(FOLLOW_ruleNegation_in_rule__SingleValueField__NAssignment_12415);
             ruleNegation();
 
             state._fsp--;
@@ -3320,7 +3338,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1218:1: RULE_NAMEWITHWC
             {
              before(grammarAccess.getSingleValueFieldAccess().getValueNameWithWCTerminalRuleCall_3_0()); 
-            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__SingleValueField__ValueAssignment_32445); 
+            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__SingleValueField__ValueAssignment_32446); 
              after(grammarAccess.getSingleValueFieldAccess().getValueNameWithWCTerminalRuleCall_3_0()); 
 
             }
@@ -3357,7 +3375,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1233:1: ruleMultiValueFieldName
             {
              before(grammarAccess.getMultiValueFieldAccess().getNameMultiValueFieldNameParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleMultiValueFieldName_in_rule__MultiValueField__NameAssignment_02476);
+            pushFollow(FOLLOW_ruleMultiValueFieldName_in_rule__MultiValueField__NameAssignment_02477);
             ruleMultiValueFieldName();
 
             state._fsp--;
@@ -3398,7 +3416,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1248:1: RULE_NAMEWITHWC
             {
              before(grammarAccess.getMultiValueFieldAccess().getValuesNameWithWCTerminalRuleCall_2_0_0()); 
-            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_02507); 
+            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_02508); 
              after(grammarAccess.getMultiValueFieldAccess().getValuesNameWithWCTerminalRuleCall_2_0_0()); 
 
             }
@@ -3435,7 +3453,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1263:1: RULE_NAMEWITHWC
             {
              before(grammarAccess.getMultiValueFieldAccess().getValuesNameWithWCTerminalRuleCall_2_1_1_0()); 
-            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_12538); 
+            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_12539); 
              after(grammarAccess.getMultiValueFieldAccess().getValuesNameWithWCTerminalRuleCall_2_1_1_0()); 
 
             }
@@ -3472,7 +3490,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1278:1: RULE_NAMEWITHWC
             {
              before(grammarAccess.getMultiValueFieldAccess().getValuesNameWithWCTerminalRuleCall_2_1_2_1_0()); 
-            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_2_12569); 
+            match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_2_12570); 
              after(grammarAccess.getMultiValueFieldAccess().getValuesNameWithWCTerminalRuleCall_2_1_2_1_0()); 
 
             }
@@ -3509,7 +3527,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1293:1: ruleNegation
             {
              before(grammarAccess.getBooleanFieldAccess().getNNegationParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_ruleNegation_in_rule__BooleanField__NAssignment_02600);
+            pushFollow(FOLLOW_ruleNegation_in_rule__BooleanField__NAssignment_02601);
             ruleNegation();
 
             state._fsp--;
@@ -3554,7 +3572,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1310:1: 'IsStatic'
             {
              before(grammarAccess.getBooleanFieldAccess().getValueIsStaticKeyword_1_0_0()); 
-            match(input,20,FOLLOW_20_in_rule__BooleanField__ValueAssignment_1_02636); 
+            match(input,20,FOLLOW_20_in_rule__BooleanField__ValueAssignment_1_02637); 
              after(grammarAccess.getBooleanFieldAccess().getValueIsStaticKeyword_1_0_0()); 
 
             }
@@ -3599,7 +3617,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1333:1: 'IsPrivate'
             {
              before(grammarAccess.getBooleanFieldAccess().getValueIsPrivateKeyword_1_1_0()); 
-            match(input,21,FOLLOW_21_in_rule__BooleanField__ValueAssignment_1_12680); 
+            match(input,21,FOLLOW_21_in_rule__BooleanField__ValueAssignment_1_12681); 
              after(grammarAccess.getBooleanFieldAccess().getValueIsPrivateKeyword_1_1_0()); 
 
             }
@@ -3644,7 +3662,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1356:1: 'IsPublic'
             {
              before(grammarAccess.getBooleanFieldAccess().getValueIsPublicKeyword_1_2_0()); 
-            match(input,22,FOLLOW_22_in_rule__BooleanField__ValueAssignment_1_22724); 
+            match(input,22,FOLLOW_22_in_rule__BooleanField__ValueAssignment_1_22725); 
              after(grammarAccess.getBooleanFieldAccess().getValueIsPublicKeyword_1_2_0()); 
 
             }
@@ -3689,7 +3707,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1379:1: 'IsFinal'
             {
              before(grammarAccess.getBooleanFieldAccess().getValueIsFinalKeyword_1_3_0()); 
-            match(input,23,FOLLOW_23_in_rule__BooleanField__ValueAssignment_1_32768); 
+            match(input,23,FOLLOW_23_in_rule__BooleanField__ValueAssignment_1_32769); 
              after(grammarAccess.getBooleanFieldAccess().getValueIsFinalKeyword_1_3_0()); 
 
             }
@@ -3734,7 +3752,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1402:1: 'IsAbstract'
             {
              before(grammarAccess.getBooleanFieldAccess().getValueIsAbstractKeyword_1_4_0()); 
-            match(input,24,FOLLOW_24_in_rule__BooleanField__ValueAssignment_1_42812); 
+            match(input,24,FOLLOW_24_in_rule__BooleanField__ValueAssignment_1_42813); 
              after(grammarAccess.getBooleanFieldAccess().getValueIsAbstractKeyword_1_4_0()); 
 
             }
@@ -3779,7 +3797,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1425:1: 'IsProtected'
             {
              before(grammarAccess.getBooleanFieldAccess().getValueIsProtectedKeyword_1_5_0()); 
-            match(input,25,FOLLOW_25_in_rule__BooleanField__ValueAssignment_1_52856); 
+            match(input,25,FOLLOW_25_in_rule__BooleanField__ValueAssignment_1_52857); 
              after(grammarAccess.getBooleanFieldAccess().getValueIsProtectedKeyword_1_5_0()); 
 
             }
@@ -3824,7 +3842,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1448:1: 'Name'
             {
              before(grammarAccess.getSingleValueFieldNameAccess().getValueNameKeyword_0()); 
-            match(input,26,FOLLOW_26_in_rule__SingleValueFieldName__ValueAssignment2900); 
+            match(input,26,FOLLOW_26_in_rule__SingleValueFieldName__ValueAssignment2901); 
              after(grammarAccess.getSingleValueFieldNameAccess().getValueNameKeyword_0()); 
 
             }
@@ -3869,7 +3887,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1471:1: 'CalledMethods'
             {
              before(grammarAccess.getMultiValueFieldNameAccess().getValueCalledMethodsKeyword_0()); 
-            match(input,27,FOLLOW_27_in_rule__MultiValueFieldName__ValueAssignment2944); 
+            match(input,27,FOLLOW_27_in_rule__MultiValueFieldName__ValueAssignment2945); 
              after(grammarAccess.getMultiValueFieldNameAccess().getValueCalledMethodsKeyword_0()); 
 
             }
@@ -3914,7 +3932,7 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
             // ../org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui/src-gen/org/eclipselabs/recommenders/codesearchquery/rcp/dslQL1/ui/contentassist/antlr/internal/InternalQL1.g:1494:1: '!'
             {
              before(grammarAccess.getNegationAccess().getValueExclamationMarkKeyword_0()); 
-            match(input,28,FOLLOW_28_in_rule__Negation__ValueAssignment2988); 
+            match(input,28,FOLLOW_28_in_rule__Negation__ValueAssignment2989); 
              after(grammarAccess.getNegationAccess().getValueExclamationMarkKeyword_0()); 
 
             }
@@ -4023,45 +4041,45 @@ public class InternalQL1Parser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__0__Impl_in_rule__MultiValueField__Group_2_1__01703 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__1_in_rule__MultiValueField__Group_2_1__01706 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_16_in_rule__MultiValueField__Group_2_1__0__Impl1734 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__1__Impl_in_rule__MultiValueField__Group_2_1__11765 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__1__Impl_in_rule__MultiValueField__Group_2_1__11765 = new BitSet(new long[]{0x0000000000022000L});
     public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__2_in_rule__MultiValueField__Group_2_1__11768 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__MultiValueField__ValuesAssignment_2_1_1_in_rule__MultiValueField__Group_2_1__1__Impl1795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__2__Impl_in_rule__MultiValueField__Group_2_1__21825 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__2__Impl_in_rule__MultiValueField__Group_2_1__21825 = new BitSet(new long[]{0x0000000000022000L});
     public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__3_in_rule__MultiValueField__Group_2_1__21828 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__0_in_rule__MultiValueField__Group_2_1__2__Impl1855 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__3__Impl_in_rule__MultiValueField__Group_2_1__31885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__MultiValueField__Group_2_1__3__Impl1913 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__0__Impl_in_rule__MultiValueField__Group_2_1_2__01952 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__1_in_rule__MultiValueField__Group_2_1_2__01955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__MultiValueField__Group_2_1_2__0__Impl1983 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__1__Impl_in_rule__MultiValueField__Group_2_1_2__12014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MultiValueField__ValuesAssignment_2_1_2_1_in_rule__MultiValueField__Group_2_1_2__1__Impl2041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BooleanField__Group__0__Impl_in_rule__BooleanField__Group__02075 = new BitSet(new long[]{0x000000001FF00000L});
-    public static final BitSet FOLLOW_rule__BooleanField__Group__1_in_rule__BooleanField__Group__02078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BooleanField__NAssignment_0_in_rule__BooleanField__Group__0__Impl2105 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BooleanField__Group__1__Impl_in_rule__BooleanField__Group__12136 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__BooleanField__Alternatives_1_in_rule__BooleanField__Group__1__Impl2163 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_rule__Exp1__TypeAssignment_02202 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_22233 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_3_12264 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Type__ValueAssignment_02300 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Type__MethodAssignment_12344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSingleValueFieldName_in_rule__SingleValueField__NameAssignment_02383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNegation_in_rule__SingleValueField__NAssignment_12414 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__SingleValueField__ValueAssignment_32445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultiValueFieldName_in_rule__MultiValueField__NameAssignment_02476 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_02507 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_12538 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_2_12569 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNegation_in_rule__BooleanField__NAssignment_02600 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__BooleanField__ValueAssignment_1_02636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__BooleanField__ValueAssignment_1_12680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__BooleanField__ValueAssignment_1_22724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__BooleanField__ValueAssignment_1_32768 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__BooleanField__ValueAssignment_1_42812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rule__BooleanField__ValueAssignment_1_52856 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rule__SingleValueFieldName__ValueAssignment2900 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__MultiValueFieldName__ValueAssignment2944 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rule__Negation__ValueAssignment2988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__0_in_rule__MultiValueField__Group_2_1__2__Impl1855 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1__3__Impl_in_rule__MultiValueField__Group_2_1__31886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__MultiValueField__Group_2_1__3__Impl1914 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__0__Impl_in_rule__MultiValueField__Group_2_1_2__01953 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__1_in_rule__MultiValueField__Group_2_1_2__01956 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__MultiValueField__Group_2_1_2__0__Impl1984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultiValueField__Group_2_1_2__1__Impl_in_rule__MultiValueField__Group_2_1_2__12015 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MultiValueField__ValuesAssignment_2_1_2_1_in_rule__MultiValueField__Group_2_1_2__1__Impl2042 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BooleanField__Group__0__Impl_in_rule__BooleanField__Group__02076 = new BitSet(new long[]{0x000000001FF00000L});
+    public static final BitSet FOLLOW_rule__BooleanField__Group__1_in_rule__BooleanField__Group__02079 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BooleanField__NAssignment_0_in_rule__BooleanField__Group__0__Impl2106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BooleanField__Group__1__Impl_in_rule__BooleanField__Group__12137 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__BooleanField__Alternatives_1_in_rule__BooleanField__Group__1__Impl2164 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_rule__Exp1__TypeAssignment_02203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_22234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFieldExpr_in_rule__Exp1__FieldExprAssignment_3_12265 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Type__ValueAssignment_02301 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Type__MethodAssignment_12345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSingleValueFieldName_in_rule__SingleValueField__NameAssignment_02384 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNegation_in_rule__SingleValueField__NAssignment_12415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__SingleValueField__ValueAssignment_32446 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultiValueFieldName_in_rule__MultiValueField__NameAssignment_02477 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_02508 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_12539 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__MultiValueField__ValuesAssignment_2_1_2_12570 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNegation_in_rule__BooleanField__NAssignment_02601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__BooleanField__ValueAssignment_1_02637 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__BooleanField__ValueAssignment_1_12681 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__BooleanField__ValueAssignment_1_22725 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__BooleanField__ValueAssignment_1_32769 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__BooleanField__ValueAssignment_1_42813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__BooleanField__ValueAssignment_1_52857 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_rule__SingleValueFieldName__ValueAssignment2901 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__MultiValueFieldName__ValueAssignment2945 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__Negation__ValueAssignment2989 = new BitSet(new long[]{0x0000000000000002L});
 
 }
