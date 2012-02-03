@@ -431,4 +431,9 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
     }
 
+    @Override
+    public void setSearchEnabled(boolean value) {
+        triggerSearchButton.setEnabled(value);
+    }
+
 }

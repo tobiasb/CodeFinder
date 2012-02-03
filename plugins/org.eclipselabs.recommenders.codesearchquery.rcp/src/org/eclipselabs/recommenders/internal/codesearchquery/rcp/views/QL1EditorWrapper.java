@@ -51,6 +51,9 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
         // keep the partialEditor as instance var to read / write the edited
         // text
         partialEditor = handle.createPartialEditor(true);
+
+        searchView.setSearchEnabled(false); // No translation to lucene query
+                                            // yet :-(
     }
 
     @Override

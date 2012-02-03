@@ -23,9 +23,9 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui.internal.LuceneQu
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.CodeSearcherIndex;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.DocumentTypeProposalProvider;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.GenericQueryProposalProvider;
+import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.LuceneSearchTermExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.ModifierQueryProposalProvider;
-import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationMethodConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.DotNotationTypeConverter;
 import org.eclipselabs.recommenders.codesearchquery.rcp.searcher.converter.PathValueConverter;
@@ -101,6 +101,8 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
         // // no constraints...
         // }
         // });
+
+        searchView.setSearchEnabled(true);
     }
 
     @Override
