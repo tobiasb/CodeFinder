@@ -24,62 +24,34 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/values"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//SimpleField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/FullyQualifiedName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/FriendlyName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/ReturnVariableExpressions"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/AllDeclaredMethodNames"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/DeclaredMethodNames"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/DeclaredFieldNames"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/AllDeclaredFieldNames"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/FullText"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/FieldsRead"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/FieldsWritten"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/UsedFieldsInFinally"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/UsedFieldsInTry"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//TypeField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/ImplementedTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/ExtendedTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/UsedTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/UsedTypesInTry"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/UsedTypesInFinally"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/ParameterTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/ReturnType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/InstanceofTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/AllImplementedTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/AllExtendedTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/FieldType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/CaughtType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/DeclaredFieldTypes"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/DeclaringType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TypeField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//MethodField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/UsedMethods"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/UsedMethodsInTry"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/UsedMethodsInFinally"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/OverriddenMethods"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/DeclaredMethods"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//MethodField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//FilePathField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FilePathField/ResourcePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//FilePathField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//NumberField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//NumberField/ParameterCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//NumberField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//ModifierField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ModifierField/Modifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ModifierField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//TimeField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TimeField/Timestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TimeField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//DocumentTypeField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DocumentTypeField/Type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DocumentTypeField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//ProjectNameField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ProjectNameField/ProjectName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ProjectNameField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//AnnotationField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//AnnotationField/Annotations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//AnnotationField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//Exp1">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Exp1/left"/>

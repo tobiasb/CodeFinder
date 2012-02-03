@@ -23,7 +23,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Modifier
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ModifierFieldImpl#getModifiers <em>Modifiers</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ModifierFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +32,24 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Modifier
 public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements ModifierField
 {
   /**
-   * The default value of the '{@link #getModifiers() <em>Modifiers</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModifiers()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String MODIFIERS_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getModifiers() <em>Modifiers</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModifiers()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String modifiers = MODIFIERS_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,9 +77,9 @@ public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getModifiers()
+  public String getValue()
   {
-    return modifiers;
+    return value;
   }
 
   /**
@@ -87,12 +87,12 @@ public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setModifiers(String newModifiers)
+  public void setValue(String newValue)
   {
-    String oldModifiers = modifiers;
-    modifiers = newModifiers;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.MODIFIER_FIELD__MODIFIERS, oldModifiers, modifiers));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.MODIFIER_FIELD__VALUE, oldValue, value));
   }
 
   /**
@@ -105,8 +105,8 @@ public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.MODIFIER_FIELD__MODIFIERS:
-        return getModifiers();
+      case LuceneQueryPackage.MODIFIER_FIELD__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.MODIFIER_FIELD__MODIFIERS:
-        setModifiers((String)newValue);
+      case LuceneQueryPackage.MODIFIER_FIELD__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.MODIFIER_FIELD__MODIFIERS:
-        setModifiers(MODIFIERS_EDEFAULT);
+      case LuceneQueryPackage.MODIFIER_FIELD__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements M
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.MODIFIER_FIELD__MODIFIERS:
-        return MODIFIERS_EDEFAULT == null ? modifiers != null : !MODIFIERS_EDEFAULT.equals(modifiers);
+      case LuceneQueryPackage.MODIFIER_FIELD__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +172,8 @@ public class ModifierFieldImpl extends MinimalEObjectImpl.Container implements M
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (Modifiers: ");
-    result.append(modifiers);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

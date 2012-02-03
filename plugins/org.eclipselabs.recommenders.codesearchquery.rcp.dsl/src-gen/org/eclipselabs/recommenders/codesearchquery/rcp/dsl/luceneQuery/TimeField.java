@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getTimestamp <em>Timestamp</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,29 +27,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface TimeField extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Timestamp</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Timestamp</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Timestamp</em>' attribute.
-   * @see #setTimestamp(String)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getTimeField_Timestamp()
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getTimeField_Value()
    * @model
    * @generated
    */
-  String getTimestamp();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getTimestamp <em>Timestamp</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Timestamp</em>' attribute.
-   * @see #getTimestamp()
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
    * @generated
    */
-  void setTimestamp(String value);
+  void setValue(String value);
 
 } // TimeField

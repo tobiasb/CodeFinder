@@ -27,22 +27,85 @@ public interface QL1Factory extends EFactory
   QL1Factory eINSTANCE = org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.impl.QL1FactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Exp1</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Exp1</em>'.
    * @generated
    */
-  Model createModel();
+  Exp1 createExp1();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>Field Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>Field Expr</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  FieldExpr createFieldExpr();
+
+  /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
+   * Returns a new object of class '<em>Single Value Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Single Value Field</em>'.
+   * @generated
+   */
+  SingleValueField createSingleValueField();
+
+  /**
+   * Returns a new object of class '<em>Multi Value Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multi Value Field</em>'.
+   * @generated
+   */
+  MultiValueField createMultiValueField();
+
+  /**
+   * Returns a new object of class '<em>Boolean Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Field</em>'.
+   * @generated
+   */
+  BooleanField createBooleanField();
+
+  /**
+   * Returns a new object of class '<em>Single Value Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Single Value Field Name</em>'.
+   * @generated
+   */
+  SingleValueFieldName createSingleValueFieldName();
+
+  /**
+   * Returns a new object of class '<em>Multi Value Field Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multi Value Field Name</em>'.
+   * @generated
+   */
+  MultiValueFieldName createMultiValueFieldName();
+
+  /**
+   * Returns a new object of class '<em>Negation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Negation</em>'.
+   * @generated
+   */
+  Negation createNegation();
 
   /**
    * Returns the package supported by this factory.

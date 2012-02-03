@@ -13,9 +13,15 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.Greeting;
-import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.Model;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.BooleanField;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.Exp1;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.MultiValueField;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.MultiValueFieldName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.Negation;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.QL1Package;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.SingleValueField;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.SingleValueFieldName;
+import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.qL1.Type;
 import org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.services.QL1GrammarAccess;
 
 @SuppressWarnings("restriction")
@@ -46,15 +52,54 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == QL1Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case QL1Package.GREETING:
-				if(context == grammarAccess.getGreetingRule()) {
-					sequence_Greeting(context, (Greeting) semanticObject); 
+			case QL1Package.BOOLEAN_FIELD:
+				if(context == grammarAccess.getBooleanFieldRule() ||
+				   context == grammarAccess.getFieldExprRule()) {
+					sequence_BooleanField(context, (BooleanField) semanticObject); 
 					return; 
 				}
 				else break;
-			case QL1Package.MODEL:
-				if(context == grammarAccess.getModelRule()) {
-					sequence_Model(context, (Model) semanticObject); 
+			case QL1Package.EXP1:
+				if(context == grammarAccess.getExp1Rule()) {
+					sequence_Exp1(context, (Exp1) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.MULTI_VALUE_FIELD:
+				if(context == grammarAccess.getFieldExprRule() ||
+				   context == grammarAccess.getMultiValueFieldRule()) {
+					sequence_MultiValueField(context, (MultiValueField) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.MULTI_VALUE_FIELD_NAME:
+				if(context == grammarAccess.getMultiValueFieldNameRule()) {
+					sequence_MultiValueFieldName(context, (MultiValueFieldName) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.NEGATION:
+				if(context == grammarAccess.getNegationRule()) {
+					sequence_Negation(context, (Negation) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.SINGLE_VALUE_FIELD:
+				if(context == grammarAccess.getFieldExprRule() ||
+				   context == grammarAccess.getSingleValueFieldRule()) {
+					sequence_SingleValueField(context, (SingleValueField) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.SINGLE_VALUE_FIELD_NAME:
+				if(context == grammarAccess.getSingleValueFieldNameRule()) {
+					sequence_SingleValueFieldName(context, (SingleValueFieldName) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.TYPE:
+				if(context == grammarAccess.getTypeRule()) {
+					sequence_Type(context, (Type) semanticObject); 
 					return; 
 				}
 				else break;
@@ -64,25 +109,103 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     (
+	 *         n=Negation? 
+	 *         (
+	 *             value='IsStatic' | 
+	 *             value='IsPrivate' | 
+	 *             value='IsPublic' | 
+	 *             value='IsFinal' | 
+	 *             value='IsAbstract' | 
+	 *             value='IsProtected'
+	 *         )
+	 *     )
 	 */
-	protected void sequence_Greeting(EObject context, Greeting semanticObject) {
+	protected void sequence_BooleanField(EObject context, BooleanField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=Type fieldExpr+=FieldExpr fieldExpr+=FieldExpr*)
+	 */
+	protected void sequence_Exp1(EObject context, Exp1 semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value='CalledMethods'
+	 */
+	protected void sequence_MultiValueFieldName(EObject context, MultiValueFieldName semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.GREETING__NAME));
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.MULTI_VALUE_FIELD_NAME__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.MULTI_VALUE_FIELD_NAME__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMultiValueFieldNameAccess().getValueCalledMethodsKeyword_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     greetings+=Greeting*
+	 *     (name=MultiValueFieldName (values+=NameWithWC | (values+=NameWithWC values+=NameWithWC)))
 	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
+	protected void sequence_MultiValueField(EObject context, MultiValueField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value='!'
+	 */
+	protected void sequence_Negation(EObject context, Negation semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.NEGATION__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.NEGATION__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getNegationAccess().getValueExclamationMarkKeyword_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value='Name'
+	 */
+	protected void sequence_SingleValueFieldName(EObject context, SingleValueFieldName semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.SINGLE_VALUE_FIELD_NAME__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.SINGLE_VALUE_FIELD_NAME__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSingleValueFieldNameAccess().getValueNameKeyword_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=SingleValueFieldName n=Negation? value=NameWithWC)
+	 */
+	protected void sequence_SingleValueField(EObject context, SingleValueField semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (value='Methods' | method='Types')
+	 */
+	protected void sequence_Type(EObject context, Type semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 }

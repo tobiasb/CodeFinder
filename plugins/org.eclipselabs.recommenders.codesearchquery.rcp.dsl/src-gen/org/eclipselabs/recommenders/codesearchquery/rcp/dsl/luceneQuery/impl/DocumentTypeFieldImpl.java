@@ -23,7 +23,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +32,24 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
 public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implements DocumentTypeField
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String type = TYPE_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,9 +77,9 @@ public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
+  public String getValue()
   {
-    return type;
+    return value;
   }
 
   /**
@@ -87,12 +87,12 @@ public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(String newType)
+  public void setValue(String newValue)
   {
-    String oldType = type;
-    type = newType;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.DOCUMENT_TYPE_FIELD__TYPE, oldType, type));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.DOCUMENT_TYPE_FIELD__VALUE, oldValue, value));
   }
 
   /**
@@ -105,8 +105,8 @@ public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__TYPE:
-        return getType();
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__TYPE:
-        setType((String)newValue);
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__TYPE:
-        setType(TYPE_EDEFAULT);
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +172,8 @@ public class DocumentTypeFieldImpl extends MinimalEObjectImpl.Container implemen
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (Type: ");
-    result.append(type);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

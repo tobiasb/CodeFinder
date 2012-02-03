@@ -51,7 +51,7 @@ class LuceneFieldsGenerator implements IGenerator {
 	//Generated Rule. Do not modify!
 	«category.categoryName»:
 		«FOR field : category.fields»
-			«if(!b.value){'| '}»	«field.value»='«field.value»'
+			«if(!b.value){'| '}»	value='«field.value»'
 			«b.setValue(false)»
 		«ENDFOR»
 	;

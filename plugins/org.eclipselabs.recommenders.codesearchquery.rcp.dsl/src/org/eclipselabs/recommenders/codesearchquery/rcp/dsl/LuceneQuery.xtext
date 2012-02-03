@@ -15,9 +15,9 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 	Exp2 returns Expression:
 	 value=ClauseExpression | (UnaryExpression? '(' Exp1 ')' Boost?);
 	 
-	/*
-		The following rules are generated. Do not modify. Modify source file instead.
-	*/
+/*
+	The following rules are generated. Do not modify. Modify source file instead.
+*/
 
 	//Generated Rule. Do not modify!
 	ClauseExpression:
@@ -101,80 +101,80 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearchquery/rc
 
 	//Generated Rule. Do not modify!
 	SimpleField:
-			FullyQualifiedName='FullyQualifiedName'
-		| 	FriendlyName='FriendlyName'
-		| 	ReturnVariableExpressions='ReturnVariableExpressions'
-		| 	AllDeclaredMethodNames='AllDeclaredMethodNames'
-		| 	DeclaredMethodNames='DeclaredMethodNames'
-		| 	DeclaredFieldNames='DeclaredFieldNames'
-		| 	AllDeclaredFieldNames='AllDeclaredFieldNames'
-		| 	FullText='FullText'
-		| 	FieldsRead='FieldsRead'
-		| 	FieldsWritten='FieldsWritten'
-		| 	UsedFieldsInFinally='UsedFieldsInFinally'
-		| 	UsedFieldsInTry='UsedFieldsInTry'
+			value='FullyQualifiedName'
+		| 	value='FriendlyName'
+		| 	value='ReturnVariableExpressions'
+		| 	value='AllDeclaredMethodNames'
+		| 	value='DeclaredMethodNames'
+		| 	value='DeclaredFieldNames'
+		| 	value='AllDeclaredFieldNames'
+		| 	value='FullText'
+		| 	value='FieldsRead'
+		| 	value='FieldsWritten'
+		| 	value='UsedFieldsInFinally'
+		| 	value='UsedFieldsInTry'
 	;
 	
 	//Generated Rule. Do not modify!
 	TypeField:
-			ImplementedTypes='ImplementedTypes'
-		| 	ExtendedTypes='ExtendedTypes'
-		| 	UsedTypes='UsedTypes'
-		| 	UsedTypesInTry='UsedTypesInTry'
-		| 	UsedTypesInFinally='UsedTypesInFinally'
-		| 	ParameterTypes='ParameterTypes'
-		| 	ReturnType='ReturnType'
-		| 	InstanceofTypes='InstanceofTypes'
-		| 	AllImplementedTypes='AllImplementedTypes'
-		| 	AllExtendedTypes='AllExtendedTypes'
-		| 	FieldType='FieldType'
-		| 	CaughtType='CaughtType'
-		| 	DeclaredFieldTypes='DeclaredFieldTypes'
-		| 	DeclaringType='DeclaringType'
+			value='ImplementedTypes'
+		| 	value='ExtendedTypes'
+		| 	value='UsedTypes'
+		| 	value='UsedTypesInTry'
+		| 	value='UsedTypesInFinally'
+		| 	value='ParameterTypes'
+		| 	value='ReturnType'
+		| 	value='InstanceofTypes'
+		| 	value='AllImplementedTypes'
+		| 	value='AllExtendedTypes'
+		| 	value='FieldType'
+		| 	value='CaughtType'
+		| 	value='DeclaredFieldTypes'
+		| 	value='DeclaringType'
 	;
 	
 	//Generated Rule. Do not modify!
 	MethodField:
-			UsedMethods='UsedMethods'
-		| 	UsedMethodsInTry='UsedMethodsInTry'
-		| 	UsedMethodsInFinally='UsedMethodsInFinally'
-		| 	OverriddenMethods='OverriddenMethods'
-		| 	DeclaredMethods='DeclaredMethods'
+			value='UsedMethods'
+		| 	value='UsedMethodsInTry'
+		| 	value='UsedMethodsInFinally'
+		| 	value='OverriddenMethods'
+		| 	value='DeclaredMethods'
 	;
 	
 	//Generated Rule. Do not modify!
 	FilePathField:
-			ResourcePath='ResourcePath'
+			value='ResourcePath'
 	;
 	
 	//Generated Rule. Do not modify!
 	NumberField:
-			ParameterCount='ParameterCount'
+			value='ParameterCount'
 	;
 	
 	//Generated Rule. Do not modify!
 	ModifierField:
-			Modifiers='Modifiers'
+			value='Modifiers'
 	;
 	
 	//Generated Rule. Do not modify!
 	TimeField:
-			Timestamp='Timestamp'
+			value='Timestamp'
 	;
 	
 	//Generated Rule. Do not modify!
 	DocumentTypeField:
-			Type='Type'
+			value='Type'
 	;
 	
 	//Generated Rule. Do not modify!
 	ProjectNameField:
-			ProjectName='ProjectName'
+			value='ProjectName'
 	;
 	
 	//Generated Rule. Do not modify!
 	AnnotationField:
-			Annotations='Annotations'
+			value='Annotations'
 	;
 	
 	/*

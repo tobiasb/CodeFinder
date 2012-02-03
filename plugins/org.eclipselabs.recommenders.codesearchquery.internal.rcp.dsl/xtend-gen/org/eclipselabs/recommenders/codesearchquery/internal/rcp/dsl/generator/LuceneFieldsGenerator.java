@@ -151,12 +151,9 @@ public class LuceneFieldsGenerator implements IGenerator {
                 _xifexpression_1 = "| ";
               }
               _builder.append(_xifexpression_1, "		");
-              _builder.append("\t");
+              _builder.append("\tvalue=\'");
               String _value_1 = field.getValue();
               _builder.append(_value_1, "		");
-              _builder.append("=\'");
-              String _value_2 = field.getValue();
-              _builder.append(_value_2, "		");
               _builder.append("\'");
               _builder.newLineIfNotEmpty();
               _builder.append("\t");

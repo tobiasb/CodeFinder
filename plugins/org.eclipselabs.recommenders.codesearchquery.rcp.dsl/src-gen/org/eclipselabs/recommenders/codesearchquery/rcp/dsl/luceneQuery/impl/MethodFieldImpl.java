@@ -23,11 +23,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodFi
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getUsedMethods <em>Used Methods</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getUsedMethodsInTry <em>Used Methods In Try</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getUsedMethodsInFinally <em>Used Methods In Finally</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getOverriddenMethods <em>Overridden Methods</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getDeclaredMethods <em>Declared Methods</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,104 +32,24 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodFi
 public class MethodFieldImpl extends MinimalEObjectImpl.Container implements MethodField
 {
   /**
-   * The default value of the '{@link #getUsedMethods() <em>Used Methods</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUsedMethods()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String USED_METHODS_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getUsedMethods() <em>Used Methods</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getUsedMethods()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String usedMethods = USED_METHODS_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getUsedMethodsInTry() <em>Used Methods In Try</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUsedMethodsInTry()
-   * @generated
-   * @ordered
-   */
-  protected static final String USED_METHODS_IN_TRY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getUsedMethodsInTry() <em>Used Methods In Try</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUsedMethodsInTry()
-   * @generated
-   * @ordered
-   */
-  protected String usedMethodsInTry = USED_METHODS_IN_TRY_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getUsedMethodsInFinally() <em>Used Methods In Finally</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUsedMethodsInFinally()
-   * @generated
-   * @ordered
-   */
-  protected static final String USED_METHODS_IN_FINALLY_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getUsedMethodsInFinally() <em>Used Methods In Finally</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getUsedMethodsInFinally()
-   * @generated
-   * @ordered
-   */
-  protected String usedMethodsInFinally = USED_METHODS_IN_FINALLY_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getOverriddenMethods() <em>Overridden Methods</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOverriddenMethods()
-   * @generated
-   * @ordered
-   */
-  protected static final String OVERRIDDEN_METHODS_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOverriddenMethods() <em>Overridden Methods</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOverriddenMethods()
-   * @generated
-   * @ordered
-   */
-  protected String overriddenMethods = OVERRIDDEN_METHODS_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDeclaredMethods() <em>Declared Methods</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeclaredMethods()
-   * @generated
-   * @ordered
-   */
-  protected static final String DECLARED_METHODS_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDeclaredMethods() <em>Declared Methods</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDeclaredMethods()
-   * @generated
-   * @ordered
-   */
-  protected String declaredMethods = DECLARED_METHODS_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -161,9 +77,9 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getUsedMethods()
+  public String getValue()
   {
-    return usedMethods;
+    return value;
   }
 
   /**
@@ -171,104 +87,12 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setUsedMethods(String newUsedMethods)
+  public void setValue(String newValue)
   {
-    String oldUsedMethods = usedMethods;
-    usedMethods = newUsedMethods;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.METHOD_FIELD__USED_METHODS, oldUsedMethods, usedMethods));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getUsedMethodsInTry()
-  {
-    return usedMethodsInTry;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUsedMethodsInTry(String newUsedMethodsInTry)
-  {
-    String oldUsedMethodsInTry = usedMethodsInTry;
-    usedMethodsInTry = newUsedMethodsInTry;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_TRY, oldUsedMethodsInTry, usedMethodsInTry));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getUsedMethodsInFinally()
-  {
-    return usedMethodsInFinally;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setUsedMethodsInFinally(String newUsedMethodsInFinally)
-  {
-    String oldUsedMethodsInFinally = usedMethodsInFinally;
-    usedMethodsInFinally = newUsedMethodsInFinally;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_FINALLY, oldUsedMethodsInFinally, usedMethodsInFinally));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getOverriddenMethods()
-  {
-    return overriddenMethods;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOverriddenMethods(String newOverriddenMethods)
-  {
-    String oldOverriddenMethods = overriddenMethods;
-    overriddenMethods = newOverriddenMethods;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS, oldOverriddenMethods, overriddenMethods));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getDeclaredMethods()
-  {
-    return declaredMethods;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDeclaredMethods(String newDeclaredMethods)
-  {
-    String oldDeclaredMethods = declaredMethods;
-    declaredMethods = newDeclaredMethods;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS, oldDeclaredMethods, declaredMethods));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.METHOD_FIELD__VALUE, oldValue, value));
   }
 
   /**
@@ -281,16 +105,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS:
-        return getUsedMethods();
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_TRY:
-        return getUsedMethodsInTry();
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_FINALLY:
-        return getUsedMethodsInFinally();
-      case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
-        return getOverriddenMethods();
-      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
-        return getDeclaredMethods();
+      case LuceneQueryPackage.METHOD_FIELD__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -305,20 +121,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS:
-        setUsedMethods((String)newValue);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_TRY:
-        setUsedMethodsInTry((String)newValue);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_FINALLY:
-        setUsedMethodsInFinally((String)newValue);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
-        setOverriddenMethods((String)newValue);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
-        setDeclaredMethods((String)newValue);
+      case LuceneQueryPackage.METHOD_FIELD__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -334,20 +138,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS:
-        setUsedMethods(USED_METHODS_EDEFAULT);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_TRY:
-        setUsedMethodsInTry(USED_METHODS_IN_TRY_EDEFAULT);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_FINALLY:
-        setUsedMethodsInFinally(USED_METHODS_IN_FINALLY_EDEFAULT);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
-        setOverriddenMethods(OVERRIDDEN_METHODS_EDEFAULT);
-        return;
-      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
-        setDeclaredMethods(DECLARED_METHODS_EDEFAULT);
+      case LuceneQueryPackage.METHOD_FIELD__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -363,16 +155,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS:
-        return USED_METHODS_EDEFAULT == null ? usedMethods != null : !USED_METHODS_EDEFAULT.equals(usedMethods);
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_TRY:
-        return USED_METHODS_IN_TRY_EDEFAULT == null ? usedMethodsInTry != null : !USED_METHODS_IN_TRY_EDEFAULT.equals(usedMethodsInTry);
-      case LuceneQueryPackage.METHOD_FIELD__USED_METHODS_IN_FINALLY:
-        return USED_METHODS_IN_FINALLY_EDEFAULT == null ? usedMethodsInFinally != null : !USED_METHODS_IN_FINALLY_EDEFAULT.equals(usedMethodsInFinally);
-      case LuceneQueryPackage.METHOD_FIELD__OVERRIDDEN_METHODS:
-        return OVERRIDDEN_METHODS_EDEFAULT == null ? overriddenMethods != null : !OVERRIDDEN_METHODS_EDEFAULT.equals(overriddenMethods);
-      case LuceneQueryPackage.METHOD_FIELD__DECLARED_METHODS:
-        return DECLARED_METHODS_EDEFAULT == null ? declaredMethods != null : !DECLARED_METHODS_EDEFAULT.equals(declaredMethods);
+      case LuceneQueryPackage.METHOD_FIELD__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -388,16 +172,8 @@ public class MethodFieldImpl extends MinimalEObjectImpl.Container implements Met
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (UsedMethods: ");
-    result.append(usedMethods);
-    result.append(", UsedMethodsInTry: ");
-    result.append(usedMethodsInTry);
-    result.append(", UsedMethodsInFinally: ");
-    result.append(usedMethodsInFinally);
-    result.append(", OverriddenMethods: ");
-    result.append(overriddenMethods);
-    result.append(", DeclaredMethods: ");
-    result.append(declaredMethods);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

@@ -23,7 +23,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectN
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ProjectNameFieldImpl#getProjectName <em>Project Name</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ProjectNameFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +32,24 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectN
 public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implements ProjectNameField
 {
   /**
-   * The default value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProjectName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String PROJECT_NAME_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getProjectName() <em>Project Name</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProjectName()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String projectName = PROJECT_NAME_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,9 +77,9 @@ public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getProjectName()
+  public String getValue()
   {
-    return projectName;
+    return value;
   }
 
   /**
@@ -87,12 +87,12 @@ public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setProjectName(String newProjectName)
+  public void setValue(String newValue)
   {
-    String oldProjectName = projectName;
-    projectName = newProjectName;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.PROJECT_NAME_FIELD__PROJECT_NAME, oldProjectName, projectName));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.PROJECT_NAME_FIELD__VALUE, oldValue, value));
   }
 
   /**
@@ -105,8 +105,8 @@ public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.PROJECT_NAME_FIELD__PROJECT_NAME:
-        return getProjectName();
+      case LuceneQueryPackage.PROJECT_NAME_FIELD__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.PROJECT_NAME_FIELD__PROJECT_NAME:
-        setProjectName((String)newValue);
+      case LuceneQueryPackage.PROJECT_NAME_FIELD__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.PROJECT_NAME_FIELD__PROJECT_NAME:
-        setProjectName(PROJECT_NAME_EDEFAULT);
+      case LuceneQueryPackage.PROJECT_NAME_FIELD__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.PROJECT_NAME_FIELD__PROJECT_NAME:
-        return PROJECT_NAME_EDEFAULT == null ? projectName != null : !PROJECT_NAME_EDEFAULT.equals(projectName);
+      case LuceneQueryPackage.PROJECT_NAME_FIELD__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +172,8 @@ public class ProjectNameFieldImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (ProjectName: ");
-    result.append(projectName);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

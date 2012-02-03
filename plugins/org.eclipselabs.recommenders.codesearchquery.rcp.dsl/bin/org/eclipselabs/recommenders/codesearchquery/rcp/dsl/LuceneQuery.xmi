@@ -295,40 +295,40 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//SimpleField"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="FullyQualifiedName" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FullyQualifiedName"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="FriendlyName" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FriendlyName"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="ReturnVariableExpressions" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ReturnVariableExpressions"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="AllDeclaredMethodNames" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="AllDeclaredMethodNames"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="DeclaredMethodNames" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="DeclaredMethodNames"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="DeclaredFieldNames" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="DeclaredFieldNames"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="AllDeclaredFieldNames" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="AllDeclaredFieldNames"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="FullText" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FullText"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="FieldsRead" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FieldsRead"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="FieldsWritten" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FieldsWritten"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="UsedFieldsInFinally" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedFieldsInFinally"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="UsedFieldsInTry" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedFieldsInTry"/>
         </elements>
       </alternatives>
@@ -338,46 +338,46 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//TypeField"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="ImplementedTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ImplementedTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="ExtendedTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ExtendedTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="UsedTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="UsedTypesInTry" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedTypesInTry"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="UsedTypesInFinally" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedTypesInFinally"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="ParameterTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ParameterTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="ReturnType" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ReturnType"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="InstanceofTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="InstanceofTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="AllImplementedTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="AllImplementedTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="AllExtendedTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="AllExtendedTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="FieldType" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FieldType"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="CaughtType" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="CaughtType"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="DeclaredFieldTypes" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="DeclaredFieldTypes"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="DeclaringType" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="DeclaringType"/>
         </elements>
       </alternatives>
@@ -387,19 +387,19 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//MethodField"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="UsedMethods" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedMethods"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="UsedMethodsInTry" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedMethodsInTry"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="UsedMethodsInFinally" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="UsedMethodsInFinally"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="OverriddenMethods" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="OverriddenMethods"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="DeclaredMethods" operator="=">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="DeclaredMethods"/>
         </elements>
       </alternatives>
@@ -408,7 +408,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//FilePathField"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="ResourcePath" operator="=">
+      <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="ResourcePath"/>
       </alternatives>
     </rules>
@@ -416,7 +416,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//NumberField"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="ParameterCount" operator="=">
+      <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="ParameterCount"/>
       </alternatives>
     </rules>
@@ -424,7 +424,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//ModifierField"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="Modifiers" operator="=">
+      <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="Modifiers"/>
       </alternatives>
     </rules>
@@ -432,7 +432,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//TimeField"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="Timestamp" operator="=">
+      <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="Timestamp"/>
       </alternatives>
     </rules>
@@ -440,7 +440,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//DocumentTypeField"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="Type" operator="=">
+      <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="Type"/>
       </alternatives>
     </rules>
@@ -448,7 +448,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//ProjectNameField"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="ProjectName" operator="=">
+      <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="ProjectName"/>
       </alternatives>
     </rules>
@@ -456,7 +456,7 @@
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearchquery/rcp/dsl/LuceneQuery#//AnnotationField"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" feature="Annotations" operator="=">
+      <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="Annotations"/>
       </alternatives>
     </rules>

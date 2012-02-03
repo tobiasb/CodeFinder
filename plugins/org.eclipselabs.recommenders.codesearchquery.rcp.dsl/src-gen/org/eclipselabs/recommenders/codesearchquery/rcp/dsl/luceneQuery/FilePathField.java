@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getResourcePath <em>Resource Path</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,29 +27,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface FilePathField extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Resource Path</b></em>' attribute.
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Resource Path</em>' attribute isn't clear,
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Resource Path</em>' attribute.
-   * @see #setResourcePath(String)
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getFilePathField_ResourcePath()
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQueryPackage#getFilePathField_Value()
    * @model
    * @generated
    */
-  String getResourcePath();
+  String getValue();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getResourcePath <em>Resource Path</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Resource Path</em>' attribute.
-   * @see #getResourcePath()
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
    * @generated
    */
-  void setResourcePath(String value);
+  void setValue(String value);
 
 } // FilePathField

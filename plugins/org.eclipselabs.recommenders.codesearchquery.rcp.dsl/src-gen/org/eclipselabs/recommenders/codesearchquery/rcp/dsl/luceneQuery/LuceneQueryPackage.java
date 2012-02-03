@@ -146,112 +146,13 @@ public interface LuceneQueryPackage extends EPackage
   int SIMPLE_FIELD = 2;
 
   /**
-   * The feature id for the '<em><b>Fully Qualified Name</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD__FULLY_QUALIFIED_NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Friendly Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FRIENDLY_NAME = 1;
-
-  /**
-   * The feature id for the '<em><b>Return Variable Expressions</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS = 2;
-
-  /**
-   * The feature id for the '<em><b>All Declared Method Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = 3;
-
-  /**
-   * The feature id for the '<em><b>Declared Method Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__DECLARED_METHOD_NAMES = 4;
-
-  /**
-   * The feature id for the '<em><b>Declared Field Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__DECLARED_FIELD_NAMES = 5;
-
-  /**
-   * The feature id for the '<em><b>All Declared Field Names</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = 6;
-
-  /**
-   * The feature id for the '<em><b>Full Text</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FULL_TEXT = 7;
-
-  /**
-   * The feature id for the '<em><b>Fields Read</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FIELDS_READ = 8;
-
-  /**
-   * The feature id for the '<em><b>Fields Written</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__FIELDS_WRITTEN = 9;
-
-  /**
-   * The feature id for the '<em><b>Used Fields In Finally</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = 10;
-
-  /**
-   * The feature id for the '<em><b>Used Fields In Try</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SIMPLE_FIELD__USED_FIELDS_IN_TRY = 11;
+  int SIMPLE_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Simple Field</em>' class.
@@ -260,7 +161,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SIMPLE_FIELD_FEATURE_COUNT = 12;
+  int SIMPLE_FIELD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl <em>Type Field</em>}' class.
@@ -273,130 +174,13 @@ public interface LuceneQueryPackage extends EPackage
   int TYPE_FIELD = 3;
 
   /**
-   * The feature id for the '<em><b>Implemented Types</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_FIELD__IMPLEMENTED_TYPES = 0;
-
-  /**
-   * The feature id for the '<em><b>Extended Types</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__EXTENDED_TYPES = 1;
-
-  /**
-   * The feature id for the '<em><b>Used Types</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__USED_TYPES = 2;
-
-  /**
-   * The feature id for the '<em><b>Used Types In Try</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__USED_TYPES_IN_TRY = 3;
-
-  /**
-   * The feature id for the '<em><b>Used Types In Finally</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__USED_TYPES_IN_FINALLY = 4;
-
-  /**
-   * The feature id for the '<em><b>Parameter Types</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__PARAMETER_TYPES = 5;
-
-  /**
-   * The feature id for the '<em><b>Return Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__RETURN_TYPE = 6;
-
-  /**
-   * The feature id for the '<em><b>Instanceof Types</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__INSTANCEOF_TYPES = 7;
-
-  /**
-   * The feature id for the '<em><b>All Implemented Types</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__ALL_IMPLEMENTED_TYPES = 8;
-
-  /**
-   * The feature id for the '<em><b>All Extended Types</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__ALL_EXTENDED_TYPES = 9;
-
-  /**
-   * The feature id for the '<em><b>Field Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__FIELD_TYPE = 10;
-
-  /**
-   * The feature id for the '<em><b>Caught Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__CAUGHT_TYPE = 11;
-
-  /**
-   * The feature id for the '<em><b>Declared Field Types</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__DECLARED_FIELD_TYPES = 12;
-
-  /**
-   * The feature id for the '<em><b>Declaring Type</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FIELD__DECLARING_TYPE = 13;
+  int TYPE_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Type Field</em>' class.
@@ -405,7 +189,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FIELD_FEATURE_COUNT = 14;
+  int TYPE_FIELD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl <em>Method Field</em>}' class.
@@ -418,49 +202,13 @@ public interface LuceneQueryPackage extends EPackage
   int METHOD_FIELD = 4;
 
   /**
-   * The feature id for the '<em><b>Used Methods</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_FIELD__USED_METHODS = 0;
-
-  /**
-   * The feature id for the '<em><b>Used Methods In Try</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_FIELD__USED_METHODS_IN_TRY = 1;
-
-  /**
-   * The feature id for the '<em><b>Used Methods In Finally</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_FIELD__USED_METHODS_IN_FINALLY = 2;
-
-  /**
-   * The feature id for the '<em><b>Overridden Methods</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_FIELD__OVERRIDDEN_METHODS = 3;
-
-  /**
-   * The feature id for the '<em><b>Declared Methods</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int METHOD_FIELD__DECLARED_METHODS = 4;
+  int METHOD_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Method Field</em>' class.
@@ -469,7 +217,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_FIELD_FEATURE_COUNT = 5;
+  int METHOD_FIELD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FilePathFieldImpl <em>File Path Field</em>}' class.
@@ -482,13 +230,13 @@ public interface LuceneQueryPackage extends EPackage
   int FILE_PATH_FIELD = 5;
 
   /**
-   * The feature id for the '<em><b>Resource Path</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILE_PATH_FIELD__RESOURCE_PATH = 0;
+  int FILE_PATH_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>File Path Field</em>' class.
@@ -510,13 +258,13 @@ public interface LuceneQueryPackage extends EPackage
   int NUMBER_FIELD = 6;
 
   /**
-   * The feature id for the '<em><b>Parameter Count</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NUMBER_FIELD__PARAMETER_COUNT = 0;
+  int NUMBER_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Number Field</em>' class.
@@ -538,13 +286,13 @@ public interface LuceneQueryPackage extends EPackage
   int MODIFIER_FIELD = 7;
 
   /**
-   * The feature id for the '<em><b>Modifiers</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODIFIER_FIELD__MODIFIERS = 0;
+  int MODIFIER_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Modifier Field</em>' class.
@@ -566,13 +314,13 @@ public interface LuceneQueryPackage extends EPackage
   int TIME_FIELD = 8;
 
   /**
-   * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TIME_FIELD__TIMESTAMP = 0;
+  int TIME_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Time Field</em>' class.
@@ -594,13 +342,13 @@ public interface LuceneQueryPackage extends EPackage
   int DOCUMENT_TYPE_FIELD = 9;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOCUMENT_TYPE_FIELD__TYPE = 0;
+  int DOCUMENT_TYPE_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Document Type Field</em>' class.
@@ -622,13 +370,13 @@ public interface LuceneQueryPackage extends EPackage
   int PROJECT_NAME_FIELD = 10;
 
   /**
-   * The feature id for the '<em><b>Project Name</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROJECT_NAME_FIELD__PROJECT_NAME = 0;
+  int PROJECT_NAME_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Project Name Field</em>' class.
@@ -650,13 +398,13 @@ public interface LuceneQueryPackage extends EPackage
   int ANNOTATION_FIELD = 11;
 
   /**
-   * The feature id for the '<em><b>Annotations</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ANNOTATION_FIELD__ANNOTATIONS = 0;
+  int ANNOTATION_FIELD__VALUE = 0;
 
   /**
    * The number of structural features of the '<em>Annotation Field</em>' class.
@@ -808,136 +556,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getSimpleField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullyQualifiedName <em>Fully Qualified Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fully Qualified Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullyQualifiedName()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getValue()
    * @see #getSimpleField()
    * @generated
    */
-  EAttribute getSimpleField_FullyQualifiedName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFriendlyName <em>Friendly Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Friendly Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFriendlyName()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FriendlyName();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableExpressions <em>Return Variable Expressions</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Return Variable Expressions</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getReturnVariableExpressions()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_ReturnVariableExpressions();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames <em>All Declared Method Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>All Declared Method Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredMethodNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_AllDeclaredMethodNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethodNames <em>Declared Method Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Method Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredMethodNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_DeclaredMethodNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredFieldNames <em>Declared Field Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Field Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getDeclaredFieldNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_DeclaredFieldNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredFieldNames <em>All Declared Field Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>All Declared Field Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getAllDeclaredFieldNames()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_AllDeclaredFieldNames();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullText <em>Full Text</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Full Text</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFullText()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FullText();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsRead <em>Fields Read</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fields Read</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsRead()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FieldsRead();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsWritten <em>Fields Written</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fields Written</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getFieldsWritten()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_FieldsWritten();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInFinally <em>Used Fields In Finally</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Fields In Finally</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInFinally()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_UsedFieldsInFinally();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInTry <em>Used Fields In Try</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Fields In Try</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.SimpleField#getUsedFieldsInTry()
-   * @see #getSimpleField()
-   * @generated
-   */
-  EAttribute getSimpleField_UsedFieldsInTry();
+  EAttribute getSimpleField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField <em>Type Field</em>}'.
@@ -950,158 +577,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getTypeField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getImplementedTypes <em>Implemented Types</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Implemented Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getImplementedTypes()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getValue()
    * @see #getTypeField()
    * @generated
    */
-  EAttribute getTypeField_ImplementedTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getExtendedTypes <em>Extended Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Extended Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getExtendedTypes()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_ExtendedTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getUsedTypes <em>Used Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getUsedTypes()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_UsedTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getUsedTypesInTry <em>Used Types In Try</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Types In Try</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getUsedTypesInTry()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_UsedTypesInTry();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getUsedTypesInFinally <em>Used Types In Finally</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Types In Finally</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getUsedTypesInFinally()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_UsedTypesInFinally();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getParameterTypes <em>Parameter Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Parameter Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getParameterTypes()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_ParameterTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getReturnType <em>Return Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Return Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getReturnType()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_ReturnType();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getInstanceofTypes <em>Instanceof Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Instanceof Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getInstanceofTypes()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_InstanceofTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getAllImplementedTypes <em>All Implemented Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>All Implemented Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getAllImplementedTypes()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_AllImplementedTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getAllExtendedTypes <em>All Extended Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>All Extended Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getAllExtendedTypes()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_AllExtendedTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getFieldType <em>Field Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Field Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getFieldType()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_FieldType();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getCaughtType <em>Caught Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Caught Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getCaughtType()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_CaughtType();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getDeclaredFieldTypes <em>Declared Field Types</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Field Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getDeclaredFieldTypes()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_DeclaredFieldTypes();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getDeclaringType <em>Declaring Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declaring Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TypeField#getDeclaringType()
-   * @see #getTypeField()
-   * @generated
-   */
-  EAttribute getTypeField_DeclaringType();
+  EAttribute getTypeField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField <em>Method Field</em>}'.
@@ -1114,59 +598,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getMethodField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethods <em>Used Methods</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Methods</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethods()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getValue()
    * @see #getMethodField()
    * @generated
    */
-  EAttribute getMethodField_UsedMethods();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethodsInTry <em>Used Methods In Try</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Methods In Try</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethodsInTry()
-   * @see #getMethodField()
-   * @generated
-   */
-  EAttribute getMethodField_UsedMethodsInTry();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethodsInFinally <em>Used Methods In Finally</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Used Methods In Finally</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getUsedMethodsInFinally()
-   * @see #getMethodField()
-   * @generated
-   */
-  EAttribute getMethodField_UsedMethodsInFinally();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getOverriddenMethods <em>Overridden Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Overridden Methods</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getOverriddenMethods()
-   * @see #getMethodField()
-   * @generated
-   */
-  EAttribute getMethodField_OverriddenMethods();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getDeclaredMethods <em>Declared Methods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Declared Methods</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.MethodField#getDeclaredMethods()
-   * @see #getMethodField()
-   * @generated
-   */
-  EAttribute getMethodField_DeclaredMethods();
+  EAttribute getMethodField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField <em>File Path Field</em>}'.
@@ -1179,15 +619,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getFilePathField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getResourcePath <em>Resource Path</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Resource Path</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getResourcePath()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.FilePathField#getValue()
    * @see #getFilePathField()
    * @generated
    */
-  EAttribute getFilePathField_ResourcePath();
+  EAttribute getFilePathField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberField <em>Number Field</em>}'.
@@ -1200,15 +640,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getNumberField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberField#getParameterCount <em>Parameter Count</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Parameter Count</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberField#getParameterCount()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberField#getValue()
    * @see #getNumberField()
    * @generated
    */
-  EAttribute getNumberField_ParameterCount();
+  EAttribute getNumberField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ModifierField <em>Modifier Field</em>}'.
@@ -1221,15 +661,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getModifierField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ModifierField#getModifiers <em>Modifiers</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ModifierField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Modifiers</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ModifierField#getModifiers()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ModifierField#getValue()
    * @see #getModifierField()
    * @generated
    */
-  EAttribute getModifierField_Modifiers();
+  EAttribute getModifierField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField <em>Time Field</em>}'.
@@ -1242,15 +682,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getTimeField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getTimestamp <em>Timestamp</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Timestamp</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getTimestamp()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.TimeField#getValue()
    * @see #getTimeField()
    * @generated
    */
-  EAttribute getTimeField_Timestamp();
+  EAttribute getTimeField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.DocumentTypeField <em>Document Type Field</em>}'.
@@ -1263,15 +703,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getDocumentTypeField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.DocumentTypeField#getType <em>Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.DocumentTypeField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.DocumentTypeField#getType()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.DocumentTypeField#getValue()
    * @see #getDocumentTypeField()
    * @generated
    */
-  EAttribute getDocumentTypeField_Type();
+  EAttribute getDocumentTypeField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectNameField <em>Project Name Field</em>}'.
@@ -1284,15 +724,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getProjectNameField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectNameField#getProjectName <em>Project Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectNameField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Project Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectNameField#getProjectName()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.ProjectNameField#getValue()
    * @see #getProjectNameField()
    * @generated
    */
-  EAttribute getProjectNameField_ProjectName();
+  EAttribute getProjectNameField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.AnnotationField <em>Annotation Field</em>}'.
@@ -1305,15 +745,15 @@ public interface LuceneQueryPackage extends EPackage
   EClass getAnnotationField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.AnnotationField#getAnnotations <em>Annotations</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.AnnotationField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Annotations</em>'.
-   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.AnnotationField#getAnnotations()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.AnnotationField#getValue()
    * @see #getAnnotationField()
    * @generated
    */
-  EAttribute getAnnotationField_Annotations();
+  EAttribute getAnnotationField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.Exp1 <em>Exp1</em>}'.
@@ -1454,100 +894,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass SIMPLE_FIELD = eINSTANCE.getSimpleField();
 
     /**
-     * The meta object literal for the '<em><b>Fully Qualified Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SIMPLE_FIELD__FULLY_QUALIFIED_NAME = eINSTANCE.getSimpleField_FullyQualifiedName();
-
-    /**
-     * The meta object literal for the '<em><b>Friendly Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FRIENDLY_NAME = eINSTANCE.getSimpleField_FriendlyName();
-
-    /**
-     * The meta object literal for the '<em><b>Return Variable Expressions</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__RETURN_VARIABLE_EXPRESSIONS = eINSTANCE.getSimpleField_ReturnVariableExpressions();
-
-    /**
-     * The meta object literal for the '<em><b>All Declared Method Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__ALL_DECLARED_METHOD_NAMES = eINSTANCE.getSimpleField_AllDeclaredMethodNames();
-
-    /**
-     * The meta object literal for the '<em><b>Declared Method Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__DECLARED_METHOD_NAMES = eINSTANCE.getSimpleField_DeclaredMethodNames();
-
-    /**
-     * The meta object literal for the '<em><b>Declared Field Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__DECLARED_FIELD_NAMES = eINSTANCE.getSimpleField_DeclaredFieldNames();
-
-    /**
-     * The meta object literal for the '<em><b>All Declared Field Names</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__ALL_DECLARED_FIELD_NAMES = eINSTANCE.getSimpleField_AllDeclaredFieldNames();
-
-    /**
-     * The meta object literal for the '<em><b>Full Text</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FULL_TEXT = eINSTANCE.getSimpleField_FullText();
-
-    /**
-     * The meta object literal for the '<em><b>Fields Read</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FIELDS_READ = eINSTANCE.getSimpleField_FieldsRead();
-
-    /**
-     * The meta object literal for the '<em><b>Fields Written</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__FIELDS_WRITTEN = eINSTANCE.getSimpleField_FieldsWritten();
-
-    /**
-     * The meta object literal for the '<em><b>Used Fields In Finally</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__USED_FIELDS_IN_FINALLY = eINSTANCE.getSimpleField_UsedFieldsInFinally();
-
-    /**
-     * The meta object literal for the '<em><b>Used Fields In Try</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SIMPLE_FIELD__USED_FIELDS_IN_TRY = eINSTANCE.getSimpleField_UsedFieldsInTry();
+    EAttribute SIMPLE_FIELD__VALUE = eINSTANCE.getSimpleField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TypeFieldImpl <em>Type Field</em>}' class.
@@ -1560,116 +912,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass TYPE_FIELD = eINSTANCE.getTypeField();
 
     /**
-     * The meta object literal for the '<em><b>Implemented Types</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TYPE_FIELD__IMPLEMENTED_TYPES = eINSTANCE.getTypeField_ImplementedTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Extended Types</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__EXTENDED_TYPES = eINSTANCE.getTypeField_ExtendedTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Used Types</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__USED_TYPES = eINSTANCE.getTypeField_UsedTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Used Types In Try</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__USED_TYPES_IN_TRY = eINSTANCE.getTypeField_UsedTypesInTry();
-
-    /**
-     * The meta object literal for the '<em><b>Used Types In Finally</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__USED_TYPES_IN_FINALLY = eINSTANCE.getTypeField_UsedTypesInFinally();
-
-    /**
-     * The meta object literal for the '<em><b>Parameter Types</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__PARAMETER_TYPES = eINSTANCE.getTypeField_ParameterTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Return Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__RETURN_TYPE = eINSTANCE.getTypeField_ReturnType();
-
-    /**
-     * The meta object literal for the '<em><b>Instanceof Types</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__INSTANCEOF_TYPES = eINSTANCE.getTypeField_InstanceofTypes();
-
-    /**
-     * The meta object literal for the '<em><b>All Implemented Types</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__ALL_IMPLEMENTED_TYPES = eINSTANCE.getTypeField_AllImplementedTypes();
-
-    /**
-     * The meta object literal for the '<em><b>All Extended Types</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__ALL_EXTENDED_TYPES = eINSTANCE.getTypeField_AllExtendedTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Field Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__FIELD_TYPE = eINSTANCE.getTypeField_FieldType();
-
-    /**
-     * The meta object literal for the '<em><b>Caught Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__CAUGHT_TYPE = eINSTANCE.getTypeField_CaughtType();
-
-    /**
-     * The meta object literal for the '<em><b>Declared Field Types</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__DECLARED_FIELD_TYPES = eINSTANCE.getTypeField_DeclaredFieldTypes();
-
-    /**
-     * The meta object literal for the '<em><b>Declaring Type</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE_FIELD__DECLARING_TYPE = eINSTANCE.getTypeField_DeclaringType();
+    EAttribute TYPE_FIELD__VALUE = eINSTANCE.getTypeField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.MethodFieldImpl <em>Method Field</em>}' class.
@@ -1682,44 +930,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass METHOD_FIELD = eINSTANCE.getMethodField();
 
     /**
-     * The meta object literal for the '<em><b>Used Methods</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METHOD_FIELD__USED_METHODS = eINSTANCE.getMethodField_UsedMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Used Methods In Try</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METHOD_FIELD__USED_METHODS_IN_TRY = eINSTANCE.getMethodField_UsedMethodsInTry();
-
-    /**
-     * The meta object literal for the '<em><b>Used Methods In Finally</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METHOD_FIELD__USED_METHODS_IN_FINALLY = eINSTANCE.getMethodField_UsedMethodsInFinally();
-
-    /**
-     * The meta object literal for the '<em><b>Overridden Methods</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METHOD_FIELD__OVERRIDDEN_METHODS = eINSTANCE.getMethodField_OverriddenMethods();
-
-    /**
-     * The meta object literal for the '<em><b>Declared Methods</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METHOD_FIELD__DECLARED_METHODS = eINSTANCE.getMethodField_DeclaredMethods();
+    EAttribute METHOD_FIELD__VALUE = eINSTANCE.getMethodField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.FilePathFieldImpl <em>File Path Field</em>}' class.
@@ -1732,12 +948,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass FILE_PATH_FIELD = eINSTANCE.getFilePathField();
 
     /**
-     * The meta object literal for the '<em><b>Resource Path</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FILE_PATH_FIELD__RESOURCE_PATH = eINSTANCE.getFilePathField_ResourcePath();
+    EAttribute FILE_PATH_FIELD__VALUE = eINSTANCE.getFilePathField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.NumberFieldImpl <em>Number Field</em>}' class.
@@ -1750,12 +966,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass NUMBER_FIELD = eINSTANCE.getNumberField();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Count</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute NUMBER_FIELD__PARAMETER_COUNT = eINSTANCE.getNumberField_ParameterCount();
+    EAttribute NUMBER_FIELD__VALUE = eINSTANCE.getNumberField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ModifierFieldImpl <em>Modifier Field</em>}' class.
@@ -1768,12 +984,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass MODIFIER_FIELD = eINSTANCE.getModifierField();
 
     /**
-     * The meta object literal for the '<em><b>Modifiers</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODIFIER_FIELD__MODIFIERS = eINSTANCE.getModifierField_Modifiers();
+    EAttribute MODIFIER_FIELD__VALUE = eINSTANCE.getModifierField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.TimeFieldImpl <em>Time Field</em>}' class.
@@ -1786,12 +1002,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass TIME_FIELD = eINSTANCE.getTimeField();
 
     /**
-     * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TIME_FIELD__TIMESTAMP = eINSTANCE.getTimeField_Timestamp();
+    EAttribute TIME_FIELD__VALUE = eINSTANCE.getTimeField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl <em>Document Type Field</em>}' class.
@@ -1804,12 +1020,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass DOCUMENT_TYPE_FIELD = eINSTANCE.getDocumentTypeField();
 
     /**
-     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DOCUMENT_TYPE_FIELD__TYPE = eINSTANCE.getDocumentTypeField_Type();
+    EAttribute DOCUMENT_TYPE_FIELD__VALUE = eINSTANCE.getDocumentTypeField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.ProjectNameFieldImpl <em>Project Name Field</em>}' class.
@@ -1822,12 +1038,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass PROJECT_NAME_FIELD = eINSTANCE.getProjectNameField();
 
     /**
-     * The meta object literal for the '<em><b>Project Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PROJECT_NAME_FIELD__PROJECT_NAME = eINSTANCE.getProjectNameField_ProjectName();
+    EAttribute PROJECT_NAME_FIELD__VALUE = eINSTANCE.getProjectNameField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.AnnotationFieldImpl <em>Annotation Field</em>}' class.
@@ -1840,12 +1056,12 @@ public interface LuceneQueryPackage extends EPackage
     EClass ANNOTATION_FIELD = eINSTANCE.getAnnotationField();
 
     /**
-     * The meta object literal for the '<em><b>Annotations</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ANNOTATION_FIELD__ANNOTATIONS = eINSTANCE.getAnnotationField_Annotations();
+    EAttribute ANNOTATION_FIELD__VALUE = eINSTANCE.getAnnotationField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.

@@ -23,7 +23,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberFi
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.NumberFieldImpl#getParameterCount <em>Parameter Count</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.NumberFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +32,24 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.NumberFi
 public class NumberFieldImpl extends MinimalEObjectImpl.Container implements NumberField
 {
   /**
-   * The default value of the '{@link #getParameterCount() <em>Parameter Count</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameterCount()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String PARAMETER_COUNT_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getParameterCount() <em>Parameter Count</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getParameterCount()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String parameterCount = PARAMETER_COUNT_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,9 +77,9 @@ public class NumberFieldImpl extends MinimalEObjectImpl.Container implements Num
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getParameterCount()
+  public String getValue()
   {
-    return parameterCount;
+    return value;
   }
 
   /**
@@ -87,12 +87,12 @@ public class NumberFieldImpl extends MinimalEObjectImpl.Container implements Num
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setParameterCount(String newParameterCount)
+  public void setValue(String newValue)
   {
-    String oldParameterCount = parameterCount;
-    parameterCount = newParameterCount;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.NUMBER_FIELD__PARAMETER_COUNT, oldParameterCount, parameterCount));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.NUMBER_FIELD__VALUE, oldValue, value));
   }
 
   /**
@@ -105,8 +105,8 @@ public class NumberFieldImpl extends MinimalEObjectImpl.Container implements Num
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.NUMBER_FIELD__PARAMETER_COUNT:
-        return getParameterCount();
+      case LuceneQueryPackage.NUMBER_FIELD__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class NumberFieldImpl extends MinimalEObjectImpl.Container implements Num
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.NUMBER_FIELD__PARAMETER_COUNT:
-        setParameterCount((String)newValue);
+      case LuceneQueryPackage.NUMBER_FIELD__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class NumberFieldImpl extends MinimalEObjectImpl.Container implements Num
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.NUMBER_FIELD__PARAMETER_COUNT:
-        setParameterCount(PARAMETER_COUNT_EDEFAULT);
+      case LuceneQueryPackage.NUMBER_FIELD__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class NumberFieldImpl extends MinimalEObjectImpl.Container implements Num
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.NUMBER_FIELD__PARAMETER_COUNT:
-        return PARAMETER_COUNT_EDEFAULT == null ? parameterCount != null : !PARAMETER_COUNT_EDEFAULT.equals(parameterCount);
+      case LuceneQueryPackage.NUMBER_FIELD__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +172,8 @@ public class NumberFieldImpl extends MinimalEObjectImpl.Container implements Num
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (ParameterCount: ");
-    result.append(parameterCount);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

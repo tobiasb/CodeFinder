@@ -68,8 +68,15 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
   {
     switch (eClass.getClassifierID())
     {
-      case QL1Package.MODEL: return createModel();
-      case QL1Package.GREETING: return createGreeting();
+      case QL1Package.EXP1: return createExp1();
+      case QL1Package.FIELD_EXPR: return createFieldExpr();
+      case QL1Package.TYPE: return createType();
+      case QL1Package.SINGLE_VALUE_FIELD: return createSingleValueField();
+      case QL1Package.MULTI_VALUE_FIELD: return createMultiValueField();
+      case QL1Package.BOOLEAN_FIELD: return createBooleanField();
+      case QL1Package.SINGLE_VALUE_FIELD_NAME: return createSingleValueFieldName();
+      case QL1Package.MULTI_VALUE_FIELD_NAME: return createMultiValueFieldName();
+      case QL1Package.NEGATION: return createNegation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -80,10 +87,10 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model createModel()
+  public Exp1 createExp1()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    Exp1Impl exp1 = new Exp1Impl();
+    return exp1;
   }
 
   /**
@@ -91,10 +98,87 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Greeting createGreeting()
+  public FieldExpr createFieldExpr()
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    FieldExprImpl fieldExpr = new FieldExprImpl();
+    return fieldExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SingleValueField createSingleValueField()
+  {
+    SingleValueFieldImpl singleValueField = new SingleValueFieldImpl();
+    return singleValueField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MultiValueField createMultiValueField()
+  {
+    MultiValueFieldImpl multiValueField = new MultiValueFieldImpl();
+    return multiValueField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BooleanField createBooleanField()
+  {
+    BooleanFieldImpl booleanField = new BooleanFieldImpl();
+    return booleanField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SingleValueFieldName createSingleValueFieldName()
+  {
+    SingleValueFieldNameImpl singleValueFieldName = new SingleValueFieldNameImpl();
+    return singleValueFieldName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MultiValueFieldName createMultiValueFieldName()
+  {
+    MultiValueFieldNameImpl multiValueFieldName = new MultiValueFieldNameImpl();
+    return multiValueFieldName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Negation createNegation()
+  {
+    NegationImpl negation = new NegationImpl();
+    return negation;
   }
 
   /**

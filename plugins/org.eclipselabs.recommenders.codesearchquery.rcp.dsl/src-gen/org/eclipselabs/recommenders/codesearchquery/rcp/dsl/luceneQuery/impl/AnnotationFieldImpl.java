@@ -23,7 +23,7 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.AnnotationFieldImpl#getAnnotations <em>Annotations</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.impl.AnnotationFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,24 +32,24 @@ import org.eclipselabs.recommenders.codesearchquery.rcp.dsl.luceneQuery.LuceneQu
 public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements AnnotationField
 {
   /**
-   * The default value of the '{@link #getAnnotations() <em>Annotations</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAnnotations()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String ANNOTATIONS_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAnnotations()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String annotations = ANNOTATIONS_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,9 +77,9 @@ public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getAnnotations()
+  public String getValue()
   {
-    return annotations;
+    return value;
   }
 
   /**
@@ -87,12 +87,12 @@ public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAnnotations(String newAnnotations)
+  public void setValue(String newValue)
   {
-    String oldAnnotations = annotations;
-    annotations = newAnnotations;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.ANNOTATION_FIELD__ANNOTATIONS, oldAnnotations, annotations));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.ANNOTATION_FIELD__VALUE, oldValue, value));
   }
 
   /**
@@ -105,8 +105,8 @@ public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.ANNOTATION_FIELD__ANNOTATIONS:
-        return getAnnotations();
+      case LuceneQueryPackage.ANNOTATION_FIELD__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.ANNOTATION_FIELD__ANNOTATIONS:
-        setAnnotations((String)newValue);
+      case LuceneQueryPackage.ANNOTATION_FIELD__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.ANNOTATION_FIELD__ANNOTATIONS:
-        setAnnotations(ANNOTATIONS_EDEFAULT);
+      case LuceneQueryPackage.ANNOTATION_FIELD__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.ANNOTATION_FIELD__ANNOTATIONS:
-        return ANNOTATIONS_EDEFAULT == null ? annotations != null : !ANNOTATIONS_EDEFAULT.equals(annotations);
+      case LuceneQueryPackage.ANNOTATION_FIELD__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -172,8 +172,8 @@ public class AnnotationFieldImpl extends MinimalEObjectImpl.Container implements
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (Annotations: ");
-    result.append(annotations);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

@@ -37,9 +37,39 @@ public class QL1Parser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-					put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-					put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
+					put(grammarAccess.getFieldExprAccess().getAlternatives(), "rule__FieldExpr__Alternatives");
+					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
+					put(grammarAccess.getMultiValueFieldAccess().getAlternatives_2(), "rule__MultiValueField__Alternatives_2");
+					put(grammarAccess.getBooleanFieldAccess().getAlternatives_1(), "rule__BooleanField__Alternatives_1");
+					put(grammarAccess.getExp1Access().getGroup(), "rule__Exp1__Group__0");
+					put(grammarAccess.getExp1Access().getGroup_3(), "rule__Exp1__Group_3__0");
+					put(grammarAccess.getSingleValueFieldAccess().getGroup(), "rule__SingleValueField__Group__0");
+					put(grammarAccess.getMultiValueFieldAccess().getGroup(), "rule__MultiValueField__Group__0");
+					put(grammarAccess.getMultiValueFieldAccess().getGroup_2_1(), "rule__MultiValueField__Group_2_1__0");
+					put(grammarAccess.getMultiValueFieldAccess().getGroup_2_1_2(), "rule__MultiValueField__Group_2_1_2__0");
+					put(grammarAccess.getBooleanFieldAccess().getGroup(), "rule__BooleanField__Group__0");
+					put(grammarAccess.getExp1Access().getTypeAssignment_0(), "rule__Exp1__TypeAssignment_0");
+					put(grammarAccess.getExp1Access().getFieldExprAssignment_2(), "rule__Exp1__FieldExprAssignment_2");
+					put(grammarAccess.getExp1Access().getFieldExprAssignment_3_1(), "rule__Exp1__FieldExprAssignment_3_1");
+					put(grammarAccess.getTypeAccess().getValueAssignment_0(), "rule__Type__ValueAssignment_0");
+					put(grammarAccess.getTypeAccess().getMethodAssignment_1(), "rule__Type__MethodAssignment_1");
+					put(grammarAccess.getSingleValueFieldAccess().getNameAssignment_0(), "rule__SingleValueField__NameAssignment_0");
+					put(grammarAccess.getSingleValueFieldAccess().getNAssignment_1(), "rule__SingleValueField__NAssignment_1");
+					put(grammarAccess.getSingleValueFieldAccess().getValueAssignment_3(), "rule__SingleValueField__ValueAssignment_3");
+					put(grammarAccess.getMultiValueFieldAccess().getNameAssignment_0(), "rule__MultiValueField__NameAssignment_0");
+					put(grammarAccess.getMultiValueFieldAccess().getValuesAssignment_2_0(), "rule__MultiValueField__ValuesAssignment_2_0");
+					put(grammarAccess.getMultiValueFieldAccess().getValuesAssignment_2_1_1(), "rule__MultiValueField__ValuesAssignment_2_1_1");
+					put(grammarAccess.getMultiValueFieldAccess().getValuesAssignment_2_1_2_1(), "rule__MultiValueField__ValuesAssignment_2_1_2_1");
+					put(grammarAccess.getBooleanFieldAccess().getNAssignment_0(), "rule__BooleanField__NAssignment_0");
+					put(grammarAccess.getBooleanFieldAccess().getValueAssignment_1_0(), "rule__BooleanField__ValueAssignment_1_0");
+					put(grammarAccess.getBooleanFieldAccess().getValueAssignment_1_1(), "rule__BooleanField__ValueAssignment_1_1");
+					put(grammarAccess.getBooleanFieldAccess().getValueAssignment_1_2(), "rule__BooleanField__ValueAssignment_1_2");
+					put(grammarAccess.getBooleanFieldAccess().getValueAssignment_1_3(), "rule__BooleanField__ValueAssignment_1_3");
+					put(grammarAccess.getBooleanFieldAccess().getValueAssignment_1_4(), "rule__BooleanField__ValueAssignment_1_4");
+					put(grammarAccess.getBooleanFieldAccess().getValueAssignment_1_5(), "rule__BooleanField__ValueAssignment_1_5");
+					put(grammarAccess.getSingleValueFieldNameAccess().getValueAssignment(), "rule__SingleValueFieldName__ValueAssignment");
+					put(grammarAccess.getMultiValueFieldNameAccess().getValueAssignment(), "rule__MultiValueFieldName__ValueAssignment");
+					put(grammarAccess.getNegationAccess().getValueAssignment(), "rule__Negation__ValueAssignment");
 				}
 			};
 		}
@@ -50,7 +80,7 @@ public class QL1Parser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui.contentassist.antlr.internal.InternalQL1Parser typedParser = (org.eclipselabs.recommenders.codesearchquery.rcp.dslQL1.ui.contentassist.antlr.internal.InternalQL1Parser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRuleExp1();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);
