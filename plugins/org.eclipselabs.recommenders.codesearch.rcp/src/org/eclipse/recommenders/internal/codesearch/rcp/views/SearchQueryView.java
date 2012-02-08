@@ -352,15 +352,15 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                         try {
                             if (docType.equals(Fields.TYPE_CLASS)) {
                                 final ITypeName typeName = VmTypeName.get(docId);
-                                final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
+                                final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                                 addIfNotNull(newInput, type);
                             } else if (docType.equals(Fields.TYPE_METHOD)) {
                                 final IMethodName methodName = VmMethodName.get(docId);
-                                final IMethod method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
+                                final Optional<IMethod> method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
                                 addIfNotNull(newInput, method);
                             } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
                                 final ITypeName typeName = VmTypeName.get(declaringType);
-                                final IType type = JavaElementResolver.INSTANCE.toJdtType(typeName);
+                                final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                                 addIfNotNull(newInput, type);
                             }
                         } catch (final Exception ex) {
@@ -374,9 +374,9 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                 searchResultTable.setInput(newInput);
             }
 
-            private <T> void addIfNotNull(final List<T> list, final T element) {
-                if (element != null) {
-                    list.add(element);
+            private <T> void addIfNotNull(final List<IJavaElement> list, final Optional<T> element) {
+                if (element != null && element.isPresent()) {
+                    list.add((IJavaElement) element.get());
                     // Elements are null if the workspace isn't built and
                     // the java elements couldn't be resolved
                 }
