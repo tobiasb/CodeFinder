@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1" 
+       class = "org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package"
+       genModel = "org/eclipselabs/recommenders/codesearch/rcp/dslQL1/QL1.genmodel" /> 
+	
+  </extension>
+
+
+
+
+</plugin>

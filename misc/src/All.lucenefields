@@ -1,4 +1,4 @@
-packages "org.eclipselabs.recommenders.codesearchquery.rcp" "org.eclipselabs.recommenders.codesearchquery.rcp.dsl.ui"
+packages "org.eclipselabs.recommenders.codesearch.rcp" "org.eclipselabs.recommenders.codesearch.rcp.dsl.ui"
 class Fields 
 
 SimpleField {

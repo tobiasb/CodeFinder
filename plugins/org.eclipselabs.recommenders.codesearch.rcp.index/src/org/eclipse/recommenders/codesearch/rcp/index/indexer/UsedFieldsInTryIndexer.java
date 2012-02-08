@@ -1,0 +1,17 @@
+package org.eclipse.recommenders.codesearch.rcp.index.indexer;
+
+import org.apache.lucene.document.Document;
+import org.eclipse.jdt.core.dom.CatchClause;
+import org.eclipse.jdt.core.dom.TryStatement;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
+
+public class UsedFieldsInTryIndexer extends AbstractFieldsAccessIndexer implements ITryCatchBlockIndexer {
+
+    @Override
+    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+
+        addFields(document, tryStatement, Fields.USED_FIELDS_IN_TRY);
+    }
+
+}

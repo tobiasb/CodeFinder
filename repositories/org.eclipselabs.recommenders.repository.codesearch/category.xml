@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipselabs.recommenders.feature.codesearch_0.1.0.qualifier.jar" id="org.eclipselabs.recommenders.feature.codesearch" version="0.1.0.qualifier">
+      <category name="codesearch"/>
+   </feature>
+   <feature url="features/org.eclipselabs.recommenders.feature.codesearch.source_0.1.0.qualifier.jar" id="org.eclipselabs.recommenders.feature.codesearch.source" version="0.1.0.qualifier">
+      <category name="codesearch"/>
+   </feature>
+   <feature url="features/org.eclipselabs.recommenders.feature.dependencies_0.1.0.qualifier.jar" id="org.eclipselabs.recommenders.feature.dependencies" version="0.1.0.qualifier">
+      <category name="dependencies"/>
+   </feature>
+   <category-def name="codesearch" label="Code Search"/>
+   <category-def name="dependencies" label="Dependencies - don&apos;t install"/>
+</site>

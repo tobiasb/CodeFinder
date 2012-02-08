@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+	      point="org.eclipse.ui.viewActions">
+	      
+	      <viewContribution
+	            id="org.eclipselabs.recommenders.codesearch.rcp.view.actions.indexAction"
+	            targetID="org.eclipselabs.recommenders.codesearch.rcp.searchQueryView">
+	            
+	            <action
+                   class="org.eclipse.recommenders.internal.codesearch.rcp.views.actions.IndexAction"
+                   icon="icons/obj16/index.gif"
+                   id="org.eclipselabs.recommenders.codesearch.rcp.IndexAction"
+                   label="Index Workspace"
+                   menubarPath="additions">
+	            </action>            
+	      </viewContribution>
+	      
+	      <viewContribution
+	            id="org.eclipselabs.recommenders.codesearch.rcp.view.actions.deleteIndexAction"
+	            targetID="org.eclipselabs.recommenders.codesearch.rcp.searchQueryView">
+	            
+	            <action
+                   class="org.eclipse.recommenders.internal.codesearch.rcp.views.actions.DeleteIndexAction"
+                   icon="icons/obj16/truncate.png"
+                   id="org.eclipselabs.recommenders.codesearch.rcp.TruncateAction"
+                   label="Truncate Index"
+                   menubarPath="additions">
+	            </action>            
+	      </viewContribution>
+	</extension>
+	<extension
+	      point="org.eclipse.ui.views">
+	      <view
+             category="org.eclipse.recommenders.rcp.category.views"
+             class="org.eclipse.recommenders.internal.codesearch.rcp.views.SearchQueryView"
+             icon="icons/obj16/search.png"
+             id="org.eclipselabs.recommenders.codesearch.rcp.searchQueryView"
+             name="Code Search Query-View"/>
+	</extension>
+ <extension
+       point="org.eclipse.recommenders.injection.modules">
+    <module
+          class="org.eclipse.recommenders.internal.codesearch.rcp.CSQModule">
+    </module>
+ </extension>
+
+</plugin>

@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<parent>
 		<groupId>org.eclipselabs.recommenders.tests</groupId>
-		<artifactId>org.eclipselabs.recommenders.tests.codesearchquery.parent</artifactId>
+		<artifactId>org.eclipselabs.recommenders.tests.codesearch.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
 

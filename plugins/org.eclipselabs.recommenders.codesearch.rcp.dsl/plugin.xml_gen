@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl/LuceneQuery" 
+       class = "org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage"
+       genModel = "org/eclipselabs/recommenders/codesearch/rcp/dsl/LuceneQuery.genmodel" /> 
+	
+  </extension>
+
+
+
+
+</plugin>

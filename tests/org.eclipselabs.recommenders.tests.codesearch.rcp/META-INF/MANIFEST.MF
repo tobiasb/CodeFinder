@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Code Search Query (RCP) - Tests
+Bundle-SymbolicName: org.eclipselabs.recommenders.tests.codesearch.rcp
+Bundle-Version: 0.1.0.qualifier
+Bundle-Vendor: Eclipse Code Recommenders
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit4,
+ org.apache.log4j,
+ org.eclipse.ui,
+ org.apache.commons.io,
+ org.eclipse.pde,
+ org.eclipse.core.resources,
+ org.eclipse.recommenders.utils,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.recommenders.utils.rcp,
+ org.apache.commons.lang3,
+ com.google.guava,
+ org.eclipse.recommenders.tests,
+ com.google.inject;bundle-version="3.0.0",
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui,
+ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui,
+ org.apache.lucene;bundle-version="3.5.0",
+ org.eclipse.xtext.junit,
+ org.eclipse.xtend2.lib,
+ org.eclipselabs.recommenders.codesearch.rcp.index
