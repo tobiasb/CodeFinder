@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationMethodConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.PathValueConverter;
@@ -26,7 +25,6 @@ import org.eclipse.recommenders.codesearch.rcp.searcher.ModifierQueryProposalPro
 import org.eclipse.recommenders.codesearch.rcp.searcher.utils.MethodImageProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.utils.ProjectImageProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.utils.TypeImageProvider;
-import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
@@ -109,8 +107,6 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
     List<Document> search() throws ParseException, CorruptIndexException, IOException {
         final String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor());
         resetXtextQuery();
-
-        codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
 
         return codeSearcher.search(searchQuery);
     }

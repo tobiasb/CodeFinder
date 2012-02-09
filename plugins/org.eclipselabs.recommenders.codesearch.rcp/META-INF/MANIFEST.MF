@@ -23,10 +23,10 @@ Require-Bundle: org.eclipse.jface,
  org.apache.lucene;bundle-version="3.5.0",
  org.eclipse.ui.editors;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipselabs.recommenders.codesearch.rcp.index,
  org.eclipselabs.recommenders.codesearch.rcp.dsl,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.ui,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL1,
- org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui,
- org.eclipselabs.recommenders.codesearch.rcp.index
+ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui
 Bundle-ActivationPolicy: lazy
 Export-Package: org.eclipse.recommenders.internal.codesearch.rcp.indexing

@@ -1,13 +1,11 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.lucene.document.Document;
-import org.apache.lucene.index.CorruptIndexException;
-import org.apache.lucene.queryParser.ParseException;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
@@ -34,6 +32,10 @@ public abstract class AbstractEmbeddedEditorWrapper {
     protected ISearchView searchView;
 
     abstract void createQueryEditorInternal();
+
+    public AbstractEmbeddedEditorWrapper() {
+        codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
+    }
 
     public void createQueryEditor(final Composite parent, final Combo exampleCombo, final ISearchView searchView) {
         this.parent = parent;
@@ -98,7 +100,7 @@ public abstract class AbstractEmbeddedEditorWrapper {
         });
     }
 
-    abstract List<Document> search() throws ParseException, CorruptIndexException, IOException;
+    abstract List<Document> search() throws Exception;
 
     abstract IUnitOfWork<Set<String>, XtextResource> getSearchTermExtractor();
 
