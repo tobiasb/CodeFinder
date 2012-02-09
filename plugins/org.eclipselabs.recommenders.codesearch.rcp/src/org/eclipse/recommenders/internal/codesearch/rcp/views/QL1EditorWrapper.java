@@ -44,7 +44,7 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
 
         final QL1Activator activator = QL1Activator.getInstance();
         final Injector injector = activator
-                .getInjector(QL1Activator.ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSLQL1_QL1);
+                .getInjector(QL1Activator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSLQL1_QL1);
         final EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
         handle = factory.newEditor(resourceProvider).withParent(parent);
 
