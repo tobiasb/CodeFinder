@@ -224,7 +224,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                         final XtextDocument document = currentEditor.getDocument();
 
                         IUnitOfWork<Set<String>, XtextResource> searchTermExtractor = currentEditor
-                                .getSEarchTermExtractor();
+                                .getSearchTermExtractor();
 
                         if (searchTermExtractor != null) {
                             final Set<String> searchTerms = document.readOnly(searchTermExtractor);

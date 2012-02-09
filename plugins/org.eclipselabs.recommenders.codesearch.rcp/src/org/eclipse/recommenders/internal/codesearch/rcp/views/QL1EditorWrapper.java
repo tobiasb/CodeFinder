@@ -71,7 +71,7 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
     }
 
     @Override
-    IUnitOfWork<Set<String>, XtextResource> getSEarchTermExtractor() {
+    IUnitOfWork<Set<String>, XtextResource> getSearchTermExtractor() {
         return null;
     }
 }

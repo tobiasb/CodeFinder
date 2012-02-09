@@ -127,7 +127,7 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
     }
 
     @Override
-    IUnitOfWork<Set<String>, XtextResource> getSEarchTermExtractor() {
+    IUnitOfWork<Set<String>, XtextResource> getSearchTermExtractor() {
         return new LuceneSearchTermExtractor();
     }
 }

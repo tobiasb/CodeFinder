@@ -100,7 +100,7 @@ public abstract class AbstractEmbeddedEditorWrapper {
 
     abstract List<Document> search() throws ParseException, CorruptIndexException, IOException;
 
-    abstract IUnitOfWork<Set<String>, XtextResource> getSEarchTermExtractor();
+    abstract IUnitOfWork<Set<String>, XtextResource> getSearchTermExtractor();
 
     public String getSearchQuery() {
         final StringBuilder string = new StringBuilder();
