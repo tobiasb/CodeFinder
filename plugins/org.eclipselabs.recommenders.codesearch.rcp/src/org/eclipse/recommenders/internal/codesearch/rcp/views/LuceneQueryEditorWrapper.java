@@ -21,7 +21,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.termvector.ProjectNameProvi
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ResourcePathProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.DocumentTypeProposalProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.GenericQueryProposalProvider;
-import org.eclipse.recommenders.codesearch.rcp.searcher.LuceneQueryExtractor;
 import org.eclipse.recommenders.codesearch.rcp.searcher.LuceneSearchTermExtractor;
 import org.eclipse.recommenders.codesearch.rcp.searcher.ModifierQueryProposalProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.utils.MethodImageProvider;
@@ -32,6 +31,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryStandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.LuceneQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;

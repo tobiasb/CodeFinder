@@ -103,7 +103,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
         createSearchExampleCombobox(parent);
 
         // Default editor
-        currentEditor = new LuceneQueryEditorWrapper();
+        currentEditor = new QL1EditorWrapper();
         currentEditor.createQueryEditor(compositeForEditor, exampleCombo, this);
 
         createLanguageSelectionComboBox(parent, compositeForEditor);
