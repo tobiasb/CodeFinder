@@ -8,17 +8,23 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BooleanField;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.FieldExpr;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiValueField;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiValueFieldName;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Negation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Factory;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleValueField;
@@ -38,7 +44,21 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass exp1EClass = null;
+  private EClass firstEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass containsEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,6 +115,27 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * @generated
    */
   private EClass negationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass orExprEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass multiplicationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum binaryExpEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -164,9 +205,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExp1()
+  public EClass getFirst()
   {
-    return exp1EClass;
+    return firstEClass;
   }
 
   /**
@@ -174,9 +215,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExp1_Type()
+  public EReference getFirst_Type()
   {
-    return (EReference)exp1EClass.getEStructuralFeatures().get(0);
+    return (EReference)firstEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -184,9 +225,59 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExp1_FieldExpr()
+  public EReference getFirst_E()
   {
-    return (EReference)exp1EClass.getEStructuralFeatures().get(1);
+    return (EReference)firstEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFirst_C()
+  {
+    return (EReference)firstEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getContains()
+  {
+    return containsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContains_Type()
+  {
+    return (EReference)containsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContains_E()
+  {
+    return (EReference)containsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExpression()
+  {
+    return expressionEClass;
   }
 
   /**
@@ -394,6 +485,76 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getOrExpr()
+  {
+    return orExprEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrExpr_Left()
+  {
+    return (EReference)orExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getOrExpr_Right()
+  {
+    return (EReference)orExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMultiplication()
+  {
+    return multiplicationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiplication_Left()
+  {
+    return (EReference)multiplicationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiplication_Right()
+  {
+    return (EReference)multiplicationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getBinaryExp()
+  {
+    return binaryExpEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public QL1Factory getQL1Factory()
   {
     return (QL1Factory)getEFactoryInstance();
@@ -419,9 +580,16 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     isCreated = true;
 
     // Create classes and their features
-    exp1EClass = createEClass(EXP1);
-    createEReference(exp1EClass, EXP1__TYPE);
-    createEReference(exp1EClass, EXP1__FIELD_EXPR);
+    firstEClass = createEClass(FIRST);
+    createEReference(firstEClass, FIRST__TYPE);
+    createEReference(firstEClass, FIRST__E);
+    createEReference(firstEClass, FIRST__C);
+
+    containsEClass = createEClass(CONTAINS);
+    createEReference(containsEClass, CONTAINS__TYPE);
+    createEReference(containsEClass, CONTAINS__E);
+
+    expressionEClass = createEClass(EXPRESSION);
 
     fieldExprEClass = createEClass(FIELD_EXPR);
 
@@ -450,6 +618,17 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
 
     negationEClass = createEClass(NEGATION);
     createEAttribute(negationEClass, NEGATION__VALUE);
+
+    orExprEClass = createEClass(OR_EXPR);
+    createEReference(orExprEClass, OR_EXPR__LEFT);
+    createEReference(orExprEClass, OR_EXPR__RIGHT);
+
+    multiplicationEClass = createEClass(MULTIPLICATION);
+    createEReference(multiplicationEClass, MULTIPLICATION__LEFT);
+    createEReference(multiplicationEClass, MULTIPLICATION__RIGHT);
+
+    // Create enums
+    binaryExpEEnum = createEEnum(BINARY_EXP);
   }
 
   /**
@@ -481,14 +660,24 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    fieldExprEClass.getESuperTypes().add(this.getExpression());
     singleValueFieldEClass.getESuperTypes().add(this.getFieldExpr());
     multiValueFieldEClass.getESuperTypes().add(this.getFieldExpr());
     booleanFieldEClass.getESuperTypes().add(this.getFieldExpr());
+    orExprEClass.getESuperTypes().add(this.getExpression());
+    multiplicationEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(exp1EClass, Exp1.class, "Exp1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExp1_Type(), this.getType(), null, "type", null, 0, 1, Exp1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExp1_FieldExpr(), this.getFieldExpr(), null, "fieldExpr", null, 0, -1, Exp1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(firstEClass, First.class, "First", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFirst_Type(), this.getType(), null, "type", null, 0, 1, First.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFirst_E(), this.getExpression(), null, "e", null, 0, 1, First.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFirst_C(), this.getContains(), null, "c", null, 0, -1, First.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(containsEClass, Contains.class, "Contains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContains_Type(), this.getType(), null, "type", null, 0, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getContains_E(), this.getExpression(), null, "e", null, 0, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(fieldExprEClass, FieldExpr.class, "FieldExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -517,6 +706,20 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
 
     initEClass(negationEClass, Negation.class, "Negation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNegation_Value(), ecorePackage.getEString(), "value", null, 0, 1, Negation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(orExprEClass, OrExpr.class, "OrExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOrExpr_Left(), this.getExpression(), null, "left", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOrExpr_Right(), this.getExpression(), null, "right", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(multiplicationEClass, Multiplication.class, "Multiplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMultiplication_Left(), this.getExpression(), null, "left", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMultiplication_Right(), this.getExpression(), null, "right", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(binaryExpEEnum, BinaryExp.class, "BinaryExp");
+    addEEnumLiteral(binaryExpEEnum, BinaryExp.AND1);
+    addEEnumLiteral(binaryExpEEnum, BinaryExp.OR1);
+    addEEnumLiteral(binaryExpEEnum, BinaryExp.OR2);
 
     // Create resource
     createResource(eNS_URI);

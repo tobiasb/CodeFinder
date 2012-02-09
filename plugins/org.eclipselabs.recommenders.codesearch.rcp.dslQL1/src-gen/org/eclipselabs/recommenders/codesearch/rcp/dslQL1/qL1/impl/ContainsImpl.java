@@ -6,12 +6,8 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -19,29 +15,26 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.FieldExpr;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Type;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Exp1</b></em>'.
+ * An implementation of the model object '<em><b>Contains</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.Exp1Impl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.Exp1Impl#getFieldExpr <em>Field Expr</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ContainsImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ContainsImpl#getE <em>E</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
+public class ContainsImpl extends MinimalEObjectImpl.Container implements Contains
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -54,21 +47,21 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
   protected Type type;
 
   /**
-   * The cached value of the '{@link #getFieldExpr() <em>Field Expr</em>}' containment reference list.
+   * The cached value of the '{@link #getE() <em>E</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFieldExpr()
+   * @see #getE()
    * @generated
    * @ordered
    */
-  protected EList<FieldExpr> fieldExpr;
+  protected Expression e;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected Exp1Impl()
+  protected ContainsImpl()
   {
     super();
   }
@@ -81,7 +74,7 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
   @Override
   protected EClass eStaticClass()
   {
-    return QL1Package.Literals.EXP1;
+    return QL1Package.Literals.CONTAINS;
   }
 
   /**
@@ -105,7 +98,7 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
     type = newType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL1Package.EXP1__TYPE, oldType, newType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL1Package.CONTAINS__TYPE, oldType, newType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -122,14 +115,14 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
     {
       NotificationChain msgs = null;
       if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL1Package.EXP1__TYPE, null, msgs);
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL1Package.CONTAINS__TYPE, null, msgs);
       if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL1Package.EXP1__TYPE, null, msgs);
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL1Package.CONTAINS__TYPE, null, msgs);
       msgs = basicSetType(newType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.EXP1__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.CONTAINS__TYPE, newType, newType));
   }
 
   /**
@@ -137,13 +130,47 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<FieldExpr> getFieldExpr()
+  public Expression getE()
   {
-    if (fieldExpr == null)
+    return e;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetE(Expression newE, NotificationChain msgs)
+  {
+    Expression oldE = e;
+    e = newE;
+    if (eNotificationRequired())
     {
-      fieldExpr = new EObjectContainmentEList<FieldExpr>(FieldExpr.class, this, QL1Package.EXP1__FIELD_EXPR);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL1Package.CONTAINS__E, oldE, newE);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return fieldExpr;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setE(Expression newE)
+  {
+    if (newE != e)
+    {
+      NotificationChain msgs = null;
+      if (e != null)
+        msgs = ((InternalEObject)e).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL1Package.CONTAINS__E, null, msgs);
+      if (newE != null)
+        msgs = ((InternalEObject)newE).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL1Package.CONTAINS__E, null, msgs);
+      msgs = basicSetE(newE, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.CONTAINS__E, newE, newE));
   }
 
   /**
@@ -156,10 +183,10 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
   {
     switch (featureID)
     {
-      case QL1Package.EXP1__TYPE:
+      case QL1Package.CONTAINS__TYPE:
         return basicSetType(null, msgs);
-      case QL1Package.EXP1__FIELD_EXPR:
-        return ((InternalEList<?>)getFieldExpr()).basicRemove(otherEnd, msgs);
+      case QL1Package.CONTAINS__E:
+        return basicSetE(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -174,10 +201,10 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
   {
     switch (featureID)
     {
-      case QL1Package.EXP1__TYPE:
+      case QL1Package.CONTAINS__TYPE:
         return getType();
-      case QL1Package.EXP1__FIELD_EXPR:
-        return getFieldExpr();
+      case QL1Package.CONTAINS__E:
+        return getE();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -187,18 +214,16 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case QL1Package.EXP1__TYPE:
+      case QL1Package.CONTAINS__TYPE:
         setType((Type)newValue);
         return;
-      case QL1Package.EXP1__FIELD_EXPR:
-        getFieldExpr().clear();
-        getFieldExpr().addAll((Collection<? extends FieldExpr>)newValue);
+      case QL1Package.CONTAINS__E:
+        setE((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,11 +239,11 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
   {
     switch (featureID)
     {
-      case QL1Package.EXP1__TYPE:
+      case QL1Package.CONTAINS__TYPE:
         setType((Type)null);
         return;
-      case QL1Package.EXP1__FIELD_EXPR:
-        getFieldExpr().clear();
+      case QL1Package.CONTAINS__E:
+        setE((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -234,12 +259,12 @@ public class Exp1Impl extends MinimalEObjectImpl.Container implements Exp1
   {
     switch (featureID)
     {
-      case QL1Package.EXP1__TYPE:
+      case QL1Package.CONTAINS__TYPE:
         return type != null;
-      case QL1Package.EXP1__FIELD_EXPR:
-        return fieldExpr != null && !fieldExpr.isEmpty();
+      case QL1Package.CONTAINS__E:
+        return e != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //Exp1Impl
+} //ContainsImpl

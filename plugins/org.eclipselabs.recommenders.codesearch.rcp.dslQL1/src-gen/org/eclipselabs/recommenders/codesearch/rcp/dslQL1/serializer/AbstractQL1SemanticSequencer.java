@@ -14,10 +14,13 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BooleanField;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiValueField;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiValueFieldName;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Negation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleValueField;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleValueFieldName;
@@ -53,21 +56,37 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == QL1Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
 			case QL1Package.BOOLEAN_FIELD:
-				if(context == grammarAccess.getBooleanFieldRule() ||
-				   context == grammarAccess.getFieldExprRule()) {
+				if(context == grammarAccess.getAndExprRule() ||
+				   context == grammarAccess.getAndExprAccess().getMultiplicationLeftAction_1_0() ||
+				   context == grammarAccess.getBooleanFieldRule() ||
+				   context == grammarAccess.getFieldExprRule() ||
+				   context == grammarAccess.getOrExprRule() ||
+				   context == grammarAccess.getOrExprAccess().getOrExprLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule()) {
 					sequence_BooleanField(context, (BooleanField) semanticObject); 
 					return; 
 				}
 				else break;
-			case QL1Package.EXP1:
-				if(context == grammarAccess.getExp1Rule()) {
-					sequence_Exp1(context, (Exp1) semanticObject); 
+			case QL1Package.CONTAINS:
+				if(context == grammarAccess.getContainsRule()) {
+					sequence_Contains(context, (Contains) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.FIRST:
+				if(context == grammarAccess.getFirstRule()) {
+					sequence_First(context, (First) semanticObject); 
 					return; 
 				}
 				else break;
 			case QL1Package.MULTI_VALUE_FIELD:
-				if(context == grammarAccess.getFieldExprRule() ||
-				   context == grammarAccess.getMultiValueFieldRule()) {
+				if(context == grammarAccess.getAndExprRule() ||
+				   context == grammarAccess.getAndExprAccess().getMultiplicationLeftAction_1_0() ||
+				   context == grammarAccess.getFieldExprRule() ||
+				   context == grammarAccess.getMultiValueFieldRule() ||
+				   context == grammarAccess.getOrExprRule() ||
+				   context == grammarAccess.getOrExprAccess().getOrExprLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule()) {
 					sequence_MultiValueField(context, (MultiValueField) semanticObject); 
 					return; 
 				}
@@ -78,14 +97,39 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL1Package.MULTIPLICATION:
+				if(context == grammarAccess.getAndExprRule() ||
+				   context == grammarAccess.getAndExprAccess().getMultiplicationLeftAction_1_0() ||
+				   context == grammarAccess.getOrExprRule() ||
+				   context == grammarAccess.getOrExprAccess().getOrExprLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule()) {
+					sequence_AndExpr(context, (Multiplication) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL1Package.NEGATION:
 				if(context == grammarAccess.getNegationRule()) {
 					sequence_Negation(context, (Negation) semanticObject); 
 					return; 
 				}
 				else break;
+			case QL1Package.OR_EXPR:
+				if(context == grammarAccess.getAndExprRule() ||
+				   context == grammarAccess.getAndExprAccess().getMultiplicationLeftAction_1_0() ||
+				   context == grammarAccess.getOrExprRule() ||
+				   context == grammarAccess.getOrExprAccess().getOrExprLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule()) {
+					sequence_OrExpr(context, (OrExpr) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL1Package.SINGLE_VALUE_FIELD:
-				if(context == grammarAccess.getFieldExprRule() ||
+				if(context == grammarAccess.getAndExprRule() ||
+				   context == grammarAccess.getAndExprAccess().getMultiplicationLeftAction_1_0() ||
+				   context == grammarAccess.getFieldExprRule() ||
+				   context == grammarAccess.getOrExprRule() ||
+				   context == grammarAccess.getOrExprAccess().getOrExprLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule() ||
 				   context == grammarAccess.getSingleValueFieldRule()) {
 					sequence_SingleValueField(context, (SingleValueField) semanticObject); 
 					return; 
@@ -109,6 +153,25 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (left=AndExpr_Multiplication_1_0 right=Primary)
+	 */
+	protected void sequence_AndExpr(EObject context, Multiplication semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.MULTIPLICATION__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.MULTIPLICATION__LEFT));
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.MULTIPLICATION__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.MULTIPLICATION__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAndExprAccess().getMultiplicationLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAndExprAccess().getRightPrimaryParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         n=Negation? 
 	 *         (
@@ -128,9 +191,28 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=Type fieldExpr+=FieldExpr fieldExpr+=FieldExpr*)
+	 *     (type=Type e=OrExpr)
 	 */
-	protected void sequence_Exp1(EObject context, Exp1 semanticObject) {
+	protected void sequence_Contains(EObject context, Contains semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.CONTAINS__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.CONTAINS__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.CONTAINS__E) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.CONTAINS__E));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getContainsAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getContainsAccess().getEOrExprParserRuleCall_2_0(), semanticObject.getE());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=Type e=OrExpr (c+=Contains c+=Contains*)?)
+	 */
+	protected void sequence_First(EObject context, First semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -172,6 +254,25 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getNegationAccess().getValueExclamationMarkKeyword_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (left=OrExpr_OrExpr_1_0 right=AndExpr)
+	 */
+	protected void sequence_OrExpr(EObject context, OrExpr semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.OR_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.OR_EXPR__LEFT));
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.OR_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.OR_EXPR__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getOrExprAccess().getOrExprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getOrExprAccess().getRightAndExprParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	

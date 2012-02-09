@@ -7,6 +7,7 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -68,7 +69,9 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
   {
     switch (eClass.getClassifierID())
     {
-      case QL1Package.EXP1: return createExp1();
+      case QL1Package.FIRST: return createFirst();
+      case QL1Package.CONTAINS: return createContains();
+      case QL1Package.EXPRESSION: return createExpression();
       case QL1Package.FIELD_EXPR: return createFieldExpr();
       case QL1Package.TYPE: return createType();
       case QL1Package.SINGLE_VALUE_FIELD: return createSingleValueField();
@@ -77,6 +80,8 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
       case QL1Package.SINGLE_VALUE_FIELD_NAME: return createSingleValueFieldName();
       case QL1Package.MULTI_VALUE_FIELD_NAME: return createMultiValueFieldName();
       case QL1Package.NEGATION: return createNegation();
+      case QL1Package.OR_EXPR: return createOrExpr();
+      case QL1Package.MULTIPLICATION: return createMultiplication();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -87,10 +92,66 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exp1 createExp1()
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
   {
-    Exp1Impl exp1 = new Exp1Impl();
-    return exp1;
+    switch (eDataType.getClassifierID())
+    {
+      case QL1Package.BINARY_EXP:
+        return createBinaryExpFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case QL1Package.BINARY_EXP:
+        return convertBinaryExpToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public First createFirst()
+  {
+    FirstImpl first = new FirstImpl();
+    return first;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Contains createContains()
+  {
+    ContainsImpl contains = new ContainsImpl();
+    return contains;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**
@@ -179,6 +240,50 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
   {
     NegationImpl negation = new NegationImpl();
     return negation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public OrExpr createOrExpr()
+  {
+    OrExprImpl orExpr = new OrExprImpl();
+    return orExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Multiplication createMultiplication()
+  {
+    MultiplicationImpl multiplication = new MultiplicationImpl();
+    return multiplication;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BinaryExp createBinaryExpFromString(EDataType eDataType, String initialValue)
+  {
+    BinaryExp result = BinaryExp.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertBinaryExpToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

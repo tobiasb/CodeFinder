@@ -42,7 +42,7 @@ public class QL1Activator extends AbstractUIPlugin {
 	
 	private static QL1Activator INSTANCE;
 	
-	public static final String ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSLQL1_QL1 = "org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1";
+	public static final String ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSLQL1_QL1 = "org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1";
 	
 	public Injector getInjector(String languageName) {
 		try {
@@ -73,7 +73,7 @@ public class QL1Activator extends AbstractUIPlugin {
 	}
 	
 	protected Module getRuntimeModule(String grammar) {
-		if (ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSLQL1_QL1.equals(grammar)) {
+		if (ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSLQL1_QL1.equals(grammar)) {
 			return new org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1RuntimeModule();
 		}
 		
@@ -81,7 +81,7 @@ public class QL1Activator extends AbstractUIPlugin {
 	}
 	
 	protected Module getUiModule(String grammar) {
-		if (ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSLQL1_QL1.equals(grammar)) {
+		if (ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSLQL1_QL1.equals(grammar)) {
 			return new org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.QL1UiModule(this);
 		}
 		

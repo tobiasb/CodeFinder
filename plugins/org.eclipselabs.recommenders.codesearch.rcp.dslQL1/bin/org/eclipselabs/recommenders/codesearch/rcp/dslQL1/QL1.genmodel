@@ -2,18 +2,28 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen"
-    editDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL1.edit/src"
-    editorDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL1.editor/src"
+    editDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL1.edit/src" editorDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL1.editor/src"
     modelPluginID="org.eclipselabs.recommenders.codesearch.rcp.dslQL1" forceOverwrite="true"
     modelName="QL1" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.edit"
     editorPluginID="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.editor">
   <genPackages prefix="QL1" basePackage="org.eclipselabs.recommenders.codesearch.rcp.dslQL1"
       disposableProviderFactory="true" ecorePackage="QL1.ecore#/">
-    <genClasses ecoreClass="QL1.ecore#//Exp1">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Exp1/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Exp1/fieldExpr"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="QL1.ecore#//BinaryExp">
+      <genEnumLiterals ecoreEnumLiteral="QL1.ecore#//BinaryExp/and1"/>
+      <genEnumLiterals ecoreEnumLiteral="QL1.ecore#//BinaryExp/or1"/>
+      <genEnumLiterals ecoreEnumLiteral="QL1.ecore#//BinaryExp/or2"/>
+    </genEnums>
+    <genClasses ecoreClass="QL1.ecore#//First">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//First/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//First/e"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//First/c"/>
     </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//Contains">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Contains/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Contains/e"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//Expression"/>
     <genClasses ecoreClass="QL1.ecore#//FieldExpr"/>
     <genClasses ecoreClass="QL1.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Type/value"/>
@@ -40,6 +50,14 @@
     </genClasses>
     <genClasses ecoreClass="QL1.ecore#//Negation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Negation/value"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//OrExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//OrExpr/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//OrExpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//Multiplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Multiplication/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Multiplication/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

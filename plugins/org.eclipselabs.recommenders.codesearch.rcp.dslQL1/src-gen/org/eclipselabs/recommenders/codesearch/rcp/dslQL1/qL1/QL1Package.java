@@ -8,6 +8,7 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -61,14 +62,14 @@ public interface QL1Package extends EPackage
   QL1Package eINSTANCE = org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.Exp1Impl <em>Exp1</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.FirstImpl <em>First</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.Exp1Impl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getExp1()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.FirstImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getFirst()
    * @generated
    */
-  int EXP1 = 0;
+  int FIRST = 0;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -77,25 +78,90 @@ public interface QL1Package extends EPackage
    * @generated
    * @ordered
    */
-  int EXP1__TYPE = 0;
+  int FIRST__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Field Expr</b></em>' containment reference list.
+   * The feature id for the '<em><b>E</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP1__FIELD_EXPR = 1;
+  int FIRST__E = 1;
 
   /**
-   * The number of structural features of the '<em>Exp1</em>' class.
+   * The feature id for the '<em><b>C</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP1_FEATURE_COUNT = 2;
+  int FIRST__C = 2;
+
+  /**
+   * The number of structural features of the '<em>First</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIRST_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ContainsImpl <em>Contains</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ContainsImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getContains()
+   * @generated
+   */
+  int CONTAINS = 1;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINS__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>E</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINS__E = 1;
+
+  /**
+   * The number of structural features of the '<em>Contains</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTAINS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ExpressionImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 2;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.FieldExprImpl <em>Field Expr</em>}' class.
@@ -105,7 +171,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getFieldExpr()
    * @generated
    */
-  int FIELD_EXPR = 1;
+  int FIELD_EXPR = 3;
 
   /**
    * The number of structural features of the '<em>Field Expr</em>' class.
@@ -114,7 +180,7 @@ public interface QL1Package extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_EXPR_FEATURE_COUNT = 0;
+  int FIELD_EXPR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.TypeImpl <em>Type</em>}' class.
@@ -124,7 +190,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getType()
    * @generated
    */
-  int TYPE = 2;
+  int TYPE = 4;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -161,7 +227,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getSingleValueField()
    * @generated
    */
-  int SINGLE_VALUE_FIELD = 3;
+  int SINGLE_VALUE_FIELD = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -207,7 +273,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getMultiValueField()
    * @generated
    */
-  int MULTI_VALUE_FIELD = 4;
+  int MULTI_VALUE_FIELD = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' containment reference.
@@ -244,7 +310,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getBooleanField()
    * @generated
    */
-  int BOOLEAN_FIELD = 5;
+  int BOOLEAN_FIELD = 7;
 
   /**
    * The feature id for the '<em><b>N</b></em>' containment reference.
@@ -281,7 +347,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getSingleValueFieldName()
    * @generated
    */
-  int SINGLE_VALUE_FIELD_NAME = 6;
+  int SINGLE_VALUE_FIELD_NAME = 8;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -309,7 +375,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getMultiValueFieldName()
    * @generated
    */
-  int MULTI_VALUE_FIELD_NAME = 7;
+  int MULTI_VALUE_FIELD_NAME = 9;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -337,7 +403,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getNegation()
    * @generated
    */
-  int NEGATION = 8;
+  int NEGATION = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -357,38 +423,175 @@ public interface QL1Package extends EPackage
    */
   int NEGATION_FEATURE_COUNT = 1;
 
-
   /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1 <em>Exp1</em>}'.
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.OrExprImpl <em>Or Expr</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Exp1</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.OrExprImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getOrExpr()
    * @generated
    */
-  EClass getExp1();
+  int OR_EXPR = 11;
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1#getType <em>Type</em>}'.
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Or Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXPR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MultiplicationImpl <em>Multiplication</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MultiplicationImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getMultiplication()
+   * @generated
+   */
+  int MULTIPLICATION = 12;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION__RIGHT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Multiplication</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MULTIPLICATION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp <em>Binary Exp</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getBinaryExp()
+   * @generated
+   */
+  int BINARY_EXP = 13;
+
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First <em>First</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>First</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First
+   * @generated
+   */
+  EClass getFirst();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1#getType()
-   * @see #getExp1()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First#getType()
+   * @see #getFirst()
    * @generated
    */
-  EReference getExp1_Type();
+  EReference getFirst_Type();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1#getFieldExpr <em>Field Expr</em>}'.
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First#getE <em>E</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Field Expr</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1#getFieldExpr()
-   * @see #getExp1()
+   * @return the meta object for the containment reference '<em>E</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First#getE()
+   * @see #getFirst()
    * @generated
    */
-  EReference getExp1_FieldExpr();
+  EReference getFirst_E();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First#getC <em>C</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>C</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First#getC()
+   * @see #getFirst()
+   * @generated
+   */
+  EReference getFirst_C();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains <em>Contains</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Contains</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains
+   * @generated
+   */
+  EClass getContains();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains#getType()
+   * @see #getContains()
+   * @generated
+   */
+  EReference getContains_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains#getE <em>E</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>E</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains#getE()
+   * @see #getContains()
+   * @generated
+   */
+  EReference getContains_E();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression
+   * @generated
+   */
+  EClass getExpression();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.FieldExpr <em>Field Expr</em>}'.
@@ -603,6 +806,80 @@ public interface QL1Package extends EPackage
   EAttribute getNegation_Value();
 
   /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr <em>Or Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Or Expr</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr
+   * @generated
+   */
+  EClass getOrExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr#getLeft()
+   * @see #getOrExpr()
+   * @generated
+   */
+  EReference getOrExpr_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr#getRight()
+   * @see #getOrExpr()
+   * @generated
+   */
+  EReference getOrExpr_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication <em>Multiplication</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Multiplication</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication
+   * @generated
+   */
+  EClass getMultiplication();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication#getLeft()
+   * @see #getMultiplication()
+   * @generated
+   */
+  EReference getMultiplication_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication#getRight()
+   * @see #getMultiplication()
+   * @generated
+   */
+  EReference getMultiplication_Right();
+
+  /**
+   * Returns the meta object for enum '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp <em>Binary Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Binary Exp</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp
+   * @generated
+   */
+  EEnum getBinaryExp();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -626,14 +903,14 @@ public interface QL1Package extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.Exp1Impl <em>Exp1</em>}' class.
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.FirstImpl <em>First</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.Exp1Impl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getExp1()
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.FirstImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getFirst()
      * @generated
      */
-    EClass EXP1 = eINSTANCE.getExp1();
+    EClass FIRST = eINSTANCE.getFirst();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -641,15 +918,59 @@ public interface QL1Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP1__TYPE = eINSTANCE.getExp1_Type();
+    EReference FIRST__TYPE = eINSTANCE.getFirst_Type();
 
     /**
-     * The meta object literal for the '<em><b>Field Expr</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>E</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP1__FIELD_EXPR = eINSTANCE.getExp1_FieldExpr();
+    EReference FIRST__E = eINSTANCE.getFirst_E();
+
+    /**
+     * The meta object literal for the '<em><b>C</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FIRST__C = eINSTANCE.getFirst_C();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ContainsImpl <em>Contains</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ContainsImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getContains()
+     * @generated
+     */
+    EClass CONTAINS = eINSTANCE.getContains();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTAINS__TYPE = eINSTANCE.getContains_Type();
+
+    /**
+     * The meta object literal for the '<em><b>E</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTAINS__E = eINSTANCE.getContains_E();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ExpressionImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.FieldExprImpl <em>Field Expr</em>}' class.
@@ -826,6 +1147,68 @@ public interface QL1Package extends EPackage
      * @generated
      */
     EAttribute NEGATION__VALUE = eINSTANCE.getNegation_Value();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.OrExprImpl <em>Or Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.OrExprImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getOrExpr()
+     * @generated
+     */
+    EClass OR_EXPR = eINSTANCE.getOrExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_EXPR__LEFT = eINSTANCE.getOrExpr_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OR_EXPR__RIGHT = eINSTANCE.getOrExpr_Right();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MultiplicationImpl <em>Multiplication</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MultiplicationImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getMultiplication()
+     * @generated
+     */
+    EClass MULTIPLICATION = eINSTANCE.getMultiplication();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULTIPLICATION__LEFT = eINSTANCE.getMultiplication_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MULTIPLICATION__RIGHT = eINSTANCE.getMultiplication_Right();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp <em>Binary Exp</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getBinaryExp()
+     * @generated
+     */
+    EEnum BINARY_EXP = eINSTANCE.getBinaryExp();
 
   }
 

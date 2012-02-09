@@ -8,26 +8,28 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.FieldExpr;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Field Expr</b></em>'.
+ * An implementation of the model object '<em><b>Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class FieldExprImpl extends ExpressionImpl implements FieldExpr
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FieldExprImpl()
+  protected ExpressionImpl()
   {
     super();
   }
@@ -40,7 +42,7 @@ public class FieldExprImpl extends ExpressionImpl implements FieldExpr
   @Override
   protected EClass eStaticClass()
   {
-    return QL1Package.Literals.FIELD_EXPR;
+    return QL1Package.Literals.EXPRESSION;
   }
 
-} //FieldExprImpl
+} //ExpressionImpl

@@ -27,13 +27,31 @@ public interface QL1Factory extends EFactory
   QL1Factory eINSTANCE = org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1FactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Exp1</em>'.
+   * Returns a new object of class '<em>First</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exp1</em>'.
+   * @return a new object of class '<em>First</em>'.
    * @generated
    */
-  Exp1 createExp1();
+  First createFirst();
+
+  /**
+   * Returns a new object of class '<em>Contains</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Contains</em>'.
+   * @generated
+   */
+  Contains createContains();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
 
   /**
    * Returns a new object of class '<em>Field Expr</em>'.
@@ -106,6 +124,24 @@ public interface QL1Factory extends EFactory
    * @generated
    */
   Negation createNegation();
+
+  /**
+   * Returns a new object of class '<em>Or Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or Expr</em>'.
+   * @generated
+   */
+  OrExpr createOrExpr();
+
+  /**
+   * Returns a new object of class '<em>Multiplication</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multiplication</em>'.
+   * @generated
+   */
+  Multiplication createMultiplication();
 
   /**
    * Returns the package supported by this factory.

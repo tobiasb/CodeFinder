@@ -4,23 +4,98 @@
     <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="qL1">
       <ePackage href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#/"/>
     </metamodelDeclarations>
-    <rules xsi:type="xtext:ParserRule" name="Exp1">
+    <rules xsi:type="xtext:ParserRule" name="First">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//Exp1"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//First"/>
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="type" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="where"/>
-        <elements xsi:type="xtext:Assignment" feature="fieldExpr" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+        <elements xsi:type="xtext:Assignment" feature="e" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </elements>
-        <elements xsi:type="xtext:Group" cardinality="*">
-          <elements xsi:type="xtext:Keyword" value=","/>
-          <elements xsi:type="xtext:Assignment" feature="fieldExpr" operator="+=">
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="Containing"/>
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:Assignment" feature="c" operator="+=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
           </elements>
+          <elements xsi:type="xtext:Keyword" value=")"/>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value="and"/>
+            <elements xsi:type="xtext:Keyword" value="("/>
+            <elements xsi:type="xtext:Assignment" feature="c" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+            </elements>
+            <elements xsi:type="xtext:Keyword" value=")"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Contains">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//Contains"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="type" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="where"/>
+        <elements xsi:type="xtext:Assignment" feature="e" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OrExpr">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//Expression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+        <elements xsi:type="xtext:Group" cardinality="*">
+          <elements xsi:type="xtext:Action" feature="left" operator="=">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//OrExpr"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="or"/>
+          <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AndExpr">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//Expression"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+        <elements xsi:type="xtext:Group" cardinality="*">
+          <elements xsi:type="xtext:Action" feature="left" operator="=">
+            <type metamodel="/0/@metamodelDeclarations.0">
+              <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//Multiplication"/>
+            </type>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="and"/>
+          <elements xsi:type="xtext:Assignment" feature="right" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Primary">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//Expression"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="("/>
+          <elements xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+          <elements xsi:type="xtext:Keyword" value=")"/>
         </elements>
       </alternatives>
     </rules>
@@ -29,9 +104,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//FieldExpr"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Type">
@@ -53,14 +128,14 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="n" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="is"/>
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
         </elements>
       </alternatives>
     </rules>
@@ -70,22 +145,22 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="has"/>
         <elements xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:Assignment" feature="values" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
           </elements>
           <elements xsi:type="xtext:Group">
             <elements xsi:type="xtext:Keyword" value="("/>
             <elements xsi:type="xtext:Assignment" feature="values" operator="+=">
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
             </elements>
             <elements xsi:type="xtext:Group" cardinality="*">
               <elements xsi:type="xtext:Keyword" value=","/>
               <elements xsi:type="xtext:Assignment" feature="values" operator="+=">
-                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
               </elements>
             </elements>
             <elements xsi:type="xtext:Keyword" value=")"/>
@@ -99,7 +174,7 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="n" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         </elements>
         <elements xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:Assignment" feature="value" operator="=">
@@ -145,6 +220,25 @@
       </type>
       <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
         <terminal xsi:type="xtext:Keyword" value="!"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:EnumRule" name="BinaryExp">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EEnum" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//BinaryExp"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//BinaryExp/and1"/>
+          <literal value="AND"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//BinaryExp/or1"/>
+          <literal value="OR"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1#//BinaryExp/or2"/>
+          <literal value="||"/>
+        </elements>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:TerminalRule" name="NameWithWC">

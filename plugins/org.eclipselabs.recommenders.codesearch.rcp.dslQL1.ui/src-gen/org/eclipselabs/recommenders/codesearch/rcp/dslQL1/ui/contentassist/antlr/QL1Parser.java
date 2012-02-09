@@ -37,20 +37,34 @@ public class QL1Parser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 					put(grammarAccess.getFieldExprAccess().getAlternatives(), "rule__FieldExpr__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getMultiValueFieldAccess().getAlternatives_2(), "rule__MultiValueField__Alternatives_2");
 					put(grammarAccess.getBooleanFieldAccess().getAlternatives_1(), "rule__BooleanField__Alternatives_1");
-					put(grammarAccess.getExp1Access().getGroup(), "rule__Exp1__Group__0");
-					put(grammarAccess.getExp1Access().getGroup_3(), "rule__Exp1__Group_3__0");
+					put(grammarAccess.getBinaryExpAccess().getAlternatives(), "rule__BinaryExp__Alternatives");
+					put(grammarAccess.getFirstAccess().getGroup(), "rule__First__Group__0");
+					put(grammarAccess.getFirstAccess().getGroup_3(), "rule__First__Group_3__0");
+					put(grammarAccess.getFirstAccess().getGroup_3_4(), "rule__First__Group_3_4__0");
+					put(grammarAccess.getContainsAccess().getGroup(), "rule__Contains__Group__0");
+					put(grammarAccess.getOrExprAccess().getGroup(), "rule__OrExpr__Group__0");
+					put(grammarAccess.getOrExprAccess().getGroup_1(), "rule__OrExpr__Group_1__0");
+					put(grammarAccess.getAndExprAccess().getGroup(), "rule__AndExpr__Group__0");
+					put(grammarAccess.getAndExprAccess().getGroup_1(), "rule__AndExpr__Group_1__0");
+					put(grammarAccess.getPrimaryAccess().getGroup_1(), "rule__Primary__Group_1__0");
 					put(grammarAccess.getSingleValueFieldAccess().getGroup(), "rule__SingleValueField__Group__0");
 					put(grammarAccess.getMultiValueFieldAccess().getGroup(), "rule__MultiValueField__Group__0");
 					put(grammarAccess.getMultiValueFieldAccess().getGroup_2_1(), "rule__MultiValueField__Group_2_1__0");
 					put(grammarAccess.getMultiValueFieldAccess().getGroup_2_1_2(), "rule__MultiValueField__Group_2_1_2__0");
 					put(grammarAccess.getBooleanFieldAccess().getGroup(), "rule__BooleanField__Group__0");
-					put(grammarAccess.getExp1Access().getTypeAssignment_0(), "rule__Exp1__TypeAssignment_0");
-					put(grammarAccess.getExp1Access().getFieldExprAssignment_2(), "rule__Exp1__FieldExprAssignment_2");
-					put(grammarAccess.getExp1Access().getFieldExprAssignment_3_1(), "rule__Exp1__FieldExprAssignment_3_1");
+					put(grammarAccess.getFirstAccess().getTypeAssignment_0(), "rule__First__TypeAssignment_0");
+					put(grammarAccess.getFirstAccess().getEAssignment_2(), "rule__First__EAssignment_2");
+					put(grammarAccess.getFirstAccess().getCAssignment_3_2(), "rule__First__CAssignment_3_2");
+					put(grammarAccess.getFirstAccess().getCAssignment_3_4_2(), "rule__First__CAssignment_3_4_2");
+					put(grammarAccess.getContainsAccess().getTypeAssignment_0(), "rule__Contains__TypeAssignment_0");
+					put(grammarAccess.getContainsAccess().getEAssignment_2(), "rule__Contains__EAssignment_2");
+					put(grammarAccess.getOrExprAccess().getRightAssignment_1_2(), "rule__OrExpr__RightAssignment_1_2");
+					put(grammarAccess.getAndExprAccess().getRightAssignment_1_2(), "rule__AndExpr__RightAssignment_1_2");
 					put(grammarAccess.getTypeAccess().getValueAssignment_0(), "rule__Type__ValueAssignment_0");
 					put(grammarAccess.getTypeAccess().getMethodAssignment_1(), "rule__Type__MethodAssignment_1");
 					put(grammarAccess.getSingleValueFieldAccess().getNameAssignment_0(), "rule__SingleValueField__NameAssignment_0");
@@ -80,7 +94,7 @@ public class QL1Parser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.contentassist.antlr.internal.InternalQL1Parser typedParser = (org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.contentassist.antlr.internal.InternalQL1Parser) parser;
-			typedParser.entryRuleExp1();
+			typedParser.entryRuleFirst();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

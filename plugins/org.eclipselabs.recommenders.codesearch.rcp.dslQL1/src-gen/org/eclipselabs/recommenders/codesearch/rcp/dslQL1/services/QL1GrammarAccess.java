@@ -17,24 +17,32 @@ import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	
 	
-	public class Exp1Elements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Exp1");
+	public class FirstElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "First");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cTypeTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Keyword cWhereKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cFieldExprAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFieldExprFieldExprParserRuleCall_2_0 = (RuleCall)cFieldExprAssignment_2.eContents().get(0);
+		private final Assignment cEAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEOrExprParserRuleCall_2_0 = (RuleCall)cEAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cCommaKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cFieldExprAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cFieldExprFieldExprParserRuleCall_3_1_0 = (RuleCall)cFieldExprAssignment_3_1.eContents().get(0);
+		private final Keyword cContainingKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Assignment cCAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cCContainsParserRuleCall_3_2_0 = (RuleCall)cCAssignment_3_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Group cGroup_3_4 = (Group)cGroup_3.eContents().get(4);
+		private final Keyword cAndKeyword_3_4_0 = (Keyword)cGroup_3_4.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_3_4_1 = (Keyword)cGroup_3_4.eContents().get(1);
+		private final Assignment cCAssignment_3_4_2 = (Assignment)cGroup_3_4.eContents().get(2);
+		private final RuleCall cCContainsParserRuleCall_3_4_2_0 = (RuleCall)cCAssignment_3_4_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_4_3 = (Keyword)cGroup_3_4.eContents().get(3);
 		
-		//Exp1:
-		//	type=Type "where" fieldExpr+=FieldExpr ("," fieldExpr+=FieldExpr)*;
+		//First:
+		//	type=Type "where" e=OrExpr ("Containing" "(" c+=Contains ")" ("and" "(" c+=Contains ")")*)?;
 		public ParserRule getRule() { return rule; }
 
-		//type=Type "where" fieldExpr+=FieldExpr ("," fieldExpr+=FieldExpr)*
+		//type=Type "where" e=OrExpr ("Containing" "(" c+=Contains ")" ("and" "(" c+=Contains ")")*)?
 		public Group getGroup() { return cGroup; }
 
 		//type=Type
@@ -46,23 +54,183 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//"where"
 		public Keyword getWhereKeyword_1() { return cWhereKeyword_1; }
 
-		//fieldExpr+=FieldExpr
-		public Assignment getFieldExprAssignment_2() { return cFieldExprAssignment_2; }
+		//e=OrExpr
+		public Assignment getEAssignment_2() { return cEAssignment_2; }
 
-		//FieldExpr
-		public RuleCall getFieldExprFieldExprParserRuleCall_2_0() { return cFieldExprFieldExprParserRuleCall_2_0; }
+		//OrExpr
+		public RuleCall getEOrExprParserRuleCall_2_0() { return cEOrExprParserRuleCall_2_0; }
 
-		//("," fieldExpr+=FieldExpr)*
+		//("Containing" "(" c+=Contains ")" ("and" "(" c+=Contains ")")*)?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//","
-		public Keyword getCommaKeyword_3_0() { return cCommaKeyword_3_0; }
+		//"Containing"
+		public Keyword getContainingKeyword_3_0() { return cContainingKeyword_3_0; }
 
-		//fieldExpr+=FieldExpr
-		public Assignment getFieldExprAssignment_3_1() { return cFieldExprAssignment_3_1; }
+		//"("
+		public Keyword getLeftParenthesisKeyword_3_1() { return cLeftParenthesisKeyword_3_1; }
+
+		//c+=Contains
+		public Assignment getCAssignment_3_2() { return cCAssignment_3_2; }
+
+		//Contains
+		public RuleCall getCContainsParserRuleCall_3_2_0() { return cCContainsParserRuleCall_3_2_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
+
+		//("and" "(" c+=Contains ")")*
+		public Group getGroup_3_4() { return cGroup_3_4; }
+
+		//"and"
+		public Keyword getAndKeyword_3_4_0() { return cAndKeyword_3_4_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_3_4_1() { return cLeftParenthesisKeyword_3_4_1; }
+
+		//c+=Contains
+		public Assignment getCAssignment_3_4_2() { return cCAssignment_3_4_2; }
+
+		//Contains
+		public RuleCall getCContainsParserRuleCall_3_4_2_0() { return cCContainsParserRuleCall_3_4_2_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_3_4_3() { return cRightParenthesisKeyword_3_4_3; }
+	}
+
+	public class ContainsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Contains");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTypeTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final Keyword cWhereKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEOrExprParserRuleCall_2_0 = (RuleCall)cEAssignment_2.eContents().get(0);
+		
+		//Contains:
+		//	type=Type "where" e=OrExpr;
+		public ParserRule getRule() { return rule; }
+
+		//type=Type "where" e=OrExpr
+		public Group getGroup() { return cGroup; }
+
+		//type=Type
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+
+		//Type
+		public RuleCall getTypeTypeParserRuleCall_0_0() { return cTypeTypeParserRuleCall_0_0; }
+
+		//"where"
+		public Keyword getWhereKeyword_1() { return cWhereKeyword_1; }
+
+		//e=OrExpr
+		public Assignment getEAssignment_2() { return cEAssignment_2; }
+
+		//OrExpr
+		public RuleCall getEOrExprParserRuleCall_2_0() { return cEOrExprParserRuleCall_2_0; }
+	}
+
+	public class OrExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OrExpr");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cAndExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cOrExprLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cOrKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightAndExprParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//OrExpr returns Expression:
+		//	AndExpr ({OrExpr.left=current} "or" right=AndExpr)*;
+		public ParserRule getRule() { return rule; }
+
+		//AndExpr ({OrExpr.left=current} "or" right=AndExpr)*
+		public Group getGroup() { return cGroup; }
+
+		//AndExpr
+		public RuleCall getAndExprParserRuleCall_0() { return cAndExprParserRuleCall_0; }
+
+		//({OrExpr.left=current} "or" right=AndExpr)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{OrExpr.left=current}
+		public Action getOrExprLeftAction_1_0() { return cOrExprLeftAction_1_0; }
+
+		//"or"
+		public Keyword getOrKeyword_1_1() { return cOrKeyword_1_1; }
+
+		//right=AndExpr
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+
+		//AndExpr
+		public RuleCall getRightAndExprParserRuleCall_1_2_0() { return cRightAndExprParserRuleCall_1_2_0; }
+	}
+
+	public class AndExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AndExpr");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPrimaryParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cMultiplicationLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Keyword cAndKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightPrimaryParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//AndExpr returns Expression:
+		//	Primary ({Multiplication.left=current} "and" right=Primary)*;
+		public ParserRule getRule() { return rule; }
+
+		//Primary ({Multiplication.left=current} "and" right=Primary)*
+		public Group getGroup() { return cGroup; }
+
+		//Primary
+		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
+
+		//({Multiplication.left=current} "and" right=Primary)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{Multiplication.left=current}
+		public Action getMultiplicationLeftAction_1_0() { return cMultiplicationLeftAction_1_0; }
+
+		//"and"
+		public Keyword getAndKeyword_1_1() { return cAndKeyword_1_1; }
+
+		//right=Primary
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+
+		//Primary
+		public RuleCall getRightPrimaryParserRuleCall_1_2_0() { return cRightPrimaryParserRuleCall_1_2_0; }
+	}
+
+	public class PrimaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Primary");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cFieldExprParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cOrExprParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		
+		//Primary returns Expression:
+		//	FieldExpr | "(" OrExpr ")";
+		public ParserRule getRule() { return rule; }
+
+		//FieldExpr | "(" OrExpr ")"
+		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//FieldExpr
-		public RuleCall getFieldExprFieldExprParserRuleCall_3_1_0() { return cFieldExprFieldExprParserRuleCall_3_1_0; }
+		public RuleCall getFieldExprParserRuleCall_0() { return cFieldExprParserRuleCall_0; }
+
+		//"(" OrExpr ")"
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+
+		//OrExpr
+		public RuleCall getOrExprParserRuleCall_1_1() { return cOrExprParserRuleCall_1_1; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
 	}
 
 	public class FieldExprElements extends AbstractParserRuleElementFinder {
@@ -352,7 +520,47 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private Exp1Elements pExp1;
+	public class BinaryExpElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BinaryExp");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cAnd1EnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cAnd1ANDKeyword_0_0 = (Keyword)cAnd1EnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cOr1EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cOr1ORKeyword_1_0 = (Keyword)cOr1EnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cOr2EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cOr2VerticalLineVerticalLineKeyword_2_0 = (Keyword)cOr2EnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum BinaryExp:
+		//	and1="AND" | or1="OR" | or2="||";
+		public EnumRule getRule() { return rule; }
+
+		//and1="AND" | or1="OR" | or2="||"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//and1="AND"
+		public EnumLiteralDeclaration getAnd1EnumLiteralDeclaration_0() { return cAnd1EnumLiteralDeclaration_0; }
+
+		//"AND"
+		public Keyword getAnd1ANDKeyword_0_0() { return cAnd1ANDKeyword_0_0; }
+
+		//or1="OR"
+		public EnumLiteralDeclaration getOr1EnumLiteralDeclaration_1() { return cOr1EnumLiteralDeclaration_1; }
+
+		//"OR"
+		public Keyword getOr1ORKeyword_1_0() { return cOr1ORKeyword_1_0; }
+
+		//or2="||"
+		public EnumLiteralDeclaration getOr2EnumLiteralDeclaration_2() { return cOr2EnumLiteralDeclaration_2; }
+
+		//"||"
+		public Keyword getOr2VerticalLineVerticalLineKeyword_2_0() { return cOr2VerticalLineVerticalLineKeyword_2_0; }
+	}
+	
+	private FirstElements pFirst;
+	private ContainsElements pContains;
+	private OrExprElements pOrExpr;
+	private AndExprElements pAndExpr;
+	private PrimaryElements pPrimary;
 	private FieldExprElements pFieldExpr;
 	private TypeElements pType;
 	private SingleValueFieldElements pSingleValueField;
@@ -361,6 +569,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	private SingleValueFieldNameElements pSingleValueFieldName;
 	private MultiValueFieldNameElements pMultiValueFieldName;
 	private NegationElements pNegation;
+	private BinaryExpElements unknownRuleBinaryExp;
 	private TerminalRule tNameWithWC;
 	
 	private final GrammarProvider grammarProvider;
@@ -384,14 +593,54 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Exp1:
-	//	type=Type "where" fieldExpr+=FieldExpr ("," fieldExpr+=FieldExpr)*;
-	public Exp1Elements getExp1Access() {
-		return (pExp1 != null) ? pExp1 : (pExp1 = new Exp1Elements());
+	//First:
+	//	type=Type "where" e=OrExpr ("Containing" "(" c+=Contains ")" ("and" "(" c+=Contains ")")*)?;
+	public FirstElements getFirstAccess() {
+		return (pFirst != null) ? pFirst : (pFirst = new FirstElements());
 	}
 	
-	public ParserRule getExp1Rule() {
-		return getExp1Access().getRule();
+	public ParserRule getFirstRule() {
+		return getFirstAccess().getRule();
+	}
+
+	//Contains:
+	//	type=Type "where" e=OrExpr;
+	public ContainsElements getContainsAccess() {
+		return (pContains != null) ? pContains : (pContains = new ContainsElements());
+	}
+	
+	public ParserRule getContainsRule() {
+		return getContainsAccess().getRule();
+	}
+
+	//OrExpr returns Expression:
+	//	AndExpr ({OrExpr.left=current} "or" right=AndExpr)*;
+	public OrExprElements getOrExprAccess() {
+		return (pOrExpr != null) ? pOrExpr : (pOrExpr = new OrExprElements());
+	}
+	
+	public ParserRule getOrExprRule() {
+		return getOrExprAccess().getRule();
+	}
+
+	//AndExpr returns Expression:
+	//	Primary ({Multiplication.left=current} "and" right=Primary)*;
+	public AndExprElements getAndExprAccess() {
+		return (pAndExpr != null) ? pAndExpr : (pAndExpr = new AndExprElements());
+	}
+	
+	public ParserRule getAndExprRule() {
+		return getAndExprAccess().getRule();
+	}
+
+	//Primary returns Expression:
+	//	FieldExpr | "(" OrExpr ")";
+	public PrimaryElements getPrimaryAccess() {
+		return (pPrimary != null) ? pPrimary : (pPrimary = new PrimaryElements());
+	}
+	
+	public ParserRule getPrimaryRule() {
+		return getPrimaryAccess().getRule();
 	}
 
 	//FieldExpr:
@@ -473,6 +722,16 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getNegationRule() {
 		return getNegationAccess().getRule();
+	}
+
+	//enum BinaryExp:
+	//	and1="AND" | or1="OR" | or2="||";
+	public BinaryExpElements getBinaryExpAccess() {
+		return (unknownRuleBinaryExp != null) ? unknownRuleBinaryExp : (unknownRuleBinaryExp = new BinaryExpElements());
+	}
+	
+	public EnumRule getBinaryExpRule() {
+		return getBinaryExpAccess().getRule();
 	}
 
 	//terminal NameWithWC:

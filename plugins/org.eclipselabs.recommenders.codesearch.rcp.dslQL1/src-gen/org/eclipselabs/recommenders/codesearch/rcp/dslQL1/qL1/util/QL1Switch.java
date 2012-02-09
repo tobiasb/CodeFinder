@@ -76,10 +76,24 @@ public class QL1Switch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case QL1Package.EXP1:
+      case QL1Package.FIRST:
       {
-        Exp1 exp1 = (Exp1)theEObject;
-        T result = caseExp1(exp1);
+        First first = (First)theEObject;
+        T result = caseFirst(first);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.CONTAINS:
+      {
+        Contains contains = (Contains)theEObject;
+        T result = caseContains(contains);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -87,6 +101,7 @@ public class QL1Switch<T> extends Switch<T>
       {
         FieldExpr fieldExpr = (FieldExpr)theEObject;
         T result = caseFieldExpr(fieldExpr);
+        if (result == null) result = caseExpression(fieldExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -102,6 +117,7 @@ public class QL1Switch<T> extends Switch<T>
         SingleValueField singleValueField = (SingleValueField)theEObject;
         T result = caseSingleValueField(singleValueField);
         if (result == null) result = caseFieldExpr(singleValueField);
+        if (result == null) result = caseExpression(singleValueField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -110,6 +126,7 @@ public class QL1Switch<T> extends Switch<T>
         MultiValueField multiValueField = (MultiValueField)theEObject;
         T result = caseMultiValueField(multiValueField);
         if (result == null) result = caseFieldExpr(multiValueField);
+        if (result == null) result = caseExpression(multiValueField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -118,6 +135,7 @@ public class QL1Switch<T> extends Switch<T>
         BooleanField booleanField = (BooleanField)theEObject;
         T result = caseBooleanField(booleanField);
         if (result == null) result = caseFieldExpr(booleanField);
+        if (result == null) result = caseExpression(booleanField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -142,22 +160,70 @@ public class QL1Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL1Package.OR_EXPR:
+      {
+        OrExpr orExpr = (OrExpr)theEObject;
+        T result = caseOrExpr(orExpr);
+        if (result == null) result = caseExpression(orExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.MULTIPLICATION:
+      {
+        Multiplication multiplication = (Multiplication)theEObject;
+        T result = caseMultiplication(multiplication);
+        if (result == null) result = caseExpression(multiplication);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Exp1</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>First</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exp1</em>'.
+   * @return the result of interpreting the object as an instance of '<em>First</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExp1(Exp1 object)
+  public T caseFirst(First object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Contains</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Contains</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContains(Contains object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
   {
     return null;
   }
@@ -286,6 +352,38 @@ public class QL1Switch<T> extends Switch<T>
    * @generated
    */
   public T caseNegation(Negation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Or Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Or Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOrExpr(OrExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Multiplication</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Multiplication</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMultiplication(Multiplication object)
   {
     return null;
   }

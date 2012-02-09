@@ -79,9 +79,19 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
     new QL1Switch<Adapter>()
     {
       @Override
-      public Adapter caseExp1(Exp1 object)
+      public Adapter caseFirst(First object)
       {
-        return createExp1Adapter();
+        return createFirstAdapter();
+      }
+      @Override
+      public Adapter caseContains(Contains object)
+      {
+        return createContainsAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
       }
       @Override
       public Adapter caseFieldExpr(FieldExpr object)
@@ -124,6 +134,16 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
         return createNegationAdapter();
       }
       @Override
+      public Adapter caseOrExpr(OrExpr object)
+      {
+        return createOrExprAdapter();
+      }
+      @Override
+      public Adapter caseMultiplication(Multiplication object)
+      {
+        return createMultiplicationAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -146,16 +166,46 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1 <em>Exp1</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First <em>First</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Exp1
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First
    * @generated
    */
-  public Adapter createExp1Adapter()
+  public Adapter createFirstAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains <em>Contains</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains
+   * @generated
+   */
+  public Adapter createContainsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
   {
     return null;
   }
@@ -276,6 +326,36 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNegationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr <em>Or Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr
+   * @generated
+   */
+  public Adapter createOrExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication <em>Multiplication</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication
+   * @generated
+   */
+  public Adapter createMultiplicationAdapter()
   {
     return null;
   }

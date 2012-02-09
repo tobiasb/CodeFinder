@@ -25,7 +25,7 @@ public class QL1Parser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParse
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Exp1";
+		return "First";
 	}
 	
 	public QL1GrammarAccess getGrammarAccess() {

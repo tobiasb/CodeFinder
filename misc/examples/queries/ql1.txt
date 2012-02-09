@@ -1,0 +1,11 @@
+Methods where (IsStatic and IsPublic) or uses java.util.List
+
+Types where IsAbstract and 
+Containing  ( 
+	Methods where IsAbstract
+	)
+"oder"
+Types where IsAbstract 
+Containing  ( 
+	Methods where IsPublic and !IsAbstract
+)

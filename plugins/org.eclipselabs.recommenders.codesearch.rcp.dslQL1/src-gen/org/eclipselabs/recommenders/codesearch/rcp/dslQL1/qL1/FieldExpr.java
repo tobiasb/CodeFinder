@@ -6,7 +6,6 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FieldExpr extends EObject
+public interface FieldExpr extends Expression
 {
 } // FieldExpr
