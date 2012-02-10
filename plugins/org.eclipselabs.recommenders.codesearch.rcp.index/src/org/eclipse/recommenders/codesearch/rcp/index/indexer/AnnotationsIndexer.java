@@ -16,7 +16,7 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer {
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final ITypeBinding clazz = type.resolveBinding();
         if (clazz == null) {
             return;
@@ -28,7 +28,7 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
     // TODO extend for field
 
     @Override
-    public void index(Document document, MethodDeclaration method) {
+    public void indexMethod(Document document, MethodDeclaration method) {
         IMethodBinding methodBinding = method.resolveBinding();
         if (methodBinding == null) {
             return;

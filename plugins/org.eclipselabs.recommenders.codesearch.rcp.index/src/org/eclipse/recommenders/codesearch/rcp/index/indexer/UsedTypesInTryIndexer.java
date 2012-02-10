@@ -13,7 +13,7 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 public class UsedTypesInTryIndexer extends AbstractIndexer implements ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
 
         final TypeUseVisitor visitor = new TypeUseVisitor() {
 

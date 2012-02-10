@@ -9,7 +9,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 public class AllExtendedTypesIndexer extends ExtendedTypeIndexer implements IClassIndexer {
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final ITypeBinding clazz = type.resolveBinding();
         ITypeBinding superclass = clazz;
 

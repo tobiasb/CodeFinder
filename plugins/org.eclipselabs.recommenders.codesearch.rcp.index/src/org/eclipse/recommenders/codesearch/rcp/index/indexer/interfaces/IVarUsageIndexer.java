@@ -4,5 +4,5 @@ import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 public interface IVarUsageIndexer extends IIndexer {
-    void index(Document document, MethodDeclaration method);
+    void indexVarUsage(Document document, MethodDeclaration method);
 }

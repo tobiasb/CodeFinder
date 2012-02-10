@@ -16,22 +16,22 @@ public class DocumentTypeIndexer extends AbstractIndexer implements IMethodIndex
         ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addAnalyzedField(document, Fields.TYPE, Fields.TYPE_METHOD);
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         addAnalyzedField(document, Fields.TYPE, Fields.TYPE_CLASS);
     }
 
     @Override
-    public void index(final Document document, final FieldDeclaration field) {
+    public void indexField(final Document document, final FieldDeclaration field) {
         addAnalyzedField(document, Fields.TYPE, Fields.TYPE_FIELD);
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         addAnalyzedField(document, Fields.TYPE, Fields.TYPE_TRYCATCH);
     }
 }

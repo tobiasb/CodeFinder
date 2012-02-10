@@ -17,7 +17,7 @@ public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClass
         ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final VariableDeclarationStatement node) {
@@ -30,7 +30,7 @@ public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClass
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final FieldDeclaration node) {
@@ -43,7 +43,7 @@ public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClass
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final VariableDeclarationStatement node) {

@@ -20,17 +20,17 @@ import com.google.common.base.Optional;
 public class FullyQualifiedNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME, BindingHelper.getIdentifier(method));
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         addAnalyzedField(document, Fields.FULLY_QUALIFIED_NAME, BindingHelper.getIdentifier(type));
     }
 
     @Override
-    public void index(final Document document, final FieldDeclaration field) {
+    public void indexField(final Document document, final FieldDeclaration field) {
         final Optional<TypeDeclaration> opt = getDeclaringType(field);
 
         if (opt.isPresent()) {

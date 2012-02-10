@@ -20,7 +20,7 @@ public class UsedTypesIndexer extends AbstractIndexer implements IMethodIndexer,
         ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         final TypeUseVisitor visitor = new TypeUseVisitor() {
             @Override
             protected void handleTypeUse(final ITypeBinding typeBinding) {
@@ -32,13 +32,13 @@ public class UsedTypesIndexer extends AbstractIndexer implements IMethodIndexer,
     }
 
     @Override
-    public void index(final Document document, final FieldDeclaration field) {
+    public void indexField(final Document document, final FieldDeclaration field) {
         final ITypeBinding fieldTypeBinding = field.getType().resolveBinding();
         addUsedType(document, fieldTypeBinding);
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final TypeUseVisitor visitor = new TypeUseVisitor() {
             @Override
             protected void handleTypeUse(final ITypeBinding typeBinding) {
@@ -50,7 +50,7 @@ public class UsedTypesIndexer extends AbstractIndexer implements IMethodIndexer,
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
 
         final TypeUseVisitor visitor = new TypeUseVisitor() {
             @Override

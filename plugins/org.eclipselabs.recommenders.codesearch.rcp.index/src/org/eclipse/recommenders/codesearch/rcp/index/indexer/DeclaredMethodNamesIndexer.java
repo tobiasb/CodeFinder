@@ -12,7 +12,7 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 public class DeclaredMethodNamesIndexer extends AbstractIndexer implements IClassIndexer {
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final ITypeBinding superclass = type.resolveBinding();
         if (superclass != null) {
             addAllMethods(document, superclass);

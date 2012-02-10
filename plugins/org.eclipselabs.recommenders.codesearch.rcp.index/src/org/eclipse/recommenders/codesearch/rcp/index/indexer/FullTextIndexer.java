@@ -16,22 +16,22 @@ public class FullTextIndexer extends AbstractIndexer implements IClassIndexer, I
         IFieldIndexer {
 
     @Override
-    public void index(final Document document, final FieldDeclaration field) {
+    public void indexField(final Document document, final FieldDeclaration field) {
         addAnalyzedField(document, Fields.FULL_TEXT, field.toString().trim());
     }
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addAnalyzedField(document, Fields.FULL_TEXT, method.toString().trim());
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         addAnalyzedField(document, Fields.FULL_TEXT, type.toString().trim());
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         addAnalyzedField(document, Fields.FULL_TEXT, catchClause.toString().trim());
     }
 }

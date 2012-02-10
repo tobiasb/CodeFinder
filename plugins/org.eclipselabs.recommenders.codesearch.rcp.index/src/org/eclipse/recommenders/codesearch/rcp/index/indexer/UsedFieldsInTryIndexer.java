@@ -9,7 +9,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 public class UsedFieldsInTryIndexer extends AbstractFieldsAccessIndexer implements ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
 
         addFields(document, tryStatement, Fields.USED_FIELDS_IN_TRY);
     }

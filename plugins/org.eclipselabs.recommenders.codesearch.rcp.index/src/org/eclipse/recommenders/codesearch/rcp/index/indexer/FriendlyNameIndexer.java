@@ -17,7 +17,7 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
 
         final IMethodBinding b = method.resolveBinding();
         final IMethodName methodName = BindingUtils.toMethodName(b);
@@ -30,7 +30,7 @@ public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndex
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final ITypeBinding b = type.resolveBinding();
         final ITypeName typeName = BindingUtils.toTypeName(b);
 
@@ -38,7 +38,7 @@ public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndex
     }
 
     @Override
-    public void index(final Document document, final FieldDeclaration field) {
+    public void indexField(final Document document, final FieldDeclaration field) {
         addAnalyzedField(document, Fields.FRIENDLY_NAME, field.fragments().get(0).toString());
     }
 }

@@ -130,7 +130,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
 
         for (final IIndexer i : indexer) {
             if (i instanceof IClassIndexer) {
-                ((IClassIndexer) i).index(document, node);
+                ((IClassIndexer) i).indexType(document, node);
             }
         }
 
@@ -144,21 +144,23 @@ public class CompilationUnitVisitor extends ASTVisitor {
 
         for (final IIndexer i : indexer) {
             if (i instanceof IMethodIndexer) {
-                ((IMethodIndexer) i).index(methodDocument, node);
+                ((IMethodIndexer) i).indexMethod(methodDocument, node);
             }
         }
 
-        addDocument(methodDocument);
+        if (methodDocument.getFields().size() > 0)
+            addDocument(methodDocument);
 
         final Document varUsageDocument = new Document();
 
         for (final IIndexer i : indexer) {
             if (i instanceof IVarUsageIndexer) {
-                ((IVarUsageIndexer) i).index(methodDocument, node);
+                ((IVarUsageIndexer) i).indexVarUsage(methodDocument, node);
             }
         }
 
-        addDocument(varUsageDocument);
+        if (varUsageDocument.getFields().size() > 0)
+            addDocument(varUsageDocument);
 
         return true;
     }
@@ -169,11 +171,12 @@ public class CompilationUnitVisitor extends ASTVisitor {
 
         for (final IIndexer i : indexer) {
             if (i instanceof IFieldIndexer) {
-                ((IFieldIndexer) i).index(document, node);
+                ((IFieldIndexer) i).indexField(document, node);
             }
         }
 
-        addDocument(document);
+        if (document.getFields().size() > 0)
+            addDocument(document);
         return false;
     }
 
@@ -189,12 +192,14 @@ public class CompilationUnitVisitor extends ASTVisitor {
         for (final CatchClause catchClause : catchClauses) {
             for (final IIndexer i : indexer) {
                 if (i instanceof ITryCatchBlockIndexer) {
-                    ((ITryCatchBlockIndexer) i).index(document, tryStatement, catchClause);
+                    ((ITryCatchBlockIndexer) i).indexTryCatchBlock(document, tryStatement, catchClause);
                 }
             }
         }
 
-        addDocument(document);
+        if (document.getFields().size() > 0)
+            addDocument(document);
+
         return false;
     }
 

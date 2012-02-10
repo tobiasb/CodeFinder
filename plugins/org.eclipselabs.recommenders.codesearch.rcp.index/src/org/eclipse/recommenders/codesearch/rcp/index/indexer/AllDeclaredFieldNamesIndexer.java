@@ -23,13 +23,13 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
         ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final ITypeBinding typeBinding = type.resolveBinding();
         addFields(document, typeBinding);
     }
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addFields(document, method);
 
         final Optional<TypeDeclaration> opt = getDeclaringType(method);
@@ -40,7 +40,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         addFields(document, catchClause);
         final Optional<MethodDeclaration> optMethod = getDeclaringMethod(catchClause);
         if (optMethod.isPresent()) {

@@ -11,12 +11,12 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 public class FieldsWrittenIndexer extends AbstractFieldsAccessIndexer implements IMethodIndexer, ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addFields(document, method, Fields.FIELDS_WRITTEN, AssignmentSide.LEFT);
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         addFields(document, catchClause, Fields.FIELDS_WRITTEN, AssignmentSide.LEFT);
     }
 

@@ -11,7 +11,7 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 public class AllImplementedInterfacesIndexer extends ImplementedInterfacesIndexer implements IClassIndexer {
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
 
         final ITypeBinding b = type.resolveBinding();
         if (b == null) {

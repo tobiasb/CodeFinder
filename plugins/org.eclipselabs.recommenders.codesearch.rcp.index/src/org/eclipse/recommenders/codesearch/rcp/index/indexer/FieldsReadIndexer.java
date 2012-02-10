@@ -14,17 +14,17 @@ public class FieldsReadIndexer extends AbstractFieldsAccessIndexer implements IC
         ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addFields(document, method, Fields.FIELDS_READ, AssignmentSide.RIGHT);
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         addFields(document, type, Fields.FIELDS_READ, AssignmentSide.RIGHT);
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         addFields(document, catchClause, Fields.FIELDS_READ, AssignmentSide.RIGHT);
     }
 }

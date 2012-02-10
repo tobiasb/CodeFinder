@@ -22,17 +22,17 @@ public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndex
         ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         addFieldForParentTypes(document, type);
     }
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addFieldForParentTypes(document, method);
     }
 
     @Override
-    public void index(final Document document, final FieldDeclaration field) {
+    public void indexField(final Document document, final FieldDeclaration field) {
         addFieldForParentTypes(document, field);
     }
 
@@ -50,7 +50,7 @@ public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndex
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
 
         addFieldForParentTypes(document, tryStatement);
     }

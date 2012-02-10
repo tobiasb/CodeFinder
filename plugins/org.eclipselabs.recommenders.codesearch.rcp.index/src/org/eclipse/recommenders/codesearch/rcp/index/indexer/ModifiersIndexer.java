@@ -13,17 +13,17 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 public class ModifiersIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer {
 
     @Override
-    public void index(final Document document, final FieldDeclaration field) {
+    public void indexField(final Document document, final FieldDeclaration field) {
         addFields(document, field.getModifiers());
     }
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         addFields(document, method.getModifiers());
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         addFields(document, type.getModifiers());
     }
 

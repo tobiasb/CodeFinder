@@ -18,19 +18,19 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 public class InstanceOfIndexer extends AbstractIndexer implements IMethodIndexer, ITryCatchBlockIndexer, IClassIndexer {
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final InstanceOfVisitor visitor = new InstanceOfVisitor(document);
         type.accept(visitor);
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
         final InstanceOfVisitor visitor = new InstanceOfVisitor(document);
         catchClause.accept(visitor);
     }
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         final InstanceOfVisitor visitor = new InstanceOfVisitor(document);
         method.accept(visitor);
     }

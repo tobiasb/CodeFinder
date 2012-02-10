@@ -10,7 +10,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 public class ReturnVariableExpressionIndexer extends AbstractIndexer implements IMethodIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final ReturnStatement node) {

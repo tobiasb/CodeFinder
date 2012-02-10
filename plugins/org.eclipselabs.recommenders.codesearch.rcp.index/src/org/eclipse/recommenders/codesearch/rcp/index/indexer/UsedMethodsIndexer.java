@@ -18,7 +18,7 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer {
 
     @Override
-    public void index(final Document document, final MethodDeclaration method) {
+    public void indexMethod(final Document document, final MethodDeclaration method) {
         final ASTVisitor visitor = new MethodCallVisitor() {
             @Override
             protected void handleMethodCall(final IMethodBinding methodBinding) {
@@ -33,7 +33,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
     }
 
     @Override
-    public void index(final Document document, final TypeDeclaration type) {
+    public void indexType(final Document document, final TypeDeclaration type) {
         final ASTVisitor visitor = new MethodCallVisitor() {
             @Override
             protected void handleMethodCall(final IMethodBinding methodBinding) {
@@ -48,7 +48,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
     }
 
     @Override
-    public void index(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
 
         final ASTVisitor visitor = new MethodCallVisitor() {
             @Override
