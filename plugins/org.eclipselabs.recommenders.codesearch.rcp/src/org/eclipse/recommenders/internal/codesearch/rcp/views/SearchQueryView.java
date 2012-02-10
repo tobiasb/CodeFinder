@@ -358,7 +358,8 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                                 final IMethodName methodName = VmMethodName.get(docId);
                                 final Optional<IMethod> method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
                                 addIfNotNull(newInput, method);
-                            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
+                            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)
+                                    || docType.equals(Fields.TYPE_VARUSAGE)) {
                                 final ITypeName typeName = VmTypeName.get(declaringType);
                                 final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                                 addIfNotNull(newInput, type);

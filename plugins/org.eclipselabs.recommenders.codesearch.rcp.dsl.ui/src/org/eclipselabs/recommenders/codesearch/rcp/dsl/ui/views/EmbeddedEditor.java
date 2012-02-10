@@ -36,7 +36,8 @@ public class EmbeddedEditor extends ViewPart {
                     ResourceSet resourceSet = new ResourceSetImpl();
                     Resource resource = resourceSet.createResource(URI.createURI("embedded.lucenequery"));
 
-                    // ByteArrayInputStream bais = new ByteArrayInputStream("Hello Xtext!".getBytes());
+                    // ByteArrayInputStream bais = new
+                    // ByteArrayInputStream("Hello Xtext!".getBytes());
                     // resource.load(bais, null);
                     // Model model = (Model) resource.getContents().get(0);
 
@@ -48,17 +49,19 @@ public class EmbeddedEditor extends ViewPart {
         };
         LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
         Injector injector = activator
-                .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSL_LUCENEQUERY);
+                .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY);
         EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
         org.eclipse.xtext.ui.editor.embedded.EmbeddedEditor handle = factory.newEditor(resourceProvider).withParent(
                 parent);
-        // keep the partialEditor as instance var to read / write the edited text
+        // keep the partialEditor as instance var to read / write the edited
+        // text
         partialEditor = handle.createPartialEditor(true);
         handle.getViewer().addTextInputListener(new ITextInputListener() {
 
             @Override
             public void inputDocumentChanged(final IDocument oldInput, final IDocument newInput) {
-                // XXX: trigger lucene query in here? Whenever the user entered a new character?
+                // XXX: trigger lucene query in here? Whenever the user entered
+                // a new character?
             }
 
             @Override

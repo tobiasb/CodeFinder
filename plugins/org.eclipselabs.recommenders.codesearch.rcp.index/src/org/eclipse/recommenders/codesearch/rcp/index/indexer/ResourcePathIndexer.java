@@ -11,6 +11,7 @@ import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
@@ -18,11 +19,12 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
 import com.google.common.base.Optional;
 
 public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
-        ITryCatchBlockIndexer, IFieldIndexer {
+        ITryCatchBlockIndexer, IFieldIndexer, IVarUsageIndexer {
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
@@ -40,9 +42,15 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     }
 
     @Override
-    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
+            final CatchClause catchClause) {
 
         addField(document, tryStatement);
+    }
+
+    @Override
+    public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
+        addField(document, method);
     }
 
     private void addField(final Document document, final ASTNode node) {
@@ -57,7 +65,8 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
         if (opt.isPresent()) {
             return getResourcePath(opt.get());
         } else {
-            // TODO MB: Tobias, the null case needs handling. Throw Exception? Return Optional?
+            // TODO MB: Tobias, the null case needs handling. Throw Exception?
+            // Return Optional?
             return null;
         }
     }

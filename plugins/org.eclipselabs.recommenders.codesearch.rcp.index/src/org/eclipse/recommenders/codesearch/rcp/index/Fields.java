@@ -9,6 +9,7 @@ public class Fields {
     public final static String TYPE_METHOD = "method";
     public final static String TYPE_FIELD = "field";
     public final static String TYPE_TRYCATCH = "trycatch";
+    public final static String TYPE_VARUSAGE = "varusage";
 
     public static final String MODIFIER_PUBLIC = "public";
     public static final String MODIFIER_FINAL = "final";
@@ -16,6 +17,40 @@ public class Fields {
     public static final String MODIFIER_PROTECTED = "protected";
     public static final String MODIFIER_STATIC = "static";
     public static final String MODIFIER_ABSTRACT = "abstract";
+
+    public static final String DEFINITION_PARAMETER = "parameter";
+    public static final String DEFINITION_NULLLITERAL = "nullLiteral";
+    public static final String DEFINITION_METHOD_INVOCATION = "methodInvocation";
+    public static final String DEFINITION_INSTANCE_CREATION = "instanceCreation";
+    public static final String DEFINITION_UNINITIALIZED = "uninitialized";
+
+    // SimpleField
+    /** Can be applied to: class,method,field,tryCatch */
+    public final static String FULLY_QUALIFIED_NAME = "FullyQualifiedName";
+    /** Can be applied to: class,method,field,tryCatch */
+    public final static String FRIENDLY_NAME = "FriendlyName";
+    /** Can be applied to: method */
+    public final static String RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions";
+    /** Can be applied to: class */
+    public final static String ALL_DELCARED_METHOD_NAMES = "AllDeclaredMethodNames";
+    /** Can be applied to: class */
+    public final static String DECLARED_METHODS_NAMES = "DeclaredMethodNames";
+    /** Can be applied to: class,method,tryCatch */
+    public final static String DECLARED_FIELD_NAMES = "DeclaredFieldNames";
+    /** Can be applied to: class,method,tryCatch */
+    public final static String ALL_DECLARED_FIELD_NAMES = "AllDeclaredFieldNames";
+    /** Can be applied to: class,method,field,tryCatch */
+    public final static String FULL_TEXT = "FullText";
+    /** Can be applied to: class,method,tryCatch */
+    public final static String FIELDS_READ = "FieldsRead";
+    /** Can be applied to: method,tryCatch */
+    public final static String FIELDS_WRITTEN = "FieldsWritten";
+    /** Can be applied to: tryCatch */
+    public final static String USED_FIELDS_IN_FINALLY = "UsedFieldsInFinally";
+    /** Can be applied to: tryCatch */
+    public final static String USED_FIELDS_IN_TRY = "UsedFieldsInTry";
+    /** Can be applied to: */
+    public final static String VARIABLE_NAME = "VariableName";
 
     // TypeField
     /** Can be applied to: class */
@@ -46,6 +81,8 @@ public class Fields {
     public final static String DECLARED_FIELD_TYPES = "DeclaredFieldTypes";
     /** Can be applied to: method,field,tryCatch */
     public final static String DECLARING_TYPE = "DeclaringType";
+    /** Can be applied to: */
+    public final static String VARIABLE_TYPE = "VariableType";
 
     // MethodField
     /** Can be applied to: class,method,tryCatch */
@@ -56,6 +93,14 @@ public class Fields {
     public final static String USED_METHODS_IN_FINALLY = "UsedMethodsInFinally";
     /** Can be applied to: class */
     public final static String OVERRIDDEN_METHODS = "OverriddenMethods";
+    /** Can be applied to: class */
+    public final static String DECLARED_METHODS = "DeclaredMethods";
+    /** Can be applied to: */
+    public final static String DECLARING_METHOD = "DeclaringMethod";
+    /** Can be applied to: */
+    public final static String USED_AS_PARAMETER_IN_METHODS = "UsedAsParameterInMethods";
+    /** Can be applied to: */
+    public final static String USED_AS_TAGET_FOR_METHODS = "UsedAsTargetForMethods";
 
     // FilePathField
     /** Can be applied to: class,method,field,tryCatch */
@@ -74,7 +119,7 @@ public class Fields {
     public final static String TIMESTAMP = "Timestamp";
 
     // DocumentTypeField
-    /** Can be applied to: class,method,field,tryCatch */
+    /** Can be applied to: class,method,field,tryCatch, */
     public final static String TYPE = "Type";
 
     // ProjectNameField
@@ -85,32 +130,8 @@ public class Fields {
     /** Can be applied to: class */
     public final static String ANNOTATIONS = "Annotations";
 
-    // SimpleField
-    /** Can be applied to: class,method,field,tryCatch */
-    public final static String FULLY_QUALIFIED_NAME = "FullyQualifiedName";
-    /** Can be applied to: class,method,field,tryCatch */
-    public final static String FRIENDLY_NAME = "FriendlyName";
-    /** Can be applied to: class */
-    public final static String DECLARED_METHODS = "DeclaredMethods";
-    /** Can be applied to: method */
-    public final static String RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions";
-    /** Can be applied to: class */
-    public final static String ALL_DELCARED_METHOD_NAMES = "AllDeclaredMethodNames";
-    /** Can be applied to: class */
-    public final static String DECLARED_METHODS_NAMES = "DeclaredMethodNames";
-    /** Can be applied to: class,method,tryCatch */
-    public final static String DECLARED_FIELD_NAMES = "DeclaredFieldNames";
-    /** Can be applied to: class,method,tryCatch */
-    public final static String ALL_DECLARED_FIELD_NAMES = "AllDeclaredFieldNames";
-    /** Can be applied to: class,method,field,tryCatch */
-    public final static String FULL_TEXT = "FullText";
-    /** Can be applied to: class,method,tryCatch */
-    public final static String FIELDS_READ = "FieldsRead";
-    /** Can be applied to: method,tryCatch */
-    public final static String FIELDS_WRITTEN = "FieldsWritten";
-    /** Can be applied to: tryCatch */
-    public final static String USED_FIELDS_IN_FINALLY = "UsedFieldsInFinally";
-    /** Can be applied to: tryCatch */
-    public final static String USED_FIELDS_IN_TRY = "UsedFieldsInTry";
+    // DefinitionType
+    /** Can be applied to: */
+    public final static String VARIABLE_DEFINITION = "VariableDefinition";
 
 }

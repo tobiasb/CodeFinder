@@ -284,6 +284,16 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getFieldType_Varusage()
+  {
+    return (EAttribute)fieldTypeEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public LuceneFieldsFactory getLuceneFieldsFactory()
   {
     return (LuceneFieldsFactory)getEFactoryInstance();
@@ -328,6 +338,7 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
     createEAttribute(fieldTypeEClass, FIELD_TYPE__METHOD_TYPE);
     createEAttribute(fieldTypeEClass, FIELD_TYPE__FIELD_TYPE);
     createEAttribute(fieldTypeEClass, FIELD_TYPE__TRYCATCH_TYPE);
+    createEAttribute(fieldTypeEClass, FIELD_TYPE__VARUSAGE);
   }
 
   /**
@@ -380,6 +391,7 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
     initEAttribute(getFieldType_MethodType(), ecorePackage.getEBoolean(), "methodType", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFieldType_FieldType(), ecorePackage.getEBoolean(), "fieldType", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFieldType_TrycatchType(), ecorePackage.getEBoolean(), "trycatchType", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldType_Varusage(), ecorePackage.getEBoolean(), "varusage", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

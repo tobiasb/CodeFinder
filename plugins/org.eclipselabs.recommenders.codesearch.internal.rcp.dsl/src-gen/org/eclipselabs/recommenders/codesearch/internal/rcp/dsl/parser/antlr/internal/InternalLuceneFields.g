@@ -397,6 +397,22 @@ ruleFieldType returns [EObject current=null]
 	    }
 
 )
+)
+    |(
+(
+		lv_varusage_4_0=	'varusage' 
+    {
+        newLeafNode(lv_varusage_4_0, grammarAccess.getFieldTypeAccess().getVarusageVarusageKeyword_4_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldTypeRule());
+	        }
+       		setWithLastConsumed($current, "varusage", true, "varusage");
+	    }
+
+)
 ))
 ;
 

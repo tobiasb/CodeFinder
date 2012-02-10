@@ -1,7 +1,261 @@
 package org.eclipselabs.recommenders.test.codesearch.rcp.indexer
 
 import org.junit.Test
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaringMethodIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.Fields
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableNameIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableTypeIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableDefinitionIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableParameterUsageIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableTargetUsageIndexer
 
 class TestVariableUsageScenarios extends TestBase {
-
+	
+	@Test
+	def void testDeclaringMethodIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				String s;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaringMethodIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::DECLARING_METHOD, "LMyClass.testMethod()V")
+		)))		
+	}
+	
+	@Test
+	def void testVariableNameIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				String s;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_NAME, "s")
+		)))		
+	}
+	
+	@Test
+	def void testVariableNameIndexer02(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				String s, a;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_NAME, "a")
+		)))		
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_NAME, "s")
+		)))		
+	}
+	
+	@Test
+	def void testVariableNameAsParameterIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testMethod(String s) {
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_NAME, "s")
+		)))		
+	}
+	
+	@Test
+	def void testVariableTypeIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				String s;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTypeIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_TYPE, "Ljava/lang/String")
+		)))		
+	}
+	
+	@Test
+	def void testVariableTypeIndexer02(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				String s, a;
+			}
+		}
+		'''
+		 
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTypeIndexer(), new VariableNameIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_NAME, "s"),
+			s(Fields::VARIABLE_TYPE, "Ljava/lang/String")
+		)))		
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_NAME, "a"),
+			s(Fields::VARIABLE_TYPE, "Ljava/lang/String")
+		)))		
+	}
+	
+	@Test
+	def void testVariableDefinitionIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				String s;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_UNINITIALIZED)
+		)))		
+	}
+	
+	@Test
+	def void testVariableDefinitionIndexer02(){
+		val code = '''
+		public class MyClass {
+			public void testMethod(String s) {
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_PARAMETER)
+		)))		
+	}
+	
+	@Test
+	def void testVariableDefinitionIndexer03(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				Object o = new Object();
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_INSTANCE_CREATION)
+		)))		
+	}
+	
+	@Test
+	def void testVariableDefinitionIndexer04(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				Object o = null;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_NULLLITERAL)
+		)))		
+	}
+	
+	@Test
+	def void testVariableDefinitionIndexer05(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+			String s1 = "";
+			String s2 = s1.toString();
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_METHOD_INVOCATION)
+		)))		
+	}
+	
+	@Test
+	def void testVariableUsedAsParameterIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+		        String s = null;
+		        System.out.println(s);
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableParameterUsageIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::USED_AS_PARAMETER_IN_METHODS, "Ljava/io/PrintStream.println(Ljava/lang/String;)V")
+		)))		
+	}
+	
+	@Test
+	def void testVariableUsedAsTargetIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+		        String s = null;
+				s.toString();
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTargetUsageIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::USED_AS_TAGET_FOR_METHODS, "Ljava/lang/String.toString()Ljava/lang/String;")
+		)))		
+	}
 }

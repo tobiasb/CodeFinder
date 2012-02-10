@@ -45,6 +45,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="AnnotationField">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinitionType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="BinaryExp">
     <eLiterals name="and1" literal="AND"/>
     <eLiterals name="or1" value="1" literal="OR"/>

@@ -139,6 +139,11 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createAnnotationFieldAdapter();
       }
       @Override
+      public Adapter caseDefinitionType(DefinitionType object)
+      {
+        return createDefinitionTypeAdapter();
+      }
+      @Override
       public Adapter caseExp1(Exp1 object)
       {
         return createExp1Adapter();
@@ -341,6 +346,21 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAnnotationFieldAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType <em>Definition Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType
+   * @generated
+   */
+  public Adapter createDefinitionTypeAdapter()
   {
     return null;
   }

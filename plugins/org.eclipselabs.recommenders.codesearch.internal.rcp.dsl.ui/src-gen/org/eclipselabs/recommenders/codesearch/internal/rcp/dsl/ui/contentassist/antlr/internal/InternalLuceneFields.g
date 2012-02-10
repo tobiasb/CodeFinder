@@ -198,6 +198,12 @@ rule__FieldType__Alternatives
 { after(grammarAccess.getFieldTypeAccess().getTrycatchTypeAssignment_3()); }
 )
 
+    |(
+{ before(grammarAccess.getFieldTypeAccess().getVarusageAssignment_4()); }
+(rule__FieldType__VarusageAssignment_4)
+{ after(grammarAccess.getFieldTypeAccess().getVarusageAssignment_4()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -996,6 +1002,29 @@ rule__FieldType__TrycatchTypeAssignment_3
 )
 
 { after(grammarAccess.getFieldTypeAccess().getTrycatchTypeTrycatchKeyword_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__FieldType__VarusageAssignment_4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFieldTypeAccess().getVarusageVarusageKeyword_4_0()); }
+(
+{ before(grammarAccess.getFieldTypeAccess().getVarusageVarusageKeyword_4_0()); }
+
+	'varusage' 
+
+{ after(grammarAccess.getFieldTypeAccess().getVarusageVarusageKeyword_4_0()); }
+)
+
+{ after(grammarAccess.getFieldTypeAccess().getVarusageVarusageKeyword_4_0()); }
 )
 
 ;

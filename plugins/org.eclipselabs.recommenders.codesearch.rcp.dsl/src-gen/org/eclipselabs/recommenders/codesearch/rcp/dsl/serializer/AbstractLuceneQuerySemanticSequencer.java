@@ -15,6 +15,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
@@ -66,6 +67,12 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 			case LuceneQueryPackage.CLAUSE_EXPRESSION:
 				if(context == grammarAccess.getClauseExpressionRule()) {
 					sequence_ClauseExpression(context, (ClauseExpression) semanticObject); 
+					return; 
+				}
+				else break;
+			case LuceneQueryPackage.DEFINITION_TYPE:
+				if(context == grammarAccess.getDefinitionTypeRule()) {
+					sequence_DefinitionType(context, (DefinitionType) semanticObject); 
 					return; 
 				}
 				else break;
@@ -172,11 +179,28 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         (field=TimeField (values+=TimeFieldValue | values+=TimeFieldValue*)) | 
 	 *         (field=DocumentTypeField (values+=DocumentTypeFieldValue | values+=DocumentTypeFieldValue*)) | 
 	 *         (field=ProjectNameField (values+=ProjectNameFieldValue | values+=ProjectNameFieldValue*)) | 
-	 *         (field=AnnotationField (values+=AnnotationFieldValue | values+=AnnotationFieldValue*))
+	 *         (field=AnnotationField (values+=AnnotationFieldValue | values+=AnnotationFieldValue*)) | 
+	 *         (field=DefinitionType (values+=DefinitionTypeValue | values+=DefinitionTypeValue*))
 	 *     )
 	 */
 	protected void sequence_ClauseExpression(EObject context, ClauseExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value='VariableDefinition'
+	 */
+	protected void sequence_DefinitionType(EObject context, DefinitionType semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.DEFINITION_TYPE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.DEFINITION_TYPE__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDefinitionTypeAccess().getValueVariableDefinitionKeyword_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
@@ -239,7 +263,16 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     (value='UsedMethods' | value='UsedMethodsInTry' | value='UsedMethodsInFinally' | value='OverriddenMethods' | value='DeclaredMethods')
+	 *     (
+	 *         value='UsedMethods' | 
+	 *         value='UsedMethodsInTry' | 
+	 *         value='UsedMethodsInFinally' | 
+	 *         value='OverriddenMethods' | 
+	 *         value='DeclaredMethods' | 
+	 *         value='DeclaringMethod' | 
+	 *         value='UsedAsParameterInMethods' | 
+	 *         value='UsedAsTargetForMethods'
+	 *     )
 	 */
 	protected void sequence_MethodField(EObject context, MethodField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -308,7 +341,8 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         value='FieldsRead' | 
 	 *         value='FieldsWritten' | 
 	 *         value='UsedFieldsInFinally' | 
-	 *         value='UsedFieldsInTry'
+	 *         value='UsedFieldsInTry' | 
+	 *         value='VariableName'
 	 *     )
 	 */
 	protected void sequence_SimpleField(EObject context, SimpleField semanticObject) {
@@ -348,7 +382,8 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         value='FieldType' | 
 	 *         value='CaughtType' | 
 	 *         value='DeclaredFieldTypes' | 
-	 *         value='DeclaringType'
+	 *         value='DeclaringType' | 
+	 *         value='VariableType'
 	 *     )
 	 */
 	protected void sequence_TypeField(EObject context, TypeField semanticObject) {

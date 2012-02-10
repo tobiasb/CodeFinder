@@ -279,6 +279,22 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBoostTerminalRuleCall_1_1_9_2_1_1_2 = (RuleCall)cGroup_1_1_9_2_1_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_1_9_2_1_2 = (Keyword)cGroup_1_1_9_2_1.eContents().get(2);
 		private final RuleCall cBoostTerminalRuleCall_1_1_9_3 = (RuleCall)cGroup_1_1_9.eContents().get(3);
+		private final Group cGroup_1_1_10 = (Group)cAlternatives_1_1.eContents().get(10);
+		private final Assignment cFieldAssignment_1_1_10_0 = (Assignment)cGroup_1_1_10.eContents().get(0);
+		private final RuleCall cFieldDefinitionTypeParserRuleCall_1_1_10_0_0 = (RuleCall)cFieldAssignment_1_1_10_0.eContents().get(0);
+		private final Keyword cColonKeyword_1_1_10_1 = (Keyword)cGroup_1_1_10.eContents().get(1);
+		private final Alternatives cAlternatives_1_1_10_2 = (Alternatives)cGroup_1_1_10.eContents().get(2);
+		private final Assignment cValuesAssignment_1_1_10_2_0 = (Assignment)cAlternatives_1_1_10_2.eContents().get(0);
+		private final RuleCall cValuesDefinitionTypeValueParserRuleCall_1_1_10_2_0_0 = (RuleCall)cValuesAssignment_1_1_10_2_0.eContents().get(0);
+		private final Group cGroup_1_1_10_2_1 = (Group)cAlternatives_1_1_10_2.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_1_10_2_1_0 = (Keyword)cGroup_1_1_10_2_1.eContents().get(0);
+		private final Group cGroup_1_1_10_2_1_1 = (Group)cGroup_1_1_10_2_1.eContents().get(1);
+		private final RuleCall cUnaryExpressionParserRuleCall_1_1_10_2_1_1_0 = (RuleCall)cGroup_1_1_10_2_1_1.eContents().get(0);
+		private final Assignment cValuesAssignment_1_1_10_2_1_1_1 = (Assignment)cGroup_1_1_10_2_1_1.eContents().get(1);
+		private final RuleCall cValuesDefinitionTypeValueParserRuleCall_1_1_10_2_1_1_1_0 = (RuleCall)cValuesAssignment_1_1_10_2_1_1_1.eContents().get(0);
+		private final RuleCall cBoostTerminalRuleCall_1_1_10_2_1_1_2 = (RuleCall)cGroup_1_1_10_2_1_1.eContents().get(2);
+		private final Keyword cRightParenthesisKeyword_1_1_10_2_1_2 = (Keyword)cGroup_1_1_10_2_1.eContents().get(2);
+		private final RuleCall cBoostTerminalRuleCall_1_1_10_3 = (RuleCall)cGroup_1_1_10.eContents().get(3);
 		
 		/// *
 		//
@@ -300,7 +316,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//	(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue Boost?)* ")") Boost? |
 		//	field=ProjectNameField ":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue
 		//	Boost?)* ")") Boost? | field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression?
-		//	values+=AnnotationFieldValue Boost?)* ")") Boost?));
+		//	values+=AnnotationFieldValue Boost?)* ")") Boost? | field=DefinitionType ":" (values+=DefinitionTypeValue | "("
+		//	(UnaryExpression? values+=DefinitionTypeValue Boost?)* ")") Boost?));
 		public ParserRule getRule() { return rule; }
 
 		//UnaryExpression? (default=SimpleFieldValue Boost? // Default field
@@ -315,7 +332,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//Boost?)* ")") Boost? | field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression?
 		//values+=DocumentTypeFieldValue Boost?)* ")") Boost? | field=ProjectNameField ":" (values+=ProjectNameFieldValue | "("
 		//(UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")") Boost? | field=AnnotationField ":"
-		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost?))
+		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost? |
+		//field=DefinitionType ":" (values+=DefinitionTypeValue | "(" (UnaryExpression? values+=DefinitionTypeValue Boost?)* ")")
+		//Boost?))
 		public Group getGroup() { return cGroup; }
 
 		//UnaryExpression?
@@ -333,7 +352,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//Boost?)* ")") Boost? | field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression?
 		//values+=DocumentTypeFieldValue Boost?)* ")") Boost? | field=ProjectNameField ":" (values+=ProjectNameFieldValue | "("
 		//(UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")") Boost? | field=AnnotationField ":"
-		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost?)
+		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost? |
+		//field=DefinitionType ":" (values+=DefinitionTypeValue | "(" (UnaryExpression? values+=DefinitionTypeValue Boost?)* ")")
+		//Boost?)
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
 		//default=SimpleFieldValue Boost?
@@ -358,7 +379,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//Boost?)* ")") Boost? | field=DocumentTypeField ":" (values+=DocumentTypeFieldValue | "(" (UnaryExpression?
 		//values+=DocumentTypeFieldValue Boost?)* ")") Boost? | field=ProjectNameField ":" (values+=ProjectNameFieldValue | "("
 		//(UnaryExpression? values+=ProjectNameFieldValue Boost?)* ")") Boost? | field=AnnotationField ":"
-		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost?
+		//(values+=AnnotationFieldValue | "(" (UnaryExpression? values+=AnnotationFieldValue Boost?)* ")") Boost? |
+		//field=DefinitionType ":" (values+=DefinitionTypeValue | "(" (UnaryExpression? values+=DefinitionTypeValue Boost?)* ")")
+		//Boost?
 		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
 
 		//field=SimpleField ":" (values+=SimpleFieldValue | "(" (UnaryExpression? values+=SimpleFieldValue Boost?)* ")") Boost?
@@ -845,6 +868,55 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Boost?
 		public RuleCall getBoostTerminalRuleCall_1_1_9_3() { return cBoostTerminalRuleCall_1_1_9_3; }
+
+		//field=DefinitionType ":" (values+=DefinitionTypeValue | "(" (UnaryExpression? values+=DefinitionTypeValue Boost?)* ")")
+		//Boost?
+		public Group getGroup_1_1_10() { return cGroup_1_1_10; }
+
+		//field=DefinitionType
+		public Assignment getFieldAssignment_1_1_10_0() { return cFieldAssignment_1_1_10_0; }
+
+		//DefinitionType
+		public RuleCall getFieldDefinitionTypeParserRuleCall_1_1_10_0_0() { return cFieldDefinitionTypeParserRuleCall_1_1_10_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_1_1_10_1() { return cColonKeyword_1_1_10_1; }
+
+		//values+=DefinitionTypeValue | "(" (UnaryExpression? values+=DefinitionTypeValue Boost?)* ")"
+		public Alternatives getAlternatives_1_1_10_2() { return cAlternatives_1_1_10_2; }
+
+		//values+=DefinitionTypeValue
+		public Assignment getValuesAssignment_1_1_10_2_0() { return cValuesAssignment_1_1_10_2_0; }
+
+		//DefinitionTypeValue
+		public RuleCall getValuesDefinitionTypeValueParserRuleCall_1_1_10_2_0_0() { return cValuesDefinitionTypeValueParserRuleCall_1_1_10_2_0_0; }
+
+		//"(" (UnaryExpression? values+=DefinitionTypeValue Boost?)* ")"
+		public Group getGroup_1_1_10_2_1() { return cGroup_1_1_10_2_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_1_10_2_1_0() { return cLeftParenthesisKeyword_1_1_10_2_1_0; }
+
+		//(UnaryExpression? values+=DefinitionTypeValue Boost?)*
+		public Group getGroup_1_1_10_2_1_1() { return cGroup_1_1_10_2_1_1; }
+
+		//UnaryExpression?
+		public RuleCall getUnaryExpressionParserRuleCall_1_1_10_2_1_1_0() { return cUnaryExpressionParserRuleCall_1_1_10_2_1_1_0; }
+
+		//values+=DefinitionTypeValue
+		public Assignment getValuesAssignment_1_1_10_2_1_1_1() { return cValuesAssignment_1_1_10_2_1_1_1; }
+
+		//DefinitionTypeValue
+		public RuleCall getValuesDefinitionTypeValueParserRuleCall_1_1_10_2_1_1_1_0() { return cValuesDefinitionTypeValueParserRuleCall_1_1_10_2_1_1_1_0; }
+
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_10_2_1_1_2() { return cBoostTerminalRuleCall_1_1_10_2_1_1_2; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_1_1_10_2_1_2() { return cRightParenthesisKeyword_1_1_10_2_1_2; }
+
+		//Boost?
+		public RuleCall getBoostTerminalRuleCall_1_1_10_3() { return cBoostTerminalRuleCall_1_1_10_3; }
 	}
 
 	public class SimpleFieldElements extends AbstractParserRuleElementFinder {
@@ -874,18 +946,22 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueUsedFieldsInFinallyKeyword_10_0 = (Keyword)cValueAssignment_10.eContents().get(0);
 		private final Assignment cValueAssignment_11 = (Assignment)cAlternatives.eContents().get(11);
 		private final Keyword cValueUsedFieldsInTryKeyword_11_0 = (Keyword)cValueAssignment_11.eContents().get(0);
+		private final Assignment cValueAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
+		private final Keyword cValueVariableNameKeyword_12_0 = (Keyword)cValueAssignment_12.eContents().get(0);
 		
 		////Generated Rule. Do not modify!
 		//
 		//SimpleField:
 		//	value="FullyQualifiedName" | value="FriendlyName" | value="ReturnVariableExpressions" | value="AllDeclaredMethodNames"
 		//	| value="DeclaredMethodNames" | value="DeclaredFieldNames" | value="AllDeclaredFieldNames" | value="FullText" |
-		//	value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry";
+		//	value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry" |
+		//	value="VariableName";
 		public ParserRule getRule() { return rule; }
 
 		//value="FullyQualifiedName" | value="FriendlyName" | value="ReturnVariableExpressions" | value="AllDeclaredMethodNames" |
 		//value="DeclaredMethodNames" | value="DeclaredFieldNames" | value="AllDeclaredFieldNames" | value="FullText" |
-		//value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry"
+		//value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry" |
+		//value="VariableName"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value="FullyQualifiedName"
@@ -959,6 +1035,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"UsedFieldsInTry"
 		public Keyword getValueUsedFieldsInTryKeyword_11_0() { return cValueUsedFieldsInTryKeyword_11_0; }
+
+		//value="VariableName"
+		public Assignment getValueAssignment_12() { return cValueAssignment_12; }
+
+		//"VariableName"
+		public Keyword getValueVariableNameKeyword_12_0() { return cValueVariableNameKeyword_12_0; }
 	}
 
 	public class TypeFieldElements extends AbstractParserRuleElementFinder {
@@ -992,6 +1074,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueDeclaredFieldTypesKeyword_12_0 = (Keyword)cValueAssignment_12.eContents().get(0);
 		private final Assignment cValueAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
 		private final Keyword cValueDeclaringTypeKeyword_13_0 = (Keyword)cValueAssignment_13.eContents().get(0);
+		private final Assignment cValueAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
+		private final Keyword cValueVariableTypeKeyword_14_0 = (Keyword)cValueAssignment_14.eContents().get(0);
 		
 		////Generated Rule. Do not modify!
 		//
@@ -999,13 +1083,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//	value="ImplementedTypes" | value="ExtendedTypes" | value="UsedTypes" | value="UsedTypesInTry" |
 		//	value="UsedTypesInFinally" | value="ParameterTypes" | value="ReturnType" | value="InstanceofTypes" |
 		//	value="AllImplementedTypes" | value="AllExtendedTypes" | value="FieldType" | value="CaughtType" |
-		//	value="DeclaredFieldTypes" | value="DeclaringType";
+		//	value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType";
 		public ParserRule getRule() { return rule; }
 
 		//value="ImplementedTypes" | value="ExtendedTypes" | value="UsedTypes" | value="UsedTypesInTry" |
 		//value="UsedTypesInFinally" | value="ParameterTypes" | value="ReturnType" | value="InstanceofTypes" |
 		//value="AllImplementedTypes" | value="AllExtendedTypes" | value="FieldType" | value="CaughtType" |
-		//value="DeclaredFieldTypes" | value="DeclaringType"
+		//value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value="ImplementedTypes"
@@ -1091,6 +1175,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"DeclaringType"
 		public Keyword getValueDeclaringTypeKeyword_13_0() { return cValueDeclaringTypeKeyword_13_0; }
+
+		//value="VariableType"
+		public Assignment getValueAssignment_14() { return cValueAssignment_14; }
+
+		//"VariableType"
+		public Keyword getValueVariableTypeKeyword_14_0() { return cValueVariableTypeKeyword_14_0; }
 	}
 
 	public class MethodFieldElements extends AbstractParserRuleElementFinder {
@@ -1106,16 +1196,22 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueOverriddenMethodsKeyword_3_0 = (Keyword)cValueAssignment_3.eContents().get(0);
 		private final Assignment cValueAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
 		private final Keyword cValueDeclaredMethodsKeyword_4_0 = (Keyword)cValueAssignment_4.eContents().get(0);
+		private final Assignment cValueAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
+		private final Keyword cValueDeclaringMethodKeyword_5_0 = (Keyword)cValueAssignment_5.eContents().get(0);
+		private final Assignment cValueAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
+		private final Keyword cValueUsedAsParameterInMethodsKeyword_6_0 = (Keyword)cValueAssignment_6.eContents().get(0);
+		private final Assignment cValueAssignment_7 = (Assignment)cAlternatives.eContents().get(7);
+		private final Keyword cValueUsedAsTargetForMethodsKeyword_7_0 = (Keyword)cValueAssignment_7.eContents().get(0);
 		
 		////Generated Rule. Do not modify!
 		//
 		//MethodField:
 		//	value="UsedMethods" | value="UsedMethodsInTry" | value="UsedMethodsInFinally" | value="OverriddenMethods" |
-		//	value="DeclaredMethods";
+		//	value="DeclaredMethods" | value="DeclaringMethod" | value="UsedAsParameterInMethods" | value="UsedAsTargetForMethods";
 		public ParserRule getRule() { return rule; }
 
 		//value="UsedMethods" | value="UsedMethodsInTry" | value="UsedMethodsInFinally" | value="OverriddenMethods" |
-		//value="DeclaredMethods"
+		//value="DeclaredMethods" | value="DeclaringMethod" | value="UsedAsParameterInMethods" | value="UsedAsTargetForMethods"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value="UsedMethods"
@@ -1147,6 +1243,24 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"DeclaredMethods"
 		public Keyword getValueDeclaredMethodsKeyword_4_0() { return cValueDeclaredMethodsKeyword_4_0; }
+
+		//value="DeclaringMethod"
+		public Assignment getValueAssignment_5() { return cValueAssignment_5; }
+
+		//"DeclaringMethod"
+		public Keyword getValueDeclaringMethodKeyword_5_0() { return cValueDeclaringMethodKeyword_5_0; }
+
+		//value="UsedAsParameterInMethods"
+		public Assignment getValueAssignment_6() { return cValueAssignment_6; }
+
+		//"UsedAsParameterInMethods"
+		public Keyword getValueUsedAsParameterInMethodsKeyword_6_0() { return cValueUsedAsParameterInMethodsKeyword_6_0; }
+
+		//value="UsedAsTargetForMethods"
+		public Assignment getValueAssignment_7() { return cValueAssignment_7; }
+
+		//"UsedAsTargetForMethods"
+		public Keyword getValueUsedAsTargetForMethodsKeyword_7_0() { return cValueUsedAsTargetForMethodsKeyword_7_0; }
 	}
 
 	public class FilePathFieldElements extends AbstractParserRuleElementFinder {
@@ -1275,6 +1389,24 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getValueAnnotationsKeyword_0() { return cValueAnnotationsKeyword_0; }
 	}
 
+	public class DefinitionTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DefinitionType");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cValueVariableDefinitionKeyword_0 = (Keyword)cValueAssignment.eContents().get(0);
+		
+		////Generated Rule. Do not modify!
+		//
+		//DefinitionType:
+		//	value="VariableDefinition";
+		public ParserRule getRule() { return rule; }
+
+		//value="VariableDefinition"
+		public Assignment getValueAssignment() { return cValueAssignment; }
+
+		//"VariableDefinition"
+		public Keyword getValueVariableDefinitionKeyword_0() { return cValueVariableDefinitionKeyword_0; }
+	}
+
 	public class SimpleFieldValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleFieldValue");
 		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
@@ -1382,12 +1514,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMethodKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cFieldKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cTrycatchKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cVarusageKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		
 		//DocumentTypeFieldValue:
-		//	"class" | "method" | "field" | "trycatch";
+		//	"class" | "method" | "field" | "trycatch" | "varusage";
 		public ParserRule getRule() { return rule; }
 
-		//"class" | "method" | "field" | "trycatch"
+		//"class" | "method" | "field" | "trycatch" | "varusage"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"class"
@@ -1401,6 +1534,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"trycatch"
 		public Keyword getTrycatchKeyword_3() { return cTrycatchKeyword_3; }
+
+		//"varusage"
+		public Keyword getVarusageKeyword_4() { return cVarusageKeyword_4; }
 	}
 
 	public class AnnotationFieldValueElements extends AbstractParserRuleElementFinder {
@@ -1425,6 +1561,38 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//NameWithWC
 		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
+	}
+
+	public class DefinitionTypeValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DefinitionTypeValue");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cParameterKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cNullLiteralKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cMethodInvocationKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cInstanceCreationKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cUninitializedKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		
+		//DefinitionTypeValue:
+		//	"parameter" | "nullLiteral" | "methodInvocation" | "instanceCreation" | "uninitialized";
+		public ParserRule getRule() { return rule; }
+
+		//"parameter" | "nullLiteral" | "methodInvocation" | "instanceCreation" | "uninitialized"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"parameter"
+		public Keyword getParameterKeyword_0() { return cParameterKeyword_0; }
+
+		//"nullLiteral"
+		public Keyword getNullLiteralKeyword_1() { return cNullLiteralKeyword_1; }
+
+		//"methodInvocation"
+		public Keyword getMethodInvocationKeyword_2() { return cMethodInvocationKeyword_2; }
+
+		//"instanceCreation"
+		public Keyword getInstanceCreationKeyword_3() { return cInstanceCreationKeyword_3; }
+
+		//"uninitialized"
+		public Keyword getUninitializedKeyword_4() { return cUninitializedKeyword_4; }
 	}
 
 	public class UnaryExpressionElements extends AbstractParserRuleElementFinder {
@@ -1519,6 +1687,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	private DocumentTypeFieldElements pDocumentTypeField;
 	private ProjectNameFieldElements pProjectNameField;
 	private AnnotationFieldElements pAnnotationField;
+	private DefinitionTypeElements pDefinitionType;
 	private SimpleFieldValueElements pSimpleFieldValue;
 	private MethodFieldValueElements pMethodFieldValue;
 	private ProjectNameFieldValueElements pProjectNameFieldValue;
@@ -1528,6 +1697,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	private DocumentTypeFieldValueElements pDocumentTypeFieldValue;
 	private AnnotationFieldValueElements pAnnotationFieldValue;
 	private TypeFieldValueElements pTypeFieldValue;
+	private DefinitionTypeValueElements pDefinitionTypeValue;
 	private BinaryExpElements unknownRuleBinaryExp;
 	private UnaryExpressionElements pUnaryExpression;
 	private TerminalRule tBoost;
@@ -1604,7 +1774,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	(values+=DocumentTypeFieldValue | "(" (UnaryExpression? values+=DocumentTypeFieldValue Boost?)* ")") Boost? |
 	//	field=ProjectNameField ":" (values+=ProjectNameFieldValue | "(" (UnaryExpression? values+=ProjectNameFieldValue
 	//	Boost?)* ")") Boost? | field=AnnotationField ":" (values+=AnnotationFieldValue | "(" (UnaryExpression?
-	//	values+=AnnotationFieldValue Boost?)* ")") Boost?));
+	//	values+=AnnotationFieldValue Boost?)* ")") Boost? | field=DefinitionType ":" (values+=DefinitionTypeValue | "("
+	//	(UnaryExpression? values+=DefinitionTypeValue Boost?)* ")") Boost?));
 	public ClauseExpressionElements getClauseExpressionAccess() {
 		return (pClauseExpression != null) ? pClauseExpression : (pClauseExpression = new ClauseExpressionElements());
 	}
@@ -1618,7 +1789,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//SimpleField:
 	//	value="FullyQualifiedName" | value="FriendlyName" | value="ReturnVariableExpressions" | value="AllDeclaredMethodNames"
 	//	| value="DeclaredMethodNames" | value="DeclaredFieldNames" | value="AllDeclaredFieldNames" | value="FullText" |
-	//	value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry";
+	//	value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry" |
+	//	value="VariableName";
 	public SimpleFieldElements getSimpleFieldAccess() {
 		return (pSimpleField != null) ? pSimpleField : (pSimpleField = new SimpleFieldElements());
 	}
@@ -1633,7 +1805,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	value="ImplementedTypes" | value="ExtendedTypes" | value="UsedTypes" | value="UsedTypesInTry" |
 	//	value="UsedTypesInFinally" | value="ParameterTypes" | value="ReturnType" | value="InstanceofTypes" |
 	//	value="AllImplementedTypes" | value="AllExtendedTypes" | value="FieldType" | value="CaughtType" |
-	//	value="DeclaredFieldTypes" | value="DeclaringType";
+	//	value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType";
 	public TypeFieldElements getTypeFieldAccess() {
 		return (pTypeField != null) ? pTypeField : (pTypeField = new TypeFieldElements());
 	}
@@ -1646,7 +1818,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	//MethodField:
 	//	value="UsedMethods" | value="UsedMethodsInTry" | value="UsedMethodsInFinally" | value="OverriddenMethods" |
-	//	value="DeclaredMethods";
+	//	value="DeclaredMethods" | value="DeclaringMethod" | value="UsedAsParameterInMethods" | value="UsedAsTargetForMethods";
 	public MethodFieldElements getMethodFieldAccess() {
 		return (pMethodField != null) ? pMethodField : (pMethodField = new MethodFieldElements());
 	}
@@ -1739,6 +1911,18 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnnotationFieldAccess().getRule();
 	}
 
+	////Generated Rule. Do not modify!
+	//
+	//DefinitionType:
+	//	value="VariableDefinition";
+	public DefinitionTypeElements getDefinitionTypeAccess() {
+		return (pDefinitionType != null) ? pDefinitionType : (pDefinitionType = new DefinitionTypeElements());
+	}
+	
+	public ParserRule getDefinitionTypeRule() {
+		return getDefinitionTypeAccess().getRule();
+	}
+
 	/// *
 	//
 	//	End of generated rules.
@@ -1804,7 +1988,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DocumentTypeFieldValue:
-	//	"class" | "method" | "field" | "trycatch";
+	//	"class" | "method" | "field" | "trycatch" | "varusage";
 	public DocumentTypeFieldValueElements getDocumentTypeFieldValueAccess() {
 		return (pDocumentTypeFieldValue != null) ? pDocumentTypeFieldValue : (pDocumentTypeFieldValue = new DocumentTypeFieldValueElements());
 	}
@@ -1831,6 +2015,16 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTypeFieldValueRule() {
 		return getTypeFieldValueAccess().getRule();
+	}
+
+	//DefinitionTypeValue:
+	//	"parameter" | "nullLiteral" | "methodInvocation" | "instanceCreation" | "uninitialized";
+	public DefinitionTypeValueElements getDefinitionTypeValueAccess() {
+		return (pDefinitionTypeValue != null) ? pDefinitionTypeValue : (pDefinitionTypeValue = new DefinitionTypeValueElements());
+	}
+	
+	public ParserRule getDefinitionTypeValueRule() {
+		return getDefinitionTypeValueAccess().getRule();
 	}
 
 	//enum BinaryExp:

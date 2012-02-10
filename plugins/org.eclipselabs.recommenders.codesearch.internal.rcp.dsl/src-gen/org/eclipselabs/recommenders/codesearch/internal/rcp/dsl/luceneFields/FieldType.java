@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethodType <em>Method Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isFieldType <em>Field Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatchType <em>Trycatch Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isVarusage <em>Varusage</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,5 +133,31 @@ public interface FieldType extends EObject
    * @generated
    */
   void setTrycatchType(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Varusage</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Varusage</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Varusage</em>' attribute.
+   * @see #setVarusage(boolean)
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_Varusage()
+   * @model
+   * @generated
+   */
+  boolean isVarusage();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isVarusage <em>Varusage</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Varusage</em>' attribute.
+   * @see #isVarusage()
+   * @generated
+   */
+  void setVarusage(boolean value);
 
 } // FieldType

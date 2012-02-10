@@ -95,6 +95,13 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 						| ('('(UnaryExpression? values+=AnnotationFieldValue Boost?)*')')
 					) Boost?
 				)
+			| 	(
+					field=DefinitionType ':' 
+					(
+						(values+=DefinitionTypeValue)
+						| ('('(UnaryExpression? values+=DefinitionTypeValue Boost?)*')')
+					) Boost?
+				)
 			)
 		)
 	;
@@ -113,6 +120,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 		| 	value='FieldsWritten'
 		| 	value='UsedFieldsInFinally'
 		| 	value='UsedFieldsInTry'
+		| 	value='VariableName'
 	;
 	
 	//Generated Rule. Do not modify!
@@ -131,6 +139,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 		| 	value='CaughtType'
 		| 	value='DeclaredFieldTypes'
 		| 	value='DeclaringType'
+		| 	value='VariableType'
 	;
 	
 	//Generated Rule. Do not modify!
@@ -140,6 +149,9 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 		| 	value='UsedMethodsInFinally'
 		| 	value='OverriddenMethods'
 		| 	value='DeclaredMethods'
+		| 	value='DeclaringMethod'
+		| 	value='UsedAsParameterInMethods'
+		| 	value='UsedAsTargetForMethods'
 	;
 	
 	//Generated Rule. Do not modify!
@@ -175,6 +187,11 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	//Generated Rule. Do not modify!
 	AnnotationField:
 			value='Annotations'
+	;
+	
+	//Generated Rule. Do not modify!
+	DefinitionType:
+			value='VariableDefinition'
 	;
 	
 	/*
@@ -216,6 +233,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 		| 'method'
 		| 'field'
 		| 'trycatch'
+		| 'varusage'
 	;
 	
 	AnnotationFieldValue:
@@ -224,6 +242,14 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	
 	TypeFieldValue:
 		NameWithWC
+	;
+	
+	DefinitionTypeValue:
+	    'parameter'
+	    | 'nullLiteral'
+	    | 'methodInvocation'
+	    | 'instanceCreation'
+	    | 'uninitialized'
 	;
 	
 	enum BinaryExp:

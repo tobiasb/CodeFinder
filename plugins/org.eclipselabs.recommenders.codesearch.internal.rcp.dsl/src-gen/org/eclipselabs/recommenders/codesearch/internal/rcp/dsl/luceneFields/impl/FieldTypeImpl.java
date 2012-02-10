@@ -27,6 +27,7 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Luc
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isMethodType <em>Method Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isFieldType <em>Field Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isTrycatchType <em>Trycatch Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isVarusage <em>Varusage</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +114,26 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * @ordered
    */
   protected boolean trycatchType = TRYCATCH_TYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isVarusage() <em>Varusage</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isVarusage()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean VARUSAGE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isVarusage() <em>Varusage</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isVarusage()
+   * @generated
+   * @ordered
+   */
+  protected boolean varusage = VARUSAGE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -232,6 +253,29 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isVarusage()
+  {
+    return varusage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVarusage(boolean newVarusage)
+  {
+    boolean oldVarusage = varusage;
+    varusage = newVarusage;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__VARUSAGE, oldVarusage, varusage));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -245,6 +289,8 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
         return isFieldType();
       case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
         return isTrycatchType();
+      case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
+        return isVarusage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,6 +316,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
         return;
       case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
         setTrycatchType((Boolean)newValue);
+        return;
+      case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
+        setVarusage((Boolean)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -297,6 +346,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
       case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
         setTrycatchType(TRYCATCH_TYPE_EDEFAULT);
         return;
+      case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
+        setVarusage(VARUSAGE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -319,6 +371,8 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
         return fieldType != FIELD_TYPE_EDEFAULT;
       case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
         return trycatchType != TRYCATCH_TYPE_EDEFAULT;
+      case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
+        return varusage != VARUSAGE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -342,6 +396,8 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
     result.append(fieldType);
     result.append(", trycatchType: ");
     result.append(trycatchType);
+    result.append(", varusage: ");
+    result.append(varusage);
     result.append(')');
     return result.toString();
   }

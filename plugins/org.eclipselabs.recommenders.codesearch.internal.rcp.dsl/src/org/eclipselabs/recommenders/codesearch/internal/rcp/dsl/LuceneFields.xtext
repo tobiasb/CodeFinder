@@ -21,5 +21,5 @@ Field:
 ;
 	
 FieldType:
-	classType?='class' | methodType?='method' | fieldType?='field' | trycatchType?='trycatch'
+	classType?='class' | methodType?='method' | fieldType?='field' | trycatchType?='trycatch' | varusage?='varusage'
 ;

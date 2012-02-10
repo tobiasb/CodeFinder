@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
@@ -122,6 +123,13 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * @generated
    */
   private EClass annotationFieldEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass definitionTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -465,6 +473,26 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDefinitionType()
+  {
+    return definitionTypeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefinitionType_Value()
+  {
+    return (EAttribute)definitionTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExp1()
   {
     return exp1EClass;
@@ -578,6 +606,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     annotationFieldEClass = createEClass(ANNOTATION_FIELD);
     createEAttribute(annotationFieldEClass, ANNOTATION_FIELD__VALUE);
 
+    definitionTypeEClass = createEClass(DEFINITION_TYPE);
+    createEAttribute(definitionTypeEClass, DEFINITION_TYPE__VALUE);
+
     exp1EClass = createEClass(EXP1);
     createEReference(exp1EClass, EXP1__LEFT);
     createEAttribute(exp1EClass, EXP1__B);
@@ -656,6 +687,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
 
     initEClass(annotationFieldEClass, AnnotationField.class, "AnnotationField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAnnotationField_Value(), ecorePackage.getEString(), "value", null, 0, 1, AnnotationField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(definitionTypeEClass, DefinitionType.class, "DefinitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefinitionType_Value(), ecorePackage.getEString(), "value", null, 0, 1, DefinitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exp1EClass, Exp1.class, "Exp1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExp1_Left(), this.getExpression(), null, "left", null, 0, 1, Exp1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

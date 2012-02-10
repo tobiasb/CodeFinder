@@ -135,6 +135,15 @@ public interface LuceneQueryFactory extends EFactory
   AnnotationField createAnnotationField();
 
   /**
+   * Returns a new object of class '<em>Definition Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition Type</em>'.
+   * @generated
+   */
+  DefinitionType createDefinitionType();
+
+  /**
    * Returns a new object of class '<em>Exp1</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

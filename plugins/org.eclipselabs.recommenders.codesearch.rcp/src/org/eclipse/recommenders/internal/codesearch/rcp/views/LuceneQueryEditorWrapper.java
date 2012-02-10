@@ -18,6 +18,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaMethodProvid
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaTypeProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ProjectNameProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ResourcePathProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.DefinitionProposalProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.DocumentTypeProposalProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.GenericQueryProposalProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.LuceneSearchTermExtractor;
@@ -61,6 +62,9 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
         LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.DOCUMENT_TYPE,
                 new DocumentTypeProposalProvider());
 
+        LuceneQueryProposalProvider.addQueryProposalProvider(QueryProposalType.DEFINITION,
+                new DefinitionProposalProvider());
+
         final IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 
             @Override
@@ -79,7 +83,7 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
         final LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
         final Injector injector = activator
-                .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSL_LUCENEQUERY);
+                .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY);
         final EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
         handle = factory.newEditor(resourceProvider).withParent(parent);
 

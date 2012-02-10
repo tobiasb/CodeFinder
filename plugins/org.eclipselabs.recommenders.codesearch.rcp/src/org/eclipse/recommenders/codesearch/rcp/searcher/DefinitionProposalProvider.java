@@ -10,17 +10,17 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.IQueryPr
 
 import com.google.common.collect.Lists;
 
-public class DocumentTypeProposalProvider implements IQueryProposalProvider {
+public class DefinitionProposalProvider implements IQueryProposalProvider {
 
     @Override
     public List<String> getProposals() {
         final List<String> list = Lists.newArrayList();
 
-        list.add(Fields.TYPE_CLASS);
-        list.add(Fields.TYPE_METHOD);
-        list.add(Fields.TYPE_FIELD);
-        list.add(Fields.TYPE_TRYCATCH);
-        list.add(Fields.TYPE_VARUSAGE);
+        list.add(Fields.DEFINITION_INSTANCE_CREATION);
+        list.add(Fields.DEFINITION_METHOD_INVOCATION);
+        list.add(Fields.DEFINITION_NULLLITERAL);
+        list.add(Fields.DEFINITION_PARAMETER);
+        list.add(Fields.DEFINITION_UNINITIALIZED);
 
         return list;
     }

@@ -42,7 +42,7 @@ public class LuceneQueryActivator extends AbstractUIPlugin {
 	
 	private static LuceneQueryActivator INSTANCE;
 	
-	public static final String ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSL_LUCENEQUERY = "org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQuery";
+	public static final String ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY = "org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQuery";
 	
 	public Injector getInjector(String languageName) {
 		try {
@@ -73,7 +73,7 @@ public class LuceneQueryActivator extends AbstractUIPlugin {
 	}
 	
 	protected Module getRuntimeModule(String grammar) {
-		if (ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSL_LUCENEQUERY.equals(grammar)) {
+		if (ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY.equals(grammar)) {
 			return new org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryRuntimeModule();
 		}
 		
@@ -81,7 +81,7 @@ public class LuceneQueryActivator extends AbstractUIPlugin {
 	}
 	
 	protected Module getUiModule(String grammar) {
-		if (ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSL_LUCENEQUERY.equals(grammar)) {
+		if (ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY.equals(grammar)) {
 			return new org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.LuceneQueryUiModule(this);
 		}
 		

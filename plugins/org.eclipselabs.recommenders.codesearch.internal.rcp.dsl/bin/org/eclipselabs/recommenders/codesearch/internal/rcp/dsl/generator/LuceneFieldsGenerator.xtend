@@ -81,13 +81,20 @@ public class «m.className» {
 	public final static String TYPE_METHOD = "method";
 	public final static String TYPE_FIELD = "field";
 	public final static String TYPE_TRYCATCH = "trycatch";
-
+	public final static String TYPE_VARUSAGE = "varusage";
+	
 	public static final String MODIFIER_PUBLIC = "public";
 	public static final String MODIFIER_FINAL = "final";
 	public static final String MODIFIER_PRIVATE = "private";
 	public static final String MODIFIER_PROTECTED = "protected";
 	public static final String MODIFIER_STATIC = "static";
 	public static final String MODIFIER_ABSTRACT = "abstract";
+	
+	public static final String DEFINITION_PARAMETER = "parameter";
+	public static final String DEFINITION_NULLLITERAL = "nullLiteral";
+	public static final String DEFINITION_METHOD_INVOCATION = "methodInvocation";
+	public static final String DEFINITION_INSTANCE_CREATION = "instanceCreation";
+	public static final String DEFINITION_UNINITIALIZED = "uninitialized";
 	
 	«FOR category : m.fieldCategories»
 	//«category.categoryName»

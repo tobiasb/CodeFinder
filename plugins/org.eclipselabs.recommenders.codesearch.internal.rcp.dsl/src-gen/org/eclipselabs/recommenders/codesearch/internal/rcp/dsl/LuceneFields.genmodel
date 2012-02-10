@@ -4,8 +4,8 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen"
     editDirectory="/org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.edit/src"
     editorDirectory="/org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.editor/src"
-    modelPluginID="org.eclipselabs.recommenders.codesearch.internal.rcp.dsl"
-    forceOverwrite="true" modelName="LuceneFields" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    modelPluginID="org.eclipselabs.recommenders.codesearch.internal.rcp.dsl" forceOverwrite="true"
+    modelName="LuceneFields" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.edit"
     editorPluginID="org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.editor">
   <genPackages prefix="LuceneFields" basePackage="org.eclipselabs.recommenders.codesearch.internal.rcp.dsl"
@@ -29,6 +29,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//FieldType/methodType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//FieldType/fieldType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//FieldType/trycatchType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//FieldType/varusage"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

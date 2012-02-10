@@ -2,6 +2,7 @@ package org.eclipse.recommenders.internal.codesearch.rcp.views.actions;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.jobs.IJobChangeEvent;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -31,8 +32,6 @@ public class IndexAction implements IViewActionDelegate {
     @Override
     public void run(final IAction action) {
         try {
-            final Long start = System.currentTimeMillis();
-
             final CodeIndexerIndex index = InjectionService.getInstance().requestInstance(CodeIndexerIndex.class);
 
             final IndexUpdaterJob job = new IndexUpdaterJob(index, ResourcesPlugin.getWorkspace().getRoot());
@@ -43,20 +42,13 @@ public class IndexAction implements IViewActionDelegate {
                     if (event.getResult().isOK()) {
 
                         index.printStats();
-
-                        final Long duration = System.currentTimeMillis() - start;
-
-                        final String msg = "Index was built for "
-                                + ResourcesPlugin.getWorkspace().getRoot().getProjects().length + " project(s). Took "
-                                + duration + " milliseconds.";
-
-                        Activator.logInfo(msg);
                     } else {
                         Activator.logWarning(event.getResult().getMessage());
                     }
                 }
 
             });
+            job.setPriority(Job.DECORATE);
             job.schedule();
         } catch (final Exception ex) {
             Activator.logError(ex, "Error");

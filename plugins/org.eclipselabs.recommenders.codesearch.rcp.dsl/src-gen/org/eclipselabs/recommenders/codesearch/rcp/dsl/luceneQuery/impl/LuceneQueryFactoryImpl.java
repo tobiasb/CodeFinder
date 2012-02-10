@@ -81,6 +81,7 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
       case LuceneQueryPackage.DOCUMENT_TYPE_FIELD: return createDocumentTypeField();
       case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
       case LuceneQueryPackage.ANNOTATION_FIELD: return createAnnotationField();
+      case LuceneQueryPackage.DEFINITION_TYPE: return createDefinitionType();
       case LuceneQueryPackage.EXP1: return createExp1();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -251,6 +252,17 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     AnnotationFieldImpl annotationField = new AnnotationFieldImpl();
     return annotationField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefinitionType createDefinitionType()
+  {
+    DefinitionTypeImpl definitionType = new DefinitionTypeImpl();
+    return definitionType;
   }
 
   /**

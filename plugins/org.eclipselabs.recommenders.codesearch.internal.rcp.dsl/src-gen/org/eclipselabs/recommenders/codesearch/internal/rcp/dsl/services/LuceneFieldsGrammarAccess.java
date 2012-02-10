@@ -172,12 +172,14 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFieldTypeFieldKeyword_2_0 = (Keyword)cFieldTypeAssignment_2.eContents().get(0);
 		private final Assignment cTrycatchTypeAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
 		private final Keyword cTrycatchTypeTrycatchKeyword_3_0 = (Keyword)cTrycatchTypeAssignment_3.eContents().get(0);
+		private final Assignment cVarusageAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final Keyword cVarusageVarusageKeyword_4_0 = (Keyword)cVarusageAssignment_4.eContents().get(0);
 		
 		//FieldType:
-		//	classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch";
+		//	classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch" | varusage?="varusage";
 		public ParserRule getRule() { return rule; }
 
-		//classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch"
+		//classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch" | varusage?="varusage"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//classType?="class"
@@ -203,6 +205,12 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"trycatch"
 		public Keyword getTrycatchTypeTrycatchKeyword_3_0() { return cTrycatchTypeTrycatchKeyword_3_0; }
+
+		//varusage?="varusage"
+		public Assignment getVarusageAssignment_4() { return cVarusageAssignment_4; }
+
+		//"varusage"
+		public Keyword getVarusageVarusageKeyword_4_0() { return cVarusageVarusageKeyword_4_0; }
 	}
 	
 	
@@ -263,7 +271,7 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FieldType:
-	//	classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch";
+	//	classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch" | varusage?="varusage";
 	public FieldTypeElements getFieldTypeAccess() {
 		return (pFieldType != null) ? pFieldType : (pFieldType = new FieldTypeElements());
 	}

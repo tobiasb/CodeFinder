@@ -2,8 +2,7 @@
 <genmodel:GenModel xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen"
-    editDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dsl.edit/src"
-    editorDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dsl.editor/src"
+    editDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dsl.edit/src" editorDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dsl.editor/src"
     modelPluginID="org.eclipselabs.recommenders.codesearch.rcp.dsl" forceOverwrite="true"
     modelName="LuceneQuery" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipselabs.recommenders.codesearch.rcp.dsl.edit"
@@ -52,6 +51,9 @@
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//AnnotationField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//AnnotationField/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LuceneQuery.ecore#//DefinitionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DefinitionType/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//Exp1">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Exp1/left"/>

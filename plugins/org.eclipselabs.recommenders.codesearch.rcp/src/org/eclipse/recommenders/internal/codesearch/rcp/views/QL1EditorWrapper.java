@@ -40,7 +40,7 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
 
         final LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
         luceneInjector = activator
-                .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_codesearch_RCP_DSL_LUCENEQUERY);
+                .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY);
 
         luceneQueryFactory = new LuceneQueryFactoryImpl();
     }

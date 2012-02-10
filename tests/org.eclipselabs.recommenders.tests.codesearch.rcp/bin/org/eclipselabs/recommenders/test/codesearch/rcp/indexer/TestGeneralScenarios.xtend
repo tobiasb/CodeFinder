@@ -441,6 +441,24 @@ class TestGeneralScenarios extends TestBase {
 	}
 	
 	@Test
+	def void testDeclaringTypeIndexerVarUsage(){
+		val code = '''
+		public class MyClass {
+			public void testMethod123() {
+				String s;
+			}
+		}
+		'''
+		
+		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaringTypeIndexer())))
+		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::DECLARING_TYPE, "LMyClass")
+		)))		
+	}
+	
+	@Test
 	def void testDeclaringTypeIndexerTryCatch(){
 		val code = '''
 		public class MyClass {
@@ -634,6 +652,35 @@ class TestGeneralScenarios extends TestBase {
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::RESOURCE_PATH, new ResourcePathIndexer().getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
 		)))			
+	}
+	
+	@Test
+	def void testResourcePathIndexer05(){
+		val code = '''
+		public class MyClass {
+			public void myMethod() {
+				String a = "";
+			}
+		}
+		'''
+		
+		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
+		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
+		val cu = struct.first;
+        var cuParsed = parse(cu);
+
+        var index = new CodeIndexerIndex(new RAMDirectory())
+		
+        var visitor = new CompilationUnitVisitor(index);
+        visitor.addIndexer(i(newArrayList(new ResourcePathIndexer(), new DocumentTypeIndexer())));
+        
+        cuParsed.accept(visitor)
+        index.commit
+        		
+		assertField(index, l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::RESOURCE_PATH, new ResourcePathIndexer().getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
+		)))		
 	}
 	
 	@Test

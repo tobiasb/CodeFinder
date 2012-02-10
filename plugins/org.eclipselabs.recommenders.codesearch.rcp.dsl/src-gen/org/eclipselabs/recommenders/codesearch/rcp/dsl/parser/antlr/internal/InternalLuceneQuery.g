@@ -1089,6 +1089,90 @@ ruleUnaryExpression
     { 
     newLeafNode(this_Boost_92, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_3()); 
     }
+)?)
+    |((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldDefinitionTypeParserRuleCall_1_1_10_0_0()); 
+	    }
+		lv_field_93_0=ruleDefinitionType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
+	        }
+       		set(
+       			$current, 
+       			"field",
+        		lv_field_93_0, 
+        		"DefinitionType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_94=':' 
+    {
+    	newLeafNode(otherlv_94, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_10_1());
+    }
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_10_2_0_0()); 
+	    }
+		lv_values_95_0=ruleDefinitionTypeValue		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"values",
+        		lv_values_95_0, 
+        		"DefinitionTypeValue");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)
+    |(	otherlv_96='(' 
+    {
+    	newLeafNode(otherlv_96, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_10_2_1_0());
+    }
+((
+    { 
+        newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_10_2_1_1_0()); 
+    }
+ruleUnaryExpression
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_10_2_1_1_1_0()); 
+	    }
+		lv_values_98_0=ruleDefinitionTypeValue		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
+	        }
+       		add(
+       			$current, 
+       			"values",
+        		lv_values_98_0, 
+        		"DefinitionTypeValue");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(this_Boost_99=RULE_BOOST
+    { 
+    newLeafNode(this_Boost_99, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_10_2_1_1_2()); 
+    }
+)?)*	otherlv_100=')' 
+    {
+    	newLeafNode(otherlv_100, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_10_2_1_2());
+    }
+))(this_Boost_101=RULE_BOOST
+    { 
+    newLeafNode(this_Boost_101, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_10_3()); 
+    }
 )?))))
 ;
 
@@ -1298,6 +1382,22 @@ ruleSimpleField returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_11_0, "UsedFieldsInTry");
+	    }
+
+)
+)
+    |(
+(
+		lv_value_12_0=	'VariableName' 
+    {
+        newLeafNode(lv_value_12_0, grammarAccess.getSimpleFieldAccess().getValueVariableNameKeyword_12_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_12_0, "VariableName");
 	    }
 
 )
@@ -1545,6 +1645,22 @@ ruleTypeField returns [EObject current=null]
 	    }
 
 )
+)
+    |(
+(
+		lv_value_14_0=	'VariableType' 
+    {
+        newLeafNode(lv_value_14_0, grammarAccess.getTypeFieldAccess().getValueVariableTypeKeyword_14_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_14_0, "VariableType");
+	    }
+
+)
 ))
 ;
 
@@ -1642,6 +1758,54 @@ ruleMethodField returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getMethodFieldRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_4_0, "DeclaredMethods");
+	    }
+
+)
+)
+    |(
+(
+		lv_value_5_0=	'DeclaringMethod' 
+    {
+        newLeafNode(lv_value_5_0, grammarAccess.getMethodFieldAccess().getValueDeclaringMethodKeyword_5_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMethodFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_5_0, "DeclaringMethod");
+	    }
+
+)
+)
+    |(
+(
+		lv_value_6_0=	'UsedAsParameterInMethods' 
+    {
+        newLeafNode(lv_value_6_0, grammarAccess.getMethodFieldAccess().getValueUsedAsParameterInMethodsKeyword_6_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMethodFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_6_0, "UsedAsParameterInMethods");
+	    }
+
+)
+)
+    |(
+(
+		lv_value_7_0=	'UsedAsTargetForMethods' 
+    {
+        newLeafNode(lv_value_7_0, grammarAccess.getMethodFieldAccess().getValueUsedAsTargetForMethodsKeyword_7_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMethodFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_7_0, "UsedAsTargetForMethods");
 	    }
 
 )
@@ -1904,6 +2068,42 @@ ruleAnnotationField returns [EObject current=null]
 
 
 
+// Entry rule entryRuleDefinitionType
+entryRuleDefinitionType returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDefinitionTypeRule()); }
+	 iv_ruleDefinitionType=ruleDefinitionType 
+	 { $current=$iv_ruleDefinitionType.current; } 
+	 EOF 
+;
+
+// Rule DefinitionType
+ruleDefinitionType returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		lv_value_0_0=	'VariableDefinition' 
+    {
+        newLeafNode(lv_value_0_0, grammarAccess.getDefinitionTypeAccess().getValueVariableDefinitionKeyword_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDefinitionTypeRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_0_0, "VariableDefinition");
+	    }
+
+)
+)
+;
+
+
+
+
+
 // Entry rule entryRuleSimpleFieldValue
 entryRuleSimpleFieldValue returns [String current=null] 
 	:
@@ -2147,6 +2347,13 @@ ruleDocumentTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrData
         $current.merge(kw);
         newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getTrycatchKeyword_3()); 
     }
+
+    |
+	kw='varusage' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getVarusageKeyword_4()); 
+    }
 )
     ;
 
@@ -2204,6 +2411,61 @@ ruleTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
     newLeafNode(this_NameWithWC_0, grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); 
     }
 
+    ;
+
+
+
+
+
+// Entry rule entryRuleDefinitionTypeValue
+entryRuleDefinitionTypeValue returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getDefinitionTypeValueRule()); } 
+	 iv_ruleDefinitionTypeValue=ruleDefinitionTypeValue 
+	 { $current=$iv_ruleDefinitionTypeValue.current.getText(); }  
+	 EOF 
+;
+
+// Rule DefinitionTypeValue
+ruleDefinitionTypeValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	kw='parameter' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getParameterKeyword_0()); 
+    }
+
+    |
+	kw='nullLiteral' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getNullLiteralKeyword_1()); 
+    }
+
+    |
+	kw='methodInvocation' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getMethodInvocationKeyword_2()); 
+    }
+
+    |
+	kw='instanceCreation' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getInstanceCreationKeyword_3()); 
+    }
+
+    |
+	kw='uninitialized' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getUninitializedKeyword_4()); 
+    }
+)
     ;
 
 

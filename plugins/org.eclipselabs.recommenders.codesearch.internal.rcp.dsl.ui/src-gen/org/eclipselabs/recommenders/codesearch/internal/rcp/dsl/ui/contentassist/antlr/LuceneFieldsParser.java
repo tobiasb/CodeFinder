@@ -55,6 +55,7 @@ public class LuceneFieldsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldTypeAccess().getMethodTypeAssignment_1(), "rule__FieldType__MethodTypeAssignment_1");
 					put(grammarAccess.getFieldTypeAccess().getFieldTypeAssignment_2(), "rule__FieldType__FieldTypeAssignment_2");
 					put(grammarAccess.getFieldTypeAccess().getTrycatchTypeAssignment_3(), "rule__FieldType__TrycatchTypeAssignment_3");
+					put(grammarAccess.getFieldTypeAccess().getVarusageAssignment_4(), "rule__FieldType__VarusageAssignment_4");
 				}
 			};
 		}

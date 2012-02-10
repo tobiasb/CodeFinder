@@ -236,13 +236,22 @@ public interface LuceneFieldsPackage extends EPackage
   int FIELD_TYPE__TRYCATCH_TYPE = 3;
 
   /**
+   * The feature id for the '<em><b>Varusage</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_TYPE__VARUSAGE = 4;
+
+  /**
    * The number of structural features of the '<em>Field Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_TYPE_FEATURE_COUNT = 4;
+  int FIELD_TYPE_FEATURE_COUNT = 5;
 
 
   /**
@@ -418,6 +427,17 @@ public interface LuceneFieldsPackage extends EPackage
   EAttribute getFieldType_TrycatchType();
 
   /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isVarusage <em>Varusage</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Varusage</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isVarusage()
+   * @see #getFieldType()
+   * @generated
+   */
+  EAttribute getFieldType_Varusage();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -575,6 +595,14 @@ public interface LuceneFieldsPackage extends EPackage
      * @generated
      */
     EAttribute FIELD_TYPE__TRYCATCH_TYPE = eINSTANCE.getFieldType_TrycatchType();
+
+    /**
+     * The meta object literal for the '<em><b>Varusage</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_TYPE__VARUSAGE = eINSTANCE.getFieldType_Varusage();
 
   }
 

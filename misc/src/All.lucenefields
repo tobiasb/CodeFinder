@@ -37,6 +37,9 @@ SimpleField {
 	
 	USED_FIELDS_IN_TRY			= "UsedFieldsInTry"
 	{ trycatch }
+	
+	VARIABLE_NAME				= "VariableName"
+	{ varusage }
 }
 
 TypeField {
@@ -81,7 +84,10 @@ TypeField {
 	
 	DECLARING_TYPE 				= "DeclaringType"
 	{ method, field, trycatch }
-}
+	
+	VARIABLE_TYPE				= "VariableType"
+	{ varusage }
+} 
 
 MethodField {
 	USED_METHODS 				= "UsedMethods" 
@@ -98,13 +104,22 @@ MethodField {
 	
 	DECLARED_METHODS 			= "DeclaredMethods" 
 	{ class }
+	
+	DECLARING_METHOD			= "DeclaringMethod"
+	{ varusage }
+	
+	USED_AS_PARAMETER_IN_METHODS="UsedAsParameterInMethods"
+	{ varusage }
+	
+	USED_AS_TAGET_FOR_METHODS	="UsedAsTargetForMethods"
+	{ varusage }
 }
 
 FilePathField {
 	RESOURCE_PATH 				= "ResourcePath"
 	{ class, method, field, trycatch }
 }
-
+ 
 NumberField {
 	PARAMETER_COUNT 			= "ParameterCount" 
 	{ method }
@@ -122,7 +137,7 @@ TimeField {
 
 DocumentTypeField {
 	TYPE 						= "Type" 
-	{ class, method, field, trycatch }
+	{ class, method, field, trycatch, varusage }
 }
 
 ProjectNameField {	
@@ -133,4 +148,9 @@ ProjectNameField {
 AnnotationField {	
 	ANNOTATIONS					= "Annotations"
 	{ class }
+}
+
+DefinitionType {
+	VARIABLE_DEFINITION					= "VariableDefinition"
+	{ varusage }
 }

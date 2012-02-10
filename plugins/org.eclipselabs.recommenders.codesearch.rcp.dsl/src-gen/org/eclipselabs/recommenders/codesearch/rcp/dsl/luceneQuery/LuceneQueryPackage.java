@@ -416,6 +416,34 @@ public interface LuceneQueryPackage extends EPackage
   int ANNOTATION_FIELD_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl <em>Definition Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionType()
+   * @generated
+   */
+  int DEFINITION_TYPE = 12;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_TYPE__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Definition Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_TYPE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -423,7 +451,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getExp1()
    * @generated
    */
-  int EXP1 = 12;
+  int EXP1 = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -478,7 +506,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getBinaryExp()
    * @generated
    */
-  int BINARY_EXP = 13;
+  int BINARY_EXP = 14;
 
 
   /**
@@ -754,6 +782,27 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EAttribute getAnnotationField_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType <em>Definition Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Definition Type</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType
+   * @generated
+   */
+  EClass getDefinitionType();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType#getValue()
+   * @see #getDefinitionType()
+   * @generated
+   */
+  EAttribute getDefinitionType_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1 <em>Exp1</em>}'.
@@ -1062,6 +1111,24 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute ANNOTATION_FIELD__VALUE = eINSTANCE.getAnnotationField_Value();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl <em>Definition Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionType()
+     * @generated
+     */
+    EClass DEFINITION_TYPE = eINSTANCE.getDefinitionType();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINITION_TYPE__VALUE = eINSTANCE.getDefinitionType_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.

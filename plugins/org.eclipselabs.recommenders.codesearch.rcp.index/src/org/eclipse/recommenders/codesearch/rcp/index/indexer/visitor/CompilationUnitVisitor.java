@@ -22,6 +22,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldNamesI
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldTypesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredMethodNamesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredMethodsIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaringMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaringTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ExtendedTypeIndexer;
@@ -50,12 +51,16 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedTypesInFinallyIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedTypesInTryIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedTypesIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableDefinitionIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableNameIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableParameterUsageIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableTargetUsageIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
 import com.google.common.collect.Lists;
 
@@ -92,6 +97,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new DeclaredFieldTypesIndexer());
         list.add(new DeclaredMethodNamesIndexer());
         list.add(new DeclaredMethodsIndexer());
+        list.add(new DeclaringMethodIndexer());
         list.add(new DeclaringTypeIndexer());
         list.add(new DocumentTypeIndexer());
         list.add(new ExtendedTypeIndexer());
@@ -120,6 +126,11 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new UsedTypesIndexer());
         list.add(new UsedTypesInFinallyIndexer());
         list.add(new UsedTypesInTryIndexer());
+        list.add(new VariableDefinitionIndexer());
+        list.add(new VariableNameIndexer());
+        list.add(new VariableParameterUsageIndexer());
+        list.add(new VariableTargetUsageIndexer());
+        list.add(new VariableTypeIndexer());
 
         return list;
     }
@@ -151,16 +162,15 @@ public class CompilationUnitVisitor extends ASTVisitor {
         if (methodDocument.getFields().size() > 0)
             addDocument(methodDocument);
 
-        final Document varUsageDocument = new Document();
+        // For each method declaration we use another visitor to learn about
+        // variable usage
+        VarUsageVisitor varUsageVisitor = new VarUsageVisitor(indexer);
+        varUsageVisitor.visit(node);
 
-        for (final IIndexer i : indexer) {
-            if (i instanceof IVarUsageIndexer) {
-                ((IVarUsageIndexer) i).indexVarUsage(methodDocument, node);
-            }
+        for (Document d : varUsageVisitor.getDocuments()) {
+            if (d.getFields().size() > 0)
+                addDocument(d);
         }
-
-        if (varUsageDocument.getFields().size() > 0)
-            addDocument(varUsageDocument);
 
         return true;
     }

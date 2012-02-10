@@ -21,10 +21,11 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'packages'", "'class'", "'{'", "'}'", "'='", "','", "'method'", "'field'", "'trycatch'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'packages'", "'class'", "'{'", "'}'", "'='", "','", "'method'", "'field'", "'trycatch'", "'varusage'"
     };
     public static final int RULE_ID=5;
     public static final int RULE_ANY_OTHER=10;
+    public static final int T__20=20;
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=8;
     public static final int RULE_ML_COMMENT=7;
@@ -714,7 +715,7 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFieldType"
-    // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:333:1: ruleFieldType returns [EObject current=null] : ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) ) ;
+    // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:333:1: ruleFieldType returns [EObject current=null] : ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) | ( (lv_varusage_4_0= 'varusage' ) ) ) ;
     public final EObject ruleFieldType() throws RecognitionException {
         EObject current = null;
 
@@ -722,15 +723,16 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
         Token lv_methodType_1_0=null;
         Token lv_fieldType_2_0=null;
         Token lv_trycatchType_3_0=null;
+        Token lv_varusage_4_0=null;
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:336:28: ( ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) ) )
-            // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:336:28: ( ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) | ( (lv_varusage_4_0= 'varusage' ) ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) | ( (lv_varusage_4_0= 'varusage' ) ) )
             {
-            // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) )
-            int alt5=4;
+            // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:337:1: ( ( (lv_classType_0_0= 'class' ) ) | ( (lv_methodType_1_0= 'method' ) ) | ( (lv_fieldType_2_0= 'field' ) ) | ( (lv_trycatchType_3_0= 'trycatch' ) ) | ( (lv_varusage_4_0= 'varusage' ) ) )
+            int alt5=5;
             switch ( input.LA(1) ) {
             case 12:
                 {
@@ -750,6 +752,11 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
             case 19:
                 {
                 alt5=4;
+                }
+                break;
+            case 20:
+                {
+                alt5=5;
                 }
                 break;
             default:
@@ -872,6 +879,34 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 5 :
+                    // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:401:6: ( (lv_varusage_4_0= 'varusage' ) )
+                    {
+                    // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:401:6: ( (lv_varusage_4_0= 'varusage' ) )
+                    // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:402:1: (lv_varusage_4_0= 'varusage' )
+                    {
+                    // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:402:1: (lv_varusage_4_0= 'varusage' )
+                    // ../org.eclipselabs.recommenders.codesearch.internal.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/internal/rcp/dsl/parser/antlr/internal/InternalLuceneFields.g:403:3: lv_varusage_4_0= 'varusage'
+                    {
+                    lv_varusage_4_0=(Token)match(input,20,FOLLOW_20_in_ruleFieldType785); 
+
+                            newLeafNode(lv_varusage_4_0, grammarAccess.getFieldTypeAccess().getVarusageVarusageKeyword_4_0());
+                        
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getFieldTypeRule());
+                    	        }
+                           		setWithLastConsumed(current, "varusage", true, "varusage");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -914,9 +949,9 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleField428 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleField445 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleField462 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleField479 = new BitSet(new long[]{0x00000000000E1000L});
+    public static final BitSet FOLLOW_13_in_ruleField479 = new BitSet(new long[]{0x00000000001E1000L});
     public static final BitSet FOLLOW_ruleFieldType_in_ruleField500 = new BitSet(new long[]{0x0000000000014000L});
-    public static final BitSet FOLLOW_16_in_ruleField513 = new BitSet(new long[]{0x00000000000E1000L});
+    public static final BitSet FOLLOW_16_in_ruleField513 = new BitSet(new long[]{0x00000000001E1000L});
     public static final BitSet FOLLOW_ruleFieldType_in_ruleField534 = new BitSet(new long[]{0x0000000000014000L});
     public static final BitSet FOLLOW_14_in_ruleField548 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleFieldType_in_entryRuleFieldType584 = new BitSet(new long[]{0x0000000000000000L});
@@ -925,5 +960,6 @@ public class InternalLuceneFieldsParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_17_in_ruleFieldType674 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_ruleFieldType711 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_19_in_ruleFieldType748 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_ruleFieldType785 = new BitSet(new long[]{0x0000000000000002L});
 
 }
