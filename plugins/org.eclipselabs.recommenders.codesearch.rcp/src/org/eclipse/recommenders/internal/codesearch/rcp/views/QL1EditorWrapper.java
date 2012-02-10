@@ -9,26 +9,25 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.xtext.linking.lazy.LazyLinkingResource;
-import org.eclipse.xtext.resource.IResourceFactory;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.resource.XtextResourceSet;
+import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
-import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ModifierField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor.QL1Query;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Type;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
 
-import com.google.common.collect.Lists;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
@@ -78,32 +77,17 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
     @Override
     List<Document> search() throws Exception {
 
-        // QL1Query q = handle.getDocument().readOnly(new QL1QueryExtractor());
-        //
-        // EObject e = translate(q.type, q.exp);
-        //
-        // LuceneQueryExtractor extr = new LuceneQueryExtractor();
-        //
-        // XtextResource res = doGetResource(e,
-        // URI.createURI("mytestmodel.ql1"));
-        // String r = (new LuceneQueryExtractor().exec(res));
+        QL1Query q = handle.getDocument().readOnly(new QL1QueryExtractor());
 
-        return Lists.newArrayList();
-    }
+        EObject e = translate(q.type, q.exp);
 
-    protected XtextResource doGetResource(EObject in, URI uri) throws Exception {
-        XtextResourceSet rs = luceneInjector.getInstance(XtextResourceSet.class);
-        rs.setClasspathURIContext(getClass());
-        XtextResource resource = (XtextResource) luceneInjector.getInstance(IResourceFactory.class).createResource(uri);
-        // resource.attached(in);
-        rs.getResources().add(resource);
-        // resource.load(in, null);
-        if (resource instanceof LazyLinkingResource) {
-            ((LazyLinkingResource) resource).resolveLazyCrossReferences(CancelIndicator.NullImpl);
-        } else {
-            EcoreUtil.resolveAll(resource);
-        }
-        return resource;
+        LuceneQueryExtractor extr = new LuceneQueryExtractor();
+        extr.process(e.eAllContents());
+
+        ISerializer s = luceneInjector.getInstance(ISerializer.class);
+        String searchQuery = s.serialize(e);
+
+        return codeSearcher.search(searchQuery);
     }
 
     private EObject translate(Type type, Expression exp) {
@@ -111,8 +95,10 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
         org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression e = luceneQueryFactory
                 .createExpression();
         ClauseExpression c = luceneQueryFactory.createClauseExpression();
-        c.setField(luceneQueryFactory.createTypeField());
-        c.getValues().add(Fields.TYPE_CLASS);
+        ModifierField t = luceneQueryFactory.createModifierField();
+        t.setValue(Fields.TYPE);
+        c.setField(t);
+        c.getValues().add(Fields.MODIFIER_FINAL);
 
         e.setValue(c);
 

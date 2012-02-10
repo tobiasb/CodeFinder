@@ -20,8 +20,20 @@ public class LuceneQueryExtractor implements IUnitOfWork<String, XtextResource> 
     @Override
     public String exec(final XtextResource state) throws Exception {
         final TreeIterator<EObject> iter = state.getAllContents();
+
         if (!iter.hasNext())
             return "";
+
+        process(iter);
+
+        final ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        state.save(stream, null);
+        return stream.toString();
+    }
+
+    public void process(TreeIterator<EObject> iter) {
+        if (!iter.hasNext())
+            return;
 
         do {
             final EObject o = iter.next();
@@ -50,9 +62,5 @@ public class LuceneQueryExtractor implements IUnitOfWork<String, XtextResource> 
             }
 
         } while (iter.hasNext());
-
-        final ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        state.save(stream, null);
-        return stream.toString();
     }
 }
