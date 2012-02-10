@@ -55,6 +55,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
 import com.google.common.collect.Lists;
 
@@ -139,15 +140,26 @@ public class CompilationUnitVisitor extends ASTVisitor {
 
     @Override
     public boolean visit(final MethodDeclaration node) {
-        final Document document = new Document();
+        final Document methodDocument = new Document();
 
         for (final IIndexer i : indexer) {
             if (i instanceof IMethodIndexer) {
-                ((IMethodIndexer) i).index(document, node);
+                ((IMethodIndexer) i).index(methodDocument, node);
             }
         }
 
-        addDocument(document);
+        addDocument(methodDocument);
+
+        final Document varUsageDocument = new Document();
+
+        for (final IIndexer i : indexer) {
+            if (i instanceof IVarUsageIndexer) {
+                ((IVarUsageIndexer) i).index(methodDocument, node);
+            }
+        }
+
+        addDocument(varUsageDocument);
+
         return true;
     }
 
