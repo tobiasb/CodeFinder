@@ -87,7 +87,7 @@ public abstract class TypeUseVisitor extends ASTVisitor {
     };
 
     private void handleTypeUseInternal(final ITypeBinding typeBinding) {
-        final ITypeName typeName = BindingUtils.toTypeName(typeBinding);
+        final ITypeName typeName = BindingUtils.toTypeName(typeBinding).orNull();
         if (!AbstractIndexer.isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
             handleTypeUse(typeBinding);
         }

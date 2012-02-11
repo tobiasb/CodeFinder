@@ -3,7 +3,6 @@ package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CatchClause;
-import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.InstanceofExpression;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
@@ -12,8 +11,8 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
-import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
+
+import com.google.common.base.Optional;
 
 public class InstanceOfIndexer extends AbstractIndexer implements IMethodIndexer, ITryCatchBlockIndexer, IClassIndexer {
 
@@ -45,10 +44,10 @@ public class InstanceOfIndexer extends AbstractIndexer implements IMethodIndexer
         @Override
         public boolean visit(final InstanceofExpression node) {
 
-            final ITypeBinding type = node.getRightOperand().resolveBinding();
-            final ITypeName typeName = BindingUtils.toTypeName(type);
-
-            addAnalyzedField(document, Fields.INSTANCEOF_TYPES, BindingHelper.getIdentifier(typeName));
+            final Optional<String> opt = BindingHelper.getIdentifier(node.getRightOperand());
+            if (opt.isPresent()) {
+                addAnalyzedField(document, Fields.INSTANCEOF_TYPES, opt.get());
+            }
 
             return false;
         }

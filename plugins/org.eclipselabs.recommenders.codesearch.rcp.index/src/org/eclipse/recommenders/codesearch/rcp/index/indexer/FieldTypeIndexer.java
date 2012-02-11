@@ -5,11 +5,16 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIndexer;
 
+import com.google.common.base.Optional;
+
 public class FieldTypeIndexer extends AbstractIndexer implements IFieldIndexer {
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
-        addAnalyzedField(document, Fields.FIELD_TYPE, BindingHelper.getIdentifier(field));
+        final Optional<String> opt = BindingHelper.getIdentifier(field);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.FIELD_TYPE, opt.get());
+        }
     }
 
 }

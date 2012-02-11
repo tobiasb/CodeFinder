@@ -15,7 +15,7 @@ public class ParameterTypesIndexer extends AbstractIndexer implements IMethodInd
     public void indexMethod(final Document document, final MethodDeclaration method) {
 
         final IMethodBinding b = method.resolveBinding();
-        final IMethodName methodName = BindingUtils.toMethodName(b);
+        final IMethodName methodName = BindingUtils.toMethodName(b).orNull();
 
         if (methodName != null) {
             for (final ITypeName typeName : methodName.getParameterTypes()) {

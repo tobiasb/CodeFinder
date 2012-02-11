@@ -13,6 +13,8 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 
+import com.google.common.base.Optional;
+
 public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer {
 
@@ -34,7 +36,10 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClass
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final FieldDeclaration node) {
-                addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, BindingHelper.getIdentifier(node));
+                final Optional<String> opt = BindingHelper.getIdentifier(node);
+                if (opt.isPresent()) {
+                    addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, opt.get());
+                }
                 return false;
             }
         };
@@ -56,6 +61,9 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClass
     }
 
     private void addDeclaredFieldType(final Document document, final VariableDeclarationStatement variableDeclaration) {
-        addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, BindingHelper.getIdentifier(variableDeclaration));
+        final Optional<String> opt = BindingHelper.getIdentifier(variableDeclaration);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, opt.get());
+        }
     }
 }

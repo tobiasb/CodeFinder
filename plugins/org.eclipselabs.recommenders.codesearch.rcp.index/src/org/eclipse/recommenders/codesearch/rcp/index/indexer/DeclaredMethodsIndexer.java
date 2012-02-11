@@ -7,6 +7,8 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 
+import com.google.common.base.Optional;
+
 public class DeclaredMethodsIndexer extends AbstractIndexer implements IClassIndexer {
 
     @Override
@@ -14,8 +16,10 @@ public class DeclaredMethodsIndexer extends AbstractIndexer implements IClassInd
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final MethodDeclaration node) {
-                addAnalyzedField(document, Fields.DECLARED_METHODS, BindingHelper.getIdentifier(node));
-
+                final Optional<String> opt = BindingHelper.getIdentifier(node);
+                if (opt.isPresent()) {
+                    addAnalyzedField(document, Fields.DECLARED_METHODS, opt.get());
+                }
                 return false;
             }
         };

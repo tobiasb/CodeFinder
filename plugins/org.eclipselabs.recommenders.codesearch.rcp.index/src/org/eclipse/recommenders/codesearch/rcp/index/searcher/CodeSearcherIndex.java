@@ -23,6 +23,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorConsu
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
+// TODO: Tobias, what is the meaning of a code searcher index? Is it actually an index?
 public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
     private final QueryParser parser;
     private IndexReader reader;
@@ -49,7 +50,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
                 reader.close();
                 reader = newReader;
             }
-        } catch (Exception ex) {
+        } catch (final Exception ex) {
             // XXX: Activator.logError(ex);
         }
     }
@@ -111,11 +112,11 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 
         final Set<String> result = Sets.newHashSet();
 
-        for (String field : fieldNames) {
+        for (final String field : fieldNames) {
             try {
-                String[] values = FieldCache.DEFAULT.getStrings(reader, field);
+                final String[] values = FieldCache.DEFAULT.getStrings(reader, field);
                 result.addAll(Lists.newArrayList(values));
-            } catch (IOException e) {
+            } catch (final IOException e) {
                 // XXX: Activator.logError(e);
             }
         }

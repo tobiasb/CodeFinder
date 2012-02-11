@@ -15,6 +15,8 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.MethodCallV
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
+import com.google.common.base.Optional;
+
 public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer {
 
     @Override
@@ -22,7 +24,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
         final ASTVisitor visitor = new MethodCallVisitor() {
             @Override
             protected void handleMethodCall(final IMethodBinding methodBinding) {
-                final IMethodName methodName = BindingUtils.toMethodName(methodBinding);
+                final IMethodName methodName = BindingUtils.toMethodName(methodBinding).orNull();
                 if (methodName != null) {
                     addAnalyzedField(document, Fields.USED_METHODS, methodName.getIdentifier());
                 }
@@ -37,7 +39,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
         final ASTVisitor visitor = new MethodCallVisitor() {
             @Override
             protected void handleMethodCall(final IMethodBinding methodBinding) {
-                final IMethodName methodName = BindingUtils.toMethodName(methodBinding);
+                final IMethodName methodName = BindingUtils.toMethodName(methodBinding).orNull();
                 if (methodName != null) {
                     addAnalyzedField(document, Fields.USED_METHODS, methodName.getIdentifier());
                 }
@@ -53,9 +55,9 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
         final ASTVisitor visitor = new MethodCallVisitor() {
             @Override
             protected void handleMethodCall(final IMethodBinding methodBinding) {
-                final IMethodName methodName = BindingUtils.toMethodName(methodBinding);
-                if (methodName != null) {
-                    addAnalyzedField(document, Fields.USED_METHODS, methodName.getIdentifier());
+                final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
+                if (opt.isPresent()) {
+                    addAnalyzedField(document, Fields.USED_METHODS, opt.get());
                 }
             };
         };

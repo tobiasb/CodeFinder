@@ -13,8 +13,8 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.TypeUseVisitor;
-import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
+
+import com.google.common.base.Optional;
 
 public class UsedTypesIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer,
         ITryCatchBlockIndexer {
@@ -63,7 +63,9 @@ public class UsedTypesIndexer extends AbstractIndexer implements IMethodIndexer,
     }
 
     private void addUsedType(final Document document, final ITypeBinding typeBinding) {
-        final ITypeName typeName = BindingUtils.toTypeName(typeBinding);
-        addAnalyzedField(document, Fields.USED_TYPES, BindingHelper.getIdentifier(typeName));
+        final Optional<String> opt = BindingHelper.getIdentifier(typeBinding);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.USED_TYPES, opt.get());
+        }
     }
 }

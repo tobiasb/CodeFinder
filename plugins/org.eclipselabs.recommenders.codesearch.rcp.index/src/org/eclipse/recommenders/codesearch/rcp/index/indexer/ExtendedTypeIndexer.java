@@ -22,7 +22,7 @@ public class ExtendedTypeIndexer extends AbstractIndexer implements IClassIndexe
             final String fieldName) {
         final ITypeBinding superclass = typeBinding.getSuperclass();
 
-        final ITypeName superclassName = BindingUtils.toTypeName(superclass);
+        final ITypeName superclassName = BindingUtils.toTypeName(superclass).orNull();
 
         if (!isPrimitiveOrArrayOrNullOrObjectOrString(superclassName)) {
             addAnalyzedField(document, fieldName, superclassName.getIdentifier());

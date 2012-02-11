@@ -8,8 +8,8 @@ import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.MethodCallVisitor;
-import org.eclipse.recommenders.utils.names.IMethodName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
+
+import com.google.common.base.Optional;
 
 public class UsedMethodsInFinallyIndexer extends AbstractIndexer implements ITryCatchBlockIndexer {
 
@@ -19,9 +19,9 @@ public class UsedMethodsInFinallyIndexer extends AbstractIndexer implements ITry
         final ASTVisitor visitor = new MethodCallVisitor() {
             @Override
             protected void handleMethodCall(final IMethodBinding methodBinding) {
-                final IMethodName methodName = BindingUtils.toMethodName(methodBinding);
-                if (methodName != null) {
-                    addAnalyzedField(document, Fields.USED_METHODS_IN_FINALLY, methodName.getIdentifier());
+                final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
+                if (opt.isPresent()) {
+                    addAnalyzedField(document, Fields.USED_METHODS_IN_FINALLY, opt.get());
                 }
             };
         };

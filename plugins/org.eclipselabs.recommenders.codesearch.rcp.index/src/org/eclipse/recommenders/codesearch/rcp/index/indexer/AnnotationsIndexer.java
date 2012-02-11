@@ -10,8 +10,8 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
-import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
+
+import com.google.common.base.Optional;
 
 public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer {
 
@@ -28,8 +28,8 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
     // TODO extend for field
 
     @Override
-    public void indexMethod(Document document, MethodDeclaration method) {
-        IMethodBinding methodBinding = method.resolveBinding();
+    public void indexMethod(final Document document, final MethodDeclaration method) {
+        final IMethodBinding methodBinding = method.resolveBinding();
         if (methodBinding == null) {
             return;
         }
@@ -40,11 +40,12 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
     private void addAnnotations(final Document document, final IAnnotationBinding[] annotations) {
         for (final IAnnotationBinding annotation : annotations) {
 
-            final ITypeName annotationTypeName = BindingUtils.toTypeName(annotation.getAnnotationType());
-            final String annotationIdentifier = annotationTypeName.getIdentifier();
-
+            final Optional<String> opt = BindingHelper.getIdentifier(annotation.getAnnotationType());
+            if (!opt.isPresent()) {
+                continue;
+            }
             // Annotation type i.e @Deprecated
-            addAnalyzedField(document, Fields.ANNOTATIONS, annotationIdentifier);
+            addAnalyzedField(document, Fields.ANNOTATIONS, opt.get());
 
             for (final IMemberValuePairBinding valuePairBinding : annotation.getAllMemberValuePairs()) {
 
@@ -52,7 +53,7 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
                     for (final Object valuePairValue : (Object[]) valuePairBinding.getValue()) {
                         // Combination of annotation and value i.e
                         // @SuppressWarnings({"unchecked", "rawtypes"})
-                        final String value = annotationIdentifier + ":" + valuePairValue;
+                        final String value = opt.get() + ":" + valuePairValue;
                         addAnalyzedField(document, Fields.ANNOTATIONS, value);
                     }
                 }

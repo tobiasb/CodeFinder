@@ -6,11 +6,15 @@ import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
+import com.google.common.base.Optional;
+
 public class DeclaringMethodIndexer extends AbstractIndexer implements IVarUsageIndexer {
 
     @Override
-    public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
-        addAnalyzedField(document, Fields.DECLARING_METHOD, BindingHelper.getIdentifier(method));
+    public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
+        final Optional<String> opt = BindingHelper.getIdentifier(method);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.DECLARING_METHOD, opt.get());
+        }
     }
-
 }

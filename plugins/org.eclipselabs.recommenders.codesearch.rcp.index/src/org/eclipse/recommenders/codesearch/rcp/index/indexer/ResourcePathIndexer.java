@@ -82,4 +82,5 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     public static String getResourcePath(final File file) {
         return getResourcePath(Path.fromOSString(file.getAbsolutePath()));
     }
+
 }

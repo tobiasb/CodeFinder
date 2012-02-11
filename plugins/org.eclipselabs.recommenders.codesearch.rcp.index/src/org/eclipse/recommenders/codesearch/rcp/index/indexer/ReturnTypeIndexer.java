@@ -14,7 +14,7 @@ public class ReturnTypeIndexer extends AbstractIndexer implements IMethodIndexer
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
         final IMethodBinding b = method.resolveBinding();
-        final IMethodName methodName = BindingUtils.toMethodName(b);
+        final IMethodName methodName = BindingUtils.toMethodName(b).orNull();
 
         if (methodName != null) {
             final ITypeName returnType = methodName.getReturnType();

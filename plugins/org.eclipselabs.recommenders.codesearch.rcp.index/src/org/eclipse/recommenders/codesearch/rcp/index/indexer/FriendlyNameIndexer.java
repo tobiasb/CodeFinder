@@ -14,16 +14,17 @@ import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
+import com.google.common.base.Optional;
+
 public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
 
         final IMethodBinding b = method.resolveBinding();
-        final IMethodName methodName = BindingUtils.toMethodName(b);
-
-        if (methodName != null) {
-            addAnalyzedField(document, Fields.FRIENDLY_NAME, methodName.getName());
+        final Optional<IMethodName> opt = BindingUtils.toMethodName(b);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.FRIENDLY_NAME, opt.get().getName());
         } else {
             addAnalyzedField(document, Fields.FRIENDLY_NAME, "");
         }
@@ -32,9 +33,10 @@ public class FriendlyNameIndexer extends AbstractIndexer implements IMethodIndex
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
         final ITypeBinding b = type.resolveBinding();
-        final ITypeName typeName = BindingUtils.toTypeName(b);
-
-        addAnalyzedField(document, Fields.FRIENDLY_NAME, typeName.getClassName());
+        final Optional<ITypeName> opt = BindingUtils.toTypeName(b);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.FRIENDLY_NAME, opt.get().getClassName());
+        }
     }
 
     @Override

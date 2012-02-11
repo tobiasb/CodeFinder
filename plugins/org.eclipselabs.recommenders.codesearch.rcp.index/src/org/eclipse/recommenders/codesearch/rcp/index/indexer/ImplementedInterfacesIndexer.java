@@ -17,7 +17,7 @@ public class ImplementedInterfacesIndexer extends AbstractIndexer implements ICl
             return;
         }
         for (final ITypeBinding interface_ : clazz.getInterfaces()) {
-            final ITypeName interfaceName = BindingUtils.toTypeName(interface_);
+            final ITypeName interfaceName = BindingUtils.toTypeName(interface_).orNull();
             if (!isPrimitiveOrArrayOrNullOrObjectOrString(interfaceName)) {
                 addAnalyzedField(document, Fields.IMPLEMENTED_TYPES, interfaceName.getIdentifier());
             }

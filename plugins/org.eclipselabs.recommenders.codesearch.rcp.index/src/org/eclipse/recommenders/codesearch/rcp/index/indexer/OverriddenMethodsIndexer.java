@@ -8,8 +8,8 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.internal.corext.dom.Bindings;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
-import org.eclipse.recommenders.utils.names.IMethodName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
+
+import com.google.common.base.Optional;
 
 @SuppressWarnings("restriction")
 public class OverriddenMethodsIndexer extends AbstractIndexer implements IClassIndexer {
@@ -33,13 +33,10 @@ public class OverriddenMethodsIndexer extends AbstractIndexer implements IClassI
         if (b == null) {
             return;
         }
-
         final IMethodBinding overriddenBinding = Bindings.findOverriddenMethod(b, true);
-
-        final IMethodName overriddenMethodName = BindingUtils.toMethodName(overriddenBinding);
-
-        if (overriddenMethodName != null) {
-            addAnalyzedField(document, Fields.OVERRIDDEN_METHODS, overriddenMethodName.getIdentifier());
+        final Optional<String> opt = BindingHelper.getIdentifier(overriddenBinding);
+        if (opt.isPresent()) {
+            addAnalyzedField(document, Fields.OVERRIDDEN_METHODS, opt.get());
         }
     }
 }

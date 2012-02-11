@@ -22,8 +22,7 @@ public class AllImplementedInterfacesIndexer extends ImplementedInterfacesIndexe
             ITypeBinding superclass = interface_;
 
             for (; superclass != null;) {
-                final ITypeName interfaceName = BindingUtils.toTypeName(superclass);
-
+                final ITypeName interfaceName = BindingUtils.toTypeName(superclass).orNull();
                 if (!isPrimitiveOrArrayOrNullOrObjectOrString(interfaceName)) {
                     addAnalyzedField(document, Fields.ALL_IMPLEMENTED_TYPES, interfaceName.getIdentifier());
                 }

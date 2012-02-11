@@ -4,7 +4,6 @@ import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
-import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.TryStatement;
@@ -15,8 +14,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
-import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
 import com.google.common.base.Optional;
 
@@ -39,7 +36,7 @@ public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndex
     }
 
     @Override
-    public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
+    public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
         addFieldForParentTypes(document, method);
     }
 
@@ -51,14 +48,9 @@ public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndex
     }
 
     private void addFieldForParentTypes(final Document document, final ASTNode n) {
-
-        final Optional<TypeDeclaration> opt = getDeclaringType(n.getParent());
-
+        final Optional<String> opt = BindingHelper.getIdentifier(getDeclaringType(n.getParent()));
         if (opt.isPresent()) {
-            final ITypeBinding b = (opt.get()).resolveBinding();
-            final ITypeName typeName = BindingUtils.toTypeName(b);
-
-            addAnalyzedField(document, Fields.DECLARING_TYPE, typeName.getIdentifier());
+            addAnalyzedField(document, Fields.DECLARING_TYPE, opt.get());
         }
 
     }

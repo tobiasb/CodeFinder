@@ -4,12 +4,9 @@ import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.Assignment;
-import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.QualifiedName;
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
-import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
 import com.google.common.base.Optional;
 
@@ -35,10 +32,8 @@ public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
                     if (!opt.isPresent()) {
                         return false;
                     }
-                    final ITypeBinding typeBinding = opt.get().resolveBinding();
-                    final ITypeName declaringType = BindingUtils.toTypeName(typeBinding);
-
-                    final String result = String.format("%1$s.%2$s", declaringType.getIdentifier(), simpleName);
+                    final Optional<String> optId = BindingHelper.getIdentifier(opt.get());
+                    final String result = String.format("%1$s.%2$s", optId.get(), simpleName);
 
                     addAnalyzedField(document, fieldName, result);
                 }
