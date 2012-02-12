@@ -1,15 +1,12 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views.actions;
 
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.jobs.IJobChangeEvent;
-import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.recommenders.internal.codesearch.rcp.Activator;
-import org.eclipse.recommenders.internal.codesearch.rcp.indexing.IndexUpdaterJob;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;
@@ -34,22 +31,8 @@ public class IndexAction implements IViewActionDelegate {
         try {
             final CodeIndexerIndex index = InjectionService.getInstance().requestInstance(CodeIndexerIndex.class);
 
-            final IndexUpdaterJob job = new IndexUpdaterJob(index, ResourcesPlugin.getWorkspace().getRoot());
-            job.addJobChangeListener(new JobChangeAdapter() {
-
-                @Override
-                public void done(final IJobChangeEvent event) {
-                    if (event.getResult().isOK()) {
-
-                        index.printStats();
-                    } else {
-                        Activator.logWarning(event.getResult().getMessage());
-                    }
-                }
-
-            });
-            job.setPriority(Job.DECORATE);
-            job.schedule();
+            MessageDialog.openError(new Shell(), "Action not available anymore.",
+                    "this action moved to index plugin :)");
         } catch (final Exception ex) {
             Activator.logError(ex, "Error");
         }
@@ -77,7 +60,7 @@ public class IndexAction implements IViewActionDelegate {
     }
 
     @Override
-    public void init(IViewPart view) {
+    public void init(final IViewPart view) {
         // TODO Auto-generated method stub
 
     }
