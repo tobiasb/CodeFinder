@@ -1,5 +1,7 @@
 package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
+import static com.google.common.base.Optional.absent;
+import static com.google.common.base.Optional.of;
 import static java.lang.String.format;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper.getIdentifier;
 import static org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider.Status.NOT_AVAILABLE;
@@ -24,6 +26,7 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CastExpression;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
+import org.eclipse.jdt.core.dom.ConstructorInvocation;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -48,6 +51,7 @@ import org.eclipse.recommenders.extdoc.rcp.providers.JavaSelectionSubscriber;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.rcp.events.JavaSelectionEvent;
 import org.eclipse.recommenders.utils.Names;
+import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.recommenders.utils.rcp.JdtUtils;
@@ -164,6 +168,9 @@ public class LocalExamplesProvider extends ExtdocProvider {
     }
 
     private BooleanQuery createQuery() {
+
+        // TODO: cleanup needed
+
         final BooleanQuery query = new BooleanQuery();
         final Term typeTerm = new Term(Fields.VARIABLE_TYPE, varType);
         final TermQuery typeQuery = new TermQuery(typeTerm);
@@ -214,38 +221,49 @@ public class LocalExamplesProvider extends ExtdocProvider {
                 final VariableDeclarationFragment declParent = (VariableDeclarationFragment) use.getParent();
 
                 final Expression initializer = declParent.getInitializer();
+                Optional<Tuple<IMethod, String>> def = absent();
                 if (initializer == null) {
                     term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_UNINITIALIZED);
                     break;
                 } else {
+
                     switch (initializer.getNodeType()) {
                     case ASTNode.NULL_LITERAL:
                         term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_NULLLITERAL);
                         break;
                     case ASTNode.SUPER_METHOD_INVOCATION:
+                        term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
+                        def = findMethod((SuperMethodInvocation) initializer);
+                        break;
                     case ASTNode.METHOD_INVOCATION:
                         term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
+                        def = findMethod((MethodInvocation) initializer);
                         break;
-                    case ASTNode.CLASS_INSTANCE_CREATION:
+                    case ASTNode.CLASS_INSTANCE_CREATION: {
                         term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_INSTANCE_CREATION);
+                        def = findMethod((ClassInstanceCreation) initializer);
                         break;
+                    }
+
                     case ASTNode.CAST_EXPRESSION:
                         // look more deeply into this here:
                         final Expression expression = ((CastExpression) initializer).getExpression();
-                        IMethodBinding definingMethodBining = null;
+
                         switch (expression.getNodeType()) {
                         case ASTNode.METHOD_INVOCATION:
-                            definingMethodBining = ((MethodInvocation) expression).resolveMethodBinding();
+                            def = findMethod((MethodInvocation) expression);
                             break;
                         case ASTNode.SUPER_METHOD_INVOCATION:
-                            definingMethodBining = ((SuperMethodInvocation) expression).resolveMethodBinding();
+                            def = findMethod((SuperMethodInvocation) expression);
                             break;
                         }
-                        final Optional<String> optDef = getIdentifier(definingMethodBining);
-                        if (optDef.isPresent()) {
-                            searchterms.add(definingMethodBining.getName().toString());
-                            query.add(new TermQuery(new Term(Fields.VARIABLE_DEFINITION, optDef.get())), Occur.SHOULD);
-                        }
+                    }
+                    if (def.isPresent()) {
+                        searchterms.add(def.get().getFirst().getElementName());
+                        final TermQuery subquery = new TermQuery(new Term(Fields.VARIABLE_DEFINITION, def.get()
+                                .getSecond()));
+                        subquery.setBoost(2);
+                        query.add(subquery, Occur.SHOULD);
                     }
                 }
                 break;
@@ -255,8 +273,37 @@ public class LocalExamplesProvider extends ExtdocProvider {
             if (term != null) {
                 query.add(new TermQuery(term), Occur.SHOULD);
             }
+
         }
         return query;
+    }
+
+    private static Optional<Tuple<IMethod, String>> findMethod(final MethodInvocation s) {
+        return findMethod(s.resolveMethodBinding());
+    }
+
+    private static Optional<Tuple<IMethod, String>> findMethod(final SuperMethodInvocation s) {
+        return findMethod(s.resolveMethodBinding());
+    }
+
+    private static Optional<Tuple<IMethod, String>> findMethod(final ConstructorInvocation s) {
+        return findMethod(s.resolveConstructorBinding());
+    }
+
+    private static Optional<Tuple<IMethod, String>> findMethod(final ClassInstanceCreation s) {
+        return findMethod(s.resolveConstructorBinding());
+    }
+
+    private static Optional<Tuple<IMethod, String>> findMethod(final IMethodBinding b) {
+        if (b == null) {
+            return absent();
+        }
+        final IMethod method = (IMethod) b.getJavaElement();
+        final Optional<String> opt = getIdentifier(b);
+        if (method == null || !opt.isPresent()) {
+            return absent();
+        }
+        return of(Tuple.newTuple(method, opt.get()));
     }
 
     private boolean isUsedInArguments(final SimpleName uses, final List arguments) {
