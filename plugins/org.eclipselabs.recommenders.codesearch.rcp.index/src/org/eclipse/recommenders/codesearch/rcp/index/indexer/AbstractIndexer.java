@@ -6,9 +6,8 @@ import static com.google.common.base.Optional.of;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.ITypeRoot;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -46,23 +45,15 @@ public abstract class AbstractIndexer {
         while (node != null && !(node instanceof CompilationUnit)) {
             node = node.getParent();
         }
-
         return ((CompilationUnit) node).getTypeRoot().getJavaProject().getProject();
     }
 
-    protected Optional<IResource> getResource(ASTNode node) {
-        while (node != null && !(node instanceof CompilationUnit)) {
-            node = node.getParent();
-        }
-
-        try {
-            final CompilationUnit cu = (CompilationUnit) node;
-            final ITypeRoot root = cu.getTypeRoot();
-            final IResource resource = root.getCorrespondingResource();
-            return fromNullable(resource);
-        } catch (final JavaModelException e) {
-            return absent();
-        }
+    protected Optional<IPath> getResource(final ASTNode node) {
+        final ASTNode rootNode = node.getRoot();
+        final CompilationUnit cu = (CompilationUnit) rootNode;
+        final ITypeRoot root = cu.getTypeRoot();
+        final IPath path = root.getPath();
+        return fromNullable(path);
     }
 
     protected Optional<TypeDeclaration> getDeclaringType(ASTNode node) {

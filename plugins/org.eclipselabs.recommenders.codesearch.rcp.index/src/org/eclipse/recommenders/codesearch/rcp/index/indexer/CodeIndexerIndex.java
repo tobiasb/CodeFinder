@@ -27,10 +27,10 @@ import com.google.common.collect.Lists;
 
 public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
 
-    private IndexWriter m_writer;
-    private CodeSearcherIndex searcherIndex;
+    private final IndexWriter m_writer;
+    private final CodeSearcherIndex searcherIndex;
     private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList();
-    private IIndexInformationProvider indexInformationProvider;
+    private final IIndexInformationProvider indexInformationProvider;
 
     public CodeIndexerIndex(final Directory directory) throws IOException {
         super(directory);
@@ -130,7 +130,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     }
 
     public void delete(final Term term) throws IOException {
-
+        if (term == null || term.text() == null) {
+            return;
+        }
         final int numDocsBefore = m_writer.numDocs();
         m_writer.deleteDocuments(term);
         commit(); // for correct num count

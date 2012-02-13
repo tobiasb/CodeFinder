@@ -49,21 +49,21 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     }
 
     @Override
-    public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
+    public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
         addField(document, method);
     }
 
     private void addField(final Document document, final ASTNode node) {
-        final Optional<IResource> opt = getResource(node);
+        final Optional<IPath> opt = getResource(node);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.RESOURCE_PATH, getResourcePath(opt.get()));
+            addAnalyzedField(document, Fields.RESOURCE_PATH, opt.get().toPortableString());
         }
     }
 
     public String getResourcePath(final CompilationUnit cu) {
-        final Optional<IResource> opt = getResource(cu);
+        final Optional<IPath> opt = getResource(cu);
         if (opt.isPresent()) {
-            return getResourcePath(opt.get());
+            return opt.get().toPortableString();
         } else {
             // TODO MB: Tobias, the null case needs handling. Throw Exception?
             // Return Optional?
@@ -72,7 +72,7 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     }
 
     public String getResourcePath(final IResource resource) {
-        return getResourcePath(resource.getLocation());
+        return getResourcePath(resource.getFullPath());
     }
 
     public static String getResourcePath(final IPath path) {
