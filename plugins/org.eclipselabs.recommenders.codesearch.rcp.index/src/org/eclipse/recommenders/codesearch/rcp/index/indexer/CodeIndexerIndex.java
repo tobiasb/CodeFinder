@@ -1,6 +1,5 @@
 package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -51,7 +50,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     }
 
     @Override
-    public long lastIndexed(final File location) {
+    public long lastIndexed(final String location) {
         Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
 
         if (lastIndexed.isPresent()) {
@@ -69,11 +68,10 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         return 0;
     }
 
-    private Optional<Long> lastIndexedInternal(final File location) {
-        final String path = ResourcePathIndexer.getResourcePath(location);
+    private Optional<Long> lastIndexedInternal(final String location) {
 
         try {
-            final Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, path));
+            final Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, location));
             final List<Document> docs = searcherIndex.search(q);
 
             if (docs.size() > 0) {

@@ -1,11 +1,6 @@
 package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
-import java.io.File;
-
 import org.apache.lucene.document.Document;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -20,8 +15,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
-
-import com.google.common.base.Optional;
 
 public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer, IFieldIndexer, IVarUsageIndexer {
@@ -54,33 +47,24 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     }
 
     private void addField(final Document document, final ASTNode node) {
-        final Optional<IPath> opt = getResource(node);
-        if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.RESOURCE_PATH, opt.get().toPortableString());
-        }
+        final String opt = getLocation(node);
+        addAnalyzedField(document, Fields.RESOURCE_PATH, opt);
     }
 
     public String getResourcePath(final CompilationUnit cu) {
-        final Optional<IPath> opt = getResource(cu);
-        if (opt.isPresent()) {
-            return opt.get().toPortableString();
-        } else {
-            // TODO MB: Tobias, the null case needs handling. Throw Exception?
-            // Return Optional?
-            return null;
-        }
+        return getLocation(cu);
     }
 
-    public String getResourcePath(final IResource resource) {
-        return getResourcePath(resource.getFullPath());
-    }
-
-    public static String getResourcePath(final IPath path) {
-        return path.toPortableString();
-    }
-
-    public static String getResourcePath(final File file) {
-        return getResourcePath(Path.fromOSString(file.getAbsolutePath()));
-    }
+    // public String getResourcePath(final IResource resource) {
+    // return getResourcePath(resource.getFullPath());
+    // }
+    //
+    // public static String getResourcePath(final IPath path) {
+    // return path.toPortableString();
+    // }
+    //
+    // public static String getResourcePath(final File file) {
+    // return getResourcePath(Path.fromOSString(file.getAbsolutePath()));
+    // }
 
 }

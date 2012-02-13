@@ -14,7 +14,8 @@ import static org.eclipse.recommenders.utils.Checks.cast;
 
 import java.io.File;
 
-import org.eclipse.core.runtime.IPath;
+import org.apache.commons.lang3.StringUtils;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -57,12 +58,12 @@ public class IndexUtils {
                         if (monitor.isCanceled()) {
                             return Status.CANCEL_STATUS;
                         }
-                        monitor.subTask(cu.getPath().toString());
+                        monitor.subTask(computeLocation(cu));
                         addOrUpdateCompilationUnitToIndex(cu, indexer);
                     }
 
                     for (final IClassFile clazz : fragment.getClassFiles()) {
-                        monitor.subTask(clazz.getPath().toString());
+                        monitor.subTask(computeLocation(clazz));
                         addOrUpdateCompilationUnitToIndex(clazz, indexer);
                     }
                 }
@@ -95,20 +96,21 @@ public class IndexUtils {
     }
 
     public static boolean shouldIndex(final ITypeRoot cu, final CodeIndexerIndex indexer) throws JavaModelException {
-        final IPath path = cu.getPath();
-        return shouldIndex(path, indexer);
-    }
-
-    public static boolean shouldIndex(final IPath path, final CodeIndexerIndex indexer) throws JavaModelException {
-        if (path == null) {
-            return false;
-        }
-        final File location = path.toFile();
-        if (!location.exists()) {
-            return false;
-        }
-        final long lastModified = location.lastModified();
+        final String location = computeLocation(cu);
+        final File file = new File(StringUtils.substringBefore(location, "!"));
+        final long lastModified = file.lastModified();
         final long lastIndexed = indexer.lastIndexed(location);
         return lastIndexed < lastModified;
+    }
+
+    public static String computeLocation(final ITypeRoot root) {
+        final IResource resource = root.getResource();
+        if (resource == null) {
+            final String l = root instanceof IClassFile ? ((IClassFile) root).getType().getFullyQualifiedName()
+                    : "<unknown>";
+            return root.getPath().toPortableString() + "!" + l;
+        } else {
+            return resource.getFullPath().toPortableString();
+        }
     }
 }

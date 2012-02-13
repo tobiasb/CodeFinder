@@ -1,17 +1,16 @@
 package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
 import static com.google.common.base.Optional.absent;
-import static com.google.common.base.Optional.fromNullable;
 import static com.google.common.base.Optional.of;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
+import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUtils;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.names.VmTypeName;
 
@@ -48,12 +47,11 @@ public abstract class AbstractIndexer {
         return ((CompilationUnit) node).getTypeRoot().getJavaProject().getProject();
     }
 
-    protected Optional<IPath> getResource(final ASTNode node) {
+    protected String getLocation(final ASTNode node) {
         final ASTNode rootNode = node.getRoot();
         final CompilationUnit cu = (CompilationUnit) rootNode;
         final ITypeRoot root = cu.getTypeRoot();
-        final IPath path = root.getPath();
-        return fromNullable(path);
+        return IndexUtils.computeLocation(root);
     }
 
     protected Optional<TypeDeclaration> getDeclaringType(ASTNode node) {
