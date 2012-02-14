@@ -19,7 +19,7 @@ public class IndexCompilationUnitMultipleTimesTest extends AbstractTestIndex {
         final CodeIndexerIndex index = getIndexer();
 
         index.index(cu, new ResourcePathIndexer());
-
+        index.commit();
         Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
     }
 
@@ -33,6 +33,7 @@ public class IndexCompilationUnitMultipleTimesTest extends AbstractTestIndex {
 
         index.index(cu, new ResourcePathIndexer());
         index.index(cu, new ResourcePathIndexer());
+        index.commit();
 
         Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
     }
@@ -51,7 +52,7 @@ public class IndexCompilationUnitMultipleTimesTest extends AbstractTestIndex {
         index.index(cu, new ResourcePathIndexer());
         index.index(cu, new ResourcePathIndexer());
         index.index(cu, new ResourcePathIndexer());
-
+        index.commit();
         Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
     }
 }
