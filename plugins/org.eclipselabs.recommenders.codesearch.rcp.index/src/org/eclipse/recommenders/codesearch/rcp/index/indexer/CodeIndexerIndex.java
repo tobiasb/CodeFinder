@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
-import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
@@ -20,6 +19,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IIndexInforma
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IndexInformationCache;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.rcp.RecommendersPlugin;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -40,8 +40,6 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         m_writer.commit();
         searcherIndex = new CodeSearcherIndex(getIndex());
         indexInformationProvider = new IndexInformationCache();
-
-        commit();
     }
 
     @Override
@@ -124,7 +122,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
         cu.accept(visitor);
 
-        commit();
+        // commit();
     }
 
     public void delete(final Term term) throws IOException {
@@ -133,9 +131,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         }
         final int numDocsBefore = m_writer.numDocs();
         m_writer.deleteDocuments(term);
-        commit(); // for correct num count
+        // commit(); // for correct num count
 
-        final int numDeleted = numDocsBefore - m_writer.numDocs();
+        // final int numDeleted = numDocsBefore - m_writer.numDocs();
         // XXX: Activator.logInfo("Deleting: " + numDeleted + "x " +
         // term.field() + "=" + term.text() + ".");
     }
@@ -168,10 +166,10 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public void commit() {
         try {
             m_writer.commit();
-        } catch (final CorruptIndexException e) {
-            // XXX: Activator.logError(e);
-        } catch (final IOException e) {
-            // XXX: Activator.logError(e);
+        } catch (final Exception e) {
+            RecommendersPlugin.logError(e, "failed to commit latest changes to code-search index.");
+            // } catch (final IOException e) {
+            // // XXX: Activator.logError(e);
         }
     }
 

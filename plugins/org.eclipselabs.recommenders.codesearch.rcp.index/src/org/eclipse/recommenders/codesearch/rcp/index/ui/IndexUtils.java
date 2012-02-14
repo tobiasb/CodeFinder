@@ -45,13 +45,14 @@ public class IndexUtils {
             final IPackageFragmentRoot[] roots = project.getPackageFragmentRoots();
             monitor.beginTask("", roots.length);
             for (final IPackageFragmentRoot root : roots) {
+                if (root.isArchive() && root.getResolvedClasspathEntry().getSourceAttachmentPath() == null) {
+                    // if (K_BINARY == root.getKind()) {
+                    continue;
+                }
                 if (monitor.isCanceled()) {
                     return Status.CANCEL_STATUS;
                 }
 
-                if (root.isArchive() && root.getResolvedClasspathEntry().getSourceAttachmentPath() == null) {
-                    continue;
-                }
                 for (final IJavaElement child : root.getChildren()) {
                     final IPackageFragment fragment = cast(child);
                     for (final ICompilationUnit cu : fragment.getCompilationUnits()) {
@@ -63,16 +64,25 @@ public class IndexUtils {
                     }
 
                     for (final IClassFile clazz : fragment.getClassFiles()) {
+                        if (clazz.getElementName().contains("$")) {
+                            continue;
+                        }
+                        if (monitor.isCanceled()) {
+                            return Status.CANCEL_STATUS;
+                        }
                         monitor.subTask(computeLocation(clazz));
                         addOrUpdateCompilationUnitToIndex(clazz, indexer);
                     }
+                    indexer.commit();
                 }
                 monitor.worked(1);
             }
         } catch (final JavaModelException e) {
             RecommendersPlugin.logError(e, "Error during code search indexing");
         } finally {
+            indexer.commit();
             monitor.done();
+
         }
         return Status.OK_STATUS;
     }
