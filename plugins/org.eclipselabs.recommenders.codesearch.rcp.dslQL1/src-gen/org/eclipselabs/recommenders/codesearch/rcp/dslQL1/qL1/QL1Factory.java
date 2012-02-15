@@ -27,121 +27,31 @@ public interface QL1Factory extends EFactory
   QL1Factory eINSTANCE = org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1FactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>First</em>'.
+   * Returns a new object of class '<em>Method Pattern</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>First</em>'.
+   * @return a new object of class '<em>Method Pattern</em>'.
    * @generated
    */
-  First createFirst();
+  MethodPattern createMethodPattern();
 
   /**
-   * Returns a new object of class '<em>Contains</em>'.
+   * Returns a new object of class '<em>Modifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Contains</em>'.
+   * @return a new object of class '<em>Modifier</em>'.
    * @generated
    */
-  Contains createContains();
+  Modifier createModifier();
 
   /**
-   * Returns a new object of class '<em>Expression</em>'.
+   * Returns a new object of class '<em>Throws</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
+   * @return a new object of class '<em>Throws</em>'.
    * @generated
    */
-  Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Field Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Field Expr</em>'.
-   * @generated
-   */
-  FieldExpr createFieldExpr();
-
-  /**
-   * Returns a new object of class '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
-   * @generated
-   */
-  Type createType();
-
-  /**
-   * Returns a new object of class '<em>Single Value Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Single Value Field</em>'.
-   * @generated
-   */
-  SingleValueField createSingleValueField();
-
-  /**
-   * Returns a new object of class '<em>Multi Value Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multi Value Field</em>'.
-   * @generated
-   */
-  MultiValueField createMultiValueField();
-
-  /**
-   * Returns a new object of class '<em>Boolean Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Boolean Field</em>'.
-   * @generated
-   */
-  BooleanField createBooleanField();
-
-  /**
-   * Returns a new object of class '<em>Single Value Field Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Single Value Field Name</em>'.
-   * @generated
-   */
-  SingleValueFieldName createSingleValueFieldName();
-
-  /**
-   * Returns a new object of class '<em>Multi Value Field Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multi Value Field Name</em>'.
-   * @generated
-   */
-  MultiValueFieldName createMultiValueFieldName();
-
-  /**
-   * Returns a new object of class '<em>Negation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Negation</em>'.
-   * @generated
-   */
-  Negation createNegation();
-
-  /**
-   * Returns a new object of class '<em>Or Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Or Expr</em>'.
-   * @generated
-   */
-  OrExpr createOrExpr();
-
-  /**
-   * Returns a new object of class '<em>Multiplication</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multiplication</em>'.
-   * @generated
-   */
-  Multiplication createMultiplication();
+  Throws createThrows();
 
   /**
    * Returns the package supported by this factory.

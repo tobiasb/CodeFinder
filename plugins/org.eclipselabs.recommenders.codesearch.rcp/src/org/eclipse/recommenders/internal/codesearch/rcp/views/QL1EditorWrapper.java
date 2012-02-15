@@ -5,27 +5,17 @@ import java.util.Set;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ModifierField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor.QL1Query;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Type;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
 
 import com.google.inject.Injector;
@@ -75,35 +65,37 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
     }
 
     @Override
-    List<Document> search() throws Exception {
+    public List<Document> search() throws Exception {
 
-        QL1Query q = handle.getDocument().readOnly(new QL1QueryExtractor());
-
-        EObject e = translate(q.type, q.exp);
-
-        LuceneQueryExtractor extr = new LuceneQueryExtractor();
-        extr.process(e.eAllContents());
-
-        ISerializer s = luceneInjector.getInstance(ISerializer.class);
-        String searchQuery = s.serialize(e);
-
-        return codeSearcher.search(searchQuery);
+        // QL1Query q = handle.getDocument().readOnly(new QL1QueryExtractor());
+        //
+        // EObject e = translate(q.type, q.exp);
+        //
+        // LuceneQueryExtractor extr = new LuceneQueryExtractor();
+        // extr.process(e.eAllContents());
+        //
+        // ISerializer s = luceneInjector.getInstance(ISerializer.class);
+        // String searchQuery = s.serialize(e);
+        //
+        // return codeSearcher.search(searchQuery);
+        return null;
     }
 
-    private EObject translate(Type type, Expression exp) {
-
-        org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression e = luceneQueryFactory
-                .createExpression();
-        ClauseExpression c = luceneQueryFactory.createClauseExpression();
-        ModifierField t = luceneQueryFactory.createModifierField();
-        t.setValue(Fields.TYPE);
-        c.setField(t);
-        c.getValues().add(Fields.MODIFIER_FINAL);
-
-        e.setValue(c);
-
-        return e;
-    }
+    // private EObject translate(Type type, Expression exp) {
+    //
+    // org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression e
+    // = luceneQueryFactory
+    // .createExpression();
+    // ClauseExpression c = luceneQueryFactory.createClauseExpression();
+    // ModifierField t = luceneQueryFactory.createModifierField();
+    // t.setValue(Fields.TYPE);
+    // c.setField(t);
+    // c.getValues().add(Fields.MODIFIER_FINAL);
+    //
+    // e.setValue(c);
+    //
+    // return e;
+    // }
 
     @Override
     String[] getExampleQueriesInternal() {

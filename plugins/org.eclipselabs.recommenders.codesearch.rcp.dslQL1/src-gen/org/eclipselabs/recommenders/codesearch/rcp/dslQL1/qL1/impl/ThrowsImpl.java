@@ -13,50 +13,50 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiValueFieldName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Multi Value Field Name</b></em>'.
+ * An implementation of the model object '<em><b>Throws</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MultiValueFieldNameImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ThrowsImpl#getThrownType <em>Thrown Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implements MultiValueFieldName
+public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The default value of the '{@link #getThrownType() <em>Thrown Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getThrownType()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
+  protected static final String THROWN_TYPE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getThrownType() <em>Thrown Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getThrownType()
    * @generated
    * @ordered
    */
-  protected String value = VALUE_EDEFAULT;
+  protected String thrownType = THROWN_TYPE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MultiValueFieldNameImpl()
+  protected ThrowsImpl()
   {
     super();
   }
@@ -69,7 +69,7 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
   @Override
   protected EClass eStaticClass()
   {
-    return QL1Package.Literals.MULTI_VALUE_FIELD_NAME;
+    return QL1Package.Literals.THROWS;
   }
 
   /**
@@ -77,9 +77,9 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public String getThrownType()
   {
-    return value;
+    return thrownType;
   }
 
   /**
@@ -87,12 +87,12 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public void setThrownType(String newThrownType)
   {
-    String oldValue = value;
-    value = newValue;
+    String oldThrownType = thrownType;
+    thrownType = newThrownType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.MULTI_VALUE_FIELD_NAME__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.THROWS__THROWN_TYPE, oldThrownType, thrownType));
   }
 
   /**
@@ -105,8 +105,8 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case QL1Package.MULTI_VALUE_FIELD_NAME__VALUE:
-        return getValue();
+      case QL1Package.THROWS__THROWN_TYPE:
+        return getThrownType();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +121,8 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case QL1Package.MULTI_VALUE_FIELD_NAME__VALUE:
-        setValue((String)newValue);
+      case QL1Package.THROWS__THROWN_TYPE:
+        setThrownType((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +138,8 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case QL1Package.MULTI_VALUE_FIELD_NAME__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case QL1Package.THROWS__THROWN_TYPE:
+        setThrownType(THROWN_TYPE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +155,8 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
   {
     switch (featureID)
     {
-      case QL1Package.MULTI_VALUE_FIELD_NAME__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case QL1Package.THROWS__THROWN_TYPE:
+        return THROWN_TYPE_EDEFAULT == null ? thrownType != null : !THROWN_TYPE_EDEFAULT.equals(thrownType);
     }
     return super.eIsSet(featureID);
   }
@@ -172,10 +172,10 @@ public class MultiValueFieldNameImpl extends MinimalEObjectImpl.Container implem
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
+    result.append(" (thrownType: ");
+    result.append(thrownType);
     result.append(')');
     return result.toString();
   }
 
-} //MultiValueFieldNameImpl
+} //ThrowsImpl

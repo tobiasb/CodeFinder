@@ -8,28 +8,16 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BinaryExp;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.BooleanField;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Contains;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Expression;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.FieldExpr;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.First;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiValueField;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiValueFieldName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Multiplication;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Negation;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.OrExpr;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Factory;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleValueField;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleValueFieldName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Type;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,98 +32,21 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass firstEClass = null;
+  private EClass methodPatternEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass containsEClass = null;
+  private EClass modifierEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass expressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass fieldExprEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass typeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass singleValueFieldEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass multiValueFieldEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass booleanFieldEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass singleValueFieldNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass multiValueFieldNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass negationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass orExprEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass multiplicationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum binaryExpEEnum = null;
+  private EClass throwsEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -205,9 +116,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFirst()
+  public EClass getMethodPattern()
   {
-    return firstEClass;
+    return methodPatternEClass;
   }
 
   /**
@@ -215,9 +126,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFirst_Type()
+  public EReference getMethodPattern_Modifiers()
   {
-    return (EReference)firstEClass.getEStructuralFeatures().get(0);
+    return (EReference)methodPatternEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -225,9 +136,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFirst_E()
+  public EAttribute getMethodPattern_ReturnType()
   {
-    return (EReference)firstEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)methodPatternEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -235,9 +146,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFirst_C()
+  public EAttribute getMethodPattern_Method()
   {
-    return (EReference)firstEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)methodPatternEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -245,9 +156,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getContains()
+  public EAttribute getMethodPattern_ParameterTypes()
   {
-    return containsEClass;
+    return (EAttribute)methodPatternEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -255,9 +166,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContains_Type()
+  public EReference getMethodPattern_ThrowsClause()
   {
-    return (EReference)containsEClass.getEStructuralFeatures().get(0);
+    return (EReference)methodPatternEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -265,9 +176,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContains_E()
+  public EClass getModifier()
   {
-    return (EReference)containsEClass.getEStructuralFeatures().get(1);
+    return modifierEClass;
   }
 
   /**
@@ -275,9 +186,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExpression()
+  public EAttribute getModifier_Value()
   {
-    return expressionEClass;
+    return (EAttribute)modifierEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -285,9 +196,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFieldExpr()
+  public EClass getThrows()
   {
-    return fieldExprEClass;
+    return throwsEClass;
   }
 
   /**
@@ -295,259 +206,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getType()
+  public EAttribute getThrows_ThrownType()
   {
-    return typeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getType_Value()
-  {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getType_Method()
-  {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSingleValueField()
-  {
-    return singleValueFieldEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSingleValueField_Name()
-  {
-    return (EReference)singleValueFieldEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSingleValueField_N()
-  {
-    return (EReference)singleValueFieldEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSingleValueField_Value()
-  {
-    return (EAttribute)singleValueFieldEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMultiValueField()
-  {
-    return multiValueFieldEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMultiValueField_Name()
-  {
-    return (EReference)multiValueFieldEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMultiValueField_Values()
-  {
-    return (EAttribute)multiValueFieldEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getBooleanField()
-  {
-    return booleanFieldEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getBooleanField_N()
-  {
-    return (EReference)booleanFieldEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getBooleanField_Value()
-  {
-    return (EAttribute)booleanFieldEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSingleValueFieldName()
-  {
-    return singleValueFieldNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSingleValueFieldName_Value()
-  {
-    return (EAttribute)singleValueFieldNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMultiValueFieldName()
-  {
-    return multiValueFieldNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getMultiValueFieldName_Value()
-  {
-    return (EAttribute)multiValueFieldNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getNegation()
-  {
-    return negationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getNegation_Value()
-  {
-    return (EAttribute)negationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getOrExpr()
-  {
-    return orExprEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getOrExpr_Left()
-  {
-    return (EReference)orExprEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getOrExpr_Right()
-  {
-    return (EReference)orExprEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getMultiplication()
-  {
-    return multiplicationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMultiplication_Left()
-  {
-    return (EReference)multiplicationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getMultiplication_Right()
-  {
-    return (EReference)multiplicationEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getBinaryExp()
-  {
-    return binaryExpEEnum;
+    return (EAttribute)throwsEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -580,55 +241,18 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     isCreated = true;
 
     // Create classes and their features
-    firstEClass = createEClass(FIRST);
-    createEReference(firstEClass, FIRST__TYPE);
-    createEReference(firstEClass, FIRST__E);
-    createEReference(firstEClass, FIRST__C);
+    methodPatternEClass = createEClass(METHOD_PATTERN);
+    createEReference(methodPatternEClass, METHOD_PATTERN__MODIFIERS);
+    createEAttribute(methodPatternEClass, METHOD_PATTERN__RETURN_TYPE);
+    createEAttribute(methodPatternEClass, METHOD_PATTERN__METHOD);
+    createEAttribute(methodPatternEClass, METHOD_PATTERN__PARAMETER_TYPES);
+    createEReference(methodPatternEClass, METHOD_PATTERN__THROWS_CLAUSE);
 
-    containsEClass = createEClass(CONTAINS);
-    createEReference(containsEClass, CONTAINS__TYPE);
-    createEReference(containsEClass, CONTAINS__E);
+    modifierEClass = createEClass(MODIFIER);
+    createEAttribute(modifierEClass, MODIFIER__VALUE);
 
-    expressionEClass = createEClass(EXPRESSION);
-
-    fieldExprEClass = createEClass(FIELD_EXPR);
-
-    typeEClass = createEClass(TYPE);
-    createEAttribute(typeEClass, TYPE__VALUE);
-    createEAttribute(typeEClass, TYPE__METHOD);
-
-    singleValueFieldEClass = createEClass(SINGLE_VALUE_FIELD);
-    createEReference(singleValueFieldEClass, SINGLE_VALUE_FIELD__NAME);
-    createEReference(singleValueFieldEClass, SINGLE_VALUE_FIELD__N);
-    createEAttribute(singleValueFieldEClass, SINGLE_VALUE_FIELD__VALUE);
-
-    multiValueFieldEClass = createEClass(MULTI_VALUE_FIELD);
-    createEReference(multiValueFieldEClass, MULTI_VALUE_FIELD__NAME);
-    createEAttribute(multiValueFieldEClass, MULTI_VALUE_FIELD__VALUES);
-
-    booleanFieldEClass = createEClass(BOOLEAN_FIELD);
-    createEReference(booleanFieldEClass, BOOLEAN_FIELD__N);
-    createEAttribute(booleanFieldEClass, BOOLEAN_FIELD__VALUE);
-
-    singleValueFieldNameEClass = createEClass(SINGLE_VALUE_FIELD_NAME);
-    createEAttribute(singleValueFieldNameEClass, SINGLE_VALUE_FIELD_NAME__VALUE);
-
-    multiValueFieldNameEClass = createEClass(MULTI_VALUE_FIELD_NAME);
-    createEAttribute(multiValueFieldNameEClass, MULTI_VALUE_FIELD_NAME__VALUE);
-
-    negationEClass = createEClass(NEGATION);
-    createEAttribute(negationEClass, NEGATION__VALUE);
-
-    orExprEClass = createEClass(OR_EXPR);
-    createEReference(orExprEClass, OR_EXPR__LEFT);
-    createEReference(orExprEClass, OR_EXPR__RIGHT);
-
-    multiplicationEClass = createEClass(MULTIPLICATION);
-    createEReference(multiplicationEClass, MULTIPLICATION__LEFT);
-    createEReference(multiplicationEClass, MULTIPLICATION__RIGHT);
-
-    // Create enums
-    binaryExpEEnum = createEEnum(BINARY_EXP);
+    throwsEClass = createEClass(THROWS);
+    createEAttribute(throwsEClass, THROWS__THROWN_TYPE);
   }
 
   /**
@@ -660,66 +284,20 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    fieldExprEClass.getESuperTypes().add(this.getExpression());
-    singleValueFieldEClass.getESuperTypes().add(this.getFieldExpr());
-    multiValueFieldEClass.getESuperTypes().add(this.getFieldExpr());
-    booleanFieldEClass.getESuperTypes().add(this.getFieldExpr());
-    orExprEClass.getESuperTypes().add(this.getExpression());
-    multiplicationEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(firstEClass, First.class, "First", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFirst_Type(), this.getType(), null, "type", null, 0, 1, First.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFirst_E(), this.getExpression(), null, "e", null, 0, 1, First.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFirst_C(), this.getContains(), null, "c", null, 0, -1, First.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(methodPatternEClass, MethodPattern.class, "MethodPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMethodPattern_Modifiers(), this.getModifier(), null, "modifiers", null, 0, -1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethodPattern_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethodPattern_Method(), ecorePackage.getEString(), "method", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethodPattern_ParameterTypes(), ecorePackage.getEString(), "parameterTypes", null, 0, -1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodPattern_ThrowsClause(), this.getThrows(), null, "throwsClause", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(containsEClass, Contains.class, "Contains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getContains_Type(), this.getType(), null, "type", null, 0, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getContains_E(), this.getExpression(), null, "e", null, 0, 1, Contains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(modifierEClass, Modifier.class, "Modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModifier_Value(), ecorePackage.getEString(), "value", null, 0, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(fieldExprEClass, FieldExpr.class, "FieldExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getType_Value(), ecorePackage.getEString(), "value", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getType_Method(), ecorePackage.getEString(), "method", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(singleValueFieldEClass, SingleValueField.class, "SingleValueField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSingleValueField_Name(), this.getSingleValueFieldName(), null, "name", null, 0, 1, SingleValueField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSingleValueField_N(), this.getNegation(), null, "n", null, 0, 1, SingleValueField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSingleValueField_Value(), ecorePackage.getEString(), "value", null, 0, 1, SingleValueField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(multiValueFieldEClass, MultiValueField.class, "MultiValueField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMultiValueField_Name(), this.getMultiValueFieldName(), null, "name", null, 0, 1, MultiValueField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMultiValueField_Values(), ecorePackage.getEString(), "values", null, 0, -1, MultiValueField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(booleanFieldEClass, BooleanField.class, "BooleanField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getBooleanField_N(), this.getNegation(), null, "n", null, 0, 1, BooleanField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBooleanField_Value(), ecorePackage.getEString(), "value", null, 0, 1, BooleanField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(singleValueFieldNameEClass, SingleValueFieldName.class, "SingleValueFieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSingleValueFieldName_Value(), ecorePackage.getEString(), "value", null, 0, 1, SingleValueFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(multiValueFieldNameEClass, MultiValueFieldName.class, "MultiValueFieldName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMultiValueFieldName_Value(), ecorePackage.getEString(), "value", null, 0, 1, MultiValueFieldName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(negationEClass, Negation.class, "Negation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNegation_Value(), ecorePackage.getEString(), "value", null, 0, 1, Negation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(orExprEClass, OrExpr.class, "OrExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getOrExpr_Left(), this.getExpression(), null, "left", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getOrExpr_Right(), this.getExpression(), null, "right", null, 0, 1, OrExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(multiplicationEClass, Multiplication.class, "Multiplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMultiplication_Left(), this.getExpression(), null, "left", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMultiplication_Right(), this.getExpression(), null, "right", null, 0, 1, Multiplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    // Initialize enums and add enum literals
-    initEEnum(binaryExpEEnum, BinaryExp.class, "BinaryExp");
-    addEEnumLiteral(binaryExpEEnum, BinaryExp.AND1);
-    addEEnumLiteral(binaryExpEEnum, BinaryExp.OR1);
-    addEEnumLiteral(binaryExpEEnum, BinaryExp.OR2);
+    initEClass(throwsEClass, Throws.class, "Throws", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getThrows_ThrownType(), ecorePackage.getEString(), "thrownType", null, 0, 1, Throws.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

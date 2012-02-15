@@ -9,55 +9,18 @@
     editorPluginID="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.editor">
   <genPackages prefix="QL1" basePackage="org.eclipselabs.recommenders.codesearch.rcp.dslQL1"
       disposableProviderFactory="true" ecorePackage="QL1.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="QL1.ecore#//BinaryExp">
-      <genEnumLiterals ecoreEnumLiteral="QL1.ecore#//BinaryExp/and1"/>
-      <genEnumLiterals ecoreEnumLiteral="QL1.ecore#//BinaryExp/or1"/>
-      <genEnumLiterals ecoreEnumLiteral="QL1.ecore#//BinaryExp/or2"/>
-    </genEnums>
-    <genClasses ecoreClass="QL1.ecore#//First">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//First/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//First/e"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//First/c"/>
+    <genClasses ecoreClass="QL1.ecore#//MethodPattern">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/modifiers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MethodPattern/returnType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MethodPattern/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MethodPattern/parameterTypes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/throwsClause"/>
     </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//Contains">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Contains/type"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Contains/e"/>
+    <genClasses ecoreClass="QL1.ecore#//Modifier">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Modifier/value"/>
     </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//Expression"/>
-    <genClasses ecoreClass="QL1.ecore#//FieldExpr"/>
-    <genClasses ecoreClass="QL1.ecore#//Type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Type/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Type/method"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//SingleValueField">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//SingleValueField/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//SingleValueField/n"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//SingleValueField/value"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//MultiValueField">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MultiValueField/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MultiValueField/values"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//BooleanField">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//BooleanField/n"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//BooleanField/value"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//SingleValueFieldName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//SingleValueFieldName/value"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//MultiValueFieldName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MultiValueFieldName/value"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//Negation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Negation/value"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//OrExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//OrExpr/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//OrExpr/right"/>
-    </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//Multiplication">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Multiplication/left"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Multiplication/right"/>
+    <genClasses ecoreClass="QL1.ecore#//Throws">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Throws/thrownType"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

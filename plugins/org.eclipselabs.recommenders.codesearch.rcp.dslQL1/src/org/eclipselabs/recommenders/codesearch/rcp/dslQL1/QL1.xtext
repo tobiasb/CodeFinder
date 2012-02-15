@@ -2,65 +2,35 @@ grammar org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1 with org.eclipse.
 
 generate qL1 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1"
 
-First:
-	type=Type 'where' (e=OrExpr) 
- 	('Containing' '(' c+=Contains ')' ('and' '(' c+=Contains ')')* )?
+
+MethodPattern:
+	(modifiers+=Modifier)* (returnType=Type '.')? method=Method ('(' (parameterTypes+=ParameterType)* ')')? throwsClause=Throws?
 ;
 
-Contains:
-	type=Type 'where' (e=OrExpr) 
-;
-	
-OrExpr returns Expression:
- AndExpr ({OrExpr.left=current} 'or' right=AndExpr)*;
-
-AndExpr returns Expression:
- Primary ({Multiplication.left=current} 'and' right=Primary)*;
-
-Primary returns Expression:
- FieldExpr |
- '(' OrExpr ')';
-	 
-FieldExpr:
-	SingleValueField | MultiValueField | BooleanField
+Modifier:
+	(value='static' 
+	| value='private' 
+	| value='public' 
+	| value='final' 
+	| value='abstract' 
+	| value='protected'
+	| value ='*' )
 ;
 
 Type:
-	value='Methods' | method='Types'
+	NameWithWC
 ;
 
-SingleValueField:
-	name=SingleValueFieldName n=Negation? 'is' value=NameWithWC
+ParameterType:
+	NameWithWC
 ;
 
-MultiValueField:
-	name=MultiValueFieldName 'has' (values+=NameWithWC | '(' values+=NameWithWC (',' values+=NameWithWC)* ')')
+Throws:
+	'throws' thrownType=Type
 ;
 
-BooleanField:
-	n=Negation?
-	(value='IsStatic' 
-	| value='IsPrivate' 
-	| value='IsPublic' 
-	| value='IsFinal' 
-	| value='IsAbstract' 
-	| value='IsProtected')
-;
-
-SingleValueFieldName:
-	value='Name'
-;
-
-MultiValueFieldName:
-	value='CalledMethods'
-;
-
-Negation:
-	value='!'
-;
-	
-enum BinaryExp:
-	and1='AND' | or1='OR' | or2='||'
+Method:
+	NameWithWC
 ;
 	
 terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;

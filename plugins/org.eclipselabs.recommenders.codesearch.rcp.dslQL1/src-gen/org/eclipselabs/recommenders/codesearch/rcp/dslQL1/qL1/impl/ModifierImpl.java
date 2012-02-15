@@ -13,23 +13,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleValueFieldName;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Single Value Field Name</b></em>'.
+ * An implementation of the model object '<em><b>Modifier</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.SingleValueFieldNameImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container implements SingleValueFieldName
+public class ModifierImpl extends MinimalEObjectImpl.Container implements Modifier
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -56,7 +56,7 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SingleValueFieldNameImpl()
+  protected ModifierImpl()
   {
     super();
   }
@@ -69,7 +69,7 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
   @Override
   protected EClass eStaticClass()
   {
-    return QL1Package.Literals.SINGLE_VALUE_FIELD_NAME;
+    return QL1Package.Literals.MODIFIER;
   }
 
   /**
@@ -92,7 +92,7 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.SINGLE_VALUE_FIELD_NAME__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.MODIFIER__VALUE, oldValue, value));
   }
 
   /**
@@ -105,7 +105,7 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case QL1Package.SINGLE_VALUE_FIELD_NAME__VALUE:
+      case QL1Package.MODIFIER__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -121,7 +121,7 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case QL1Package.SINGLE_VALUE_FIELD_NAME__VALUE:
+      case QL1Package.MODIFIER__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -138,7 +138,7 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case QL1Package.SINGLE_VALUE_FIELD_NAME__VALUE:
+      case QL1Package.MODIFIER__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -155,7 +155,7 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
   {
     switch (featureID)
     {
-      case QL1Package.SINGLE_VALUE_FIELD_NAME__VALUE:
+      case QL1Package.MODIFIER__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -178,4 +178,4 @@ public class SingleValueFieldNameImpl extends MinimalEObjectImpl.Container imple
     return result.toString();
   }
 
-} //SingleValueFieldNameImpl
+} //ModifierImpl

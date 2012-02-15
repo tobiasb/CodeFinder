@@ -56,13 +56,14 @@ public abstract class AbstractIndexer {
         return root.getJavaProject().getProject();
     }
 
-    protected File getLocation(final ASTNode node) {
+    static protected File getLocation(final ASTNode node) {
         final ASTNode rootNode = node.getRoot();
         final CompilationUnit cu = (CompilationUnit) rootNode;
 
         final ITypeRoot root = cu.getTypeRoot();
         if (root == null) {
-            // this is a special treatment for cus created from source code w/o a IClassFile or ICompilationUnit
+            // this is a special treatment for cus created from source code w/o
+            // a IClassFile or ICompilationUnit
             return ensureIsNotNull((File) cu.getProperty("location"));
         }
         return IndexUtils.computeLocation(root);

@@ -76,103 +76,24 @@ public class QL1Switch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case QL1Package.FIRST:
+      case QL1Package.METHOD_PATTERN:
       {
-        First first = (First)theEObject;
-        T result = caseFirst(first);
+        MethodPattern methodPattern = (MethodPattern)theEObject;
+        T result = caseMethodPattern(methodPattern);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case QL1Package.CONTAINS:
+      case QL1Package.MODIFIER:
       {
-        Contains contains = (Contains)theEObject;
-        T result = caseContains(contains);
+        Modifier modifier = (Modifier)theEObject;
+        T result = caseModifier(modifier);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case QL1Package.EXPRESSION:
+      case QL1Package.THROWS:
       {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.FIELD_EXPR:
-      {
-        FieldExpr fieldExpr = (FieldExpr)theEObject;
-        T result = caseFieldExpr(fieldExpr);
-        if (result == null) result = caseExpression(fieldExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.TYPE:
-      {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.SINGLE_VALUE_FIELD:
-      {
-        SingleValueField singleValueField = (SingleValueField)theEObject;
-        T result = caseSingleValueField(singleValueField);
-        if (result == null) result = caseFieldExpr(singleValueField);
-        if (result == null) result = caseExpression(singleValueField);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.MULTI_VALUE_FIELD:
-      {
-        MultiValueField multiValueField = (MultiValueField)theEObject;
-        T result = caseMultiValueField(multiValueField);
-        if (result == null) result = caseFieldExpr(multiValueField);
-        if (result == null) result = caseExpression(multiValueField);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.BOOLEAN_FIELD:
-      {
-        BooleanField booleanField = (BooleanField)theEObject;
-        T result = caseBooleanField(booleanField);
-        if (result == null) result = caseFieldExpr(booleanField);
-        if (result == null) result = caseExpression(booleanField);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.SINGLE_VALUE_FIELD_NAME:
-      {
-        SingleValueFieldName singleValueFieldName = (SingleValueFieldName)theEObject;
-        T result = caseSingleValueFieldName(singleValueFieldName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.MULTI_VALUE_FIELD_NAME:
-      {
-        MultiValueFieldName multiValueFieldName = (MultiValueFieldName)theEObject;
-        T result = caseMultiValueFieldName(multiValueFieldName);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.NEGATION:
-      {
-        Negation negation = (Negation)theEObject;
-        T result = caseNegation(negation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.OR_EXPR:
-      {
-        OrExpr orExpr = (OrExpr)theEObject;
-        T result = caseOrExpr(orExpr);
-        if (result == null) result = caseExpression(orExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL1Package.MULTIPLICATION:
-      {
-        Multiplication multiplication = (Multiplication)theEObject;
-        T result = caseMultiplication(multiplication);
-        if (result == null) result = caseExpression(multiplication);
+        Throws throws_ = (Throws)theEObject;
+        T result = caseThrows(throws_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -181,209 +102,49 @@ public class QL1Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>First</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Method Pattern</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>First</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Method Pattern</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFirst(First object)
+  public T caseMethodPattern(MethodPattern object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Contains</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Modifier</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Contains</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Modifier</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseContains(Contains object)
+  public T caseModifier(Modifier object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Throws</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Throws</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExpression(Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Field Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Field Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFieldExpr(FieldExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Single Value Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Single Value Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSingleValueField(SingleValueField object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Multi Value Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multi Value Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMultiValueField(MultiValueField object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Boolean Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Boolean Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBooleanField(BooleanField object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Single Value Field Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Single Value Field Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSingleValueFieldName(SingleValueFieldName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Multi Value Field Name</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multi Value Field Name</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMultiValueFieldName(MultiValueFieldName object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Negation</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Negation</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNegation(Negation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Or Expr</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Or Expr</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseOrExpr(OrExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiplication</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiplication</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMultiplication(Multiplication object)
+  public T caseThrows(Throws object)
   {
     return null;
   }

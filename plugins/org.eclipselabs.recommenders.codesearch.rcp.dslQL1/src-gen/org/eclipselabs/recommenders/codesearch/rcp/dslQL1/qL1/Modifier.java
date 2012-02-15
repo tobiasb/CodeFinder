@@ -10,21 +10,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Negation</b></em>'.
+ * A representation of the model object '<em><b>Modifier</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Negation#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getNegation()
+ * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getModifier()
  * @model
  * @generated
  */
-public interface Negation extends EObject
+public interface Modifier extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -36,14 +36,14 @@ public interface Negation extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getNegation_Value()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getModifier_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Negation#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -52,4 +52,4 @@ public interface Negation extends EObject
    */
   void setValue(String value);
 
-} // Negation
+} // Modifier

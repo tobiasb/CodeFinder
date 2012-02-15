@@ -119,7 +119,8 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
     String[] getExampleQueriesInternal() {
         return new String[] { "UsedTypes:java.util.List",
                 "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)",
-                "UsedTypes:java.util.List AND Type:method" };
+                "UsedTypes:java.util.List AND Type:method",
+                "UsedTypes:*Document Type:method Modifiers:private FriendlyName:addDoc FieldsRead:*Store.YES" };
     }
 
     public static String getName() {
