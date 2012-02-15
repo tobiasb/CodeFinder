@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.lucene.document.Document;
+import org.apache.lucene.document.FieldSelector;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.Term;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
 import org.apache.lucene.search.FieldCache;
@@ -14,7 +16,6 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
 import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
@@ -37,7 +38,15 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         parser.setAllowLeadingWildcard(true);
     }
 
-    public List<Document> search(final String queryString) throws CorruptIndexException, IOException, ParseException {
+    public QueryParser getParser() {
+        return parser;
+    }
+
+    public List<Document> search(final String queryString) throws IOException, ParseException {
+        return search(queryString, null);
+    }
+
+    public List<Document> search(final String queryString, FieldSelector selector) throws IOException, ParseException {
         final Query query = parser.parse(queryString);
 
         return search(query);
@@ -56,16 +65,23 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         }
     }
 
-    public List<Document> search(final Query query, final int maxHits) throws IOException {
-
-        final IndexSearcher searcher = new IndexSearcher(reader);
-        final TopDocs docs = searcher.search(query, maxHits);
-        final List<Document> result = toList(searcher, docs.scoreDocs);
-        searcher.close();
-        return result;
-    }
+    // public List<Document> search(final Query query, final int maxHits) throws
+    // IOException {
+    //
+    // renewReader();
+    //
+    // final IndexSearcher searcher = new IndexSearcher(reader);
+    // final TopDocs docs = searcher.search(query, maxHits);
+    // final List<Document> result = toList(searcher, docs.scoreDocs);
+    // searcher.close();
+    // return result;
+    // }
 
     public List<Document> search(final Query query) throws IOException {
+        return search(query, null);
+    }
+
+    public List<Document> search(final Query query, FieldSelector selector) throws IOException {
 
         // TODO: Schränke Felder mit IFieldSelector ein
 
@@ -82,7 +98,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
 
         searcher.search(query, collector);
 
-        final List<Document> result = toList(searcher, collector.topDocs().scoreDocs);
+        final List<Document> result = toList(searcher, collector.topDocs().scoreDocs, selector);
 
         // XXX: Activator.logInfo("Searching for: %s. %s hits.",
         // query.toString(), result.size());
@@ -92,13 +108,17 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         return result;
     }
 
-    private static List<Document> toList(final IndexSearcher searcher, final ScoreDoc[] scoreDocs) {
+    private static List<Document> toList(final IndexSearcher searcher, final ScoreDoc[] scoreDocs,
+            FieldSelector selector) {
 
         final List<Document> result = Lists.newArrayList();
 
         for (final ScoreDoc doc : scoreDocs) {
             try {
-                result.add(searcher.doc(doc.doc));
+                if (selector != null)
+                    result.add(searcher.doc(doc.doc, selector));
+                else
+                    result.add(searcher.doc(doc.doc));
             } catch (final CorruptIndexException e) {
                 // XXX: Activator.logError(e);
             } catch (final IOException e) {
@@ -113,6 +133,10 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         final MatchAllDocsQuery allDocsQuery = new MatchAllDocsQuery();
 
         return search(allDocsQuery);
+    }
+
+    public int getDocCount(Term t) throws IOException {
+        return reader.docFreq(t);
     }
 
     @Override

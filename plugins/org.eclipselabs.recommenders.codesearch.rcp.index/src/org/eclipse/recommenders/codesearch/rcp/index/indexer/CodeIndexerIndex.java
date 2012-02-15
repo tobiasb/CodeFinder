@@ -6,11 +6,12 @@ import java.util.List;
 
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
+import org.apache.lucene.document.FieldSelector;
+import org.apache.lucene.document.SetBasedFieldSelector;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Query;
-import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.store.Directory;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
@@ -24,6 +25,7 @@ import org.eclipse.recommenders.rcp.RecommendersPlugin;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
 
@@ -70,13 +72,18 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     private Optional<Long> lastIndexedInternal(final File location) {
 
         try {
-            final Query q = new TermQuery(new Term(Fields.RESOURCE_PATH, location.getAbsolutePath()));
-            final List<Document> docs = searcherIndex.search(q, 1);
+            final String query = new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getResourcePathForQuery(location))
+                    .toString();
+
+            FieldSelector selector = new SetBasedFieldSelector(Sets.newHashSet(Fields.TIMESTAMP), null);
+
+            final List<Document> docs = searcherIndex.search(query, selector);
+
             if (docs.size() > 0) {
                 return getMinTimestamp(docs);
             }
-        } catch (final IOException e) {
-            // XXX: Activator.logError(e);
+        } catch (Exception e) {
+            RecommendersPlugin.logError(e, "failed to fetch last indexed timestamp for CU from code-search index.");
         }
 
         return Optional.absent();
@@ -113,37 +120,40 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     @Override
     public void index(final CompilationUnit cu, final List<IIndexer> indexer) throws IOException {
-        // delete(cu);
+        delete(cu);
 
         final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
         visitor.addIndexer(indexer);
 
         cu.accept(visitor);
 
-        // commit();
+        // add to internal cache
+        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getLocation(cu), TimestampIndexer.getTime());
     }
 
     public void delete(final File location) throws IOException {
-        delete(new Term(Fields.RESOURCE_PATH, location.getAbsolutePath()));
+        delete(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getResourcePathForQuery(location)));
     }
 
     public void delete(final Term term) throws IOException {
         if (term == null || term.text() == null) {
             return;
         }
-        final int numDocsBefore = m_writer.numDocs();
-        m_writer.deleteDocuments(term);
-        // commit(); // for correct num count
 
-        // final int numDeleted = numDocsBefore - m_writer.numDocs();
-        // XXX: Activator.logInfo("Deleting: " + numDeleted + "x " +
-        // term.field() + "=" + term.text() + ".");
+        try {
+            // For some reason deleting by term doesn't work, only when we use a
+            // Query object
+            Query q = searcherIndex.getParser().parse(term.toString());
+
+            m_writer.deleteDocuments(q);
+        } catch (org.apache.lucene.queryParser.ParseException e) {
+            RecommendersPlugin.logError(e, "failed to parse query [%s] in code-search index.", term.toString());
+        }
     }
 
     @Override
     public void delete(final CompilationUnit cu) throws IOException {
-        final ResourcePathIndexer indexer = new ResourcePathIndexer();
-        final String cuPath = indexer.getResourcePath(cu);
+        final String cuPath = ResourcePathIndexer.getResourcePathForQuery(cu);
 
         delete(new Term(Fields.RESOURCE_PATH, cuPath));
     }
@@ -170,8 +180,6 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             m_writer.commit();
         } catch (final Exception e) {
             RecommendersPlugin.logError(e, "failed to commit latest changes to code-search index.");
-            // } catch (final IOException e) {
-            // // XXX: Activator.logError(e);
         }
     }
 
@@ -185,7 +193,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             m_writer.deleteAll();
             m_writer.commit();
         } catch (final IOException e) {
-            // XXX: Activator.logError(e);
+            RecommendersPlugin.logError(e, "failed to truncate code-search index.");
         }
     }
 
@@ -209,7 +217,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             // m_writer.close();
             // getIndex().close();
         } catch (final Exception ex) {
-            // XXX: Activator.logError(ex);
+            RecommendersPlugin.logError(ex, "failed to close code-search index.");
         }
     }
 

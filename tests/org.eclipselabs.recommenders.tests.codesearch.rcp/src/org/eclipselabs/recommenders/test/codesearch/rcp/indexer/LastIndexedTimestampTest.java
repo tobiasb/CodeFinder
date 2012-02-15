@@ -13,7 +13,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
 import org.eclipselabs.recommenders.test.codesearch.AbstractTestIndex;
-import org.junit.Ignore;
+import org.junit.Assert;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
@@ -21,27 +21,26 @@ import com.google.common.collect.Lists;
 public class LastIndexedTimestampTest extends AbstractTestIndex {
 
     @Test
-    @Ignore
     public void testLastUpdatedGtZero() throws Exception {
 
         final ICompilationUnit icu = getSampleICompilationUnit();
 
-        final ResourcePathIndexer rpi = new ResourcePathIndexer();
-        final IPath p = Path.fromPortableString(rpi.getResourcePath(CompilationUnitHelper.parse(icu)));
+        final IPath p = Path.fromPortableString(ResourcePathIndexer.getResourcePath(CompilationUnitHelper.parse(icu)));
         final File location = p.toFile();
 
         newIndex();
         final CodeIndexerIndex index = getIndexer();
 
         final List<IIndexer> indexer = Lists.newArrayList();
-        indexer.add(rpi);
+        indexer.add(new ResourcePathIndexer());
         indexer.add(new TimestampIndexer());
 
         final CompilationUnit cu = CompilationUnitHelper.parse(icu);
         index.index(cu, indexer);
+        index.commit();
 
-        // final long lastUpdated = index.lastIndexed(location);
+        final long lastUpdated = index.lastIndexed(location);
 
-        // Assert.assertTrue(lastUpdated > 0);
+        Assert.assertTrue(lastUpdated > 0);
     }
 }

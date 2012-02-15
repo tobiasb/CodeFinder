@@ -896,9 +896,8 @@ public class TestGeneralScenarios extends TestBase {
         cuParsed.accept(visitor);
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
         String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -948,9 +947,8 @@ public class TestGeneralScenarios extends TestBase {
         cuParsed.accept(visitor);
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
         String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -997,9 +995,8 @@ public class TestGeneralScenarios extends TestBase {
         cuParsed.accept(visitor);
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
-        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
         String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -1055,9 +1052,8 @@ public class TestGeneralScenarios extends TestBase {
         cuParsed.accept(visitor);
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
         String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -1110,9 +1106,8 @@ public class TestGeneralScenarios extends TestBase {
         cuParsed.accept(visitor);
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
-        ResourcePathIndexer _resourcePathIndexer_1 = new ResourcePathIndexer();
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = _resourcePathIndexer_1.getResourcePath(_compilationUnitFromAstNode);
+        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
         String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));

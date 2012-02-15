@@ -16,7 +16,8 @@ public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, 
         ITryCatchBlockIndexer {
 
     @Override
-    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
+            final CatchClause catchClause) {
         addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
     }
 
@@ -36,7 +37,11 @@ public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, 
     }
 
     public static String getTimeString() {
-        final long timestamp = System.currentTimeMillis();
+        final long timestamp = getTime();
         return String.valueOf(timestamp);
+    }
+
+    public static Long getTime() {
+        return System.currentTimeMillis();
     }
 }
