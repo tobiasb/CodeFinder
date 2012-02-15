@@ -2,9 +2,13 @@ package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
+import static org.eclipse.recommenders.utils.Checks.ensureIsNotNull;
+
+import java.io.File;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -44,13 +48,23 @@ public abstract class AbstractIndexer {
         while (node != null && !(node instanceof CompilationUnit)) {
             node = node.getParent();
         }
-        return ((CompilationUnit) node).getTypeRoot().getJavaProject().getProject();
+        final ITypeRoot root = ((CompilationUnit) node).getTypeRoot();
+        if (root == null) {
+            final IJavaProject property = (IJavaProject) node.getProperty("project");
+            return property.getProject();
+        }
+        return root.getJavaProject().getProject();
     }
 
-    protected String getLocation(final ASTNode node) {
+    protected File getLocation(final ASTNode node) {
         final ASTNode rootNode = node.getRoot();
         final CompilationUnit cu = (CompilationUnit) rootNode;
+
         final ITypeRoot root = cu.getTypeRoot();
+        if (root == null) {
+            // this is a special treatment for cus created from source code w/o a IClassFile or ICompilationUnit
+            return ensureIsNotNull((File) cu.getProperty("location"));
+        }
         return IndexUtils.computeLocation(root);
     }
 

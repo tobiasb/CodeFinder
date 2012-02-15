@@ -17,9 +17,8 @@ import java.util.List;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.document.Document;
-import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -109,21 +108,23 @@ public class LabelProvider extends StyledCellLabelProvider {
     }
 
     private boolean findMethodName(final Document doc) {
-        recMethod = VmMethodName.get(doc.get(Fields.DECLARING_METHOD));
+        final String name = doc.get(Fields.DECLARING_METHOD);
+        if (name == null) {
+            return false;
+        }
+        recMethod = VmMethodName.get(name);
         return recMethod != null;
     }
 
     private boolean findJdtMethod() {
         final Optional<IMethod> opt = jdtResolver.toJdtMethod(recMethod);
-        if (opt.isPresent()) {
-            jdtMethod = opt.get();
-        }
+        jdtMethod = opt.orNull();
         return jdtMethod != null;
     }
 
     private boolean findAstMethod() {
         try {
-            final ICompilationUnit cu = jdtMethod.getCompilationUnit();
+            final ITypeRoot cu = jdtMethod.getTypeRoot();
             if (cu == null) {
                 return false;
             }
@@ -132,8 +133,8 @@ public class LabelProvider extends StyledCellLabelProvider {
                 return false;
             }
             astMethod = ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
-        } catch (final JavaModelException e) {
-            RecommendersPlugin.log(e);
+        } catch (final Exception e) {
+            RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
         }
         return astMethod != null;
     }
