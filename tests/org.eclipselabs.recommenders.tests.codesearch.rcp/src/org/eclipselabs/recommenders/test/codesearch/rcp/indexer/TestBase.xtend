@@ -140,7 +140,8 @@ class TestBase extends AbstractTestBase {
     def exercise(CharSequence code1, CharSequence code2, CharSequence code3, List<IIndexer> indexer, String projectName, String fileName) {   	
     	//IndexUpdaterServiceSettings::setNoDispatch(true); // To prevent workspace events from being processed
     	val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),projectName)
-		val struct = fixture.createFileAndParseWithMarkers(code1.toString, fileName)
+		//val struct = fixture.createFileAndParseWithMarkers(code1.toString, fileName)
+		val struct = fixture.createFileAndParseWithMarkers(code1.toString)
 		val cu = struct.first;
         var cuParsed = parse(cu);
 

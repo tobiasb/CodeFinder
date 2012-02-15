@@ -93,8 +93,11 @@ public class AbstractTestIndex {
     protected CompilationUnit getSampleCompilationUnit() throws Exception {
 
         final JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
-        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers(
-                "public class MyInstanceOfClass {}", "MyClass.java");
+        // XXX final Tuple<ICompilationUnit, Set<Integer>> struct =
+        // fixture.createFileAndParseWithMarkers(
+        // "public class MyInstanceOfClass {}", "MyClass.java");
+        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture
+                .createFileAndParseWithMarkers("public class MyInstanceOfClass {}");
 
         final CompilationUnit cu = CompilationUnitHelper.parse(struct.getFirst());
 
@@ -104,8 +107,12 @@ public class AbstractTestIndex {
     protected ICompilationUnit getSampleICompilationUnit() throws Exception {
 
         final JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
-        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers(
-                "public class MyInstanceOfClass {}", "MyClass.java");
+        // XXX final Tuple<ICompilationUnit, Set<Integer>> struct =
+        // fixture.createFileAndParseWithMarkers(
+        // "public class MyInstanceOfClass {}", "MyClass.java");
+
+        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture
+                .createFileAndParseWithMarkers("public class MyInstanceOfClass {}");
 
         final ICompilationUnit cu = struct.getFirst();
 

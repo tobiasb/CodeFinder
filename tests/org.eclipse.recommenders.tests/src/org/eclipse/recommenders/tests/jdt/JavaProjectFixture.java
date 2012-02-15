@@ -12,14 +12,18 @@ package org.eclipse.recommenders.tests.jdt;
 
 import static com.google.common.collect.Sets.newHashSet;
 import static java.util.Arrays.asList;
+import static junit.framework.Assert.assertTrue;
 import static org.eclipse.recommenders.tests.jdt.AstUtils.MARKER;
 import static org.eclipse.recommenders.tests.jdt.AstUtils.MARKER_ESCAPE;
 import static org.eclipse.recommenders.utils.Checks.cast;
+import static org.eclipse.recommenders.utils.Checks.ensureIsTrue;
 import static org.eclipse.recommenders.utils.Throws.throwUnhandledException;
 import static org.eclipse.recommenders.utils.Tuple.newTuple;
 
 import java.io.ByteArrayInputStream;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.eclipse.core.resources.IFile;
@@ -46,21 +50,24 @@ import com.google.common.collect.Sets;
 
 public class JavaProjectFixture {
 
+    public static String findClassName(final CharSequence source) {
+        Pattern p = Pattern.compile(".*class\\s+(\\w+).*", Pattern.DOTALL);
+        Matcher matcher = p.matcher(source);
+        if (!matcher.matches()) {
+            p = Pattern.compile(".*interface\\s+(\\w+).*", Pattern.DOTALL);
+            matcher = p.matcher(source);
+        }
+        assertTrue(matcher.matches());
+        final String group = matcher.group(1);
+        return group;
+    }
+
     private IJavaProject javaProject;
     private ASTParser parser;
 
     public JavaProjectFixture(final IWorkspace workspace, final String projectName) {
         createJavaProject(workspace, projectName);
         createParser();
-    }
-
-    private void createParser() {
-        parser = ASTParser.newParser(AST.JLS3);
-        // parser.setEnvironment(...) enables bindings resolving
-        parser.setProject(javaProject); // enables bindings and IJavaElement
-                                        // resolving
-        parser.setKind(ASTParser.K_COMPILATION_UNIT);
-        parser.setResolveBindings(true);
     }
 
     private void createJavaProject(final IWorkspace workspace, final String projectName) {
@@ -118,22 +125,49 @@ public class JavaProjectFixture {
         javaProject = JavaCore.create(project);
     }
 
-    /**
-     * @param fileName
-     *            should match the name of the primary type given in the
-     *            content, i.e., if content = "class X {}" � unitName =
-     *            "X.java".
-     */
-    public CompilationUnit parse(final String content, final String fileName) {
+    private void createParser() {
+        parser = ASTParser.newParser(AST.JLS3);
+        // parser.setEnvironment(...) enables bindings resolving
+        parser.setProject(javaProject); // enables bindings and IJavaElement
+                                        // resolving
+        parser.setKind(ASTParser.K_COMPILATION_UNIT);
+        parser.setResolveBindings(true);
+    }
+
+    public Tuple<CompilationUnit, Set<Integer>> parseWithMarkers(final String content) {
+        final Tuple<String, Set<Integer>> contentMarkersPair = findMarkers(content);
+        final String contentWoMarkers = contentMarkersPair.getFirst();
+        final Set<Integer> markers = contentMarkersPair.getSecond();
+        final CompilationUnit cu = parse(contentWoMarkers);
+        return newTuple(cu, markers);
+    }
+
+    public Tuple<String, Set<Integer>> findMarkers(final CharSequence content) {
+        final Set<Integer> markers = Sets.newTreeSet();
+        int pos = 0;
+        final StringBuilder sb = new StringBuilder(content);
+        while ((pos = sb.indexOf(MARKER, pos)) != -1) {
+            sb.deleteCharAt(pos);
+            markers.add(pos);
+            ensureIsTrue(pos < sb.length());
+            pos--;
+        }
+        return newTuple(sb.toString(), markers);
+    }
+
+    public CompilationUnit parse(final String content) {
 
         parser.setSource(content.toCharArray());
-        parser.setUnitName(fileName);
+        parser.setUnitName(findClassName(content) + ".java");
         final CompilationUnit cu = cast(parser.createAST(null));
         return cu;
     }
 
-    public Tuple<ICompilationUnit, Set<Integer>> createFileAndParseWithMarkers(final String contentWithMarkers,
-            final String fileName) throws CoreException {
+    public Tuple<ICompilationUnit, Set<Integer>> createFileAndParseWithMarkers(final CharSequence contentWithMarkers)
+            throws CoreException {
+        final Tuple<String, Set<Integer>> content = findMarkers(contentWithMarkers);
+        final String fileName = findClassName(content.getFirst()) + ".java";
+
         final IProject project = javaProject.getProject();
         final IPath path = new Path(fileName);
         final IFile file = project.getFile(fileName);
@@ -141,30 +175,10 @@ public class JavaProjectFixture {
             file.delete(true, null);
         }
 
-        final Tuple<String, Set<Integer>> content = findMarkers(contentWithMarkers);
         final ByteArrayInputStream is = new ByteArrayInputStream(content.getFirst().getBytes());
         file.create(is, true, null);
         final ICompilationUnit cu = (ICompilationUnit) javaProject.findElement(path);
         return Tuple.newTuple(cu, content.getSecond());
-    }
-
-    public Tuple<CompilationUnit, Set<Integer>> parseWithMarkers(final String content, final String fileName) {
-        final Tuple<String, Set<Integer>> contentMarkersPair = findMarkers(content);
-        final String contentWoMarkers = contentMarkersPair.getFirst();
-        final Set<Integer> markers = contentMarkersPair.getSecond();
-        final CompilationUnit cu = parse(contentWoMarkers, fileName);
-        return newTuple(cu, markers);
-    }
-
-    public Tuple<String, Set<Integer>> findMarkers(final String content) {
-        final Set<Integer> markers = Sets.newTreeSet();
-        int pos = 0;
-        final StringBuilder sb = new StringBuilder(content);
-        while ((pos = sb.indexOf(MARKER, pos)) != -1) {
-            sb.delete(pos, pos + 1);
-            markers.add(pos);
-        }
-        return newTuple(sb.toString(), markers);
     }
 
     public String removeMarkers(final String content) {

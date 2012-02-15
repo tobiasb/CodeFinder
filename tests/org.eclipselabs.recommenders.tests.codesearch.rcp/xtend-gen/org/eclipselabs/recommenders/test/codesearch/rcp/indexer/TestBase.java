@@ -237,7 +237,7 @@ public class TestBase extends AbstractTestBase {
         JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, projectName);
         final JavaProjectFixture fixture = _javaProjectFixture;
         String _string = code1.toString();
-        Tuple<ICompilationUnit,Set<Integer>> _createFileAndParseWithMarkers = fixture.createFileAndParseWithMarkers(_string, fileName);
+        Tuple<ICompilationUnit,Set<Integer>> _createFileAndParseWithMarkers = fixture.createFileAndParseWithMarkers(_string);
         final Tuple<ICompilationUnit,Set<Integer>> struct = _createFileAndParseWithMarkers;
         ICompilationUnit _first = struct.getFirst();
         final ICompilationUnit cu = _first;
