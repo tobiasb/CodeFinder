@@ -33,6 +33,9 @@ public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
                         return false;
                     }
                     final Optional<String> optId = BindingHelper.getIdentifier(opt.get());
+                    if (!optId.isPresent()) {
+                        return false;
+                    }
                     final String result = String.format("%1$s.%2$s", optId.get(), simpleName);
 
                     addAnalyzedField(document, fieldName, result);

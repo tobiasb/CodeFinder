@@ -1,5 +1,7 @@
 package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
+import java.io.File;
+
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CatchClause;
@@ -47,12 +49,12 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     }
 
     private void addField(final Document document, final ASTNode node) {
-        final String opt = getLocation(node);
-        addAnalyzedField(document, Fields.RESOURCE_PATH, opt);
+        final File f = getLocation(node);
+        addAnalyzedField(document, Fields.RESOURCE_PATH, f.getAbsolutePath());
     }
 
     public String getResourcePath(final CompilationUnit cu) {
-        return getLocation(cu);
+        return getLocation(cu).getAbsolutePath();
     }
 
     // public String getResourcePath(final IResource resource) {

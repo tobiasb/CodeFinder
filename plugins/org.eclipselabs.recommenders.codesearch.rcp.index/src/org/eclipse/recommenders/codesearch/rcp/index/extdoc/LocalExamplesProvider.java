@@ -37,6 +37,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.internal.corext.dom.LinkedNodeFinder;
 import org.eclipse.jdt.ui.JavaUI;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
@@ -56,11 +57,11 @@ import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.recommenders.utils.rcp.JdtUtils;
 import org.eclipse.recommenders.utils.rcp.RCPUtils;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Stopwatch;
@@ -153,7 +154,8 @@ public class LocalExamplesProvider extends ExtdocProvider {
     }
 
     private boolean findVariableType(final String typeSignature) {
-        final Optional<IMethod> method = BindingUtils.getMethod(enclosingMethod);
+
+        final Optional<IMethod> method = JdtUtils.resolveMethod(enclosingMethod);
         if (!method.isPresent()) {
             return false;
         }
@@ -358,6 +360,11 @@ public class LocalExamplesProvider extends ExtdocProvider {
                     final Optional<Document> doc = RCPUtils.first(event.getSelection());
                     if (doc.isPresent()) {
                         final String string = doc.get().get(Fields.DECLARING_METHOD);
+                        if (string == null) {
+                            MessageDialog.openError(new Shell(), "Indexing error.",
+                                    "declaring method for document is null: " + doc);
+                            return;
+                        }
                         final VmMethodName recMethod = VmMethodName.get(string);
                         final Optional<IMethod> jdtMethod = jdtResolver.toJdtMethod(recMethod);
                         if (jdtMethod.isPresent()) {

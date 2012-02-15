@@ -10,16 +10,23 @@
  */
 package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
+import static com.google.common.base.Optional.absent;
+import static com.google.common.base.Optional.of;
 import static org.eclipse.recommenders.utils.Checks.cast;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
-import org.apache.commons.lang3.StringUtils;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.jdt.core.IClassFile;
+import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
@@ -30,7 +37,12 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
+
+import com.google.common.base.Optional;
+import com.google.common.io.ByteStreams;
+import com.google.common.io.Files;
 
 public class IndexUtils {
 
@@ -45,39 +57,29 @@ public class IndexUtils {
             final IPackageFragmentRoot[] roots = project.getPackageFragmentRoots();
             monitor.beginTask("", roots.length);
             for (final IPackageFragmentRoot root : roots) {
-                if (root.isArchive() && root.getResolvedClasspathEntry().getSourceAttachmentPath() == null) {
-                    // if (K_BINARY == root.getKind()) {
+                if (isCurrent(root, indexer)) {
                     continue;
                 }
-                if (monitor.isCanceled()) {
-                    return Status.CANCEL_STATUS;
-                }
+                // delete *all* old files for given resource
+                indexer.delete(computeLocation(root));
 
-                for (final IJavaElement child : root.getChildren()) {
-                    final IPackageFragment fragment = cast(child);
-                    for (final ICompilationUnit cu : fragment.getCompilationUnits()) {
-                        if (monitor.isCanceled()) {
-                            return Status.CANCEL_STATUS;
+                if (isBinaryArchive(root)) {
+                    final Optional<ZipFile> opt = getAttachedSourceArchive(root);
+                    if (opt.isPresent()) {
+                        analyzeSourcesInZip(opt.get(), root, indexer, monitor);
+                        try {
+                            opt.get().close();
+                        } catch (final IOException e) {
+                            // silently ignore
                         }
-                        monitor.subTask(computeLocation(cu));
-                        addOrUpdateCompilationUnitToIndex(cu, indexer);
                     }
-
-                    for (final IClassFile clazz : fragment.getClassFiles()) {
-                        if (clazz.getElementName().contains("$")) {
-                            continue;
-                        }
-                        if (monitor.isCanceled()) {
-                            return Status.CANCEL_STATUS;
-                        }
-                        monitor.subTask(computeLocation(clazz));
-                        addOrUpdateCompilationUnitToIndex(clazz, indexer);
-                    }
-                    indexer.commit();
+                } else {
+                    analyzeSourcesInSourceFolder(indexer, monitor, root);
                 }
+                indexer.commit();
                 monitor.worked(1);
             }
-        } catch (final JavaModelException e) {
+        } catch (final Exception e) {
             RecommendersPlugin.logError(e, "Error during code search indexing");
         } finally {
             indexer.commit();
@@ -85,6 +87,75 @@ public class IndexUtils {
 
         }
         return Status.OK_STATUS;
+    }
+
+    private static boolean isCurrent(final IPackageFragmentRoot root, final CodeIndexerIndex indexer) {
+        final File file = computeLocation(root);
+        final long lastModified = file.lastModified();
+        final long lastIndexed = indexer.lastIndexed(file);
+        return lastModified < lastIndexed;
+    }
+
+    private static void analyzeSourcesInSourceFolder(final CodeIndexerIndex indexer, final IProgressMonitor monitor,
+            final IPackageFragmentRoot root) throws JavaModelException {
+        for (final IJavaElement child : root.getChildren()) {
+            final IPackageFragment fragment = cast(child);
+            for (final ICompilationUnit cu : fragment.getCompilationUnits()) {
+                monitor.subTask(computeLocation(cu).getAbsolutePath());
+                addOrUpdateCompilationUnitToIndex(cu, indexer);
+            }
+        }
+    }
+
+    private static void analyzeSourcesInZip(final ZipFile zipFile, final IPackageFragmentRoot root,
+            final CodeIndexerIndex indexer, final IProgressMonitor monitor) {
+        try {
+
+            final Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                final ZipEntry next = entries.nextElement();
+                if (!next.getName().endsWith(".java")) {
+                    continue;
+                }
+                final InputStream is = zipFile.getInputStream(next);
+                final byte[] bytes = ByteStreams.toByteArray(is);
+                final char[] content = new String(bytes, "UTF-8").toCharArray();
+                final IJavaProject javaProject = root.getJavaProject();
+                final String unitName = javaProject.getElementName() + "/" + next.getName();
+                final CompilationUnit cu = CompilationUnitHelper.parse(content, unitName, javaProject);
+                cu.setProperty("location", computeLocation(root));
+                cu.setProperty("project", javaProject);
+                monitor.subTask(root.getPath() + "!" + next.getName());
+                indexer.index(cu);
+            }
+        } catch (final Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    private static Optional<ZipFile> getAttachedSourceArchive(final IPackageFragmentRoot root) {
+        try {
+            final IClasspathEntry cp = root.getResolvedClasspathEntry();
+            final IPath path = cp.getSourceAttachmentPath();
+            if (path == null) {
+                return absent();
+            }
+            final File file = path.toFile();
+            if (!file.exists() || file.isDirectory()) {
+                return absent();
+            }
+            // jsut get it into memory to make the scan faster
+            Files.toByteArray(file);
+            return of(new ZipFile(file));
+        } catch (final Exception e) {
+            RecommendersPlugin.logError(e, "failed to read attached source file.");
+            return absent();
+        }
+    }
+
+    private static boolean isBinaryArchive(final IPackageFragmentRoot root) throws JavaModelException {
+        return root.isArchive() && root.getKind() == IPackageFragmentRoot.K_BINARY; // redundant?
     }
 
     public static CompilationUnit getAST(final ITypeRoot cu) {
@@ -98,6 +169,7 @@ public class IndexUtils {
             }
             final CompilationUnit ast = getAST(cu);
             if (ast != null) {
+                indexer.delete(computeLocation(cu));
                 indexer.index(ast);
             }
         } catch (final Exception e) {
@@ -106,21 +178,34 @@ public class IndexUtils {
     }
 
     public static boolean shouldIndex(final ITypeRoot cu, final CodeIndexerIndex indexer) throws JavaModelException {
-        final String location = computeLocation(cu);
-        final File file = new File(StringUtils.substringBefore(location, "!"));
+        final File file = computeLocation(cu);
         final long lastModified = file.lastModified();
-        final long lastIndexed = indexer.lastIndexed(location);
+        final long lastIndexed = indexer.lastIndexed(file);
         return lastIndexed < lastModified;
     }
 
-    public static String computeLocation(final ITypeRoot root) {
+    public static File computeLocation(final ITypeRoot root) {
+
         final IResource resource = root.getResource();
+        final IPath path;
         if (resource == null) {
-            final String l = root instanceof IClassFile ? ((IClassFile) root).getType().getFullyQualifiedName()
-                    : "<unknown>";
-            return root.getPath().toPortableString() + "!" + l;
+            path = root.getPath();
         } else {
-            return resource.getFullPath().toPortableString();
+            path = resource.getRawLocation();
         }
+        return path.toFile();
     }
+
+    public static File computeLocation(final IPackageFragmentRoot root) {
+
+        final IResource resource = root.getResource();
+        final IPath path;
+        if (resource == null) {
+            path = root.getPath();
+        } else {
+            path = resource.getRawLocation();
+        }
+        return path.toFile();
+    }
+
 }

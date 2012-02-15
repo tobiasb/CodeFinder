@@ -14,6 +14,7 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.TopScoreDocCollector;
 import org.apache.lucene.store.Directory;
 import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
@@ -53,6 +54,15 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         } catch (final Exception ex) {
             // XXX: Activator.logError(ex);
         }
+    }
+
+    public List<Document> search(final Query query, final int maxHits) throws IOException {
+
+        final IndexSearcher searcher = new IndexSearcher(reader);
+        final TopDocs docs = searcher.search(query, maxHits);
+        final List<Document> result = toList(searcher, docs.scoreDocs);
+        searcher.close();
+        return result;
     }
 
     public List<Document> search(final Query query) throws IOException {

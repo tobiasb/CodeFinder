@@ -11,7 +11,6 @@ import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 import org.eclipse.recommenders.utils.names.IMethodName;
-import org.eclipse.recommenders.utils.names.IName;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
@@ -77,8 +76,8 @@ public final class BindingHelper {
         return of(opt.get().getIdentifier());
     }
 
-    public static String getIdentifier(final IName name) {
-        return name != null ? name.getIdentifier() : null;
-    }
+    // public static String getIdentifier(final IName name) {
+    // return name != null ? name.getIdentifier() : null;
+    // }
 
 }

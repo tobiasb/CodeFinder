@@ -1,12 +1,10 @@
 package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
 import org.apache.lucene.document.Document;
-import org.eclipse.jdt.core.IField;
-import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.ITypeBinding;
+import org.eclipse.jdt.core.dom.IVariableBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
@@ -15,7 +13,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
 import com.google.common.base.Optional;
 
@@ -40,7 +37,8 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
     }
 
     @Override
-    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
+            final CatchClause catchClause) {
         addFields(document, catchClause);
         final Optional<MethodDeclaration> optMethod = getDeclaringMethod(catchClause);
         if (optMethod.isPresent()) {
@@ -55,17 +53,8 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
     }
 
     private void addFields(final Document document, final ITypeBinding type) {
-        final Optional<IType> opt = BindingUtils.getType(type);
-        if (!opt.isPresent()) {
-            return;
-        }
-        final IType typeName = opt.get();
-
-        try {
-            for (final IField field : typeName.getFields()) {
-                addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getElementName());
-            }
-        } catch (final JavaModelException e) {
+        for (final IVariableBinding field : type.getDeclaredFields()) {
+            addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getName());
         }
 
         if (type.getSuperclass() != null) {

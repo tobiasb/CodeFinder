@@ -21,6 +21,7 @@ import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jdt.core.ICompilationUnit;
@@ -80,10 +81,13 @@ public class IndexUpdateService {
 
             @Override
             protected IStatus run(final IProgressMonitor monitor) {
-                for (final IProject p : workspace.getProjects()) {
+                final IProject[] projects = workspace.getProjects();
+                monitor.beginTask("Indexing", projects.length);
+                for (final IProject p : projects) {
                     if (JavaProject.hasJavaNature(p)) {
-                        scheduleIndexingJob(JavaCore.create(p), indexer);
+                        IndexUtils.indexProject(JavaCore.create(p), indexer, new SubProgressMonitor(monitor, 1));
                     }
+                    monitor.worked(1);
                 }
                 return Status.OK_STATUS;
             }
