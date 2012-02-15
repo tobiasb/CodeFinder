@@ -108,7 +108,6 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public void index(final CompilationUnit cu, final IIndexer indexer) throws IOException {
         tmpIndexerCollection.clear();
         tmpIndexerCollection.add(indexer);
-
         index(cu, tmpIndexerCollection);
     }
 

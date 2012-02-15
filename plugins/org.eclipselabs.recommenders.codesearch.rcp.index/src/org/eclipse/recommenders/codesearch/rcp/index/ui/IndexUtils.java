@@ -169,6 +169,7 @@ public class IndexUtils {
             }
             final CompilationUnit ast = getAST(cu);
             if (ast != null) {
+                indexer.delete(computeLocation(cu));
                 indexer.index(ast);
             }
         } catch (final Exception e) {
