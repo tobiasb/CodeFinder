@@ -53,6 +53,10 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
     }
 
     private void addFields(final Document document, final ITypeBinding type) {
+        if (type == null) {
+            return;
+        }
+
         for (final IVariableBinding field : type.getDeclaredFields()) {
             addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getName());
         }
