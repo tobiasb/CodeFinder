@@ -144,9 +144,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     @Override
     public void delete(final CompilationUnit cu) throws IOException {
         final ResourcePathIndexer indexer = new ResourcePathIndexer();
-        final File cuPath = indexer.getResourcePath(cu);
+        final String cuPath = indexer.getResourcePath(cu);
 
-        delete(new Term(Fields.RESOURCE_PATH, cuPath.getAbsolutePath()));
+        delete(new Term(Fields.RESOURCE_PATH, cuPath));
     }
 
     public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {

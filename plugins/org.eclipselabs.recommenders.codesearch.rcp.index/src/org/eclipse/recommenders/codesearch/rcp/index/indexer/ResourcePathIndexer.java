@@ -53,8 +53,8 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
         addAnalyzedField(document, Fields.RESOURCE_PATH, f.getAbsolutePath());
     }
 
-    public File getResourcePath(final CompilationUnit cu) {
-        return getLocation(cu);
+    public String getResourcePath(final CompilationUnit cu) {
+        return getLocation(cu).getAbsolutePath();
     }
 
     // public String getResourcePath(final IResource resource) {
