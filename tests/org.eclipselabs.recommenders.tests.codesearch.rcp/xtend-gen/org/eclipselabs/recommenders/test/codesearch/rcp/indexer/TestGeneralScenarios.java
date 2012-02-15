@@ -41,7 +41,6 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipselabs.recommenders.test.codesearch.rcp.indexer.TestBase;
-import org.junit.Ignore;
 import org.junit.Test;
 
 @SuppressWarnings("all")
@@ -556,12 +555,12 @@ public class TestGeneralScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;");
+      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(index, _l);
       String _s_2 = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;");
+      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
       this.assertField(index, _l_1);
@@ -605,17 +604,17 @@ public class TestGeneralScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;");
+      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(index, _l);
       String _s_2 = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;");
+      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
       this.assertField(index, _l_1);
       String _s_4 = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_5 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;");
+      String _s_5 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_3 = CollectionLiterals.<String>newArrayList(_s_4, _s_5);
       List<String> _l_2 = this.l(((String[])Conversions.unwrapArray(_newArrayList_3, String.class)));
       this.assertField(index, _l_2);
@@ -865,7 +864,6 @@ public class TestGeneralScenarios extends TestBase {
   }
   
   @Test
-  @Ignore
   public void testResourcePathIndexer() {
     try {
       {
@@ -912,7 +910,6 @@ public class TestGeneralScenarios extends TestBase {
   }
   
   @Test
-  @Ignore
   public void testResourcePathIndexer02() {
     try {
       {
@@ -965,7 +962,6 @@ public class TestGeneralScenarios extends TestBase {
   }
   
   @Test
-  @Ignore
   public void testResourcePathIndexer03() {
     try {
       {
@@ -1015,7 +1011,6 @@ public class TestGeneralScenarios extends TestBase {
   }
   
   @Test
-  @Ignore
   public void testResourcePathIndexer04() {
     try {
       {
@@ -1074,7 +1069,6 @@ public class TestGeneralScenarios extends TestBase {
   }
   
   @Test
-  @Ignore
   public void testResourcePathIndexer05() {
     try {
       {

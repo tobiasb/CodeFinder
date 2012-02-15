@@ -2,7 +2,6 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.indexer
 
 import org.apache.lucene.store.RAMDirectory
 import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
 import org.eclipse.recommenders.codesearch.rcp.index.Fields
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllDeclaredFieldNamesIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AnnotationsIndexer
@@ -26,10 +25,10 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInTryInde
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedMethodsIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedTypesIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor
+import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
 import org.junit.Test
 
 import static org.eclipselabs.recommenders.test.codesearch.rcp.indexer.TestBase.*
-import org.junit.Ignore
 
 class TestGeneralScenarios extends TestBase {
 
@@ -349,12 +348,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
+			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
 		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
+			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	
@@ -377,17 +376,17 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
+			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
 		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
+			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
 		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(LK;LV;)LV;")
+			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	
@@ -545,7 +544,6 @@ class TestGeneralScenarios extends TestBase {
 	}
 	
 	@Test
-	@Ignore
 	def void testResourcePathIndexer(){
 		val code = '''
 		public class MyClass {
@@ -553,7 +551,6 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
-//		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
 		val struct = fixture.createFileAndParseWithMarkers(code.toString)
 		val cu = struct.first;
         var cuParsed = parse(cu);
@@ -573,7 +570,6 @@ class TestGeneralScenarios extends TestBase {
 	}
 	
 	@Test
-	@Ignore
 	def void testResourcePathIndexer02(){
 		val code = '''
 		public class MyClass {
@@ -583,7 +579,6 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
-//		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
 		val struct = fixture.createFileAndParseWithMarkers(code.toString)
 		val cu = struct.first;
         var cuParsed = parse(cu);
@@ -603,7 +598,6 @@ class TestGeneralScenarios extends TestBase {
 	}
 	
 	@Test
-	@Ignore
 	def void testResourcePathIndexer03(){
 		val code = '''
 		public class MyClass {
@@ -612,7 +606,6 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
-//		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
 		val struct = fixture.createFileAndParseWithMarkers(code.toString)
 		val cu = struct.first;
         var cuParsed = parse(cu);
@@ -632,7 +625,6 @@ class TestGeneralScenarios extends TestBase {
 	}
 	
 	@Test
-	@Ignore
 	def void testResourcePathIndexer04(){
 		val code = '''
 		public class MyClass {
@@ -644,7 +636,6 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
-//		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
 		val struct = fixture.createFileAndParseWithMarkers(code.toString)
 		val cu = struct.first;
         var cuParsed = parse(cu);
@@ -664,7 +655,6 @@ class TestGeneralScenarios extends TestBase {
 	}
 	
 	@Test
-	@Ignore
 	def void testResourcePathIndexer05(){
 		val code = '''
 		public class MyClass {
@@ -675,7 +665,6 @@ class TestGeneralScenarios extends TestBase {
 		'''
 		
 		val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),"projectName")
-//		val struct = fixture.createFileAndParseWithMarkers(code.toString, "MyClass.java")
 		val struct = fixture.createFileAndParseWithMarkers(code.toString)
 		val cu = struct.first;
         var cuParsed = parse(cu);

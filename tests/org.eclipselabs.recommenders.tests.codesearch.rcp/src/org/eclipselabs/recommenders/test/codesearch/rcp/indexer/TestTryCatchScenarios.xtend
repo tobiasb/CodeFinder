@@ -103,7 +103,7 @@ class TestTryCatchScenarios extends TestBase {
 				
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::USED_METHODS_IN_TRY, "Ljava/util/Map.put(LK;LV;)LV;")
+			s(Fields::USED_METHODS_IN_TRY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	
@@ -128,7 +128,7 @@ class TestTryCatchScenarios extends TestBase {
 			
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::USED_METHODS_IN_FINALLY, "Ljava/util/Map.put(LK;LV;)LV;")
+			s(Fields::USED_METHODS_IN_FINALLY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	

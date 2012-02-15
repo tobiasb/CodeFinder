@@ -19,6 +19,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService;
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
 import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -233,6 +234,7 @@ public class TestBase extends AbstractTestBase {
   public CodeIndexerIndex exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
     try {
       {
+        IndexUpdateService.setBackgroundIndexerActive(false);
         IWorkspace _workspace = ResourcesPlugin.getWorkspace();
         JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, projectName);
         final JavaProjectFixture fixture = _javaProjectFixture;

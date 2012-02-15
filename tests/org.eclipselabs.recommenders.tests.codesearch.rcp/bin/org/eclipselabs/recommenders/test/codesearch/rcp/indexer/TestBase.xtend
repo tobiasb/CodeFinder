@@ -12,6 +12,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
+import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService
 import org.junit.Ignore
 
 import static junit.framework.Assert.*
@@ -138,9 +139,8 @@ class TestBase extends AbstractTestBase {
     }
     
     def exercise(CharSequence code1, CharSequence code2, CharSequence code3, List<IIndexer> indexer, String projectName, String fileName) {   	
-    	//IndexUpdaterServiceSettings::setNoDispatch(true); // To prevent workspace events from being processed
+    	IndexUpdateService::setBackgroundIndexerActive(false) // To prevent workspace events from being processed
     	val fixture = new JavaProjectFixture(ResourcesPlugin::getWorkspace(),projectName)
-		//val struct = fixture.createFileAndParseWithMarkers(code1.toString, fileName)
 		val struct = fixture.createFileAndParseWithMarkers(code1.toString)
 		val cu = struct.first;
         var cuParsed = parse(cu);

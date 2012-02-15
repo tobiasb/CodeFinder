@@ -12,6 +12,7 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService;
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
 import org.eclipse.recommenders.utils.Tuple;
 
@@ -23,11 +24,11 @@ public class AbstractTestIndex {
     private final List<Document> docs = Lists.newArrayList();
     private Document currentDoc = null;
 
+    private final String TestClassName = "MyInstanceOfClass";
+
     public AbstractTestIndex() {
-        // IndexUpdaterServiceSettings.setNoDispatch(true); // To prevent
-        // workspace
-        // // events from being
-        // // processed
+        IndexUpdateService.setBackgroundIndexerActive(false);
+        // To prevent workspace events from being processed
     }
 
     public AbstractTestIndex newIndex() throws IOException {
@@ -38,6 +39,10 @@ public class AbstractTestIndex {
         index = new CodeIndexerIndex(new RAMDirectory());
 
         return this;
+    }
+
+    public String getTestClassFileName() {
+        return TestClassName + ".java";
     }
 
     public CodeIndexerIndex getIndexer() {
@@ -93,11 +98,9 @@ public class AbstractTestIndex {
     protected CompilationUnit getSampleCompilationUnit() throws Exception {
 
         final JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
-        // XXX final Tuple<ICompilationUnit, Set<Integer>> struct =
-        // fixture.createFileAndParseWithMarkers(
-        // "public class MyInstanceOfClass {}", "MyClass.java");
-        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture
-                .createFileAndParseWithMarkers("public class MyInstanceOfClass {}");
+
+        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers("public class "
+                + TestClassName + " {}");
 
         final CompilationUnit cu = CompilationUnitHelper.parse(struct.getFirst());
 
@@ -107,12 +110,9 @@ public class AbstractTestIndex {
     protected ICompilationUnit getSampleICompilationUnit() throws Exception {
 
         final JavaProjectFixture fixture = new JavaProjectFixture(ResourcesPlugin.getWorkspace(), "testProject");
-        // XXX final Tuple<ICompilationUnit, Set<Integer>> struct =
-        // fixture.createFileAndParseWithMarkers(
-        // "public class MyInstanceOfClass {}", "MyClass.java");
 
-        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture
-                .createFileAndParseWithMarkers("public class MyInstanceOfClass {}");
+        final Tuple<ICompilationUnit, Set<Integer>> struct = fixture.createFileAndParseWithMarkers("public class "
+                + TestClassName + " {}");
 
         final ICompilationUnit cu = struct.getFirst();
 

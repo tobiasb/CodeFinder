@@ -40,6 +40,12 @@ import com.google.common.eventbus.Subscribe;
 
 public class IndexUpdateService {
 
+    private static boolean backgroundIndexerActive = true;
+
+    public static void setBackgroundIndexerActive(boolean isActive) {
+        backgroundIndexerActive = isActive;
+    }
+
     public static final ISchedulingRule MUTEX = new ISchedulingRule() {
         @Override
         public boolean isConflicting(final ISchedulingRule rule) {
@@ -96,26 +102,28 @@ public class IndexUpdateService {
 
     @Subscribe
     public void onEvent(final CompilationUnitAdded event) {
-        addOrUpdateCompilationUnitToIndex(event.compilationUnit);
+        if (PreferencePage.isActive() && backgroundIndexerActive) {
+            addOrUpdateCompilationUnitToIndex(event.compilationUnit);
+        }
     }
 
     @Subscribe
     public void onEvent(final JavaProjectOpened event) {
-        if (PreferencePage.isActive()) {
+        if (PreferencePage.isActive() && backgroundIndexerActive) {
             scheduleIndexingJob(event.project, indexer);
         }
     }
 
     @Subscribe
     public void onEvent(final CompilationUnitSaved event) {
-        if (PreferencePage.isActive()) {
+        if (PreferencePage.isActive() && backgroundIndexerActive) {
             addOrUpdateCompilationUnitToIndex(event.compilationUnit);
         }
     }
 
     @Subscribe
     public void onEvent(final CompilationUnitRemoved event) {
-        if (!PreferencePage.isActive()) {
+        if (!PreferencePage.isActive() || !backgroundIndexerActive) {
             return;
         }
 

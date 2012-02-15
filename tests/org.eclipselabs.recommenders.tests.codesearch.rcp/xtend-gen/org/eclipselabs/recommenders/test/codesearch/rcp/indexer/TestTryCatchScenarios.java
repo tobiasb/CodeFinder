@@ -193,7 +193,7 @@ public class TestTryCatchScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.USED_METHODS_IN_TRY, "Ljava/util/Map.put(LK;LV;)LV;");
+      String _s_1 = this.s(Fields.USED_METHODS_IN_TRY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(index, _l);
@@ -241,7 +241,7 @@ public class TestTryCatchScenarios extends TestBase {
       CodeIndexerIndex _exercise = this.exercise(code, _i);
       CodeIndexerIndex index = _exercise;
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.USED_METHODS_IN_FINALLY, "Ljava/util/Map.put(LK;LV;)LV;");
+      String _s_1 = this.s(Fields.USED_METHODS_IN_FINALLY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(index, _l);
