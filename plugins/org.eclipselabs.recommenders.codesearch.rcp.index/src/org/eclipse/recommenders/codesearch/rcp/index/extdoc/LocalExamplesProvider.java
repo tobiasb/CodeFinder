@@ -15,9 +15,7 @@ import javax.inject.Inject;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
-import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.TermQuery;
-import org.apache.lucene.search.TopDocs;
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.ILocalVariable;
 import org.eclipse.jdt.core.IMethod;
@@ -40,6 +38,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider;
 import org.eclipse.recommenders.extdoc.rcp.providers.JavaSelectionSubscriber;
 import org.eclipse.recommenders.rcp.events.JavaSelectionEvent;
@@ -89,10 +88,10 @@ public class LocalExamplesProvider extends ExtdocProvider {
         }
 
         final BooleanQuery query = createQuery();
-        final Tuple<TopDocs, IndexSearcher> searchResults = searcher.lenientSearch(query, 5000);
+        final SearchResult searchResult = searcher.lenientSearch(query, 5000);
         stopMeasurement();
 
-        runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString(), jdtResolver, searchterms));
+        runSyncInUiThread(new Renderer(searchResult, parent, varType, watch.toString(), jdtResolver, searchterms));
         return OK;
     }
 
@@ -110,7 +109,7 @@ public class LocalExamplesProvider extends ExtdocProvider {
         }
 
         final BooleanQuery query = createQuery();
-        final Tuple<TopDocs, IndexSearcher> searchResults = searcher.lenientSearch(query, 5000);
+        final SearchResult searchResults = searcher.lenientSearch(query, 5000);
         stopMeasurement();
 
         runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString(), jdtResolver, searchterms));

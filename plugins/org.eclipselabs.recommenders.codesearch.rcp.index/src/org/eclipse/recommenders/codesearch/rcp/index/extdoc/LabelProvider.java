@@ -16,8 +16,6 @@ import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.TopDocs;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -29,6 +27,7 @@ import org.eclipse.jdt.ui.text.IColorManager;
 import org.eclipse.jdt.ui.text.IJavaColorConstants;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.utils.IOUtils;
 import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
@@ -47,10 +46,10 @@ public class LabelProvider extends StyledCellLabelProvider {
     private MethodDeclaration astMethod;
     private List<ASTNode> statements;
     private final List<String> searchterms;
-    private final Tuple<TopDocs, IndexSearcher> searchResults;
+    private final SearchResult searchResults;
 
     public LabelProvider(final JavaElementResolver jdtCache, final List<String> searchterms,
-            final Tuple<TopDocs, IndexSearcher> searchResults) {
+            final SearchResult searchResults) {
         this.searchterms = searchterms;
         this.searchResults = searchResults;
     }

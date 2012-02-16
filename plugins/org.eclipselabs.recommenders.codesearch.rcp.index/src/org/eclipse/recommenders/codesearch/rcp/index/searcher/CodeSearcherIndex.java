@@ -23,7 +23,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorConsumable;
 import org.eclipse.recommenders.utils.Checks;
-import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.annotations.VisibleForTesting;
@@ -36,10 +35,12 @@ import com.google.inject.Singleton;
 public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
     private final QueryParser parser;
     private IndexReader reader;
+    private IndexSearcher searcher;
 
     public CodeSearcherIndex(final Directory directory) throws IOException {
         super(directory);
         reader = IndexReader.open(directory);
+        searcher = new IndexSearcher(reader);
         parser = new QueryParser(getVersion(), Fields.FULL_TEXT, getAnalyzer());
         parser.setLowercaseExpandedTerms(false);
         parser.setAllowLeadingWildcard(true);
@@ -66,33 +67,28 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
     }
 
     public List<Document> search(final Query query, final FieldSelector selector, final int maxHits) throws IOException {
-        final Tuple<TopDocs, IndexSearcher> docs = lenientSearch(query, maxHits);
-        final IndexSearcher searcher = docs.getSecond();
-        final ScoreDoc[] scoreDocs = docs.getFirst().scoreDocs;
-        final List<Document> result = toList(searcher, scoreDocs, selector);
-        searcher.close();
+        final SearchResult searchResult = lenientSearch(query, maxHits);
+        final List<Document> result = toList(searchResult.scoreDocs(), selector);
         return result;
     }
 
     /**
      * caller is responsible for closing the searcher
      */
-    public Tuple<TopDocs, IndexSearcher> lenientSearch(final Query query) throws IOException {
+    public SearchResult lenientSearch(final Query query) throws IOException {
         renewReader();
-        final IndexSearcher searcher = new IndexSearcher(reader);
-        final TopDocs docs = searcher.search(query, reader.numDocs());
-        return Tuple.newTuple(docs, searcher);
+        final TopDocs docs = searcher.search(query, reader.numDocs() + 1);
+        return new SearchResult(query, docs, searcher);
     }
 
     /**
      * caller is responsible for closing the searcher
      */
-    public Tuple<TopDocs, IndexSearcher> lenientSearch(final Query query, final int maxHits) throws IOException {
+    public SearchResult lenientSearch(final Query query, final int maxHits) throws IOException {
         Checks.ensureIsGreaterOrEqualTo(maxHits, 1, "max hits must be greater zero");
         renewReader();
-        final IndexSearcher searcher = new IndexSearcher(reader);
         final TopDocs docs = searcher.search(query, maxHits);
-        return Tuple.newTuple(docs, searcher);
+        return new SearchResult(query, docs, searcher);
     }
 
     @Override
@@ -117,15 +113,17 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
             if (newReader != null) {
                 // reader was reopened
                 reader.close();
+                searcher.close();
                 reader = newReader;
+                searcher = new IndexSearcher(reader);
             }
         } catch (final Exception e) {
             RecommendersUtilsPlugin.logError(e, "Exception during reopening of index reader");
         }
     }
 
-    private static List<Document> toList(final IndexSearcher searcher, final ScoreDoc[] scoreDocs,
-            final FieldSelector selector) throws CorruptIndexException, IOException {
+    private List<Document> toList(final ScoreDoc[] scoreDocs, final FieldSelector selector)
+            throws CorruptIndexException, IOException {
         final List<Document> result = new ArrayList<Document>(scoreDocs.length);
         for (final ScoreDoc doc : scoreDocs) {
             if (selector != null) {

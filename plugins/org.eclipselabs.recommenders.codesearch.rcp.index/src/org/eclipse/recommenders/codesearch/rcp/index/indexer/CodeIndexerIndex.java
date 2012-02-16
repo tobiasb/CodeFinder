@@ -59,7 +59,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         IndexWriter.unlock(getIndex());
         m_writer = new IndexWriter(getIndex(), config);
         m_writer.commit();
-        searcherIndex = new CodeSearcherIndex(getIndex());
+        searcherIndex = new CodeSearcherIndex(directory);
         indexInformationProvider = new IndexInformationCache();
     }
 
@@ -208,12 +208,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     @Override
     public void close() {
         try {
-            // XXX: Activator.logInfo("Closing %s",
-            // CodeIndexerIndex.class.getName());
-
             commit();
-            // m_writer.close();
-            // getIndex().close();
         } catch (final Exception ex) {
             RecommendersPlugin.logError(ex, "failed to close code-search index.");
         }

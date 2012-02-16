@@ -10,14 +10,10 @@
  */
 package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.apache.lucene.document.Document;
-import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.AST;
@@ -28,6 +24,7 @@ import org.eclipse.jface.viewers.ILazyContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.recommenders.utils.names.VmMethodName;
@@ -52,24 +49,17 @@ final class ContentProvider implements ILazyContentProvider {
     }
 
     private TableViewer viewer;
-    private final ScoreDoc[] scoreDocs;
-    private final IndexSearcher searcher;
     private final JavaElementResolver jdtResolver;
+    private final SearchResult searchResults;
 
-    ContentProvider(final Tuple<TopDocs, IndexSearcher> search, final JavaElementResolver jdtResolver) {
+    ContentProvider(final SearchResult searchResults, final JavaElementResolver jdtResolver) {
+        this.searchResults = searchResults;
         this.jdtResolver = jdtResolver;
-        scoreDocs = search.getFirst().scoreDocs;
-        searcher = search.getSecond();
     }
 
     @Override
     public void dispose() {
-        try {
-            searcher.close();
-            s.shutdownNow();
-        } catch (final IOException e) {
-            RecommendersPlugin.logError(e, "Failed to close index searcher");
-        }
+        s.shutdown();
     }
 
     @Override
@@ -82,7 +72,7 @@ final class ContentProvider implements ILazyContentProvider {
             @Override
             public void run() {
                 try {
-                    final Document doc = searcher.doc(scoreDocs[index].doc);
+                    final Document doc = searchResults.scoreDoc(index);
                     if (!findMethodName(doc)) {
                         updateIndex(EMPTY, "", index);
                         return;
