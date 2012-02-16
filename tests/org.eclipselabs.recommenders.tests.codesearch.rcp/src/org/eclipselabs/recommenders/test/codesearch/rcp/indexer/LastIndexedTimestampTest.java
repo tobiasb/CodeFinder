@@ -25,7 +25,7 @@ public class LastIndexedTimestampTest extends AbstractTestIndex {
 
         final ICompilationUnit icu = getSampleICompilationUnit();
 
-        final IPath p = Path.fromPortableString(ResourcePathIndexer.getResourcePath(CompilationUnitHelper.parse(icu)));
+        final IPath p = Path.fromPortableString(ResourcePathIndexer.getPath(CompilationUnitHelper.parse(icu)));
         final File location = p.toFile();
 
         newIndex();

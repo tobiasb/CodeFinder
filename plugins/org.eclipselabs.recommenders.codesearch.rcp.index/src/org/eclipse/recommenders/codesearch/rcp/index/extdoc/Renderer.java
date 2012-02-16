@@ -14,28 +14,24 @@ import static java.lang.String.format;
 
 import java.util.List;
 
-import org.apache.lucene.document.Document;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.TopDocs;
-import org.eclipse.jdt.core.IMethod;
+import org.eclipse.jdt.core.dom.IMethodBinding;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.ui.JavaUI;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.Names;
 import org.eclipse.recommenders.utils.Tuple;
-import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.recommenders.utils.rcp.RCPUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
 
 import com.google.common.base.Optional;
 
@@ -81,19 +77,12 @@ public final class Renderer implements Runnable {
 
             @Override
             public void doubleClick(final DoubleClickEvent event) {
-                final Optional<Document> doc = RCPUtils.first(event.getSelection());
+                final Optional<Tuple<MethodDeclaration, String>> doc = RCPUtils.first(event.getSelection());
                 if (doc.isPresent()) {
-                    final String string = doc.get().get(Fields.DECLARING_METHOD);
-                    if (string == null) {
-                        MessageDialog.openError(new Shell(), "Indexing error.",
-                                "declaring method for document is null: " + doc);
-                        return;
-                    }
-                    final VmMethodName recMethod = VmMethodName.get(string);
-                    final Optional<IMethod> jdtMethod = jdtResolver.toJdtMethod(recMethod);
-                    if (jdtMethod.isPresent()) {
+                    final IMethodBinding method = doc.get().getFirst().resolveBinding();
+                    if (method != null) {
                         try {
-                            JavaUI.openInEditor(jdtMethod.get());
+                            JavaUI.openInEditor(method.getJavaElement());
                         } catch (final Exception e) {
                             RecommendersPlugin.logError(e, "Failed to open method declaration in editor");
                         }

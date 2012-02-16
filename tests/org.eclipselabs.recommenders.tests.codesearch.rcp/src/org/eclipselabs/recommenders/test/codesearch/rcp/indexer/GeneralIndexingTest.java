@@ -24,7 +24,7 @@ public class GeneralIndexingTest extends AbstractTestIndex {
         index.commit();
 
         Assert.assertEquals(1, getSearchIndexer().getDocuments().size());
-        Term term = new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getResourcePathForQuery(cu));
+        final Term term = new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(cu));
         index.delete(term);
         index.commit();
         Assert.assertEquals(0, getSearchIndexer().getDocuments().size());

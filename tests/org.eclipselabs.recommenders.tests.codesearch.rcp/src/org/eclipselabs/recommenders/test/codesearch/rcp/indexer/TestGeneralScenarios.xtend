@@ -565,7 +565,7 @@ class TestGeneralScenarios extends TestBase {
         		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
+			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getPath(getCompilationUnitFromAstNode(cuParsed)))
 		)))		
 	}
 	
@@ -593,7 +593,7 @@ class TestGeneralScenarios extends TestBase {
         		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
+			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getPath(getCompilationUnitFromAstNode(cuParsed)))
 		)))		
 	}
 	
@@ -620,7 +620,7 @@ class TestGeneralScenarios extends TestBase {
         		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
-			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
+			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getPath(getCompilationUnitFromAstNode(cuParsed)))
 		)))		
 	}
 	
@@ -650,7 +650,7 @@ class TestGeneralScenarios extends TestBase {
         		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getResourcePath(getCompilationUnitFromAstNode(cuParsed))
+			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getPath(getCompilationUnitFromAstNode(cuParsed))
 			)
 		)))			
 	}
@@ -680,7 +680,7 @@ class TestGeneralScenarios extends TestBase {
         		
 		assertField(index, l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
-			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getResourcePath(getCompilationUnitFromAstNode(cuParsed)))
+			s(Fields::RESOURCE_PATH, ResourcePathIndexer::getPath(getCompilationUnitFromAstNode(cuParsed)))
 		)))		
 	}
 	

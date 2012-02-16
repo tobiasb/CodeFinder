@@ -897,8 +897,8 @@ public class TestGeneralScenarios extends TestBase {
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
-        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        String _path = ResourcePathIndexer.getPath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _path);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
         this.assertField(index, _l);
@@ -948,8 +948,8 @@ public class TestGeneralScenarios extends TestBase {
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
-        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        String _path = ResourcePathIndexer.getPath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _path);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
         this.assertField(index, _l);
@@ -996,8 +996,8 @@ public class TestGeneralScenarios extends TestBase {
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
-        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        String _path = ResourcePathIndexer.getPath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _path);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
         this.assertField(index, _l);
@@ -1053,8 +1053,8 @@ public class TestGeneralScenarios extends TestBase {
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
-        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        String _path = ResourcePathIndexer.getPath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _path);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
         this.assertField(index, _l);
@@ -1107,8 +1107,8 @@ public class TestGeneralScenarios extends TestBase {
         index.commit();
         String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
         CompilationUnit _compilationUnitFromAstNode = this.getCompilationUnitFromAstNode(cuParsed);
-        String _resourcePath = ResourcePathIndexer.getResourcePath(_compilationUnitFromAstNode);
-        String _s_1 = this.s(Fields.RESOURCE_PATH, _resourcePath);
+        String _path = ResourcePathIndexer.getPath(_compilationUnitFromAstNode);
+        String _s_1 = this.s(Fields.RESOURCE_PATH, _path);
         ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
         List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
         this.assertField(index, _l);

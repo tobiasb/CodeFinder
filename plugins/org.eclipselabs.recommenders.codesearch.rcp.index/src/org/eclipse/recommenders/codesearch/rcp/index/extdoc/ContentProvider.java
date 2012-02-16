@@ -43,22 +43,17 @@ final class ContentProvider implements ILazyContentProvider {
 
     private final ExecutorService s = Executors.newFixedThreadPool(5,
             new ThreadFactoryBuilder().setPriority(Thread.MIN_PRIORITY).build());
-    static MethodDeclaration DUMMY;
+    public static MethodDeclaration EMPTY;
     static {
         final AST ast = AST.newAST(AST.JLS4);
-        DUMMY = ast.newMethodDeclaration();
-        DUMMY.setName(ast.newSimpleName("not_found"));
-        DUMMY.setBody(ast.newBlock());
+        EMPTY = ast.newMethodDeclaration();
+        EMPTY.setName(ast.newSimpleName("not_found"));
+        EMPTY.setBody(ast.newBlock());
     }
 
     private TableViewer viewer;
     private final ScoreDoc[] scoreDocs;
     private final IndexSearcher searcher;
-
-    private VmMethodName recMethod;
-    private IMethod jdtMethod;
-
-    private MethodDeclaration astMethod;
     private final JavaElementResolver jdtResolver;
 
     ContentProvider(final Tuple<TopDocs, IndexSearcher> search, final JavaElementResolver jdtResolver) {
@@ -80,72 +75,76 @@ final class ContentProvider implements ILazyContentProvider {
     @Override
     public void updateElement(final int index) {
         s.submit(new Runnable() {
+            private VmMethodName recMethod;
+            private IMethod jdtMethod;
+            private MethodDeclaration astMethod;
 
             @Override
             public void run() {
                 try {
                     final Document doc = searcher.doc(scoreDocs[index].doc);
                     if (!findMethodName(doc)) {
-                        updateIndex(DUMMY, "");
+                        updateIndex(EMPTY, "", index);
                         return;
                     }
                     if (!findJdtMethod()) {
-                        updateIndex(DUMMY, "");
+                        updateIndex(EMPTY, "", index);
                         return;
                     }
                     if (!findAstMethod()) {
-                        updateIndex(DUMMY, "");
+                        updateIndex(EMPTY, "", index);
                         return;
                     }
-                    updateIndex(astMethod, doc.get(Fields.VARIABLE_NAME));
+                    updateIndex(astMethod, doc.get(Fields.VARIABLE_NAME), index);
                 } catch (final Exception e) {
                     RecommendersUtilsPlugin.logError(e, "failed to load document from index");
                 }
             }
 
-            private void updateIndex(final MethodDeclaration method, final String varname) {
+            private void updateIndex(final MethodDeclaration method, final String varname, final int index) {
                 Display.getDefault().asyncExec(new Runnable() {
 
                     @Override
                     public void run() {
-                        viewer.replace(Tuple.newTuple(method, varname), index);
+                        final Tuple<MethodDeclaration, String> newTuple = Tuple.newTuple(method, varname);
+                        viewer.replace(newTuple, index);
                     }
                 });
             }
+
+            private boolean findMethodName(final Document doc) {
+                final String name = doc.get(Fields.DECLARING_METHOD);
+                if (name == null) {
+                    return false;
+                }
+                recMethod = VmMethodName.get(name);
+                return recMethod != null;
+            }
+
+            private boolean findJdtMethod() {
+                final Optional<IMethod> opt = jdtResolver.toJdtMethod(recMethod);
+                jdtMethod = opt.orNull();
+                return jdtMethod != null;
+            }
+
+            private boolean findAstMethod() {
+                try {
+                    final ITypeRoot cu = jdtMethod.getTypeRoot();
+                    if (cu == null) {
+                        return false;
+                    }
+                    final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
+                    if (ast == null) {
+                        return false;
+                    }
+                    astMethod = MethodDeclarationFinder.find(ast, recMethod).orNull();
+                    // caused NPEs: ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
+                } catch (final Exception e) {
+                    RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
+                }
+                return astMethod != null;
+            }
         });
-    }
-
-    private boolean findMethodName(final Document doc) {
-        final String name = doc.get(Fields.DECLARING_METHOD);
-        if (name == null) {
-            return false;
-        }
-        recMethod = VmMethodName.get(name);
-        return recMethod != null;
-    }
-
-    private boolean findJdtMethod() {
-        final Optional<IMethod> opt = jdtResolver.toJdtMethod(recMethod);
-        jdtMethod = opt.orNull();
-        return jdtMethod != null;
-    }
-
-    private boolean findAstMethod() {
-        try {
-            final ITypeRoot cu = jdtMethod.getTypeRoot();
-            if (cu == null) {
-                return false;
-            }
-            final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
-            if (ast == null) {
-                return false;
-            }
-            astMethod = MethodDeclarationFinder.find(ast, recMethod).orNull();
-            // caused NPEs: ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
-        } catch (final Exception e) {
-            RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
-        }
-        return astMethod != null;
     }
 
     @Override

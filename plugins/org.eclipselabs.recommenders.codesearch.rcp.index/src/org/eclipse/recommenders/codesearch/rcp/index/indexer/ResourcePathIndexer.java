@@ -1,8 +1,15 @@
 package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
+import static org.eclipse.recommenders.utils.Checks.ensureIsNotNull;
+
 import java.io.File;
+import java.net.URI;
 
 import org.apache.lucene.document.Document;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CatchClause;
 import org.eclipse.jdt.core.dom.CompilationUnit;
@@ -18,8 +25,58 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
+import com.google.common.annotations.VisibleForTesting;
+
 public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer, IFieldIndexer, IVarUsageIndexer {
+
+    public static String getPath(final IJavaElement e) {
+        return getPath(getFile(e));
+    }
+
+    public static File getFile(final IJavaElement e) {
+        final IResource resource = e.getResource();
+        final IPath path;
+        if (resource == null) {
+            path = e.getPath();
+        } else {
+            path = resource.getRawLocation();
+            if (path == null) {
+                final URI uri = resource.getLocationURI();
+                if (uri != null) {
+                    return new File(uri);
+                }
+            }
+        }
+        return path.toFile();
+    }
+
+    public static String getPath(final CompilationUnit cu) {
+        return getPath(getFile(cu));
+    }
+
+    public static File getFile(final CompilationUnit cu) {
+        final ITypeRoot root = cu.getTypeRoot();
+        if (root == null) {
+            // this is a special treatment for cus created from source code w/o
+            // a IClassFile or ICompilationUnit
+            return ensureIsNotNull((File) cu.getProperty("location"));
+        }
+        return getFile(root);
+    }
+
+    public static String getPath(final File file) {
+        return file.getAbsolutePath();
+    }
+
+    @VisibleForTesting
+    public static String escape(final String path) {
+        String fileName = path;
+        fileName = fileName.replaceAll("\\\\", "\\\\\\\\");
+        fileName = fileName.replaceAll(":", "\\\\:");
+        fileName = fileName.replaceAll("-", "\\\\-");
+        return fileName;
+    }
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
@@ -49,35 +106,9 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     }
 
     private void addField(final Document document, final ASTNode node) {
-        final File f = getLocation(node);
+        final CompilationUnit cu = (CompilationUnit) node.getRoot();
+        final File f = getFile(cu);
         addAnalyzedField(document, Fields.RESOURCE_PATH, f.getAbsolutePath());
-    }
-
-    public static String getResourcePath(final CompilationUnit cu) {
-        return getResourcePath(getLocation(cu));
-    }
-
-    public static String getResourcePath(final File file) {
-        return file.getAbsolutePath();
-    }
-
-    public static String getResourcePathForQuery(final CompilationUnit cu) {
-        return getResourcePathForQuery(getLocation(cu));
-    }
-
-    public static String getResourcePathForQuery(final String path) {
-
-        String fileName = path;
-
-        fileName = fileName.replaceAll("\\\\", "\\\\\\\\");
-        fileName = fileName.replaceAll(":", "\\\\:");
-        fileName = fileName.replaceAll("-", "\\\\-");
-
-        return fileName;
-    }
-
-    public static String getResourcePathForQuery(final File file) {
-        return getResourcePathForQuery(file.getAbsolutePath());
     }
 
     // public String getResourcePath(final IResource resource) {

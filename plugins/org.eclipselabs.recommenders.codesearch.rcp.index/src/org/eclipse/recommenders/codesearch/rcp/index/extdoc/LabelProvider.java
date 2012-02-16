@@ -63,6 +63,12 @@ public class LabelProvider extends StyledCellLabelProvider {
         final Tuple<MethodDeclaration, String> element = (Tuple<MethodDeclaration, String>) cell.getElement();
         astMethod = element.getFirst();
         final String varname = element.getSecond();
+        if (astMethod == ContentProvider.EMPTY) {
+            cell.setText("// failed to resolve method.");
+            setCellToCommentStyle(cell);
+            return;
+        }
+
         if (!findStatements(varname)) {
             cell.setText("// failed to resolve matching statements in AST.\n// Either index is outdated or method is not actually using this variable?");
             setCellToCommentStyle(cell);
@@ -102,6 +108,7 @@ public class LabelProvider extends StyledCellLabelProvider {
                 case ASTNode.CLASS_INSTANCE_CREATION:
                     final ASTNode supSup = sup.getParent();
                     switch (supSup.getNodeType()) {
+                    case ASTNode.CLASS_INSTANCE_CREATION:
                     case ASTNode.ASSIGNMENT:
                         statements.add(supSup);
                         break;

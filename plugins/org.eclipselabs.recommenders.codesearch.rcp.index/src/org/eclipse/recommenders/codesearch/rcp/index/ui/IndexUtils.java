@@ -12,6 +12,9 @@ package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
+import static org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex.addAnalyzedField;
+import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getFile;
+import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getPath;
 import static org.eclipse.recommenders.utils.Checks.cast;
 
 import java.io.File;
@@ -21,7 +24,7 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import org.eclipse.core.resources.IResource;
+import org.apache.lucene.document.Document;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -36,9 +39,13 @@ import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.ui.SharedASTProvider;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
+import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.base.Optional;
 import com.google.common.io.ByteStreams;
@@ -57,22 +64,29 @@ public class IndexUtils {
             final IPackageFragmentRoot[] roots = project.getPackageFragmentRoots();
             monitor.beginTask("", roots.length);
             for (final IPackageFragmentRoot root : roots) {
+                final File location = getFile(root);
+                monitor.subTask("testing " + location);
+                if (monitor.isCanceled()) {
+                    return Status.CANCEL_STATUS;
+                }
                 if (isCurrent(root, indexer)) {
                     continue;
                 }
-                // delete *all* old files for given resource
 
                 if (isBinaryArchive(root)) {
+                    System.out.println("scanning " + location);
+
+                    deleteOldDocumentsForFile(indexer, location);
                     final Optional<ZipFile> opt = getAttachedSourceArchive(root);
                     if (opt.isPresent()) {
-                        indexer.delete(computeLocation(root));
                         analyzeSourcesInZip(opt.get(), root, indexer, monitor);
                         try {
                             opt.get().close();
                         } catch (final IOException e) {
-                            // silently ignore
+                            RecommendersUtilsPlugin.logError(e, "failed to close zip stream??");
                         }
                     }
+                    addMarkerDocument(indexer, location);
                 } else {
                     analyzeSourcesInSourceFolder(indexer, monitor, root);
                 }
@@ -84,13 +98,25 @@ public class IndexUtils {
         } finally {
             indexer.commit();
             monitor.done();
-
         }
         return Status.OK_STATUS;
     }
 
+    private static void deleteOldDocumentsForFile(final CodeIndexerIndex indexer, final File location)
+            throws IOException {
+        // delete *all* old files for given resource
+        indexer.delete(location);
+    }
+
+    private static void addMarkerDocument(final CodeIndexerIndex indexer, final File location) throws IOException {
+        final Document visited = new Document();
+        addAnalyzedField(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location));
+        addAnalyzedField(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
+        indexer.addDocument(visited);
+    }
+
     private static boolean isCurrent(final IPackageFragmentRoot root, final CodeIndexerIndex indexer) {
-        final File file = computeLocation(root);
+        final File file = getFile(root);
         final long lastModified = file.lastModified();
         final long lastIndexed = indexer.lastIndexed(file);
         return lastModified < lastIndexed;
@@ -104,7 +130,7 @@ public class IndexUtils {
                 if (monitor.isCanceled()) {
                     return;
                 }
-                monitor.subTask(computeLocation(cu).getAbsolutePath());
+                monitor.subTask(getPath(cu));
                 addOrUpdateCompilationUnitToIndex(cu, indexer);
             }
         }
@@ -126,7 +152,7 @@ public class IndexUtils {
                 final IJavaProject javaProject = root.getJavaProject();
                 final String unitName = javaProject.getElementName() + "/" + next.getName();
                 final CompilationUnit cu = CompilationUnitHelper.parse(content, unitName, javaProject);
-                cu.setProperty("location", computeLocation(root));
+                cu.setProperty("location", getFile(root));
                 cu.setProperty("project", javaProject);
                 monitor.subTask(root.getPath() + "!" + next.getName());
                 indexer.index(cu);
@@ -172,7 +198,7 @@ public class IndexUtils {
             }
             final CompilationUnit ast = getAST(cu);
             if (ast != null) {
-                indexer.delete(computeLocation(cu));
+                indexer.delete(getFile(cu));
                 indexer.index(ast);
             }
         } catch (final Exception e) {
@@ -181,34 +207,10 @@ public class IndexUtils {
     }
 
     public static boolean shouldIndex(final ITypeRoot cu, final CodeIndexerIndex indexer) throws JavaModelException {
-        final File file = computeLocation(cu);
+        final File file = getFile(cu);
         final long lastModified = file.lastModified();
         final long lastIndexed = indexer.lastIndexed(file);
         return lastIndexed < lastModified;
-    }
-
-    public static File computeLocation(final ITypeRoot root) {
-
-        final IResource resource = root.getResource();
-        final IPath path;
-        if (resource == null) {
-            path = root.getPath();
-        } else {
-            path = resource.getRawLocation();
-        }
-        return path.toFile();
-    }
-
-    public static File computeLocation(final IPackageFragmentRoot root) {
-
-        final IResource resource = root.getResource();
-        final IPath path;
-        if (resource == null) {
-            path = root.getPath();
-        } else {
-            path = resource.getRawLocation();
-        }
-        return path.toFile();
     }
 
 }

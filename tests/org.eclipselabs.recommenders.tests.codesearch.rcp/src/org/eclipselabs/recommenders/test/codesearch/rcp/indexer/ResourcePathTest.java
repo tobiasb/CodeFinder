@@ -19,25 +19,27 @@ public class ResourcePathTest {
     @Test
     @Ignore("Well, this obviously fails when executed in a *nix environment. Silly me...")
     public void testPath() {
-        File f = new File("c:\\test-folder\\test.java");
-        String actualPath = ResourcePathIndexer.getResourcePathForQuery(f);
+        final File f = new File("c:\\test-folder\\test.java");
+
+        // NOTE: MB: I removed this replacing \\\ stuff what is this needed for?
+        final String actualPath = ResourcePathIndexer.getPath(f);
 
         Assert.assertEquals("c\\:\\\\test\\-folder\\\\test.java", actualPath);
     }
 
     @Test
     public void testIndexPathIndexedCorrectly() throws Exception {
-        String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
+        final String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
 
-        Document doc = new Document();
+        final Document doc = new Document();
         CodeIndexerIndex.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
 
-        CodeIndexerIndex index = new CodeIndexerIndex(new RAMDirectory());
+        final CodeIndexerIndex index = new CodeIndexerIndex(new RAMDirectory());
         index.addDocument(doc);
         index.commit();
 
-        CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index.getIndex());
-        List<Document> results = searcherIndex.getDocuments();
+        final CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index.getIndex());
+        final List<Document> results = searcherIndex.getDocuments();
 
         Assert.assertEquals(1, results.size());
         Assert.assertNotNull(results.get(0).get(Fields.RESOURCE_PATH));
@@ -46,19 +48,19 @@ public class ResourcePathTest {
 
     @Test
     public void testIndexPathFoundCorrectly() throws Exception {
-        String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
+        final String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
 
-        Document doc = new Document();
+        final Document doc = new Document();
         CodeIndexerIndex.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
 
-        CodeIndexerIndex index = new CodeIndexerIndex(new RAMDirectory());
+        final CodeIndexerIndex index = new CodeIndexerIndex(new RAMDirectory());
         index.addDocument(doc);
         index.commit();
 
-        CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index.getIndex());
+        final CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index.getIndex());
 
-        List<Document> results = searcherIndex.search(Fields.RESOURCE_PATH + ":"
-                + ResourcePathIndexer.getResourcePathForQuery(filePath));
+        final List<Document> results = searcherIndex.search(Fields.RESOURCE_PATH + ":"
+                + ResourcePathIndexer.escape(filePath));
 
         Assert.assertEquals(1, results.size());
         Assert.assertNotNull(results.get(0).get(Fields.RESOURCE_PATH));

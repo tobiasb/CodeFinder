@@ -89,6 +89,7 @@ public class IndexUpdateService {
             ExecutorService e = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder()
                     .setNameFormat("Recommenders::codesearch-indexer-%d").setPriority(Thread.MIN_PRIORITY).build());
             {
+                setRule(MUTEX);
                 schedule(25000);
             }
 
@@ -119,6 +120,7 @@ public class IndexUpdateService {
                     // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
+                monitor.done();
                 return Status.OK_STATUS;
             }
         };

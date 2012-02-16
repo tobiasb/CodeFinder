@@ -30,6 +30,23 @@ import com.google.common.collect.Sets;
 
 public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
 
+    public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
+        addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
+    }
+
+    public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {
+        if (fieldValue == null) {
+            return;
+        }
+
+        final Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+
+        // System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]",
+        // fieldName, field.stringValue()));
+
+        document.add(field);
+    }
+
     private final IndexWriter m_writer;
     private final CodeSearcherIndex searcherIndex;
     private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList();
@@ -55,7 +72,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         visitor.addIndexer(CompilationUnitVisitor.getDefaultIndexer());
         cu.accept(visitor);
         // add to internal cache
-        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getLocation(cu), TimestampIndexer.getTime());
+        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getFile(cu), TimestampIndexer.getTime());
     }
 
     @Override
@@ -77,7 +94,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         visitor.addIndexer(indexer);
         cu.accept(visitor);
         // add to internal cache
-        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getLocation(cu), TimestampIndexer.getTime());
+        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getFile(cu), TimestampIndexer.getTime());
     }
 
     @Override
@@ -101,8 +118,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     private Optional<Long> lastIndexedInternal(final File location) {
         try {
-            final Query query = new TermQuery(new Term(Fields.RESOURCE_PATH,
-                    ResourcePathIndexer.getResourcePathForQuery(location)));
+            final Query query = new TermQuery(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location)));
             final FieldSelector selector = new SetBasedFieldSelector(Sets.newHashSet(Fields.TIMESTAMP),
                     Sets.<String> newHashSet());
             final List<Document> docs = searcherIndex.search(query, selector, 1);
@@ -139,47 +155,22 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     }
 
     public void delete(final File location) throws IOException {
-        delete(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getResourcePathForQuery(location)));
+        delete(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location)));
     }
 
     public void delete(final Term term) throws IOException {
         if (term == null || term.text() == null) {
             return;
         }
-
-        try {
-            // For some reason deleting by term doesn't work, only when we use a
-            // Query object
-            final Query q = searcherIndex.getParser().parse(term.toString());
-
-            m_writer.deleteDocuments(q);
-        } catch (final org.apache.lucene.queryParser.ParseException e) {
-            RecommendersPlugin.logError(e, "failed to parse query [%s] in code-search index.", term.toString());
-        }
+        final Query q = new TermQuery(term);
+        m_writer.deleteDocuments(q);
     }
 
     @Override
     public void delete(final CompilationUnit cu) throws IOException {
-        final String cuPath = ResourcePathIndexer.getResourcePathForQuery(cu);
+        final String cuPath = ResourcePathIndexer.getPath(cu);
 
         delete(new Term(Fields.RESOURCE_PATH, cuPath));
-    }
-
-    public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
-        addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
-    }
-
-    public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {
-        if (fieldValue == null) {
-            return;
-        }
-
-        final Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
-
-        // System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]",
-        // fieldName, field.stringValue()));
-
-        document.add(field);
     }
 
     public void commit() {
