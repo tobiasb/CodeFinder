@@ -22,6 +22,7 @@ import org.apache.lucene.store.Directory;
 import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorConsumable;
+import org.eclipse.recommenders.utils.Checks;
 import org.eclipse.recommenders.utils.Tuple;
 
 import com.google.common.annotations.VisibleForTesting;
@@ -58,11 +59,11 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
     }
 
     public List<Document> search(final Query query, final FieldSelector selector) throws IOException {
-        return search(query, selector, reader.numDocs());
+        return search(query, selector, reader.numDocs() + 1);
     }
 
-    public List<Document> search(final Query query, final FieldSelector selector, final int i) throws IOException {
-        final Tuple<TopDocs, IndexSearcher> docs = lenientSearch(query, i);
+    public List<Document> search(final Query query, final FieldSelector selector, final int maxHits) throws IOException {
+        final Tuple<TopDocs, IndexSearcher> docs = lenientSearch(query, maxHits);
         final IndexSearcher searcher = docs.getSecond();
         final ScoreDoc[] scoreDocs = docs.getFirst().scoreDocs;
         final List<Document> result = toList(searcher, scoreDocs, selector);
@@ -84,6 +85,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
      * caller is responsible for closing the searcher
      */
     public Tuple<TopDocs, IndexSearcher> lenientSearch(final Query query, final int maxHits) throws IOException {
+        Checks.ensureIsGreaterOrEqualTo(maxHits, 1, "max hits must be greater zero");
         renewReader();
         final IndexSearcher searcher = new IndexSearcher(reader);
         final TopDocs docs = searcher.search(query, maxHits);
