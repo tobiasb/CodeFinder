@@ -61,11 +61,11 @@ public class IndexUtils {
                     continue;
                 }
                 // delete *all* old files for given resource
-                indexer.delete(computeLocation(root));
 
                 if (isBinaryArchive(root)) {
                     final Optional<ZipFile> opt = getAttachedSourceArchive(root);
                     if (opt.isPresent()) {
+                        indexer.delete(computeLocation(root));
                         analyzeSourcesInZip(opt.get(), root, indexer, monitor);
                         try {
                             opt.get().close();
@@ -101,6 +101,9 @@ public class IndexUtils {
         for (final IJavaElement child : root.getChildren()) {
             final IPackageFragment fragment = cast(child);
             for (final ICompilationUnit cu : fragment.getCompilationUnits()) {
+                if (monitor.isCanceled()) {
+                    return;
+                }
                 monitor.subTask(computeLocation(cu).getAbsolutePath());
                 addOrUpdateCompilationUnitToIndex(cu, indexer);
             }

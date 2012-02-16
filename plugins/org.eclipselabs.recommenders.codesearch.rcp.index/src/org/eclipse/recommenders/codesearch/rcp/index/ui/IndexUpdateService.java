@@ -13,6 +13,9 @@ package org.eclipse.recommenders.codesearch.rcp.index.ui;
 import static java.lang.String.format;
 
 import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
@@ -37,12 +40,13 @@ import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitSaved;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.JavaProjectOpened;
 
 import com.google.common.eventbus.Subscribe;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 public class IndexUpdateService {
 
     private static boolean backgroundIndexerActive = true;
 
-    public static void setBackgroundIndexerActive(boolean isActive) {
+    public static void setBackgroundIndexerActive(final boolean isActive) {
         backgroundIndexerActive = isActive;
     }
 
@@ -81,19 +85,39 @@ public class IndexUpdateService {
     public IndexUpdateService(final CodeIndexerIndex indexer, final IWorkspaceRoot workspace) {
         this.indexer = indexer;
         new Job("Code-search: Re-indexing workspace.") {
+
+            ExecutorService e = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder()
+                    .setNameFormat("Recommenders::codesearch-indexer-%d").setPriority(Thread.MIN_PRIORITY).build());
             {
                 schedule(25000);
             }
 
             @Override
             protected IStatus run(final IProgressMonitor monitor) {
-                final IProject[] projects = workspace.getProjects();
-                monitor.beginTask("Indexing", projects.length);
-                for (final IProject p : projects) {
-                    if (JavaProject.hasJavaNature(p)) {
-                        IndexUtils.indexProject(JavaCore.create(p), indexer, new SubProgressMonitor(monitor, 1));
+                final CountDownLatch wait = new CountDownLatch(1);
+                e.submit(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        final IProject[] projects = workspace.getProjects();
+                        monitor.beginTask("Indexing", projects.length);
+                        for (final IProject p : projects) {
+                            if (JavaProject.hasJavaNature(p)) {
+                                if (monitor.isCanceled()) {
+                                    return;
+                                }
+                                IndexUtils.indexProject(JavaCore.create(p), indexer, new SubProgressMonitor(monitor, 1));
+                            }
+                        }
+                        wait.countDown();
                     }
-                    monitor.worked(1);
+                });
+                e.shutdown();
+                try {
+                    wait.await();
+                } catch (final InterruptedException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
                 }
                 return Status.OK_STATUS;
             }

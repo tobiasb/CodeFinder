@@ -12,11 +12,16 @@ package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.lucene.document.Document;
+import org.apache.lucene.index.CorruptIndexException;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.ASTNode;
@@ -36,6 +41,7 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.IOUtils;
+import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.recommenders.utils.names.IMethodName;
 import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
@@ -58,10 +64,13 @@ public class LabelProvider extends StyledCellLabelProvider {
     private MethodDeclaration astMethod;
     private List<ASTNode> statements;
     private final List<String> searchterms;
+    private final Tuple<TopDocs, IndexSearcher> searchResults;
 
-    public LabelProvider(final JavaElementResolver jdtCache, final List<String> searchterms) {
+    public LabelProvider(final JavaElementResolver jdtCache, final List<String> searchterms,
+            final Tuple<TopDocs, IndexSearcher> searchResults) {
         this.jdtResolver = jdtCache;
         this.searchterms = searchterms;
+        this.searchResults = searchResults;
     }
 
     /**
@@ -69,35 +78,48 @@ public class LabelProvider extends StyledCellLabelProvider {
      */
     @Override
     public void update(final ViewerCell cell) {
-        final Document doc = (Document) cell.getElement();
+        final ScoreDoc scoreDoc = (ScoreDoc) cell.getElement();
+        if (scoreDoc == null) {
+            return;
+        }
+        try {
+            final IndexSearcher reader = searchResults.getSecond();
+            final Document doc = reader.doc(scoreDoc.doc);
 
-        if (!findMethodName(doc)) {
-            cell.setText("// error during resolution:" + doc);
-            setCellToCommentStyle(cell);
-            super.update(cell);
-            return;
-        }
-        if (!findJdtMethod()) {
-            cell.setText("// failed to resolve method in workspace" + recMethod);
-            setCellToCommentStyle(cell);
-            super.update(cell);
-            return;
-        }
+            if (!findMethodName(doc)) {
+                cell.setText("// error during resolution:" + doc);
+                setCellToCommentStyle(cell);
+                super.update(cell);
+                return;
+            }
+            if (!findJdtMethod()) {
+                cell.setText("// failed to resolve method in workspace" + recMethod);
+                setCellToCommentStyle(cell);
+                super.update(cell);
+                return;
+            }
 
-        if (!findAstMethod()) {
-            cell.setText("// failed to resolve method node in AST. Is index outdated?" + recMethod);
-            setCellToCommentStyle(cell);
-            super.update(cell);
-            return;
-        }
+            if (!findAstMethod()) {
+                cell.setText("// failed to resolve method node in AST. Is index outdated?" + recMethod);
+                setCellToCommentStyle(cell);
+                super.update(cell);
+                return;
+            }
 
-        if (!findStatements(doc.get(Fields.VARIABLE_NAME))) {
-            cell.setText("// failed to resolve matching statements in AST.\n// Either index is outdated or method is not actually using this variable?");
-            setCellToCommentStyle(cell);
-            super.update(cell);
-            return;
+            if (!findStatements(doc.get(Fields.VARIABLE_NAME))) {
+                cell.setText("// failed to resolve matching statements in AST.\n// Either index is outdated or method is not actually using this variable?");
+                setCellToCommentStyle(cell);
+                super.update(cell);
+                return;
+            }
+            setCellText(cell);
+        } catch (final CorruptIndexException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (final IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-        setCellText(cell);
     }
 
     private void setCellToCommentStyle(final ViewerCell cell) {

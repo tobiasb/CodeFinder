@@ -12,6 +12,7 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Query;
+import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.store.Directory;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
@@ -45,9 +46,38 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         indexInformationProvider = new IndexInformationCache();
     }
 
+    /**
+     * Adds a compilation unit to the index without previously checking and deleting old versions/documents in the
+     * index.
+     */
+    public void add(final CompilationUnit cu) {
+        final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
+        visitor.addIndexer(CompilationUnitVisitor.getDefaultIndexer());
+        cu.accept(visitor);
+        // add to internal cache
+        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getLocation(cu), TimestampIndexer.getTime());
+    }
+
     @Override
     public void index(final CompilationUnit cu) throws IOException {
         index(cu, CompilationUnitVisitor.getDefaultIndexer());
+    }
+
+    @Override
+    public void index(final CompilationUnit cu, final IIndexer indexer) throws IOException {
+        tmpIndexerCollection.clear();
+        tmpIndexerCollection.add(indexer);
+        index(cu, tmpIndexerCollection);
+    }
+
+    @Override
+    public void index(final CompilationUnit cu, final List<IIndexer> indexer) throws IOException {
+        delete(cu);
+        final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
+        visitor.addIndexer(indexer);
+        cu.accept(visitor);
+        // add to internal cache
+        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getLocation(cu), TimestampIndexer.getTime());
     }
 
     @Override
@@ -70,19 +100,16 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     }
 
     private Optional<Long> lastIndexedInternal(final File location) {
-
         try {
-            final String query = new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getResourcePathForQuery(location))
-                    .toString();
-
-            FieldSelector selector = new SetBasedFieldSelector(Sets.newHashSet(Fields.TIMESTAMP), null);
-
-            final List<Document> docs = searcherIndex.search(query, selector);
-
+            final Query query = new TermQuery(new Term(Fields.RESOURCE_PATH,
+                    ResourcePathIndexer.getResourcePathForQuery(location)));
+            final FieldSelector selector = new SetBasedFieldSelector(Sets.newHashSet(Fields.TIMESTAMP),
+                    Sets.<String> newHashSet());
+            final List<Document> docs = searcherIndex.search(query, selector, 1);
             if (docs.size() > 0) {
                 return getMinTimestamp(docs);
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             RecommendersPlugin.logError(e, "failed to fetch last indexed timestamp for CU from code-search index.");
         }
 
@@ -111,26 +138,6 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         return Optional.of(min);
     }
 
-    @Override
-    public void index(final CompilationUnit cu, final IIndexer indexer) throws IOException {
-        tmpIndexerCollection.clear();
-        tmpIndexerCollection.add(indexer);
-        index(cu, tmpIndexerCollection);
-    }
-
-    @Override
-    public void index(final CompilationUnit cu, final List<IIndexer> indexer) throws IOException {
-        delete(cu);
-
-        final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
-        visitor.addIndexer(indexer);
-
-        cu.accept(visitor);
-
-        // add to internal cache
-        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getLocation(cu), TimestampIndexer.getTime());
-    }
-
     public void delete(final File location) throws IOException {
         delete(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getResourcePathForQuery(location)));
     }
@@ -143,10 +150,10 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         try {
             // For some reason deleting by term doesn't work, only when we use a
             // Query object
-            Query q = searcherIndex.getParser().parse(term.toString());
+            final Query q = searcherIndex.getParser().parse(term.toString());
 
             m_writer.deleteDocuments(q);
-        } catch (org.apache.lucene.queryParser.ParseException e) {
+        } catch (final org.apache.lucene.queryParser.ParseException e) {
             RecommendersPlugin.logError(e, "failed to parse query [%s] in code-search index.", term.toString());
         }
     }

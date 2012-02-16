@@ -1,6 +1,7 @@
 package org.eclipse.recommenders.codesearch.rcp.index.searcher;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -16,12 +17,14 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopScoreDocCollector;
+import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorConsumable;
+import org.eclipse.recommenders.utils.Tuple;
 
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
@@ -38,18 +41,69 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         parser.setAllowLeadingWildcard(true);
     }
 
-    public QueryParser getParser() {
-        return parser;
+    @VisibleForTesting
+    public List<Document> getDocuments() throws IOException {
+        final MatchAllDocsQuery allDocsQuery = new MatchAllDocsQuery();
+        return search(allDocsQuery, null);
     }
 
     public List<Document> search(final String queryString) throws IOException, ParseException {
         return search(queryString, null);
     }
 
-    public List<Document> search(final String queryString, FieldSelector selector) throws IOException, ParseException {
+    public List<Document> search(final String queryString, final FieldSelector selector) throws IOException,
+            ParseException {
         final Query query = parser.parse(queryString);
+        return search(query, selector);
+    }
 
-        return search(query);
+    public List<Document> search(final Query query, final FieldSelector selector) throws IOException {
+        return search(query, selector, reader.numDocs());
+    }
+
+    public List<Document> search(final Query query, final FieldSelector selector, final int i) throws IOException {
+        final Tuple<TopDocs, IndexSearcher> docs = lenientSearch(query, i);
+        final IndexSearcher searcher = docs.getSecond();
+        final ScoreDoc[] scoreDocs = docs.getFirst().scoreDocs;
+        final List<Document> result = toList(searcher, scoreDocs, selector);
+        searcher.close();
+        return result;
+    }
+
+    /**
+     * caller is responsible for closing the searcher
+     */
+    public Tuple<TopDocs, IndexSearcher> lenientSearch(final Query query) throws IOException {
+        renewReader();
+        final IndexSearcher searcher = new IndexSearcher(reader);
+        final TopDocs docs = searcher.search(query, reader.numDocs());
+        return Tuple.newTuple(docs, searcher);
+    }
+
+    /**
+     * caller is responsible for closing the searcher
+     */
+    public Tuple<TopDocs, IndexSearcher> lenientSearch(final Query query, final int maxHits) throws IOException {
+        renewReader();
+        final IndexSearcher searcher = new IndexSearcher(reader);
+        final TopDocs docs = searcher.search(query, maxHits);
+        return Tuple.newTuple(docs, searcher);
+    }
+
+    @Override
+    public Set<String> getTermVector(final String[] fieldNames) {
+        renewReader();
+        final Set<String> result = Sets.newHashSet();
+        for (final String field : fieldNames) {
+            try {
+                final String[] values = FieldCache.DEFAULT.getStrings(reader, field);
+                result.addAll(Lists.newArrayList(values));
+            } catch (final IOException e) {
+                // XXX: Activator.logError(e);
+            }
+        }
+        result.remove(null);
+        return result;
     }
 
     private void renewReader() {
@@ -65,98 +119,25 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
         }
     }
 
-    // public List<Document> search(final Query query, final int maxHits) throws
-    // IOException {
-    //
-    // renewReader();
-    //
-    // final IndexSearcher searcher = new IndexSearcher(reader);
-    // final TopDocs docs = searcher.search(query, maxHits);
-    // final List<Document> result = toList(searcher, docs.scoreDocs);
-    // searcher.close();
-    // return result;
-    // }
-
-    public List<Document> search(final Query query) throws IOException {
-        return search(query, null);
-    }
-
-    public List<Document> search(final Query query, FieldSelector selector) throws IOException {
-
-        // TODO: Schränke Felder mit IFieldSelector ein
-
-        renewReader();
-
-        final IndexSearcher searcher = new IndexSearcher(reader);
-
-        // TODO MB: Tobias, not sure this is the intended way how to do this.
-        // anyway, ensure that the number is at least in the case of a completly
-        // new created index.
-        final int collectorSize = reader.numDocs() > 0 ? reader.numDocs() : 1;
-
-        final TopScoreDocCollector collector = TopScoreDocCollector.create(collectorSize, true);
-
-        searcher.search(query, collector);
-
-        final List<Document> result = toList(searcher, collector.topDocs().scoreDocs, selector);
-
-        // XXX: Activator.logInfo("Searching for: %s. %s hits.",
-        // query.toString(), result.size());
-
-        searcher.close();
-
-        return result;
-    }
-
     private static List<Document> toList(final IndexSearcher searcher, final ScoreDoc[] scoreDocs,
-            FieldSelector selector) {
-
-        final List<Document> result = Lists.newArrayList();
-
+            final FieldSelector selector) throws CorruptIndexException, IOException {
+        final List<Document> result = new ArrayList<Document>(scoreDocs.length);
         for (final ScoreDoc doc : scoreDocs) {
-            try {
-                if (selector != null)
-                    result.add(searcher.doc(doc.doc, selector));
-                else
-                    result.add(searcher.doc(doc.doc));
-            } catch (final CorruptIndexException e) {
-                // XXX: Activator.logError(e);
-            } catch (final IOException e) {
-                // XXX: Activator.logError(e);
+            if (selector != null) {
+                result.add(searcher.doc(doc.doc, selector));
+            } else {
+                result.add(searcher.doc(doc.doc));
             }
         }
-
         return result;
     }
 
-    public List<Document> getDocuments() throws IOException {
-        final MatchAllDocsQuery allDocsQuery = new MatchAllDocsQuery();
-
-        return search(allDocsQuery);
+    public QueryParser getParser() {
+        return parser;
     }
 
-    public int getDocCount(Term t) throws IOException {
+    public int getDocCount(final Term t) throws IOException {
         return reader.docFreq(t);
     }
 
-    @Override
-    public Set<String> getTermVector(final String[] fieldNames) {
-
-        renewReader();
-
-        final Set<String> result = Sets.newHashSet();
-
-        for (final String field : fieldNames) {
-            try {
-                final String[] values = FieldCache.DEFAULT.getStrings(reader, field);
-                result.addAll(Lists.newArrayList(values));
-            } catch (final IOException e) {
-                // XXX: Activator.logError(e);
-            }
-        }
-
-        result.remove(null);
-
-        return result;
-    }
 }

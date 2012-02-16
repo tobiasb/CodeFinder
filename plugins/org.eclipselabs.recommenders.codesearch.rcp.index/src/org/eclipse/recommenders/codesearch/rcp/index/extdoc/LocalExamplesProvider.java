@@ -17,7 +17,9 @@ import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
+import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.TermQuery;
+import org.apache.lucene.search.TopDocs;
 import org.eclipse.jdt.core.IField;
 import org.eclipse.jdt.core.ILocalVariable;
 import org.eclipse.jdt.core.IMethod;
@@ -39,10 +41,11 @@ import org.eclipse.jdt.internal.corext.dom.LinkedNodeFinder;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
@@ -104,10 +107,10 @@ public class LocalExamplesProvider extends ExtdocProvider {
         }
 
         final BooleanQuery query = createQuery();
-        final List<Document> docs = searcher.search(query);
+        final Tuple<TopDocs, IndexSearcher> searchResults = searcher.lenientSearch(query, 5000);
         stopMeasurement();
 
-        runSyncInUiThread(new Renderer(docs, parent, varType, watch.toString()));
+        runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString()));
         return OK;
     }
 
@@ -125,10 +128,10 @@ public class LocalExamplesProvider extends ExtdocProvider {
         }
 
         final BooleanQuery query = createQuery();
-        final List<Document> docs = searcher.search(query);
+        final Tuple<TopDocs, IndexSearcher> searchResults = searcher.lenientSearch(query, 5000);
         stopMeasurement();
 
-        runSyncInUiThread(new Renderer(docs, parent, varType, watch.toString()));
+        runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString()));
         return OK;
     }
 
@@ -322,14 +325,14 @@ public class LocalExamplesProvider extends ExtdocProvider {
     }
 
     private final class Renderer implements Runnable {
-        private final List<Document> docs;
+        private final Tuple<TopDocs, IndexSearcher> searchResults;
         private final Composite parent;
         private final String typeName;
         private final String searchDuration;
 
-        private Renderer(final List<Document> docs, final Composite parent, final String typeName,
-                final String searchDuration) {
-            this.docs = docs;
+        private Renderer(final Tuple<TopDocs, IndexSearcher> searchResults, final Composite parent,
+                final String typeName, final String searchDuration) {
+            this.searchResults = searchResults;
             this.parent = parent;
             this.typeName = typeName;
             this.searchDuration = searchDuration;
@@ -341,17 +344,40 @@ public class LocalExamplesProvider extends ExtdocProvider {
             container.setLayout(new GridLayout());
             container.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).create());
             final Label l = new Label(container, SWT.NONE);
-            final String msg = format("found %s examples for type '%s'. Search took %s.", docs.size(),
-                    Names.vm2srcSimpleTypeName(typeName), searchDuration);
+            final String msg = format("found %s examples for type '%s'. Search took %s.",
+                    searchResults.getFirst().totalHits, Names.vm2srcSimpleTypeName(typeName), searchDuration);
             l.setText(msg);
 
             final TableViewer v = new TableViewer(container, SWT.VIRTUAL);
-            v.setLabelProvider(new LabelProvider(jdtResolver, searchterms));
-            v.setContentProvider(new ArrayContentProvider());
-            v.setUseHashlookup(true);
-            v.setInput(docs);
+            v.setLabelProvider(new LabelProvider(jdtResolver, searchterms, searchResults));
+            v.setContentProvider(new IStructuredContentProvider() {
+
+                @Override
+                public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
+
+                }
+
+                @Override
+                public void dispose() {
+                    try {
+                        searchResults.getSecond().close();
+                    } catch (final IOException e) {
+                        // TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                }
+
+                @Override
+                public Object[] getElements(final Object inputElement) {
+                    final TopDocs topDocs = searchResults.getFirst();
+                    return topDocs.scoreDocs;
+                }
+            });
+            // v.setUseHashlookup(true);
+            v.setInput(searchResults);
             // v.getTable().setLinesVisible(true);
-            v.setItemCount(docs.size());
+            v.setItemCount(searchResults.getFirst().scoreDocs.length);
             v.getControl().setLayoutData(GridDataFactory.fillDefaults().hint(300, 200).grab(true, false).create());
             v.addDoubleClickListener(new IDoubleClickListener() {
 
