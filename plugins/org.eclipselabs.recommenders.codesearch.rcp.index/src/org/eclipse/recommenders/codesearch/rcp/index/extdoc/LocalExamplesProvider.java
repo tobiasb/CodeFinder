@@ -2,7 +2,6 @@ package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
-import static java.lang.String.format;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper.getIdentifier;
 import static org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider.Status.NOT_AVAILABLE;
 import static org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider.Status.OK;
@@ -13,7 +12,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.apache.lucene.document.Document;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
@@ -38,33 +36,17 @@ import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.internal.corext.dom.LinkedNodeFinder;
-import org.eclipse.jdt.ui.JavaUI;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.layout.GridDataFactory;
-import org.eclipse.jface.viewers.DoubleClickEvent;
-import org.eclipse.jface.viewers.IDoubleClickListener;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
 import org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider;
 import org.eclipse.recommenders.extdoc.rcp.providers.JavaSelectionSubscriber;
-import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.rcp.events.JavaSelectionEvent;
-import org.eclipse.recommenders.utils.Names;
 import org.eclipse.recommenders.utils.Tuple;
-import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.recommenders.utils.rcp.JdtUtils;
-import org.eclipse.recommenders.utils.rcp.RCPUtils;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Stopwatch;
@@ -83,7 +65,7 @@ public class LocalExamplesProvider extends ExtdocProvider {
     private SimpleName varNode;
     private String varType;
 
-    private List<String> searchterms;
+    List<String> searchterms;
     private IType jdtVarType;
 
     @Inject
@@ -110,7 +92,7 @@ public class LocalExamplesProvider extends ExtdocProvider {
         final Tuple<TopDocs, IndexSearcher> searchResults = searcher.lenientSearch(query, 5000);
         stopMeasurement();
 
-        runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString()));
+        runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString(), jdtResolver, searchterms));
         return OK;
     }
 
@@ -131,7 +113,7 @@ public class LocalExamplesProvider extends ExtdocProvider {
         final Tuple<TopDocs, IndexSearcher> searchResults = searcher.lenientSearch(query, 5000);
         stopMeasurement();
 
-        runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString()));
+        runSyncInUiThread(new Renderer(searchResults, parent, varType, watch.toString(), jdtResolver, searchterms));
         return OK;
     }
 
@@ -322,88 +304,5 @@ public class LocalExamplesProvider extends ExtdocProvider {
 
     private void stopMeasurement() {
         watch.stop();
-    }
-
-    private final class Renderer implements Runnable {
-        private final Tuple<TopDocs, IndexSearcher> searchResults;
-        private final Composite parent;
-        private final String typeName;
-        private final String searchDuration;
-
-        private Renderer(final Tuple<TopDocs, IndexSearcher> searchResults, final Composite parent,
-                final String typeName, final String searchDuration) {
-            this.searchResults = searchResults;
-            this.parent = parent;
-            this.typeName = typeName;
-            this.searchDuration = searchDuration;
-        }
-
-        @Override
-        public void run() {
-            final Composite container = new Composite(parent, SWT.NONE);
-            container.setLayout(new GridLayout());
-            container.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).create());
-            final Label l = new Label(container, SWT.NONE);
-            final String msg = format("found %s examples for type '%s'. Search took %s.",
-                    searchResults.getFirst().totalHits, Names.vm2srcSimpleTypeName(typeName), searchDuration);
-            l.setText(msg);
-
-            final TableViewer v = new TableViewer(container, SWT.VIRTUAL);
-            v.setLabelProvider(new LabelProvider(jdtResolver, searchterms, searchResults));
-            v.setContentProvider(new IStructuredContentProvider() {
-
-                @Override
-                public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
-
-                }
-
-                @Override
-                public void dispose() {
-                    try {
-                        searchResults.getSecond().close();
-                    } catch (final IOException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-                }
-
-                @Override
-                public Object[] getElements(final Object inputElement) {
-                    final TopDocs topDocs = searchResults.getFirst();
-                    return topDocs.scoreDocs;
-                }
-            });
-            // v.setUseHashlookup(true);
-            v.setInput(searchResults);
-            // v.getTable().setLinesVisible(true);
-            v.setItemCount(searchResults.getFirst().scoreDocs.length);
-            v.getControl().setLayoutData(GridDataFactory.fillDefaults().hint(300, 200).grab(true, false).create());
-            v.addDoubleClickListener(new IDoubleClickListener() {
-
-                @Override
-                public void doubleClick(final DoubleClickEvent event) {
-                    final Optional<Document> doc = RCPUtils.first(event.getSelection());
-                    if (doc.isPresent()) {
-                        final String string = doc.get().get(Fields.DECLARING_METHOD);
-                        if (string == null) {
-                            MessageDialog.openError(new Shell(), "Indexing error.",
-                                    "declaring method for document is null: " + doc);
-                            return;
-                        }
-                        final VmMethodName recMethod = VmMethodName.get(string);
-                        final Optional<IMethod> jdtMethod = jdtResolver.toJdtMethod(recMethod);
-                        if (jdtMethod.isPresent()) {
-                            try {
-                                JavaUI.openInEditor(jdtMethod.get());
-                            } catch (final Exception e) {
-                                RecommendersPlugin.logError(e, "Failed to open method declaration in editor");
-                            }
-                        }
-                    }
-
-                }
-            });
-        }
     }
 }

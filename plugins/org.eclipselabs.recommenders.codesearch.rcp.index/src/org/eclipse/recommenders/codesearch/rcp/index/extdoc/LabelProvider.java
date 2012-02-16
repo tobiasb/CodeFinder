@@ -12,38 +12,25 @@ package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.lucene.document.Document;
-import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.search.IndexSearcher;
-import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
-import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
-import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
-import org.eclipse.jdt.internal.corext.refactoring.structure.ASTNodeSearchUtil;
 import org.eclipse.jdt.ui.JavaUI;
-import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.jdt.ui.text.IColorManager;
 import org.eclipse.jdt.ui.text.IJavaColorConstants;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
-import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.IOUtils;
 import org.eclipse.recommenders.utils.Tuple;
-import org.eclipse.recommenders.utils.names.IMethodName;
-import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
@@ -53,14 +40,10 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
-import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 public class LabelProvider extends StyledCellLabelProvider {
 
-    private final JavaElementResolver jdtResolver;
-    private IMethodName recMethod;
-    private IMethod jdtMethod;
     private MethodDeclaration astMethod;
     private List<ASTNode> statements;
     private final List<String> searchterms;
@@ -68,7 +51,6 @@ public class LabelProvider extends StyledCellLabelProvider {
 
     public LabelProvider(final JavaElementResolver jdtCache, final List<String> searchterms,
             final Tuple<TopDocs, IndexSearcher> searchResults) {
-        this.jdtResolver = jdtCache;
         this.searchterms = searchterms;
         this.searchResults = searchResults;
     }
@@ -78,48 +60,16 @@ public class LabelProvider extends StyledCellLabelProvider {
      */
     @Override
     public void update(final ViewerCell cell) {
-        final ScoreDoc scoreDoc = (ScoreDoc) cell.getElement();
-        if (scoreDoc == null) {
+        final Tuple<MethodDeclaration, String> element = (Tuple<MethodDeclaration, String>) cell.getElement();
+        astMethod = element.getFirst();
+        final String varname = element.getSecond();
+        if (!findStatements(varname)) {
+            cell.setText("// failed to resolve matching statements in AST.\n// Either index is outdated or method is not actually using this variable?");
+            setCellToCommentStyle(cell);
+            super.update(cell);
             return;
         }
-        try {
-            final IndexSearcher reader = searchResults.getSecond();
-            final Document doc = reader.doc(scoreDoc.doc);
-
-            if (!findMethodName(doc)) {
-                cell.setText("// error during resolution:" + doc);
-                setCellToCommentStyle(cell);
-                super.update(cell);
-                return;
-            }
-            if (!findJdtMethod()) {
-                cell.setText("// failed to resolve method in workspace" + recMethod);
-                setCellToCommentStyle(cell);
-                super.update(cell);
-                return;
-            }
-
-            if (!findAstMethod()) {
-                cell.setText("// failed to resolve method node in AST. Is index outdated?" + recMethod);
-                setCellToCommentStyle(cell);
-                super.update(cell);
-                return;
-            }
-
-            if (!findStatements(doc.get(Fields.VARIABLE_NAME))) {
-                cell.setText("// failed to resolve matching statements in AST.\n// Either index is outdated or method is not actually using this variable?");
-                setCellToCommentStyle(cell);
-                super.update(cell);
-                return;
-            }
-            setCellText(cell);
-        } catch (final CorruptIndexException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (final IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        setCellText(cell);
     }
 
     private void setCellToCommentStyle(final ViewerCell cell) {
@@ -127,38 +77,6 @@ public class LabelProvider extends StyledCellLabelProvider {
         final Color color = colorManager.getColor(IJavaColorConstants.JAVA_MULTI_LINE_COMMENT);
         final StyleRange[] ranges = { new StyleRange(0, cell.getText().length(), color, null) };
         cell.setStyleRanges(ranges);
-    }
-
-    private boolean findMethodName(final Document doc) {
-        final String name = doc.get(Fields.DECLARING_METHOD);
-        if (name == null) {
-            return false;
-        }
-        recMethod = VmMethodName.get(name);
-        return recMethod != null;
-    }
-
-    private boolean findJdtMethod() {
-        final Optional<IMethod> opt = jdtResolver.toJdtMethod(recMethod);
-        jdtMethod = opt.orNull();
-        return jdtMethod != null;
-    }
-
-    private boolean findAstMethod() {
-        try {
-            final ITypeRoot cu = jdtMethod.getTypeRoot();
-            if (cu == null) {
-                return false;
-            }
-            final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
-            if (ast == null) {
-                return false;
-            }
-            astMethod = ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
-        } catch (final Exception e) {
-            RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
-        }
-        return astMethod != null;
     }
 
     private boolean findStatements(final String varname) {
