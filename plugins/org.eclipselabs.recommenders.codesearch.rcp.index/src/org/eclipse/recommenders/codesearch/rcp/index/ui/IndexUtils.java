@@ -158,8 +158,7 @@ public class IndexUtils {
                 indexer.index(cu);
             }
         } catch (final Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            RecommendersPlugin.logError(e, "error during indexing");
         }
     }
 

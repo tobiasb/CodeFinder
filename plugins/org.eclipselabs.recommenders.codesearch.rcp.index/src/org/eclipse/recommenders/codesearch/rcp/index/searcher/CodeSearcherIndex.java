@@ -24,12 +24,15 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorConsumable;
 import org.eclipse.recommenders.utils.Checks;
 import org.eclipse.recommenders.utils.Tuple;
+import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.google.inject.Singleton;
 
 // TODO: Tobias, what is the meaning of a code searcher index? Is it actually an index?
+@Singleton
 public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
     private final QueryParser parser;
     private IndexReader reader;
@@ -101,7 +104,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
                 final String[] values = FieldCache.DEFAULT.getStrings(reader, field);
                 result.addAll(Lists.newArrayList(values));
             } catch (final IOException e) {
-                // XXX: Activator.logError(e);
+                RecommendersUtilsPlugin.logError(e, "Exception during reopening of index reader");
             }
         }
         result.remove(null);
@@ -116,8 +119,8 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
                 reader.close();
                 reader = newReader;
             }
-        } catch (final Exception ex) {
-            // XXX: Activator.logError(ex);
+        } catch (final Exception e) {
+            RecommendersUtilsPlugin.logError(e, "Exception during reopening of index reader");
         }
     }
 

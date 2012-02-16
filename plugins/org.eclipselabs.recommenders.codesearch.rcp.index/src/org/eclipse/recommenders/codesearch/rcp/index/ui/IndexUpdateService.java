@@ -117,8 +117,6 @@ public class IndexUpdateService {
                 try {
                     wait.await();
                 } catch (final InterruptedException e1) {
-                    // TODO Auto-generated catch block
-                    e1.printStackTrace();
                 }
                 monitor.done();
                 return Status.OK_STATUS;
