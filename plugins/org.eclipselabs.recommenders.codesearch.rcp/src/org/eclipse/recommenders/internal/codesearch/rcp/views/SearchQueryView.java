@@ -13,8 +13,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -218,8 +218,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
                                 @Override
                                 public void applyTextPresentation(final TextPresentation textPresentation) {
-                                    final ICompilationUnit cu = (ICompilationUnit) EditorUtility
-                                            .getActiveEditorJavaInput();
+                                    final ITypeRoot cu = (ITypeRoot) EditorUtility.getActiveEditorJavaInput();
                                     final Color foreground = JavaUI.getColorManager().getColor(new RGB(255, 0, 0));
                                     // final Color white =
                                     // JavaUI.getColorManager().getColor(new
