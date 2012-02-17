@@ -34,6 +34,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullyQualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.JavaElementHandleIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.OverriddenMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
@@ -131,7 +132,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new VariableParameterUsageIndexer());
         list.add(new VariableTargetUsageIndexer());
         list.add(new VariableTypeIndexer());
-
+        list.add(new JavaElementHandleIndexer());
         return list;
     }
 
@@ -159,17 +160,19 @@ public class CompilationUnitVisitor extends ASTVisitor {
             }
         }
 
-        if (methodDocument.getFields().size() > 0)
+        if (methodDocument.getFields().size() > 0) {
             addDocument(methodDocument);
+        }
 
         // For each method declaration we use another visitor to learn about
         // variable usage
-        VarUsageVisitor varUsageVisitor = new VarUsageVisitor(indexer);
+        final VarUsageVisitor varUsageVisitor = new VarUsageVisitor(indexer);
         varUsageVisitor.visit(node);
 
-        for (Document d : varUsageVisitor.getDocuments()) {
-            if (d.getFields().size() > 0)
+        for (final Document d : varUsageVisitor.getDocuments()) {
+            if (d.getFields().size() > 0) {
                 addDocument(d);
+            }
         }
 
         return true;
@@ -185,8 +188,9 @@ public class CompilationUnitVisitor extends ASTVisitor {
             }
         }
 
-        if (document.getFields().size() > 0)
+        if (document.getFields().size() > 0) {
             addDocument(document);
+        }
         return false;
     }
 
@@ -207,8 +211,9 @@ public class CompilationUnitVisitor extends ASTVisitor {
             }
         }
 
-        if (document.getFields().size() > 0)
+        if (document.getFields().size() > 0) {
             addDocument(document);
+        }
 
         return false;
     }

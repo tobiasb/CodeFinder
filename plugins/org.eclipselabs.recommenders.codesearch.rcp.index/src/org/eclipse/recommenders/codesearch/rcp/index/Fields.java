@@ -133,5 +133,9 @@ public class Fields {
     // DefinitionType
     /** Can be applied to: */
     public final static String VARIABLE_DEFINITION = "VariableDefinition";
+    /**
+     * Java handle used to open a given java element in an editor.
+     */
+    public static final String JAVA_ELEMENT_HANDLE = "Handle";
 
 }

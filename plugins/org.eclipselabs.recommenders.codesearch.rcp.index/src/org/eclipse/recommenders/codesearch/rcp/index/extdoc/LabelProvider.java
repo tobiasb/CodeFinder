@@ -29,12 +29,14 @@ import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.utils.IOUtils;
-import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
@@ -59,9 +61,9 @@ public class LabelProvider extends StyledCellLabelProvider {
      */
     @Override
     public void update(final ViewerCell cell) {
-        final Tuple<MethodDeclaration, String> element = (Tuple<MethodDeclaration, String>) cell.getElement();
-        astMethod = element.getFirst();
-        final String varname = element.getSecond();
+        final Selection s = (Selection) cell.getElement();
+        astMethod = s.method;
+        final String varname = s.varname;
         if (astMethod == ContentProvider.EMPTY) {
             cell.setText("// failed to resolve method.");
             setCellToCommentStyle(cell);
@@ -174,18 +176,22 @@ public class LabelProvider extends StyledCellLabelProvider {
     @Override
     protected void measure(final Event event, final Object element) {
         final TableItem item = (TableItem) event.item;
-        final Point size = event.gc.textExtent("\n\n\n");
+        final GC gc = event.gc;
+        gc.setFont(item.getFont());
+        final Point size = gc.textExtent("\n\n\n");
         final Table parent = item.getParent();
         final Rectangle clientArea = parent.getClientArea();
         final int clientWidth = clientArea.width;
         event.width = clientWidth - 20;
         event.height = size.y;
+        final Rectangle bounds = item.getBounds();
+        gc.setForeground(Display.getDefault().getSystemColor(SWT.COLOR_GRAY));
+        gc.drawLine(bounds.x, bounds.y, bounds.x + clientWidth, bounds.y);
         super.measure(event, element);
     }
 
     @Override
     public void dispose() {
-        // TODO Auto-generated method stub
         super.dispose();
     }
 }

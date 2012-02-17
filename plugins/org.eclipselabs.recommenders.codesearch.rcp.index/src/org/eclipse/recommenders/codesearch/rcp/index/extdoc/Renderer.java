@@ -14,17 +14,17 @@ import static java.lang.String.format;
 
 import java.util.List;
 
-import org.eclipse.jdt.core.dom.IMethodBinding;
-import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.Names;
-import org.eclipse.recommenders.utils.Tuple;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.recommenders.utils.rcp.RCPUtils;
 import org.eclipse.swt.SWT;
@@ -76,18 +76,16 @@ public final class Renderer implements Runnable {
 
             @Override
             public void doubleClick(final DoubleClickEvent event) {
-                final Optional<Tuple<MethodDeclaration, String>> doc = RCPUtils.first(event.getSelection());
-                if (doc.isPresent()) {
-                    final IMethodBinding method = doc.get().getFirst().resolveBinding();
-                    if (method != null) {
-                        try {
-                            JavaUI.openInEditor(method.getJavaElement());
-                        } catch (final Exception e) {
-                            RecommendersPlugin.logError(e, "Failed to open method declaration in editor");
-                        }
+                final Optional<Selection> opt = RCPUtils.first(event.getSelection());
+                if (opt.isPresent()) {
+                    final String handle = opt.get().doc.get(Fields.JAVA_ELEMENT_HANDLE);
+                    final IJavaElement create = JavaCore.create(handle);
+                    try {
+                        JavaUI.openInEditor(create);
+                    } catch (final Exception e) {
+                        RecommendersPlugin.logError(e, "Failed to open method declaration in editor");
                     }
                 }
-
             }
         });
     }

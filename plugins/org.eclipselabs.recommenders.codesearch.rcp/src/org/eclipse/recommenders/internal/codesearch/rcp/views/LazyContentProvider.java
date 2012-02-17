@@ -11,8 +11,10 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
 import org.apache.lucene.document.Document;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.viewers.ILazyContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.Viewer;
@@ -47,6 +49,14 @@ public class LazyContentProvider implements ILazyContentProvider {
     public void updateElement(final int index) {
         try {
             final Document doc = input.scoreDoc(index);
+            final String handle = doc.get(Fields.JAVA_ELEMENT_HANDLE);
+            final IJavaElement e = JavaCore.create(handle);
+            if (e != null) {
+                viewer.replace(e, index);
+                return;
+            }
+
+            // this shouldn't be needed anymore.
             final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
             final String docType = doc.get(Fields.TYPE);
             final String declaringType = doc.get(Fields.DECLARING_TYPE);

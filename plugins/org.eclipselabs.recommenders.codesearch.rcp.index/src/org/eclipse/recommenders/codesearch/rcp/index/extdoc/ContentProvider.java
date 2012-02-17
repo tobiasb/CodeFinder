@@ -14,11 +14,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.apache.lucene.document.Document;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.ITypeRoot;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.internal.corext.refactoring.structure.ASTNodeSearchUtil;
 import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.jface.viewers.ILazyContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -26,19 +29,15 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
-import org.eclipse.recommenders.utils.Tuple;
-import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
-import org.eclipse.recommenders.utils.rcp.ast.MethodDeclarationFinder;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 import org.eclipse.swt.widgets.Display;
 
-import com.google.common.base.Optional;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 final class ContentProvider implements ILazyContentProvider {
 
-    private final ExecutorService s = Executors.newFixedThreadPool(5,
+    private final ExecutorService s = Executors.newFixedThreadPool(1,
             new ThreadFactoryBuilder().setPriority(Thread.MIN_PRIORITY).build());
     public static MethodDeclaration EMPTY;
     static {
@@ -65,55 +64,51 @@ final class ContentProvider implements ILazyContentProvider {
     @Override
     public void updateElement(final int index) {
         s.submit(new Runnable() {
-            private VmMethodName recMethod;
             private IMethod jdtMethod;
             private MethodDeclaration astMethod;
+            private IJavaElement element;
 
             @Override
             public void run() {
                 try {
                     final Document doc = searchResults.scoreDoc(index);
-                    if (!findMethodName(doc)) {
-                        updateIndex(EMPTY, "", index);
+                    if (!findHandle(doc)) {
                         return;
                     }
                     if (!findJdtMethod()) {
-                        updateIndex(EMPTY, "", index);
+                        updateIndex(EMPTY, "", doc, index);
                         return;
                     }
                     if (!findAstMethod()) {
-                        updateIndex(EMPTY, "", index);
+                        updateIndex(EMPTY, "", doc, index);
                         return;
                     }
-                    updateIndex(astMethod, doc.get(Fields.VARIABLE_NAME), index);
+                    updateIndex(astMethod, doc.get(Fields.VARIABLE_NAME), doc, index);
                 } catch (final Exception e) {
                     RecommendersUtilsPlugin.logError(e, "failed to load document from index");
                 }
             }
 
-            private void updateIndex(final MethodDeclaration method, final String varname, final int index) {
+            private boolean findHandle(final Document doc) {
+                final String handle = doc.get(Fields.JAVA_ELEMENT_HANDLE);
+                element = JavaCore.create(handle);
+                return element != null;
+            }
+
+            private void updateIndex(final MethodDeclaration method, final String varname, final Document doc,
+                    final int index) {
                 Display.getDefault().asyncExec(new Runnable() {
 
                     @Override
                     public void run() {
-                        final Tuple<MethodDeclaration, String> newTuple = Tuple.newTuple(method, varname);
-                        viewer.replace(newTuple, index);
+                        final Selection s = new Selection(method, varname, doc);
+                        viewer.replace(s, index);
                     }
                 });
             }
 
-            private boolean findMethodName(final Document doc) {
-                final String name = doc.get(Fields.DECLARING_METHOD);
-                if (name == null) {
-                    return false;
-                }
-                recMethod = VmMethodName.get(name);
-                return recMethod != null;
-            }
-
             private boolean findJdtMethod() {
-                final Optional<IMethod> opt = jdtResolver.toJdtMethod(recMethod);
-                jdtMethod = opt.orNull();
+                jdtMethod = (IMethod) element.getAncestor(IJavaElement.METHOD);
                 return jdtMethod != null;
             }
 
@@ -127,7 +122,7 @@ final class ContentProvider implements ILazyContentProvider {
                     if (ast == null) {
                         return false;
                     }
-                    astMethod = MethodDeclarationFinder.find(ast, recMethod).orNull();
+                    astMethod = ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
                     // caused NPEs: ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
                 } catch (final Exception e) {
                     RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
