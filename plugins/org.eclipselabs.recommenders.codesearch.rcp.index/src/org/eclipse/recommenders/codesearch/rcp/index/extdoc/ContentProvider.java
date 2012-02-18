@@ -35,6 +35,7 @@ import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Table;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
@@ -107,6 +108,10 @@ final class ContentProvider implements ILazyContentProvider {
 
                         @Override
                         public void run() {
+                            Table table = viewer.getTable();
+                            if (table.isDisposed()) {
+                                return;
+                            }
                             final Selection s = new Selection(method, varname, doc);
                             viewer.replace(s, index);
                         }

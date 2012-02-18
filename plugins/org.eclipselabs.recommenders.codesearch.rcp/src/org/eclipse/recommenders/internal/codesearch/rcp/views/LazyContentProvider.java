@@ -25,6 +25,7 @@ import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.names.VmMethodName;
 import org.eclipse.recommenders.utils.names.VmTypeName;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
+import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.base.Optional;
 
@@ -40,23 +41,21 @@ public class LazyContentProvider implements ILazyContentProvider {
     @Override
     public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
         this.viewer = (TableViewer) viewer;
-        dispose();
         this.input = (SearchResult) newInput;
-
     }
 
     @Override
     public void updateElement(final int index) {
+        Document doc = null;
         try {
-            final Document doc = input.scoreDoc(index);
+            doc = input.scoreDoc(index);
             final String handle = doc.get(Fields.JAVA_ELEMENT_HANDLE);
             final IJavaElement e = JavaCore.create(handle);
             if (e != null) {
                 viewer.replace(e, index);
                 return;
             }
-
-            // this shouldn't be needed anymore.
+            // this is needed to handle special cases which are not directly bound to a java element.
             final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
             final String docType = doc.get(Fields.TYPE);
             final String declaringType = doc.get(Fields.DECLARING_TYPE);
@@ -82,7 +81,7 @@ public class LazyContentProvider implements ILazyContentProvider {
             }
 
         } catch (final Exception e) {
-            e.printStackTrace();
+            RecommendersUtilsPlugin.logError(e, "Failed to determine java element for document '%d'", doc);
         }
     }
 }
