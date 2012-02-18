@@ -11,7 +11,9 @@
 package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.IJavaElement;
@@ -37,7 +39,9 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 final class ContentProvider implements ILazyContentProvider {
 
-    private final ExecutorService s = Executors.newFixedThreadPool(1,
+    private final ExecutorService s = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>(20),
+
             new ThreadFactoryBuilder().setPriority(Thread.MIN_PRIORITY).build());
     public static MethodDeclaration EMPTY;
     static {
