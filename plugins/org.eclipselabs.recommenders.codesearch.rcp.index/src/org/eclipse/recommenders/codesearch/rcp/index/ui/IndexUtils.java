@@ -46,6 +46,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
+import org.eclipse.ui.internal.misc.StatusUtil;
 
 import com.google.common.base.Optional;
 import com.google.common.io.ByteStreams;
@@ -79,6 +80,8 @@ public class IndexUtils {
                     deleteOldDocumentsForFile(indexer, location);
                     final Optional<ZipFile> opt = getAttachedSourceArchive(root);
                     if (opt.isPresent()) {
+                        RecommendersUtilsPlugin.log(StatusUtil.newStatus(IStatus.INFO, "Scanning zip "
+                                + opt.get().getName(), null));
                         analyzeSourcesInZip(opt.get(), root, indexer, monitor);
                         try {
                             opt.get().close();
@@ -166,6 +169,7 @@ public class IndexUtils {
         try {
             final IClasspathEntry cp = root.getResolvedClasspathEntry();
             final IPath path = cp.getSourceAttachmentPath();
+            System.out.println("source path:" + path);
             if (path == null) {
                 return absent();
             }
