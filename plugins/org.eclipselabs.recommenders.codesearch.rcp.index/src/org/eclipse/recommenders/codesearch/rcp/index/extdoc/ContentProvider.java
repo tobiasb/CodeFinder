@@ -12,6 +12,7 @@ package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -40,7 +41,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 final class ContentProvider implements ILazyContentProvider {
 
     private final ExecutorService s = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<Runnable>(20),
+            new LinkedBlockingQueue<Runnable>(10),
 
             new ThreadFactoryBuilder().setPriority(Thread.MIN_PRIORITY).build());
     public static MethodDeclaration EMPTY;
@@ -67,73 +68,78 @@ final class ContentProvider implements ILazyContentProvider {
 
     @Override
     public void updateElement(final int index) {
-        s.submit(new Runnable() {
-            private IMethod jdtMethod;
-            private MethodDeclaration astMethod;
-            private IJavaElement element;
+        try {
+            s.submit(new Runnable() {
+                private IMethod jdtMethod;
+                private MethodDeclaration astMethod;
+                private IJavaElement element;
 
-            @Override
-            public void run() {
-                try {
-                    final Document doc = searchResults.scoreDoc(index);
-                    if (!findHandle(doc)) {
-                        return;
+                @Override
+                public void run() {
+                    try {
+                        final Document doc = searchResults.scoreDoc(index);
+                        if (!findHandle(doc)) {
+                            return;
+                        }
+                        if (!findJdtMethod()) {
+                            updateIndex(EMPTY, "", doc, index);
+                            return;
+                        }
+                        if (!findAstMethod()) {
+                            updateIndex(EMPTY, "", doc, index);
+                            return;
+                        }
+                        updateIndex(astMethod, doc.get(Fields.VARIABLE_NAME), doc, index);
+                    } catch (final Exception e) {
+                        RecommendersUtilsPlugin.logError(e, "failed to load document from index");
                     }
-                    if (!findJdtMethod()) {
-                        updateIndex(EMPTY, "", doc, index);
-                        return;
-                    }
-                    if (!findAstMethod()) {
-                        updateIndex(EMPTY, "", doc, index);
-                        return;
-                    }
-                    updateIndex(astMethod, doc.get(Fields.VARIABLE_NAME), doc, index);
-                } catch (final Exception e) {
-                    RecommendersUtilsPlugin.logError(e, "failed to load document from index");
                 }
-            }
 
-            private boolean findHandle(final Document doc) {
-                final String handle = doc.get(Fields.JAVA_ELEMENT_HANDLE);
-                element = JavaCore.create(handle);
-                return element != null;
-            }
-
-            private void updateIndex(final MethodDeclaration method, final String varname, final Document doc,
-                    final int index) {
-                Display.getDefault().asyncExec(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        final Selection s = new Selection(method, varname, doc);
-                        viewer.replace(s, index);
-                    }
-                });
-            }
-
-            private boolean findJdtMethod() {
-                jdtMethod = (IMethod) element.getAncestor(IJavaElement.METHOD);
-                return jdtMethod != null;
-            }
-
-            private boolean findAstMethod() {
-                try {
-                    final ITypeRoot cu = jdtMethod.getTypeRoot();
-                    if (cu == null) {
-                        return false;
-                    }
-                    final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
-                    if (ast == null) {
-                        return false;
-                    }
-                    astMethod = ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
-                    // caused NPEs: ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
-                } catch (final Exception e) {
-                    RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
+                private boolean findHandle(final Document doc) {
+                    final String handle = doc.get(Fields.JAVA_ELEMENT_HANDLE);
+                    element = JavaCore.create(handle);
+                    return element != null;
                 }
-                return astMethod != null;
-            }
-        });
+
+                private void updateIndex(final MethodDeclaration method, final String varname, final Document doc,
+                        final int index) {
+                    Display.getDefault().asyncExec(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            final Selection s = new Selection(method, varname, doc);
+                            viewer.replace(s, index);
+                        }
+                    });
+                }
+
+                private boolean findJdtMethod() {
+                    jdtMethod = (IMethod) element.getAncestor(IJavaElement.METHOD);
+                    return jdtMethod != null;
+                }
+
+                private boolean findAstMethod() {
+                    try {
+                        final ITypeRoot cu = jdtMethod.getTypeRoot();
+                        if (cu == null) {
+                            return false;
+                        }
+                        final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
+                        if (ast == null) {
+                            return false;
+                        }
+                        astMethod = ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
+                        // caused NPEs: ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
+                    } catch (final Exception e) {
+                        RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
+                    }
+                    return astMethod != null;
+                }
+            });
+        } catch (final RejectedExecutionException e) {
+            // the user was just scrolling to fast...
+            // to prevent ui freezes we ignore too many requests...
+        }
     }
 
     @Override
