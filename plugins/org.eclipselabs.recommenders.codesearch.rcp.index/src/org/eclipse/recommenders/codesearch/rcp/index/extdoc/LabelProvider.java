@@ -18,6 +18,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.ExpressionStatement;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.jdt.core.dom.SimpleName;
@@ -103,6 +104,13 @@ public class LabelProvider extends StyledCellLabelProvider {
             }
 
             private void collectStatement(final SimpleName node) {
+
+                for (ASTNode curr = node.getParent(); curr != null; curr = curr.getParent()) {
+                    if (curr instanceof ExpressionStatement) {
+                        statements.add(curr);
+                        return;
+                    }
+                }
 
                 final ASTNode sup = node.getParent();
                 switch (sup.getNodeType()) {
