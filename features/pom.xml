@@ -18,6 +18,7 @@
 	<modules>
 		<module>org.eclipselabs.recommenders.feature.codesearch</module>
 		<module>org.eclipselabs.recommenders.feature.codesearch.source</module>
+        <module>org.eclipselabs.recommenders.feature.codesearch.rcp.index</module>
 		<module>org.eclipselabs.recommenders.feature.dependencies</module>
 	</modules>
 
