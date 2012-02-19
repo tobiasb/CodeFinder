@@ -29,6 +29,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jdt.core.IClassFile;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaElement;
@@ -38,6 +39,7 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.ui.JavaElementLabels;
 import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
@@ -45,8 +47,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
-import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
-import org.eclipse.ui.internal.misc.StatusUtil;
 
 import com.google.common.base.Optional;
 import com.google.common.io.ByteStreams;
@@ -76,19 +76,37 @@ public class IndexUtils {
 
                 if (isBinaryArchive(root)) {
                     System.out.println("scanning " + location);
-
                     deleteOldDocumentsForFile(indexer, location);
-                    final Optional<ZipFile> opt = getAttachedSourceArchive(root);
-                    if (opt.isPresent()) {
-                        RecommendersUtilsPlugin.log(StatusUtil.newStatus(IStatus.INFO, "Scanning zip "
-                                + opt.get().getName(), null));
-                        analyzeSourcesInZip(opt.get(), root, indexer, monitor);
-                        try {
-                            opt.get().close();
-                        } catch (final IOException e) {
-                            RecommendersUtilsPlugin.logError(e, "failed to close zip stream??");
+
+                    for (final IJavaElement child : root.getChildren()) {
+                        final IPackageFragment fragment = cast(child);
+                        for (final IClassFile cu : fragment.getClassFiles()) {
+                            if (cu.getElementName().contains("$")) {
+                                continue;
+                            }
+                            if (monitor.isCanceled()) {
+                                return Status.CANCEL_STATUS;
+                            }
+                            final CompilationUnit ast = getAST(cu);
+                            if (ast != null) {
+                                monitor.subTask(location + "!"
+                                        + JavaElementLabels.getElementLabel(cu, JavaElementLabels.ALL_FULLY_QUALIFIED));
+                                indexer.add(ast);
+                            }
                         }
                     }
+
+                    // final Optional<ZipFile> opt = getAttachedSourceArchive(root);
+                    // if (opt.isPresent()) {
+                    // RecommendersUtilsPlugin.log(StatusUtil.newStatus(IStatus.INFO, "Scanning zip "
+                    // + opt.get().getName(), null));
+                    // analyzeSourcesInZip(opt.get(), root, indexer, monitor);
+                    // try {
+                    // opt.get().close();
+                    // } catch (final IOException e) {
+                    // RecommendersUtilsPlugin.logError(e, "failed to close zip stream??");
+                    // }
+                    // }
                     addMarkerDocument(indexer, location);
                 } else {
                     analyzeSourcesInSourceFolder(indexer, monitor, root);
