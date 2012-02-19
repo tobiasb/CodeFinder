@@ -100,17 +100,21 @@ public class IndexUpdateService {
 
                     @Override
                     public void run() {
-                        final IProject[] projects = workspace.getProjects();
-                        monitor.beginTask("Indexing", projects.length);
-                        for (final IProject p : projects) {
-                            if (JavaProject.hasJavaNature(p)) {
-                                if (monitor.isCanceled()) {
-                                    return;
+                        try {
+                            final IProject[] projects = workspace.getProjects();
+                            monitor.beginTask("Indexing", projects.length);
+                            for (final IProject p : projects) {
+                                if (JavaProject.hasJavaNature(p)) {
+                                    if (monitor.isCanceled()) {
+                                        return;
+                                    }
+                                    IndexUtils.indexProject(JavaCore.create(p), indexer, new SubProgressMonitor(
+                                            monitor, 1));
                                 }
-                                IndexUtils.indexProject(JavaCore.create(p), indexer, new SubProgressMonitor(monitor, 1));
                             }
+                        } finally {
+                            wait.countDown();
                         }
-                        wait.countDown();
                     }
                 });
                 e.shutdown();

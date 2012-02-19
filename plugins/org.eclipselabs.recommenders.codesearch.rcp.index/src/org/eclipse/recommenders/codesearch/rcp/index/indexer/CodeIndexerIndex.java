@@ -23,6 +23,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IndexInformat
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
+import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
@@ -70,7 +71,11 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public void add(final CompilationUnit cu) {
         final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
         visitor.addIndexer(CompilationUnitVisitor.getDefaultIndexer());
-        cu.accept(visitor);
+        try {
+            cu.accept(visitor);
+        } catch (final Exception e) {
+            RecommendersUtilsPlugin.logError(e, "Exception while indexing %s", cu);
+        }
         // add to internal cache
         indexInformationProvider.setLastIndexed(ResourcePathIndexer.getFile(cu), TimestampIndexer.getTime());
     }

@@ -24,7 +24,6 @@ public abstract class TypeUseVisitor extends ASTVisitor {
     public boolean visit(final SimpleType node) {
         final ITypeBinding b = node.resolveBinding();
         handleTypeUseInternal(b);
-
         return false;
     }
 

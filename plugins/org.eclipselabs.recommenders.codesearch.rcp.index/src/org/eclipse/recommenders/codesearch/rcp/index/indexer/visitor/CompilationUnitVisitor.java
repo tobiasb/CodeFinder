@@ -62,6 +62,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
+import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.collect.Lists;
 
@@ -166,6 +167,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
 
         // For each method declaration we use another visitor to learn about
         // variable usage
+
         final VarUsageVisitor varUsageVisitor = new VarUsageVisitor(indexer);
         varUsageVisitor.visit(node);
 
@@ -223,7 +225,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         try {
             index.addDocument(document);
         } catch (final IOException e) {
-            // XXX: Activator.logError(e);
+            RecommendersUtilsPlugin.logError(e, "Exception during document save.");
         }
     }
 }
