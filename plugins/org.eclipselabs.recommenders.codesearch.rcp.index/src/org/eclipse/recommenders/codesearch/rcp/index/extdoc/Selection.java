@@ -18,10 +18,24 @@ public class Selection {
     public final MethodDeclaration method;
     public final String varname;
     public final Document doc;
+    public final Exception exception;
 
     public Selection(final MethodDeclaration method, final String varname, final Document doc) {
+        this(method, varname, doc, null);
+    }
+
+    public Selection(final Exception e) {
+        this(null, null, null, e);
+    }
+
+    protected Selection(final MethodDeclaration method, final String varname, final Document doc, final Exception e) {
         this.method = method;
         this.varname = varname;
         this.doc = doc;
+        this.exception = e;
+    }
+
+    public boolean isError() {
+        return exception != null;
     }
 }

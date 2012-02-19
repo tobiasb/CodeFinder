@@ -17,6 +17,7 @@ import java.util.List;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.ui.JavaUI;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
@@ -31,6 +32,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.internal.misc.StatusUtil;
 
 import com.google.common.base.Optional;
 
@@ -78,7 +80,14 @@ public final class Renderer implements Runnable {
             public void doubleClick(final DoubleClickEvent event) {
                 final Optional<Selection> opt = RCPUtils.first(event.getSelection());
                 if (opt.isPresent()) {
-                    final String handle = opt.get().doc.get(Fields.JAVA_ELEMENT_HANDLE);
+                    final Selection s = opt.get();
+                    if (s.isError()) {
+                        ErrorDialog.openError(event.getViewer().getControl().getShell(), "Index issue",
+                                "could not open indexed file.",
+                                StatusUtil.newStatus("org.eclipse.recommenders", s.exception));
+                        return;
+                    }
+                    final String handle = s.doc.get(Fields.JAVA_ELEMENT_HANDLE);
                     final IJavaElement create = JavaCore.create(handle);
                     try {
                         JavaUI.openInEditor(create);

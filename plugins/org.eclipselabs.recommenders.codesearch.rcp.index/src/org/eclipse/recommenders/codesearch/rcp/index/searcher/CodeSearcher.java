@@ -18,9 +18,6 @@ import org.apache.lucene.search.MatchAllDocsQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
-import org.apache.lucene.store.Directory;
-import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
-import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorConsumable;
 import org.eclipse.recommenders.utils.Checks;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
@@ -28,22 +25,21 @@ import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-// TODO: Tobias, what is the meaning of a code searcher index? Is it actually an index?
 @Singleton
-public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsumable {
+public class CodeSearcher implements ITermVectorConsumable {
     private final QueryParser parser;
-    private IndexReader reader;
     private IndexSearcher searcher;
+    private IndexReader reader;
 
-    public CodeSearcherIndex(final Directory directory) throws IOException {
-        super(directory);
-        reader = IndexReader.open(directory);
-        searcher = new IndexSearcher(reader);
-        parser = new QueryParser(getVersion(), Fields.FULL_TEXT, getAnalyzer());
-        parser.setLowercaseExpandedTerms(false);
-        parser.setAllowLeadingWildcard(true);
+    @Inject
+    public CodeSearcher(final IndexSearcher searcher, final IndexReader reader, final QueryParser parser)
+            throws IOException {
+        this.parser = parser;
+        this.searcher = searcher;
+        this.reader = reader;
     }
 
     @VisibleForTesting
@@ -63,6 +59,7 @@ public class CodeSearcherIndex extends AbstractIndex implements ITermVectorConsu
     }
 
     public List<Document> search(final Query query, final FieldSelector selector) throws IOException {
+        renewReader();
         return search(query, selector, reader.numDocs() + 1);
     }
 

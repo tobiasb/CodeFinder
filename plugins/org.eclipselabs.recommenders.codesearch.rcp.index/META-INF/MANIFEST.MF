@@ -20,12 +20,15 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Eclipse Code Recommenders
 Export-Package: org.eclipse.recommenders.codesearch.rcp.index,
+ org.eclipse.recommenders.codesearch.rcp.index.extdoc,
  org.eclipse.recommenders.codesearch.rcp.index.indexer,
+ org.eclipse.recommenders.codesearch.rcp.index.indexer.analyzer,
  org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces,
  org.eclipse.recommenders.codesearch.rcp.index.indexer.utils,
  org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor,
  org.eclipse.recommenders.codesearch.rcp.index.searcher,
  org.eclipse.recommenders.codesearch.rcp.index.searcher.converter,
  org.eclipse.recommenders.codesearch.rcp.index.termvector,
- org.eclipse.recommenders.codesearch.rcp.index.ui
+ org.eclipse.recommenders.codesearch.rcp.index.ui,
+ org.eclipse.recommenders.codesearch.rcp.index.wiring
 Bundle-Activator: org.eclipse.recommenders.codesearch.rcp.index.wiring.CodesearchIndexPlugin

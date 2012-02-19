@@ -6,19 +6,16 @@ import java.util.Set;
 import junit.framework.Assert;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Fieldable;
-import org.apache.lucene.store.Directory;
-import org.apache.lucene.store.RAMDirectory;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTParser;
-import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService;
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
 import org.eclipse.recommenders.utils.Tuple;
@@ -27,12 +24,25 @@ import org.eclipse.xtext.xbase.lib.BooleanExtensions;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipselabs.recommenders.test.codesearch.rcp.indexer.AbstractTestBase;
+import org.eclipselabs.recommenders.test.codesearch.rcp.indexer.LuceneInMemoryFixture;
 import org.junit.Ignore;
 
 @SuppressWarnings("all")
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 public class TestBase extends AbstractTestBase {
+  public LuceneInMemoryFixture f = new Function0<LuceneInMemoryFixture>() {
+    public LuceneInMemoryFixture apply() {
+      LuceneInMemoryFixture _luceneInMemoryFixture = new LuceneInMemoryFixture();
+      return _luceneInMemoryFixture;
+    }
+  }.apply();
+  
+  public CodeIndexer index = this.f.index;
+  
+  public CodeSearcher search = this.f.searcher;
+  
   public static ASTNode parse(final ICompilationUnit unit) {
     ASTNode _xblockexpression = null;
     {
@@ -47,13 +57,10 @@ public class TestBase extends AbstractTestBase {
     return _xblockexpression;
   }
   
-  public void assertNumDocs(final AbstractIndex index, final int expectedNum) {
+  public void assertNumDocs(final int expectedNum) {
     try {
       {
-        Directory _index = index.getIndex();
-        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-        CodeSearcherIndex readIndex = _codeSearcherIndex;
-        List<Document> _documents = readIndex.getDocuments();
+        List<Document> _documents = this.search.getDocuments();
         int _size = _documents.size();
         int numDocs = _size;
         StringConcatenation _builder = new StringConcatenation();
@@ -71,13 +78,10 @@ public class TestBase extends AbstractTestBase {
     }
   }
   
-  public boolean assertField(final AbstractIndex index, final List<String> expected) {
+  public boolean assertField(final List<String> expected) {
     try {
       {
-        Directory _index = index.getIndex();
-        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-        CodeSearcherIndex readIndex = _codeSearcherIndex;
-        List<Document> _documents = readIndex.getDocuments();
+        List<Document> _documents = this.search.getDocuments();
         for (final Document document : _documents) {
           {
             boolean foundInDocument = true;
@@ -117,13 +121,10 @@ public class TestBase extends AbstractTestBase {
     }
   }
   
-  public boolean assertFieldStartsWith(final AbstractIndex index, final List<String> expected) {
+  public boolean assertFieldStartsWith(final List<String> expected) {
     try {
       {
-        Directory _index = index.getIndex();
-        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-        CodeSearcherIndex readIndex = _codeSearcherIndex;
-        List<Document> _documents = readIndex.getDocuments();
+        List<Document> _documents = this.search.getDocuments();
         for (final Document document : _documents) {
           {
             boolean foundInDocument = true;
@@ -163,42 +164,37 @@ public class TestBase extends AbstractTestBase {
     }
   }
   
-  public void assertNotField(final AbstractIndex index, final List<String> expected) {
+  public void assertNotField(final List<String> expected) {
     try {
-      {
-        Directory _index = index.getIndex();
-        CodeSearcherIndex _codeSearcherIndex = new CodeSearcherIndex(_index);
-        CodeSearcherIndex readIndex = _codeSearcherIndex;
-        List<Document> _documents = readIndex.getDocuments();
-        for (final Document document : _documents) {
-          {
-            boolean foundInDocument = true;
-            for (final String exp : expected) {
-              {
-                boolean found = false;
-                List<Fieldable> _fields = document.getFields();
-                for (final Fieldable field : _fields) {
-                  String _name = field.name();
-                  String _stringValue = field.stringValue();
-                  String _s = this.s(_name, _stringValue);
-                  boolean _equals = _s.equals(exp);
-                  if (_equals) {
-                    found = true;
-                  }
-                }
-                boolean _operator_not = BooleanExtensions.operator_not(found);
-                if (_operator_not) {
-                  foundInDocument = false;
+      List<Document> _documents = this.search.getDocuments();
+      for (final Document document : _documents) {
+        {
+          boolean foundInDocument = true;
+          for (final String exp : expected) {
+            {
+              boolean found = false;
+              List<Fieldable> _fields = document.getFields();
+              for (final Fieldable field : _fields) {
+                String _name = field.name();
+                String _stringValue = field.stringValue();
+                String _s = this.s(_name, _stringValue);
+                boolean _equals = _s.equals(exp);
+                if (_equals) {
+                  found = true;
                 }
               }
+              boolean _operator_not = BooleanExtensions.operator_not(found);
+              if (_operator_not) {
+                foundInDocument = false;
+              }
             }
-            if (foundInDocument) {
-              StringConcatenation _builder = new StringConcatenation();
-              _builder.append("There was a document with ");
-              _builder.append(expected, "");
-              String _string = _builder.toString();
-              Assert.assertTrue(_string, false);
-            }
+          }
+          if (foundInDocument) {
+            StringConcatenation _builder = new StringConcatenation();
+            _builder.append("There was a document with ");
+            _builder.append(expected, "");
+            String _string = _builder.toString();
+            Assert.assertTrue(_string, false);
           }
         }
       }
@@ -216,22 +212,19 @@ public class TestBase extends AbstractTestBase {
     return _string;
   }
   
-  public CodeIndexerIndex exercise(final CharSequence code, final List<IIndexer> indexer) {
-    CodeIndexerIndex _exercise = this.exercise(code, indexer, "test");
-    return _exercise;
+  public void exercise(final CharSequence code, final List<IIndexer> indexer) {
+    this.exercise(code, indexer, "test");
   }
   
-  public CodeIndexerIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
-    CodeIndexerIndex _exercise = this.exercise(code, indexer, projectName, "MyClass.java");
-    return _exercise;
+  public void exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
+    this.exercise(code, indexer, projectName, "MyClass.java");
   }
   
-  public CodeIndexerIndex exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
-    CodeIndexerIndex _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
-    return _exercise;
+  public void exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
+    this.exercise(code, null, null, indexer, projectName, fileName);
   }
   
-  public CodeIndexerIndex exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
+  public void exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
     try {
       {
         IndexUpdateService.setBackgroundIndexerActive(false);
@@ -245,26 +238,21 @@ public class TestBase extends AbstractTestBase {
         final ICompilationUnit cu = _first;
         ASTNode _parse = TestBase.parse(cu);
         ASTNode cuParsed = _parse;
-        RAMDirectory _rAMDirectory = new RAMDirectory();
-        CodeIndexerIndex _codeIndexerIndex = new CodeIndexerIndex(_rAMDirectory);
-        CodeIndexerIndex index = _codeIndexerIndex;
-        CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(index);
+        CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(this.index);
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         visitor.addIndexer(indexer);
         cuParsed.accept(visitor);
-        index.commit();
-        return index;
+        this.index.commit();
       }
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
-  public CodeIndexerIndex exercise(final CharSequence code, final IIndexer indexer) {
+  public void exercise(final CharSequence code, final IIndexer indexer) {
     ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(indexer);
     List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-    CodeIndexerIndex _exercise = this.exercise(code, _i);
-    return _exercise;
+    this.exercise(code, _i);
   }
   
   public List<String> l(final String[] items) {

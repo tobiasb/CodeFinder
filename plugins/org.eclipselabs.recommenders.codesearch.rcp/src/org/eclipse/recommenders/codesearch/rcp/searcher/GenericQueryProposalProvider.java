@@ -2,7 +2,7 @@ package org.eclipse.recommenders.codesearch.rcp.searcher;
 
 import java.util.List;
 
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.IQueryPartConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.utils.IImageProvider;
@@ -34,7 +34,7 @@ public class GenericQueryProposalProvider implements IQueryProposalProvider {
     @Override
     public List<String> getProposals() {
 
-        final CodeSearcherIndex searcherIndex = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
+        final CodeSearcher searcherIndex = InjectionService.getInstance().requestInstance(CodeSearcher.class);
 
         final Long start = System.currentTimeMillis();
         termVectorProvider.load(searcherIndex);

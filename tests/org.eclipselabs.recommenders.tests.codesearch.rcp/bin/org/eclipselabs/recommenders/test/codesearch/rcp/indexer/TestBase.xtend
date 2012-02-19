@@ -1,18 +1,16 @@
 package org.eclipselabs.recommenders.test.codesearch.rcp.indexer
 
 import java.util.List
-import org.apache.lucene.store.RAMDirectory
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.jdt.core.ICompilationUnit
 import org.eclipse.jdt.core.dom.AST
 import org.eclipse.jdt.core.dom.ASTParser
-import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex
-import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher
 import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService
+import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
 import org.junit.Ignore
 
 import static junit.framework.Assert.*
@@ -20,6 +18,11 @@ import static org.eclipselabs.recommenders.test.codesearch.rcp.indexer.TestBase.
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase extends AbstractTestBase {
+	
+	public LuceneInMemoryFixture f = new LuceneInMemoryFixture()
+	public CodeIndexer index = f.index
+	public CodeSearcher search= f.searcher
+	
 	def static parse(ICompilationUnit unit) {
         var parser = ASTParser::newParser(AST::JLS3);
         parser.setKind(ASTParser::K_COMPILATION_UNIT);
@@ -29,19 +32,16 @@ class TestBase extends AbstractTestBase {
 		parser.createAST(null);
     }
      
-    def assertNumDocs(AbstractIndex index, int expectedNum) {
-    	
-    	var readIndex = new CodeSearcherIndex(index.index)
-    	var numDocs = readIndex.getDocuments.size
+    def assertNumDocs(int expectedNum) {
+    	var numDocs = search.getDocuments.size
     	
 		assertTrue('''The number of documents is not correct. Is [«numDocs»] but should be [«expectedNum»]'''.toString, numDocs.equals(expectedNum))
     }
      
-    def assertField(AbstractIndex index, List<String> expected) {
+    def assertField(List<String> expected) {
     	    	
-    	var readIndex = new CodeSearcherIndex(index.index)
     	    	
-    	for(document : readIndex.getDocuments) {   
+    	for(document : search.getDocuments) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -67,10 +67,8 @@ class TestBase extends AbstractTestBase {
 		return false
     }
     
-    def assertFieldStartsWith(AbstractIndex index, List<String> expected) {
-    	var readIndex = new CodeSearcherIndex(index.index)
-    	    	
-    	for(document : readIndex.getDocuments) {   
+    def assertFieldStartsWith(List<String> expected) {
+    	for(document : search.getDocuments) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -96,10 +94,8 @@ class TestBase extends AbstractTestBase {
 		return false
     }
     
-    def assertNotField(AbstractIndex index, List<String> expected) {
-    	    	    	var readIndex = new CodeSearcherIndex(index.index)
-    	    	
-    	for(document : readIndex.getDocuments) {   
+    def assertNotField( List<String> expected) {
+    	for(document : search.getDocuments) {   
     		var foundInDocument = true
     		 		
     		for(exp : expected) {
@@ -127,15 +123,15 @@ class TestBase extends AbstractTestBase {
     }
     
     def exercise(CharSequence code, List<IIndexer> indexer) {
-    	return exercise(code, indexer, "test")
+    	exercise(code, indexer, "test")
     }
     
     def exercise(CharSequence code, List<IIndexer> indexer, String projectName) {
-    	return exercise(code, indexer, projectName, "MyClass.java")
+    	exercise(code, indexer, projectName, "MyClass.java")
     }
     
     def exercise(CharSequence code, List<IIndexer> indexer, String projectName, String fileName) {
-    	return exercise(code, null, null, indexer, projectName, fileName)
+    	 exercise(code, null, null, indexer, projectName, fileName)
     }
     
     def exercise(CharSequence code1, CharSequence code2, CharSequence code3, List<IIndexer> indexer, String projectName, String fileName) {   	
@@ -145,19 +141,15 @@ class TestBase extends AbstractTestBase {
 		val cu = struct.first;
         var cuParsed = parse(cu);
 
-        var index = new CodeIndexerIndex(new RAMDirectory())
-		
         var visitor = new CompilationUnitVisitor(index);
         visitor.addIndexer(indexer);
         
         cuParsed.accept(visitor)
         index.commit
-        
-        return index
     }
 	
 	def exercise(CharSequence code, IIndexer indexer){
-		return exercise(code, i(newArrayList(indexer)))  
+		 exercise(code, i(newArrayList(indexer)))  
 	}
 	
 //	def c(String [] items) {

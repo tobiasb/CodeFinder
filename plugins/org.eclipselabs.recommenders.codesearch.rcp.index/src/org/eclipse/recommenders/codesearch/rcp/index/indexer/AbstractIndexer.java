@@ -19,11 +19,11 @@ import com.google.common.base.Optional;
 public abstract class AbstractIndexer {
 
     protected void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
-        CodeIndexerIndex.addAnalyzedField(document, fieldName, fieldValue);
+        CodeIndexer.addAnalyzedField(document, fieldName, fieldValue);
     }
 
     protected void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {
-        CodeIndexerIndex.addAnalyzedField(document, fieldName, fieldValue);
+        CodeIndexer.addAnalyzedField(document, fieldName, fieldValue);
     }
 
     public static boolean isPrimitiveOrArrayOrNullOrObjectOrString(final ITypeName type) {

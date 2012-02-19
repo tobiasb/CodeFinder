@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryParser.ParseException;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipselabs.recommenders.test.codesearch.AbstractTestIndex;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +17,7 @@ public class CodeSearcherTest extends AbstractTestIndex {
     public void testSimpleSearchReturnsSomething() throws IOException, ParseException {
         newIndex().newDoc().addField(Fields.TYPE, Fields.TYPE_CLASS).finish();
 
-        final CodeSearcherIndex sut = getSearchIndexer();
+        final CodeSearcher sut = getSearchIndexer();
 
         final List<Document> result = sut.search(String.format("%s:%s", Fields.TYPE, Fields.TYPE_CLASS));
 

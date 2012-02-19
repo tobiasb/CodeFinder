@@ -17,9 +17,9 @@ class TestFieldScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldTypeIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new FieldTypeIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_FIELD),
 			s(Fields::FIELD_TYPE, "Ljava/util/List")
 		)))

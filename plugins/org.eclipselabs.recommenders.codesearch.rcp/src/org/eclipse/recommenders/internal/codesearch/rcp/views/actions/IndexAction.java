@@ -3,7 +3,7 @@ package org.eclipse.recommenders.internal.codesearch.rcp.views.actions;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.recommenders.internal.codesearch.rcp.Activator;
 import org.eclipse.swt.widgets.Shell;
@@ -29,7 +29,7 @@ public class IndexAction implements IViewActionDelegate {
     @Override
     public void run(final IAction action) {
         try {
-            final CodeIndexerIndex index = InjectionService.getInstance().requestInstance(CodeIndexerIndex.class);
+            final CodeIndexer index = InjectionService.getInstance().requestInstance(CodeIndexer.class);
 
             MessageDialog.openError(new Shell(), "Action not available anymore.",
                     "this action moved to index plugin :)");

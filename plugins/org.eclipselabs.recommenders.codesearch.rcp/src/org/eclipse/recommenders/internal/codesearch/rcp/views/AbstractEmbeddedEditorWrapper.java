@@ -2,7 +2,7 @@ package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
 import java.util.Set;
 
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.swt.SWT;
@@ -27,13 +27,13 @@ public abstract class AbstractEmbeddedEditorWrapper {
     protected EmbeddedEditor handle;
     protected Composite parent;
     protected Combo exampleCombo;
-    protected CodeSearcherIndex codeSearcher;
+    protected CodeSearcher codeSearcher;
     protected ISearchView searchView;
 
     abstract void createQueryEditorInternal();
 
     public AbstractEmbeddedEditorWrapper() {
-        codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
+        codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcher.class);
     }
 
     public void createQueryEditor(final Composite parent, final Combo exampleCombo, final ISearchView searchView) {

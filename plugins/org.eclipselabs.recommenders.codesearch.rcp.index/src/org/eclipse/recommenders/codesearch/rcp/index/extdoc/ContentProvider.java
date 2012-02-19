@@ -33,7 +33,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
-import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 
@@ -80,19 +79,22 @@ final class ContentProvider implements ILazyContentProvider {
                     try {
                         final Document doc = searchResults.scoreDoc(index);
                         if (!findHandle(doc)) {
+                            final IllegalStateException e = new IllegalStateException("Could not find handle "
+                                    + doc.get(Fields.JAVA_ELEMENT_HANDLE));
+                            updateIndex(new Selection(e), index);
                             return;
                         }
                         if (!findJdtMethod()) {
-                            updateIndex(EMPTY, "", doc, index);
+                            updateIndex(new Selection(EMPTY, "", doc), index);
                             return;
                         }
                         if (!findAstMethod()) {
-                            updateIndex(EMPTY, "", doc, index);
+                            updateIndex(new Selection(EMPTY, "", doc), index);
                             return;
                         }
-                        updateIndex(astMethod, doc.get(Fields.VARIABLE_NAME), doc, index);
+                        updateIndex(new Selection(astMethod, doc.get(Fields.VARIABLE_NAME), doc), index);
                     } catch (final Exception e) {
-                        RecommendersUtilsPlugin.logError(e, "failed to load document from index");
+                        updateIndex(new Selection(e), index);
                     }
                 }
 
@@ -102,17 +104,15 @@ final class ContentProvider implements ILazyContentProvider {
                     return element != null;
                 }
 
-                private void updateIndex(final MethodDeclaration method, final String varname, final Document doc,
-                        final int index) {
+                private void updateIndex(final Selection s, final int index) {
                     Display.getDefault().asyncExec(new Runnable() {
 
                         @Override
                         public void run() {
-                            Table table = viewer.getTable();
+                            final Table table = viewer.getTable();
                             if (table.isDisposed()) {
                                 return;
                             }
-                            final Selection s = new Selection(method, varname, doc);
                             viewer.replace(s, index);
                         }
                     });

@@ -12,7 +12,7 @@ package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
-import static org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex.addAnalyzedField;
+import static org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer.addAnalyzedField;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getFile;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getPath;
 import static org.eclipse.recommenders.utils.Checks.cast;
@@ -36,13 +36,16 @@ import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.internal.core.JarPackageFragmentRoot;
+import org.eclipse.jdt.internal.core.SourceMapper;
 import org.eclipse.jdt.ui.JavaElementLabels;
 import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
@@ -52,13 +55,13 @@ import com.google.common.base.Optional;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Files;
 
-public class IndexUtils {
+public class IndexUtilsBackupCopy {
 
     // XXX note, we do not delete any files yet..
 
-    public static IStatus indexProject(final IJavaProject project, final CodeIndexerIndex indexer,
+    @SuppressWarnings("restriction")
+    public static IStatus indexProject(final IJavaProject project, final CodeIndexer indexer,
             final IProgressMonitor monitor) {
-
         try {
             // get all package fragments of this project (not including those of
             // the projects it depends one
@@ -75,23 +78,37 @@ public class IndexUtils {
                 }
 
                 if (isBinaryArchive(root)) {
-                    System.out.println("scanning " + location);
+                    final JarPackageFragmentRoot jarRoot = (JarPackageFragmentRoot) root;
+                    final SourceMapper sourceMapper = jarRoot.getSourceMapper();
+
+                    if (sourceMapper == null) {
+                        continue;
+                    }
                     deleteOldDocumentsForFile(indexer, location);
 
                     for (final IJavaElement child : root.getChildren()) {
                         final IPackageFragment fragment = cast(child);
-                        for (final IClassFile cu : fragment.getClassFiles()) {
-                            if (cu.getElementName().contains("$")) {
+                        // SourceMapper sourceMapper = ((JarPackageFragmentRoot)root).getSourceMapper();
+                        for (final IClassFile clazz : fragment.getClassFiles()) {
+                            if (clazz.getElementName().contains("$")) {
                                 continue;
                             }
-                            if (monitor.isCanceled()) {
-                                return Status.CANCEL_STATUS;
+                            final IType type = clazz.getType();
+                            if (type == null) {
+                                continue;
                             }
-                            final CompilationUnit ast = getAST(cu);
-                            if (ast != null) {
-                                monitor.subTask(location + "!"
-                                        + JavaElementLabels.getElementLabel(cu, JavaElementLabels.ALL_FULLY_QUALIFIED));
-                                indexer.add(ast);
+
+                            final String simpleSourceFileName = type.getElementName() + ".java";
+                            final char[] source = sourceMapper.findSource(type, simpleSourceFileName);
+                            if (source != null) {
+                                final String unitName = type.getFullyQualifiedName().replace('.', '/') + ".java";
+                                final IJavaProject javaProject = root.getJavaProject();
+                                final CompilationUnit cu = CompilationUnitHelper.parse(source, unitName, javaProject);
+                                cu.setProperty("location", getFile(root));
+                                cu.setProperty("project", javaProject);
+                                monitor.subTask(root.getPath() + "!" + unitName);
+                                indexer.add(cu);
+                                // analyzeClassFile(indexer, monitor, location, cu);
                             }
                         }
                     }
@@ -123,27 +140,45 @@ public class IndexUtils {
         return Status.OK_STATUS;
     }
 
-    private static void deleteOldDocumentsForFile(final CodeIndexerIndex indexer, final File location)
+    private static void analyzeClassFile(final CodeIndexer indexer, final IProgressMonitor monitor,
+            final File location, final IClassFile cu) throws JavaModelException {
+        if (monitor.isCanceled()) {
+            return;
+        }
+        final String name = cu.getElementName();
+        if (name.contains("$")) {
+            return;
+        }
+        final String source = cu.getSource();
+        final CompilationUnit ast = getAST(cu);
+        if (ast != null) {
+            monitor.subTask(location + "!"
+                    + JavaElementLabels.getElementLabel(cu, JavaElementLabels.ALL_FULLY_QUALIFIED));
+            indexer.add(ast);
+        }
+    }
+
+    private static void deleteOldDocumentsForFile(final CodeIndexer indexer, final File location)
             throws IOException {
         // delete *all* old files for given resource
         indexer.delete(location);
     }
 
-    private static void addMarkerDocument(final CodeIndexerIndex indexer, final File location) throws IOException {
+    private static void addMarkerDocument(final CodeIndexer indexer, final File location) throws IOException {
         final Document visited = new Document();
         addAnalyzedField(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location));
         addAnalyzedField(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
         indexer.addDocument(visited);
     }
 
-    private static boolean isCurrent(final IPackageFragmentRoot root, final CodeIndexerIndex indexer) {
+    private static boolean isCurrent(final IPackageFragmentRoot root, final CodeIndexer indexer) {
         final File file = getFile(root);
         final long lastModified = file.lastModified();
         final long lastIndexed = indexer.lastIndexed(file);
         return lastModified < lastIndexed;
     }
 
-    private static void analyzeSourcesInSourceFolder(final CodeIndexerIndex indexer, final IProgressMonitor monitor,
+    private static void analyzeSourcesInSourceFolder(final CodeIndexer indexer, final IProgressMonitor monitor,
             final IPackageFragmentRoot root) throws JavaModelException {
         for (final IJavaElement child : root.getChildren()) {
             final IPackageFragment fragment = cast(child);
@@ -158,7 +193,7 @@ public class IndexUtils {
     }
 
     private static void analyzeSourcesInZip(final ZipFile zipFile, final IPackageFragmentRoot root,
-            final CodeIndexerIndex indexer, final IProgressMonitor monitor) {
+            final CodeIndexer indexer, final IProgressMonitor monitor) {
         try {
 
             final Enumeration<? extends ZipEntry> entries = zipFile.entries();
@@ -212,7 +247,7 @@ public class IndexUtils {
         return SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
     }
 
-    public static void addOrUpdateCompilationUnitToIndex(final ITypeRoot cu, final CodeIndexerIndex indexer) {
+    public static void addOrUpdateCompilationUnitToIndex(final ITypeRoot cu, final CodeIndexer indexer) {
         try {
             if (!shouldIndex(cu, indexer)) {
                 return;
@@ -227,7 +262,7 @@ public class IndexUtils {
         }
     }
 
-    public static boolean shouldIndex(final ITypeRoot cu, final CodeIndexerIndex indexer) throws JavaModelException {
+    public static boolean shouldIndex(final ITypeRoot cu, final CodeIndexer indexer) throws JavaModelException {
         final File file = getFile(cu);
         final long lastModified = file.lastModified();
         final long lastIndexed = indexer.lastIndexed(file);

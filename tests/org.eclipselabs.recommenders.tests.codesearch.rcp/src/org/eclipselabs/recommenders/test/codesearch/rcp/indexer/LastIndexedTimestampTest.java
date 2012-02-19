@@ -7,7 +7,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
@@ -29,7 +29,7 @@ public class LastIndexedTimestampTest extends AbstractTestIndex {
         final File location = p.toFile();
 
         newIndex();
-        final CodeIndexerIndex index = getIndexer();
+        final CodeIndexer index = getIndexer();
 
         final List<IIndexer> indexer = Lists.newArrayList();
         indexer.add(new ResourcePathIndexer());

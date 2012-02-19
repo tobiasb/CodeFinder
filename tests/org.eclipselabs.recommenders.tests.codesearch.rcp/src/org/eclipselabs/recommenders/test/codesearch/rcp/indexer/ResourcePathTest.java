@@ -6,15 +6,17 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.apache.lucene.document.Document;
-import org.apache.lucene.store.RAMDirectory;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
+import org.eclipse.recommenders.codesearch.rcp.index.wiring.CodesearchIndexModule;
 import org.junit.Ignore;
 import org.junit.Test;
 
 public class ResourcePathTest {
+
+    LuceneInMemoryFixture fixture = new LuceneInMemoryFixture();
 
     @Test
     @Ignore("Well, this obviously fails when executed in a *nix environment. Silly me...")
@@ -32,14 +34,15 @@ public class ResourcePathTest {
         final String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
 
         final Document doc = new Document();
-        CodeIndexerIndex.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
+        CodeIndexer.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
 
-        final CodeIndexerIndex index = new CodeIndexerIndex(new RAMDirectory());
+        final CodesearchIndexModule factory = new CodesearchIndexModule();
+
+        final CodeIndexer index = fixture.index;
         index.addDocument(doc);
         index.commit();
 
-        final CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index.getIndex());
-        final List<Document> results = searcherIndex.getDocuments();
+        final List<Document> results = fixture.searcher.getDocuments();
 
         Assert.assertEquals(1, results.size());
         Assert.assertNotNull(results.get(0).get(Fields.RESOURCE_PATH));
@@ -51,13 +54,12 @@ public class ResourcePathTest {
         final String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
 
         final Document doc = new Document();
-        CodeIndexerIndex.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
+        CodeIndexer.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
 
-        final CodeIndexerIndex index = new CodeIndexerIndex(new RAMDirectory());
+        final CodeIndexer index = fixture.index;
+        final CodeSearcher searcherIndex = fixture.searcher;
         index.addDocument(doc);
         index.commit();
-
-        final CodeSearcherIndex searcherIndex = new CodeSearcherIndex(index.getIndex());
 
         final List<Document> results = searcherIndex.search(Fields.RESOURCE_PATH + ":"
                 + ResourcePathIndexer.escape(filePath));

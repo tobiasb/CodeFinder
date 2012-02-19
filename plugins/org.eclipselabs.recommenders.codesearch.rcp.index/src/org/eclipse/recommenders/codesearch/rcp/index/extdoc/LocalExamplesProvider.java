@@ -36,9 +36,8 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.internal.corext.dom.LinkedNodeFinder;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider;
 import org.eclipse.recommenders.extdoc.rcp.providers.JavaSelectionSubscriber;
 import org.eclipse.recommenders.rcp.events.JavaSelectionEvent;
@@ -55,7 +54,7 @@ import com.google.common.collect.Lists;
 public class LocalExamplesProvider extends ExtdocProvider {
 
     private final JavaElementResolver jdtResolver;
-    private final CodeSearcherIndex searcher;
+    private final CodeSearcher searcher;
     private Stopwatch watch;
     private JavaSelectionEvent event;
 
@@ -68,9 +67,9 @@ public class LocalExamplesProvider extends ExtdocProvider {
     private IType jdtVarType;
 
     @Inject
-    public LocalExamplesProvider(final CodeIndexerIndex index, final JavaElementResolver jdtResolver)
+    public LocalExamplesProvider(final CodeSearcher searcher, final JavaElementResolver jdtResolver)
             throws IOException {
-        this.searcher = new CodeSearcherIndex(index.getIndex());
+        this.searcher = searcher;
         this.jdtResolver = jdtResolver;
     }
 

@@ -1,0 +1,57 @@
+/**
+ * Copyright (c) 2010, 2011 Darmstadt University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *    Marcel Bruch - initial API and implementation.
+ */
+package org.eclipselabs.recommenders.test.codesearch.rcp.indexer;
+
+import static org.eclipse.recommenders.utils.Throws.throwUnhandledException;
+
+import java.io.IOException;
+
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.util.Version;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
+import org.eclipse.recommenders.codesearch.rcp.index.wiring.CodesearchIndexModule;
+
+public class LuceneInMemoryFixture {
+
+    public Version lversion;
+    public RAMDirectory ldirectory;
+    public IndexWriter lwriter;
+    public Analyzer lanalyzer;
+    public IndexReader lreader;
+    private QueryParser lqueryParser;
+    private IndexSearcher lsearcher;
+    public CodeSearcher searcher;
+    public CodeIndexer index;
+
+    public LuceneInMemoryFixture() {
+        try {
+            final CodesearchIndexModule factory = new CodesearchIndexModule();
+            lversion = factory.version();
+            lanalyzer = factory.analyzer();
+            ldirectory = new RAMDirectory();
+            lwriter = factory.indexWriter(lversion, lanalyzer, ldirectory);
+            lreader = factory.indexReader(lwriter);
+
+            lqueryParser = factory.queryParser(lversion, lanalyzer);
+            lsearcher = new IndexSearcher(lreader);
+            searcher = new CodeSearcher(lsearcher, lreader, lqueryParser);
+            index = new CodeIndexer(lwriter, searcher);
+        } catch (final IOException e) {
+            throwUnhandledException(e);
+        }
+    }
+}

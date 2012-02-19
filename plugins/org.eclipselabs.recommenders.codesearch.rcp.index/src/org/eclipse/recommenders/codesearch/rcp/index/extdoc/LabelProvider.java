@@ -42,6 +42,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
+import com.google.common.base.Throwables;
 import com.google.common.collect.Lists;
 
 public class LabelProvider extends StyledCellLabelProvider {
@@ -65,6 +66,10 @@ public class LabelProvider extends StyledCellLabelProvider {
         final Selection s = (Selection) cell.getElement();
         astMethod = s.method;
         final String varname = s.varname;
+        if (s.isError()) {
+            cell.setText(Throwables.getStackTraceAsString(s.exception));
+        }
+
         if (astMethod == ContentProvider.EMPTY) {
             cell.setText("// failed to resolve method.");
             setCellToCommentStyle(cell);

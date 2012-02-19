@@ -9,27 +9,25 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.document.FieldSelector;
 import org.apache.lucene.document.SetBasedFieldSelector;
 import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TermQuery;
-import org.apache.lucene.store.Directory;
 import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.recommenders.codesearch.rcp.index.AbstractIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IIndexInformationProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IndexInformationCache;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.google.inject.Inject;
 
-public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitIndexer {
+public class CodeIndexer implements ICompilationUnitIndexer {
 
     public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
         addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
@@ -39,28 +37,19 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
         if (fieldValue == null) {
             return;
         }
-
         final Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
-
-        // System.out.println(String.format("Adding field: [%1$30s] = [%2$50s]",
-        // fieldName, field.stringValue()));
-
         document.add(field);
     }
 
-    private final IndexWriter m_writer;
-    private final CodeSearcherIndex searcherIndex;
+    private final IndexWriter writer;
+    private final CodeSearcher searcher;
     private final List<IIndexer> tmpIndexerCollection = Lists.newArrayList();
     private final IIndexInformationProvider indexInformationProvider;
 
-    public CodeIndexerIndex(final Directory directory) throws IOException {
-        super(directory);
-
-        final IndexWriterConfig config = new IndexWriterConfig(getVersion(), getAnalyzer());
-        IndexWriter.unlock(getIndex());
-        m_writer = new IndexWriter(getIndex(), config);
-        m_writer.commit();
-        searcherIndex = new CodeSearcherIndex(directory);
+    @Inject
+    public CodeIndexer(final IndexWriter writer, final CodeSearcher searcher) throws IOException {
+        this.writer = writer;
+        this.searcher = searcher;
         indexInformationProvider = new IndexInformationCache();
     }
 
@@ -126,7 +115,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             final Query query = new TermQuery(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location)));
             final FieldSelector selector = new SetBasedFieldSelector(Sets.newHashSet(Fields.TIMESTAMP),
                     Sets.<String> newHashSet());
-            final List<Document> docs = searcherIndex.search(query, selector, 1);
+            final List<Document> docs = searcher.search(query, selector, 1);
             if (docs.size() > 0) {
                 return getMinTimestamp(docs);
             }
@@ -168,7 +157,7 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
             return;
         }
         final Query q = new TermQuery(term);
-        m_writer.deleteDocuments(q);
+        writer.deleteDocuments(q);
     }
 
     @Override
@@ -180,21 +169,30 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
 
     public void commit() {
         try {
-            m_writer.commit();
+            writer.commit();
+        } catch (final Exception e) {
+            RecommendersPlugin.logError(e, "failed to commit latest changes to code-search index.");
+        }
+    }
+
+    public void compact(final boolean wait) {
+        try {
+            writer.forceMerge(10, true);
+            writer.commit();
         } catch (final Exception e) {
             RecommendersPlugin.logError(e, "failed to commit latest changes to code-search index.");
         }
     }
 
     public void addDocument(final Document d) throws IOException {
-        m_writer.addDocument(d);
+        writer.addDocument(d);
     }
 
     @Override
     public void truncateIndex() {
         try {
-            m_writer.deleteAll();
-            m_writer.commit();
+            writer.deleteAll();
+            writer.commit();
         } catch (final IOException e) {
             RecommendersPlugin.logError(e, "failed to truncate code-search index.");
         }
@@ -214,6 +212,9 @@ public class CodeIndexerIndex extends AbstractIndex implements ICompilationUnitI
     public void close() {
         try {
             commit();
+
+            writer.close();
+
         } catch (final Exception ex) {
             RecommendersPlugin.logError(ex, "failed to close code-search index.");
         }

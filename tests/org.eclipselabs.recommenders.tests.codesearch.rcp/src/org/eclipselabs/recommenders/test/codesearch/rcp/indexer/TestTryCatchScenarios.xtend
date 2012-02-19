@@ -28,9 +28,9 @@ class TestTryCatchScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new UsedTypesInTryIndexer(), new DocumentTypeIndexer())))
+		exercise(code, i(newArrayList(new UsedTypesInTryIndexer(), new DocumentTypeIndexer())))
 				
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_TYPES_IN_TRY, "Ljava/util/Map")
 		)))
@@ -53,9 +53,9 @@ class TestTryCatchScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new UsedTypesInFinallyIndexer(), new DocumentTypeIndexer())))
+		exercise(code, i(newArrayList(new UsedTypesInFinallyIndexer(), new DocumentTypeIndexer())))
 				
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_TYPES_IN_FINALLY, "Ljava/util/Map")
 		)))
@@ -75,9 +75,9 @@ class TestTryCatchScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new CaughtTypeIndexer(), new DocumentTypeIndexer())))
+		exercise(code, i(newArrayList(new CaughtTypeIndexer(), new DocumentTypeIndexer())))
 				
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::CAUGHT_TYPE, "Ljava/lang/Exception")
 		)))
@@ -99,9 +99,9 @@ class TestTryCatchScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new UsedMethodsInTryIndexer(), new DocumentTypeIndexer())))
+		exercise(code, i(newArrayList(new UsedMethodsInTryIndexer(), new DocumentTypeIndexer())))
 				
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_METHODS_IN_TRY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
@@ -124,9 +124,9 @@ class TestTryCatchScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new UsedMethodsInFinallyIndexer(), new DocumentTypeIndexer())))
+		exercise(code, i(newArrayList(new UsedMethodsInFinallyIndexer(), new DocumentTypeIndexer())))
 			
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 			s(Fields::USED_METHODS_IN_FINALLY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
 		)))
@@ -148,9 +148,9 @@ class TestTryCatchScenarios extends TestBase {
 //		}
 //		'''
 //		
-//		var index = exercise(code, i(newArrayList(new UsedMethodsInFinallyIndexer(), new DocumentTypeIndexer())))
+//		exercise(code, i(newArrayList(new UsedMethodsInFinallyIndexer(), new DocumentTypeIndexer())))
 //			
-//		assertField(index, l(newArrayList(
+//		assertField(l(newArrayList(
 //			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
 //			s(Fields::USED_FIELDS_IN_TRY, "Ljava/util/Map")
 //		)))
