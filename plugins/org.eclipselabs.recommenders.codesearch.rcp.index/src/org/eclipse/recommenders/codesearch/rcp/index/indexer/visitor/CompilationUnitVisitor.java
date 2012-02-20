@@ -106,7 +106,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new FieldsWrittenIndexer());
         list.add(new FieldTypeIndexer());
         list.add(new FriendlyNameIndexer());
-        list.add(new FullTextIndexer());
+        //list.add(new FullTextIndexer());
         list.add(new FullyQualifiedNameIndexer());
         list.add(new ImplementedInterfacesIndexer());
         list.add(new InstanceOfIndexer());
