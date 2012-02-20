@@ -24,7 +24,6 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.internal.corext.refactoring.structure.ASTNodeSearchUtil;
 import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.jface.viewers.ILazyContentProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -33,6 +32,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
+import org.eclipse.recommenders.utils.rcp.ast.ASTNodeUtils;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 
@@ -40,10 +40,10 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 final class ContentProvider implements ILazyContentProvider {
 
-    private final ExecutorService s = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<Runnable>(10),
+    private final ExecutorService s = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), Runtime
+            .getRuntime().availableProcessors(), 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(20),
 
-            new ThreadFactoryBuilder().setPriority(Thread.MIN_PRIORITY).build());
+    new ThreadFactoryBuilder().setPriority(Thread.MIN_PRIORITY).build());
     public static MethodDeclaration EMPTY;
     static {
         final AST ast = AST.newAST(AST.JLS4);
@@ -104,20 +104,6 @@ final class ContentProvider implements ILazyContentProvider {
                     return element != null;
                 }
 
-                private void updateIndex(final Selection s, final int index) {
-                    Display.getDefault().asyncExec(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            final Table table = viewer.getTable();
-                            if (table.isDisposed()) {
-                                return;
-                            }
-                            viewer.replace(s, index);
-                        }
-                    });
-                }
-
                 private boolean findJdtMethod() {
                     jdtMethod = (IMethod) element.getAncestor(IJavaElement.METHOD);
                     return jdtMethod != null;
@@ -133,8 +119,9 @@ final class ContentProvider implements ILazyContentProvider {
                         if (ast == null) {
                             return false;
                         }
-                        astMethod = ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
+
                         // caused NPEs: ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
+                        astMethod = ASTNodeUtils.find(ast, jdtMethod).orNull();
                     } catch (final Exception e) {
                         RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);
                     }
@@ -142,9 +129,25 @@ final class ContentProvider implements ILazyContentProvider {
                 }
             });
         } catch (final RejectedExecutionException e) {
+            updateIndex(new Selection(new RuntimeException(
+                    "Too many rendering requests at once. Select this item again to refresh.")), index);
             // the user was just scrolling to fast...
             // to prevent ui freezes we ignore too many requests...
         }
+    }
+
+    private void updateIndex(final Selection s, final int index) {
+        Display.getDefault().asyncExec(new Runnable() {
+
+            @Override
+            public void run() {
+                final Table table = viewer.getTable();
+                if (table.isDisposed()) {
+                    return;
+                }
+                viewer.replace(s, index);
+            }
+        });
     }
 
     @Override

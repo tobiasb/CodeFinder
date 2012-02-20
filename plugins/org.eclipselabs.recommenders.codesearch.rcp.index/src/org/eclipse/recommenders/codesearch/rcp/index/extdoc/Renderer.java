@@ -19,11 +19,14 @@ import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.layout.GridDataFactory;
+import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.window.ToolTip;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
+import org.eclipse.recommenders.internal.extdoc.rcp.ui.ExtdocUtils;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.Names;
 import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
@@ -61,12 +64,14 @@ public final class Renderer implements Runnable {
         final Composite container = new Composite(parent, SWT.NONE);
         container.setLayout(new GridLayout());
         container.setLayoutData(GridDataFactory.fillDefaults().grab(true, false).create());
+        ExtdocUtils.setInfoBackgroundColor(container);
         final Label l = new Label(container, SWT.NONE);
-        final String msg = format("found %s examples for type '%s'. Search took %s.", searchResults.docs.totalHits,
+        final String msg = format("Found %s examples for type '%s'. Search took %s.", searchResults.docs.totalHits,
                 Names.vm2srcSimpleTypeName(typeName), searchDuration);
         l.setText(msg);
 
         final TableViewer v = new TableViewer(container, SWT.VIRTUAL);
+        ColumnViewerToolTipSupport.enableFor(v, ToolTip.NO_RECREATE);
         v.setLabelProvider(new LabelProvider(jdtResolver, searchterms, searchResults));
         v.setContentProvider(new ContentProvider(searchResults, jdtResolver));
         // v.setUseHashlookup(true);
@@ -97,5 +102,6 @@ public final class Renderer implements Runnable {
                 }
             }
         });
+
     }
 }

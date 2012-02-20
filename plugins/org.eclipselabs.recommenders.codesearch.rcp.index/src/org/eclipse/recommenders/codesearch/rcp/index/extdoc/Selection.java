@@ -11,6 +11,7 @@
 package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 
 import org.apache.lucene.document.Document;
+import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 
 public class Selection {
@@ -37,5 +38,9 @@ public class Selection {
 
     public boolean isError() {
         return exception != null;
+    }
+
+    IMethod element() {
+        return (IMethod) method.resolveBinding().getJavaElement();
     }
 }

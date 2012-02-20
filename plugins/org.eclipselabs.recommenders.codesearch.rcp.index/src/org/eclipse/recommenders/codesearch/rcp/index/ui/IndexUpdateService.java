@@ -20,6 +20,7 @@ import java.util.concurrent.Executors;
 
 import javax.inject.Inject;
 
+import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -73,6 +74,10 @@ public class IndexUpdateService {
     @Inject
     public IndexUpdateService(final CodeIndexer indexer, final IWorkspaceRoot workspace) {
         this.indexer = indexer;
+
+        if (!PreferencePage.isActive()) {
+            return;
+        }
         new Job("Code-search: Re-indexing workspace.") {
 
             ExecutorService e = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder()
@@ -84,6 +89,11 @@ public class IndexUpdateService {
 
             @Override
             protected IStatus run(final IProgressMonitor monitor) {
+                if (((Workspace) workspace.getWorkspace()).getBuildManager().isAutobuildBuildPending()) {
+                    schedule(30000);
+                    return Status.CANCEL_STATUS;
+                }
+
                 final CountDownLatch wait = new CountDownLatch(1);
                 e.submit(new Runnable() {
 
