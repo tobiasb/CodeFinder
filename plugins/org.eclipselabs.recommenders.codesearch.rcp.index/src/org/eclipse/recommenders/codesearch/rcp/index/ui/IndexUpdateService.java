@@ -10,7 +10,7 @@
  */
 package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
-import static java.lang.String.format;
+import static org.eclipse.recommenders.utils.Checks.cast;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,12 +43,76 @@ import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitRemove
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitSaved;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.JavaProjectOpened;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
-import org.eclipse.ui.internal.misc.StatusUtil;
 
 import com.google.common.eventbus.Subscribe;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
+@SuppressWarnings("restriction")
 public class IndexUpdateService {
+
+    private final class IndexerJob extends Job {
+        private final CodeIndexer indexer;
+        private final IProject[] projects;
+        private final Workspace root;
+
+        private final ExecutorService e = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder()
+                .setNameFormat("Recommenders::codesearch-indexer-%d").setPriority(Thread.MIN_PRIORITY).build());
+
+        private IndexerJob(final String name, final IProject[] projects, final CodeIndexer indexer,
+                final Workspace workspace) {
+            super(name);
+            this.indexer = indexer;
+            this.projects = projects;
+            this.root = workspace;
+            setRule(MUTEX);
+            schedule(30000);
+        }
+
+        @Override
+        protected IStatus run(final IProgressMonitor monitor) {
+            if (root.getBuildManager().isAutobuildBuildPending()) {
+                schedule(5000);
+                return Status.CANCEL_STATUS;
+            }
+
+            final CountDownLatch wait = new CountDownLatch(1);
+            e.submit(new Runnable() {
+
+                @Override
+                public void run() {
+                    try {
+                        ;
+                        monitor.beginTask("Indexing", projects.length + 1);
+                        monitor.subTask("");
+                        monitor.worked(1);
+                        for (final IProject p : projects) {
+                            if (JavaProject.hasJavaNature(p)) {
+                                if (monitor.isCanceled()) {
+                                    return;
+                                }
+                                final ProjectIndexerRunnable r = new ProjectIndexerRunnable(JavaCore.create(p), indexer);
+                                final SubProgressMonitor sub = new SubProgressMonitor(monitor, 1);
+                                try {
+                                    r.run(sub);
+                                } catch (final Exception e) {
+                                    RecommendersUtilsPlugin.logError(e, "Exception while indexing project '%s'", p);
+                                }
+                            }
+                        }
+                    } finally {
+                        wait.countDown();
+                    }
+                }
+            });
+            e.shutdown();
+            try {
+                wait.await();
+            } catch (final InterruptedException e1) {
+            }
+            monitor.done();
+            return Status.OK_STATUS;
+        }
+    }
 
     private static boolean backgroundIndexerActive = true;
 
@@ -74,67 +138,11 @@ public class IndexUpdateService {
     @Inject
     public IndexUpdateService(final CodeIndexer indexer, final IWorkspaceRoot workspace) {
         this.indexer = indexer;
+        if (PreferencePage.isActive() && backgroundIndexerActive) {
 
-        if (!PreferencePage.isActive()) {
-            return;
+            new IndexerJob("Code-search: Re-indexing workspace.", workspace.getProjects(), indexer,
+                    (Workspace) workspace.getWorkspace());
         }
-        new Job("Code-search: Re-indexing workspace.") {
-
-            ExecutorService e = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder()
-                    .setNameFormat("Recommenders::codesearch-indexer-%d").setPriority(Thread.MIN_PRIORITY).build());
-            {
-                setRule(MUTEX);
-                schedule(30000);
-            }
-
-            @Override
-            protected IStatus run(final IProgressMonitor monitor) {
-                if (((Workspace) workspace.getWorkspace()).getBuildManager().isAutobuildBuildPending()) {
-                    schedule(30000);
-                    return Status.CANCEL_STATUS;
-                }
-
-                final CountDownLatch wait = new CountDownLatch(1);
-                e.submit(new Runnable() {
-
-                    @Override
-                    public void run() {
-                        try {
-                            final IProject[] projects = workspace.getProjects();
-                            monitor.beginTask("Indexing", projects.length + 1);
-                            monitor.subTask("");
-                            monitor.worked(1);
-                            for (final IProject p : projects) {
-                                if (JavaProject.hasJavaNature(p)) {
-                                    if (monitor.isCanceled()) {
-                                        return;
-                                    }
-                                    final ProjectIndexerRunnable r = new ProjectIndexerRunnable(JavaCore.create(p),
-                                            indexer);
-                                    final SubProgressMonitor sub = new SubProgressMonitor(monitor, 1);
-                                    try {
-                                        r.run(sub);
-                                    } catch (final Exception e) {
-                                        RecommendersUtilsPlugin.logError(e, "Exception while indexing project '%s'", p);
-                                    }
-                                }
-                            }
-                            monitor.subTask("Compacting index.");
-                            indexer.compact(true);
-                        } finally {
-                            wait.countDown();
-                        }
-                    }
-                });
-                e.shutdown();
-                try {
-                    wait.await();
-                } catch (final InterruptedException e1) {
-                }
-                monitor.done();
-                return Status.OK_STATUS;
-            }
-        };
     }
 
     @Subscribe
@@ -147,27 +155,11 @@ public class IndexUpdateService {
     @Subscribe
     public void onEvent(final JavaProjectOpened event) {
         if (PreferencePage.isActive() && backgroundIndexerActive) {
-
             final IJavaProject project = event.project;
-            new Job(format("Updating code-search index for '%s'", project.getElementName())) {
-                {
-                    setPriority(Job.DECORATE);
-                    setRule(MUTEX);
-                    schedule();
-                }
-
-                @Override
-                public IStatus run(final IProgressMonitor monitor) {
-                    try {
-                        new ProjectIndexerRunnable(project, indexer).run(monitor);
-                    } catch (final Exception e) {
-                        return StatusUtil.newStatus(IStatus.ERROR, "Code search project indexer failed.", e);
-                    }
-                    return Status.OK_STATUS;
-                }
-
-            };
-
+            final IProject[] projects = { project.getProject() };
+            final Workspace workspace = cast(projects[0].getWorkspace());
+            final String title = "Indexing " + project.getElementName();
+            new IndexerJob(title, projects, indexer, workspace);
         }
     }
 

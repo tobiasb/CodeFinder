@@ -229,10 +229,10 @@ public class TestClassScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "method01");
-      String _s_2 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "method02");
-      String _s_3 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "method03");
-      String _s_4 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "getMessage");
+      String _s_1 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "method01");
+      String _s_2 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "method02");
+      String _s_3 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "method03");
+      String _s_4 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "getMessage");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2, _s_3, _s_4);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -263,7 +263,7 @@ public class TestClassScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "getMessage");
+      String _s_1 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "getMessage");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertNotField(_l);

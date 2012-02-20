@@ -7,6 +7,8 @@ import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
@@ -63,6 +65,14 @@ public final class BindingHelper {
             return absent();
         }
         return of(opt.get().getIdentifier());
+    }
+
+    public static Optional<String> getTypeIdentifier(final SimpleName n) {
+        return getIdentifier(n.resolveTypeBinding());
+    }
+
+    public static Optional<String> getIdentifier(final MethodInvocation m) {
+        return getIdentifier(m.resolveMethodBinding());
     }
 
     public static Optional<String> getIdentifier(final IMethodBinding b) {

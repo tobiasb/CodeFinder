@@ -29,20 +29,19 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ExtendedTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsReadIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsWrittenIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FriendlyNameIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullyQualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.JavaElementHandleIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer2;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.OverriddenMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ProjectNameIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnTypeIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnVariableExpressionIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInFinallyIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInTryIndexer;
@@ -105,9 +104,9 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new FieldsReadIndexer());
         list.add(new FieldsWrittenIndexer());
         list.add(new FieldTypeIndexer());
-        list.add(new FriendlyNameIndexer());
-        //list.add(new FullTextIndexer());
-        list.add(new FullyQualifiedNameIndexer());
+        list.add(new SimpleNameIndexer());
+        // list.add(new FullTextIndexer());
+        list.add(new QualifiedNameIndexer());
         list.add(new ImplementedInterfacesIndexer());
         list.add(new InstanceOfIndexer());
         list.add(new ModifiersIndexer());
@@ -117,7 +116,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new ProjectNameIndexer());
         list.add(new ResourcePathIndexer());
         list.add(new ReturnTypeIndexer());
-        list.add(new ReturnVariableExpressionIndexer());
+        // list.add(new ReturnVariableExpressionIndexer());
         list.add(new TimestampIndexer());
         list.add(new UsedFieldsInFinallyIndexer());
         list.add(new UsedFieldsInTryIndexer());
@@ -133,6 +132,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new VariableTargetUsageIndexer());
         list.add(new VariableTypeIndexer());
         list.add(new JavaElementHandleIndexer());
+        list.add(new FullTextIndexer2());
         return list;
     }
 

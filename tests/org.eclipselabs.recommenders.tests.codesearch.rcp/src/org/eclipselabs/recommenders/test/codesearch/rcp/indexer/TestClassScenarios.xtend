@@ -154,10 +154,10 @@ class TestClassScenarios extends TestBase {
 		
 		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "method01"),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "method02"),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "method03"),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "getMessage")
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "method01"),
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "method02"),
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "method03"),
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "getMessage")
 		)))
 	}
 	
@@ -176,7 +176,7 @@ class TestClassScenarios extends TestBase {
 		
 		assertNotField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "getMessage")
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "getMessage")
 		)))
 	}
 }

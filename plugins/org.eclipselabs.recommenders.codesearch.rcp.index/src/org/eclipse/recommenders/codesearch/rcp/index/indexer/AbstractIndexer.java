@@ -18,6 +18,15 @@ import com.google.common.base.Optional;
 
 public abstract class AbstractIndexer {
 
+    // XXX diese methoden sollten eigentlich in einer statische helfer klasse. Du nutzt zwar vererbung aber eigentlich
+    // gehören diese Methoden hier nicht rein. Static imports machen das auch schön. Vorteil: Deine Methoden kann man
+    // noch aus anderen teilen des System benutzen (siehe BindungUtils etc.) oder
+    // isPrimitiveOrArrayOrNullOrObjectOrString
+
+    protected void addNoStoreNoAnalyzed(final Document document, final String fieldName, final String fieldValue) {
+        CodeIndexer.addNoStoreNotAnalyzed(document, fieldName, fieldValue);
+    }
+
     protected void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
         CodeIndexer.addAnalyzedField(document, fieldName, fieldValue);
     }

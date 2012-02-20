@@ -17,13 +17,13 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaringTypeIndexe
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsReadIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsWrittenIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FriendlyNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullyQualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ProjectNameIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInFinallyIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInTryIndexer;
@@ -51,8 +51,8 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
-      this.exercise(code, _friendlyNameIndexer);
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
+      this.exercise(code, _simpleNameIndexer);
       this.assertNumDocs(1);
   }
   
@@ -70,8 +70,8 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
-      this.exercise(code, _friendlyNameIndexer);
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
+      this.exercise(code, _simpleNameIndexer);
       this.assertNumDocs(2);
   }
   
@@ -100,8 +100,8 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
-      this.exercise(code, _friendlyNameIndexer);
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
+      this.exercise(code, _simpleNameIndexer);
       this.assertNumDocs(3);
   }
   
@@ -113,9 +113,9 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
-      this.exercise(code, _friendlyNameIndexer);
-      String _s = this.s(Fields.FRIENDLY_NAME, "MyClass");
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
+      this.exercise(code, _simpleNameIndexer);
+      String _s = this.s(Fields.SIMPLE_NAME, "MyClass");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
@@ -132,9 +132,9 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
-      this.exercise(code, _friendlyNameIndexer);
-      String _s = this.s(Fields.FRIENDLY_NAME, "test");
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
+      this.exercise(code, _simpleNameIndexer);
+      String _s = this.s(Fields.SIMPLE_NAME, "test");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
@@ -153,9 +153,9 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
-      this.exercise(code, _friendlyNameIndexer);
-      String _s = this.s(Fields.FRIENDLY_NAME, "map");
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
+      this.exercise(code, _simpleNameIndexer);
+      String _s = this.s(Fields.SIMPLE_NAME, "map");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
@@ -169,9 +169,9 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FullyQualifiedNameIndexer _fullyQualifiedNameIndexer = new FullyQualifiedNameIndexer();
-      this.exercise(code, _fullyQualifiedNameIndexer);
-      String _s = this.s(Fields.FULLY_QUALIFIED_NAME, "LMyClass");
+      QualifiedNameIndexer _qualifiedNameIndexer = new QualifiedNameIndexer();
+      this.exercise(code, _qualifiedNameIndexer);
+      String _s = this.s(Fields.QUALIFIED_NAME, "LMyClass");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
@@ -188,9 +188,9 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FullyQualifiedNameIndexer _fullyQualifiedNameIndexer = new FullyQualifiedNameIndexer();
-      this.exercise(code, _fullyQualifiedNameIndexer);
-      String _s = this.s(Fields.FULLY_QUALIFIED_NAME, "LMyClass.test()V");
+      QualifiedNameIndexer _qualifiedNameIndexer = new QualifiedNameIndexer();
+      this.exercise(code, _qualifiedNameIndexer);
+      String _s = this.s(Fields.QUALIFIED_NAME, "LMyClass.test()V");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
@@ -209,9 +209,9 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} ");
       _builder.newLine();
       final CharSequence code = _builder;
-      FullyQualifiedNameIndexer _fullyQualifiedNameIndexer = new FullyQualifiedNameIndexer();
-      this.exercise(code, _fullyQualifiedNameIndexer);
-      String _s = this.s(Fields.FULLY_QUALIFIED_NAME, "LMyClass.mapInstance");
+      QualifiedNameIndexer _qualifiedNameIndexer = new QualifiedNameIndexer();
+      this.exercise(code, _qualifiedNameIndexer);
+      String _s = this.s(Fields.QUALIFIED_NAME, "LMyClass.mapInstance");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
@@ -613,12 +613,12 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_friendlyNameIndexer, _declaringTypeIndexer);
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
-      String _s = this.s(Fields.FRIENDLY_NAME, "foo");
+      String _s = this.s(Fields.SIMPLE_NAME, "foo");
       String _s_1 = this.s(Fields.DECLARING_TYPE, "LMyClass");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -636,12 +636,12 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_friendlyNameIndexer, _declaringTypeIndexer);
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
-      String _s = this.s(Fields.FRIENDLY_NAME, "map");
+      String _s = this.s(Fields.SIMPLE_NAME, "map");
       String _s_1 = this.s(Fields.DECLARING_TYPE, "LMyClass");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -662,12 +662,12 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
-      FriendlyNameIndexer _friendlyNameIndexer = new FriendlyNameIndexer();
+      SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_friendlyNameIndexer, _declaringTypeIndexer);
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
-      String _s = this.s(Fields.FRIENDLY_NAME, "MyClass$SubClass");
+      String _s = this.s(Fields.SIMPLE_NAME, "MyClass$SubClass");
       String _s_1 = this.s(Fields.DECLARING_TYPE, "LMyClass");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -1226,6 +1226,31 @@ public class TestGeneralScenarios extends TestBase {
       _builder.newLine();
       _builder.append("\t");
       _builder.append("Map map;");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      this.exercise(code, _i);
+      String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_l);
+  }
+  
+  @Test
+  public void testDeclaredFieldNamesClassWithInitalizer() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.Map;");
+      _builder.newLine();
+      _builder.append("public final class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Map map = new HashMap();");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();

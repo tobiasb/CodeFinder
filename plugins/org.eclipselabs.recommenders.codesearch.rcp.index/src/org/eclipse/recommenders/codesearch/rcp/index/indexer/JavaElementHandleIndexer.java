@@ -28,19 +28,6 @@ public class JavaElementHandleIndexer extends AbstractIndexer implements IMethod
 
     }
 
-    private void add(final Document document, final IBinding b) {
-        if (b == null) {
-            return;
-        }
-        final IJavaElement e = b.getJavaElement();
-        if (e == null) {
-            return;
-        }
-        final String h = e.getHandleIdentifier();
-        final Field field = new Field(Fields.JAVA_ELEMENT_HANDLE, h, Store.YES, Index.NO);
-        document.add(field);
-    }
-
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
         add(document, type.resolveBinding());
@@ -56,5 +43,18 @@ public class JavaElementHandleIndexer extends AbstractIndexer implements IMethod
     @Override
     public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
         add(document, name.resolveBinding());
+    }
+
+    private void add(final Document document, final IBinding b) {
+        if (b == null) {
+            return;
+        }
+        final IJavaElement e = b.getJavaElement();
+        if (e == null) {
+            return;
+        }
+        final String h = e.getHandleIdentifier();
+        final Field field = new Field(Fields.JAVA_ELEMENT_HANDLE, h, Store.YES, Index.NO);
+        document.add(field);
     }
 }

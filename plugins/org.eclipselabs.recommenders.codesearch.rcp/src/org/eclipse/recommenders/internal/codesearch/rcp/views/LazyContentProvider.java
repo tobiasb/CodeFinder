@@ -56,7 +56,7 @@ public class LazyContentProvider implements ILazyContentProvider {
                 return;
             }
             // this is needed to handle special cases which are not directly bound to a java element.
-            final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
+            final String docId = doc.get(Fields.QUALIFIED_NAME);
             final String docType = doc.get(Fields.TYPE);
             final String declaringType = doc.get(Fields.DECLARING_TYPE);
             if (docType.equals(Fields.TYPE_CLASS)) {

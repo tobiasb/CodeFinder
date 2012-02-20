@@ -10,6 +10,8 @@
  */
 package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
+import static com.google.common.collect.Ordering.usingToString;
+import static java.util.Arrays.asList;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer.addAnalyzedField;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getFile;
 import static org.eclipse.recommenders.utils.Checks.cast;
@@ -27,7 +29,6 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.IType;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.internal.core.JarPackageFragmentRoot;
 import org.eclipse.jdt.internal.core.SourceMapper;
@@ -83,6 +84,8 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
 
     private void analyzeRoot(final IPackageFragmentRoot root) throws Exception {
         this.root = root;
+        monitor.subTask("Analyzing " + root.getElementName());
+
         rootLocation = getFile(root);
         if (monitor.isCanceled()) {
             return;
@@ -99,17 +102,19 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
                 return;
             }
         }
+
         analyzePackageFragments();
 
-        monitor.subTask("Commiting changes and compacting index...");
+        monitor.subTask("Checkpointing...");
         indexer.commit();
         monitor.worked(1);
         root.close();
     }
 
     private void analyzePackageFragments() throws Exception {
-        for (final IJavaElement child : root.getChildren()) {
+        for (final IJavaElement child : usingToString().sortedCopy(asList(root.getChildren()))) {
             final IPackageFragment fragment = cast(child);
+            monitor.subTask("Analyzing " + fragment.getElementName());
 
             if (fragment.getElementName().startsWith("sun.")) {
                 continue;
@@ -117,15 +122,20 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
             if (fragment.getElementName().startsWith("com.sun.")) {
                 continue;
             }
+            if (fragment.getElementName().startsWith("com.oracle.")) {
+                continue;
+            }
+            if (fragment.getElementName().startsWith("sunw.")) {
+                continue;
+            }
 
-            for (final IClassFile clazz : fragment.getClassFiles()) {
+            for (final IClassFile clazz : usingToString().sortedCopy(asList(fragment.getClassFiles()))) {
                 analyzeClassFile(clazz);
             }
             for (final ICompilationUnit cu : fragment.getCompilationUnits()) {
                 analyzeCompilationUnit(cu);
             }
-            indexer.commit();
-            root.close();
+            fragment.close();
         }
         addArchiveVisitedMarker();
     }
@@ -189,12 +199,6 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         // ast.setProperty("project", javaProject);
         monitor.subTask(unitName);
         indexer.add(ast);
-        try {
-            clazz.close();
-        } catch (final JavaModelException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 
     private void addArchiveVisitedMarker() throws IOException {

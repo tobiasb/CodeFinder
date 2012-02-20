@@ -12,9 +12,9 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaringTypeIndexe
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsReadIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsWrittenIndexer
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FriendlyNameIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullyQualifiedNameIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ProjectNameIndexer
@@ -39,7 +39,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FriendlyNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
 		assertNumDocs( 1)
 	}
 
@@ -52,7 +52,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FriendlyNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
 		assertNumDocs( 2)
 	}
 
@@ -70,7 +70,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, new FriendlyNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
 		assertNumDocs( 3)
 	}
 	
@@ -81,9 +81,9 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FriendlyNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
 		
-		assertField( l(newArrayList(s(Fields::FRIENDLY_NAME, "MyClass"))))
+		assertField( l(newArrayList(s(Fields::SIMPLE_NAME, "MyClass"))))
 	}
 	
 	@Test
@@ -94,9 +94,9 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FriendlyNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
 		
-		assertField( l(newArrayList(s(Fields::FRIENDLY_NAME, "test"))))
+		assertField( l(newArrayList(s(Fields::SIMPLE_NAME, "test"))))
 	}
 	
 	@Test
@@ -108,9 +108,9 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FriendlyNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
 		
-		assertField( l(newArrayList(s(Fields::FRIENDLY_NAME, "map"))))
+		assertField( l(newArrayList(s(Fields::SIMPLE_NAME, "map"))))
 	}
 	
 	@Test
@@ -120,9 +120,9 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FullyQualifiedNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer())
 		
-		assertField( l(newArrayList(s(Fields::FULLY_QUALIFIED_NAME, "LMyClass"))))
+		assertField( l(newArrayList(s(Fields::QUALIFIED_NAME, "LMyClass"))))
 	}
 	
 	@Test
@@ -133,10 +133,10 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FullyQualifiedNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer())
 		
 		assertField( l(newArrayList(
-			s(Fields::FULLY_QUALIFIED_NAME, "LMyClass.test()V")
+			s(Fields::QUALIFIED_NAME, "LMyClass.test()V")
 		)))
 	}
 	
@@ -149,9 +149,9 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new FullyQualifiedNameIndexer())
+		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer())
 		
-		assertField( l(newArrayList(s(Fields::FULLY_QUALIFIED_NAME, "LMyClass.mapInstance"))))
+		assertField( l(newArrayList(s(Fields::QUALIFIED_NAME, "LMyClass.mapInstance"))))
 	}
 	
 	@Test
@@ -399,10 +399,10 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, i(newArrayList(new FriendlyNameIndexer(), new DeclaringTypeIndexer())))
+		 exercise(code, i(newArrayList(new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer(), new DeclaringTypeIndexer())))
 		
 		assertField( l(newArrayList(
-			s(Fields::FRIENDLY_NAME, "foo"),
+			s(Fields::SIMPLE_NAME, "foo"),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
 	}
@@ -415,10 +415,10 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, i(newArrayList(new FriendlyNameIndexer(), new DeclaringTypeIndexer())))
+		 exercise(code, i(newArrayList(new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer(), new DeclaringTypeIndexer())))
 		
 		assertField( l(newArrayList(
-			s(Fields::FRIENDLY_NAME, "map"),
+			s(Fields::SIMPLE_NAME, "map"),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
 	}
@@ -432,10 +432,10 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, i(newArrayList(new FriendlyNameIndexer(), new DeclaringTypeIndexer())))
+		 exercise(code, i(newArrayList(new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer(), new DeclaringTypeIndexer())))
 		
 		assertField( l(newArrayList(
-			s(Fields::FRIENDLY_NAME, "MyClass$SubClass"),
+			s(Fields::SIMPLE_NAME, "MyClass$SubClass"),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
 	}
@@ -799,6 +799,22 @@ class TestGeneralScenarios extends TestBase {
 		)))	
 	}
 	
+	@Test
+	def void testDeclaredFieldNamesClassWithInitalizer(){
+		val code = '''
+		import java.util.Map;
+		public final class MyClass {
+			Map map = new HashMap();
+		}
+		'''
+		
+		 exercise(code, i(newArrayList(new DeclaredFieldNamesIndexer(), new DocumentTypeIndexer())))
+		
+		assertField( l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::DECLARED_FIELD_NAMES, "map")
+		)))	
+	}
 	@Test
 	def void testDeclaredFieldNamesMethod(){
 		val code = '''

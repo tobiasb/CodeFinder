@@ -33,6 +33,14 @@ public class CodeIndexer implements ICompilationUnitIndexer {
         addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
     }
 
+    public static void addNoStoreNotAnalyzed(final Document document, final String fieldName, final String fieldValue) {
+        if (fieldValue == null) {
+            return;
+        }
+        final Field field = new Field(fieldName, fieldValue, Field.Store.NO, Field.Index.NOT_ANALYZED);
+        document.add(field);
+    }
+
     public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {
         if (fieldValue == null) {
             return;

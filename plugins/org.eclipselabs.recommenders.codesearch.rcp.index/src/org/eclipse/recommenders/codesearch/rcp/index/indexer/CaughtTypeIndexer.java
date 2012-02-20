@@ -11,9 +11,10 @@ import com.google.common.base.Optional;
 public class CaughtTypeIndexer extends AbstractIndexer implements ITryCatchBlockIndexer {
 
     @Override
-    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
+            final CatchClause catchClause) {
 
-        final Optional<String> opt = BindingHelper.getIdentifier(catchClause.getException().getType().resolveBinding());
+        final Optional<String> opt = BindingHelper.getIdentifier(catchClause.getException().getType());
         if (opt.isPresent()) {
             addAnalyzedField(document, Fields.CAUGHT_TYPE, opt.get());
         }

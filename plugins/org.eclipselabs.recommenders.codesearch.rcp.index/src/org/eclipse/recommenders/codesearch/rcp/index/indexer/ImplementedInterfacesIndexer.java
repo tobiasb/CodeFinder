@@ -5,8 +5,8 @@ import org.eclipse.jdt.core.dom.ITypeBinding;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
-import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
+
+import com.google.common.base.Optional;
 
 public class ImplementedInterfacesIndexer extends AbstractIndexer implements IClassIndexer {
 
@@ -17,9 +17,9 @@ public class ImplementedInterfacesIndexer extends AbstractIndexer implements ICl
             return;
         }
         for (final ITypeBinding interface_ : clazz.getInterfaces()) {
-            final ITypeName interfaceName = BindingUtils.toTypeName(interface_).orNull();
-            if (!isPrimitiveOrArrayOrNullOrObjectOrString(interfaceName)) {
-                addAnalyzedField(document, Fields.IMPLEMENTED_TYPES, interfaceName.getIdentifier());
+            final Optional<String> opt = BindingHelper.getIdentifier(interface_);
+            if (opt.isPresent()) {
+                addAnalyzedField(document, Fields.IMPLEMENTED_TYPES, opt.get());
             }
         }
     }
