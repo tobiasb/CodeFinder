@@ -99,7 +99,8 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
 
     @Override
     String[] getExampleQueriesInternal() {
-        return new String[] {};
+        return new String[] { "* *(..) throws IOException", "String *label*(IJavaElement)",
+                "String *label*(.., IJavaElement, ..)", "static * *" };
     }
 
     public static String getName() {
