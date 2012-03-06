@@ -59,6 +59,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
@@ -153,7 +154,8 @@ public class SearchQueryView extends ViewPart implements ISearchView {
         GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 1;
 
-        combo.setItems(new String[] { LuceneQueryEditorWrapper.getName(), QL1EditorWrapper.getName() });
+        combo.setItems(new String[] { LuceneQueryEditorWrapper.getName(), QL1EditorWrapper.getName(),
+                QL2EditorWrapper.getName() });
         combo.setLayoutData(gridData);
         combo.select(selectedLanguageIndex);
         combo.addSelectionListener(new SelectionListener() {
@@ -170,6 +172,10 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                     currentEditor = new QL1EditorWrapper();
                     currentEditor
                             .createQueryEditor(createEmbeddedEditorInComposite, exampleCombo, SearchQueryView.this);
+                } else if (selectedLanguageIndex == 2) {
+                    currentEditor = new QL2EditorWrapper();
+                    currentEditor
+                            .createQueryEditor(createEmbeddedEditorInComposite, exampleCombo, SearchQueryView.this);
                 }
             }
 
@@ -183,7 +189,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
         triggerSearchButton = new Button(parent, SWT.PUSH);
         triggerSearchButton.setText("Search");
         GridData gridData = new GridData();
-        gridData.horizontalSpan = 2;
+        // gridData.horizontalSpan = 2;
         triggerSearchButton.setLayoutData(gridData);
         triggerSearchButton.addSelectionListener(new SelectionListener() {
 
@@ -200,6 +206,11 @@ public class SearchQueryView extends ViewPart implements ISearchView {
             public void widgetDefaultSelected(final SelectionEvent e) {
             }
         });
+
+        Link link = new Link(parent, SWT.NONE);
+        link.setText("<a>Feedback...</a>");
+        GridData linkGridData = new GridData();
+        link.setLayoutData(linkGridData);
     }
 
     private void createSearchResultsViewer(final Composite parent) {
