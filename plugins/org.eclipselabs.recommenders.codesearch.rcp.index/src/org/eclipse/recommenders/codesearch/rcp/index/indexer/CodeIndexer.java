@@ -29,23 +29,36 @@ import com.google.inject.Inject;
 
 public class CodeIndexer implements ICompilationUnitIndexer {
 
+    private static boolean verbose = false;
+
+    public static void setVerbose(boolean value) {
+        verbose = value;
+    }
+
     public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
         addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
     }
 
     public static void addNoStoreNotAnalyzed(final Document document, final String fieldName, final String fieldValue) {
-        if (fieldValue == null) {
-            return;
-        }
-        final Field field = new Field(fieldName, fieldValue, Field.Store.NO, Field.Index.NOT_ANALYZED);
-        document.add(field);
+        addInternal(document, fieldName, fieldValue, Field.Store.NO, Field.Index.NOT_ANALYZED);
     }
 
     public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {
-        if (fieldValue == null) {
+        addInternal(document, fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+    }
+
+    private static void addInternal(final Document document, final String fieldName, final String fieldValue,
+            Field.Store store, Field.Index index) {
+        if (fieldValue == null)
             return;
+
+        if (verbose) {
+            // XXX: Replace with better logging
+            System.out.println(String.format("Indexed field [%30s]=[%60s]", fieldName, fieldValue));
         }
-        final Field field = new Field(fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+
+        final Field field = new Field(fieldName, fieldValue, store, index);
+
         document.add(field);
     }
 
@@ -62,8 +75,8 @@ public class CodeIndexer implements ICompilationUnitIndexer {
     }
 
     /**
-     * Adds a compilation unit to the index without previously checking and deleting old versions/documents in the
-     * index.
+     * Adds a compilation unit to the index without previously checking and
+     * deleting old versions/documents in the index.
      */
     public void add(final CompilationUnit cu) {
         final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
