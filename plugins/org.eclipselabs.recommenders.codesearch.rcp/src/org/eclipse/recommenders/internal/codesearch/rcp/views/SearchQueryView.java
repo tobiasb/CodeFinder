@@ -140,8 +140,8 @@ public class SearchQueryView extends ViewPart implements ISearchView {
         final GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 1;
 
-        combo.setItems(new String[] { LuceneQueryEditorWrapper.getName(), QL1EditorWrapper.getName(),
-                QL2EditorWrapper.getName() });
+        combo.setItems(new String[] { LuceneQueryEditorWrapper.getName(), MethodPatternQLEditorWrapper.getName(),
+                CodeSnippetQLEditorWrapper.getName() });
         combo.setLayoutData(gridData);
         combo.select(selectedLanguageIndex);
         combo.addSelectionListener(new SelectionListener() {
@@ -155,11 +155,11 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                     currentEditor
                             .createQueryEditor(createEmbeddedEditorInComposite, exampleCombo, SearchQueryView.this);
                 } else if (selectedLanguageIndex == 1) {
-                    currentEditor = new QL1EditorWrapper();
+                    currentEditor = new MethodPatternQLEditorWrapper();
                     currentEditor
                             .createQueryEditor(createEmbeddedEditorInComposite, exampleCombo, SearchQueryView.this);
                 } else if (selectedLanguageIndex == 2) {
-                    currentEditor = new QL2EditorWrapper();
+                    currentEditor = new CodeSnippetQLEditorWrapper();
                     currentEditor
                             .createQueryEditor(createEmbeddedEditorInComposite, exampleCombo, SearchQueryView.this);
                 }

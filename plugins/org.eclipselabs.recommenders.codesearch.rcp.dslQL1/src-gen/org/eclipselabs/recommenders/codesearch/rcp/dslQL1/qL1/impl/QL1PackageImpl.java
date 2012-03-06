@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Factory;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
@@ -40,6 +41,13 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * @generated
    */
   private EClass modifierEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -146,7 +154,7 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethodPattern_Method()
+  public EAttribute getMethodPattern_MethodName()
   {
     return (EAttribute)methodPatternEClass.getEStructuralFeatures().get(2);
   }
@@ -156,9 +164,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethodPattern_ParameterTypes()
+  public EReference getMethodPattern_ParameterElements()
   {
-    return (EAttribute)methodPatternEClass.getEStructuralFeatures().get(3);
+    return (EReference)methodPatternEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -189,6 +197,26 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
   public EAttribute getModifier_Value()
   {
     return (EAttribute)modifierEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameterElement()
+  {
+    return parameterElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameterElement_Types()
+  {
+    return (EAttribute)parameterElementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -244,12 +272,15 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     methodPatternEClass = createEClass(METHOD_PATTERN);
     createEReference(methodPatternEClass, METHOD_PATTERN__MODIFIERS);
     createEAttribute(methodPatternEClass, METHOD_PATTERN__RETURN_TYPE);
-    createEAttribute(methodPatternEClass, METHOD_PATTERN__METHOD);
-    createEAttribute(methodPatternEClass, METHOD_PATTERN__PARAMETER_TYPES);
+    createEAttribute(methodPatternEClass, METHOD_PATTERN__METHOD_NAME);
+    createEReference(methodPatternEClass, METHOD_PATTERN__PARAMETER_ELEMENTS);
     createEReference(methodPatternEClass, METHOD_PATTERN__THROWS_CLAUSE);
 
     modifierEClass = createEClass(MODIFIER);
     createEAttribute(modifierEClass, MODIFIER__VALUE);
+
+    parameterElementEClass = createEClass(PARAMETER_ELEMENT);
+    createEAttribute(parameterElementEClass, PARAMETER_ELEMENT__TYPES);
 
     throwsEClass = createEClass(THROWS);
     createEAttribute(throwsEClass, THROWS__THROWN_TYPE);
@@ -289,12 +320,15 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     initEClass(methodPatternEClass, MethodPattern.class, "MethodPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodPattern_Modifiers(), this.getModifier(), null, "modifiers", null, 0, -1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodPattern_ReturnType(), ecorePackage.getEString(), "returnType", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMethodPattern_Method(), ecorePackage.getEString(), "method", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMethodPattern_ParameterTypes(), ecorePackage.getEString(), "parameterTypes", null, 0, -1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethodPattern_MethodName(), ecorePackage.getEString(), "methodName", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodPattern_ParameterElements(), this.getParameterElement(), null, "parameterElements", null, 0, -1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethodPattern_ThrowsClause(), this.getThrows(), null, "throwsClause", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modifierEClass, Modifier.class, "Modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModifier_Value(), ecorePackage.getEString(), "value", null, 0, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterElementEClass, ParameterElement.class, "ParameterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameterElement_Types(), ecorePackage.getEString(), "types", null, 0, -1, ParameterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(throwsEClass, Throws.class, "Throws", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getThrows_ThrownType(), ecorePackage.getEString(), "thrownType", null, 0, 1, Throws.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

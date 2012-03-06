@@ -89,22 +89,22 @@ public interface QL1Package extends EPackage
   int METHOD_PATTERN__RETURN_TYPE = 1;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_PATTERN__METHOD = 2;
+  int METHOD_PATTERN__METHOD_NAME = 2;
 
   /**
-   * The feature id for the '<em><b>Parameter Types</b></em>' attribute list.
+   * The feature id for the '<em><b>Parameter Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_PATTERN__PARAMETER_TYPES = 3;
+  int METHOD_PATTERN__PARAMETER_ELEMENTS = 3;
 
   /**
    * The feature id for the '<em><b>Throws Clause</b></em>' containment reference.
@@ -153,6 +153,34 @@ public interface QL1Package extends EPackage
   int MODIFIER_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ParameterElementImpl <em>Parameter Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ParameterElementImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getParameterElement()
+   * @generated
+   */
+  int PARAMETER_ELEMENT = 2;
+
+  /**
+   * The feature id for the '<em><b>Types</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_ELEMENT__TYPES = 0;
+
+  /**
+   * The number of structural features of the '<em>Parameter Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ThrowsImpl <em>Throws</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -160,7 +188,7 @@ public interface QL1Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getThrows()
    * @generated
    */
-  int THROWS = 2;
+  int THROWS = 3;
 
   /**
    * The feature id for the '<em><b>Thrown Type</b></em>' attribute.
@@ -214,26 +242,26 @@ public interface QL1Package extends EPackage
   EAttribute getMethodPattern_ReturnType();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getMethod <em>Method</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getMethodName <em>Method Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Method</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getMethod()
+   * @return the meta object for the attribute '<em>Method Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getMethodName()
    * @see #getMethodPattern()
    * @generated
    */
-  EAttribute getMethodPattern_Method();
+  EAttribute getMethodPattern_MethodName();
 
   /**
-   * Returns the meta object for the attribute list '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getParameterTypes <em>Parameter Types</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getParameterElements <em>Parameter Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Parameter Types</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getParameterTypes()
+   * @return the meta object for the containment reference list '<em>Parameter Elements</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getParameterElements()
    * @see #getMethodPattern()
    * @generated
    */
-  EAttribute getMethodPattern_ParameterTypes();
+  EReference getMethodPattern_ParameterElements();
 
   /**
    * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getThrowsClause <em>Throws Clause</em>}'.
@@ -266,6 +294,27 @@ public interface QL1Package extends EPackage
    * @generated
    */
   EAttribute getModifier_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement <em>Parameter Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter Element</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement
+   * @generated
+   */
+  EClass getParameterElement();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement#getTypes <em>Types</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Types</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement#getTypes()
+   * @see #getParameterElement()
+   * @generated
+   */
+  EAttribute getParameterElement_Types();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws <em>Throws</em>}'.
@@ -338,20 +387,20 @@ public interface QL1Package extends EPackage
     EAttribute METHOD_PATTERN__RETURN_TYPE = eINSTANCE.getMethodPattern_ReturnType();
 
     /**
-     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Method Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METHOD_PATTERN__METHOD = eINSTANCE.getMethodPattern_Method();
+    EAttribute METHOD_PATTERN__METHOD_NAME = eINSTANCE.getMethodPattern_MethodName();
 
     /**
-     * The meta object literal for the '<em><b>Parameter Types</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Parameter Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METHOD_PATTERN__PARAMETER_TYPES = eINSTANCE.getMethodPattern_ParameterTypes();
+    EReference METHOD_PATTERN__PARAMETER_ELEMENTS = eINSTANCE.getMethodPattern_ParameterElements();
 
     /**
      * The meta object literal for the '<em><b>Throws Clause</b></em>' containment reference feature.
@@ -378,6 +427,24 @@ public interface QL1Package extends EPackage
      * @generated
      */
     EAttribute MODIFIER__VALUE = eINSTANCE.getModifier_Value();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ParameterElementImpl <em>Parameter Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ParameterElementImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getParameterElement()
+     * @generated
+     */
+    EClass PARAMETER_ELEMENT = eINSTANCE.getParameterElement();
+
+    /**
+     * The meta object literal for the '<em><b>Types</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER_ELEMENT__TYPES = eINSTANCE.getParameterElement_Types();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ThrowsImpl <em>Throws</em>}' class.

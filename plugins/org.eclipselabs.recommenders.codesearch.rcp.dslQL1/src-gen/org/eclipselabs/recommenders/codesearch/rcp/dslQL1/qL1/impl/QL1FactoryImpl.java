@@ -70,6 +70,7 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
     {
       case QL1Package.METHOD_PATTERN: return createMethodPattern();
       case QL1Package.MODIFIER: return createModifier();
+      case QL1Package.PARAMETER_ELEMENT: return createParameterElement();
       case QL1Package.THROWS: return createThrows();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -96,6 +97,17 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
   {
     ModifierImpl modifier = new ModifierImpl();
     return modifier;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParameterElement createParameterElement()
+  {
+    ParameterElementImpl parameterElement = new ParameterElementImpl();
+    return parameterElement;
   }
 
   /**

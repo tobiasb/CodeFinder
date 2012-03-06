@@ -24,27 +24,27 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cModifiersModifierParserRuleCall_0_0 = (RuleCall)cModifiersAssignment_0.eContents().get(0);
 		private final Assignment cReturnTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cReturnTypeTypeParserRuleCall_1_0 = (RuleCall)cReturnTypeAssignment_1.eContents().get(0);
-		private final Assignment cMethodAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMethodMethodParserRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
+		private final Assignment cMethodNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMethodNameMethodNameParserRuleCall_2_0 = (RuleCall)cMethodNameAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cParameterTypesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cParameterTypesParameterTypeParserRuleCall_3_1_0 = (RuleCall)cParameterTypesAssignment_3_1.eContents().get(0);
+		private final Assignment cParameterElementsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cParameterElementsParameterElementParserRuleCall_3_1_0 = (RuleCall)cParameterElementsAssignment_3_1.eContents().get(0);
 		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
 		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
-		private final Assignment cParameterTypesAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
-		private final RuleCall cParameterTypesParameterTypeParserRuleCall_3_2_1_0 = (RuleCall)cParameterTypesAssignment_3_2_1.eContents().get(0);
+		private final Assignment cParameterElementsAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cParameterElementsParameterElementParserRuleCall_3_2_1_0 = (RuleCall)cParameterElementsAssignment_3_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		private final Assignment cThrowsClauseAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cThrowsClauseThrowsParserRuleCall_4_0 = (RuleCall)cThrowsClauseAssignment_4.eContents().get(0);
 		
 		//MethodPattern:
-		//	modifiers+=Modifier* returnType=Type method=Method ("(" parameterTypes+=ParameterType (","
-		//	parameterTypes+=ParameterType)* ")")? throwsClause=Throws?;
+		//	modifiers+=Modifier* returnType=Type methodName=MethodName ("(" parameterElements+=ParameterElement (","
+		//	parameterElements+=ParameterElement)* ")")? throwsClause=Throws?;
 		public ParserRule getRule() { return rule; }
 
-		//modifiers+=Modifier* returnType=Type method=Method ("(" parameterTypes+=ParameterType (","
-		//parameterTypes+=ParameterType)* ")")? throwsClause=Throws?
+		//modifiers+=Modifier* returnType=Type methodName=MethodName ("(" parameterElements+=ParameterElement (","
+		//parameterElements+=ParameterElement)* ")")? throwsClause=Throws?
 		public Group getGroup() { return cGroup; }
 
 		//modifiers+=Modifier*
@@ -59,35 +59,35 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//Type
 		public RuleCall getReturnTypeTypeParserRuleCall_1_0() { return cReturnTypeTypeParserRuleCall_1_0; }
 
-		//method=Method
-		public Assignment getMethodAssignment_2() { return cMethodAssignment_2; }
+		//methodName=MethodName
+		public Assignment getMethodNameAssignment_2() { return cMethodNameAssignment_2; }
 
-		//Method
-		public RuleCall getMethodMethodParserRuleCall_2_0() { return cMethodMethodParserRuleCall_2_0; }
+		//MethodName
+		public RuleCall getMethodNameMethodNameParserRuleCall_2_0() { return cMethodNameMethodNameParserRuleCall_2_0; }
 
-		//("(" parameterTypes+=ParameterType ("," parameterTypes+=ParameterType)* ")")?
+		//("(" parameterElements+=ParameterElement ("," parameterElements+=ParameterElement)* ")")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 
-		//parameterTypes+=ParameterType
-		public Assignment getParameterTypesAssignment_3_1() { return cParameterTypesAssignment_3_1; }
+		//parameterElements+=ParameterElement
+		public Assignment getParameterElementsAssignment_3_1() { return cParameterElementsAssignment_3_1; }
 
-		//ParameterType
-		public RuleCall getParameterTypesParameterTypeParserRuleCall_3_1_0() { return cParameterTypesParameterTypeParserRuleCall_3_1_0; }
+		//ParameterElement
+		public RuleCall getParameterElementsParameterElementParserRuleCall_3_1_0() { return cParameterElementsParameterElementParserRuleCall_3_1_0; }
 
-		//("," parameterTypes+=ParameterType)*
+		//("," parameterElements+=ParameterElement)*
 		public Group getGroup_3_2() { return cGroup_3_2; }
 
 		//","
 		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
 
-		//parameterTypes+=ParameterType
-		public Assignment getParameterTypesAssignment_3_2_1() { return cParameterTypesAssignment_3_2_1; }
+		//parameterElements+=ParameterElement
+		public Assignment getParameterElementsAssignment_3_2_1() { return cParameterElementsAssignment_3_2_1; }
 
-		//ParameterType
-		public RuleCall getParameterTypesParameterTypeParserRuleCall_3_2_1_0() { return cParameterTypesParameterTypeParserRuleCall_3_2_1_0; }
+		//ParameterElement
+		public RuleCall getParameterElementsParameterElementParserRuleCall_3_2_1_0() { return cParameterElementsParameterElementParserRuleCall_3_2_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
@@ -171,6 +171,66 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
 	}
 
+	public class ParameterElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Action cParameterElementAction_0_0 = (Action)cGroup_0.eContents().get(0);
+		private final RuleCall cParameterTypeParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cTypesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cTypesParameterTypeParserRuleCall_1_1_0 = (RuleCall)cTypesAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cTypesAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cTypesParameterTypeParserRuleCall_1_2_1_0 = (RuleCall)cTypesAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		
+		//ParameterElement:
+		//	{ParameterElement} ParameterType | "{" types+=ParameterType ("," types+=ParameterType)* "}";
+		public ParserRule getRule() { return rule; }
+
+		//{ParameterElement} ParameterType | "{" types+=ParameterType ("," types+=ParameterType)* "}"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//{ParameterElement} ParameterType
+		public Group getGroup_0() { return cGroup_0; }
+
+		//{ParameterElement}
+		public Action getParameterElementAction_0_0() { return cParameterElementAction_0_0; }
+
+		//ParameterType
+		public RuleCall getParameterTypeParserRuleCall_0_1() { return cParameterTypeParserRuleCall_0_1; }
+
+		//"{" types+=ParameterType ("," types+=ParameterType)* "}"
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1_0() { return cLeftCurlyBracketKeyword_1_0; }
+
+		//types+=ParameterType
+		public Assignment getTypesAssignment_1_1() { return cTypesAssignment_1_1; }
+
+		//ParameterType
+		public RuleCall getTypesParameterTypeParserRuleCall_1_1_0() { return cTypesParameterTypeParserRuleCall_1_1_0; }
+
+		//("," types+=ParameterType)*
+		public Group getGroup_1_2() { return cGroup_1_2; }
+
+		//","
+		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
+
+		//types+=ParameterType
+		public Assignment getTypesAssignment_1_2_1() { return cTypesAssignment_1_2_1; }
+
+		//ParameterType
+		public RuleCall getTypesParameterTypeParserRuleCall_1_2_1_0() { return cTypesParameterTypeParserRuleCall_1_2_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_1_3() { return cRightCurlyBracketKeyword_1_3; }
+	}
+
 	public class ParameterTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -215,11 +275,11 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getThrownTypeTypeParserRuleCall_1_0() { return cThrownTypeTypeParserRuleCall_1_0; }
 	}
 
-	public class MethodElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Method");
+	public class MethodNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodName");
 		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//Method:
+		//MethodName:
 		//	NameWithWC;
 		public ParserRule getRule() { return rule; }
 
@@ -231,9 +291,10 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	private MethodPatternElements pMethodPattern;
 	private ModifierElements pModifier;
 	private TypeElements pType;
+	private ParameterElementElements pParameterElement;
 	private ParameterTypeElements pParameterType;
 	private ThrowsElements pThrows;
-	private MethodElements pMethod;
+	private MethodNameElements pMethodName;
 	private TerminalRule tNameWithWC;
 	
 	private final GrammarProvider grammarProvider;
@@ -258,8 +319,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//MethodPattern:
-	//	modifiers+=Modifier* returnType=Type method=Method ("(" parameterTypes+=ParameterType (","
-	//	parameterTypes+=ParameterType)* ")")? throwsClause=Throws?;
+	//	modifiers+=Modifier* returnType=Type methodName=MethodName ("(" parameterElements+=ParameterElement (","
+	//	parameterElements+=ParameterElement)* ")")? throwsClause=Throws?;
 	public MethodPatternElements getMethodPatternAccess() {
 		return (pMethodPattern != null) ? pMethodPattern : (pMethodPattern = new MethodPatternElements());
 	}
@@ -288,6 +349,16 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeAccess().getRule();
 	}
 
+	//ParameterElement:
+	//	{ParameterElement} ParameterType | "{" types+=ParameterType ("," types+=ParameterType)* "}";
+	public ParameterElementElements getParameterElementAccess() {
+		return (pParameterElement != null) ? pParameterElement : (pParameterElement = new ParameterElementElements());
+	}
+	
+	public ParserRule getParameterElementRule() {
+		return getParameterElementAccess().getRule();
+	}
+
 	//ParameterType:
 	//	NameWithWC | "..";
 	public ParameterTypeElements getParameterTypeAccess() {
@@ -308,14 +379,14 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		return getThrowsAccess().getRule();
 	}
 
-	//Method:
+	//MethodName:
 	//	NameWithWC;
-	public MethodElements getMethodAccess() {
-		return (pMethod != null) ? pMethod : (pMethod = new MethodElements());
+	public MethodNameElements getMethodNameAccess() {
+		return (pMethodName != null) ? pMethodName : (pMethodName = new MethodNameElements());
 	}
 	
-	public ParserRule getMethodRule() {
-		return getMethodAccess().getRule();
+	public ParserRule getMethodNameRule() {
+		return getMethodNameAccess().getRule();
 	}
 
 	//terminal NameWithWC:

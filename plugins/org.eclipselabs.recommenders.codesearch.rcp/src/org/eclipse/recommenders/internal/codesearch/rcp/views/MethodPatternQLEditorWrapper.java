@@ -20,12 +20,12 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activat
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
-public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
+public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
     private LuceneQueryFactory luceneQueryFactory = null;
     private Injector luceneInjector = null;
 
-    public QL1EditorWrapper() {
+    public MethodPatternQLEditorWrapper() {
 
         final LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
         luceneInjector = activator
@@ -103,7 +103,7 @@ public class QL1EditorWrapper extends AbstractEmbeddedEditorWrapper {
     }
 
     public static String getName() {
-        return "Query Language 1";
+        return "Method Pattern QL";
     }
 
     @Override

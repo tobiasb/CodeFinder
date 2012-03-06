@@ -15,6 +15,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
@@ -59,6 +60,12 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL1Package.PARAMETER_ELEMENT:
+				if(context == grammarAccess.getParameterElementRule()) {
+					sequence_ParameterElement(context, (ParameterElement) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL1Package.THROWS:
 				if(context == grammarAccess.getThrowsRule()) {
 					sequence_Throws(context, (Throws) semanticObject); 
@@ -71,7 +78,13 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modifiers+=Modifier* returnType=Type method=Method (parameterTypes+=ParameterType parameterTypes+=ParameterType*)? throwsClause=Throws?)
+	 *     (
+	 *         modifiers+=Modifier* 
+	 *         returnType=Type 
+	 *         methodName=MethodName 
+	 *         (parameterElements+=ParameterElement parameterElements+=ParameterElement*)? 
+	 *         throwsClause=Throws?
+	 *     )
 	 */
 	protected void sequence_MethodPattern(EObject context, MethodPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -90,6 +103,15 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	 *     )
 	 */
 	protected void sequence_Modifier(EObject context, Modifier semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {ParameterElement}
+	 */
+	protected void sequence_ParameterElement(EObject context, ParameterElement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

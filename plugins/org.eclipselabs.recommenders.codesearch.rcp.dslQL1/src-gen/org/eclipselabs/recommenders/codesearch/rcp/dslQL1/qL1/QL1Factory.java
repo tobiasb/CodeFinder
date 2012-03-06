@@ -45,6 +45,15 @@ public interface QL1Factory extends EFactory
   Modifier createModifier();
 
   /**
+   * Returns a new object of class '<em>Parameter Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter Element</em>'.
+   * @generated
+   */
+  ParameterElement createParameterElement();
+
+  /**
    * Returns a new object of class '<em>Throws</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

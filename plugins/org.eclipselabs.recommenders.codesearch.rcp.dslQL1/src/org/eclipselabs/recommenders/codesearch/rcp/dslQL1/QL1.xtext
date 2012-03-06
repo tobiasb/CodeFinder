@@ -4,7 +4,7 @@ generate qL1 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1"
 
 
 MethodPattern:
-	(modifiers+=Modifier)* returnType=Type method=Method ('(' parameterTypes+=ParameterType (',' parameterTypes+=ParameterType)* ')')? throwsClause=Throws?
+	(modifiers+=Modifier)* returnType=Type methodName=MethodName ('(' parameterElements+=ParameterElement (',' parameterElements+=ParameterElement)* ')')? throwsClause=Throws?
 ;
 
 Modifier:
@@ -20,6 +20,11 @@ Type:
 	NameWithWC
 ;
 
+ParameterElement:
+	{ParameterElement}
+	ParameterType | '{' types+=ParameterType (',' types+=ParameterType)* '}'
+;
+
 ParameterType:
 	NameWithWC | '..'
 ;
@@ -28,7 +33,7 @@ Throws:
 	'throws' thrownType=Type
 ;
 
-Method:
+MethodName:
 	NameWithWC
 ;
 	

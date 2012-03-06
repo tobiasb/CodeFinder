@@ -12,12 +12,15 @@
     <genClasses ecoreClass="QL1.ecore#//MethodPattern">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/modifiers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MethodPattern/returnType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MethodPattern/method"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MethodPattern/parameterTypes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//MethodPattern/methodName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/parameterElements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/throwsClause"/>
     </genClasses>
     <genClasses ecoreClass="QL1.ecore#//Modifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Modifier/value"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//ParameterElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//ParameterElement/types"/>
     </genClasses>
     <genClasses ecoreClass="QL1.ecore#//Throws">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Throws/thrownType"/>
