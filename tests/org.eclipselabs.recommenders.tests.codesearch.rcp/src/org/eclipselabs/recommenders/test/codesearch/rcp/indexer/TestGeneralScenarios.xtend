@@ -435,7 +435,7 @@ class TestGeneralScenarios extends TestBase {
 		 exercise(code, i(newArrayList(new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer(), new DeclaringTypeIndexer())))
 		
 		assertField( l(newArrayList(
-			s(Fields::SIMPLE_NAME, "MyClass$SubClass"),
+			s(Fields::SIMPLE_NAME, "SubClass"),
 			s(Fields::DECLARING_TYPE, "LMyClass")
 		)))		
 	}
@@ -795,7 +795,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::DECLARED_FIELD_NAMES, "map")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
 	
@@ -812,9 +812,10 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::DECLARED_FIELD_NAMES, "map")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
+	
 	@Test
 	def void testDeclaredFieldNamesMethod(){
 		val code = '''
@@ -830,7 +831,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::DECLARED_FIELD_NAMES, "map")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
 	
@@ -850,7 +851,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::DECLARED_FIELD_NAMES, "map")
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
 	

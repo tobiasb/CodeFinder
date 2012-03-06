@@ -667,7 +667,7 @@ public class TestGeneralScenarios extends TestBase {
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
-      String _s = this.s(Fields.SIMPLE_NAME, "MyClass$SubClass");
+      String _s = this.s(Fields.SIMPLE_NAME, "SubClass");
       String _s_1 = this.s(Fields.DECLARING_TYPE, "LMyClass");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
@@ -1236,7 +1236,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1261,7 +1261,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1292,7 +1292,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1326,7 +1326,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
