@@ -1,13 +1,12 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
-import java.util.List;
 import java.util.Set;
 
-import org.apache.lucene.document.Document;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
@@ -65,7 +64,7 @@ public class QL2EditorWrapper extends AbstractEmbeddedEditorWrapper {
     }
 
     @Override
-    public List<Document> search() throws Exception {
+    public SearchResult search() throws Exception {
 
         // QL1Query q = handle.getDocument().readOnly(new QL1QueryExtractor());
         //
