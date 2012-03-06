@@ -36,6 +36,8 @@ public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, 
         addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
     }
 
+    // XXX Der LastIndexed Timestamp sollte immer der von File.lastModfified sein. Ansonsten erzeugst du 1000de Terme
+    // ohne sinnvolle Bedeutung.
     public static String getTimeString() {
         final long timestamp = getTime();
         return String.valueOf(timestamp);

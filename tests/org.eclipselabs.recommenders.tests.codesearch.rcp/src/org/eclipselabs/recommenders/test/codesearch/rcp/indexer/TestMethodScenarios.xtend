@@ -20,9 +20,9 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new ReturnTypeIndexer())
+		 exercise(code, new ReturnTypeIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::RETURN_TYPE, "Ljava/util/List")
 		)))
 	}
@@ -37,9 +37,9 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new ParameterTypesIndexer())
+		 exercise(code, new ParameterTypesIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::PARAMETER_TYPES, "Ljava/util/List")
 		)))
 	}
@@ -54,9 +54,9 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new ParameterCountIndexer())
+		 exercise(code, new ParameterCountIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::PARAMETER_COUNT, "1")
 		)))
 	}
@@ -71,9 +71,9 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new ParameterCountIndexer())
+		 exercise(code, new ParameterCountIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::PARAMETER_COUNT, "2")
 		)))
 	}
@@ -90,9 +90,9 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new ReturnVariableExpressionIndexer())
+		 exercise(code, new ReturnVariableExpressionIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names")
 		)))
 	}
@@ -112,13 +112,13 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new ReturnVariableExpressionIndexer())
+		 exercise(code, new ReturnVariableExpressionIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names1")
 		)))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "names2")
 		)))
 	}
@@ -134,9 +134,9 @@ class TestMethodScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new ReturnVariableExpressionIndexer())
+		 exercise(code, new ReturnVariableExpressionIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "null")
 		)))
 	}

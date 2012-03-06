@@ -95,10 +95,10 @@ ruleMethodPattern returns [EObject current=null]
 	    }
 
 )
-)*((
+)*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMethodPatternAccess().getReturnTypeTypeParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getMethodPatternAccess().getReturnTypeTypeParserRuleCall_1_0()); 
 	    }
 		lv_returnType_1_0=ruleType		{
 	        if ($current==null) {
@@ -113,67 +113,85 @@ ruleMethodPattern returns [EObject current=null]
 	    }
 
 )
-)	otherlv_2='.' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getMethodPatternAccess().getFullStopKeyword_1_1());
-    }
-)?(
+)(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getMethodPatternAccess().getMethodMethodParserRuleCall_2_0()); 
 	    }
-		lv_method_3_0=ruleMethod		{
+		lv_method_2_0=ruleMethod		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMethodPatternRule());
 	        }
        		set(
        			$current, 
        			"method",
-        		lv_method_3_0, 
+        		lv_method_2_0, 
         		"Method");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_4='(' 
+)(	otherlv_3='(' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getMethodPatternAccess().getLeftParenthesisKeyword_3_0());
+    	newLeafNode(otherlv_3, grammarAccess.getMethodPatternAccess().getLeftParenthesisKeyword_3_0());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getMethodPatternAccess().getParameterTypesParameterTypeParserRuleCall_3_1_0()); 
 	    }
-		lv_parameterTypes_5_0=ruleParameterType		{
+		lv_parameterTypes_4_0=ruleParameterType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMethodPatternRule());
 	        }
        		add(
        			$current, 
        			"parameterTypes",
-        		lv_parameterTypes_5_0, 
+        		lv_parameterTypes_4_0, 
         		"ParameterType");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_6=')' 
+)(	otherlv_5=',' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getMethodPatternAccess().getRightParenthesisKeyword_3_2());
+    	newLeafNode(otherlv_5, grammarAccess.getMethodPatternAccess().getCommaKeyword_3_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMethodPatternAccess().getParameterTypesParameterTypeParserRuleCall_3_2_1_0()); 
+	    }
+		lv_parameterTypes_6_0=ruleParameterType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMethodPatternRule());
+	        }
+       		add(
+       			$current, 
+       			"parameterTypes",
+        		lv_parameterTypes_6_0, 
+        		"ParameterType");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_7=')' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getMethodPatternAccess().getRightParenthesisKeyword_3_3());
     }
 )?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getMethodPatternAccess().getThrowsClauseThrowsParserRuleCall_4_0()); 
 	    }
-		lv_throwsClause_7_0=ruleThrows		{
+		lv_throwsClause_8_0=ruleThrows		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMethodPatternRule());
 	        }
        		set(
        			$current, 
        			"throwsClause",
-        		lv_throwsClause_7_0, 
+        		lv_throwsClause_8_0, 
         		"Throws");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -295,22 +313,6 @@ ruleModifier returns [EObject current=null]
 	    }
 
 )
-)
-    |(
-(
-		lv_value_6_0=	'*' 
-    {
-        newLeafNode(lv_value_6_0, grammarAccess.getModifierAccess().getValueAsteriskKeyword_6_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModifierRule());
-	        }
-       		setWithLastConsumed($current, "value", lv_value_6_0, "*");
-	    }
-
-)
 ))
 ;
 
@@ -360,14 +362,21 @@ ruleParameterType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-    this_NameWithWC_0=RULE_NAMEWITHWC    {
+(    this_NameWithWC_0=RULE_NAMEWITHWC    {
 		$current.merge(this_NameWithWC_0);
     }
 
     { 
-    newLeafNode(this_NameWithWC_0, grammarAccess.getParameterTypeAccess().getNameWithWCTerminalRuleCall()); 
+    newLeafNode(this_NameWithWC_0, grammarAccess.getParameterTypeAccess().getNameWithWCTerminalRuleCall_0()); 
     }
 
+    |
+	kw='..' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getParameterTypeAccess().getFullStopFullStopKeyword_1()); 
+    }
+)
     ;
 
 
@@ -445,7 +454,7 @@ ruleMethod returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 
-RULE_NAMEWITHWC : ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
+RULE_NAMEWITHWC : ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.')*;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

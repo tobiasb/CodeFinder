@@ -25,9 +25,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, new DeclaredMethodsIndexer())
+		exercise(code, new DeclaredMethodsIndexer())
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::DECLARED_METHODS, "LMyClassXyZ.test()V"),
 			s(Fields::DECLARED_METHODS, "LMyClassXyZ.foo()V")
 		)))
@@ -44,9 +44,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new OverriddenMethodsIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new OverriddenMethodsIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::OVERRIDDEN_METHODS, "Ljava/lang/Object.toString()Ljava/lang/String;")
 		)))
@@ -60,9 +60,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new ExtendedTypeIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new ExtendedTypeIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::EXTENDED_TYPE, "Ljava/io/IOException")
 		)))
@@ -76,9 +76,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllExtendedTypesIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllExtendedTypesIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_EXTENDED_TYPES, "Ljava/io/IOException"),
 			s(Fields::ALL_EXTENDED_TYPES, "Ljava/lang/Exception"),
@@ -94,9 +94,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new ImplementedInterfacesIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new ImplementedInterfacesIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::IMPLEMENTED_TYPES, "Ljava/io/Externalizable")
 		)))
@@ -110,9 +110,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllImplementedInterfacesIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllImplementedInterfacesIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_IMPLEMENTED_TYPES, "Ljava/io/Externalizable"),
 			s(Fields::ALL_IMPLEMENTED_TYPES, "Ljava/io/Serializable")
@@ -129,9 +129,9 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::DECLARED_METHODS_NAMES, "method01"),
 			s(Fields::DECLARED_METHODS_NAMES, "method02"),
@@ -150,14 +150,14 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredMethodNamesIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredMethodNamesIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "method01"),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "method02"),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "method03"),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "getMessage")
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "method01"),
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "method02"),
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "method03"),
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "getMessage")
 		)))
 	}
 	
@@ -172,11 +172,11 @@ class TestClassScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaredMethodNamesIndexer())))
 		
-		assertNotField(index, l(newArrayList(
+		assertNotField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_DELCARED_METHOD_NAMES, "getMessage")
+			s(Fields::ALL_DECLARED_METHOD_NAMES, "getMessage")
 		)))
 	}
 }

@@ -6,7 +6,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllDeclaredMethodNamesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllExtendedTypesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllImplementedInterfacesIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredMethodNamesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer;
@@ -43,13 +42,12 @@ public class TestClassScenarios extends TestBase {
       _builder.newLine();
       final CharSequence code = _builder;
       DeclaredMethodsIndexer _declaredMethodsIndexer = new DeclaredMethodsIndexer();
-      CodeIndexerIndex _exercise = this.exercise(code, _declaredMethodsIndexer);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _declaredMethodsIndexer);
       String _s = this.s(Fields.DECLARED_METHODS, "LMyClassXyZ.test()V");
       String _s_1 = this.s(Fields.DECLARED_METHODS, "LMyClassXyZ.foo()V");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -76,13 +74,12 @@ public class TestClassScenarios extends TestBase {
       OverriddenMethodsIndexer _overriddenMethodsIndexer = new OverriddenMethodsIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _overriddenMethodsIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
       String _s_1 = this.s(Fields.OVERRIDDEN_METHODS, "Ljava/lang/Object.toString()Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -99,13 +96,12 @@ public class TestClassScenarios extends TestBase {
       ExtendedTypeIndexer _extendedTypeIndexer = new ExtendedTypeIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _extendedTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
       String _s_1 = this.s(Fields.EXTENDED_TYPE, "Ljava/io/IOException");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -122,15 +118,14 @@ public class TestClassScenarios extends TestBase {
       AllExtendedTypesIndexer _allExtendedTypesIndexer = new AllExtendedTypesIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allExtendedTypesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
       String _s_1 = this.s(Fields.ALL_EXTENDED_TYPES, "Ljava/io/IOException");
       String _s_2 = this.s(Fields.ALL_EXTENDED_TYPES, "Ljava/lang/Exception");
       String _s_3 = this.s(Fields.ALL_EXTENDED_TYPES, "Ljava/lang/Throwable");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2, _s_3);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -147,13 +142,12 @@ public class TestClassScenarios extends TestBase {
       ImplementedInterfacesIndexer _implementedInterfacesIndexer = new ImplementedInterfacesIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _implementedInterfacesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
       String _s_1 = this.s(Fields.IMPLEMENTED_TYPES, "Ljava/io/Externalizable");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -170,14 +164,13 @@ public class TestClassScenarios extends TestBase {
       AllImplementedInterfacesIndexer _allImplementedInterfacesIndexer = new AllImplementedInterfacesIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allImplementedInterfacesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
       String _s_1 = this.s(Fields.ALL_IMPLEMENTED_TYPES, "Ljava/io/Externalizable");
       String _s_2 = this.s(Fields.ALL_IMPLEMENTED_TYPES, "Ljava/io/Serializable");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -201,15 +194,14 @@ public class TestClassScenarios extends TestBase {
       DeclaredMethodNamesIndexer _declaredMethodNamesIndexer = new DeclaredMethodNamesIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
       String _s_1 = this.s(Fields.DECLARED_METHODS_NAMES, "method01");
       String _s_2 = this.s(Fields.DECLARED_METHODS_NAMES, "method02");
       String _s_3 = this.s(Fields.DECLARED_METHODS_NAMES, "method03");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2, _s_3);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -235,16 +227,15 @@ public class TestClassScenarios extends TestBase {
       AllDeclaredMethodNamesIndexer _allDeclaredMethodNamesIndexer = new AllDeclaredMethodNamesIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredMethodNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "method01");
-      String _s_2 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "method02");
-      String _s_3 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "method03");
-      String _s_4 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "getMessage");
+      String _s_1 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "method01");
+      String _s_2 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "method02");
+      String _s_3 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "method03");
+      String _s_4 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "getMessage");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2, _s_3, _s_4);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -270,12 +261,11 @@ public class TestClassScenarios extends TestBase {
       DeclaredMethodNamesIndexer _declaredMethodNamesIndexer = new DeclaredMethodNamesIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.ALL_DELCARED_METHOD_NAMES, "getMessage");
+      String _s_1 = this.s(Fields.ALL_DECLARED_METHOD_NAMES, "getMessage");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertNotField(index, _l);
+      this.assertNotField(_l);
   }
 }

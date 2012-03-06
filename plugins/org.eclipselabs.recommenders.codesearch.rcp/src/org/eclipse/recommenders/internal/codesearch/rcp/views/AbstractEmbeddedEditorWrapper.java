@@ -1,10 +1,9 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
-import java.util.List;
 import java.util.Set;
 
-import org.apache.lucene.document.Document;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
@@ -28,13 +27,13 @@ public abstract class AbstractEmbeddedEditorWrapper {
     protected EmbeddedEditor handle;
     protected Composite parent;
     protected Combo exampleCombo;
-    protected CodeSearcherIndex codeSearcher;
+    protected CodeSearcher codeSearcher;
     protected ISearchView searchView;
 
     abstract void createQueryEditorInternal();
 
     public AbstractEmbeddedEditorWrapper() {
-        codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcherIndex.class);
+        codeSearcher = InjectionService.getInstance().requestInstance(CodeSearcher.class);
     }
 
     public void createQueryEditor(final Composite parent, final Combo exampleCombo, final ISearchView searchView) {
@@ -55,20 +54,22 @@ public abstract class AbstractEmbeddedEditorWrapper {
             boolean ctrlPressed = false;
 
             @Override
-            public void keyReleased(KeyEvent e) {
-                if (e.keyCode == SWT.CTRL)
+            public void keyReleased(final KeyEvent e) {
+                if (e.keyCode == SWT.CTRL) {
                     ctrlPressed = false;
+                }
             }
 
             @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.keyCode == SWT.CTRL)
+            public void keyPressed(final KeyEvent e) {
+                if (e.keyCode == SWT.CTRL) {
                     ctrlPressed = true;
+                }
 
                 if (e.character == '\r' && ctrlPressed) {
                     try {
                         searchView.doSearch();
-                    } catch (Exception e1) {
+                    } catch (final Exception e1) {
                         Activator.log(e1);
                     }
                 }
@@ -82,8 +83,8 @@ public abstract class AbstractEmbeddedEditorWrapper {
     abstract String[] getExampleQueriesInternal();
 
     private String[] getExampleQueries() {
-        String[] providedExamples = getExampleQueriesInternal();
-        String[] items = new String[providedExamples.length + 1];
+        final String[] providedExamples = getExampleQueriesInternal();
+        final String[] items = new String[providedExamples.length + 1];
         return Lists.asList("Select Example Query...", providedExamples).toArray(items);
     }
 
@@ -100,7 +101,7 @@ public abstract class AbstractEmbeddedEditorWrapper {
         });
     }
 
-    abstract List<Document> search() throws Exception;
+    abstract SearchResult search() throws Exception;
 
     abstract IUnitOfWork<Set<String>, XtextResource> getSearchTermExtractor();
 

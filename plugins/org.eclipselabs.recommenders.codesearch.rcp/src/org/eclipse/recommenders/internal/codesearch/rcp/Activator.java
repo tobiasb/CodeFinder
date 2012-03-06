@@ -1,7 +1,7 @@
 package org.eclipse.recommenders.internal.codesearch.rcp;
 
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.injection.InjectionService;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
@@ -70,7 +70,7 @@ public class Activator extends AbstractUIPlugin {
     public void stop(final BundleContext context) throws Exception {
         plugin = null;
         super.stop(context);
-        InjectionService.getInstance().requestInstance(CodeIndexerIndex.class).close();
+        InjectionService.getInstance().requestInstance(CodeIndexer.class).close();
     }
 
 }

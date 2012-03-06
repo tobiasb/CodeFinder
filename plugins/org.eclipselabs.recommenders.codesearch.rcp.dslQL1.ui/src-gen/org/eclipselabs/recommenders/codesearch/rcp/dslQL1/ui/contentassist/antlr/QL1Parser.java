@@ -38,14 +38,16 @@ public class QL1Parser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getModifierAccess().getAlternatives(), "rule__Modifier__Alternatives");
+					put(grammarAccess.getParameterTypeAccess().getAlternatives(), "rule__ParameterType__Alternatives");
 					put(grammarAccess.getMethodPatternAccess().getGroup(), "rule__MethodPattern__Group__0");
-					put(grammarAccess.getMethodPatternAccess().getGroup_1(), "rule__MethodPattern__Group_1__0");
 					put(grammarAccess.getMethodPatternAccess().getGroup_3(), "rule__MethodPattern__Group_3__0");
+					put(grammarAccess.getMethodPatternAccess().getGroup_3_2(), "rule__MethodPattern__Group_3_2__0");
 					put(grammarAccess.getThrowsAccess().getGroup(), "rule__Throws__Group__0");
 					put(grammarAccess.getMethodPatternAccess().getModifiersAssignment_0(), "rule__MethodPattern__ModifiersAssignment_0");
-					put(grammarAccess.getMethodPatternAccess().getReturnTypeAssignment_1_0(), "rule__MethodPattern__ReturnTypeAssignment_1_0");
+					put(grammarAccess.getMethodPatternAccess().getReturnTypeAssignment_1(), "rule__MethodPattern__ReturnTypeAssignment_1");
 					put(grammarAccess.getMethodPatternAccess().getMethodAssignment_2(), "rule__MethodPattern__MethodAssignment_2");
 					put(grammarAccess.getMethodPatternAccess().getParameterTypesAssignment_3_1(), "rule__MethodPattern__ParameterTypesAssignment_3_1");
+					put(grammarAccess.getMethodPatternAccess().getParameterTypesAssignment_3_2_1(), "rule__MethodPattern__ParameterTypesAssignment_3_2_1");
 					put(grammarAccess.getMethodPatternAccess().getThrowsClauseAssignment_4(), "rule__MethodPattern__ThrowsClauseAssignment_4");
 					put(grammarAccess.getModifierAccess().getValueAssignment_0(), "rule__Modifier__ValueAssignment_0");
 					put(grammarAccess.getModifierAccess().getValueAssignment_1(), "rule__Modifier__ValueAssignment_1");
@@ -53,7 +55,6 @@ public class QL1Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getModifierAccess().getValueAssignment_3(), "rule__Modifier__ValueAssignment_3");
 					put(grammarAccess.getModifierAccess().getValueAssignment_4(), "rule__Modifier__ValueAssignment_4");
 					put(grammarAccess.getModifierAccess().getValueAssignment_5(), "rule__Modifier__ValueAssignment_5");
-					put(grammarAccess.getModifierAccess().getValueAssignment_6(), "rule__Modifier__ValueAssignment_6");
 					put(grammarAccess.getThrowsAccess().getThrownTypeAssignment_1(), "rule__Throws__ThrownTypeAssignment_1");
 				}
 			};

@@ -19,9 +19,7 @@ public class OverriddenMethodsIndexer extends AbstractIndexer implements IClassI
             @Override
             public boolean visit(final MethodDeclaration node) {
                 final IMethodBinding b = node.resolveBinding();
-
                 setOverriddenMethodName(document, b);
-
                 return false;
             }
         };

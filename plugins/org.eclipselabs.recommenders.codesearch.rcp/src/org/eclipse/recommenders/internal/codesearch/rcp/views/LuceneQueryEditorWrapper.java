@@ -1,16 +1,16 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 
-import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryParser.ParseException;
+import org.apache.lucene.search.Query;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationMethodConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.PathValueConverter;
@@ -108,11 +108,12 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
     }
 
     @Override
-    List<Document> search() throws ParseException, CorruptIndexException, IOException {
+    SearchResult search() throws ParseException, CorruptIndexException, IOException {
         final String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor());
         resetXtextQuery();
-
-        return codeSearcher.search(searchQuery);
+        final Query query = codeSearcher.getParser().parse(searchQuery);
+        final SearchResult searchResult = codeSearcher.lenientSearch(query);
+        return searchResult;
     }
 
     @Override

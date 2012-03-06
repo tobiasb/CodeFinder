@@ -32,13 +32,13 @@ public class ProjectNameIndexer extends AbstractIndexer implements IClassIndexer
     }
 
     @Override
-    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
+    public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
+            final CatchClause catchClause) {
         addField(document, tryStatement);
     }
 
     private void addField(final Document document, final ASTNode node) {
         final String projectName = getProject(node).getName();
-
         addAnalyzedField(document, Fields.PROJECT_NAME, projectName);
     }
 }

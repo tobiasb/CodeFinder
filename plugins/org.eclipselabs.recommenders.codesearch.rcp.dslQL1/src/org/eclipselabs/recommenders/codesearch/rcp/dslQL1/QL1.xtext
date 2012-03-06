@@ -4,7 +4,7 @@ generate qL1 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1"
 
 
 MethodPattern:
-	(modifiers+=Modifier)* (returnType=Type '.')? method=Method ('(' (parameterTypes+=ParameterType)* ')')? throwsClause=Throws?
+	(modifiers+=Modifier)* returnType=Type method=Method ('(' parameterTypes+=ParameterType (',' parameterTypes+=ParameterType)* ')')? throwsClause=Throws?
 ;
 
 Modifier:
@@ -13,8 +13,7 @@ Modifier:
 	| value='public' 
 	| value='final' 
 	| value='abstract' 
-	| value='protected'
-	| value ='*' )
+	| value='protected' )
 ;
 
 Type:
@@ -22,7 +21,7 @@ Type:
 ;
 
 ParameterType:
-	NameWithWC
+	NameWithWC | '..'
 ;
 
 Throws:
@@ -33,4 +32,4 @@ Method:
 	NameWithWC
 ;
 	
-terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
+terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.')*;

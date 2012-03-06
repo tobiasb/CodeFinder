@@ -6,7 +6,7 @@ import java.util.List;
 import junit.framework.Assert;
 
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaTypeProvider;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
 
         final ITermVectorProvider sut = new JavaTypeProvider();
 
-        final CodeSearcherIndex index = new CodeSearcherIndex(getIndexer().getIndex());
+        final CodeSearcher index = getSearchIndexer();
         sut.load(index);
 
         final List<String> result = sut.getDisjunctTermVector();
@@ -34,7 +34,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
 
         final ITermVectorProvider sut = new JavaTypeProvider();
 
-        final CodeSearcherIndex index = new CodeSearcherIndex(getIndexer().getIndex());
+        final CodeSearcher index = getSearchIndexer();
         sut.load(index);
 
         final List<String> result = sut.getDisjunctTermVector();
@@ -49,7 +49,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
 
         final ITermVectorProvider sut = new JavaTypeProvider();
 
-        final CodeSearcherIndex index = new CodeSearcherIndex(getIndexer().getIndex());
+        final CodeSearcher index = getSearchIndexer();
         sut.load(index);
 
         final List<String> result = sut.getDisjunctTermVector();
@@ -64,7 +64,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
 
         final ITermVectorProvider sut = new JavaTypeProvider();
 
-        final CodeSearcherIndex index = new CodeSearcherIndex(getIndexer().getIndex());
+        final CodeSearcher index = getSearchIndexer();
         sut.load(index);
 
         final List<String> result = sut.getDisjunctTermVector();

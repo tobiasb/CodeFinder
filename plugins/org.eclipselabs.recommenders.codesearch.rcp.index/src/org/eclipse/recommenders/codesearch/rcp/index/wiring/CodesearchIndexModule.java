@@ -5,17 +5,29 @@ import static org.eclipse.recommenders.utils.Throws.throwUnhandledException;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.KeywordAnalyzer;
+import org.apache.lucene.analysis.PerFieldAnalyzerWrapper;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.queryParser.QueryParser;
+import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.util.Version;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.recommenders.codesearch.rcp.index.CodeSearch;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.analyzer.JavaSourceCodeAnalyzer;
 import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService;
 
+import com.google.common.collect.Maps;
 import com.google.common.eventbus.EventBus;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
@@ -26,21 +38,11 @@ public class CodesearchIndexModule extends AbstractModule {
     @Override
     protected void configure() {
 
-        configureLuceneIndex();
-
+        configureDirectory();
         bind(Services.class).asEagerSingleton();
     }
 
-    @Provides
-    @Singleton
-    public IndexUpdateService providerIndexUpdateService(final EventBus workspaceBus, final CodeIndexerIndex indexer,
-            final IWorkspaceRoot workspace) {
-        final IndexUpdateService service = new IndexUpdateService(indexer, workspace);
-        workspaceBus.register(service);
-        return service;
-    }
-
-    private void configureLuceneIndex() {
+    private void configureDirectory() {
         try {
             final File folder = findOrCreateIndexFolder();
             deleteOldLocks(folder);
@@ -59,32 +61,71 @@ public class CodesearchIndexModule extends AbstractModule {
         if (file.exists()) {
             ensureIsTrue(file.delete(), "failed to remove old write lock file");
         }
-
     }
 
     private File findOrCreateIndexFolder() {
         final File basedir = CodesearchIndexPlugin.getDefault().getStateLocation().toFile();
-        final File indexdir = new File(basedir, "index");
+        final File indexdir = new File(basedir, "index_v2");
         indexdir.mkdirs();
         return indexdir;
     }
 
     @Provides
     @Singleton
-    public CodeIndexerIndex provideCSQIndexForIndexing(@CodeSearch final Directory dir) throws IOException {
-        return new CodeIndexerIndex(dir);
+    public Version version() {
+        return Version.LUCENE_35;
     }
 
     @Provides
     @Singleton
-    public CodeSearcherIndex provideCSQIndexForSearching(@CodeSearch final Directory dir) throws IOException {
-        return new CodeSearcherIndex(dir);
+    public IndexWriter indexWriter(final Version version, final Analyzer analyzer, final Directory directory)
+            throws IOException {
+        final IndexWriterConfig config = new IndexWriterConfig(version, analyzer);
+        IndexWriter.unlock(directory);
+        return new IndexWriter(directory, config);
+    }
+
+    @Provides
+    @Singleton
+    public IndexReader indexReader(final IndexWriter writer) throws IOException {
+        return IndexReader.open(writer, true);
+    }
+
+    @Provides
+    @Singleton
+    public IndexSearcher indexSearcher(final IndexReader reader) throws IOException {
+        return new IndexSearcher(reader);
+    }
+
+    @Provides
+    @Singleton
+    public Analyzer analyzer() {
+        final Map<String, Analyzer> analyzerPerField = Maps.newHashMap();
+        analyzerPerField.put(Fields.FULL_TEXT, new JavaSourceCodeAnalyzer());
+        return new PerFieldAnalyzerWrapper(new KeywordAnalyzer(), analyzerPerField);
+    }
+
+    @Provides
+    public QueryParser queryParser(final Version version, final Analyzer analyzer) {
+        final QueryParser parser = new QueryParser(version, Fields.FULL_TEXT, analyzer);
+        parser.setLowercaseExpandedTerms(false);
+        parser.setAllowLeadingWildcard(true);
+        return parser;
+    }
+
+    @Provides
+    @Singleton
+    public IndexUpdateService indexUpdateService(final EventBus workspaceBus, final CodeIndexer indexer,
+            final IWorkspaceRoot workspace) {
+        final IndexUpdateService service = new IndexUpdateService(indexer, workspace);
+        workspaceBus.register(service);
+        return service;
     }
 
     private static class Services {
 
         @Inject
-        public Services(final IndexUpdateService service, final CodeIndexerIndex indexer, final IWorkspaceRoot workspace) {
+        public Services(final IndexUpdateService service, final CodeIndexer indexer, final IWorkspaceRoot workspace) {
         }
     }
 }

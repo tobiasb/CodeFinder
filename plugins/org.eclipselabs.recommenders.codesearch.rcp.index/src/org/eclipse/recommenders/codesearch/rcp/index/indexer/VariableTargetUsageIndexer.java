@@ -2,7 +2,6 @@ package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTNode;
-import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.SimpleName;
@@ -30,10 +29,7 @@ public class VariableTargetUsageIndexer extends AbstractIndexer implements IVarU
                          * The idea is that when the the parent node of a simple name is a method invocation and the
                          * simple name is not in the parameter list then it must be the target of the invocation.
                          */
-
-                        final IMethodBinding methodBinding = targetMethod.resolveMethodBinding();
-                        final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
-
+                        final Optional<String> opt = BindingHelper.getIdentifier(targetMethod);
                         if (opt.isPresent()) {
                             addAnalyzedField(document, Fields.USED_AS_TAGET_FOR_METHODS, opt.get());
                         }
@@ -43,5 +39,4 @@ public class VariableTargetUsageIndexer extends AbstractIndexer implements IVarU
             }
         }
     }
-
 }

@@ -3,7 +3,6 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.indexer;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
@@ -32,12 +31,11 @@ public class TestFieldScenarios extends TestBase {
       FieldTypeIndexer _fieldTypeIndexer = new FieldTypeIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fieldTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
       String _s_1 = this.s(Fields.FIELD_TYPE, "Ljava/util/List");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
 }

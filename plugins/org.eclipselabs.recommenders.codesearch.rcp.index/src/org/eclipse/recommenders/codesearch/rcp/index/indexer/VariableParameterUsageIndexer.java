@@ -2,7 +2,6 @@ package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
 import org.apache.lucene.document.Document;
 import org.eclipse.jdt.core.dom.ASTNode;
-import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.SimpleName;
@@ -31,10 +30,7 @@ public class VariableParameterUsageIndexer extends AbstractIndexer implements IV
                          * simple name is in the parameter list then it is being used as a parameter of a method
                          * invocation.
                          */
-
-                        final IMethodBinding methodBinding = targetMethod.resolveMethodBinding();
-                        final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
-
+                        final Optional<String> opt = BindingHelper.getIdentifier(targetMethod);
                         if (opt.isPresent()) {
                             addAnalyzedField(document, Fields.USED_AS_PARAMETER_IN_METHODS, opt.get());
                         }

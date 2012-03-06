@@ -5,25 +5,25 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.lucene.document.Document;
-import org.apache.lucene.store.RAMDirectory;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.dom.CompilationUnit;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.CompilationUnitHelper;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcherIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService;
 import org.eclipse.recommenders.tests.jdt.JavaProjectFixture;
 import org.eclipse.recommenders.utils.Tuple;
+import org.eclipselabs.recommenders.test.codesearch.rcp.indexer.LuceneInMemoryFixture;
 
 import com.google.common.collect.Lists;
 
 public class AbstractTestIndex {
 
-    private CodeIndexerIndex index = null;
+    private CodeIndexer index;
+    private CodeSearcher searcher;
     private final List<Document> docs = Lists.newArrayList();
     private Document currentDoc = null;
-
     private final String TestClassName = "MyInstanceOfClass";
 
     public AbstractTestIndex() {
@@ -32,12 +32,9 @@ public class AbstractTestIndex {
     }
 
     public AbstractTestIndex newIndex() throws IOException {
-        if (index != null) {
-            finish();
-        }
-
-        index = new CodeIndexerIndex(new RAMDirectory());
-
+        final LuceneInMemoryFixture f = new LuceneInMemoryFixture();
+        index = f.index;
+        searcher = f.searcher;
         return this;
     }
 
@@ -45,17 +42,16 @@ public class AbstractTestIndex {
         return TestClassName + ".java";
     }
 
-    public CodeIndexerIndex getIndexer() {
+    public CodeIndexer getIndexer() {
         return index;
     }
 
-    public CodeSearcherIndex getSearchIndexer() throws IOException {
-        return new CodeSearcherIndex(getIndexer().getIndex());
+    public CodeSearcher getSearchIndexer() throws IOException {
+        return searcher;
     }
 
     public AbstractTestIndex newDocs() {
         docs.clear();
-
         return this;
     }
 
@@ -74,7 +70,7 @@ public class AbstractTestIndex {
             currentDoc = new Document();
         }
 
-        CodeIndexerIndex.addAnalyzedField(currentDoc, fieldName, fieldValue);
+        CodeIndexer.addAnalyzedField(currentDoc, fieldName, fieldValue);
 
         return this;
     }

@@ -1,9 +1,14 @@
 package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
+import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.recommenders.codesearch.rcp.index.wiring.CodesearchIndexPlugin;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
@@ -13,7 +18,19 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 
     @Override
     protected void createFieldEditors() {
-        addField(new BooleanFieldEditor(P_KEEP_IN_SYNC, "Keep index in sync with workspace.", getFieldEditorParent()));
+        final Composite parent = getFieldEditorParent();
+        addField(new BooleanFieldEditor(P_KEEP_IN_SYNC, "Keep index in sync with workspace.", parent));
+        final Label label = new Label(parent, SWT.WRAP | SWT.BORDER);
+        final GridData data = GridDataFactory.fillDefaults().grab(true, true).span(2, 1).hint(100, 300).create();
+        data.horizontalSpan = 2;
+        data.widthHint = 200;
+        data.grabExcessHorizontalSpace = true;
+        label.setLayoutData(data);
+
+        label.setText("Note that building the initial index is a long running operation. "
+                + "Its duration depends on workspace size and number project dependencies and "
+                + "may take up to 30 minutes.\n\nThis operation can be canceled at any time; "
+                + "Indexing operation starts from the last sucessfully indexed project.");
     }
 
     @Override

@@ -22,26 +22,29 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cModifiersAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cModifiersModifierParserRuleCall_0_0 = (RuleCall)cModifiersAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cReturnTypeAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final RuleCall cReturnTypeTypeParserRuleCall_1_0_0 = (RuleCall)cReturnTypeAssignment_1_0.eContents().get(0);
-		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cReturnTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cReturnTypeTypeParserRuleCall_1_0 = (RuleCall)cReturnTypeAssignment_1.eContents().get(0);
 		private final Assignment cMethodAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cMethodMethodParserRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cLeftParenthesisKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cParameterTypesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cParameterTypesParameterTypeParserRuleCall_3_1_0 = (RuleCall)cParameterTypesAssignment_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cParameterTypesAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cParameterTypesParameterTypeParserRuleCall_3_2_1_0 = (RuleCall)cParameterTypesAssignment_3_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		private final Assignment cThrowsClauseAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cThrowsClauseThrowsParserRuleCall_4_0 = (RuleCall)cThrowsClauseAssignment_4.eContents().get(0);
 		
 		//MethodPattern:
-		//	modifiers+=Modifier* (returnType=Type ".")? method=Method ("(" parameterTypes+=ParameterType* ")")?
-		//	throwsClause=Throws?;
+		//	modifiers+=Modifier* returnType=Type method=Method ("(" parameterTypes+=ParameterType (","
+		//	parameterTypes+=ParameterType)* ")")? throwsClause=Throws?;
 		public ParserRule getRule() { return rule; }
 
-		//modifiers+=Modifier* (returnType=Type ".")? method=Method ("(" parameterTypes+=ParameterType* ")")? throwsClause=Throws?
+		//modifiers+=Modifier* returnType=Type method=Method ("(" parameterTypes+=ParameterType (","
+		//parameterTypes+=ParameterType)* ")")? throwsClause=Throws?
 		public Group getGroup() { return cGroup; }
 
 		//modifiers+=Modifier*
@@ -50,17 +53,11 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//Modifier
 		public RuleCall getModifiersModifierParserRuleCall_0_0() { return cModifiersModifierParserRuleCall_0_0; }
 
-		//(returnType=Type ".")?
-		public Group getGroup_1() { return cGroup_1; }
-
 		//returnType=Type
-		public Assignment getReturnTypeAssignment_1_0() { return cReturnTypeAssignment_1_0; }
+		public Assignment getReturnTypeAssignment_1() { return cReturnTypeAssignment_1; }
 
 		//Type
-		public RuleCall getReturnTypeTypeParserRuleCall_1_0_0() { return cReturnTypeTypeParserRuleCall_1_0_0; }
-
-		//"."
-		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
+		public RuleCall getReturnTypeTypeParserRuleCall_1_0() { return cReturnTypeTypeParserRuleCall_1_0; }
 
 		//method=Method
 		public Assignment getMethodAssignment_2() { return cMethodAssignment_2; }
@@ -68,20 +65,32 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//Method
 		public RuleCall getMethodMethodParserRuleCall_2_0() { return cMethodMethodParserRuleCall_2_0; }
 
-		//("(" parameterTypes+=ParameterType* ")")?
+		//("(" parameterTypes+=ParameterType ("," parameterTypes+=ParameterType)* ")")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 
-		//parameterTypes+=ParameterType*
+		//parameterTypes+=ParameterType
 		public Assignment getParameterTypesAssignment_3_1() { return cParameterTypesAssignment_3_1; }
 
 		//ParameterType
 		public RuleCall getParameterTypesParameterTypeParserRuleCall_3_1_0() { return cParameterTypesParameterTypeParserRuleCall_3_1_0; }
 
+		//("," parameterTypes+=ParameterType)*
+		public Group getGroup_3_2() { return cGroup_3_2; }
+
+		//","
+		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
+
+		//parameterTypes+=ParameterType
+		public Assignment getParameterTypesAssignment_3_2_1() { return cParameterTypesAssignment_3_2_1; }
+
+		//ParameterType
+		public RuleCall getParameterTypesParameterTypeParserRuleCall_3_2_1_0() { return cParameterTypesParameterTypeParserRuleCall_3_2_1_0; }
+
 		//")"
-		public Keyword getRightParenthesisKeyword_3_2() { return cRightParenthesisKeyword_3_2; }
+		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
 
 		//throwsClause=Throws?
 		public Assignment getThrowsClauseAssignment_4() { return cThrowsClauseAssignment_4; }
@@ -105,14 +114,12 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueAbstractKeyword_4_0 = (Keyword)cValueAssignment_4.eContents().get(0);
 		private final Assignment cValueAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
 		private final Keyword cValueProtectedKeyword_5_0 = (Keyword)cValueAssignment_5.eContents().get(0);
-		private final Assignment cValueAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
-		private final Keyword cValueAsteriskKeyword_6_0 = (Keyword)cValueAssignment_6.eContents().get(0);
 		
 		//Modifier:
-		//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected" | value="*";
+		//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected";
 		public ParserRule getRule() { return rule; }
 
-		//value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected" | value="*"
+		//value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value="static"
@@ -150,12 +157,6 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 
 		//"protected"
 		public Keyword getValueProtectedKeyword_5_0() { return cValueProtectedKeyword_5_0; }
-
-		//value="*"
-		public Assignment getValueAssignment_6() { return cValueAssignment_6; }
-
-		//"*"
-		public Keyword getValueAsteriskKeyword_6_0() { return cValueAsteriskKeyword_6_0; }
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
@@ -172,14 +173,22 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ParameterTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterType");
-		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cNameWithWCTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Keyword cFullStopFullStopKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
 		//ParameterType:
-		//	NameWithWC;
+		//	NameWithWC | "..";
 		public ParserRule getRule() { return rule; }
 
+		//NameWithWC | ".."
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//NameWithWC
-		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
+		public RuleCall getNameWithWCTerminalRuleCall_0() { return cNameWithWCTerminalRuleCall_0; }
+
+		//".."
+		public Keyword getFullStopFullStopKeyword_1() { return cFullStopFullStopKeyword_1; }
 	}
 
 	public class ThrowsElements extends AbstractParserRuleElementFinder {
@@ -249,8 +258,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//MethodPattern:
-	//	modifiers+=Modifier* (returnType=Type ".")? method=Method ("(" parameterTypes+=ParameterType* ")")?
-	//	throwsClause=Throws?;
+	//	modifiers+=Modifier* returnType=Type method=Method ("(" parameterTypes+=ParameterType (","
+	//	parameterTypes+=ParameterType)* ")")? throwsClause=Throws?;
 	public MethodPatternElements getMethodPatternAccess() {
 		return (pMethodPattern != null) ? pMethodPattern : (pMethodPattern = new MethodPatternElements());
 	}
@@ -260,7 +269,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Modifier:
-	//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected" | value="*";
+	//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected";
 	public ModifierElements getModifierAccess() {
 		return (pModifier != null) ? pModifier : (pModifier = new ModifierElements());
 	}
@@ -280,7 +289,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParameterType:
-	//	NameWithWC;
+	//	NameWithWC | "..";
 	public ParameterTypeElements getParameterTypeAccess() {
 		return (pParameterType != null) ? pParameterType : (pParameterType = new ParameterTypeElements());
 	}
@@ -310,8 +319,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal NameWithWC:
-	//	("a".."z" | "A".."Z" | "_" | "*" | "?" | "<" | ">" | "[" | "]") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" |
-	//	"<" | ">" | "[" | "]" | ".")*;
+	//	("a".."z" | "A".."Z" | "_" | "*" | "?") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" | ".")*;
 	public TerminalRule getNameWithWCRule() {
 		return (tNameWithWC != null) ? tNameWithWC : (tNameWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NameWithWC"));
 	} 

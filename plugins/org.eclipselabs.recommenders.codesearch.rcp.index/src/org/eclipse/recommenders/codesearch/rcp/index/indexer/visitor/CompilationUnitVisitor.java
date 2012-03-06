@@ -17,7 +17,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllExtendedTypesInd
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AnnotationsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CaughtTypeIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldNamesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldTypesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredMethodNamesIndexer;
@@ -29,19 +29,19 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ExtendedTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsReadIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsWrittenIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FriendlyNameIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullyQualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.JavaElementHandleIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer2;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.OverriddenMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ProjectNameIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnTypeIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnVariableExpressionIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInFinallyIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInTryIndexer;
@@ -61,12 +61,13 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
+import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
 import com.google.common.collect.Lists;
 
 public class CompilationUnitVisitor extends ASTVisitor {
 
-    private CodeIndexerIndex index = null;
+    private CodeIndexer index = null;
     private final List<IIndexer> indexer;
 
     public void addIndexer(final IIndexer indexer) {
@@ -77,9 +78,8 @@ public class CompilationUnitVisitor extends ASTVisitor {
         this.indexer.addAll(indexer);
     }
 
-    public CompilationUnitVisitor(final CodeIndexerIndex index) {
+    public CompilationUnitVisitor(final CodeIndexer index) {
         this.index = index;
-
         indexer = Lists.newArrayList();
     }
 
@@ -104,9 +104,9 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new FieldsReadIndexer());
         list.add(new FieldsWrittenIndexer());
         list.add(new FieldTypeIndexer());
-        list.add(new FriendlyNameIndexer());
-        list.add(new FullTextIndexer());
-        list.add(new FullyQualifiedNameIndexer());
+        list.add(new SimpleNameIndexer());
+        // list.add(new FullTextIndexer());
+        list.add(new QualifiedNameIndexer());
         list.add(new ImplementedInterfacesIndexer());
         list.add(new InstanceOfIndexer());
         list.add(new ModifiersIndexer());
@@ -116,7 +116,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new ProjectNameIndexer());
         list.add(new ResourcePathIndexer());
         list.add(new ReturnTypeIndexer());
-        list.add(new ReturnVariableExpressionIndexer());
+        // list.add(new ReturnVariableExpressionIndexer());
         list.add(new TimestampIndexer());
         list.add(new UsedFieldsInFinallyIndexer());
         list.add(new UsedFieldsInTryIndexer());
@@ -131,7 +131,8 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new VariableParameterUsageIndexer());
         list.add(new VariableTargetUsageIndexer());
         list.add(new VariableTypeIndexer());
-
+        list.add(new JavaElementHandleIndexer());
+        list.add(new FullTextIndexer2());
         return list;
     }
 
@@ -159,17 +160,20 @@ public class CompilationUnitVisitor extends ASTVisitor {
             }
         }
 
-        if (methodDocument.getFields().size() > 0)
+        if (methodDocument.getFields().size() > 0) {
             addDocument(methodDocument);
+        }
 
         // For each method declaration we use another visitor to learn about
         // variable usage
-        VarUsageVisitor varUsageVisitor = new VarUsageVisitor(indexer);
+
+        final VarUsageVisitor varUsageVisitor = new VarUsageVisitor(indexer);
         varUsageVisitor.visit(node);
 
-        for (Document d : varUsageVisitor.getDocuments()) {
-            if (d.getFields().size() > 0)
+        for (final Document d : varUsageVisitor.getDocuments()) {
+            if (d.getFields().size() > 0) {
                 addDocument(d);
+            }
         }
 
         return true;
@@ -185,8 +189,9 @@ public class CompilationUnitVisitor extends ASTVisitor {
             }
         }
 
-        if (document.getFields().size() > 0)
+        if (document.getFields().size() > 0) {
             addDocument(document);
+        }
         return false;
     }
 
@@ -207,8 +212,9 @@ public class CompilationUnitVisitor extends ASTVisitor {
             }
         }
 
-        if (document.getFields().size() > 0)
+        if (document.getFields().size() > 0) {
             addDocument(document);
+        }
 
         return false;
     }
@@ -218,7 +224,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         try {
             index.addDocument(document);
         } catch (final IOException e) {
-            // XXX: Activator.logError(e);
+            RecommendersUtilsPlugin.logError(e, "Exception during document save.");
         }
     }
 }

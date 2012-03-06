@@ -71,7 +71,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modifiers+=Modifier* returnType=Type? method=Method parameterTypes+=ParameterType* throwsClause=Throws?)
+	 *     (modifiers+=Modifier* returnType=Type method=Method (parameterTypes+=ParameterType parameterTypes+=ParameterType*)? throwsClause=Throws?)
 	 */
 	protected void sequence_MethodPattern(EObject context, MethodPattern semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -86,8 +86,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	 *         value='public' | 
 	 *         value='final' | 
 	 *         value='abstract' | 
-	 *         value='protected' | 
-	 *         value='*'
+	 *         value='protected'
 	 *     )
 	 */
 	protected void sequence_Modifier(EObject context, Modifier semanticObject) {

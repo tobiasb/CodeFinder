@@ -22,9 +22,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaringMethodIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new DeclaringMethodIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::DECLARING_METHOD, "LMyClass.testMethod()V")
 		)))		
@@ -40,9 +40,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_NAME, "s")
 		)))		
@@ -58,14 +58,14 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_NAME, "a")
 		)))		
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_NAME, "s")
 		)))		
@@ -80,9 +80,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableNameIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_NAME, "s")
 		)))		
@@ -98,9 +98,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTypeIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTypeIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_TYPE, "Ljava/lang/String")
 		)))		
@@ -116,15 +116,15 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		 
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTypeIndexer(), new VariableNameIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTypeIndexer(), new VariableNameIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_NAME, "s"),
 			s(Fields::VARIABLE_TYPE, "Ljava/lang/String")
 		)))		
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_NAME, "a"),
 			s(Fields::VARIABLE_TYPE, "Ljava/lang/String")
@@ -141,9 +141,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_UNINITIALIZED)
 		)))		
@@ -158,9 +158,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_PARAMETER)
 		)))		
@@ -176,9 +176,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_INSTANCE_CREATION)
 		)))		
@@ -194,9 +194,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_NULLLITERAL)
 		)))		
@@ -213,9 +213,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_METHOD_INVOCATION)
 		)))		
@@ -232,9 +232,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableParameterUsageIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableParameterUsageIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::USED_AS_PARAMETER_IN_METHODS, "Ljava/io/PrintStream.println(Ljava/lang/String;)V")
 		)))		
@@ -251,9 +251,9 @@ class TestVariableUsageScenarios extends TestBase {
 		}
 		'''
 		
-		var index = exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTargetUsageIndexer())))
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableTargetUsageIndexer())))
 		
-		assertField(index, l(newArrayList(
+		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
 			s(Fields::USED_AS_TAGET_FOR_METHODS, "Ljava/lang/String.toString()Ljava/lang/String;")
 		)))		

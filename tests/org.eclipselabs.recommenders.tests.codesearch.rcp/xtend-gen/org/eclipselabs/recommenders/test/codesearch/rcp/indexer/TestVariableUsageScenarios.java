@@ -3,7 +3,6 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.indexer;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerIndex;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaringMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableDefinitionIndexer;
@@ -41,13 +40,12 @@ public class TestVariableUsageScenarios extends TestBase {
       DeclaringMethodIndexer _declaringMethodIndexer = new DeclaringMethodIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaringMethodIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.DECLARING_METHOD, "LMyClass.testMethod()V");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -71,13 +69,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_NAME, "s");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -101,18 +98,17 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_NAME, "a");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
       String _s_2 = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_3 = this.s(Fields.VARIABLE_NAME, "s");
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
-      this.assertField(index, _l_1);
+      this.assertField(_l_1);
   }
   
   @Test
@@ -133,13 +129,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_NAME, "s");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -163,13 +158,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableTypeIndexer _variableTypeIndexer = new VariableTypeIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_TYPE, "Ljava/lang/String");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -194,20 +188,19 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_NAME, "s");
       String _s_2 = this.s(Fields.VARIABLE_TYPE, "Ljava/lang/String");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
       String _s_3 = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_4 = this.s(Fields.VARIABLE_NAME, "a");
       String _s_5 = this.s(Fields.VARIABLE_TYPE, "Ljava/lang/String");
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_3, _s_4, _s_5);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
-      this.assertField(index, _l_1);
+      this.assertField(_l_1);
   }
   
   @Test
@@ -231,13 +224,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_UNINITIALIZED);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -258,13 +250,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_PARAMETER);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -288,13 +279,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_INSTANCE_CREATION);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -318,13 +308,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_NULLLITERAL);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -351,13 +340,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -384,13 +372,12 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableParameterUsageIndexer _variableParameterUsageIndexer = new VariableParameterUsageIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableParameterUsageIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.USED_AS_PARAMETER_IN_METHODS, "Ljava/io/PrintStream.println(Ljava/lang/String;)V");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
   
   @Test
@@ -417,12 +404,11 @@ public class TestVariableUsageScenarios extends TestBase {
       VariableTargetUsageIndexer _variableTargetUsageIndexer = new VariableTargetUsageIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableTargetUsageIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      CodeIndexerIndex _exercise = this.exercise(code, _i);
-      CodeIndexerIndex index = _exercise;
+      this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
       String _s_1 = this.s(Fields.USED_AS_TAGET_FOR_METHODS, "Ljava/lang/String.toString()Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(index, _l);
+      this.assertField(_l);
   }
 }
