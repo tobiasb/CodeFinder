@@ -1,6 +1,5 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
-import static java.util.Collections.emptyList;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_OVERLAY_ICONS;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_PARAMETERS;
 import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_POST_QUALIFIED;
@@ -10,18 +9,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.WorkspaceJob;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.IJobChangeEvent;
-import org.eclipse.core.runtime.jobs.JobChangeAdapter;
-import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaElement;
-import org.eclipse.jdt.core.IMethod;
-import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTVisitor;
@@ -34,18 +28,12 @@ import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.jface.text.ITextPresentationListener;
 import org.eclipse.jface.text.TextPresentation;
 import org.eclipse.jface.text.source.SourceViewer;
-import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.internal.codesearch.rcp.Activator;
 import org.eclipse.recommenders.utils.annotations.Experimental;
-import org.eclipse.recommenders.utils.names.IMethodName;
-import org.eclipse.recommenders.utils.names.ITypeName;
-import org.eclipse.recommenders.utils.names.VmMethodName;
-import org.eclipse.recommenders.utils.names.VmTypeName;
-import org.eclipse.recommenders.utils.rcp.JavaElementResolver;
 import org.eclipse.recommenders.utils.rcp.RCPUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
@@ -69,7 +57,6 @@ import org.eclipse.xtext.ui.editor.model.XtextDocument;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 
 import com.google.common.base.Optional;
-import com.google.common.collect.Lists;
 
 @SuppressWarnings("restriction")
 public class SearchQueryView extends ViewPart implements ISearchView {
@@ -78,7 +65,6 @@ public class SearchQueryView extends ViewPart implements ISearchView {
     protected Text searchQueryText;
     protected TableViewer searchResultTable;
     private Combo exampleCombo;
-    final List<Document> result = Lists.newArrayList();
 
     private int selectedLanguageIndex = 0;
     private AbstractEmbeddedEditorWrapper currentEditor = null;
@@ -96,7 +82,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
     public void createPartControl(final Composite parent) {
         parent.setLayout(new GridLayout(2, true));
 
-        Composite compositeForEditor = createCompositeForEditor(parent);
+        final Composite compositeForEditor = createCompositeForEditor(parent);
 
         createSearchResultsViewer(parent);
         createTriggerSearchButton(parent);
@@ -113,15 +99,15 @@ public class SearchQueryView extends ViewPart implements ISearchView {
     }
 
     private Composite createCompositeForEditor(final Composite parent) {
-        Composite compositeForEditor = new Composite(parent, SWT.NONE);
+        final Composite compositeForEditor = new Composite(parent, SWT.NONE);
 
-        GridLayout layout = new GridLayout(1, true);
+        final GridLayout layout = new GridLayout(1, true);
         layout.marginWidth = 0;
         layout.marginHeight = 0;
 
         compositeForEditor.setLayout(layout);
 
-        GridData gridData = new GridData(GridData.FILL_BOTH);
+        final GridData gridData = new GridData(GridData.FILL_BOTH);
         compositeForEditor.setLayoutData(gridData);
 
         return compositeForEditor;
@@ -129,14 +115,14 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
     private void createSearchExampleCombobox(final Composite parent) {
         exampleCombo = new Combo(parent, SWT.READ_ONLY);
-        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        final GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 1;
 
         exampleCombo.setLayoutData(gridData);
         exampleCombo.addSelectionListener(new SelectionListener() {
 
             @Override
-            public void widgetSelected(SelectionEvent e) {
+            public void widgetSelected(final SelectionEvent e) {
                 if (exampleCombo.getSelectionIndex() > 0) {
                     currentEditor.setSearchQuery(exampleCombo.getItems()[exampleCombo.getSelectionIndex()]);
                     exampleCombo.select(0);
@@ -144,14 +130,14 @@ public class SearchQueryView extends ViewPart implements ISearchView {
             }
 
             @Override
-            public void widgetDefaultSelected(SelectionEvent e) {
+            public void widgetDefaultSelected(final SelectionEvent e) {
             }
         });
     }
 
     private void createLanguageSelectionComboBox(final Composite parent, final Composite createEmbeddedEditorInComposite) {
         final Combo combo = new Combo(parent, SWT.READ_ONLY);
-        GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
+        final GridData gridData = new GridData(GridData.FILL_HORIZONTAL);
         gridData.horizontalSpan = 1;
 
         combo.setItems(new String[] { LuceneQueryEditorWrapper.getName(), QL1EditorWrapper.getName(),
@@ -161,7 +147,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
         combo.addSelectionListener(new SelectionListener() {
 
             @Override
-            public void widgetSelected(SelectionEvent e) {
+            public void widgetSelected(final SelectionEvent e) {
                 selectedLanguageIndex = combo.getSelectionIndex();
 
                 if (selectedLanguageIndex == 0) {
@@ -180,7 +166,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
             }
 
             @Override
-            public void widgetDefaultSelected(SelectionEvent e) {
+            public void widgetDefaultSelected(final SelectionEvent e) {
             }
         });
     }
@@ -188,7 +174,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
     private void createTriggerSearchButton(final Composite parent) {
         triggerSearchButton = new Button(parent, SWT.PUSH);
         triggerSearchButton.setText("Search");
-        GridData gridData = new GridData();
+        final GridData gridData = new GridData();
         // gridData.horizontalSpan = 2;
         triggerSearchButton.setLayoutData(gridData);
         triggerSearchButton.addSelectionListener(new SelectionListener() {
@@ -197,7 +183,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
             public void widgetSelected(final SelectionEvent e) {
                 try {
                     doSearch();
-                } catch (Exception e1) {
+                } catch (final Exception e1) {
                     Activator.logError(e1);
                 }
             }
@@ -214,11 +200,11 @@ public class SearchQueryView extends ViewPart implements ISearchView {
     }
 
     private void createSearchResultsViewer(final Composite parent) {
-        searchResultTable = new TableViewer(parent);
-        searchResultTable.setContentProvider(new ArrayContentProvider());
+        searchResultTable = new TableViewer(parent, SWT.VIRTUAL);
+        searchResultTable.setContentProvider(new LazyContentProvider());
         searchResultTable.setLabelProvider(new JavaElementLabelProvider(SHOW_OVERLAY_ICONS | SHOW_POST_QUALIFIED
                 | SHOW_PARAMETERS));
-        GridData gridData = new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL);
+        final GridData gridData = new GridData(GridData.FILL_HORIZONTAL | GridData.FILL_VERTICAL);
         gridData.horizontalSpan = 1;
         searchResultTable.getControl().setLayoutData(gridData);
         searchResultTable.addDoubleClickListener(new IDoubleClickListener() {
@@ -234,7 +220,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                         final SourceViewer s = (SourceViewer) editor.getViewer();
                         final XtextDocument document = currentEditor.getDocument();
 
-                        IUnitOfWork<Set<String>, XtextResource> searchTermExtractor = currentEditor
+                        final IUnitOfWork<Set<String>, XtextResource> searchTermExtractor = currentEditor
                                 .getSearchTermExtractor();
 
                         if (searchTermExtractor != null) {
@@ -244,8 +230,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
                                 @Override
                                 public void applyTextPresentation(final TextPresentation textPresentation) {
-                                    final ICompilationUnit cu = (ICompilationUnit) EditorUtility
-                                            .getActiveEditorJavaInput();
+                                    final ITypeRoot cu = (ITypeRoot) EditorUtility.getActiveEditorJavaInput();
                                     final Color foreground = JavaUI.getColorManager().getColor(new RGB(255, 0, 0));
                                     // final Color white =
                                     // JavaUI.getColorManager().getColor(new
@@ -337,63 +322,23 @@ public class SearchQueryView extends ViewPart implements ISearchView {
             @Override
             public void run() {
                 // searchQueryText.setEnabled(false);
-                searchResultTable.setInput(emptyList());
+                searchResultTable.setItemCount(0);
                 triggerSearchButton.setEnabled(false);
             }
         });
     }
 
-    public void setResult(final List<Document> result) {
-        Display.getDefault().syncExec(new Runnable() {
+    public void setResult(final SearchResult result) {
+        Display.getDefault().asyncExec(new Runnable() {
 
             @Override
             public void run() {
-                // searchQueryText.setEnabled(true);
-
+                searchResultTable.setInput(result);
+                searchResultTable.setItemCount(result.scoreDocs().length);
                 triggerSearchButton.setEnabled(true);
-
-                final List<IJavaElement> newInput = Lists.newArrayList();
-
-                for (final Document doc : result) {
-                    try {
-                        final String docId = doc.get(Fields.FULLY_QUALIFIED_NAME);
-                        final String docType = doc.get(Fields.TYPE);
-                        final String declaringType = doc.get(Fields.DECLARING_TYPE);
-
-                        try {
-                            if (docType.equals(Fields.TYPE_CLASS)) {
-                                final ITypeName typeName = VmTypeName.get(docId);
-                                final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
-                                addIfNotNull(newInput, type);
-                            } else if (docType.equals(Fields.TYPE_METHOD)) {
-                                final IMethodName methodName = VmMethodName.get(docId);
-                                final Optional<IMethod> method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
-                                addIfNotNull(newInput, method);
-                            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)
-                                    || docType.equals(Fields.TYPE_VARUSAGE)) {
-                                final ITypeName typeName = VmTypeName.get(declaringType);
-                                final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
-                                addIfNotNull(newInput, type);
-                            }
-                        } catch (final Exception ex) {
-                        }
-
-                    } catch (final Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                searchResultTable.setInput(newInput);
-            }
-
-            private <T> void addIfNotNull(final List<IJavaElement> list, final Optional<T> element) {
-                if (element != null && element.isPresent()) {
-                    list.add((IJavaElement) element.get());
-                    // Elements are null if the workspace isn't built and
-                    // the java elements couldn't be resolved
-                }
             }
         });
+
     }
 
     @Override
@@ -403,48 +348,30 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
     @Override
     public void doSearch() throws Exception {
-        Display.getDefault().syncExec(new Runnable() {
+
+        final WorkspaceJob job = new WorkspaceJob("Searching...") {
 
             @Override
-            public void run() {
-                // Search
-                final WorkspaceJob job = new WorkspaceJob("Searching...") {
-
-                    @Override
-                    public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
-
-                        setSearching();
-
-                        try {
-                            result.clear();
-
-                            if (currentEditor != null) {
-                                result.addAll(currentEditor.search());
-                            }
-                        } catch (final Exception e) {
-                            Activator.logError(e);
-                            return Status.CANCEL_STATUS;
-                        }
-
-                        return Status.OK_STATUS;
+            public IStatus runInWorkspace(final IProgressMonitor monitor) throws CoreException {
+                setSearching();
+                try {
+                    if (currentEditor != null) {
+                        setResult(currentEditor.search());
                     }
-                };
-
-                job.addJobChangeListener(new JobChangeAdapter() {
-                    @Override
-                    public void done(final IJobChangeEvent event) {
-                        setResult(result);
-                    }
-                });
-
-                job.schedule();
+                } catch (final Exception e) {
+                    Activator.logError(e);
+                    return Status.CANCEL_STATUS;
+                }
+                return Status.OK_STATUS;
             }
-        });
+        };
+
+        job.schedule();
 
     }
 
     @Override
-    public void setSearchEnabled(boolean value) {
+    public void setSearchEnabled(final boolean value) {
         triggerSearchButton.setEnabled(value);
     }
 
