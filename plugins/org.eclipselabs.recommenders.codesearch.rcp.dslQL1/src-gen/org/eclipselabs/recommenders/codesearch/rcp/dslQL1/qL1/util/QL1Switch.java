@@ -90,6 +90,13 @@ public class QL1Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL1Package.RETURN_TYPE:
+      {
+        ReturnType returnType = (ReturnType)theEObject;
+        T result = caseReturnType(returnType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QL1Package.PARAMETER_ELEMENT:
       {
         ParameterElement parameterElement = (ParameterElement)theEObject;
@@ -97,10 +104,24 @@ public class QL1Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL1Package.PARAMETER_TYPE:
+      {
+        ParameterType parameterType = (ParameterType)theEObject;
+        T result = caseParameterType(parameterType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QL1Package.THROWS:
       {
         Throws throws_ = (Throws)theEObject;
         T result = caseThrows(throws_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.METHOD_NAME:
+      {
+        MethodName methodName = (MethodName)theEObject;
+        T result = caseMethodName(methodName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -141,6 +162,22 @@ public class QL1Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Return Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Return Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReturnType(ReturnType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Parameter Element</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -157,6 +194,22 @@ public class QL1Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameterType(ParameterType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Throws</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -168,6 +221,22 @@ public class QL1Switch<T> extends Switch<T>
    * @generated
    */
   public T caseThrows(Throws object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodName(MethodName object)
   {
     return null;
   }

@@ -14,22 +14,22 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Throws</b></em>'.
+ * An implementation of the model object '<em><b>Return Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ThrowsImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ReturnTypeImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
+public class ReturnTypeImpl extends MinimalEObjectImpl.Container implements ReturnType
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -56,7 +56,7 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ThrowsImpl()
+  protected ReturnTypeImpl()
   {
     super();
   }
@@ -69,7 +69,7 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
   @Override
   protected EClass eStaticClass()
   {
-    return QL1Package.Literals.THROWS;
+    return QL1Package.Literals.RETURN_TYPE;
   }
 
   /**
@@ -92,7 +92,7 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.THROWS__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.RETURN_TYPE__VALUE, oldValue, value));
   }
 
   /**
@@ -105,7 +105,7 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
   {
     switch (featureID)
     {
-      case QL1Package.THROWS__VALUE:
+      case QL1Package.RETURN_TYPE__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -121,7 +121,7 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
   {
     switch (featureID)
     {
-      case QL1Package.THROWS__VALUE:
+      case QL1Package.RETURN_TYPE__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -138,7 +138,7 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
   {
     switch (featureID)
     {
-      case QL1Package.THROWS__VALUE:
+      case QL1Package.RETURN_TYPE__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -155,7 +155,7 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
   {
     switch (featureID)
     {
-      case QL1Package.THROWS__VALUE:
+      case QL1Package.RETURN_TYPE__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -178,4 +178,4 @@ public class ThrowsImpl extends MinimalEObjectImpl.Container implements Throws
     return result.toString();
   }
 
-} //ThrowsImpl
+} //ReturnTypeImpl

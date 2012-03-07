@@ -13,10 +13,13 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
 
@@ -48,6 +51,12 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == QL1Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case QL1Package.METHOD_NAME:
+				if(context == grammarAccess.getMethodNameRule()) {
+					sequence_MethodName(context, (MethodName) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL1Package.METHOD_PATTERN:
 				if(context == grammarAccess.getMethodPatternRule()) {
 					sequence_MethodPattern(context, (MethodPattern) semanticObject); 
@@ -66,6 +75,18 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL1Package.PARAMETER_TYPE:
+				if(context == grammarAccess.getParameterTypeRule()) {
+					sequence_ParameterType(context, (ParameterType) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL1Package.RETURN_TYPE:
+				if(context == grammarAccess.getReturnTypeRule()) {
+					sequence_ReturnType(context, (ReturnType) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL1Package.THROWS:
 				if(context == grammarAccess.getThrowsRule()) {
 					sequence_Throws(context, (Throws) semanticObject); 
@@ -78,9 +99,25 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     value=NameWithWC
+	 */
+	protected void sequence_MethodName(EObject context, MethodName semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.METHOD_NAME__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.METHOD_NAME__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getMethodNameAccess().getValueNameWithWCTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (
 	 *         modifiers+=Modifier* 
-	 *         returnType=Type 
+	 *         returnType=ReturnType 
 	 *         methodName=MethodName 
 	 *         (parameterElements+=ParameterElement parameterElements+=ParameterElement*)? 
 	 *         throwsClause=Throws?
@@ -109,7 +146,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     {ParameterElement}
+	 *     values+=ParameterType
 	 */
 	protected void sequence_ParameterElement(EObject context, ParameterElement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -118,16 +155,41 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     thrownType=Type
+	 *     (value=NameWithWC | value='..')
 	 */
-	protected void sequence_Throws(EObject context, Throws semanticObject) {
+	protected void sequence_ParameterType(EObject context, ParameterType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=NameWithWC
+	 */
+	protected void sequence_ReturnType(EObject context, ReturnType semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.THROWS__THROWN_TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.THROWS__THROWN_TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.RETURN_TYPE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.RETURN_TYPE__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getThrowsAccess().getThrownTypeTypeParserRuleCall_1_0(), semanticObject.getThrownType());
+		feeder.accept(grammarAccess.getReturnTypeAccess().getValueNameWithWCTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=NameWithWC
+	 */
+	protected void sequence_Throws(EObject context, Throws semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL1Package.Literals.THROWS__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL1Package.Literals.THROWS__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getThrowsAccess().getValueNameWithWCTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 }

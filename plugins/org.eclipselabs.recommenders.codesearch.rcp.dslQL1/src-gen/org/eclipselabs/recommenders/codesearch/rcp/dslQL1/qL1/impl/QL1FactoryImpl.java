@@ -70,8 +70,11 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
     {
       case QL1Package.METHOD_PATTERN: return createMethodPattern();
       case QL1Package.MODIFIER: return createModifier();
+      case QL1Package.RETURN_TYPE: return createReturnType();
       case QL1Package.PARAMETER_ELEMENT: return createParameterElement();
+      case QL1Package.PARAMETER_TYPE: return createParameterType();
       case QL1Package.THROWS: return createThrows();
+      case QL1Package.METHOD_NAME: return createMethodName();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -104,6 +107,17 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ReturnType createReturnType()
+  {
+    ReturnTypeImpl returnType = new ReturnTypeImpl();
+    return returnType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ParameterElement createParameterElement()
   {
     ParameterElementImpl parameterElement = new ParameterElementImpl();
@@ -115,10 +129,32 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
+  public ParameterType createParameterType()
+  {
+    ParameterTypeImpl parameterType = new ParameterTypeImpl();
+    return parameterType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Throws createThrows()
   {
     ThrowsImpl throws_ = new ThrowsImpl();
     return throws_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodName createMethodName()
+  {
+    MethodNameImpl methodName = new MethodNameImpl();
+    return methodName;
   }
 
   /**

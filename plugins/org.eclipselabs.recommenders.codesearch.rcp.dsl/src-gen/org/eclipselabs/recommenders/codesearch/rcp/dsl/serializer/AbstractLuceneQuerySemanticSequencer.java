@@ -222,7 +222,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     ((left=Exp1_Exp1_1_0 b=BinaryExp? right=Exp1) | (left=Exp1_Exp1_1_0 right=Exp1))
+	 *     (left=Exp1_Exp1_1_0 b=BinaryExp right=Exp1)
 	 */
 	protected void sequence_Exp1(EObject context, Exp1 semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

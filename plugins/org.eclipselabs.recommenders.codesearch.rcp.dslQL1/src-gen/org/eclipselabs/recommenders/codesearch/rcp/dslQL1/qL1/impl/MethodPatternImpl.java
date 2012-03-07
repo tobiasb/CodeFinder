@@ -22,10 +22,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 
 /**
@@ -58,44 +60,24 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
   protected EList<Modifier> modifiers;
 
   /**
-   * The default value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
+   * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getReturnType()
    * @generated
    * @ordered
    */
-  protected static final String RETURN_TYPE_EDEFAULT = null;
+  protected ReturnType returnType;
 
   /**
-   * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getReturnType()
-   * @generated
-   * @ordered
-   */
-  protected String returnType = RETURN_TYPE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getMethodName() <em>Method Name</em>}' attribute.
+   * The cached value of the '{@link #getMethodName() <em>Method Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMethodName()
    * @generated
    * @ordered
    */
-  protected static final String METHOD_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMethodName() <em>Method Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethodName()
-   * @generated
-   * @ordered
-   */
-  protected String methodName = METHOD_NAME_EDEFAULT;
+  protected MethodName methodName;
 
   /**
    * The cached value of the '{@link #getParameterElements() <em>Parameter Elements</em>}' containment reference list.
@@ -157,7 +139,7 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getReturnType()
+  public ReturnType getReturnType()
   {
     return returnType;
   }
@@ -167,12 +149,16 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReturnType(String newReturnType)
+  public NotificationChain basicSetReturnType(ReturnType newReturnType, NotificationChain msgs)
   {
-    String oldReturnType = returnType;
+    ReturnType oldReturnType = returnType;
     returnType = newReturnType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN__RETURN_TYPE, oldReturnType, returnType));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN__RETURN_TYPE, oldReturnType, newReturnType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -180,7 +166,28 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMethodName()
+  public void setReturnType(ReturnType newReturnType)
+  {
+    if (newReturnType != returnType)
+    {
+      NotificationChain msgs = null;
+      if (returnType != null)
+        msgs = ((InternalEObject)returnType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL1Package.METHOD_PATTERN__RETURN_TYPE, null, msgs);
+      if (newReturnType != null)
+        msgs = ((InternalEObject)newReturnType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL1Package.METHOD_PATTERN__RETURN_TYPE, null, msgs);
+      msgs = basicSetReturnType(newReturnType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN__RETURN_TYPE, newReturnType, newReturnType));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodName getMethodName()
   {
     return methodName;
   }
@@ -190,12 +197,37 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethodName(String newMethodName)
+  public NotificationChain basicSetMethodName(MethodName newMethodName, NotificationChain msgs)
   {
-    String oldMethodName = methodName;
+    MethodName oldMethodName = methodName;
     methodName = newMethodName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN__METHOD_NAME, oldMethodName, methodName));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN__METHOD_NAME, oldMethodName, newMethodName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMethodName(MethodName newMethodName)
+  {
+    if (newMethodName != methodName)
+    {
+      NotificationChain msgs = null;
+      if (methodName != null)
+        msgs = ((InternalEObject)methodName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL1Package.METHOD_PATTERN__METHOD_NAME, null, msgs);
+      if (newMethodName != null)
+        msgs = ((InternalEObject)newMethodName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL1Package.METHOD_PATTERN__METHOD_NAME, null, msgs);
+      msgs = basicSetMethodName(newMethodName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN__METHOD_NAME, newMethodName, newMethodName));
   }
 
   /**
@@ -272,6 +304,10 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
     {
       case QL1Package.METHOD_PATTERN__MODIFIERS:
         return ((InternalEList<?>)getModifiers()).basicRemove(otherEnd, msgs);
+      case QL1Package.METHOD_PATTERN__RETURN_TYPE:
+        return basicSetReturnType(null, msgs);
+      case QL1Package.METHOD_PATTERN__METHOD_NAME:
+        return basicSetMethodName(null, msgs);
       case QL1Package.METHOD_PATTERN__PARAMETER_ELEMENTS:
         return ((InternalEList<?>)getParameterElements()).basicRemove(otherEnd, msgs);
       case QL1Package.METHOD_PATTERN__THROWS_CLAUSE:
@@ -320,10 +356,10 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
         getModifiers().addAll((Collection<? extends Modifier>)newValue);
         return;
       case QL1Package.METHOD_PATTERN__RETURN_TYPE:
-        setReturnType((String)newValue);
+        setReturnType((ReturnType)newValue);
         return;
       case QL1Package.METHOD_PATTERN__METHOD_NAME:
-        setMethodName((String)newValue);
+        setMethodName((MethodName)newValue);
         return;
       case QL1Package.METHOD_PATTERN__PARAMETER_ELEMENTS:
         getParameterElements().clear();
@@ -350,10 +386,10 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
         getModifiers().clear();
         return;
       case QL1Package.METHOD_PATTERN__RETURN_TYPE:
-        setReturnType(RETURN_TYPE_EDEFAULT);
+        setReturnType((ReturnType)null);
         return;
       case QL1Package.METHOD_PATTERN__METHOD_NAME:
-        setMethodName(METHOD_NAME_EDEFAULT);
+        setMethodName((MethodName)null);
         return;
       case QL1Package.METHOD_PATTERN__PARAMETER_ELEMENTS:
         getParameterElements().clear();
@@ -378,34 +414,15 @@ public class MethodPatternImpl extends MinimalEObjectImpl.Container implements M
       case QL1Package.METHOD_PATTERN__MODIFIERS:
         return modifiers != null && !modifiers.isEmpty();
       case QL1Package.METHOD_PATTERN__RETURN_TYPE:
-        return RETURN_TYPE_EDEFAULT == null ? returnType != null : !RETURN_TYPE_EDEFAULT.equals(returnType);
+        return returnType != null;
       case QL1Package.METHOD_PATTERN__METHOD_NAME:
-        return METHOD_NAME_EDEFAULT == null ? methodName != null : !METHOD_NAME_EDEFAULT.equals(methodName);
+        return methodName != null;
       case QL1Package.METHOD_PATTERN__PARAMETER_ELEMENTS:
         return parameterElements != null && !parameterElements.isEmpty();
       case QL1Package.METHOD_PATTERN__THROWS_CLAUSE:
         return throwsClause != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (returnType: ");
-    result.append(returnType);
-    result.append(", methodName: ");
-    result.append(methodName);
-    result.append(')');
-    return result.toString();
   }
 
 } //MethodPatternImpl

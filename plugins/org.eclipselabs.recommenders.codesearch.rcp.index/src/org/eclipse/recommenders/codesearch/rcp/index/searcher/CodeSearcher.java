@@ -71,6 +71,18 @@ public class CodeSearcher implements ITermVectorConsumable {
 
     /**
      * caller is responsible for closing the searcher
+     * 
+     * @throws ParseException
+     */
+    public SearchResult lenientSearch(final String queryString) throws IOException, ParseException {
+        renewReader();
+        final Query query = parser.parse(queryString);
+        final TopDocs docs = searcher.search(query, reader.numDocs() + 1);
+        return new SearchResult(query, docs, searcher);
+    }
+
+    /**
+     * caller is responsible for closing the searcher
      */
     public SearchResult lenientSearch(final Query query) throws IOException {
         renewReader();

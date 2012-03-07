@@ -181,7 +181,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExp1"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:77:1: ruleExp1 returns [EObject current=null] : (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) )? ( (lv_right_3_0= ruleExp1 ) ) )? ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:77:1: ruleExp1 returns [EObject current=null] : (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) ) ( (lv_right_3_0= ruleExp1 ) ) )? ) ;
     public final EObject ruleExp1() throws RecognitionException {
         EObject current = null;
 
@@ -195,11 +195,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:28: ( (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) )? ( (lv_right_3_0= ruleExp1 ) ) )? ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:1: (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) )? ( (lv_right_3_0= ruleExp1 ) ) )? )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:28: ( (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) ) ( (lv_right_3_0= ruleExp1 ) ) )? ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:1: (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) ) ( (lv_right_3_0= ruleExp1 ) ) )? )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:1: (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) )? ( (lv_right_3_0= ruleExp1 ) ) )? )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:82:5: this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) )? ( (lv_right_3_0= ruleExp1 ) ) )?
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:1: (this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) ) ( (lv_right_3_0= ruleExp1 ) ) )? )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:82:5: this_Exp2_0= ruleExp2 ( () ( (lv_b_2_0= ruleBinaryExp ) ) ( (lv_right_3_0= ruleExp1 ) ) )?
             {
              
                     newCompositeNode(grammarAccess.getExp1Access().getExp2ParserRuleCall_0()); 
@@ -213,16 +213,16 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     current = this_Exp2_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:90:1: ( () ( (lv_b_2_0= ruleBinaryExp ) )? ( (lv_right_3_0= ruleExp1 ) ) )?
-            int alt2=2;
-            int LA2_0 = input.LA(1);
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:90:1: ( () ( (lv_b_2_0= ruleBinaryExp ) ) ( (lv_right_3_0= ruleExp1 ) ) )?
+            int alt1=2;
+            int LA1_0 = input.LA(1);
 
-            if ( (LA2_0==RULE_NAMEWITHWC||LA2_0==14||(LA2_0>=17 && LA2_0<=60)||(LA2_0>=77 && LA2_0<=83)) ) {
-                alt2=1;
+            if ( ((LA1_0>=81 && LA1_0<=83)) ) {
+                alt1=1;
             }
-            switch (alt2) {
+            switch (alt1) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:90:2: () ( (lv_b_2_0= ruleBinaryExp ) )? ( (lv_right_3_0= ruleExp1 ) )
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:90:2: () ( (lv_b_2_0= ruleBinaryExp ) ) ( (lv_right_3_0= ruleExp1 ) )
                     {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:90:2: ()
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:91:5: 
@@ -235,49 +235,38 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:96:2: ( (lv_b_2_0= ruleBinaryExp ) )?
-                    int alt1=2;
-                    int LA1_0 = input.LA(1);
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:96:2: ( (lv_b_2_0= ruleBinaryExp ) )
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:97:1: (lv_b_2_0= ruleBinaryExp )
+                    {
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:97:1: (lv_b_2_0= ruleBinaryExp )
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:98:3: lv_b_2_0= ruleBinaryExp
+                    {
+                     
+                    	        newCompositeNode(grammarAccess.getExp1Access().getBBinaryExpEnumRuleCall_1_1_0()); 
+                    	    
+                    pushFollow(FOLLOW_ruleBinaryExp_in_ruleExp1162);
+                    lv_b_2_0=ruleBinaryExp();
 
-                    if ( ((LA1_0>=81 && LA1_0<=83)) ) {
-                        alt1=1;
-                    }
-                    switch (alt1) {
-                        case 1 :
-                            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:97:1: (lv_b_2_0= ruleBinaryExp )
-                            {
-                            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:97:1: (lv_b_2_0= ruleBinaryExp )
-                            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:98:3: lv_b_2_0= ruleBinaryExp
-                            {
-                             
-                            	        newCompositeNode(grammarAccess.getExp1Access().getBBinaryExpEnumRuleCall_1_1_0()); 
-                            	    
-                            pushFollow(FOLLOW_ruleBinaryExp_in_ruleExp1162);
-                            lv_b_2_0=ruleBinaryExp();
-
-                            state._fsp--;
+                    state._fsp--;
 
 
-                            	        if (current==null) {
-                            	            current = createModelElementForParent(grammarAccess.getExp1Rule());
-                            	        }
-                                   		set(
-                                   			current, 
-                                   			"b",
-                                    		lv_b_2_0, 
-                                    		"BinaryExp");
-                            	        afterParserOrEnumRuleCall();
-                            	    
-
-                            }
-
-
-                            }
-                            break;
+                    	        if (current==null) {
+                    	            current = createModelElementForParent(grammarAccess.getExp1Rule());
+                    	        }
+                           		set(
+                           			current, 
+                           			"b",
+                            		lv_b_2_0, 
+                            		"BinaryExp");
+                    	        afterParserOrEnumRuleCall();
+                    	    
 
                     }
 
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:114:3: ( (lv_right_3_0= ruleExp1 ) )
+
+                    }
+
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:114:2: ( (lv_right_3_0= ruleExp1 ) )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:115:1: (lv_right_3_0= ruleExp1 )
                     {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:115:1: (lv_right_3_0= ruleExp1 )
@@ -286,7 +275,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getExp1Access().getRightExp1ParserRuleCall_1_2_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleExp1_in_ruleExp1184);
+                    pushFollow(FOLLOW_ruleExp1_in_ruleExp1183);
                     lv_right_3_0=ruleExp1();
 
                     state._fsp--;
@@ -347,13 +336,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:142:2: iv_ruleExp2= ruleExp2 EOF
             {
              newCompositeNode(grammarAccess.getExp2Rule()); 
-            pushFollow(FOLLOW_ruleExp2_in_entryRuleExp2222);
+            pushFollow(FOLLOW_ruleExp2_in_entryRuleExp2221);
             iv_ruleExp2=ruleExp2();
 
             state._fsp--;
 
              current =iv_ruleExp2; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExp2232); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExp2231); 
 
             }
 
@@ -390,21 +379,21 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:153:1: ( ( (lv_value_0_0= ruleClauseExpression ) ) | ( ( ruleUnaryExpression )? otherlv_2= '(' this_Exp1_3= ruleExp1 otherlv_4= ')' (this_Boost_5= RULE_BOOST )? ) )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:153:1: ( ( (lv_value_0_0= ruleClauseExpression ) ) | ( ( ruleUnaryExpression )? otherlv_2= '(' this_Exp1_3= ruleExp1 otherlv_4= ')' (this_Boost_5= RULE_BOOST )? ) )
-            int alt5=2;
+            int alt4=2;
             switch ( input.LA(1) ) {
             case 77:
                 {
-                int LA5_1 = input.LA(2);
+                int LA4_1 = input.LA(2);
 
-                if ( (LA5_1==14) ) {
-                    alt5=2;
+                if ( (LA4_1==RULE_NAMEWITHWC||(LA4_1>=17 && LA4_1<=60)) ) {
+                    alt4=1;
                 }
-                else if ( (LA5_1==RULE_NAMEWITHWC||(LA5_1>=17 && LA5_1<=60)) ) {
-                    alt5=1;
+                else if ( (LA4_1==14) ) {
+                    alt4=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 5, 1, input);
+                        new NoViableAltException("", 4, 1, input);
 
                     throw nvae;
                 }
@@ -412,17 +401,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 break;
             case 78:
                 {
-                int LA5_2 = input.LA(2);
+                int LA4_2 = input.LA(2);
 
-                if ( (LA5_2==14) ) {
-                    alt5=2;
+                if ( (LA4_2==RULE_NAMEWITHWC||(LA4_2>=17 && LA4_2<=60)) ) {
+                    alt4=1;
                 }
-                else if ( (LA5_2==RULE_NAMEWITHWC||(LA5_2>=17 && LA5_2<=60)) ) {
-                    alt5=1;
+                else if ( (LA4_2==14) ) {
+                    alt4=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 5, 2, input);
+                        new NoViableAltException("", 4, 2, input);
 
                     throw nvae;
                 }
@@ -430,17 +419,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 break;
             case 79:
                 {
-                int LA5_3 = input.LA(2);
+                int LA4_3 = input.LA(2);
 
-                if ( (LA5_3==14) ) {
-                    alt5=2;
+                if ( (LA4_3==14) ) {
+                    alt4=2;
                 }
-                else if ( (LA5_3==RULE_NAMEWITHWC||(LA5_3>=17 && LA5_3<=60)) ) {
-                    alt5=1;
+                else if ( (LA4_3==RULE_NAMEWITHWC||(LA4_3>=17 && LA4_3<=60)) ) {
+                    alt4=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 5, 3, input);
+                        new NoViableAltException("", 4, 3, input);
 
                     throw nvae;
                 }
@@ -448,17 +437,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 break;
             case 80:
                 {
-                int LA5_4 = input.LA(2);
+                int LA4_4 = input.LA(2);
 
-                if ( (LA5_4==14) ) {
-                    alt5=2;
+                if ( (LA4_4==14) ) {
+                    alt4=2;
                 }
-                else if ( (LA5_4==RULE_NAMEWITHWC||(LA5_4>=17 && LA5_4<=60)) ) {
-                    alt5=1;
+                else if ( (LA4_4==RULE_NAMEWITHWC||(LA4_4>=17 && LA4_4<=60)) ) {
+                    alt4=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 5, 4, input);
+                        new NoViableAltException("", 4, 4, input);
 
                     throw nvae;
                 }
@@ -510,22 +499,22 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             case 59:
             case 60:
                 {
-                alt5=1;
+                alt4=1;
                 }
                 break;
             case 14:
                 {
-                alt5=2;
+                alt4=2;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:153:2: ( (lv_value_0_0= ruleClauseExpression ) )
                     {
@@ -538,7 +527,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getExp2Access().getValueClauseExpressionParserRuleCall_0_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleClauseExpression_in_ruleExp2278);
+                    pushFollow(FOLLOW_ruleClauseExpression_in_ruleExp2277);
                     lv_value_0_0=ruleClauseExpression();
 
                     state._fsp--;
@@ -570,20 +559,20 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:172:7: ( ruleUnaryExpression )? otherlv_2= '(' this_Exp1_3= ruleExp1 otherlv_4= ')' (this_Boost_5= RULE_BOOST )?
                     {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:172:7: ( ruleUnaryExpression )?
-                    int alt3=2;
-                    int LA3_0 = input.LA(1);
+                    int alt2=2;
+                    int LA2_0 = input.LA(1);
 
-                    if ( ((LA3_0>=77 && LA3_0<=80)) ) {
-                        alt3=1;
+                    if ( ((LA2_0>=77 && LA2_0<=80)) ) {
+                        alt2=1;
                     }
-                    switch (alt3) {
+                    switch (alt2) {
                         case 1 :
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:173:5: ruleUnaryExpression
                             {
                              
                                     newCompositeNode(grammarAccess.getExp2Access().getUnaryExpressionParserRuleCall_1_0()); 
                                 
-                            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleExp2302);
+                            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleExp2301);
                             ruleUnaryExpression();
 
                             state._fsp--;
@@ -597,14 +586,14 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_2=(Token)match(input,14,FOLLOW_14_in_ruleExp2315); 
+                    otherlv_2=(Token)match(input,14,FOLLOW_14_in_ruleExp2314); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getExp2Access().getLeftParenthesisKeyword_1_1());
                         
                      
                             newCompositeNode(grammarAccess.getExp2Access().getExp1ParserRuleCall_1_2()); 
                         
-                    pushFollow(FOLLOW_ruleExp1_in_ruleExp2337);
+                    pushFollow(FOLLOW_ruleExp1_in_ruleExp2336);
                     this_Exp1_3=ruleExp1();
 
                     state._fsp--;
@@ -613,22 +602,22 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             current = this_Exp1_3; 
                             afterParserOrEnumRuleCall();
                         
-                    otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleExp2348); 
+                    otherlv_4=(Token)match(input,15,FOLLOW_15_in_ruleExp2347); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getExp2Access().getRightParenthesisKeyword_1_3());
                         
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:197:1: (this_Boost_5= RULE_BOOST )?
-                    int alt4=2;
-                    int LA4_0 = input.LA(1);
+                    int alt3=2;
+                    int LA3_0 = input.LA(1);
 
-                    if ( (LA4_0==RULE_BOOST) ) {
-                        alt4=1;
+                    if ( (LA3_0==RULE_BOOST) ) {
+                        alt3=1;
                     }
-                    switch (alt4) {
+                    switch (alt3) {
                         case 1 :
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:197:2: this_Boost_5= RULE_BOOST
                             {
-                            this_Boost_5=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleExp2360); 
+                            this_Boost_5=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleExp2359); 
                              
                                 newLeafNode(this_Boost_5, grammarAccess.getExp2Access().getBoostTerminalRuleCall_1_4()); 
                                 
@@ -677,13 +666,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:211:2: iv_ruleClauseExpression= ruleClauseExpression EOF
             {
              newCompositeNode(grammarAccess.getClauseExpressionRule()); 
-            pushFollow(FOLLOW_ruleClauseExpression_in_entryRuleClauseExpression398);
+            pushFollow(FOLLOW_ruleClauseExpression_in_entryRuleClauseExpression397);
             iv_ruleClauseExpression=ruleClauseExpression();
 
             state._fsp--;
 
              current =iv_ruleClauseExpression; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleClauseExpression408); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleClauseExpression407); 
 
             }
 
@@ -840,20 +829,20 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:222:2: ( ruleUnaryExpression )? ( ( ( (lv_default_1_0= ruleSimpleFieldValue ) ) (this_Boost_2= RULE_BOOST )? ) | ( ( ( (lv_field_3_0= ruleSimpleField ) ) otherlv_4= ':' ( ( (lv_values_5_0= ruleSimpleFieldValue ) ) | (otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')' ) ) (this_Boost_11= RULE_BOOST )? ) | ( ( (lv_field_12_0= ruleTypeField ) ) otherlv_13= ':' ( ( (lv_values_14_0= ruleTypeFieldValue ) ) | (otherlv_15= '(' ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )* otherlv_19= ')' ) ) (this_Boost_20= RULE_BOOST )? ) | ( ( (lv_field_21_0= ruleMethodField ) ) otherlv_22= ':' ( ( (lv_values_23_0= ruleMethodFieldValue ) ) | (otherlv_24= '(' ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )* otherlv_28= ')' ) ) (this_Boost_29= RULE_BOOST )? ) | ( ( (lv_field_30_0= ruleFilePathField ) ) otherlv_31= ':' ( ( (lv_values_32_0= ruleFilePathFieldValue ) ) | (otherlv_33= '(' ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )* otherlv_37= ')' ) ) (this_Boost_38= RULE_BOOST )? ) | ( ( (lv_field_39_0= ruleNumberField ) ) otherlv_40= ':' ( ( (lv_values_41_0= ruleNumberFieldValue ) ) | (otherlv_42= '(' ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )* otherlv_46= ')' ) ) (this_Boost_47= RULE_BOOST )? ) | ( ( (lv_field_48_0= ruleModifierField ) ) otherlv_49= ':' ( ( (lv_values_50_0= ruleModifierFieldValue ) ) | (otherlv_51= '(' ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )* otherlv_55= ')' ) ) (this_Boost_56= RULE_BOOST )? ) | ( ( (lv_field_57_0= ruleTimeField ) ) otherlv_58= ':' ( ( (lv_values_59_0= ruleTimeFieldValue ) ) | (otherlv_60= '(' ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )* otherlv_64= ')' ) ) (this_Boost_65= RULE_BOOST )? ) | ( ( (lv_field_66_0= ruleDocumentTypeField ) ) otherlv_67= ':' ( ( (lv_values_68_0= ruleDocumentTypeFieldValue ) ) | (otherlv_69= '(' ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )* otherlv_73= ')' ) ) (this_Boost_74= RULE_BOOST )? ) | ( ( (lv_field_75_0= ruleProjectNameField ) ) otherlv_76= ':' ( ( (lv_values_77_0= ruleProjectNameFieldValue ) ) | (otherlv_78= '(' ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )* otherlv_82= ')' ) ) (this_Boost_83= RULE_BOOST )? ) | ( ( (lv_field_84_0= ruleAnnotationField ) ) otherlv_85= ':' ( ( (lv_values_86_0= ruleAnnotationFieldValue ) ) | (otherlv_87= '(' ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )* otherlv_91= ')' ) ) (this_Boost_92= RULE_BOOST )? ) | ( ( (lv_field_93_0= ruleDefinitionType ) ) otherlv_94= ':' ( ( (lv_values_95_0= ruleDefinitionTypeValue ) ) | (otherlv_96= '(' ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )* otherlv_100= ')' ) ) (this_Boost_101= RULE_BOOST )? ) ) )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:222:2: ( ruleUnaryExpression )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            int alt5=2;
+            int LA5_0 = input.LA(1);
 
-            if ( ((LA6_0>=77 && LA6_0<=80)) ) {
-                alt6=1;
+            if ( ((LA5_0>=77 && LA5_0<=80)) ) {
+                alt5=1;
             }
-            switch (alt6) {
+            switch (alt5) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:223:5: ruleUnaryExpression
                     {
                      
                             newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_0()); 
                         
-                    pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression450);
+                    pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression449);
                     ruleUnaryExpression();
 
                     state._fsp--;
@@ -868,22 +857,22 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             }
 
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:230:3: ( ( ( (lv_default_1_0= ruleSimpleFieldValue ) ) (this_Boost_2= RULE_BOOST )? ) | ( ( ( (lv_field_3_0= ruleSimpleField ) ) otherlv_4= ':' ( ( (lv_values_5_0= ruleSimpleFieldValue ) ) | (otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')' ) ) (this_Boost_11= RULE_BOOST )? ) | ( ( (lv_field_12_0= ruleTypeField ) ) otherlv_13= ':' ( ( (lv_values_14_0= ruleTypeFieldValue ) ) | (otherlv_15= '(' ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )* otherlv_19= ')' ) ) (this_Boost_20= RULE_BOOST )? ) | ( ( (lv_field_21_0= ruleMethodField ) ) otherlv_22= ':' ( ( (lv_values_23_0= ruleMethodFieldValue ) ) | (otherlv_24= '(' ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )* otherlv_28= ')' ) ) (this_Boost_29= RULE_BOOST )? ) | ( ( (lv_field_30_0= ruleFilePathField ) ) otherlv_31= ':' ( ( (lv_values_32_0= ruleFilePathFieldValue ) ) | (otherlv_33= '(' ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )* otherlv_37= ')' ) ) (this_Boost_38= RULE_BOOST )? ) | ( ( (lv_field_39_0= ruleNumberField ) ) otherlv_40= ':' ( ( (lv_values_41_0= ruleNumberFieldValue ) ) | (otherlv_42= '(' ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )* otherlv_46= ')' ) ) (this_Boost_47= RULE_BOOST )? ) | ( ( (lv_field_48_0= ruleModifierField ) ) otherlv_49= ':' ( ( (lv_values_50_0= ruleModifierFieldValue ) ) | (otherlv_51= '(' ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )* otherlv_55= ')' ) ) (this_Boost_56= RULE_BOOST )? ) | ( ( (lv_field_57_0= ruleTimeField ) ) otherlv_58= ':' ( ( (lv_values_59_0= ruleTimeFieldValue ) ) | (otherlv_60= '(' ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )* otherlv_64= ')' ) ) (this_Boost_65= RULE_BOOST )? ) | ( ( (lv_field_66_0= ruleDocumentTypeField ) ) otherlv_67= ':' ( ( (lv_values_68_0= ruleDocumentTypeFieldValue ) ) | (otherlv_69= '(' ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )* otherlv_73= ')' ) ) (this_Boost_74= RULE_BOOST )? ) | ( ( (lv_field_75_0= ruleProjectNameField ) ) otherlv_76= ':' ( ( (lv_values_77_0= ruleProjectNameFieldValue ) ) | (otherlv_78= '(' ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )* otherlv_82= ')' ) ) (this_Boost_83= RULE_BOOST )? ) | ( ( (lv_field_84_0= ruleAnnotationField ) ) otherlv_85= ':' ( ( (lv_values_86_0= ruleAnnotationFieldValue ) ) | (otherlv_87= '(' ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )* otherlv_91= ')' ) ) (this_Boost_92= RULE_BOOST )? ) | ( ( (lv_field_93_0= ruleDefinitionType ) ) otherlv_94= ':' ( ( (lv_values_95_0= ruleDefinitionTypeValue ) ) | (otherlv_96= '(' ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )* otherlv_100= ')' ) ) (this_Boost_101= RULE_BOOST )? ) ) )
-            int alt64=2;
-            int LA64_0 = input.LA(1);
+            int alt63=2;
+            int LA63_0 = input.LA(1);
 
-            if ( (LA64_0==RULE_NAMEWITHWC) ) {
-                alt64=1;
+            if ( (LA63_0==RULE_NAMEWITHWC) ) {
+                alt63=1;
             }
-            else if ( ((LA64_0>=17 && LA64_0<=60)) ) {
-                alt64=2;
+            else if ( ((LA63_0>=17 && LA63_0<=60)) ) {
+                alt63=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 64, 0, input);
+                    new NoViableAltException("", 63, 0, input);
 
                 throw nvae;
             }
-            switch (alt64) {
+            switch (alt63) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:230:4: ( ( (lv_default_1_0= ruleSimpleFieldValue ) ) (this_Boost_2= RULE_BOOST )? )
                     {
@@ -899,7 +888,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getDefaultSimpleFieldValueParserRuleCall_1_0_0_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression474);
+                    pushFollow(FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression473);
                     lv_default_1_0=ruleSimpleFieldValue();
 
                     state._fsp--;
@@ -922,17 +911,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     }
 
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:248:2: (this_Boost_2= RULE_BOOST )?
-                    int alt7=2;
-                    int LA7_0 = input.LA(1);
+                    int alt6=2;
+                    int LA6_0 = input.LA(1);
 
-                    if ( (LA7_0==RULE_BOOST) ) {
-                        alt7=1;
+                    if ( (LA6_0==RULE_BOOST) ) {
+                        alt6=1;
                     }
-                    switch (alt7) {
+                    switch (alt6) {
                         case 1 :
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:248:3: this_Boost_2= RULE_BOOST
                             {
-                            this_Boost_2=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression486); 
+                            this_Boost_2=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression485); 
                              
                                 newLeafNode(this_Boost_2, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_0_1()); 
                                 
@@ -952,7 +941,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:253:6: ( ( ( (lv_field_3_0= ruleSimpleField ) ) otherlv_4= ':' ( ( (lv_values_5_0= ruleSimpleFieldValue ) ) | (otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')' ) ) (this_Boost_11= RULE_BOOST )? ) | ( ( (lv_field_12_0= ruleTypeField ) ) otherlv_13= ':' ( ( (lv_values_14_0= ruleTypeFieldValue ) ) | (otherlv_15= '(' ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )* otherlv_19= ')' ) ) (this_Boost_20= RULE_BOOST )? ) | ( ( (lv_field_21_0= ruleMethodField ) ) otherlv_22= ':' ( ( (lv_values_23_0= ruleMethodFieldValue ) ) | (otherlv_24= '(' ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )* otherlv_28= ')' ) ) (this_Boost_29= RULE_BOOST )? ) | ( ( (lv_field_30_0= ruleFilePathField ) ) otherlv_31= ':' ( ( (lv_values_32_0= ruleFilePathFieldValue ) ) | (otherlv_33= '(' ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )* otherlv_37= ')' ) ) (this_Boost_38= RULE_BOOST )? ) | ( ( (lv_field_39_0= ruleNumberField ) ) otherlv_40= ':' ( ( (lv_values_41_0= ruleNumberFieldValue ) ) | (otherlv_42= '(' ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )* otherlv_46= ')' ) ) (this_Boost_47= RULE_BOOST )? ) | ( ( (lv_field_48_0= ruleModifierField ) ) otherlv_49= ':' ( ( (lv_values_50_0= ruleModifierFieldValue ) ) | (otherlv_51= '(' ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )* otherlv_55= ')' ) ) (this_Boost_56= RULE_BOOST )? ) | ( ( (lv_field_57_0= ruleTimeField ) ) otherlv_58= ':' ( ( (lv_values_59_0= ruleTimeFieldValue ) ) | (otherlv_60= '(' ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )* otherlv_64= ')' ) ) (this_Boost_65= RULE_BOOST )? ) | ( ( (lv_field_66_0= ruleDocumentTypeField ) ) otherlv_67= ':' ( ( (lv_values_68_0= ruleDocumentTypeFieldValue ) ) | (otherlv_69= '(' ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )* otherlv_73= ')' ) ) (this_Boost_74= RULE_BOOST )? ) | ( ( (lv_field_75_0= ruleProjectNameField ) ) otherlv_76= ':' ( ( (lv_values_77_0= ruleProjectNameFieldValue ) ) | (otherlv_78= '(' ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )* otherlv_82= ')' ) ) (this_Boost_83= RULE_BOOST )? ) | ( ( (lv_field_84_0= ruleAnnotationField ) ) otherlv_85= ':' ( ( (lv_values_86_0= ruleAnnotationFieldValue ) ) | (otherlv_87= '(' ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )* otherlv_91= ')' ) ) (this_Boost_92= RULE_BOOST )? ) | ( ( (lv_field_93_0= ruleDefinitionType ) ) otherlv_94= ':' ( ( (lv_values_95_0= ruleDefinitionTypeValue ) ) | (otherlv_96= '(' ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )* otherlv_100= ')' ) ) (this_Boost_101= RULE_BOOST )? ) )
                     {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:253:6: ( ( ( (lv_field_3_0= ruleSimpleField ) ) otherlv_4= ':' ( ( (lv_values_5_0= ruleSimpleFieldValue ) ) | (otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')' ) ) (this_Boost_11= RULE_BOOST )? ) | ( ( (lv_field_12_0= ruleTypeField ) ) otherlv_13= ':' ( ( (lv_values_14_0= ruleTypeFieldValue ) ) | (otherlv_15= '(' ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )* otherlv_19= ')' ) ) (this_Boost_20= RULE_BOOST )? ) | ( ( (lv_field_21_0= ruleMethodField ) ) otherlv_22= ':' ( ( (lv_values_23_0= ruleMethodFieldValue ) ) | (otherlv_24= '(' ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )* otherlv_28= ')' ) ) (this_Boost_29= RULE_BOOST )? ) | ( ( (lv_field_30_0= ruleFilePathField ) ) otherlv_31= ':' ( ( (lv_values_32_0= ruleFilePathFieldValue ) ) | (otherlv_33= '(' ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )* otherlv_37= ')' ) ) (this_Boost_38= RULE_BOOST )? ) | ( ( (lv_field_39_0= ruleNumberField ) ) otherlv_40= ':' ( ( (lv_values_41_0= ruleNumberFieldValue ) ) | (otherlv_42= '(' ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )* otherlv_46= ')' ) ) (this_Boost_47= RULE_BOOST )? ) | ( ( (lv_field_48_0= ruleModifierField ) ) otherlv_49= ':' ( ( (lv_values_50_0= ruleModifierFieldValue ) ) | (otherlv_51= '(' ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )* otherlv_55= ')' ) ) (this_Boost_56= RULE_BOOST )? ) | ( ( (lv_field_57_0= ruleTimeField ) ) otherlv_58= ':' ( ( (lv_values_59_0= ruleTimeFieldValue ) ) | (otherlv_60= '(' ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )* otherlv_64= ')' ) ) (this_Boost_65= RULE_BOOST )? ) | ( ( (lv_field_66_0= ruleDocumentTypeField ) ) otherlv_67= ':' ( ( (lv_values_68_0= ruleDocumentTypeFieldValue ) ) | (otherlv_69= '(' ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )* otherlv_73= ')' ) ) (this_Boost_74= RULE_BOOST )? ) | ( ( (lv_field_75_0= ruleProjectNameField ) ) otherlv_76= ':' ( ( (lv_values_77_0= ruleProjectNameFieldValue ) ) | (otherlv_78= '(' ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )* otherlv_82= ')' ) ) (this_Boost_83= RULE_BOOST )? ) | ( ( (lv_field_84_0= ruleAnnotationField ) ) otherlv_85= ':' ( ( (lv_values_86_0= ruleAnnotationFieldValue ) ) | (otherlv_87= '(' ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )* otherlv_91= ')' ) ) (this_Boost_92= RULE_BOOST )? ) | ( ( (lv_field_93_0= ruleDefinitionType ) ) otherlv_94= ':' ( ( (lv_values_95_0= ruleDefinitionTypeValue ) ) | (otherlv_96= '(' ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )* otherlv_100= ')' ) ) (this_Boost_101= RULE_BOOST )? ) )
-                    int alt63=11;
+                    int alt62=11;
                     switch ( input.LA(1) ) {
                     case 17:
                     case 18:
@@ -968,7 +957,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     case 28:
                     case 29:
                         {
-                        alt63=1;
+                        alt62=1;
                         }
                         break;
                     case 30:
@@ -987,7 +976,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     case 43:
                     case 44:
                         {
-                        alt63=2;
+                        alt62=2;
                         }
                         break;
                     case 45:
@@ -999,57 +988,57 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     case 51:
                     case 52:
                         {
-                        alt63=3;
+                        alt62=3;
                         }
                         break;
                     case 53:
                         {
-                        alt63=4;
+                        alt62=4;
                         }
                         break;
                     case 54:
                         {
-                        alt63=5;
+                        alt62=5;
                         }
                         break;
                     case 55:
                         {
-                        alt63=6;
+                        alt62=6;
                         }
                         break;
                     case 56:
                         {
-                        alt63=7;
+                        alt62=7;
                         }
                         break;
                     case 57:
                         {
-                        alt63=8;
+                        alt62=8;
                         }
                         break;
                     case 58:
                         {
-                        alt63=9;
+                        alt62=9;
                         }
                         break;
                     case 59:
                         {
-                        alt63=10;
+                        alt62=10;
                         }
                         break;
                     case 60:
                         {
-                        alt63=11;
+                        alt62=11;
                         }
                         break;
                     default:
                         NoViableAltException nvae =
-                            new NoViableAltException("", 63, 0, input);
+                            new NoViableAltException("", 62, 0, input);
 
                         throw nvae;
                     }
 
-                    switch (alt63) {
+                    switch (alt62) {
                         case 1 :
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:253:7: ( ( (lv_field_3_0= ruleSimpleField ) ) otherlv_4= ':' ( ( (lv_values_5_0= ruleSimpleFieldValue ) ) | (otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')' ) ) (this_Boost_11= RULE_BOOST )? )
                             {
@@ -1065,7 +1054,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldSimpleFieldParserRuleCall_1_1_0_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleSimpleField_in_ruleClauseExpression517);
+                            pushFollow(FOLLOW_ruleSimpleField_in_ruleClauseExpression516);
                             lv_field_3_0=ruleSimpleField();
 
                             state._fsp--;
@@ -1087,27 +1076,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression529); 
+                            otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression528); 
 
                                 	newLeafNode(otherlv_4, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_0_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:275:1: ( ( (lv_values_5_0= ruleSimpleFieldValue ) ) | (otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')' ) )
-                            int alt11=2;
-                            int LA11_0 = input.LA(1);
+                            int alt10=2;
+                            int LA10_0 = input.LA(1);
 
-                            if ( (LA11_0==RULE_NAMEWITHWC) ) {
-                                alt11=1;
+                            if ( (LA10_0==RULE_NAMEWITHWC) ) {
+                                alt10=1;
                             }
-                            else if ( (LA11_0==14) ) {
-                                alt11=2;
+                            else if ( (LA10_0==14) ) {
+                                alt10=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 11, 0, input);
+                                    new NoViableAltException("", 10, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt11) {
+                            switch (alt10) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:275:2: ( (lv_values_5_0= ruleSimpleFieldValue ) )
                                     {
@@ -1120,7 +1109,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesSimpleFieldValueParserRuleCall_1_1_0_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression551);
+                                    pushFollow(FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression550);
                                     lv_values_5_0=ruleSimpleFieldValue();
 
                                     state._fsp--;
@@ -1151,40 +1140,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:294:6: (otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:294:8: otherlv_6= '(' ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )* otherlv_10= ')'
                                     {
-                                    otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression570); 
+                                    otherlv_6=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression569); 
 
                                         	newLeafNode(otherlv_6, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_0_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:298:1: ( ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )? )*
-                                    loop10:
+                                    loop9:
                                     do {
-                                        int alt10=2;
-                                        int LA10_0 = input.LA(1);
+                                        int alt9=2;
+                                        int LA9_0 = input.LA(1);
 
-                                        if ( (LA10_0==RULE_NAMEWITHWC||(LA10_0>=77 && LA10_0<=80)) ) {
-                                            alt10=1;
+                                        if ( (LA9_0==RULE_NAMEWITHWC||(LA9_0>=77 && LA9_0<=80)) ) {
+                                            alt9=1;
                                         }
 
 
-                                        switch (alt10) {
+                                        switch (alt9) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:298:2: ( ruleUnaryExpression )? ( (lv_values_8_0= ruleSimpleFieldValue ) ) (this_Boost_9= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:298:2: ( ruleUnaryExpression )?
-                                    	    int alt8=2;
-                                    	    int LA8_0 = input.LA(1);
+                                    	    int alt7=2;
+                                    	    int LA7_0 = input.LA(1);
 
-                                    	    if ( ((LA8_0>=77 && LA8_0<=80)) ) {
-                                    	        alt8=1;
+                                    	    if ( ((LA7_0>=77 && LA7_0<=80)) ) {
+                                    	        alt7=1;
                                     	    }
-                                    	    switch (alt8) {
+                                    	    switch (alt7) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:299:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_0_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression588);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression587);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -1207,7 +1196,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesSimpleFieldValueParserRuleCall_1_1_0_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression610);
+                                    	    pushFollow(FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression609);
                                     	    lv_values_8_0=ruleSimpleFieldValue();
 
                                     	    state._fsp--;
@@ -1230,17 +1219,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:324:2: (this_Boost_9= RULE_BOOST )?
-                                    	    int alt9=2;
-                                    	    int LA9_0 = input.LA(1);
+                                    	    int alt8=2;
+                                    	    int LA8_0 = input.LA(1);
 
-                                    	    if ( (LA9_0==RULE_BOOST) ) {
-                                    	        alt9=1;
+                                    	    if ( (LA8_0==RULE_BOOST) ) {
+                                    	        alt8=1;
                                     	    }
-                                    	    switch (alt9) {
+                                    	    switch (alt8) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:324:3: this_Boost_9= RULE_BOOST
                                     	            {
-                                    	            this_Boost_9=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression622); 
+                                    	            this_Boost_9=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression621); 
                                     	             
                                     	                newLeafNode(this_Boost_9, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_0_2_1_1_2()); 
                                     	                
@@ -1255,11 +1244,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop10;
+                                    	    break loop9;
                                         }
                                     } while (true);
 
-                                    otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression637); 
+                                    otherlv_10=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression636); 
 
                                         	newLeafNode(otherlv_10, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_0_2_1_2());
                                         
@@ -1273,17 +1262,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:332:3: (this_Boost_11= RULE_BOOST )?
-                            int alt12=2;
-                            int LA12_0 = input.LA(1);
+                            int alt11=2;
+                            int LA11_0 = input.LA(1);
 
-                            if ( (LA12_0==RULE_BOOST) ) {
-                                alt12=1;
+                            if ( (LA11_0==RULE_BOOST) ) {
+                                alt11=1;
                             }
-                            switch (alt12) {
+                            switch (alt11) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:332:4: this_Boost_11= RULE_BOOST
                                     {
-                                    this_Boost_11=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression651); 
+                                    this_Boost_11=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression650); 
                                      
                                         newLeafNode(this_Boost_11, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_0_3()); 
                                         
@@ -1314,7 +1303,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldTypeFieldParserRuleCall_1_1_1_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleTypeField_in_ruleClauseExpression681);
+                            pushFollow(FOLLOW_ruleTypeField_in_ruleClauseExpression680);
                             lv_field_12_0=ruleTypeField();
 
                             state._fsp--;
@@ -1336,27 +1325,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_13=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression693); 
+                            otherlv_13=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression692); 
 
                                 	newLeafNode(otherlv_13, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_1_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:359:1: ( ( (lv_values_14_0= ruleTypeFieldValue ) ) | (otherlv_15= '(' ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )* otherlv_19= ')' ) )
-                            int alt16=2;
-                            int LA16_0 = input.LA(1);
+                            int alt15=2;
+                            int LA15_0 = input.LA(1);
 
-                            if ( (LA16_0==RULE_NAMEWITHWC) ) {
-                                alt16=1;
+                            if ( (LA15_0==RULE_NAMEWITHWC) ) {
+                                alt15=1;
                             }
-                            else if ( (LA16_0==14) ) {
-                                alt16=2;
+                            else if ( (LA15_0==14) ) {
+                                alt15=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 16, 0, input);
+                                    new NoViableAltException("", 15, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt16) {
+                            switch (alt15) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:359:2: ( (lv_values_14_0= ruleTypeFieldValue ) )
                                     {
@@ -1369,7 +1358,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesTypeFieldValueParserRuleCall_1_1_1_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression715);
+                                    pushFollow(FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression714);
                                     lv_values_14_0=ruleTypeFieldValue();
 
                                     state._fsp--;
@@ -1400,40 +1389,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:378:6: (otherlv_15= '(' ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )* otherlv_19= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:378:8: otherlv_15= '(' ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )* otherlv_19= ')'
                                     {
-                                    otherlv_15=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression734); 
+                                    otherlv_15=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression733); 
 
                                         	newLeafNode(otherlv_15, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_1_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:382:1: ( ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )? )*
-                                    loop15:
+                                    loop14:
                                     do {
-                                        int alt15=2;
-                                        int LA15_0 = input.LA(1);
+                                        int alt14=2;
+                                        int LA14_0 = input.LA(1);
 
-                                        if ( (LA15_0==RULE_NAMEWITHWC||(LA15_0>=77 && LA15_0<=80)) ) {
-                                            alt15=1;
+                                        if ( (LA14_0==RULE_NAMEWITHWC||(LA14_0>=77 && LA14_0<=80)) ) {
+                                            alt14=1;
                                         }
 
 
-                                        switch (alt15) {
+                                        switch (alt14) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:382:2: ( ruleUnaryExpression )? ( (lv_values_17_0= ruleTypeFieldValue ) ) (this_Boost_18= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:382:2: ( ruleUnaryExpression )?
-                                    	    int alt13=2;
-                                    	    int LA13_0 = input.LA(1);
+                                    	    int alt12=2;
+                                    	    int LA12_0 = input.LA(1);
 
-                                    	    if ( ((LA13_0>=77 && LA13_0<=80)) ) {
-                                    	        alt13=1;
+                                    	    if ( ((LA12_0>=77 && LA12_0<=80)) ) {
+                                    	        alt12=1;
                                     	    }
-                                    	    switch (alt13) {
+                                    	    switch (alt12) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:383:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_1_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression752);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression751);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -1456,7 +1445,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesTypeFieldValueParserRuleCall_1_1_1_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression774);
+                                    	    pushFollow(FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression773);
                                     	    lv_values_17_0=ruleTypeFieldValue();
 
                                     	    state._fsp--;
@@ -1479,17 +1468,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:408:2: (this_Boost_18= RULE_BOOST )?
-                                    	    int alt14=2;
-                                    	    int LA14_0 = input.LA(1);
+                                    	    int alt13=2;
+                                    	    int LA13_0 = input.LA(1);
 
-                                    	    if ( (LA14_0==RULE_BOOST) ) {
-                                    	        alt14=1;
+                                    	    if ( (LA13_0==RULE_BOOST) ) {
+                                    	        alt13=1;
                                     	    }
-                                    	    switch (alt14) {
+                                    	    switch (alt13) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:408:3: this_Boost_18= RULE_BOOST
                                     	            {
-                                    	            this_Boost_18=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression786); 
+                                    	            this_Boost_18=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression785); 
                                     	             
                                     	                newLeafNode(this_Boost_18, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_1_2_1_1_2()); 
                                     	                
@@ -1504,11 +1493,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop15;
+                                    	    break loop14;
                                         }
                                     } while (true);
 
-                                    otherlv_19=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression801); 
+                                    otherlv_19=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression800); 
 
                                         	newLeafNode(otherlv_19, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_1_2_1_2());
                                         
@@ -1522,17 +1511,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:416:3: (this_Boost_20= RULE_BOOST )?
-                            int alt17=2;
-                            int LA17_0 = input.LA(1);
+                            int alt16=2;
+                            int LA16_0 = input.LA(1);
 
-                            if ( (LA17_0==RULE_BOOST) ) {
-                                alt17=1;
+                            if ( (LA16_0==RULE_BOOST) ) {
+                                alt16=1;
                             }
-                            switch (alt17) {
+                            switch (alt16) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:416:4: this_Boost_20= RULE_BOOST
                                     {
-                                    this_Boost_20=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression815); 
+                                    this_Boost_20=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression814); 
                                      
                                         newLeafNode(this_Boost_20, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_1_3()); 
                                         
@@ -1563,7 +1552,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldMethodFieldParserRuleCall_1_1_2_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleMethodField_in_ruleClauseExpression845);
+                            pushFollow(FOLLOW_ruleMethodField_in_ruleClauseExpression844);
                             lv_field_21_0=ruleMethodField();
 
                             state._fsp--;
@@ -1585,27 +1574,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_22=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression857); 
+                            otherlv_22=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression856); 
 
                                 	newLeafNode(otherlv_22, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_2_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:443:1: ( ( (lv_values_23_0= ruleMethodFieldValue ) ) | (otherlv_24= '(' ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )* otherlv_28= ')' ) )
-                            int alt21=2;
-                            int LA21_0 = input.LA(1);
+                            int alt20=2;
+                            int LA20_0 = input.LA(1);
 
-                            if ( (LA21_0==RULE_NAMEWITHWC) ) {
-                                alt21=1;
+                            if ( (LA20_0==RULE_NAMEWITHWC) ) {
+                                alt20=1;
                             }
-                            else if ( (LA21_0==14) ) {
-                                alt21=2;
+                            else if ( (LA20_0==14) ) {
+                                alt20=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 21, 0, input);
+                                    new NoViableAltException("", 20, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt21) {
+                            switch (alt20) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:443:2: ( (lv_values_23_0= ruleMethodFieldValue ) )
                                     {
@@ -1618,7 +1607,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesMethodFieldValueParserRuleCall_1_1_2_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression879);
+                                    pushFollow(FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression878);
                                     lv_values_23_0=ruleMethodFieldValue();
 
                                     state._fsp--;
@@ -1649,40 +1638,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:462:6: (otherlv_24= '(' ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )* otherlv_28= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:462:8: otherlv_24= '(' ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )* otherlv_28= ')'
                                     {
-                                    otherlv_24=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression898); 
+                                    otherlv_24=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression897); 
 
                                         	newLeafNode(otherlv_24, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_2_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:466:1: ( ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )? )*
-                                    loop20:
+                                    loop19:
                                     do {
-                                        int alt20=2;
-                                        int LA20_0 = input.LA(1);
+                                        int alt19=2;
+                                        int LA19_0 = input.LA(1);
 
-                                        if ( (LA20_0==RULE_NAMEWITHWC||(LA20_0>=77 && LA20_0<=80)) ) {
-                                            alt20=1;
+                                        if ( (LA19_0==RULE_NAMEWITHWC||(LA19_0>=77 && LA19_0<=80)) ) {
+                                            alt19=1;
                                         }
 
 
-                                        switch (alt20) {
+                                        switch (alt19) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:466:2: ( ruleUnaryExpression )? ( (lv_values_26_0= ruleMethodFieldValue ) ) (this_Boost_27= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:466:2: ( ruleUnaryExpression )?
-                                    	    int alt18=2;
-                                    	    int LA18_0 = input.LA(1);
+                                    	    int alt17=2;
+                                    	    int LA17_0 = input.LA(1);
 
-                                    	    if ( ((LA18_0>=77 && LA18_0<=80)) ) {
-                                    	        alt18=1;
+                                    	    if ( ((LA17_0>=77 && LA17_0<=80)) ) {
+                                    	        alt17=1;
                                     	    }
-                                    	    switch (alt18) {
+                                    	    switch (alt17) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:467:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_2_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression916);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression915);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -1705,7 +1694,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesMethodFieldValueParserRuleCall_1_1_2_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression938);
+                                    	    pushFollow(FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression937);
                                     	    lv_values_26_0=ruleMethodFieldValue();
 
                                     	    state._fsp--;
@@ -1728,17 +1717,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:492:2: (this_Boost_27= RULE_BOOST )?
-                                    	    int alt19=2;
-                                    	    int LA19_0 = input.LA(1);
+                                    	    int alt18=2;
+                                    	    int LA18_0 = input.LA(1);
 
-                                    	    if ( (LA19_0==RULE_BOOST) ) {
-                                    	        alt19=1;
+                                    	    if ( (LA18_0==RULE_BOOST) ) {
+                                    	        alt18=1;
                                     	    }
-                                    	    switch (alt19) {
+                                    	    switch (alt18) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:492:3: this_Boost_27= RULE_BOOST
                                     	            {
-                                    	            this_Boost_27=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression950); 
+                                    	            this_Boost_27=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression949); 
                                     	             
                                     	                newLeafNode(this_Boost_27, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_2_2_1_1_2()); 
                                     	                
@@ -1753,11 +1742,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop20;
+                                    	    break loop19;
                                         }
                                     } while (true);
 
-                                    otherlv_28=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression965); 
+                                    otherlv_28=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression964); 
 
                                         	newLeafNode(otherlv_28, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_2_2_1_2());
                                         
@@ -1771,17 +1760,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:500:3: (this_Boost_29= RULE_BOOST )?
-                            int alt22=2;
-                            int LA22_0 = input.LA(1);
+                            int alt21=2;
+                            int LA21_0 = input.LA(1);
 
-                            if ( (LA22_0==RULE_BOOST) ) {
-                                alt22=1;
+                            if ( (LA21_0==RULE_BOOST) ) {
+                                alt21=1;
                             }
-                            switch (alt22) {
+                            switch (alt21) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:500:4: this_Boost_29= RULE_BOOST
                                     {
-                                    this_Boost_29=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression979); 
+                                    this_Boost_29=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression978); 
                                      
                                         newLeafNode(this_Boost_29, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_2_3()); 
                                         
@@ -1812,7 +1801,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldFilePathFieldParserRuleCall_1_1_3_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleFilePathField_in_ruleClauseExpression1009);
+                            pushFollow(FOLLOW_ruleFilePathField_in_ruleClauseExpression1008);
                             lv_field_30_0=ruleFilePathField();
 
                             state._fsp--;
@@ -1834,27 +1823,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_31=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1021); 
+                            otherlv_31=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1020); 
 
                                 	newLeafNode(otherlv_31, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_3_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:527:1: ( ( (lv_values_32_0= ruleFilePathFieldValue ) ) | (otherlv_33= '(' ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )* otherlv_37= ')' ) )
-                            int alt26=2;
-                            int LA26_0 = input.LA(1);
+                            int alt25=2;
+                            int LA25_0 = input.LA(1);
 
-                            if ( (LA26_0==RULE_PATHWITHWC) ) {
-                                alt26=1;
+                            if ( (LA25_0==RULE_PATHWITHWC) ) {
+                                alt25=1;
                             }
-                            else if ( (LA26_0==14) ) {
-                                alt26=2;
+                            else if ( (LA25_0==14) ) {
+                                alt25=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 26, 0, input);
+                                    new NoViableAltException("", 25, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt26) {
+                            switch (alt25) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:527:2: ( (lv_values_32_0= ruleFilePathFieldValue ) )
                                     {
@@ -1867,7 +1856,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesFilePathFieldValueParserRuleCall_1_1_3_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1043);
+                                    pushFollow(FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1042);
                                     lv_values_32_0=ruleFilePathFieldValue();
 
                                     state._fsp--;
@@ -1898,40 +1887,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:546:6: (otherlv_33= '(' ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )* otherlv_37= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:546:8: otherlv_33= '(' ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )* otherlv_37= ')'
                                     {
-                                    otherlv_33=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1062); 
+                                    otherlv_33=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1061); 
 
                                         	newLeafNode(otherlv_33, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_3_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:550:1: ( ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )? )*
-                                    loop25:
+                                    loop24:
                                     do {
-                                        int alt25=2;
-                                        int LA25_0 = input.LA(1);
+                                        int alt24=2;
+                                        int LA24_0 = input.LA(1);
 
-                                        if ( (LA25_0==RULE_PATHWITHWC||(LA25_0>=77 && LA25_0<=80)) ) {
-                                            alt25=1;
+                                        if ( (LA24_0==RULE_PATHWITHWC||(LA24_0>=77 && LA24_0<=80)) ) {
+                                            alt24=1;
                                         }
 
 
-                                        switch (alt25) {
+                                        switch (alt24) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:550:2: ( ruleUnaryExpression )? ( (lv_values_35_0= ruleFilePathFieldValue ) ) (this_Boost_36= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:550:2: ( ruleUnaryExpression )?
-                                    	    int alt23=2;
-                                    	    int LA23_0 = input.LA(1);
+                                    	    int alt22=2;
+                                    	    int LA22_0 = input.LA(1);
 
-                                    	    if ( ((LA23_0>=77 && LA23_0<=80)) ) {
-                                    	        alt23=1;
+                                    	    if ( ((LA22_0>=77 && LA22_0<=80)) ) {
+                                    	        alt22=1;
                                     	    }
-                                    	    switch (alt23) {
+                                    	    switch (alt22) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:551:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_3_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1080);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1079);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -1954,7 +1943,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesFilePathFieldValueParserRuleCall_1_1_3_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1102);
+                                    	    pushFollow(FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1101);
                                     	    lv_values_35_0=ruleFilePathFieldValue();
 
                                     	    state._fsp--;
@@ -1977,17 +1966,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:576:2: (this_Boost_36= RULE_BOOST )?
-                                    	    int alt24=2;
-                                    	    int LA24_0 = input.LA(1);
+                                    	    int alt23=2;
+                                    	    int LA23_0 = input.LA(1);
 
-                                    	    if ( (LA24_0==RULE_BOOST) ) {
-                                    	        alt24=1;
+                                    	    if ( (LA23_0==RULE_BOOST) ) {
+                                    	        alt23=1;
                                     	    }
-                                    	    switch (alt24) {
+                                    	    switch (alt23) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:576:3: this_Boost_36= RULE_BOOST
                                     	            {
-                                    	            this_Boost_36=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1114); 
+                                    	            this_Boost_36=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1113); 
                                     	             
                                     	                newLeafNode(this_Boost_36, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_3_2_1_1_2()); 
                                     	                
@@ -2002,11 +1991,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop25;
+                                    	    break loop24;
                                         }
                                     } while (true);
 
-                                    otherlv_37=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1129); 
+                                    otherlv_37=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1128); 
 
                                         	newLeafNode(otherlv_37, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_3_2_1_2());
                                         
@@ -2020,17 +2009,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:584:3: (this_Boost_38= RULE_BOOST )?
-                            int alt27=2;
-                            int LA27_0 = input.LA(1);
+                            int alt26=2;
+                            int LA26_0 = input.LA(1);
 
-                            if ( (LA27_0==RULE_BOOST) ) {
-                                alt27=1;
+                            if ( (LA26_0==RULE_BOOST) ) {
+                                alt26=1;
                             }
-                            switch (alt27) {
+                            switch (alt26) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:584:4: this_Boost_38= RULE_BOOST
                                     {
-                                    this_Boost_38=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1143); 
+                                    this_Boost_38=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1142); 
                                      
                                         newLeafNode(this_Boost_38, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_3_3()); 
                                         
@@ -2061,7 +2050,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldNumberFieldParserRuleCall_1_1_4_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleNumberField_in_ruleClauseExpression1173);
+                            pushFollow(FOLLOW_ruleNumberField_in_ruleClauseExpression1172);
                             lv_field_39_0=ruleNumberField();
 
                             state._fsp--;
@@ -2083,27 +2072,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_40=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1185); 
+                            otherlv_40=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1184); 
 
                                 	newLeafNode(otherlv_40, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_4_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:611:1: ( ( (lv_values_41_0= ruleNumberFieldValue ) ) | (otherlv_42= '(' ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )* otherlv_46= ')' ) )
-                            int alt31=2;
-                            int LA31_0 = input.LA(1);
+                            int alt30=2;
+                            int LA30_0 = input.LA(1);
 
-                            if ( (LA31_0==RULE_INT) ) {
-                                alt31=1;
+                            if ( (LA30_0==RULE_INT) ) {
+                                alt30=1;
                             }
-                            else if ( (LA31_0==14) ) {
-                                alt31=2;
+                            else if ( (LA30_0==14) ) {
+                                alt30=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 31, 0, input);
+                                    new NoViableAltException("", 30, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt31) {
+                            switch (alt30) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:611:2: ( (lv_values_41_0= ruleNumberFieldValue ) )
                                     {
@@ -2116,7 +2105,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesNumberFieldValueParserRuleCall_1_1_4_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1207);
+                                    pushFollow(FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1206);
                                     lv_values_41_0=ruleNumberFieldValue();
 
                                     state._fsp--;
@@ -2147,40 +2136,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:630:6: (otherlv_42= '(' ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )* otherlv_46= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:630:8: otherlv_42= '(' ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )* otherlv_46= ')'
                                     {
-                                    otherlv_42=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1226); 
+                                    otherlv_42=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1225); 
 
                                         	newLeafNode(otherlv_42, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_4_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:634:1: ( ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )? )*
-                                    loop30:
+                                    loop29:
                                     do {
-                                        int alt30=2;
-                                        int LA30_0 = input.LA(1);
+                                        int alt29=2;
+                                        int LA29_0 = input.LA(1);
 
-                                        if ( (LA30_0==RULE_INT||(LA30_0>=77 && LA30_0<=80)) ) {
-                                            alt30=1;
+                                        if ( (LA29_0==RULE_INT||(LA29_0>=77 && LA29_0<=80)) ) {
+                                            alt29=1;
                                         }
 
 
-                                        switch (alt30) {
+                                        switch (alt29) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:634:2: ( ruleUnaryExpression )? ( (lv_values_44_0= ruleNumberFieldValue ) ) (this_Boost_45= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:634:2: ( ruleUnaryExpression )?
-                                    	    int alt28=2;
-                                    	    int LA28_0 = input.LA(1);
+                                    	    int alt27=2;
+                                    	    int LA27_0 = input.LA(1);
 
-                                    	    if ( ((LA28_0>=77 && LA28_0<=80)) ) {
-                                    	        alt28=1;
+                                    	    if ( ((LA27_0>=77 && LA27_0<=80)) ) {
+                                    	        alt27=1;
                                     	    }
-                                    	    switch (alt28) {
+                                    	    switch (alt27) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:635:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_4_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1244);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1243);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -2203,7 +2192,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesNumberFieldValueParserRuleCall_1_1_4_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1266);
+                                    	    pushFollow(FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1265);
                                     	    lv_values_44_0=ruleNumberFieldValue();
 
                                     	    state._fsp--;
@@ -2226,17 +2215,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:660:2: (this_Boost_45= RULE_BOOST )?
-                                    	    int alt29=2;
-                                    	    int LA29_0 = input.LA(1);
+                                    	    int alt28=2;
+                                    	    int LA28_0 = input.LA(1);
 
-                                    	    if ( (LA29_0==RULE_BOOST) ) {
-                                    	        alt29=1;
+                                    	    if ( (LA28_0==RULE_BOOST) ) {
+                                    	        alt28=1;
                                     	    }
-                                    	    switch (alt29) {
+                                    	    switch (alt28) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:660:3: this_Boost_45= RULE_BOOST
                                     	            {
-                                    	            this_Boost_45=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1278); 
+                                    	            this_Boost_45=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1277); 
                                     	             
                                     	                newLeafNode(this_Boost_45, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_4_2_1_1_2()); 
                                     	                
@@ -2251,11 +2240,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop30;
+                                    	    break loop29;
                                         }
                                     } while (true);
 
-                                    otherlv_46=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1293); 
+                                    otherlv_46=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1292); 
 
                                         	newLeafNode(otherlv_46, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_4_2_1_2());
                                         
@@ -2269,17 +2258,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:668:3: (this_Boost_47= RULE_BOOST )?
-                            int alt32=2;
-                            int LA32_0 = input.LA(1);
+                            int alt31=2;
+                            int LA31_0 = input.LA(1);
 
-                            if ( (LA32_0==RULE_BOOST) ) {
-                                alt32=1;
+                            if ( (LA31_0==RULE_BOOST) ) {
+                                alt31=1;
                             }
-                            switch (alt32) {
+                            switch (alt31) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:668:4: this_Boost_47= RULE_BOOST
                                     {
-                                    this_Boost_47=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1307); 
+                                    this_Boost_47=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1306); 
                                      
                                         newLeafNode(this_Boost_47, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_4_3()); 
                                         
@@ -2310,7 +2299,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldModifierFieldParserRuleCall_1_1_5_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleModifierField_in_ruleClauseExpression1337);
+                            pushFollow(FOLLOW_ruleModifierField_in_ruleClauseExpression1336);
                             lv_field_48_0=ruleModifierField();
 
                             state._fsp--;
@@ -2332,27 +2321,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_49=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1349); 
+                            otherlv_49=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1348); 
 
                                 	newLeafNode(otherlv_49, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_5_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:695:1: ( ( (lv_values_50_0= ruleModifierFieldValue ) ) | (otherlv_51= '(' ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )* otherlv_55= ')' ) )
-                            int alt36=2;
-                            int LA36_0 = input.LA(1);
+                            int alt35=2;
+                            int LA35_0 = input.LA(1);
 
-                            if ( ((LA36_0>=61 && LA36_0<=66)) ) {
-                                alt36=1;
+                            if ( ((LA35_0>=61 && LA35_0<=66)) ) {
+                                alt35=1;
                             }
-                            else if ( (LA36_0==14) ) {
-                                alt36=2;
+                            else if ( (LA35_0==14) ) {
+                                alt35=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 36, 0, input);
+                                    new NoViableAltException("", 35, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt36) {
+                            switch (alt35) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:695:2: ( (lv_values_50_0= ruleModifierFieldValue ) )
                                     {
@@ -2365,7 +2354,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesModifierFieldValueParserRuleCall_1_1_5_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1371);
+                                    pushFollow(FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1370);
                                     lv_values_50_0=ruleModifierFieldValue();
 
                                     state._fsp--;
@@ -2396,40 +2385,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:714:6: (otherlv_51= '(' ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )* otherlv_55= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:714:8: otherlv_51= '(' ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )* otherlv_55= ')'
                                     {
-                                    otherlv_51=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1390); 
+                                    otherlv_51=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1389); 
 
                                         	newLeafNode(otherlv_51, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_5_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:718:1: ( ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )? )*
-                                    loop35:
+                                    loop34:
                                     do {
-                                        int alt35=2;
-                                        int LA35_0 = input.LA(1);
+                                        int alt34=2;
+                                        int LA34_0 = input.LA(1);
 
-                                        if ( ((LA35_0>=61 && LA35_0<=66)||(LA35_0>=77 && LA35_0<=80)) ) {
-                                            alt35=1;
+                                        if ( ((LA34_0>=61 && LA34_0<=66)||(LA34_0>=77 && LA34_0<=80)) ) {
+                                            alt34=1;
                                         }
 
 
-                                        switch (alt35) {
+                                        switch (alt34) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:718:2: ( ruleUnaryExpression )? ( (lv_values_53_0= ruleModifierFieldValue ) ) (this_Boost_54= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:718:2: ( ruleUnaryExpression )?
-                                    	    int alt33=2;
-                                    	    int LA33_0 = input.LA(1);
+                                    	    int alt32=2;
+                                    	    int LA32_0 = input.LA(1);
 
-                                    	    if ( ((LA33_0>=77 && LA33_0<=80)) ) {
-                                    	        alt33=1;
+                                    	    if ( ((LA32_0>=77 && LA32_0<=80)) ) {
+                                    	        alt32=1;
                                     	    }
-                                    	    switch (alt33) {
+                                    	    switch (alt32) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:719:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_5_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1408);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1407);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -2452,7 +2441,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesModifierFieldValueParserRuleCall_1_1_5_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1430);
+                                    	    pushFollow(FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1429);
                                     	    lv_values_53_0=ruleModifierFieldValue();
 
                                     	    state._fsp--;
@@ -2475,17 +2464,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:744:2: (this_Boost_54= RULE_BOOST )?
-                                    	    int alt34=2;
-                                    	    int LA34_0 = input.LA(1);
+                                    	    int alt33=2;
+                                    	    int LA33_0 = input.LA(1);
 
-                                    	    if ( (LA34_0==RULE_BOOST) ) {
-                                    	        alt34=1;
+                                    	    if ( (LA33_0==RULE_BOOST) ) {
+                                    	        alt33=1;
                                     	    }
-                                    	    switch (alt34) {
+                                    	    switch (alt33) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:744:3: this_Boost_54= RULE_BOOST
                                     	            {
-                                    	            this_Boost_54=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1442); 
+                                    	            this_Boost_54=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1441); 
                                     	             
                                     	                newLeafNode(this_Boost_54, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_5_2_1_1_2()); 
                                     	                
@@ -2500,11 +2489,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop35;
+                                    	    break loop34;
                                         }
                                     } while (true);
 
-                                    otherlv_55=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1457); 
+                                    otherlv_55=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1456); 
 
                                         	newLeafNode(otherlv_55, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_5_2_1_2());
                                         
@@ -2518,17 +2507,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:752:3: (this_Boost_56= RULE_BOOST )?
-                            int alt37=2;
-                            int LA37_0 = input.LA(1);
+                            int alt36=2;
+                            int LA36_0 = input.LA(1);
 
-                            if ( (LA37_0==RULE_BOOST) ) {
-                                alt37=1;
+                            if ( (LA36_0==RULE_BOOST) ) {
+                                alt36=1;
                             }
-                            switch (alt37) {
+                            switch (alt36) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:752:4: this_Boost_56= RULE_BOOST
                                     {
-                                    this_Boost_56=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1471); 
+                                    this_Boost_56=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1470); 
                                      
                                         newLeafNode(this_Boost_56, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_5_3()); 
                                         
@@ -2559,7 +2548,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldTimeFieldParserRuleCall_1_1_6_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleTimeField_in_ruleClauseExpression1501);
+                            pushFollow(FOLLOW_ruleTimeField_in_ruleClauseExpression1500);
                             lv_field_57_0=ruleTimeField();
 
                             state._fsp--;
@@ -2581,27 +2570,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_58=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1513); 
+                            otherlv_58=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1512); 
 
                                 	newLeafNode(otherlv_58, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_6_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:779:1: ( ( (lv_values_59_0= ruleTimeFieldValue ) ) | (otherlv_60= '(' ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )* otherlv_64= ')' ) )
-                            int alt41=2;
-                            int LA41_0 = input.LA(1);
+                            int alt40=2;
+                            int LA40_0 = input.LA(1);
 
-                            if ( (LA41_0==RULE_NAMEWITHWC) ) {
-                                alt41=1;
+                            if ( (LA40_0==RULE_NAMEWITHWC) ) {
+                                alt40=1;
                             }
-                            else if ( (LA41_0==14) ) {
-                                alt41=2;
+                            else if ( (LA40_0==14) ) {
+                                alt40=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 41, 0, input);
+                                    new NoViableAltException("", 40, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt41) {
+                            switch (alt40) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:779:2: ( (lv_values_59_0= ruleTimeFieldValue ) )
                                     {
@@ -2614,7 +2603,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesTimeFieldValueParserRuleCall_1_1_6_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1535);
+                                    pushFollow(FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1534);
                                     lv_values_59_0=ruleTimeFieldValue();
 
                                     state._fsp--;
@@ -2645,40 +2634,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:798:6: (otherlv_60= '(' ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )* otherlv_64= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:798:8: otherlv_60= '(' ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )* otherlv_64= ')'
                                     {
-                                    otherlv_60=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1554); 
+                                    otherlv_60=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1553); 
 
                                         	newLeafNode(otherlv_60, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_6_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:802:1: ( ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )? )*
-                                    loop40:
+                                    loop39:
                                     do {
-                                        int alt40=2;
-                                        int LA40_0 = input.LA(1);
+                                        int alt39=2;
+                                        int LA39_0 = input.LA(1);
 
-                                        if ( (LA40_0==RULE_NAMEWITHWC||(LA40_0>=77 && LA40_0<=80)) ) {
-                                            alt40=1;
+                                        if ( (LA39_0==RULE_NAMEWITHWC||(LA39_0>=77 && LA39_0<=80)) ) {
+                                            alt39=1;
                                         }
 
 
-                                        switch (alt40) {
+                                        switch (alt39) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:802:2: ( ruleUnaryExpression )? ( (lv_values_62_0= ruleTimeFieldValue ) ) (this_Boost_63= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:802:2: ( ruleUnaryExpression )?
-                                    	    int alt38=2;
-                                    	    int LA38_0 = input.LA(1);
+                                    	    int alt37=2;
+                                    	    int LA37_0 = input.LA(1);
 
-                                    	    if ( ((LA38_0>=77 && LA38_0<=80)) ) {
-                                    	        alt38=1;
+                                    	    if ( ((LA37_0>=77 && LA37_0<=80)) ) {
+                                    	        alt37=1;
                                     	    }
-                                    	    switch (alt38) {
+                                    	    switch (alt37) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:803:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_6_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1572);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1571);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -2701,7 +2690,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1594);
+                                    	    pushFollow(FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1593);
                                     	    lv_values_62_0=ruleTimeFieldValue();
 
                                     	    state._fsp--;
@@ -2724,17 +2713,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:828:2: (this_Boost_63= RULE_BOOST )?
-                                    	    int alt39=2;
-                                    	    int LA39_0 = input.LA(1);
+                                    	    int alt38=2;
+                                    	    int LA38_0 = input.LA(1);
 
-                                    	    if ( (LA39_0==RULE_BOOST) ) {
-                                    	        alt39=1;
+                                    	    if ( (LA38_0==RULE_BOOST) ) {
+                                    	        alt38=1;
                                     	    }
-                                    	    switch (alt39) {
+                                    	    switch (alt38) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:828:3: this_Boost_63= RULE_BOOST
                                     	            {
-                                    	            this_Boost_63=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1606); 
+                                    	            this_Boost_63=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1605); 
                                     	             
                                     	                newLeafNode(this_Boost_63, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_6_2_1_1_2()); 
                                     	                
@@ -2749,11 +2738,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop40;
+                                    	    break loop39;
                                         }
                                     } while (true);
 
-                                    otherlv_64=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1621); 
+                                    otherlv_64=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1620); 
 
                                         	newLeafNode(otherlv_64, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_6_2_1_2());
                                         
@@ -2767,17 +2756,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:836:3: (this_Boost_65= RULE_BOOST )?
-                            int alt42=2;
-                            int LA42_0 = input.LA(1);
+                            int alt41=2;
+                            int LA41_0 = input.LA(1);
 
-                            if ( (LA42_0==RULE_BOOST) ) {
-                                alt42=1;
+                            if ( (LA41_0==RULE_BOOST) ) {
+                                alt41=1;
                             }
-                            switch (alt42) {
+                            switch (alt41) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:836:4: this_Boost_65= RULE_BOOST
                                     {
-                                    this_Boost_65=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1635); 
+                                    this_Boost_65=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1634); 
                                      
                                         newLeafNode(this_Boost_65, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_6_3()); 
                                         
@@ -2808,7 +2797,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldDocumentTypeFieldParserRuleCall_1_1_7_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleDocumentTypeField_in_ruleClauseExpression1665);
+                            pushFollow(FOLLOW_ruleDocumentTypeField_in_ruleClauseExpression1664);
                             lv_field_66_0=ruleDocumentTypeField();
 
                             state._fsp--;
@@ -2830,27 +2819,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_67=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1677); 
+                            otherlv_67=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1676); 
 
                                 	newLeafNode(otherlv_67, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_7_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:863:1: ( ( (lv_values_68_0= ruleDocumentTypeFieldValue ) ) | (otherlv_69= '(' ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )* otherlv_73= ')' ) )
-                            int alt46=2;
-                            int LA46_0 = input.LA(1);
+                            int alt45=2;
+                            int LA45_0 = input.LA(1);
 
-                            if ( ((LA46_0>=67 && LA46_0<=71)) ) {
-                                alt46=1;
+                            if ( ((LA45_0>=67 && LA45_0<=71)) ) {
+                                alt45=1;
                             }
-                            else if ( (LA46_0==14) ) {
-                                alt46=2;
+                            else if ( (LA45_0==14) ) {
+                                alt45=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 46, 0, input);
+                                    new NoViableAltException("", 45, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt46) {
+                            switch (alt45) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:863:2: ( (lv_values_68_0= ruleDocumentTypeFieldValue ) )
                                     {
@@ -2863,7 +2852,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1699);
+                                    pushFollow(FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1698);
                                     lv_values_68_0=ruleDocumentTypeFieldValue();
 
                                     state._fsp--;
@@ -2894,40 +2883,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:882:6: (otherlv_69= '(' ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )* otherlv_73= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:882:8: otherlv_69= '(' ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )* otherlv_73= ')'
                                     {
-                                    otherlv_69=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1718); 
+                                    otherlv_69=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1717); 
 
                                         	newLeafNode(otherlv_69, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_7_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:886:1: ( ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )? )*
-                                    loop45:
+                                    loop44:
                                     do {
-                                        int alt45=2;
-                                        int LA45_0 = input.LA(1);
+                                        int alt44=2;
+                                        int LA44_0 = input.LA(1);
 
-                                        if ( ((LA45_0>=67 && LA45_0<=71)||(LA45_0>=77 && LA45_0<=80)) ) {
-                                            alt45=1;
+                                        if ( ((LA44_0>=67 && LA44_0<=71)||(LA44_0>=77 && LA44_0<=80)) ) {
+                                            alt44=1;
                                         }
 
 
-                                        switch (alt45) {
+                                        switch (alt44) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:886:2: ( ruleUnaryExpression )? ( (lv_values_71_0= ruleDocumentTypeFieldValue ) ) (this_Boost_72= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:886:2: ( ruleUnaryExpression )?
-                                    	    int alt43=2;
-                                    	    int LA43_0 = input.LA(1);
+                                    	    int alt42=2;
+                                    	    int LA42_0 = input.LA(1);
 
-                                    	    if ( ((LA43_0>=77 && LA43_0<=80)) ) {
-                                    	        alt43=1;
+                                    	    if ( ((LA42_0>=77 && LA42_0<=80)) ) {
+                                    	        alt42=1;
                                     	    }
-                                    	    switch (alt43) {
+                                    	    switch (alt42) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:887:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_7_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1736);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1735);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -2950,7 +2939,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1758);
+                                    	    pushFollow(FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1757);
                                     	    lv_values_71_0=ruleDocumentTypeFieldValue();
 
                                     	    state._fsp--;
@@ -2973,17 +2962,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:912:2: (this_Boost_72= RULE_BOOST )?
-                                    	    int alt44=2;
-                                    	    int LA44_0 = input.LA(1);
+                                    	    int alt43=2;
+                                    	    int LA43_0 = input.LA(1);
 
-                                    	    if ( (LA44_0==RULE_BOOST) ) {
-                                    	        alt44=1;
+                                    	    if ( (LA43_0==RULE_BOOST) ) {
+                                    	        alt43=1;
                                     	    }
-                                    	    switch (alt44) {
+                                    	    switch (alt43) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:912:3: this_Boost_72= RULE_BOOST
                                     	            {
-                                    	            this_Boost_72=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1770); 
+                                    	            this_Boost_72=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1769); 
                                     	             
                                     	                newLeafNode(this_Boost_72, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_7_2_1_1_2()); 
                                     	                
@@ -2998,11 +2987,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop45;
+                                    	    break loop44;
                                         }
                                     } while (true);
 
-                                    otherlv_73=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1785); 
+                                    otherlv_73=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1784); 
 
                                         	newLeafNode(otherlv_73, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_7_2_1_2());
                                         
@@ -3016,17 +3005,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:920:3: (this_Boost_74= RULE_BOOST )?
-                            int alt47=2;
-                            int LA47_0 = input.LA(1);
+                            int alt46=2;
+                            int LA46_0 = input.LA(1);
 
-                            if ( (LA47_0==RULE_BOOST) ) {
-                                alt47=1;
+                            if ( (LA46_0==RULE_BOOST) ) {
+                                alt46=1;
                             }
-                            switch (alt47) {
+                            switch (alt46) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:920:4: this_Boost_74= RULE_BOOST
                                     {
-                                    this_Boost_74=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1799); 
+                                    this_Boost_74=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1798); 
                                      
                                         newLeafNode(this_Boost_74, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_7_3()); 
                                         
@@ -3057,7 +3046,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldProjectNameFieldParserRuleCall_1_1_8_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleProjectNameField_in_ruleClauseExpression1829);
+                            pushFollow(FOLLOW_ruleProjectNameField_in_ruleClauseExpression1828);
                             lv_field_75_0=ruleProjectNameField();
 
                             state._fsp--;
@@ -3079,27 +3068,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_76=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1841); 
+                            otherlv_76=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression1840); 
 
                                 	newLeafNode(otherlv_76, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_8_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:947:1: ( ( (lv_values_77_0= ruleProjectNameFieldValue ) ) | (otherlv_78= '(' ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )* otherlv_82= ')' ) )
-                            int alt51=2;
-                            int LA51_0 = input.LA(1);
+                            int alt50=2;
+                            int LA50_0 = input.LA(1);
 
-                            if ( (LA51_0==RULE_NAMEWITHWC) ) {
-                                alt51=1;
+                            if ( (LA50_0==RULE_NAMEWITHWC) ) {
+                                alt50=1;
                             }
-                            else if ( (LA51_0==14) ) {
-                                alt51=2;
+                            else if ( (LA50_0==14) ) {
+                                alt50=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 51, 0, input);
+                                    new NoViableAltException("", 50, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt51) {
+                            switch (alt50) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:947:2: ( (lv_values_77_0= ruleProjectNameFieldValue ) )
                                     {
@@ -3112,7 +3101,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1863);
+                                    pushFollow(FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1862);
                                     lv_values_77_0=ruleProjectNameFieldValue();
 
                                     state._fsp--;
@@ -3143,40 +3132,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:966:6: (otherlv_78= '(' ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )* otherlv_82= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:966:8: otherlv_78= '(' ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )* otherlv_82= ')'
                                     {
-                                    otherlv_78=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1882); 
+                                    otherlv_78=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression1881); 
 
                                         	newLeafNode(otherlv_78, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_8_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:970:1: ( ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )? )*
-                                    loop50:
+                                    loop49:
                                     do {
-                                        int alt50=2;
-                                        int LA50_0 = input.LA(1);
+                                        int alt49=2;
+                                        int LA49_0 = input.LA(1);
 
-                                        if ( (LA50_0==RULE_NAMEWITHWC||(LA50_0>=77 && LA50_0<=80)) ) {
-                                            alt50=1;
+                                        if ( (LA49_0==RULE_NAMEWITHWC||(LA49_0>=77 && LA49_0<=80)) ) {
+                                            alt49=1;
                                         }
 
 
-                                        switch (alt50) {
+                                        switch (alt49) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:970:2: ( ruleUnaryExpression )? ( (lv_values_80_0= ruleProjectNameFieldValue ) ) (this_Boost_81= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:970:2: ( ruleUnaryExpression )?
-                                    	    int alt48=2;
-                                    	    int LA48_0 = input.LA(1);
+                                    	    int alt47=2;
+                                    	    int LA47_0 = input.LA(1);
 
-                                    	    if ( ((LA48_0>=77 && LA48_0<=80)) ) {
-                                    	        alt48=1;
+                                    	    if ( ((LA47_0>=77 && LA47_0<=80)) ) {
+                                    	        alt47=1;
                                     	    }
-                                    	    switch (alt48) {
+                                    	    switch (alt47) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:971:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_8_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1900);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1899);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -3199,7 +3188,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1922);
+                                    	    pushFollow(FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1921);
                                     	    lv_values_80_0=ruleProjectNameFieldValue();
 
                                     	    state._fsp--;
@@ -3222,17 +3211,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:996:2: (this_Boost_81= RULE_BOOST )?
-                                    	    int alt49=2;
-                                    	    int LA49_0 = input.LA(1);
+                                    	    int alt48=2;
+                                    	    int LA48_0 = input.LA(1);
 
-                                    	    if ( (LA49_0==RULE_BOOST) ) {
-                                    	        alt49=1;
+                                    	    if ( (LA48_0==RULE_BOOST) ) {
+                                    	        alt48=1;
                                     	    }
-                                    	    switch (alt49) {
+                                    	    switch (alt48) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:996:3: this_Boost_81= RULE_BOOST
                                     	            {
-                                    	            this_Boost_81=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1934); 
+                                    	            this_Boost_81=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1933); 
                                     	             
                                     	                newLeafNode(this_Boost_81, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_8_2_1_1_2()); 
                                     	                
@@ -3247,11 +3236,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop50;
+                                    	    break loop49;
                                         }
                                     } while (true);
 
-                                    otherlv_82=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1949); 
+                                    otherlv_82=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression1948); 
 
                                         	newLeafNode(otherlv_82, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_8_2_1_2());
                                         
@@ -3265,17 +3254,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1004:3: (this_Boost_83= RULE_BOOST )?
-                            int alt52=2;
-                            int LA52_0 = input.LA(1);
+                            int alt51=2;
+                            int LA51_0 = input.LA(1);
 
-                            if ( (LA52_0==RULE_BOOST) ) {
-                                alt52=1;
+                            if ( (LA51_0==RULE_BOOST) ) {
+                                alt51=1;
                             }
-                            switch (alt52) {
+                            switch (alt51) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1004:4: this_Boost_83= RULE_BOOST
                                     {
-                                    this_Boost_83=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1963); 
+                                    this_Boost_83=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression1962); 
                                      
                                         newLeafNode(this_Boost_83, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_8_3()); 
                                         
@@ -3306,7 +3295,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldAnnotationFieldParserRuleCall_1_1_9_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleAnnotationField_in_ruleClauseExpression1993);
+                            pushFollow(FOLLOW_ruleAnnotationField_in_ruleClauseExpression1992);
                             lv_field_84_0=ruleAnnotationField();
 
                             state._fsp--;
@@ -3328,27 +3317,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_85=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression2005); 
+                            otherlv_85=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression2004); 
 
                                 	newLeafNode(otherlv_85, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_9_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1031:1: ( ( (lv_values_86_0= ruleAnnotationFieldValue ) ) | (otherlv_87= '(' ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )* otherlv_91= ')' ) )
-                            int alt56=2;
-                            int LA56_0 = input.LA(1);
+                            int alt55=2;
+                            int LA55_0 = input.LA(1);
 
-                            if ( (LA56_0==RULE_NAMEWITHWC) ) {
-                                alt56=1;
+                            if ( (LA55_0==RULE_NAMEWITHWC) ) {
+                                alt55=1;
                             }
-                            else if ( (LA56_0==14) ) {
-                                alt56=2;
+                            else if ( (LA55_0==14) ) {
+                                alt55=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 56, 0, input);
+                                    new NoViableAltException("", 55, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt56) {
+                            switch (alt55) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1031:2: ( (lv_values_86_0= ruleAnnotationFieldValue ) )
                                     {
@@ -3361,7 +3350,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesAnnotationFieldValueParserRuleCall_1_1_9_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2027);
+                                    pushFollow(FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2026);
                                     lv_values_86_0=ruleAnnotationFieldValue();
 
                                     state._fsp--;
@@ -3392,40 +3381,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1050:6: (otherlv_87= '(' ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )* otherlv_91= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1050:8: otherlv_87= '(' ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )* otherlv_91= ')'
                                     {
-                                    otherlv_87=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression2046); 
+                                    otherlv_87=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression2045); 
 
                                         	newLeafNode(otherlv_87, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_9_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1054:1: ( ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )? )*
-                                    loop55:
+                                    loop54:
                                     do {
-                                        int alt55=2;
-                                        int LA55_0 = input.LA(1);
+                                        int alt54=2;
+                                        int LA54_0 = input.LA(1);
 
-                                        if ( (LA55_0==RULE_NAMEWITHWC||(LA55_0>=77 && LA55_0<=80)) ) {
-                                            alt55=1;
+                                        if ( (LA54_0==RULE_NAMEWITHWC||(LA54_0>=77 && LA54_0<=80)) ) {
+                                            alt54=1;
                                         }
 
 
-                                        switch (alt55) {
+                                        switch (alt54) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1054:2: ( ruleUnaryExpression )? ( (lv_values_89_0= ruleAnnotationFieldValue ) ) (this_Boost_90= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1054:2: ( ruleUnaryExpression )?
-                                    	    int alt53=2;
-                                    	    int LA53_0 = input.LA(1);
+                                    	    int alt52=2;
+                                    	    int LA52_0 = input.LA(1);
 
-                                    	    if ( ((LA53_0>=77 && LA53_0<=80)) ) {
-                                    	        alt53=1;
+                                    	    if ( ((LA52_0>=77 && LA52_0<=80)) ) {
+                                    	        alt52=1;
                                     	    }
-                                    	    switch (alt53) {
+                                    	    switch (alt52) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1055:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_9_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2064);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2063);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -3448,7 +3437,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesAnnotationFieldValueParserRuleCall_1_1_9_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2086);
+                                    	    pushFollow(FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2085);
                                     	    lv_values_89_0=ruleAnnotationFieldValue();
 
                                     	    state._fsp--;
@@ -3471,17 +3460,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1080:2: (this_Boost_90= RULE_BOOST )?
-                                    	    int alt54=2;
-                                    	    int LA54_0 = input.LA(1);
+                                    	    int alt53=2;
+                                    	    int LA53_0 = input.LA(1);
 
-                                    	    if ( (LA54_0==RULE_BOOST) ) {
-                                    	        alt54=1;
+                                    	    if ( (LA53_0==RULE_BOOST) ) {
+                                    	        alt53=1;
                                     	    }
-                                    	    switch (alt54) {
+                                    	    switch (alt53) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1080:3: this_Boost_90= RULE_BOOST
                                     	            {
-                                    	            this_Boost_90=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2098); 
+                                    	            this_Boost_90=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2097); 
                                     	             
                                     	                newLeafNode(this_Boost_90, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_2_1_1_2()); 
                                     	                
@@ -3496,11 +3485,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop55;
+                                    	    break loop54;
                                         }
                                     } while (true);
 
-                                    otherlv_91=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression2113); 
+                                    otherlv_91=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression2112); 
 
                                         	newLeafNode(otherlv_91, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_9_2_1_2());
                                         
@@ -3514,17 +3503,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1088:3: (this_Boost_92= RULE_BOOST )?
-                            int alt57=2;
-                            int LA57_0 = input.LA(1);
+                            int alt56=2;
+                            int LA56_0 = input.LA(1);
 
-                            if ( (LA57_0==RULE_BOOST) ) {
-                                alt57=1;
+                            if ( (LA56_0==RULE_BOOST) ) {
+                                alt56=1;
                             }
-                            switch (alt57) {
+                            switch (alt56) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1088:4: this_Boost_92= RULE_BOOST
                                     {
-                                    this_Boost_92=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2127); 
+                                    this_Boost_92=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2126); 
                                      
                                         newLeafNode(this_Boost_92, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_3()); 
                                         
@@ -3555,7 +3544,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                              
                             	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldDefinitionTypeParserRuleCall_1_1_10_0_0()); 
                             	    
-                            pushFollow(FOLLOW_ruleDefinitionType_in_ruleClauseExpression2157);
+                            pushFollow(FOLLOW_ruleDefinitionType_in_ruleClauseExpression2156);
                             lv_field_93_0=ruleDefinitionType();
 
                             state._fsp--;
@@ -3577,27 +3566,27 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
                             }
 
-                            otherlv_94=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression2169); 
+                            otherlv_94=(Token)match(input,16,FOLLOW_16_in_ruleClauseExpression2168); 
 
                                 	newLeafNode(otherlv_94, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_10_1());
                                 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1115:1: ( ( (lv_values_95_0= ruleDefinitionTypeValue ) ) | (otherlv_96= '(' ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )* otherlv_100= ')' ) )
-                            int alt61=2;
-                            int LA61_0 = input.LA(1);
+                            int alt60=2;
+                            int LA60_0 = input.LA(1);
 
-                            if ( ((LA61_0>=72 && LA61_0<=76)) ) {
-                                alt61=1;
+                            if ( ((LA60_0>=72 && LA60_0<=76)) ) {
+                                alt60=1;
                             }
-                            else if ( (LA61_0==14) ) {
-                                alt61=2;
+                            else if ( (LA60_0==14) ) {
+                                alt60=2;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("", 61, 0, input);
+                                    new NoViableAltException("", 60, 0, input);
 
                                 throw nvae;
                             }
-                            switch (alt61) {
+                            switch (alt60) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1115:2: ( (lv_values_95_0= ruleDefinitionTypeValue ) )
                                     {
@@ -3610,7 +3599,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                      
                                     	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_10_2_0_0()); 
                                     	    
-                                    pushFollow(FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2191);
+                                    pushFollow(FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2190);
                                     lv_values_95_0=ruleDefinitionTypeValue();
 
                                     state._fsp--;
@@ -3641,40 +3630,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1134:6: (otherlv_96= '(' ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )* otherlv_100= ')' )
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1134:8: otherlv_96= '(' ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )* otherlv_100= ')'
                                     {
-                                    otherlv_96=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression2210); 
+                                    otherlv_96=(Token)match(input,14,FOLLOW_14_in_ruleClauseExpression2209); 
 
                                         	newLeafNode(otherlv_96, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_10_2_1_0());
                                         
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1138:1: ( ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )? )*
-                                    loop60:
+                                    loop59:
                                     do {
-                                        int alt60=2;
-                                        int LA60_0 = input.LA(1);
+                                        int alt59=2;
+                                        int LA59_0 = input.LA(1);
 
-                                        if ( ((LA60_0>=72 && LA60_0<=80)) ) {
-                                            alt60=1;
+                                        if ( ((LA59_0>=72 && LA59_0<=80)) ) {
+                                            alt59=1;
                                         }
 
 
-                                        switch (alt60) {
+                                        switch (alt59) {
                                     	case 1 :
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1138:2: ( ruleUnaryExpression )? ( (lv_values_98_0= ruleDefinitionTypeValue ) ) (this_Boost_99= RULE_BOOST )?
                                     	    {
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1138:2: ( ruleUnaryExpression )?
-                                    	    int alt58=2;
-                                    	    int LA58_0 = input.LA(1);
+                                    	    int alt57=2;
+                                    	    int LA57_0 = input.LA(1);
 
-                                    	    if ( ((LA58_0>=77 && LA58_0<=80)) ) {
-                                    	        alt58=1;
+                                    	    if ( ((LA57_0>=77 && LA57_0<=80)) ) {
+                                    	        alt57=1;
                                     	    }
-                                    	    switch (alt58) {
+                                    	    switch (alt57) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1139:5: ruleUnaryExpression
                                     	            {
                                     	             
                                     	                    newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_10_2_1_1_0()); 
                                     	                
-                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2228);
+                                    	            pushFollow(FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2227);
                                     	            ruleUnaryExpression();
 
                                     	            state._fsp--;
@@ -3697,7 +3686,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	     
                                     	    	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_10_2_1_1_1_0()); 
                                     	    	    
-                                    	    pushFollow(FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2250);
+                                    	    pushFollow(FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2249);
                                     	    lv_values_98_0=ruleDefinitionTypeValue();
 
                                     	    state._fsp--;
@@ -3720,17 +3709,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    }
 
                                     	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1164:2: (this_Boost_99= RULE_BOOST )?
-                                    	    int alt59=2;
-                                    	    int LA59_0 = input.LA(1);
+                                    	    int alt58=2;
+                                    	    int LA58_0 = input.LA(1);
 
-                                    	    if ( (LA59_0==RULE_BOOST) ) {
-                                    	        alt59=1;
+                                    	    if ( (LA58_0==RULE_BOOST) ) {
+                                    	        alt58=1;
                                     	    }
-                                    	    switch (alt59) {
+                                    	    switch (alt58) {
                                     	        case 1 :
                                     	            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1164:3: this_Boost_99= RULE_BOOST
                                     	            {
-                                    	            this_Boost_99=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2262); 
+                                    	            this_Boost_99=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2261); 
                                     	             
                                     	                newLeafNode(this_Boost_99, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_10_2_1_1_2()); 
                                     	                
@@ -3745,11 +3734,11 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                                     	    break;
 
                                     	default :
-                                    	    break loop60;
+                                    	    break loop59;
                                         }
                                     } while (true);
 
-                                    otherlv_100=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression2277); 
+                                    otherlv_100=(Token)match(input,15,FOLLOW_15_in_ruleClauseExpression2276); 
 
                                         	newLeafNode(otherlv_100, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_10_2_1_2());
                                         
@@ -3763,17 +3752,17 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                             }
 
                             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1172:3: (this_Boost_101= RULE_BOOST )?
-                            int alt62=2;
-                            int LA62_0 = input.LA(1);
+                            int alt61=2;
+                            int LA61_0 = input.LA(1);
 
-                            if ( (LA62_0==RULE_BOOST) ) {
-                                alt62=1;
+                            if ( (LA61_0==RULE_BOOST) ) {
+                                alt61=1;
                             }
-                            switch (alt62) {
+                            switch (alt61) {
                                 case 1 :
                                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1172:4: this_Boost_101= RULE_BOOST
                                     {
-                                    this_Boost_101=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2291); 
+                                    this_Boost_101=(Token)match(input,RULE_BOOST,FOLLOW_RULE_BOOST_in_ruleClauseExpression2290); 
                                      
                                         newLeafNode(this_Boost_101, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_10_3()); 
                                         
@@ -3831,13 +3820,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1186:2: iv_ruleSimpleField= ruleSimpleField EOF
             {
              newCompositeNode(grammarAccess.getSimpleFieldRule()); 
-            pushFollow(FOLLOW_ruleSimpleField_in_entryRuleSimpleField2331);
+            pushFollow(FOLLOW_ruleSimpleField_in_entryRuleSimpleField2330);
             iv_ruleSimpleField=ruleSimpleField();
 
             state._fsp--;
 
              current =iv_ruleSimpleField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleField2341); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleField2340); 
 
             }
 
@@ -3880,81 +3869,81 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1197:1: ( ( (lv_value_0_0= 'FullyQualifiedName' ) ) | ( (lv_value_1_0= 'FriendlyName' ) ) | ( (lv_value_2_0= 'ReturnVariableExpressions' ) ) | ( (lv_value_3_0= 'AllDeclaredMethodNames' ) ) | ( (lv_value_4_0= 'DeclaredMethodNames' ) ) | ( (lv_value_5_0= 'DeclaredFieldNames' ) ) | ( (lv_value_6_0= 'AllDeclaredFieldNames' ) ) | ( (lv_value_7_0= 'FullText' ) ) | ( (lv_value_8_0= 'FieldsRead' ) ) | ( (lv_value_9_0= 'FieldsWritten' ) ) | ( (lv_value_10_0= 'UsedFieldsInFinally' ) ) | ( (lv_value_11_0= 'UsedFieldsInTry' ) ) | ( (lv_value_12_0= 'VariableName' ) ) )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1197:1: ( ( (lv_value_0_0= 'FullyQualifiedName' ) ) | ( (lv_value_1_0= 'FriendlyName' ) ) | ( (lv_value_2_0= 'ReturnVariableExpressions' ) ) | ( (lv_value_3_0= 'AllDeclaredMethodNames' ) ) | ( (lv_value_4_0= 'DeclaredMethodNames' ) ) | ( (lv_value_5_0= 'DeclaredFieldNames' ) ) | ( (lv_value_6_0= 'AllDeclaredFieldNames' ) ) | ( (lv_value_7_0= 'FullText' ) ) | ( (lv_value_8_0= 'FieldsRead' ) ) | ( (lv_value_9_0= 'FieldsWritten' ) ) | ( (lv_value_10_0= 'UsedFieldsInFinally' ) ) | ( (lv_value_11_0= 'UsedFieldsInTry' ) ) | ( (lv_value_12_0= 'VariableName' ) ) )
-            int alt65=13;
+            int alt64=13;
             switch ( input.LA(1) ) {
             case 17:
                 {
-                alt65=1;
+                alt64=1;
                 }
                 break;
             case 18:
                 {
-                alt65=2;
+                alt64=2;
                 }
                 break;
             case 19:
                 {
-                alt65=3;
+                alt64=3;
                 }
                 break;
             case 20:
                 {
-                alt65=4;
+                alt64=4;
                 }
                 break;
             case 21:
                 {
-                alt65=5;
+                alt64=5;
                 }
                 break;
             case 22:
                 {
-                alt65=6;
+                alt64=6;
                 }
                 break;
             case 23:
                 {
-                alt65=7;
+                alt64=7;
                 }
                 break;
             case 24:
                 {
-                alt65=8;
+                alt64=8;
                 }
                 break;
             case 25:
                 {
-                alt65=9;
+                alt64=9;
                 }
                 break;
             case 26:
                 {
-                alt65=10;
+                alt64=10;
                 }
                 break;
             case 27:
                 {
-                alt65=11;
+                alt64=11;
                 }
                 break;
             case 28:
                 {
-                alt65=12;
+                alt64=12;
                 }
                 break;
             case 29:
                 {
-                alt65=13;
+                alt64=13;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 65, 0, input);
+                    new NoViableAltException("", 64, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt65) {
+            switch (alt64) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1197:2: ( (lv_value_0_0= 'FullyQualifiedName' ) )
                     {
@@ -3964,7 +3953,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1198:1: (lv_value_0_0= 'FullyQualifiedName' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1199:3: lv_value_0_0= 'FullyQualifiedName'
                     {
-                    lv_value_0_0=(Token)match(input,17,FOLLOW_17_in_ruleSimpleField2384); 
+                    lv_value_0_0=(Token)match(input,17,FOLLOW_17_in_ruleSimpleField2383); 
 
                             newLeafNode(lv_value_0_0, grammarAccess.getSimpleFieldAccess().getValueFullyQualifiedNameKeyword_0_0());
                         
@@ -3992,7 +3981,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1214:1: (lv_value_1_0= 'FriendlyName' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1215:3: lv_value_1_0= 'FriendlyName'
                     {
-                    lv_value_1_0=(Token)match(input,18,FOLLOW_18_in_ruleSimpleField2421); 
+                    lv_value_1_0=(Token)match(input,18,FOLLOW_18_in_ruleSimpleField2420); 
 
                             newLeafNode(lv_value_1_0, grammarAccess.getSimpleFieldAccess().getValueFriendlyNameKeyword_1_0());
                         
@@ -4020,7 +4009,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1230:1: (lv_value_2_0= 'ReturnVariableExpressions' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1231:3: lv_value_2_0= 'ReturnVariableExpressions'
                     {
-                    lv_value_2_0=(Token)match(input,19,FOLLOW_19_in_ruleSimpleField2458); 
+                    lv_value_2_0=(Token)match(input,19,FOLLOW_19_in_ruleSimpleField2457); 
 
                             newLeafNode(lv_value_2_0, grammarAccess.getSimpleFieldAccess().getValueReturnVariableExpressionsKeyword_2_0());
                         
@@ -4048,7 +4037,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1246:1: (lv_value_3_0= 'AllDeclaredMethodNames' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1247:3: lv_value_3_0= 'AllDeclaredMethodNames'
                     {
-                    lv_value_3_0=(Token)match(input,20,FOLLOW_20_in_ruleSimpleField2495); 
+                    lv_value_3_0=(Token)match(input,20,FOLLOW_20_in_ruleSimpleField2494); 
 
                             newLeafNode(lv_value_3_0, grammarAccess.getSimpleFieldAccess().getValueAllDeclaredMethodNamesKeyword_3_0());
                         
@@ -4076,7 +4065,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1262:1: (lv_value_4_0= 'DeclaredMethodNames' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1263:3: lv_value_4_0= 'DeclaredMethodNames'
                     {
-                    lv_value_4_0=(Token)match(input,21,FOLLOW_21_in_ruleSimpleField2532); 
+                    lv_value_4_0=(Token)match(input,21,FOLLOW_21_in_ruleSimpleField2531); 
 
                             newLeafNode(lv_value_4_0, grammarAccess.getSimpleFieldAccess().getValueDeclaredMethodNamesKeyword_4_0());
                         
@@ -4104,7 +4093,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1278:1: (lv_value_5_0= 'DeclaredFieldNames' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1279:3: lv_value_5_0= 'DeclaredFieldNames'
                     {
-                    lv_value_5_0=(Token)match(input,22,FOLLOW_22_in_ruleSimpleField2569); 
+                    lv_value_5_0=(Token)match(input,22,FOLLOW_22_in_ruleSimpleField2568); 
 
                             newLeafNode(lv_value_5_0, grammarAccess.getSimpleFieldAccess().getValueDeclaredFieldNamesKeyword_5_0());
                         
@@ -4132,7 +4121,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1294:1: (lv_value_6_0= 'AllDeclaredFieldNames' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1295:3: lv_value_6_0= 'AllDeclaredFieldNames'
                     {
-                    lv_value_6_0=(Token)match(input,23,FOLLOW_23_in_ruleSimpleField2606); 
+                    lv_value_6_0=(Token)match(input,23,FOLLOW_23_in_ruleSimpleField2605); 
 
                             newLeafNode(lv_value_6_0, grammarAccess.getSimpleFieldAccess().getValueAllDeclaredFieldNamesKeyword_6_0());
                         
@@ -4160,7 +4149,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1310:1: (lv_value_7_0= 'FullText' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1311:3: lv_value_7_0= 'FullText'
                     {
-                    lv_value_7_0=(Token)match(input,24,FOLLOW_24_in_ruleSimpleField2643); 
+                    lv_value_7_0=(Token)match(input,24,FOLLOW_24_in_ruleSimpleField2642); 
 
                             newLeafNode(lv_value_7_0, grammarAccess.getSimpleFieldAccess().getValueFullTextKeyword_7_0());
                         
@@ -4188,7 +4177,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1326:1: (lv_value_8_0= 'FieldsRead' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1327:3: lv_value_8_0= 'FieldsRead'
                     {
-                    lv_value_8_0=(Token)match(input,25,FOLLOW_25_in_ruleSimpleField2680); 
+                    lv_value_8_0=(Token)match(input,25,FOLLOW_25_in_ruleSimpleField2679); 
 
                             newLeafNode(lv_value_8_0, grammarAccess.getSimpleFieldAccess().getValueFieldsReadKeyword_8_0());
                         
@@ -4216,7 +4205,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1342:1: (lv_value_9_0= 'FieldsWritten' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1343:3: lv_value_9_0= 'FieldsWritten'
                     {
-                    lv_value_9_0=(Token)match(input,26,FOLLOW_26_in_ruleSimpleField2717); 
+                    lv_value_9_0=(Token)match(input,26,FOLLOW_26_in_ruleSimpleField2716); 
 
                             newLeafNode(lv_value_9_0, grammarAccess.getSimpleFieldAccess().getValueFieldsWrittenKeyword_9_0());
                         
@@ -4244,7 +4233,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1358:1: (lv_value_10_0= 'UsedFieldsInFinally' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1359:3: lv_value_10_0= 'UsedFieldsInFinally'
                     {
-                    lv_value_10_0=(Token)match(input,27,FOLLOW_27_in_ruleSimpleField2754); 
+                    lv_value_10_0=(Token)match(input,27,FOLLOW_27_in_ruleSimpleField2753); 
 
                             newLeafNode(lv_value_10_0, grammarAccess.getSimpleFieldAccess().getValueUsedFieldsInFinallyKeyword_10_0());
                         
@@ -4272,7 +4261,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1374:1: (lv_value_11_0= 'UsedFieldsInTry' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1375:3: lv_value_11_0= 'UsedFieldsInTry'
                     {
-                    lv_value_11_0=(Token)match(input,28,FOLLOW_28_in_ruleSimpleField2791); 
+                    lv_value_11_0=(Token)match(input,28,FOLLOW_28_in_ruleSimpleField2790); 
 
                             newLeafNode(lv_value_11_0, grammarAccess.getSimpleFieldAccess().getValueUsedFieldsInTryKeyword_11_0());
                         
@@ -4300,7 +4289,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1390:1: (lv_value_12_0= 'VariableName' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1391:3: lv_value_12_0= 'VariableName'
                     {
-                    lv_value_12_0=(Token)match(input,29,FOLLOW_29_in_ruleSimpleField2828); 
+                    lv_value_12_0=(Token)match(input,29,FOLLOW_29_in_ruleSimpleField2827); 
 
                             newLeafNode(lv_value_12_0, grammarAccess.getSimpleFieldAccess().getValueVariableNameKeyword_12_0());
                         
@@ -4352,13 +4341,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1414:2: iv_ruleTypeField= ruleTypeField EOF
             {
              newCompositeNode(grammarAccess.getTypeFieldRule()); 
-            pushFollow(FOLLOW_ruleTypeField_in_entryRuleTypeField2877);
+            pushFollow(FOLLOW_ruleTypeField_in_entryRuleTypeField2876);
             iv_ruleTypeField=ruleTypeField();
 
             state._fsp--;
 
              current =iv_ruleTypeField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeField2887); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeField2886); 
 
             }
 
@@ -4403,91 +4392,91 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1425:1: ( ( (lv_value_0_0= 'ImplementedTypes' ) ) | ( (lv_value_1_0= 'ExtendedTypes' ) ) | ( (lv_value_2_0= 'UsedTypes' ) ) | ( (lv_value_3_0= 'UsedTypesInTry' ) ) | ( (lv_value_4_0= 'UsedTypesInFinally' ) ) | ( (lv_value_5_0= 'ParameterTypes' ) ) | ( (lv_value_6_0= 'ReturnType' ) ) | ( (lv_value_7_0= 'InstanceofTypes' ) ) | ( (lv_value_8_0= 'AllImplementedTypes' ) ) | ( (lv_value_9_0= 'AllExtendedTypes' ) ) | ( (lv_value_10_0= 'FieldType' ) ) | ( (lv_value_11_0= 'CaughtType' ) ) | ( (lv_value_12_0= 'DeclaredFieldTypes' ) ) | ( (lv_value_13_0= 'DeclaringType' ) ) | ( (lv_value_14_0= 'VariableType' ) ) )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1425:1: ( ( (lv_value_0_0= 'ImplementedTypes' ) ) | ( (lv_value_1_0= 'ExtendedTypes' ) ) | ( (lv_value_2_0= 'UsedTypes' ) ) | ( (lv_value_3_0= 'UsedTypesInTry' ) ) | ( (lv_value_4_0= 'UsedTypesInFinally' ) ) | ( (lv_value_5_0= 'ParameterTypes' ) ) | ( (lv_value_6_0= 'ReturnType' ) ) | ( (lv_value_7_0= 'InstanceofTypes' ) ) | ( (lv_value_8_0= 'AllImplementedTypes' ) ) | ( (lv_value_9_0= 'AllExtendedTypes' ) ) | ( (lv_value_10_0= 'FieldType' ) ) | ( (lv_value_11_0= 'CaughtType' ) ) | ( (lv_value_12_0= 'DeclaredFieldTypes' ) ) | ( (lv_value_13_0= 'DeclaringType' ) ) | ( (lv_value_14_0= 'VariableType' ) ) )
-            int alt66=15;
+            int alt65=15;
             switch ( input.LA(1) ) {
             case 30:
                 {
-                alt66=1;
+                alt65=1;
                 }
                 break;
             case 31:
                 {
-                alt66=2;
+                alt65=2;
                 }
                 break;
             case 32:
                 {
-                alt66=3;
+                alt65=3;
                 }
                 break;
             case 33:
                 {
-                alt66=4;
+                alt65=4;
                 }
                 break;
             case 34:
                 {
-                alt66=5;
+                alt65=5;
                 }
                 break;
             case 35:
                 {
-                alt66=6;
+                alt65=6;
                 }
                 break;
             case 36:
                 {
-                alt66=7;
+                alt65=7;
                 }
                 break;
             case 37:
                 {
-                alt66=8;
+                alt65=8;
                 }
                 break;
             case 38:
                 {
-                alt66=9;
+                alt65=9;
                 }
                 break;
             case 39:
                 {
-                alt66=10;
+                alt65=10;
                 }
                 break;
             case 40:
                 {
-                alt66=11;
+                alt65=11;
                 }
                 break;
             case 41:
                 {
-                alt66=12;
+                alt65=12;
                 }
                 break;
             case 42:
                 {
-                alt66=13;
+                alt65=13;
                 }
                 break;
             case 43:
                 {
-                alt66=14;
+                alt65=14;
                 }
                 break;
             case 44:
                 {
-                alt66=15;
+                alt65=15;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 66, 0, input);
+                    new NoViableAltException("", 65, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt66) {
+            switch (alt65) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1425:2: ( (lv_value_0_0= 'ImplementedTypes' ) )
                     {
@@ -4497,7 +4486,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1426:1: (lv_value_0_0= 'ImplementedTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1427:3: lv_value_0_0= 'ImplementedTypes'
                     {
-                    lv_value_0_0=(Token)match(input,30,FOLLOW_30_in_ruleTypeField2930); 
+                    lv_value_0_0=(Token)match(input,30,FOLLOW_30_in_ruleTypeField2929); 
 
                             newLeafNode(lv_value_0_0, grammarAccess.getTypeFieldAccess().getValueImplementedTypesKeyword_0_0());
                         
@@ -4525,7 +4514,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1442:1: (lv_value_1_0= 'ExtendedTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1443:3: lv_value_1_0= 'ExtendedTypes'
                     {
-                    lv_value_1_0=(Token)match(input,31,FOLLOW_31_in_ruleTypeField2967); 
+                    lv_value_1_0=(Token)match(input,31,FOLLOW_31_in_ruleTypeField2966); 
 
                             newLeafNode(lv_value_1_0, grammarAccess.getTypeFieldAccess().getValueExtendedTypesKeyword_1_0());
                         
@@ -4553,7 +4542,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1458:1: (lv_value_2_0= 'UsedTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1459:3: lv_value_2_0= 'UsedTypes'
                     {
-                    lv_value_2_0=(Token)match(input,32,FOLLOW_32_in_ruleTypeField3004); 
+                    lv_value_2_0=(Token)match(input,32,FOLLOW_32_in_ruleTypeField3003); 
 
                             newLeafNode(lv_value_2_0, grammarAccess.getTypeFieldAccess().getValueUsedTypesKeyword_2_0());
                         
@@ -4581,7 +4570,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1474:1: (lv_value_3_0= 'UsedTypesInTry' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1475:3: lv_value_3_0= 'UsedTypesInTry'
                     {
-                    lv_value_3_0=(Token)match(input,33,FOLLOW_33_in_ruleTypeField3041); 
+                    lv_value_3_0=(Token)match(input,33,FOLLOW_33_in_ruleTypeField3040); 
 
                             newLeafNode(lv_value_3_0, grammarAccess.getTypeFieldAccess().getValueUsedTypesInTryKeyword_3_0());
                         
@@ -4609,7 +4598,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1490:1: (lv_value_4_0= 'UsedTypesInFinally' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1491:3: lv_value_4_0= 'UsedTypesInFinally'
                     {
-                    lv_value_4_0=(Token)match(input,34,FOLLOW_34_in_ruleTypeField3078); 
+                    lv_value_4_0=(Token)match(input,34,FOLLOW_34_in_ruleTypeField3077); 
 
                             newLeafNode(lv_value_4_0, grammarAccess.getTypeFieldAccess().getValueUsedTypesInFinallyKeyword_4_0());
                         
@@ -4637,7 +4626,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1506:1: (lv_value_5_0= 'ParameterTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1507:3: lv_value_5_0= 'ParameterTypes'
                     {
-                    lv_value_5_0=(Token)match(input,35,FOLLOW_35_in_ruleTypeField3115); 
+                    lv_value_5_0=(Token)match(input,35,FOLLOW_35_in_ruleTypeField3114); 
 
                             newLeafNode(lv_value_5_0, grammarAccess.getTypeFieldAccess().getValueParameterTypesKeyword_5_0());
                         
@@ -4665,7 +4654,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1522:1: (lv_value_6_0= 'ReturnType' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1523:3: lv_value_6_0= 'ReturnType'
                     {
-                    lv_value_6_0=(Token)match(input,36,FOLLOW_36_in_ruleTypeField3152); 
+                    lv_value_6_0=(Token)match(input,36,FOLLOW_36_in_ruleTypeField3151); 
 
                             newLeafNode(lv_value_6_0, grammarAccess.getTypeFieldAccess().getValueReturnTypeKeyword_6_0());
                         
@@ -4693,7 +4682,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1538:1: (lv_value_7_0= 'InstanceofTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1539:3: lv_value_7_0= 'InstanceofTypes'
                     {
-                    lv_value_7_0=(Token)match(input,37,FOLLOW_37_in_ruleTypeField3189); 
+                    lv_value_7_0=(Token)match(input,37,FOLLOW_37_in_ruleTypeField3188); 
 
                             newLeafNode(lv_value_7_0, grammarAccess.getTypeFieldAccess().getValueInstanceofTypesKeyword_7_0());
                         
@@ -4721,7 +4710,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1554:1: (lv_value_8_0= 'AllImplementedTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1555:3: lv_value_8_0= 'AllImplementedTypes'
                     {
-                    lv_value_8_0=(Token)match(input,38,FOLLOW_38_in_ruleTypeField3226); 
+                    lv_value_8_0=(Token)match(input,38,FOLLOW_38_in_ruleTypeField3225); 
 
                             newLeafNode(lv_value_8_0, grammarAccess.getTypeFieldAccess().getValueAllImplementedTypesKeyword_8_0());
                         
@@ -4749,7 +4738,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1570:1: (lv_value_9_0= 'AllExtendedTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1571:3: lv_value_9_0= 'AllExtendedTypes'
                     {
-                    lv_value_9_0=(Token)match(input,39,FOLLOW_39_in_ruleTypeField3263); 
+                    lv_value_9_0=(Token)match(input,39,FOLLOW_39_in_ruleTypeField3262); 
 
                             newLeafNode(lv_value_9_0, grammarAccess.getTypeFieldAccess().getValueAllExtendedTypesKeyword_9_0());
                         
@@ -4777,7 +4766,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1586:1: (lv_value_10_0= 'FieldType' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1587:3: lv_value_10_0= 'FieldType'
                     {
-                    lv_value_10_0=(Token)match(input,40,FOLLOW_40_in_ruleTypeField3300); 
+                    lv_value_10_0=(Token)match(input,40,FOLLOW_40_in_ruleTypeField3299); 
 
                             newLeafNode(lv_value_10_0, grammarAccess.getTypeFieldAccess().getValueFieldTypeKeyword_10_0());
                         
@@ -4805,7 +4794,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1602:1: (lv_value_11_0= 'CaughtType' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1603:3: lv_value_11_0= 'CaughtType'
                     {
-                    lv_value_11_0=(Token)match(input,41,FOLLOW_41_in_ruleTypeField3337); 
+                    lv_value_11_0=(Token)match(input,41,FOLLOW_41_in_ruleTypeField3336); 
 
                             newLeafNode(lv_value_11_0, grammarAccess.getTypeFieldAccess().getValueCaughtTypeKeyword_11_0());
                         
@@ -4833,7 +4822,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1618:1: (lv_value_12_0= 'DeclaredFieldTypes' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1619:3: lv_value_12_0= 'DeclaredFieldTypes'
                     {
-                    lv_value_12_0=(Token)match(input,42,FOLLOW_42_in_ruleTypeField3374); 
+                    lv_value_12_0=(Token)match(input,42,FOLLOW_42_in_ruleTypeField3373); 
 
                             newLeafNode(lv_value_12_0, grammarAccess.getTypeFieldAccess().getValueDeclaredFieldTypesKeyword_12_0());
                         
@@ -4861,7 +4850,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1634:1: (lv_value_13_0= 'DeclaringType' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1635:3: lv_value_13_0= 'DeclaringType'
                     {
-                    lv_value_13_0=(Token)match(input,43,FOLLOW_43_in_ruleTypeField3411); 
+                    lv_value_13_0=(Token)match(input,43,FOLLOW_43_in_ruleTypeField3410); 
 
                             newLeafNode(lv_value_13_0, grammarAccess.getTypeFieldAccess().getValueDeclaringTypeKeyword_13_0());
                         
@@ -4889,7 +4878,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1650:1: (lv_value_14_0= 'VariableType' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1651:3: lv_value_14_0= 'VariableType'
                     {
-                    lv_value_14_0=(Token)match(input,44,FOLLOW_44_in_ruleTypeField3448); 
+                    lv_value_14_0=(Token)match(input,44,FOLLOW_44_in_ruleTypeField3447); 
 
                             newLeafNode(lv_value_14_0, grammarAccess.getTypeFieldAccess().getValueVariableTypeKeyword_14_0());
                         
@@ -4941,13 +4930,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1674:2: iv_ruleMethodField= ruleMethodField EOF
             {
              newCompositeNode(grammarAccess.getMethodFieldRule()); 
-            pushFollow(FOLLOW_ruleMethodField_in_entryRuleMethodField3497);
+            pushFollow(FOLLOW_ruleMethodField_in_entryRuleMethodField3496);
             iv_ruleMethodField=ruleMethodField();
 
             state._fsp--;
 
              current =iv_ruleMethodField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMethodField3507); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMethodField3506); 
 
             }
 
@@ -4985,56 +4974,56 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1685:1: ( ( (lv_value_0_0= 'UsedMethods' ) ) | ( (lv_value_1_0= 'UsedMethodsInTry' ) ) | ( (lv_value_2_0= 'UsedMethodsInFinally' ) ) | ( (lv_value_3_0= 'OverriddenMethods' ) ) | ( (lv_value_4_0= 'DeclaredMethods' ) ) | ( (lv_value_5_0= 'DeclaringMethod' ) ) | ( (lv_value_6_0= 'UsedAsParameterInMethods' ) ) | ( (lv_value_7_0= 'UsedAsTargetForMethods' ) ) )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1685:1: ( ( (lv_value_0_0= 'UsedMethods' ) ) | ( (lv_value_1_0= 'UsedMethodsInTry' ) ) | ( (lv_value_2_0= 'UsedMethodsInFinally' ) ) | ( (lv_value_3_0= 'OverriddenMethods' ) ) | ( (lv_value_4_0= 'DeclaredMethods' ) ) | ( (lv_value_5_0= 'DeclaringMethod' ) ) | ( (lv_value_6_0= 'UsedAsParameterInMethods' ) ) | ( (lv_value_7_0= 'UsedAsTargetForMethods' ) ) )
-            int alt67=8;
+            int alt66=8;
             switch ( input.LA(1) ) {
             case 45:
                 {
-                alt67=1;
+                alt66=1;
                 }
                 break;
             case 46:
                 {
-                alt67=2;
+                alt66=2;
                 }
                 break;
             case 47:
                 {
-                alt67=3;
+                alt66=3;
                 }
                 break;
             case 48:
                 {
-                alt67=4;
+                alt66=4;
                 }
                 break;
             case 49:
                 {
-                alt67=5;
+                alt66=5;
                 }
                 break;
             case 50:
                 {
-                alt67=6;
+                alt66=6;
                 }
                 break;
             case 51:
                 {
-                alt67=7;
+                alt66=7;
                 }
                 break;
             case 52:
                 {
-                alt67=8;
+                alt66=8;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 67, 0, input);
+                    new NoViableAltException("", 66, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt67) {
+            switch (alt66) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1685:2: ( (lv_value_0_0= 'UsedMethods' ) )
                     {
@@ -5044,7 +5033,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1686:1: (lv_value_0_0= 'UsedMethods' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1687:3: lv_value_0_0= 'UsedMethods'
                     {
-                    lv_value_0_0=(Token)match(input,45,FOLLOW_45_in_ruleMethodField3550); 
+                    lv_value_0_0=(Token)match(input,45,FOLLOW_45_in_ruleMethodField3549); 
 
                             newLeafNode(lv_value_0_0, grammarAccess.getMethodFieldAccess().getValueUsedMethodsKeyword_0_0());
                         
@@ -5072,7 +5061,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1702:1: (lv_value_1_0= 'UsedMethodsInTry' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1703:3: lv_value_1_0= 'UsedMethodsInTry'
                     {
-                    lv_value_1_0=(Token)match(input,46,FOLLOW_46_in_ruleMethodField3587); 
+                    lv_value_1_0=(Token)match(input,46,FOLLOW_46_in_ruleMethodField3586); 
 
                             newLeafNode(lv_value_1_0, grammarAccess.getMethodFieldAccess().getValueUsedMethodsInTryKeyword_1_0());
                         
@@ -5100,7 +5089,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1718:1: (lv_value_2_0= 'UsedMethodsInFinally' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1719:3: lv_value_2_0= 'UsedMethodsInFinally'
                     {
-                    lv_value_2_0=(Token)match(input,47,FOLLOW_47_in_ruleMethodField3624); 
+                    lv_value_2_0=(Token)match(input,47,FOLLOW_47_in_ruleMethodField3623); 
 
                             newLeafNode(lv_value_2_0, grammarAccess.getMethodFieldAccess().getValueUsedMethodsInFinallyKeyword_2_0());
                         
@@ -5128,7 +5117,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1734:1: (lv_value_3_0= 'OverriddenMethods' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1735:3: lv_value_3_0= 'OverriddenMethods'
                     {
-                    lv_value_3_0=(Token)match(input,48,FOLLOW_48_in_ruleMethodField3661); 
+                    lv_value_3_0=(Token)match(input,48,FOLLOW_48_in_ruleMethodField3660); 
 
                             newLeafNode(lv_value_3_0, grammarAccess.getMethodFieldAccess().getValueOverriddenMethodsKeyword_3_0());
                         
@@ -5156,7 +5145,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1750:1: (lv_value_4_0= 'DeclaredMethods' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1751:3: lv_value_4_0= 'DeclaredMethods'
                     {
-                    lv_value_4_0=(Token)match(input,49,FOLLOW_49_in_ruleMethodField3698); 
+                    lv_value_4_0=(Token)match(input,49,FOLLOW_49_in_ruleMethodField3697); 
 
                             newLeafNode(lv_value_4_0, grammarAccess.getMethodFieldAccess().getValueDeclaredMethodsKeyword_4_0());
                         
@@ -5184,7 +5173,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1766:1: (lv_value_5_0= 'DeclaringMethod' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1767:3: lv_value_5_0= 'DeclaringMethod'
                     {
-                    lv_value_5_0=(Token)match(input,50,FOLLOW_50_in_ruleMethodField3735); 
+                    lv_value_5_0=(Token)match(input,50,FOLLOW_50_in_ruleMethodField3734); 
 
                             newLeafNode(lv_value_5_0, grammarAccess.getMethodFieldAccess().getValueDeclaringMethodKeyword_5_0());
                         
@@ -5212,7 +5201,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1782:1: (lv_value_6_0= 'UsedAsParameterInMethods' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1783:3: lv_value_6_0= 'UsedAsParameterInMethods'
                     {
-                    lv_value_6_0=(Token)match(input,51,FOLLOW_51_in_ruleMethodField3772); 
+                    lv_value_6_0=(Token)match(input,51,FOLLOW_51_in_ruleMethodField3771); 
 
                             newLeafNode(lv_value_6_0, grammarAccess.getMethodFieldAccess().getValueUsedAsParameterInMethodsKeyword_6_0());
                         
@@ -5240,7 +5229,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1798:1: (lv_value_7_0= 'UsedAsTargetForMethods' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1799:3: lv_value_7_0= 'UsedAsTargetForMethods'
                     {
-                    lv_value_7_0=(Token)match(input,52,FOLLOW_52_in_ruleMethodField3809); 
+                    lv_value_7_0=(Token)match(input,52,FOLLOW_52_in_ruleMethodField3808); 
 
                             newLeafNode(lv_value_7_0, grammarAccess.getMethodFieldAccess().getValueUsedAsTargetForMethodsKeyword_7_0());
                         
@@ -5292,13 +5281,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1822:2: iv_ruleFilePathField= ruleFilePathField EOF
             {
              newCompositeNode(grammarAccess.getFilePathFieldRule()); 
-            pushFollow(FOLLOW_ruleFilePathField_in_entryRuleFilePathField3858);
+            pushFollow(FOLLOW_ruleFilePathField_in_entryRuleFilePathField3857);
             iv_ruleFilePathField=ruleFilePathField();
 
             state._fsp--;
 
              current =iv_ruleFilePathField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFilePathField3868); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFilePathField3867); 
 
             }
 
@@ -5334,7 +5323,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1834:1: (lv_value_0_0= 'ResourcePath' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1835:3: lv_value_0_0= 'ResourcePath'
             {
-            lv_value_0_0=(Token)match(input,53,FOLLOW_53_in_ruleFilePathField3910); 
+            lv_value_0_0=(Token)match(input,53,FOLLOW_53_in_ruleFilePathField3909); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getFilePathFieldAccess().getValueResourcePathKeyword_0());
                 
@@ -5380,13 +5369,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1858:2: iv_ruleNumberField= ruleNumberField EOF
             {
              newCompositeNode(grammarAccess.getNumberFieldRule()); 
-            pushFollow(FOLLOW_ruleNumberField_in_entryRuleNumberField3958);
+            pushFollow(FOLLOW_ruleNumberField_in_entryRuleNumberField3957);
             iv_ruleNumberField=ruleNumberField();
 
             state._fsp--;
 
              current =iv_ruleNumberField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberField3968); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberField3967); 
 
             }
 
@@ -5422,7 +5411,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1870:1: (lv_value_0_0= 'ParameterCount' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1871:3: lv_value_0_0= 'ParameterCount'
             {
-            lv_value_0_0=(Token)match(input,54,FOLLOW_54_in_ruleNumberField4010); 
+            lv_value_0_0=(Token)match(input,54,FOLLOW_54_in_ruleNumberField4009); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getNumberFieldAccess().getValueParameterCountKeyword_0());
                 
@@ -5468,13 +5457,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1894:2: iv_ruleModifierField= ruleModifierField EOF
             {
              newCompositeNode(grammarAccess.getModifierFieldRule()); 
-            pushFollow(FOLLOW_ruleModifierField_in_entryRuleModifierField4058);
+            pushFollow(FOLLOW_ruleModifierField_in_entryRuleModifierField4057);
             iv_ruleModifierField=ruleModifierField();
 
             state._fsp--;
 
              current =iv_ruleModifierField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModifierField4068); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModifierField4067); 
 
             }
 
@@ -5510,7 +5499,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1906:1: (lv_value_0_0= 'Modifiers' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1907:3: lv_value_0_0= 'Modifiers'
             {
-            lv_value_0_0=(Token)match(input,55,FOLLOW_55_in_ruleModifierField4110); 
+            lv_value_0_0=(Token)match(input,55,FOLLOW_55_in_ruleModifierField4109); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getModifierFieldAccess().getValueModifiersKeyword_0());
                 
@@ -5556,13 +5545,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1930:2: iv_ruleTimeField= ruleTimeField EOF
             {
              newCompositeNode(grammarAccess.getTimeFieldRule()); 
-            pushFollow(FOLLOW_ruleTimeField_in_entryRuleTimeField4158);
+            pushFollow(FOLLOW_ruleTimeField_in_entryRuleTimeField4157);
             iv_ruleTimeField=ruleTimeField();
 
             state._fsp--;
 
              current =iv_ruleTimeField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTimeField4168); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTimeField4167); 
 
             }
 
@@ -5598,7 +5587,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1942:1: (lv_value_0_0= 'Timestamp' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1943:3: lv_value_0_0= 'Timestamp'
             {
-            lv_value_0_0=(Token)match(input,56,FOLLOW_56_in_ruleTimeField4210); 
+            lv_value_0_0=(Token)match(input,56,FOLLOW_56_in_ruleTimeField4209); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getTimeFieldAccess().getValueTimestampKeyword_0());
                 
@@ -5644,13 +5633,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1966:2: iv_ruleDocumentTypeField= ruleDocumentTypeField EOF
             {
              newCompositeNode(grammarAccess.getDocumentTypeFieldRule()); 
-            pushFollow(FOLLOW_ruleDocumentTypeField_in_entryRuleDocumentTypeField4258);
+            pushFollow(FOLLOW_ruleDocumentTypeField_in_entryRuleDocumentTypeField4257);
             iv_ruleDocumentTypeField=ruleDocumentTypeField();
 
             state._fsp--;
 
              current =iv_ruleDocumentTypeField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDocumentTypeField4268); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDocumentTypeField4267); 
 
             }
 
@@ -5686,7 +5675,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1978:1: (lv_value_0_0= 'Type' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1979:3: lv_value_0_0= 'Type'
             {
-            lv_value_0_0=(Token)match(input,57,FOLLOW_57_in_ruleDocumentTypeField4310); 
+            lv_value_0_0=(Token)match(input,57,FOLLOW_57_in_ruleDocumentTypeField4309); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getDocumentTypeFieldAccess().getValueTypeKeyword_0());
                 
@@ -5732,13 +5721,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2002:2: iv_ruleProjectNameField= ruleProjectNameField EOF
             {
              newCompositeNode(grammarAccess.getProjectNameFieldRule()); 
-            pushFollow(FOLLOW_ruleProjectNameField_in_entryRuleProjectNameField4358);
+            pushFollow(FOLLOW_ruleProjectNameField_in_entryRuleProjectNameField4357);
             iv_ruleProjectNameField=ruleProjectNameField();
 
             state._fsp--;
 
              current =iv_ruleProjectNameField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleProjectNameField4368); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleProjectNameField4367); 
 
             }
 
@@ -5774,7 +5763,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2014:1: (lv_value_0_0= 'ProjectName' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2015:3: lv_value_0_0= 'ProjectName'
             {
-            lv_value_0_0=(Token)match(input,58,FOLLOW_58_in_ruleProjectNameField4410); 
+            lv_value_0_0=(Token)match(input,58,FOLLOW_58_in_ruleProjectNameField4409); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getProjectNameFieldAccess().getValueProjectNameKeyword_0());
                 
@@ -5820,13 +5809,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2038:2: iv_ruleAnnotationField= ruleAnnotationField EOF
             {
              newCompositeNode(grammarAccess.getAnnotationFieldRule()); 
-            pushFollow(FOLLOW_ruleAnnotationField_in_entryRuleAnnotationField4458);
+            pushFollow(FOLLOW_ruleAnnotationField_in_entryRuleAnnotationField4457);
             iv_ruleAnnotationField=ruleAnnotationField();
 
             state._fsp--;
 
              current =iv_ruleAnnotationField; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotationField4468); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotationField4467); 
 
             }
 
@@ -5862,7 +5851,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2050:1: (lv_value_0_0= 'Annotations' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2051:3: lv_value_0_0= 'Annotations'
             {
-            lv_value_0_0=(Token)match(input,59,FOLLOW_59_in_ruleAnnotationField4510); 
+            lv_value_0_0=(Token)match(input,59,FOLLOW_59_in_ruleAnnotationField4509); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getAnnotationFieldAccess().getValueAnnotationsKeyword_0());
                 
@@ -5908,13 +5897,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2074:2: iv_ruleDefinitionType= ruleDefinitionType EOF
             {
              newCompositeNode(grammarAccess.getDefinitionTypeRule()); 
-            pushFollow(FOLLOW_ruleDefinitionType_in_entryRuleDefinitionType4558);
+            pushFollow(FOLLOW_ruleDefinitionType_in_entryRuleDefinitionType4557);
             iv_ruleDefinitionType=ruleDefinitionType();
 
             state._fsp--;
 
              current =iv_ruleDefinitionType; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefinitionType4568); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDefinitionType4567); 
 
             }
 
@@ -5950,7 +5939,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2086:1: (lv_value_0_0= 'VariableDefinition' )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2087:3: lv_value_0_0= 'VariableDefinition'
             {
-            lv_value_0_0=(Token)match(input,60,FOLLOW_60_in_ruleDefinitionType4610); 
+            lv_value_0_0=(Token)match(input,60,FOLLOW_60_in_ruleDefinitionType4609); 
 
                     newLeafNode(lv_value_0_0, grammarAccess.getDefinitionTypeAccess().getValueVariableDefinitionKeyword_0());
                 
@@ -5996,13 +5985,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2110:2: iv_ruleSimpleFieldValue= ruleSimpleFieldValue EOF
             {
              newCompositeNode(grammarAccess.getSimpleFieldValueRule()); 
-            pushFollow(FOLLOW_ruleSimpleFieldValue_in_entryRuleSimpleFieldValue4659);
+            pushFollow(FOLLOW_ruleSimpleFieldValue_in_entryRuleSimpleFieldValue4658);
             iv_ruleSimpleFieldValue=ruleSimpleFieldValue();
 
             state._fsp--;
 
              current =iv_ruleSimpleFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleFieldValue4670); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleFieldValue4669); 
 
             }
 
@@ -6032,7 +6021,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2120:28: (this_NameWithWC_0= RULE_NAMEWITHWC )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2121:5: this_NameWithWC_0= RULE_NAMEWITHWC
             {
-            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleSimpleFieldValue4709); 
+            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleSimpleFieldValue4708); 
 
             		current.merge(this_NameWithWC_0);
                 
@@ -6069,13 +6058,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2138:2: iv_ruleMethodFieldValue= ruleMethodFieldValue EOF
             {
              newCompositeNode(grammarAccess.getMethodFieldValueRule()); 
-            pushFollow(FOLLOW_ruleMethodFieldValue_in_entryRuleMethodFieldValue4754);
+            pushFollow(FOLLOW_ruleMethodFieldValue_in_entryRuleMethodFieldValue4753);
             iv_ruleMethodFieldValue=ruleMethodFieldValue();
 
             state._fsp--;
 
              current =iv_ruleMethodFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMethodFieldValue4765); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMethodFieldValue4764); 
 
             }
 
@@ -6105,7 +6094,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2148:28: (this_NameWithWC_0= RULE_NAMEWITHWC )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2149:5: this_NameWithWC_0= RULE_NAMEWITHWC
             {
-            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleMethodFieldValue4804); 
+            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleMethodFieldValue4803); 
 
             		current.merge(this_NameWithWC_0);
                 
@@ -6142,13 +6131,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2166:2: iv_ruleProjectNameFieldValue= ruleProjectNameFieldValue EOF
             {
              newCompositeNode(grammarAccess.getProjectNameFieldValueRule()); 
-            pushFollow(FOLLOW_ruleProjectNameFieldValue_in_entryRuleProjectNameFieldValue4849);
+            pushFollow(FOLLOW_ruleProjectNameFieldValue_in_entryRuleProjectNameFieldValue4848);
             iv_ruleProjectNameFieldValue=ruleProjectNameFieldValue();
 
             state._fsp--;
 
              current =iv_ruleProjectNameFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleProjectNameFieldValue4860); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleProjectNameFieldValue4859); 
 
             }
 
@@ -6178,7 +6167,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2176:28: (this_NameWithWC_0= RULE_NAMEWITHWC )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2177:5: this_NameWithWC_0= RULE_NAMEWITHWC
             {
-            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleProjectNameFieldValue4899); 
+            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleProjectNameFieldValue4898); 
 
             		current.merge(this_NameWithWC_0);
                 
@@ -6215,13 +6204,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2194:2: iv_ruleNumberFieldValue= ruleNumberFieldValue EOF
             {
              newCompositeNode(grammarAccess.getNumberFieldValueRule()); 
-            pushFollow(FOLLOW_ruleNumberFieldValue_in_entryRuleNumberFieldValue4944);
+            pushFollow(FOLLOW_ruleNumberFieldValue_in_entryRuleNumberFieldValue4943);
             iv_ruleNumberFieldValue=ruleNumberFieldValue();
 
             state._fsp--;
 
              current =iv_ruleNumberFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberFieldValue4955); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNumberFieldValue4954); 
 
             }
 
@@ -6251,7 +6240,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2204:28: (this_INT_0= RULE_INT )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2205:5: this_INT_0= RULE_INT
             {
-            this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleNumberFieldValue4994); 
+            this_INT_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleNumberFieldValue4993); 
 
             		current.merge(this_INT_0);
                 
@@ -6288,13 +6277,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2222:2: iv_ruleModifierFieldValue= ruleModifierFieldValue EOF
             {
              newCompositeNode(grammarAccess.getModifierFieldValueRule()); 
-            pushFollow(FOLLOW_ruleModifierFieldValue_in_entryRuleModifierFieldValue5039);
+            pushFollow(FOLLOW_ruleModifierFieldValue_in_entryRuleModifierFieldValue5038);
             iv_ruleModifierFieldValue=ruleModifierFieldValue();
 
             state._fsp--;
 
              current =iv_ruleModifierFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleModifierFieldValue5050); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleModifierFieldValue5049); 
 
             }
 
@@ -6325,50 +6314,50 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2233:1: (kw= 'private' | kw= 'public' | kw= 'static' | kw= 'final' | kw= 'abstract' | kw= 'protected' )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2233:1: (kw= 'private' | kw= 'public' | kw= 'static' | kw= 'final' | kw= 'abstract' | kw= 'protected' )
-            int alt68=6;
+            int alt67=6;
             switch ( input.LA(1) ) {
             case 61:
                 {
-                alt68=1;
+                alt67=1;
                 }
                 break;
             case 62:
                 {
-                alt68=2;
+                alt67=2;
                 }
                 break;
             case 63:
                 {
-                alt68=3;
+                alt67=3;
                 }
                 break;
             case 64:
                 {
-                alt68=4;
+                alt67=4;
                 }
                 break;
             case 65:
                 {
-                alt68=5;
+                alt67=5;
                 }
                 break;
             case 66:
                 {
-                alt68=6;
+                alt67=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 68, 0, input);
+                    new NoViableAltException("", 67, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt68) {
+            switch (alt67) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2234:2: kw= 'private'
                     {
-                    kw=(Token)match(input,61,FOLLOW_61_in_ruleModifierFieldValue5088); 
+                    kw=(Token)match(input,61,FOLLOW_61_in_ruleModifierFieldValue5087); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getModifierFieldValueAccess().getPrivateKeyword_0()); 
@@ -6379,7 +6368,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2241:2: kw= 'public'
                     {
-                    kw=(Token)match(input,62,FOLLOW_62_in_ruleModifierFieldValue5107); 
+                    kw=(Token)match(input,62,FOLLOW_62_in_ruleModifierFieldValue5106); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getModifierFieldValueAccess().getPublicKeyword_1()); 
@@ -6390,7 +6379,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2248:2: kw= 'static'
                     {
-                    kw=(Token)match(input,63,FOLLOW_63_in_ruleModifierFieldValue5126); 
+                    kw=(Token)match(input,63,FOLLOW_63_in_ruleModifierFieldValue5125); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getModifierFieldValueAccess().getStaticKeyword_2()); 
@@ -6401,7 +6390,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2255:2: kw= 'final'
                     {
-                    kw=(Token)match(input,64,FOLLOW_64_in_ruleModifierFieldValue5145); 
+                    kw=(Token)match(input,64,FOLLOW_64_in_ruleModifierFieldValue5144); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getModifierFieldValueAccess().getFinalKeyword_3()); 
@@ -6412,7 +6401,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2262:2: kw= 'abstract'
                     {
-                    kw=(Token)match(input,65,FOLLOW_65_in_ruleModifierFieldValue5164); 
+                    kw=(Token)match(input,65,FOLLOW_65_in_ruleModifierFieldValue5163); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getModifierFieldValueAccess().getAbstractKeyword_4()); 
@@ -6423,7 +6412,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 6 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2269:2: kw= 'protected'
                     {
-                    kw=(Token)match(input,66,FOLLOW_66_in_ruleModifierFieldValue5183); 
+                    kw=(Token)match(input,66,FOLLOW_66_in_ruleModifierFieldValue5182); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getModifierFieldValueAccess().getProtectedKeyword_5()); 
@@ -6464,13 +6453,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2284:2: iv_ruleTimeFieldValue= ruleTimeFieldValue EOF
             {
              newCompositeNode(grammarAccess.getTimeFieldValueRule()); 
-            pushFollow(FOLLOW_ruleTimeFieldValue_in_entryRuleTimeFieldValue5224);
+            pushFollow(FOLLOW_ruleTimeFieldValue_in_entryRuleTimeFieldValue5223);
             iv_ruleTimeFieldValue=ruleTimeFieldValue();
 
             state._fsp--;
 
              current =iv_ruleTimeFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTimeFieldValue5235); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTimeFieldValue5234); 
 
             }
 
@@ -6500,7 +6489,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2294:28: (this_NameWithWC_0= RULE_NAMEWITHWC )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2295:5: this_NameWithWC_0= RULE_NAMEWITHWC
             {
-            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleTimeFieldValue5274); 
+            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleTimeFieldValue5273); 
 
             		current.merge(this_NameWithWC_0);
                 
@@ -6537,13 +6526,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2312:2: iv_ruleDocumentTypeFieldValue= ruleDocumentTypeFieldValue EOF
             {
              newCompositeNode(grammarAccess.getDocumentTypeFieldValueRule()); 
-            pushFollow(FOLLOW_ruleDocumentTypeFieldValue_in_entryRuleDocumentTypeFieldValue5319);
+            pushFollow(FOLLOW_ruleDocumentTypeFieldValue_in_entryRuleDocumentTypeFieldValue5318);
             iv_ruleDocumentTypeFieldValue=ruleDocumentTypeFieldValue();
 
             state._fsp--;
 
              current =iv_ruleDocumentTypeFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDocumentTypeFieldValue5330); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDocumentTypeFieldValue5329); 
 
             }
 
@@ -6574,45 +6563,45 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2323:1: (kw= 'class' | kw= 'method' | kw= 'field' | kw= 'trycatch' | kw= 'varusage' )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2323:1: (kw= 'class' | kw= 'method' | kw= 'field' | kw= 'trycatch' | kw= 'varusage' )
-            int alt69=5;
+            int alt68=5;
             switch ( input.LA(1) ) {
             case 67:
                 {
-                alt69=1;
+                alt68=1;
                 }
                 break;
             case 68:
                 {
-                alt69=2;
+                alt68=2;
                 }
                 break;
             case 69:
                 {
-                alt69=3;
+                alt68=3;
                 }
                 break;
             case 70:
                 {
-                alt69=4;
+                alt68=4;
                 }
                 break;
             case 71:
                 {
-                alt69=5;
+                alt68=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 69, 0, input);
+                    new NoViableAltException("", 68, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt69) {
+            switch (alt68) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2324:2: kw= 'class'
                     {
-                    kw=(Token)match(input,67,FOLLOW_67_in_ruleDocumentTypeFieldValue5368); 
+                    kw=(Token)match(input,67,FOLLOW_67_in_ruleDocumentTypeFieldValue5367); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getClassKeyword_0()); 
@@ -6623,7 +6612,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2331:2: kw= 'method'
                     {
-                    kw=(Token)match(input,68,FOLLOW_68_in_ruleDocumentTypeFieldValue5387); 
+                    kw=(Token)match(input,68,FOLLOW_68_in_ruleDocumentTypeFieldValue5386); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getMethodKeyword_1()); 
@@ -6634,7 +6623,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2338:2: kw= 'field'
                     {
-                    kw=(Token)match(input,69,FOLLOW_69_in_ruleDocumentTypeFieldValue5406); 
+                    kw=(Token)match(input,69,FOLLOW_69_in_ruleDocumentTypeFieldValue5405); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getFieldKeyword_2()); 
@@ -6645,7 +6634,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2345:2: kw= 'trycatch'
                     {
-                    kw=(Token)match(input,70,FOLLOW_70_in_ruleDocumentTypeFieldValue5425); 
+                    kw=(Token)match(input,70,FOLLOW_70_in_ruleDocumentTypeFieldValue5424); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getTrycatchKeyword_3()); 
@@ -6656,7 +6645,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2352:2: kw= 'varusage'
                     {
-                    kw=(Token)match(input,71,FOLLOW_71_in_ruleDocumentTypeFieldValue5444); 
+                    kw=(Token)match(input,71,FOLLOW_71_in_ruleDocumentTypeFieldValue5443); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getVarusageKeyword_4()); 
@@ -6697,13 +6686,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2367:2: iv_ruleAnnotationFieldValue= ruleAnnotationFieldValue EOF
             {
              newCompositeNode(grammarAccess.getAnnotationFieldValueRule()); 
-            pushFollow(FOLLOW_ruleAnnotationFieldValue_in_entryRuleAnnotationFieldValue5485);
+            pushFollow(FOLLOW_ruleAnnotationFieldValue_in_entryRuleAnnotationFieldValue5484);
             iv_ruleAnnotationFieldValue=ruleAnnotationFieldValue();
 
             state._fsp--;
 
              current =iv_ruleAnnotationFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotationFieldValue5496); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAnnotationFieldValue5495); 
 
             }
 
@@ -6733,7 +6722,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2377:28: (this_NameWithWC_0= RULE_NAMEWITHWC )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2378:5: this_NameWithWC_0= RULE_NAMEWITHWC
             {
-            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleAnnotationFieldValue5535); 
+            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleAnnotationFieldValue5534); 
 
             		current.merge(this_NameWithWC_0);
                 
@@ -6770,13 +6759,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2395:2: iv_ruleTypeFieldValue= ruleTypeFieldValue EOF
             {
              newCompositeNode(grammarAccess.getTypeFieldValueRule()); 
-            pushFollow(FOLLOW_ruleTypeFieldValue_in_entryRuleTypeFieldValue5580);
+            pushFollow(FOLLOW_ruleTypeFieldValue_in_entryRuleTypeFieldValue5579);
             iv_ruleTypeFieldValue=ruleTypeFieldValue();
 
             state._fsp--;
 
              current =iv_ruleTypeFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeFieldValue5591); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeFieldValue5590); 
 
             }
 
@@ -6806,7 +6795,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2405:28: (this_NameWithWC_0= RULE_NAMEWITHWC )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2406:5: this_NameWithWC_0= RULE_NAMEWITHWC
             {
-            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue5630); 
+            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue5629); 
 
             		current.merge(this_NameWithWC_0);
                 
@@ -6843,13 +6832,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2423:2: iv_ruleDefinitionTypeValue= ruleDefinitionTypeValue EOF
             {
              newCompositeNode(grammarAccess.getDefinitionTypeValueRule()); 
-            pushFollow(FOLLOW_ruleDefinitionTypeValue_in_entryRuleDefinitionTypeValue5675);
+            pushFollow(FOLLOW_ruleDefinitionTypeValue_in_entryRuleDefinitionTypeValue5674);
             iv_ruleDefinitionTypeValue=ruleDefinitionTypeValue();
 
             state._fsp--;
 
              current =iv_ruleDefinitionTypeValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefinitionTypeValue5686); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDefinitionTypeValue5685); 
 
             }
 
@@ -6880,45 +6869,45 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2434:1: (kw= 'parameter' | kw= 'nullLiteral' | kw= 'methodInvocation' | kw= 'instanceCreation' | kw= 'uninitialized' )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2434:1: (kw= 'parameter' | kw= 'nullLiteral' | kw= 'methodInvocation' | kw= 'instanceCreation' | kw= 'uninitialized' )
-            int alt70=5;
+            int alt69=5;
             switch ( input.LA(1) ) {
             case 72:
                 {
-                alt70=1;
+                alt69=1;
                 }
                 break;
             case 73:
                 {
-                alt70=2;
+                alt69=2;
                 }
                 break;
             case 74:
                 {
-                alt70=3;
+                alt69=3;
                 }
                 break;
             case 75:
                 {
-                alt70=4;
+                alt69=4;
                 }
                 break;
             case 76:
                 {
-                alt70=5;
+                alt69=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 70, 0, input);
+                    new NoViableAltException("", 69, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt70) {
+            switch (alt69) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2435:2: kw= 'parameter'
                     {
-                    kw=(Token)match(input,72,FOLLOW_72_in_ruleDefinitionTypeValue5724); 
+                    kw=(Token)match(input,72,FOLLOW_72_in_ruleDefinitionTypeValue5723); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getParameterKeyword_0()); 
@@ -6929,7 +6918,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2442:2: kw= 'nullLiteral'
                     {
-                    kw=(Token)match(input,73,FOLLOW_73_in_ruleDefinitionTypeValue5743); 
+                    kw=(Token)match(input,73,FOLLOW_73_in_ruleDefinitionTypeValue5742); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getNullLiteralKeyword_1()); 
@@ -6940,7 +6929,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2449:2: kw= 'methodInvocation'
                     {
-                    kw=(Token)match(input,74,FOLLOW_74_in_ruleDefinitionTypeValue5762); 
+                    kw=(Token)match(input,74,FOLLOW_74_in_ruleDefinitionTypeValue5761); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getMethodInvocationKeyword_2()); 
@@ -6951,7 +6940,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2456:2: kw= 'instanceCreation'
                     {
-                    kw=(Token)match(input,75,FOLLOW_75_in_ruleDefinitionTypeValue5781); 
+                    kw=(Token)match(input,75,FOLLOW_75_in_ruleDefinitionTypeValue5780); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getInstanceCreationKeyword_3()); 
@@ -6962,7 +6951,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2463:2: kw= 'uninitialized'
                     {
-                    kw=(Token)match(input,76,FOLLOW_76_in_ruleDefinitionTypeValue5800); 
+                    kw=(Token)match(input,76,FOLLOW_76_in_ruleDefinitionTypeValue5799); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getDefinitionTypeValueAccess().getUninitializedKeyword_4()); 
@@ -7003,13 +6992,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2478:2: iv_ruleUnaryExpression= ruleUnaryExpression EOF
             {
              newCompositeNode(grammarAccess.getUnaryExpressionRule()); 
-            pushFollow(FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression5841);
+            pushFollow(FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression5840);
             iv_ruleUnaryExpression=ruleUnaryExpression();
 
             state._fsp--;
 
              current =iv_ruleUnaryExpression.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryExpression5852); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUnaryExpression5851); 
 
             }
 
@@ -7040,40 +7029,40 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2489:1: (kw= '-' | kw= 'NOT' | kw= '!' | kw= '+' )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2489:1: (kw= '-' | kw= 'NOT' | kw= '!' | kw= '+' )
-            int alt71=4;
+            int alt70=4;
             switch ( input.LA(1) ) {
             case 77:
                 {
-                alt71=1;
+                alt70=1;
                 }
                 break;
             case 78:
                 {
-                alt71=2;
+                alt70=2;
                 }
                 break;
             case 79:
                 {
-                alt71=3;
+                alt70=3;
                 }
                 break;
             case 80:
                 {
-                alt71=4;
+                alt70=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 71, 0, input);
+                    new NoViableAltException("", 70, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt71) {
+            switch (alt70) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2490:2: kw= '-'
                     {
-                    kw=(Token)match(input,77,FOLLOW_77_in_ruleUnaryExpression5890); 
+                    kw=(Token)match(input,77,FOLLOW_77_in_ruleUnaryExpression5889); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getUnaryExpressionAccess().getHyphenMinusKeyword_0()); 
@@ -7084,7 +7073,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2497:2: kw= 'NOT'
                     {
-                    kw=(Token)match(input,78,FOLLOW_78_in_ruleUnaryExpression5909); 
+                    kw=(Token)match(input,78,FOLLOW_78_in_ruleUnaryExpression5908); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getUnaryExpressionAccess().getNOTKeyword_1()); 
@@ -7095,7 +7084,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2504:2: kw= '!'
                     {
-                    kw=(Token)match(input,79,FOLLOW_79_in_ruleUnaryExpression5928); 
+                    kw=(Token)match(input,79,FOLLOW_79_in_ruleUnaryExpression5927); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getUnaryExpressionAccess().getExclamationMarkKeyword_2()); 
@@ -7106,7 +7095,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2511:2: kw= '+'
                     {
-                    kw=(Token)match(input,80,FOLLOW_80_in_ruleUnaryExpression5947); 
+                    kw=(Token)match(input,80,FOLLOW_80_in_ruleUnaryExpression5946); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getUnaryExpressionAccess().getPlusSignKeyword_3()); 
@@ -7147,13 +7136,13 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2526:2: iv_ruleFilePathFieldValue= ruleFilePathFieldValue EOF
             {
              newCompositeNode(grammarAccess.getFilePathFieldValueRule()); 
-            pushFollow(FOLLOW_ruleFilePathFieldValue_in_entryRuleFilePathFieldValue5988);
+            pushFollow(FOLLOW_ruleFilePathFieldValue_in_entryRuleFilePathFieldValue5987);
             iv_ruleFilePathFieldValue=ruleFilePathFieldValue();
 
             state._fsp--;
 
              current =iv_ruleFilePathFieldValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleFilePathFieldValue5999); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleFilePathFieldValue5998); 
 
             }
 
@@ -7183,7 +7172,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2536:28: (this_PathWithWC_0= RULE_PATHWITHWC )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2537:5: this_PathWithWC_0= RULE_PATHWITHWC
             {
-            this_PathWithWC_0=(Token)match(input,RULE_PATHWITHWC,FOLLOW_RULE_PATHWITHWC_in_ruleFilePathFieldValue6038); 
+            this_PathWithWC_0=(Token)match(input,RULE_PATHWITHWC,FOLLOW_RULE_PATHWITHWC_in_ruleFilePathFieldValue6037); 
 
             		current.merge(this_PathWithWC_0);
                 
@@ -7222,38 +7211,38 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2555:1: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) | (enumLiteral_2= '||' ) )
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2555:1: ( (enumLiteral_0= 'AND' ) | (enumLiteral_1= 'OR' ) | (enumLiteral_2= '||' ) )
-            int alt72=3;
+            int alt71=3;
             switch ( input.LA(1) ) {
             case 81:
                 {
-                alt72=1;
+                alt71=1;
                 }
                 break;
             case 82:
                 {
-                alt72=2;
+                alt71=2;
                 }
                 break;
             case 83:
                 {
-                alt72=3;
+                alt71=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 72, 0, input);
+                    new NoViableAltException("", 71, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt72) {
+            switch (alt71) {
                 case 1 :
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2555:2: (enumLiteral_0= 'AND' )
                     {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2555:2: (enumLiteral_0= 'AND' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2555:4: enumLiteral_0= 'AND'
                     {
-                    enumLiteral_0=(Token)match(input,81,FOLLOW_81_in_ruleBinaryExp6096); 
+                    enumLiteral_0=(Token)match(input,81,FOLLOW_81_in_ruleBinaryExp6095); 
 
                             current = grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_0()); 
@@ -7270,7 +7259,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2561:6: (enumLiteral_1= 'OR' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2561:8: enumLiteral_1= 'OR'
                     {
-                    enumLiteral_1=(Token)match(input,82,FOLLOW_82_in_ruleBinaryExp6113); 
+                    enumLiteral_1=(Token)match(input,82,FOLLOW_82_in_ruleBinaryExp6112); 
 
                             current = grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_1()); 
@@ -7287,7 +7276,7 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2567:6: (enumLiteral_2= '||' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2567:8: enumLiteral_2= '||'
                     {
-                    enumLiteral_2=(Token)match(input,83,FOLLOW_83_in_ruleBinaryExp6130); 
+                    enumLiteral_2=(Token)match(input,83,FOLLOW_83_in_ruleBinaryExp6129); 
 
                             current = grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_2()); 
@@ -7324,241 +7313,241 @@ public class InternalLuceneQueryParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleExp1_in_entryRuleExp175 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleExp185 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExp2_in_ruleExp1132 = new BitSet(new long[]{0x1FFFFFFFFFFE4022L,0x00000000000FE000L});
-    public static final BitSet FOLLOW_ruleBinaryExp_in_ruleExp1162 = new BitSet(new long[]{0x1FFFFFFFFFFE4020L,0x00000000000FE000L});
-    public static final BitSet FOLLOW_ruleExp1_in_ruleExp1184 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExp2_in_entryRuleExp2222 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExp2232 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClauseExpression_in_ruleExp2278 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleExp2302 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleExp2315 = new BitSet(new long[]{0x1FFFFFFFFFFE4020L,0x00000000000FE000L});
-    public static final BitSet FOLLOW_ruleExp1_in_ruleExp2337 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleExp2348 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleExp2360 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleClauseExpression_in_entryRuleClauseExpression398 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleClauseExpression408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression450 = new BitSet(new long[]{0x1FFFFFFFFFFE0020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression474 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimpleField_in_ruleClauseExpression517 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression529 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression551 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression570 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression588 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression610 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression622 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression637 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression651 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeField_in_ruleClauseExpression681 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression693 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression715 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression734 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression752 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression774 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression786 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression801 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethodField_in_ruleClauseExpression845 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression857 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression879 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression898 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression916 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression938 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression950 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression965 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression979 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilePathField_in_ruleClauseExpression1009 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression1021 = new BitSet(new long[]{0x0000000000004080L});
-    public static final BitSet FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1043 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression1062 = new BitSet(new long[]{0x0000000000008080L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1080 = new BitSet(new long[]{0x0000000000000080L});
-    public static final BitSet FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1102 = new BitSet(new long[]{0x0000000000008090L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1114 = new BitSet(new long[]{0x0000000000008080L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression1129 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1143 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberField_in_ruleClauseExpression1173 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression1185 = new BitSet(new long[]{0x0000000000004040L});
-    public static final BitSet FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1207 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression1226 = new BitSet(new long[]{0x0000000000008040L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1244 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1266 = new BitSet(new long[]{0x0000000000008050L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1278 = new BitSet(new long[]{0x0000000000008040L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression1293 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifierField_in_ruleClauseExpression1337 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression1349 = new BitSet(new long[]{0xE000000000004000L,0x0000000000000007L});
-    public static final BitSet FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1371 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression1390 = new BitSet(new long[]{0xE000000000008000L,0x000000000001E007L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1408 = new BitSet(new long[]{0xE000000000000000L,0x0000000000000007L});
-    public static final BitSet FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1430 = new BitSet(new long[]{0xE000000000008010L,0x000000000001E007L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1442 = new BitSet(new long[]{0xE000000000008000L,0x000000000001E007L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression1457 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTimeField_in_ruleClauseExpression1501 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression1513 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1535 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression1554 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1572 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1594 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1606 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression1621 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDocumentTypeField_in_ruleClauseExpression1665 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression1677 = new BitSet(new long[]{0x0000000000004000L,0x00000000000000F8L});
-    public static final BitSet FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1699 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression1718 = new BitSet(new long[]{0x0000000000008000L,0x000000000001E0F8L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1736 = new BitSet(new long[]{0x0000000000000000L,0x00000000000000F8L});
-    public static final BitSet FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1758 = new BitSet(new long[]{0x0000000000008010L,0x000000000001E0F8L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1770 = new BitSet(new long[]{0x0000000000008000L,0x000000000001E0F8L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression1785 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1799 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProjectNameField_in_ruleClauseExpression1829 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression1841 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1863 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression1882 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1900 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1922 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1934 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression1949 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1963 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationField_in_ruleClauseExpression1993 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression2005 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2027 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression2046 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2064 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2086 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2098 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression2113 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefinitionType_in_ruleClauseExpression2157 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleClauseExpression2169 = new BitSet(new long[]{0x0000000000004000L,0x0000000000001F00L});
-    public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2191 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14_in_ruleClauseExpression2210 = new BitSet(new long[]{0x0000000000008000L,0x000000000001FF00L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2228 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001F00L});
-    public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2250 = new BitSet(new long[]{0x0000000000008010L,0x000000000001FF00L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2262 = new BitSet(new long[]{0x0000000000008000L,0x000000000001FF00L});
-    public static final BitSet FOLLOW_15_in_ruleClauseExpression2277 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2291 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimpleField_in_entryRuleSimpleField2331 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleField2341 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleSimpleField2384 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleSimpleField2421 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_ruleSimpleField2458 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_ruleSimpleField2495 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleSimpleField2532 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_ruleSimpleField2569 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_ruleSimpleField2606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_ruleSimpleField2643 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleSimpleField2680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_ruleSimpleField2717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_ruleSimpleField2754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleSimpleField2791 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleSimpleField2828 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeField_in_entryRuleTypeField2877 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeField2887 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleTypeField2930 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleTypeField2967 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_ruleTypeField3004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_ruleTypeField3041 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_ruleTypeField3078 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_ruleTypeField3115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleTypeField3152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_ruleTypeField3189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_ruleTypeField3226 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_ruleTypeField3263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_ruleTypeField3300 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_ruleTypeField3337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_ruleTypeField3374 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_ruleTypeField3411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_ruleTypeField3448 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethodField_in_entryRuleMethodField3497 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMethodField3507 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_ruleMethodField3550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_ruleMethodField3587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_ruleMethodField3624 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleMethodField3661 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleMethodField3698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleMethodField3735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_ruleMethodField3772 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleMethodField3809 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilePathField_in_entryRuleFilePathField3858 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFilePathField3868 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleFilePathField3910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberField_in_entryRuleNumberField3958 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberField3968 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleNumberField4010 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifierField_in_entryRuleModifierField4058 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModifierField4068 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleModifierField4110 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTimeField_in_entryRuleTimeField4158 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTimeField4168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleTimeField4210 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDocumentTypeField_in_entryRuleDocumentTypeField4258 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDocumentTypeField4268 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleDocumentTypeField4310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProjectNameField_in_entryRuleProjectNameField4358 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleProjectNameField4368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleProjectNameField4410 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationField_in_entryRuleAnnotationField4458 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationField4468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleAnnotationField4510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefinitionType_in_entryRuleDefinitionType4558 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefinitionType4568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleDefinitionType4610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_entryRuleSimpleFieldValue4659 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleFieldValue4670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleSimpleFieldValue4709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethodFieldValue_in_entryRuleMethodFieldValue4754 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMethodFieldValue4765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleMethodFieldValue4804 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProjectNameFieldValue_in_entryRuleProjectNameFieldValue4849 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleProjectNameFieldValue4860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleProjectNameFieldValue4899 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumberFieldValue_in_entryRuleNumberFieldValue4944 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNumberFieldValue4955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleNumberFieldValue4994 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifierFieldValue_in_entryRuleModifierFieldValue5039 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleModifierFieldValue5050 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleModifierFieldValue5088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleModifierFieldValue5107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleModifierFieldValue5126 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_ruleModifierFieldValue5145 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_ruleModifierFieldValue5164 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_ruleModifierFieldValue5183 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTimeFieldValue_in_entryRuleTimeFieldValue5224 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTimeFieldValue5235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleTimeFieldValue5274 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDocumentTypeFieldValue_in_entryRuleDocumentTypeFieldValue5319 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDocumentTypeFieldValue5330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_ruleDocumentTypeFieldValue5368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_ruleDocumentTypeFieldValue5387 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_ruleDocumentTypeFieldValue5406 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_ruleDocumentTypeFieldValue5425 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_ruleDocumentTypeFieldValue5444 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAnnotationFieldValue_in_entryRuleAnnotationFieldValue5485 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationFieldValue5496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleAnnotationFieldValue5535 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeFieldValue_in_entryRuleTypeFieldValue5580 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeFieldValue5591 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue5630 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_entryRuleDefinitionTypeValue5675 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefinitionTypeValue5686 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_ruleDefinitionTypeValue5724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_ruleDefinitionTypeValue5743 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_ruleDefinitionTypeValue5762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_ruleDefinitionTypeValue5781 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_ruleDefinitionTypeValue5800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression5841 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryExpression5852 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_ruleUnaryExpression5890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_ruleUnaryExpression5909 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_ruleUnaryExpression5928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_80_in_ruleUnaryExpression5947 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFilePathFieldValue_in_entryRuleFilePathFieldValue5988 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleFilePathFieldValue5999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_PATHWITHWC_in_ruleFilePathFieldValue6038 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_ruleBinaryExp6096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_82_in_ruleBinaryExp6113 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_ruleBinaryExp6130 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExp2_in_ruleExp1132 = new BitSet(new long[]{0x0000000000000002L,0x00000000000E0000L});
+    public static final BitSet FOLLOW_ruleBinaryExp_in_ruleExp1162 = new BitSet(new long[]{0x1FFFFFFFFFFE4020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleExp1_in_ruleExp1183 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExp2_in_entryRuleExp2221 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExp2231 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClauseExpression_in_ruleExp2277 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleExp2301 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleExp2314 = new BitSet(new long[]{0x1FFFFFFFFFFE4020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleExp1_in_ruleExp2336 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleExp2347 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleExp2359 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleClauseExpression_in_entryRuleClauseExpression397 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleClauseExpression407 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression449 = new BitSet(new long[]{0x1FFFFFFFFFFE0020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression473 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression485 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimpleField_in_ruleClauseExpression516 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression528 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression550 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression569 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression587 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_ruleClauseExpression609 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression621 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression636 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTypeField_in_ruleClauseExpression680 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression692 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression714 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression733 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression751 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleTypeFieldValue_in_ruleClauseExpression773 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression785 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression800 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression814 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMethodField_in_ruleClauseExpression844 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression856 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression878 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression897 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression915 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleMethodFieldValue_in_ruleClauseExpression937 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression949 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression964 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression978 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilePathField_in_ruleClauseExpression1008 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression1020 = new BitSet(new long[]{0x0000000000004080L});
+    public static final BitSet FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1042 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression1061 = new BitSet(new long[]{0x0000000000008080L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1079 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_ruleFilePathFieldValue_in_ruleClauseExpression1101 = new BitSet(new long[]{0x0000000000008090L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1113 = new BitSet(new long[]{0x0000000000008080L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression1128 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1142 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberField_in_ruleClauseExpression1172 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression1184 = new BitSet(new long[]{0x0000000000004040L});
+    public static final BitSet FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1206 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression1225 = new BitSet(new long[]{0x0000000000008040L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1243 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ruleNumberFieldValue_in_ruleClauseExpression1265 = new BitSet(new long[]{0x0000000000008050L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1277 = new BitSet(new long[]{0x0000000000008040L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression1292 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModifierField_in_ruleClauseExpression1336 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression1348 = new BitSet(new long[]{0xE000000000004000L,0x0000000000000007L});
+    public static final BitSet FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1370 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression1389 = new BitSet(new long[]{0xE000000000008000L,0x000000000001E007L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1407 = new BitSet(new long[]{0xE000000000000000L,0x0000000000000007L});
+    public static final BitSet FOLLOW_ruleModifierFieldValue_in_ruleClauseExpression1429 = new BitSet(new long[]{0xE000000000008010L,0x000000000001E007L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1441 = new BitSet(new long[]{0xE000000000008000L,0x000000000001E007L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression1456 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTimeField_in_ruleClauseExpression1500 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression1512 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1534 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression1553 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1571 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleTimeFieldValue_in_ruleClauseExpression1593 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1605 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression1620 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDocumentTypeField_in_ruleClauseExpression1664 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression1676 = new BitSet(new long[]{0x0000000000004000L,0x00000000000000F8L});
+    public static final BitSet FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1698 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression1717 = new BitSet(new long[]{0x0000000000008000L,0x000000000001E0F8L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1735 = new BitSet(new long[]{0x0000000000000000L,0x00000000000000F8L});
+    public static final BitSet FOLLOW_ruleDocumentTypeFieldValue_in_ruleClauseExpression1757 = new BitSet(new long[]{0x0000000000008010L,0x000000000001E0F8L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1769 = new BitSet(new long[]{0x0000000000008000L,0x000000000001E0F8L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression1784 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1798 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProjectNameField_in_ruleClauseExpression1828 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression1840 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1862 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression1881 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression1899 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleProjectNameFieldValue_in_ruleClauseExpression1921 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1933 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression1948 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression1962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAnnotationField_in_ruleClauseExpression1992 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression2004 = new BitSet(new long[]{0x0000000000004020L});
+    public static final BitSet FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2026 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression2045 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2063 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleAnnotationFieldValue_in_ruleClauseExpression2085 = new BitSet(new long[]{0x0000000000008030L,0x000000000001E000L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2097 = new BitSet(new long[]{0x0000000000008020L,0x000000000001E000L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression2112 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2126 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefinitionType_in_ruleClauseExpression2156 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleClauseExpression2168 = new BitSet(new long[]{0x0000000000004000L,0x0000000000001F00L});
+    public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2190 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_14_in_ruleClauseExpression2209 = new BitSet(new long[]{0x0000000000008000L,0x000000000001FF00L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_ruleClauseExpression2227 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001F00L});
+    public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_ruleClauseExpression2249 = new BitSet(new long[]{0x0000000000008010L,0x000000000001FF00L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2261 = new BitSet(new long[]{0x0000000000008000L,0x000000000001FF00L});
+    public static final BitSet FOLLOW_15_in_ruleClauseExpression2276 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_RULE_BOOST_in_ruleClauseExpression2290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimpleField_in_entryRuleSimpleField2330 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleField2340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleSimpleField2383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleSimpleField2420 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleSimpleField2457 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_ruleSimpleField2494 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_ruleSimpleField2531 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_ruleSimpleField2568 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleSimpleField2605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_ruleSimpleField2642 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_ruleSimpleField2679 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleSimpleField2716 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_ruleSimpleField2753 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleSimpleField2790 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleSimpleField2827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTypeField_in_entryRuleTypeField2876 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTypeField2886 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_ruleTypeField2929 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_ruleTypeField2966 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleTypeField3003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleTypeField3040 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleTypeField3077 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_ruleTypeField3114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_ruleTypeField3151 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_ruleTypeField3188 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_ruleTypeField3225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleTypeField3262 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_ruleTypeField3299 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_ruleTypeField3336 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_ruleTypeField3373 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_ruleTypeField3410 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_ruleTypeField3447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMethodField_in_entryRuleMethodField3496 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMethodField3506 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_ruleMethodField3549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_ruleMethodField3586 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_ruleMethodField3623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleMethodField3660 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleMethodField3697 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleMethodField3734 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_ruleMethodField3771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleMethodField3808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilePathField_in_entryRuleFilePathField3857 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFilePathField3867 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleFilePathField3909 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberField_in_entryRuleNumberField3957 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberField3967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleNumberField4009 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModifierField_in_entryRuleModifierField4057 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModifierField4067 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleModifierField4109 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTimeField_in_entryRuleTimeField4157 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTimeField4167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleTimeField4209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDocumentTypeField_in_entryRuleDocumentTypeField4257 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDocumentTypeField4267 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleDocumentTypeField4309 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProjectNameField_in_entryRuleProjectNameField4357 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleProjectNameField4367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleProjectNameField4409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAnnotationField_in_entryRuleAnnotationField4457 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationField4467 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_ruleAnnotationField4509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefinitionType_in_entryRuleDefinitionType4557 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDefinitionType4567 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_ruleDefinitionType4609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimpleFieldValue_in_entryRuleSimpleFieldValue4658 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSimpleFieldValue4669 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleSimpleFieldValue4708 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMethodFieldValue_in_entryRuleMethodFieldValue4753 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMethodFieldValue4764 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleMethodFieldValue4803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProjectNameFieldValue_in_entryRuleProjectNameFieldValue4848 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleProjectNameFieldValue4859 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleProjectNameFieldValue4898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumberFieldValue_in_entryRuleNumberFieldValue4943 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNumberFieldValue4954 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleNumberFieldValue4993 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleModifierFieldValue_in_entryRuleModifierFieldValue5038 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleModifierFieldValue5049 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleModifierFieldValue5087 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleModifierFieldValue5106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleModifierFieldValue5125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleModifierFieldValue5144 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleModifierFieldValue5163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleModifierFieldValue5182 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTimeFieldValue_in_entryRuleTimeFieldValue5223 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTimeFieldValue5234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleTimeFieldValue5273 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDocumentTypeFieldValue_in_entryRuleDocumentTypeFieldValue5318 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDocumentTypeFieldValue5329 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_ruleDocumentTypeFieldValue5367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_ruleDocumentTypeFieldValue5386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_ruleDocumentTypeFieldValue5405 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_ruleDocumentTypeFieldValue5424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_ruleDocumentTypeFieldValue5443 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAnnotationFieldValue_in_entryRuleAnnotationFieldValue5484 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAnnotationFieldValue5495 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleAnnotationFieldValue5534 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleTypeFieldValue_in_entryRuleTypeFieldValue5579 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleTypeFieldValue5590 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue5629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_entryRuleDefinitionTypeValue5674 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDefinitionTypeValue5685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_ruleDefinitionTypeValue5723 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_ruleDefinitionTypeValue5742 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_ruleDefinitionTypeValue5761 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_ruleDefinitionTypeValue5780 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_ruleDefinitionTypeValue5799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnaryExpression_in_entryRuleUnaryExpression5840 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUnaryExpression5851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_ruleUnaryExpression5889 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_ruleUnaryExpression5908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_ruleUnaryExpression5927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_ruleUnaryExpression5946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFilePathFieldValue_in_entryRuleFilePathFieldValue5987 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleFilePathFieldValue5998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_PATHWITHWC_in_ruleFilePathFieldValue6037 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_ruleBinaryExp6095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_ruleBinaryExp6112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_ruleBinaryExp6129 = new BitSet(new long[]{0x0000000000000002L});
 
 }

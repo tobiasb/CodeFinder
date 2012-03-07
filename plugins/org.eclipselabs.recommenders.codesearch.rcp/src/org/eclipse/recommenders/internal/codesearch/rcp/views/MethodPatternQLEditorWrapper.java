@@ -3,17 +3,22 @@ package org.eclipse.recommenders.internal.codesearch.rcp.views;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
+import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
 
@@ -66,18 +71,22 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
     @Override
     public SearchResult search() throws Exception {
 
-        // QL1Query q = handle.getDocument().readOnly(new QL1QueryExtractor());
+        QL1QueryExtractor extr = new QL1QueryExtractor();
+
+        IParseResult r = handle.getDocument().readOnly(extr);
+
+        EObject e = extr.transform(r);
         //
         // EObject e = translate(q.type, q.exp);
+
         //
-        // LuceneQueryExtractor extr = new LuceneQueryExtractor();
-        // extr.process(e.eAllContents());
+        LuceneQueryExtractor lextr = new LuceneQueryExtractor();
+        lextr.process(e.eAllContents());
         //
-        // ISerializer s = luceneInjector.getInstance(ISerializer.class);
-        // String searchQuery = s.serialize(e);
+        ISerializer s = luceneInjector.getInstance(ISerializer.class);
+        String searchQuery = s.serialize(e);
         //
-        // return codeSearcher.search(searchQuery);
-        return null;
+        return codeSearcher.lenientSearch(searchQuery);
     }
 
     // private EObject translate(Type type, Expression exp) {

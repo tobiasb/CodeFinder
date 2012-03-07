@@ -10,21 +10,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Throws</b></em>'.
+ * A representation of the model object '<em><b>Parameter Type</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getThrows()
+ * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getParameterType()
  * @model
  * @generated
  */
-public interface Throws extends EObject
+public interface ParameterType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -36,14 +36,14 @@ public interface Throws extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getThrows_Value()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getParameterType_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -52,4 +52,4 @@ public interface Throws extends EObject
    */
   void setValue(String value);
 
-} // Throws
+} // ParameterType

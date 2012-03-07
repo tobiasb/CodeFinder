@@ -20,7 +20,8 @@ Require-Bundle: org.eclipselabs.recommenders.codesearch.rcp.dsl;visibility:=reex
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist,
+Export-Package: org.eclipselabs.recommenders.codesearch.rcp.dsl.ui,
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.antlr,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal
 Bundle-Activator: org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator

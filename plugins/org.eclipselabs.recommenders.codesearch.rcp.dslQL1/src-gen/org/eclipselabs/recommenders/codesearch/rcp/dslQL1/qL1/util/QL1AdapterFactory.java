@@ -89,14 +89,29 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
         return createModifierAdapter();
       }
       @Override
+      public Adapter caseReturnType(ReturnType object)
+      {
+        return createReturnTypeAdapter();
+      }
+      @Override
       public Adapter caseParameterElement(ParameterElement object)
       {
         return createParameterElementAdapter();
       }
       @Override
+      public Adapter caseParameterType(ParameterType object)
+      {
+        return createParameterTypeAdapter();
+      }
+      @Override
       public Adapter caseThrows(Throws object)
       {
         return createThrowsAdapter();
+      }
+      @Override
+      public Adapter caseMethodName(MethodName object)
+      {
+        return createMethodNameAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -151,6 +166,21 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType <em>Return Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType
+   * @generated
+   */
+  public Adapter createReturnTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement <em>Parameter Element</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -166,6 +196,21 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType <em>Parameter Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType
+   * @generated
+   */
+  public Adapter createParameterTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws <em>Throws</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -176,6 +221,21 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createThrowsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName
+   * @generated
+   */
+  public Adapter createMethodNameAdapter()
   {
     return null;
   }

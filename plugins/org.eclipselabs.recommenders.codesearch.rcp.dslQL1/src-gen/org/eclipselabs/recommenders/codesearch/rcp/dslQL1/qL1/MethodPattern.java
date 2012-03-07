@@ -49,56 +49,56 @@ public interface MethodPattern extends EObject
   EList<Modifier> getModifiers();
 
   /**
-   * Returns the value of the '<em><b>Return Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Return Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Return Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Return Type</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Return Type</em>' attribute.
-   * @see #setReturnType(String)
+   * @return the value of the '<em>Return Type</em>' containment reference.
+   * @see #setReturnType(ReturnType)
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getMethodPattern_ReturnType()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getReturnType();
+  ReturnType getReturnType();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getReturnType <em>Return Type</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getReturnType <em>Return Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return Type</em>' attribute.
+   * @param value the new value of the '<em>Return Type</em>' containment reference.
    * @see #getReturnType()
    * @generated
    */
-  void setReturnType(String value);
+  void setReturnType(ReturnType value);
 
   /**
-   * Returns the value of the '<em><b>Method Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Method Name</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Method Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Method Name</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method Name</em>' attribute.
-   * @see #setMethodName(String)
+   * @return the value of the '<em>Method Name</em>' containment reference.
+   * @see #setMethodName(MethodName)
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getMethodPattern_MethodName()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getMethodName();
+  MethodName getMethodName();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getMethodName <em>Method Name</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern#getMethodName <em>Method Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Method Name</em>' attribute.
+   * @param value the new value of the '<em>Method Name</em>' containment reference.
    * @see #getMethodName()
    * @generated
    */
-  void setMethodName(String value);
+  void setMethodName(MethodName value);
 
   /**
    * Returns the value of the '<em><b>Parameter Elements</b></em>' containment reference list.

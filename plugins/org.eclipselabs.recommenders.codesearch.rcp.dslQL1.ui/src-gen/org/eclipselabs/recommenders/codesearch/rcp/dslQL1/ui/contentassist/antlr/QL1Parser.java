@@ -59,9 +59,14 @@ public class QL1Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getModifierAccess().getValueAssignment_3(), "rule__Modifier__ValueAssignment_3");
 					put(grammarAccess.getModifierAccess().getValueAssignment_4(), "rule__Modifier__ValueAssignment_4");
 					put(grammarAccess.getModifierAccess().getValueAssignment_5(), "rule__Modifier__ValueAssignment_5");
+					put(grammarAccess.getReturnTypeAccess().getValueAssignment(), "rule__ReturnType__ValueAssignment");
+					put(grammarAccess.getParameterElementAccess().getValuesAssignment_0_1(), "rule__ParameterElement__ValuesAssignment_0_1");
 					put(grammarAccess.getParameterElementAccess().getTypesAssignment_1_1(), "rule__ParameterElement__TypesAssignment_1_1");
 					put(grammarAccess.getParameterElementAccess().getTypesAssignment_1_2_1(), "rule__ParameterElement__TypesAssignment_1_2_1");
-					put(grammarAccess.getThrowsAccess().getThrownTypeAssignment_1(), "rule__Throws__ThrownTypeAssignment_1");
+					put(grammarAccess.getParameterTypeAccess().getValueAssignment_0(), "rule__ParameterType__ValueAssignment_0");
+					put(grammarAccess.getParameterTypeAccess().getValueAssignment_1(), "rule__ParameterType__ValueAssignment_1");
+					put(grammarAccess.getThrowsAccess().getValueAssignment_1(), "rule__Throws__ValueAssignment_1");
+					put(grammarAccess.getMethodNameAccess().getValueAssignment(), "rule__MethodName__ValueAssignment");
 				}
 			};
 		}
