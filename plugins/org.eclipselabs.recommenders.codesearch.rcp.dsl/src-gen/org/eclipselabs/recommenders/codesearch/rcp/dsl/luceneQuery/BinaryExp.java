@@ -24,16 +24,6 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum BinaryExp implements Enumerator
 {
   /**
-   * The '<em><b>And1</b></em>' literal object.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #AND1_VALUE
-   * @generated
-   * @ordered
-   */
-  AND1(0, "and1", "AND"),
-
-  /**
    * The '<em><b>Or1</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -41,7 +31,7 @@ public enum BinaryExp implements Enumerator
    * @generated
    * @ordered
    */
-  OR1(1, "or1", "OR"),
+  OR1(0, "or1", "OR"),
 
   /**
    * The '<em><b>Or2</b></em>' literal object.
@@ -51,22 +41,17 @@ public enum BinaryExp implements Enumerator
    * @generated
    * @ordered
    */
-  OR2(2, "or2", "||");
+  OR2(1, "or2", "||"),
 
   /**
-   * The '<em><b>And1</b></em>' literal value.
+   * The '<em><b>And1</b></em>' literal object.
    * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>And1</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
    * <!-- end-user-doc -->
-   * @see #AND1
-   * @model name="and1" literal="AND"
+   * @see #AND1_VALUE
    * @generated
    * @ordered
    */
-  public static final int AND1_VALUE = 0;
+  AND1(2, "and1", "AND");
 
   /**
    * The '<em><b>Or1</b></em>' literal value.
@@ -81,7 +66,7 @@ public enum BinaryExp implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int OR1_VALUE = 1;
+  public static final int OR1_VALUE = 0;
 
   /**
    * The '<em><b>Or2</b></em>' literal value.
@@ -96,7 +81,22 @@ public enum BinaryExp implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int OR2_VALUE = 2;
+  public static final int OR2_VALUE = 1;
+
+  /**
+   * The '<em><b>And1</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>And1</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #AND1
+   * @model name="and1" literal="AND"
+   * @generated
+   * @ordered
+   */
+  public static final int AND1_VALUE = 2;
 
   /**
    * An array of all the '<em><b>Binary Exp</b></em>' enumerators.
@@ -107,9 +107,9 @@ public enum BinaryExp implements Enumerator
   private static final BinaryExp[] VALUES_ARRAY =
     new BinaryExp[]
     {
-      AND1,
       OR1,
       OR2,
+      AND1,
     };
 
   /**
@@ -168,9 +168,9 @@ public enum BinaryExp implements Enumerator
   {
     switch (value)
     {
-      case AND1_VALUE: return AND1;
       case OR1_VALUE: return OR1;
       case OR2_VALUE: return OR2;
+      case AND1_VALUE: return AND1;
     }
     return null;
   }

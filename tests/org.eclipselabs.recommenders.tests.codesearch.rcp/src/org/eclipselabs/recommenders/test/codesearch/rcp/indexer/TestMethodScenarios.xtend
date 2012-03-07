@@ -6,6 +6,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesIndex
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnVariableExpressionIndexer
 import org.junit.Test
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CheckedExceptionsIndexer
 
 class TestMethodScenarios extends TestBase {
 	
@@ -138,6 +139,23 @@ class TestMethodScenarios extends TestBase {
 		
 		assertField(l(newArrayList(
 			s(Fields::RETURN_VARIABLE_EXPRESSIONS, "null")
+		)))
+	}
+	
+	@Test
+	def void testCheckedExceptionsIndexer01(){
+		val code = '''
+		import java.io.IOException;
+		public class MyClass {
+			public List method() throws IOException {
+			}
+		}
+		'''
+		
+		exercise(code, i(newArrayList(new CheckedExceptionsIndexer())))
+		
+		assertField(l(newArrayList(
+			s(Fields::CHECKED_EXCEPTIONS, "Ljava/io/IOException")
 		)))
 	}
 }

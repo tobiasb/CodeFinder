@@ -54,7 +54,7 @@ public class Exp1Impl extends ExpressionImpl implements Exp1
    * @generated
    * @ordered
    */
-  protected static final BinaryExp B_EDEFAULT = BinaryExp.AND1;
+  protected static final BinaryExp B_EDEFAULT = BinaryExp.OR1;
 
   /**
    * The cached value of the '{@link #getB() <em>B</em>}' attribute.

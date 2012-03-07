@@ -10,9 +10,9 @@
   <genPackages prefix="LuceneQuery" basePackage="org.eclipselabs.recommenders.codesearch.rcp.dsl"
       disposableProviderFactory="true" ecorePackage="LuceneQuery.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="LuceneQuery.ecore#//BinaryExp">
-      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BinaryExp/and1"/>
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BinaryExp/or1"/>
       <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BinaryExp/or2"/>
+      <genEnumLiterals ecoreEnumLiteral="LuceneQuery.ecore#//BinaryExp/and1"/>
     </genEnums>
     <genClasses ecoreClass="LuceneQuery.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Expression/value"/>

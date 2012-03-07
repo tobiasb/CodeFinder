@@ -1513,10 +1513,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:7: ( 'AND' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:9: 'AND'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:7: ( 'OR' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:9: 'OR'
             {
-            match("AND"); 
+            match("OR"); 
 
 
             }
@@ -1534,10 +1534,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:7: ( 'OR' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:9: 'OR'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:7: ( '||' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:9: '||'
             {
-            match("OR"); 
+            match("||"); 
 
 
             }
@@ -1555,10 +1555,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:7: ( '||' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:9: '||'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:7: ( 'AND' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:9: 'AND'
             {
-            match("||"); 
+            match("AND"); 
 
 
             }
@@ -2978,9 +2978,9 @@ public class InternalLuceneQueryLexer extends Lexer {
     static final String DFA18_acceptS =
         "\1\uffff\1\1\1\2\1\3\30\uffff\1\100\1\uffff\1\102\1\103\4\uffff"+
         "\1\110\1\uffff\1\113\2\uffff\1\117\1\120\1\1\1\2\1\3\3\uffff\1\111"+
-        "\1\uffff\1\110\40\uffff\1\100\1\uffff\1\102\1\103\1\106\1\112\1"+
-        "\107\2\uffff\1\113\1\114\1\117\22\uffff\1\105\24\uffff\1\115\2\uffff"+
-        "\1\116\11\uffff\1\104\34\uffff\1\101\32\uffff\1\54\56\uffff\1\63"+
+        "\1\uffff\1\110\40\uffff\1\100\1\uffff\1\102\1\103\1\105\1\112\1"+
+        "\107\2\uffff\1\113\1\114\1\117\22\uffff\1\104\24\uffff\1\115\2\uffff"+
+        "\1\116\11\uffff\1\106\34\uffff\1\101\32\uffff\1\54\56\uffff\1\63"+
         "\1\70\1\uffff\1\66\46\uffff\1\61\1\uffff\1\62\2\uffff\1\67\43\uffff"+
         "\1\60\12\uffff\1\13\41\uffff\1\64\1\uffff\1\71\1\72\7\uffff\1\33"+
         "\15\uffff\1\23\16\uffff\1\52\1\53\1\65\1\73\6\uffff\1\14\2\uffff"+

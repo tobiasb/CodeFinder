@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.util.EmfFormatter;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
@@ -41,12 +43,11 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
     public EObject transform(IParseResult r) {
 
         Exp1 exp1 = lqf.createExp1();
-        exp1.setB(BinaryExp.AND1);
         exp1.setLeft(getMethodTypeExpression());
         exp1.setRight(transformInternal(r));
+        exp1.setB(BinaryExp.AND1);
 
-        // System.out.println(EmfFormatter.objToStr(exp1, (EStructuralFeature)
-        // null));
+        System.out.println(EmfFormatter.objToStr(exp1, (EStructuralFeature) null));
 
         return exp1;
     }
@@ -75,7 +76,7 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
 
                 ClauseExpression clause = lqf.createClauseExpression();
                 SimpleField field = lqf.createSimpleField();
-                field.setValue(Fields.FRIENDLY_NAME);
+                field.setValue(Fields.SIMPLE_NAME);
                 clause.setField(field);
                 clause.getValues().add(((MethodNameImpl) o).getValue());
 
@@ -109,10 +110,10 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
             e.setValue(list.get(0));
         } else if (list.size() > 1) {
             Exp1 exp1 = lqf.createExp1();
-            exp1.setB(BinaryExp.AND1);
 
             exp1.setLeft(buildExpressionTree(list.subList(0, 1)));
             exp1.setRight(buildExpressionTree(list.subList(1, list.size())));
+            exp1.setB(BinaryExp.AND1);
 
             e = exp1;
         }

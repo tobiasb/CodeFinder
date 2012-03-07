@@ -37,22 +37,22 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 		//
 		//Exp1 returns Expression:
-		//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?;
+		//	Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?;
 		public ParserRule getRule() { return rule; }
 
-		//Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?
+		//Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?
 		public Group getGroup() { return cGroup; }
 
 		//Exp2
 		public RuleCall getExp2ParserRuleCall_0() { return cExp2ParserRuleCall_0; }
 
-		//({Exp1.left=current} b=BinaryExp right=Exp1)?
+		//({Exp1.left=current} b=BinaryExp? right=Exp1)?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{Exp1.left=current}
 		public Action getExp1LeftAction_1_0() { return cExp1LeftAction_1_0; }
 
-		//b=BinaryExp
+		//b=BinaryExp?
 		public Assignment getBAssignment_1_1() { return cBAssignment_1_1; }
 
 		//BinaryExp
@@ -1661,37 +1661,37 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	public class BinaryExpElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BinaryExp");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cAnd1EnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cAnd1ANDKeyword_0_0 = (Keyword)cAnd1EnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cOr1EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cOr1ORKeyword_1_0 = (Keyword)cOr1EnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cOr2EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cOr2VerticalLineVerticalLineKeyword_2_0 = (Keyword)cOr2EnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cOr1EnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cOr1ORKeyword_0_0 = (Keyword)cOr1EnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cOr2EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cOr2VerticalLineVerticalLineKeyword_1_0 = (Keyword)cOr2EnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cAnd1EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cAnd1ANDKeyword_2_0 = (Keyword)cAnd1EnumLiteralDeclaration_2.eContents().get(0);
 		
 		//enum BinaryExp:
-		//	and1="AND" | or1="OR" | or2="||";
+		//	or1="OR" | or2="||" | and1="AND";
 		public EnumRule getRule() { return rule; }
 
-		//and1="AND" | or1="OR" | or2="||"
+		//or1="OR" | or2="||" | and1="AND"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//and1="AND"
-		public EnumLiteralDeclaration getAnd1EnumLiteralDeclaration_0() { return cAnd1EnumLiteralDeclaration_0; }
-
-		//"AND"
-		public Keyword getAnd1ANDKeyword_0_0() { return cAnd1ANDKeyword_0_0; }
-
 		//or1="OR"
-		public EnumLiteralDeclaration getOr1EnumLiteralDeclaration_1() { return cOr1EnumLiteralDeclaration_1; }
+		public EnumLiteralDeclaration getOr1EnumLiteralDeclaration_0() { return cOr1EnumLiteralDeclaration_0; }
 
 		//"OR"
-		public Keyword getOr1ORKeyword_1_0() { return cOr1ORKeyword_1_0; }
+		public Keyword getOr1ORKeyword_0_0() { return cOr1ORKeyword_0_0; }
 
 		//or2="||"
-		public EnumLiteralDeclaration getOr2EnumLiteralDeclaration_2() { return cOr2EnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getOr2EnumLiteralDeclaration_1() { return cOr2EnumLiteralDeclaration_1; }
 
 		//"||"
-		public Keyword getOr2VerticalLineVerticalLineKeyword_2_0() { return cOr2VerticalLineVerticalLineKeyword_2_0; }
+		public Keyword getOr2VerticalLineVerticalLineKeyword_1_0() { return cOr2VerticalLineVerticalLineKeyword_1_0; }
+
+		//and1="AND"
+		public EnumLiteralDeclaration getAnd1EnumLiteralDeclaration_2() { return cAnd1EnumLiteralDeclaration_2; }
+
+		//"AND"
+		public Keyword getAnd1ANDKeyword_2_0() { return cAnd1ANDKeyword_2_0; }
 	}
 	
 	private Exp1Elements pExp1;
@@ -1755,7 +1755,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	//
 	//Exp1 returns Expression:
-	//	Exp2 ({Exp1.left=current} b=BinaryExp right=Exp1)?;
+	//	Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?;
 	public Exp1Elements getExp1Access() {
 		return (pExp1 != null) ? pExp1 : (pExp1 = new Exp1Elements());
 	}
@@ -2068,7 +2068,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum BinaryExp:
-	//	and1="AND" | or1="OR" | or2="||";
+	//	or1="OR" | or2="||" | and1="AND";
 	public BinaryExpElements getBinaryExpAccess() {
 		return (unknownRuleBinaryExp != null) ? unknownRuleBinaryExp : (unknownRuleBinaryExp = new BinaryExpElements());
 	}

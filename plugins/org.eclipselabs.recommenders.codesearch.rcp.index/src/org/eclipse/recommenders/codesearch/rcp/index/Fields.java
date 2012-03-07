@@ -102,6 +102,7 @@ public class Fields {
     /** Can be applied to: */
     public final static String USED_AS_TAGET_FOR_METHODS = "UsedAsTargetForMethods";
 
+    public final static String CHECKED_EXCEPTIONS = "CheckedExceptions";
     // FilePathField
     /** Can be applied to: class,method,field,tryCatch */
     public final static String RESOURCE_PATH = "ResourcePath";

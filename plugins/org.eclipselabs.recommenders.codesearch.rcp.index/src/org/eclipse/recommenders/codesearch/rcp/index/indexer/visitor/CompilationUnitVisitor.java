@@ -17,6 +17,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllExtendedTypesInd
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AnnotationsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CaughtTypeIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CheckedExceptionsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldNamesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldTypesIndexer;
@@ -29,10 +30,10 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ExtendedTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsReadIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsWrittenIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer2;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.JavaElementHandleIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer2;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.OverriddenMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
@@ -93,6 +94,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new AllImplementedInterfacesIndexer());
         list.add(new AnnotationsIndexer());
         list.add(new CaughtTypeIndexer());
+        list.add(new CheckedExceptionsIndexer());
         list.add(new DeclaredFieldNamesIndexer());
         list.add(new DeclaredFieldTypesIndexer());
         list.add(new DeclaredMethodNamesIndexer());

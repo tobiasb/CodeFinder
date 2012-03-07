@@ -1618,24 +1618,24 @@ rule__BinaryExp__Alternatives
     }
 :
 (
-{ before(grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_0()); }
-(	'AND' 
-)
-{ after(grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_0()); }
-)
-
-    |(
-{ before(grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_1()); }
+{ before(grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_0()); }
 (	'OR' 
 )
-{ after(grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_1()); }
+{ after(grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_0()); }
 )
 
     |(
-{ before(grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_2()); }
+{ before(grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_1()); }
 (	'||' 
 )
-{ after(grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_2()); }
+{ after(grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_1()); }
+)
+
+    |(
+{ before(grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_2()); }
+(	'AND' 
+)
+{ after(grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_2()); }
 )
 
 ;
@@ -1756,7 +1756,7 @@ rule__Exp1__Group_1__1__Impl
 :
 (
 { before(grammarAccess.getExp1Access().getBAssignment_1_1()); }
-(rule__Exp1__BAssignment_1_1)
+(rule__Exp1__BAssignment_1_1)?
 { after(grammarAccess.getExp1Access().getBAssignment_1_1()); }
 )
 

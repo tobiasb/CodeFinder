@@ -3,10 +3,12 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.indexer;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CheckedExceptionsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnVariableExpressionIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -210,6 +212,32 @@ public class TestMethodScenarios extends TestBase {
       String _s = this.s(Fields.RETURN_VARIABLE_EXPRESSIONS, "null");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
+      this.assertField(_l);
+  }
+  
+  @Test
+  public void testCheckedExceptionsIndexer01() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
+      _builder.append("public class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public List method() throws IOException {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      CheckedExceptionsIndexer _checkedExceptionsIndexer = new CheckedExceptionsIndexer();
+      ArrayList<CheckedExceptionsIndexer> _newArrayList = CollectionLiterals.<CheckedExceptionsIndexer>newArrayList(_checkedExceptionsIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      this.exercise(code, _i);
+      String _s = this.s(Fields.CHECKED_EXCEPTIONS, "Ljava/io/IOException");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
   }
 }

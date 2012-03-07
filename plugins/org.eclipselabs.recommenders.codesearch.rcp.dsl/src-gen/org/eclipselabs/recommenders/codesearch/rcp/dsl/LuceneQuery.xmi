@@ -16,7 +16,7 @@
               <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl/LuceneQuery#//Exp1"/>
             </type>
           </elements>
-          <elements xsi:type="xtext:Assignment" feature="b" operator="=">
+          <elements xsi:type="xtext:Assignment" cardinality="?" feature="b" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
           </elements>
           <elements xsi:type="xtext:Assignment" feature="right" operator="=">
@@ -591,16 +591,16 @@
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:EnumLiteralDeclaration">
-          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl/LuceneQuery#//BinaryExp/and1"/>
-          <literal value="AND"/>
-        </elements>
-        <elements xsi:type="xtext:EnumLiteralDeclaration">
           <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl/LuceneQuery#//BinaryExp/or1"/>
           <literal value="OR"/>
         </elements>
         <elements xsi:type="xtext:EnumLiteralDeclaration">
           <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl/LuceneQuery#//BinaryExp/or2"/>
           <literal value="||"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl/LuceneQuery#//BinaryExp/and1"/>
+          <literal value="AND"/>
         </elements>
       </alternatives>
     </rules>

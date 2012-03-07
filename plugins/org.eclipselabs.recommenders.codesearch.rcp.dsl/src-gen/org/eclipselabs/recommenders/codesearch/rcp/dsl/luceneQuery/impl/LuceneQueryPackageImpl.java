@@ -698,9 +698,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
 
     // Initialize enums and add enum literals
     initEEnum(binaryExpEEnum, BinaryExp.class, "BinaryExp");
-    addEEnumLiteral(binaryExpEEnum, BinaryExp.AND1);
     addEEnumLiteral(binaryExpEEnum, BinaryExp.OR1);
     addEEnumLiteral(binaryExpEEnum, BinaryExp.OR2);
+    addEEnumLiteral(binaryExpEEnum, BinaryExp.AND1);
 
     // Create resource
     createResource(eNS_URI);

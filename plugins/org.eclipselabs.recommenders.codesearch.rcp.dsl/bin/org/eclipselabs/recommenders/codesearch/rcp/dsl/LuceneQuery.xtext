@@ -266,7 +266,7 @@ Primary returns Expression:
 	;
 	
 	enum BinaryExp:
-		and1='AND' | or1='OR' | or2='||'
+		or1='OR' | or2='||' | and1='AND'
 	;
 
 	UnaryExpression:

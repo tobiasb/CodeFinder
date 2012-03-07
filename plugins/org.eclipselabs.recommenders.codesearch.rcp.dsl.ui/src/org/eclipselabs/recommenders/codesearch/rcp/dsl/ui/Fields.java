@@ -26,13 +26,13 @@ public class Fields {
 
     // SimpleField
     /** Can be applied to: class,method,field,tryCatch */
-    public final static String FULLY_QUALIFIED_NAME = "FullyQualifiedName";
+    public final static String QUALIFIED_NAME = "FullyQualifiedName";
     /** Can be applied to: class,method,field,tryCatch */
-    public final static String FRIENDLY_NAME = "FriendlyName";
+    public final static String SIMPLE_NAME = "FriendlyName";
     /** Can be applied to: method */
     public final static String RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions";
     /** Can be applied to: class */
-    public final static String ALL_DELCARED_METHOD_NAMES = "AllDeclaredMethodNames";
+    public final static String ALL_DECLARED_METHOD_NAMES = "AllDeclaredMethodNames";
     /** Can be applied to: class */
     public final static String DECLARED_METHODS_NAMES = "DeclaredMethodNames";
     /** Can be applied to: class,method,tryCatch */
@@ -133,5 +133,10 @@ public class Fields {
     // DefinitionType
     /** Can be applied to: */
     public final static String VARIABLE_DEFINITION = "VariableDefinition";
+    /**
+     * Java handle used to open a given java element in an editor.
+     */
+    public static final String JAVA_ELEMENT_HANDLE = "Handle";
+    // public static final String LITERALS = "Literals";
 
 }

@@ -111,7 +111,7 @@ ruleExp1 returns [EObject current=null]
 	    }
 
 )
-)(
+)?(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getExp1Access().getRightExp1ParserRuleCall_1_2_0()); 
@@ -2552,22 +2552,22 @@ ruleFilePathFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatype
 ruleBinaryExp returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-((	enumLiteral_0='AND' 
+((	enumLiteral_0='OR' 
 	{
-        $current = grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_0()); 
     }
 )
-    |(	enumLiteral_1='OR' 
+    |(	enumLiteral_1='||' 
 	{
-        $current = grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_1()); 
+        $current = grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_1()); 
     }
 )
-    |(	enumLiteral_2='||' 
+    |(	enumLiteral_2='AND' 
 	{
-        $current = grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_2()); 
+        $current = grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_2()); 
     }
 ));
 
