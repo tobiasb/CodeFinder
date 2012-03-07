@@ -206,8 +206,6 @@ public class LuceneFieldsGenerator implements IGenerator {
     }
     _builder.append("*/");
     _builder.newLine();
-    _builder.append("/*");
-    _builder.newLine();
     _builder.append("\t");
     CharSequence _doNotModify = this.doNotModify();
     _builder.append(_doNotModify, "	");
@@ -273,6 +271,20 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("     ");
+    _builder.append("* Java handle used to open a given java element in an editor.");
+    _builder.newLine();
+    _builder.append("     ");
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.append("public static final String JAVA_ELEMENT_HANDLE = \"Handle\";");
+    _builder.newLine();
+    _builder.append("    ");
+    _builder.newLine();
     {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();
       for(final FieldCategory category : _fieldCategories) {
@@ -297,7 +309,6 @@ public class LuceneFieldsGenerator implements IGenerator {
     }
     _builder.append("}");
     _builder.newLine();
-    _builder.append("*/");
     return _builder;
   }
   
@@ -322,6 +333,9 @@ public class LuceneFieldsGenerator implements IGenerator {
     }
     _builder.append("*/");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("//Generated - please modify in source file");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("public final static String ");
     String _name = f.getName();

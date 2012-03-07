@@ -1661,6 +1661,22 @@ ruleTypeField returns [EObject current=null]
 	    }
 
 )
+)
+    |(
+(
+		lv_value_15_0=	'CheckedExceptions' 
+    {
+        newLeafNode(lv_value_15_0, grammarAccess.getTypeFieldAccess().getValueCheckedExceptionsKeyword_15_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getTypeFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_15_0, "CheckedExceptions");
+	    }
+
+)
 ))
 ;
 

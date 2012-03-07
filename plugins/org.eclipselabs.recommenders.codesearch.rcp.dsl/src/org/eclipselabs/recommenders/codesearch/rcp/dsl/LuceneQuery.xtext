@@ -153,6 +153,7 @@ Primary returns Expression:
 		| 	value='DeclaredFieldTypes'
 		| 	value='DeclaringType'
 		| 	value='VariableType'
+		| 	value='CheckedExceptions'
 	;
 	
 	//Generated Rule. Do not modify!
@@ -210,6 +211,7 @@ Primary returns Expression:
 	/*
 	End of generated rules.
 	*/
+
 	
 
 	SimpleFieldValue:

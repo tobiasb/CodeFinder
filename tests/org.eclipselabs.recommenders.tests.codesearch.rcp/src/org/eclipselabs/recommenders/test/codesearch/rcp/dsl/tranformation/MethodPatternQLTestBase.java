@@ -13,7 +13,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 
 import com.google.inject.Injector;
 
-public abstract class Ql1TestBase extends AbstractXtextTests {
+public abstract class MethodPatternQLTestBase extends AbstractXtextTests {
 
     private Injector luceneInjector = null;
 

@@ -73,7 +73,6 @@ class LuceneFieldsGenerator implements IGenerator {
  *		«packageName».«m.className»
 	«ENDFOR»
 */
-/*
 	«doNotModify»
 	
 public class «m.className» {
@@ -96,6 +95,11 @@ public class «m.className» {
 	public static final String DEFINITION_INSTANCE_CREATION = "instanceCreation";
 	public static final String DEFINITION_UNINITIALIZED = "uninitialized";
 	
+	/**
+     * Java handle used to open a given java element in an editor.
+     */
+    public static final String JAVA_ELEMENT_HANDLE = "Handle";
+    
 	«FOR category : m.fieldCategories»
 	//«category.categoryName»
 		«FOR field : category.fields»
@@ -105,11 +109,12 @@ public class «m.className» {
 	
 	«ENDFOR»
 }
-*/'''
+'''
 	}
 	
 	def compile(Field f) {
 '''	/** Can be applied to: «FOR t : f.types»«if(f.types.indexOf(t)>0){','}»«t.toTypeName»«ENDFOR»*/
+	//Generated - please modify in source file
 	public final static String «f.name» = "«f.value»";'''
 	}
 	
@@ -129,7 +134,7 @@ public class «m.className» {
 	}
 	
 	def doNotModify() {
-		'''/*
+'''/*
 * This is a generated file. Do not modify. Modify source file instead.
 */'''
 	}

@@ -1349,6 +1349,12 @@ rule__TypeField__Alternatives
 { after(grammarAccess.getTypeFieldAccess().getValueAssignment_14()); }
 )
 
+    |(
+{ before(grammarAccess.getTypeFieldAccess().getValueAssignment_15()); }
+(rule__TypeField__ValueAssignment_15)
+{ after(grammarAccess.getTypeFieldAccess().getValueAssignment_15()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -6716,6 +6722,29 @@ rule__TypeField__ValueAssignment_14
 )
 
 { after(grammarAccess.getTypeFieldAccess().getValueVariableTypeKeyword_14_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TypeField__ValueAssignment_15
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTypeFieldAccess().getValueCheckedExceptionsKeyword_15_0()); }
+(
+{ before(grammarAccess.getTypeFieldAccess().getValueCheckedExceptionsKeyword_15_0()); }
+
+	'CheckedExceptions' 
+
+{ after(grammarAccess.getTypeFieldAccess().getValueCheckedExceptionsKeyword_15_0()); }
+)
+
+{ after(grammarAccess.getTypeFieldAccess().getValueCheckedExceptionsKeyword_15_0()); }
 )
 
 ;

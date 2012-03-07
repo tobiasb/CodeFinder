@@ -383,7 +383,8 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         value='CaughtType' | 
 	 *         value='DeclaredFieldTypes' | 
 	 *         value='DeclaringType' | 
-	 *         value='VariableType'
+	 *         value='VariableType' | 
+	 *         value='CheckedExceptions'
 	 *     )
 	 */
 	protected void sequence_TypeField(EObject context, TypeField semanticObject) {

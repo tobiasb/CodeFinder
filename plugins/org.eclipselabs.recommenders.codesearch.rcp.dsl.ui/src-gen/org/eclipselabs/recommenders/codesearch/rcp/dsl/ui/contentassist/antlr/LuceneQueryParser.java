@@ -162,6 +162,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_12(), "rule__TypeField__ValueAssignment_12");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_13(), "rule__TypeField__ValueAssignment_13");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_14(), "rule__TypeField__ValueAssignment_14");
+					put(grammarAccess.getTypeFieldAccess().getValueAssignment_15(), "rule__TypeField__ValueAssignment_15");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_0(), "rule__MethodField__ValueAssignment_0");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_1(), "rule__MethodField__ValueAssignment_1");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_2(), "rule__MethodField__ValueAssignment_2");

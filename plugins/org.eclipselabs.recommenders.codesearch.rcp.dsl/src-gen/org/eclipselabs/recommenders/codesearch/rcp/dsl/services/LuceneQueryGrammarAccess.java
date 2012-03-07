@@ -1096,6 +1096,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueDeclaringTypeKeyword_13_0 = (Keyword)cValueAssignment_13.eContents().get(0);
 		private final Assignment cValueAssignment_14 = (Assignment)cAlternatives.eContents().get(14);
 		private final Keyword cValueVariableTypeKeyword_14_0 = (Keyword)cValueAssignment_14.eContents().get(0);
+		private final Assignment cValueAssignment_15 = (Assignment)cAlternatives.eContents().get(15);
+		private final Keyword cValueCheckedExceptionsKeyword_15_0 = (Keyword)cValueAssignment_15.eContents().get(0);
 		
 		////Generated Rule. Do not modify!
 		//
@@ -1103,13 +1105,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//	value="ImplementedTypes" | value="ExtendedTypes" | value="UsedTypes" | value="UsedTypesInTry" |
 		//	value="UsedTypesInFinally" | value="ParameterTypes" | value="ReturnType" | value="InstanceofTypes" |
 		//	value="AllImplementedTypes" | value="AllExtendedTypes" | value="FieldType" | value="CaughtType" |
-		//	value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType";
+		//	value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType" | value="CheckedExceptions";
 		public ParserRule getRule() { return rule; }
 
 		//value="ImplementedTypes" | value="ExtendedTypes" | value="UsedTypes" | value="UsedTypesInTry" |
 		//value="UsedTypesInFinally" | value="ParameterTypes" | value="ReturnType" | value="InstanceofTypes" |
 		//value="AllImplementedTypes" | value="AllExtendedTypes" | value="FieldType" | value="CaughtType" |
-		//value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType"
+		//value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType" | value="CheckedExceptions"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value="ImplementedTypes"
@@ -1201,6 +1203,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"VariableType"
 		public Keyword getValueVariableTypeKeyword_14_0() { return cValueVariableTypeKeyword_14_0; }
+
+		//value="CheckedExceptions"
+		public Assignment getValueAssignment_15() { return cValueAssignment_15; }
+
+		//"CheckedExceptions"
+		public Keyword getValueCheckedExceptionsKeyword_15_0() { return cValueCheckedExceptionsKeyword_15_0; }
 	}
 
 	public class MethodFieldElements extends AbstractParserRuleElementFinder {
@@ -1845,7 +1853,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	value="ImplementedTypes" | value="ExtendedTypes" | value="UsedTypes" | value="UsedTypesInTry" |
 	//	value="UsedTypesInFinally" | value="ParameterTypes" | value="ReturnType" | value="InstanceofTypes" |
 	//	value="AllImplementedTypes" | value="AllExtendedTypes" | value="FieldType" | value="CaughtType" |
-	//	value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType";
+	//	value="DeclaredFieldTypes" | value="DeclaringType" | value="VariableType" | value="CheckedExceptions";
 	public TypeFieldElements getTypeFieldAccess() {
 		return (pTypeField != null) ? pTypeField : (pTypeField = new TypeFieldElements());
 	}

@@ -3,10 +3,9 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
-import org.junit.Ignore;
 import org.junit.Test;
 
-public class Ql1Test extends Ql1TestBase {
+public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTest01() throws Exception {
@@ -51,7 +50,6 @@ public class Ql1Test extends Ql1TestBase {
     }
 
     @Test
-    @Ignore
     public void transformToLuceneQueryTest04() throws Exception {
         super.setUp();
 
@@ -62,7 +60,7 @@ public class Ql1Test extends Ql1TestBase {
         IParseResult result = parse(query);
         EObject o = qe.transform(result);
 
-        assertQueryEqual("Type:(method)AND Modifiers:(public) AND ExceptionsThrown:(exception) ",
+        assertQueryEqual("Type:(method)AND Modifiers:(public) AND CheckedExceptions:(exception) ",
                 serializeLuceneQuery(o));
     }
 }

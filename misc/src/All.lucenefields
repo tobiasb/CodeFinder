@@ -2,7 +2,7 @@ packages "org.eclipselabs.recommenders.codesearch.rcp" "org.eclipselabs.recommen
 class Fields 
 
 SimpleField {
-	FULLY_QUALIFIED_NAME 		= "FullyQualifiedName" 
+	QUALIFIED_NAME 		= "FullyQualifiedName" 
 	{ class, method, field, trycatch }
 
 	SIMPLE_NAME 				= "FriendlyName" 
@@ -11,7 +11,7 @@ SimpleField {
 	RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions" 
 	{ method }
 
-	ALL_DELCARED_METHOD_NAMES 	= "AllDeclaredMethodNames"
+	ALL_DECLARED_METHOD_NAMES 	= "AllDeclaredMethodNames"
 	{ class }
 	
 	DECLARED_METHODS_NAMES 		= "DeclaredMethodNames"

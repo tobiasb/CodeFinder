@@ -23,6 +23,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MethodNameImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ReturnTypeImpl;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ThrowsImpl;
 
 import com.google.common.collect.Lists;
 
@@ -72,23 +73,37 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
                 clause.getValues().add(((ModifierImpl) o).getValue());
 
                 exps.add(clause);
-            } else if (o instanceof MethodNameImpl && isSpecified(((MethodNameImpl) o).getValue())) {
+            } else if (o instanceof MethodNameImpl) {
 
-                ClauseExpression clause = lqf.createClauseExpression();
-                SimpleField field = lqf.createSimpleField();
-                field.setValue(Fields.SIMPLE_NAME);
-                clause.setField(field);
-                clause.getValues().add(((MethodNameImpl) o).getValue());
+                if (isSpecified(((MethodNameImpl) o).getValue())) {
+                    ClauseExpression clause = lqf.createClauseExpression();
+                    SimpleField field = lqf.createSimpleField();
+                    field.setValue(Fields.SIMPLE_NAME);
+                    clause.setField(field);
+                    clause.getValues().add(((MethodNameImpl) o).getValue());
 
-                exps.add(clause);
-            } else if (o instanceof ReturnTypeImpl && isSpecified(((ReturnTypeImpl) o).getValue())) {
-                ClauseExpression clause = lqf.createClauseExpression();
-                TypeField field = lqf.createTypeField();
-                field.setValue(Fields.RETURN_TYPE);
-                clause.setField(field);
-                clause.getValues().add(((ReturnTypeImpl) o).getValue());
+                    exps.add(clause);
+                }
+            } else if (o instanceof ReturnTypeImpl) {
+                if (isSpecified(((ReturnTypeImpl) o).getValue())) {
+                    ClauseExpression clause = lqf.createClauseExpression();
+                    TypeField field = lqf.createTypeField();
+                    field.setValue(Fields.RETURN_TYPE);
+                    clause.setField(field);
+                    clause.getValues().add(((ReturnTypeImpl) o).getValue());
 
-                exps.add(clause);
+                    exps.add(clause);
+                }
+            } else if (o instanceof ThrowsImpl) {
+                if (isSpecified(((ThrowsImpl) o).getValue())) {
+                    ClauseExpression clause = lqf.createClauseExpression();
+                    TypeField field = lqf.createTypeField();
+                    field.setValue(Fields.CHECKED_EXCEPTIONS);
+                    clause.setField(field);
+                    clause.getValues().add(((ThrowsImpl) o).getValue());
+
+                    exps.add(clause);
+                }
             } else {
                 System.out.println("Can't handle EObjects of type " + o.getClass().getSimpleName());
             }
