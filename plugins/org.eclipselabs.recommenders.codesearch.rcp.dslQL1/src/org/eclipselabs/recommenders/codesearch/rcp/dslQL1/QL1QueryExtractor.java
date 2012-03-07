@@ -110,7 +110,15 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
 
         } while (iter.hasNext());
 
-        return buildExpressionTree(exps);
+        if (exps.size() > 0) {
+            return buildExpressionTree(exps);
+        } else {
+            /*
+             * Basically an empty query. We append another trivial
+             * "document must be type method" clause to have a valid emf-tree
+             */
+            return getMethodTypeExpression();
+        }
     }
 
     private boolean isSpecified(String value) {

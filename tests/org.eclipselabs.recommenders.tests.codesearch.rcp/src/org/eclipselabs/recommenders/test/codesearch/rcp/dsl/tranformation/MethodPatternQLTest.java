@@ -1,66 +1,66 @@
 package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.parser.IParseResult;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.junit.Test;
 
 public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
-    public void transformToLuceneQueryTest01() throws Exception {
+    public void transformToLuceneQueryTestOnlyModifier01() throws Exception {
         super.setUp();
-
-        QL1QueryExtractor qe = new QL1QueryExtractor();
 
         String query = "public * *";
+        String expected = "Type:(method) AND (Modifiers):public";
 
-        IParseResult result = parse(query);
-        EObject o = qe.transform(result);
-
-        assertQueryEqual("Type:(method) AND (Modifiers):public", serializeLuceneQuery(o));
+        testQuery(query, expected);
     }
 
     @Test
-    public void transformToLuceneQueryTest02() throws Exception {
+    public void transformToLuceneQueryTestOnlyModifiers() throws Exception {
         super.setUp();
-
-        QL1QueryExtractor qe = new QL1QueryExtractor();
 
         String query = "public static * *";
+        String expected = "Type:(method) AND (Modifiers):public AND (Modifiers):static";
 
-        IParseResult result = parse(query);
-        EObject o = qe.transform(result);
-
-        assertQueryEqual("Type:(method) AND (Modifiers):public AND (Modifiers):static", serializeLuceneQuery(o));
+        testQuery(query, expected);
     }
 
     @Test
-    public void transformToLuceneQueryTest03() throws Exception {
+    public void transformToLuceneQueryTestOptionalParts() throws Exception {
         super.setUp();
-
-        QL1QueryExtractor qe = new QL1QueryExtractor();
 
         String query = "public * testName";
+        String expected = "Type:(method)AND Modifiers:(public) AND FriendlyName:(testName)";
 
-        IParseResult result = parse(query);
-        EObject o = qe.transform(result);
-
-        assertQueryEqual("Type:(method)AND Modifiers:(public) AND FriendlyName:(testName) ", serializeLuceneQuery(o));
+        testQuery(query, expected);
     }
 
     @Test
-    public void transformToLuceneQueryTest04() throws Exception {
+    public void transformToLuceneQueryTestThrows() throws Exception {
         super.setUp();
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        String query = "* * throws exception";
+        String expected = "Type:(method) AND CheckedExceptions:(exception) ";
 
-        String query = "public * * throws exception";
+        testQuery(query, expected);
+    }
 
-        IParseResult result = parse(query);
-        EObject o = qe.transform(result);
+    @Test
+    public void transformToLuceneQueryTestOnlyModifier02() throws Exception {
+        super.setUp();
 
-        assertQueryEqual("Type:(method)AND Modifiers:(public) AND CheckedExceptions:(exception) ",
-                serializeLuceneQuery(o));
+        String query = "public * *()";
+        String expected = "Type:(method)AND Modifiers:(public) ";
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryTestEmptyQuery() throws Exception {
+        super.setUp();
+
+        String query = "* *()";
+        String expected = "Type:(method) AND Type:(method)";
+
+        testQuery(query, expected);
     }
 }

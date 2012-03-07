@@ -9,6 +9,7 @@ import org.eclipse.xtext.junit.AbstractXtextTests;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 
 import com.google.inject.Injector;
@@ -44,5 +45,15 @@ public abstract class MethodPatternQLTestBase extends AbstractXtextTests {
 
     private String sanitize(String s) {
         return s.replace("(", "").replace(")", "").replace(" ", "");
+    }
+
+    protected void testQuery(String query, String expected) throws Exception {
+
+        QL1QueryExtractor qe = new QL1QueryExtractor();
+
+        IParseResult result = parse(query);
+        EObject o = qe.transform(result);
+
+        assertQueryEqual(expected, serializeLuceneQuery(o));
     }
 }

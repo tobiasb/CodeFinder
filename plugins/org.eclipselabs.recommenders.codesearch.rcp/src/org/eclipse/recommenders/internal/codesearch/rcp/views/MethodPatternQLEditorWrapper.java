@@ -107,7 +107,7 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
 
     @Override
     String[] getExampleQueriesInternal() {
-        return new String[] { "* *(..) throws IOException", "String *label*(IJavaElement)",
+        return new String[] { "* *(..) throws java.lang.IOException", "String *label*(IJavaElement)",
                 "String *label*(.., IJavaElement, ..)", "static * *" };
     }
 
