@@ -4,7 +4,15 @@ generate qL1 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1"
 
 
 MethodPattern:
-	(modifiers+=Modifier)* returnType=ReturnType methodName=MethodName ('(' parameterElements+=ParameterElement (',' parameterElements+=ParameterElement)* ')')? throwsClause=Throws?
+	definition=MethodPatternDefinition
+;
+
+MethodPatternDefinition:
+	(modifiers+=Modifier)* returnType=ReturnType methodName=MethodName (parameterDefinition=ParameterDefinition)? throwsClause=Throws?
+;
+
+ParameterDefinition:
+	'(' parameterElementholder+=ParameterElementHolder (',' parameterElementholder+=ParameterElementHolder)* ')'
 ;
 
 Modifier:
@@ -20,9 +28,16 @@ ReturnType:
 	value=NameWithWC
 ;
 
-ParameterElement:
-	{ParameterElement}
-	values+=ParameterType | '{' types+=ParameterType (',' types+=ParameterType)* '}'
+ParameterElementHolder:
+	element=SingleElement | element=MultiElement
+;
+
+SingleElement:
+	value=ParameterType
+;
+
+MultiElement:
+	'{' elements+=SingleElement ('|' elements+=SingleElement)* '}'
 ;
 
 ParameterType:
@@ -37,4 +52,4 @@ MethodName:
 	value=NameWithWC
 ;
 	
-terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.')*;
+terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;

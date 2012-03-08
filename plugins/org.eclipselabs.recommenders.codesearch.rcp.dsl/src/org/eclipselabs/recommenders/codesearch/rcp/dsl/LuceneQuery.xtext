@@ -9,24 +9,15 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
  *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
  * */
  
-	Exp1 returns Expression:
-	 Exp2 ( {Exp1.left=current} b=BinaryExp? right=Exp1 )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
-	
-	Exp2 returns Expression:
-	 value=ClauseExpression | (UnaryExpression? '(' Exp1 ')' Boost?);
+	OrExp returns Expression:
+	 AndExp ( {OrExp.left=current} or=BinaryOr? right=OrExp )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	 
-	 /*
-OrExpr returns Expression:
- AndExpr ({OrExpr.left=current} 'or' right=AndExpr)*;
-
-AndExpr returns Expression:
- Primary ({Multiplication.left=current} 'and' right=Primary)*;
-
-Primary returns Expression:
- FieldExpr |
- '(' OrExpr ')';
-	  */
-	  
+	AndExp returns Expression:
+	 Primary ( {AndExp.left=current} and=BinaryAnd right=AndExp )?; // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+	
+	Primary returns Expression:
+	 value=ClauseExpression | (UnaryExpression? '(' OrExp ')' Boost?);
+	 	  
 	  
 /*
 	The following rules are generated. Do not modify. Modify source file instead.
@@ -134,6 +125,7 @@ Primary returns Expression:
 		| 	value='UsedFieldsInFinally'
 		| 	value='UsedFieldsInTry'
 		| 	value='VariableName'
+		| 	value='ParameterTypesStructural'
 	;
 	
 	//Generated Rule. Do not modify!
@@ -211,7 +203,6 @@ Primary returns Expression:
 	/*
 	End of generated rules.
 	*/
-
 	
 
 	SimpleFieldValue:
@@ -267,8 +258,12 @@ Primary returns Expression:
 	    | 'uninitialized'
 	;
 	
-	enum BinaryExp:
-		or1='OR' | or2='||' | and1='AND'
+	enum BinaryOr returns BinaryExp:
+		or1='OR' | or2='||'
+	;
+	
+	enum BinaryAnd returns BinaryExp:
+		and1='AND'
 	;
 
 	UnaryExpression:

@@ -81,13 +81,31 @@ public interface LuceneQueryPackage extends EPackage
   int EXPRESSION__VALUE = 0;
 
   /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__LEFT = 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__RIGHT = 2;
+
+  /**
    * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl <em>Clause Expression</em>}' class.
@@ -444,14 +462,14 @@ public interface LuceneQueryPackage extends EPackage
   int DEFINITION_TYPE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.OrExpImpl <em>Or Exp</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.Exp1Impl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getExp1()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.OrExpImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getOrExp()
    * @generated
    */
-  int EXP1 = 13;
+  int OR_EXP = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -460,7 +478,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXP1__VALUE = EXPRESSION__VALUE;
+  int OR_EXP__VALUE = EXPRESSION__VALUE;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -469,16 +487,7 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXP1__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>B</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXP1__B = EXPRESSION_FEATURE_COUNT + 1;
+  int OR_EXP__LEFT = EXPRESSION__LEFT;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -487,16 +496,80 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXP1__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int OR_EXP__RIGHT = EXPRESSION__RIGHT;
 
   /**
-   * The number of structural features of the '<em>Exp1</em>' class.
+   * The feature id for the '<em><b>Or</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXP1_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int OR_EXP__OR = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Or Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OR_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AndExpImpl <em>And Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AndExpImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getAndExp()
+   * @generated
+   */
+  int AND_EXP = 14;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXP__VALUE = EXPRESSION__VALUE;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXP__LEFT = EXPRESSION__LEFT;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXP__RIGHT = EXPRESSION__RIGHT;
+
+  /**
+   * The feature id for the '<em><b>And</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXP__AND = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>And Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int AND_EXP_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp <em>Binary Exp</em>}' enum.
@@ -506,7 +579,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getBinaryExp()
    * @generated
    */
-  int BINARY_EXP = 14;
+  int BINARY_EXP = 15;
 
 
   /**
@@ -529,6 +602,28 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EReference getExpression_Value();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getLeft()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getRight()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Right();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression <em>Clause Expression</em>}'.
@@ -805,47 +900,46 @@ public interface LuceneQueryPackage extends EPackage
   EAttribute getDefinitionType_Value();
 
   /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1 <em>Exp1</em>}'.
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp <em>Or Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Exp1</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1
+   * @return the meta object for class '<em>Or Exp</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp
    * @generated
    */
-  EClass getExp1();
+  EClass getOrExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1#getLeft <em>Left</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp#getOr <em>Or</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1#getLeft()
-   * @see #getExp1()
+   * @return the meta object for the attribute '<em>Or</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp#getOr()
+   * @see #getOrExp()
    * @generated
    */
-  EReference getExp1_Left();
+  EAttribute getOrExp_Or();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1#getB <em>B</em>}'.
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp <em>And Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>B</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1#getB()
-   * @see #getExp1()
+   * @return the meta object for class '<em>And Exp</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp
    * @generated
    */
-  EAttribute getExp1_B();
+  EClass getAndExp();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1#getRight <em>Right</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp#getAnd <em>And</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1#getRight()
-   * @see #getExp1()
+   * @return the meta object for the attribute '<em>And</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp#getAnd()
+   * @see #getAndExp()
    * @generated
    */
-  EReference getExp1_Right();
+  EAttribute getAndExp_And();
 
   /**
    * Returns the meta object for enum '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp <em>Binary Exp</em>}'.
@@ -897,6 +991,22 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EReference EXPRESSION__VALUE = eINSTANCE.getExpression_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__LEFT = eINSTANCE.getExpression_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__RIGHT = eINSTANCE.getExpression_Right();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.ClauseExpressionImpl <em>Clause Expression</em>}' class.
@@ -1131,38 +1241,40 @@ public interface LuceneQueryPackage extends EPackage
     EAttribute DEFINITION_TYPE__VALUE = eINSTANCE.getDefinitionType_Value();
 
     /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.Exp1Impl <em>Exp1</em>}' class.
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.OrExpImpl <em>Or Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.Exp1Impl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getExp1()
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.OrExpImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getOrExp()
      * @generated
      */
-    EClass EXP1 = eINSTANCE.getExp1();
+    EClass OR_EXP = eINSTANCE.getOrExp();
 
     /**
-     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Or</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP1__LEFT = eINSTANCE.getExp1_Left();
+    EAttribute OR_EXP__OR = eINSTANCE.getOrExp_Or();
 
     /**
-     * The meta object literal for the '<em><b>B</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AndExpImpl <em>And Exp</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AndExpImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getAndExp()
      * @generated
      */
-    EAttribute EXP1__B = eINSTANCE.getExp1_B();
+    EClass AND_EXP = eINSTANCE.getAndExp();
 
     /**
-     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>And</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXP1__RIGHT = eINSTANCE.getExp1_Right();
+    EAttribute AND_EXP__AND = eINSTANCE.getAndExp_And();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp <em>Binary Exp</em>}' enum.

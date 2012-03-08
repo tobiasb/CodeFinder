@@ -68,6 +68,7 @@ public class InternalLuceneQueryLexer extends Lexer {
     public static final int T__49=49;
     public static final int RULE_PATHWITHWC=7;
     public static final int RULE_NAMEWITHWC=5;
+    public static final int T__85=85;
     public static final int T__84=84;
     public static final int RULE_SL_COMMENT=11;
     public static final int RULE_ML_COMMENT=10;
@@ -446,10 +447,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:27:7: ( 'ImplementedTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:27:9: 'ImplementedTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:27:7: ( 'ParameterTypesStructural' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:27:9: 'ParameterTypesStructural'
             {
-            match("ImplementedTypes"); 
+            match("ParameterTypesStructural"); 
 
 
             }
@@ -467,10 +468,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:28:7: ( 'ExtendedTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:28:9: 'ExtendedTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:28:7: ( 'ImplementedTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:28:9: 'ImplementedTypes'
             {
-            match("ExtendedTypes"); 
+            match("ImplementedTypes"); 
 
 
             }
@@ -488,10 +489,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:29:7: ( 'UsedTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:29:9: 'UsedTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:29:7: ( 'ExtendedTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:29:9: 'ExtendedTypes'
             {
-            match("UsedTypes"); 
+            match("ExtendedTypes"); 
 
 
             }
@@ -509,10 +510,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:30:7: ( 'UsedTypesInTry' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:30:9: 'UsedTypesInTry'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:30:7: ( 'UsedTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:30:9: 'UsedTypes'
             {
-            match("UsedTypesInTry"); 
+            match("UsedTypes"); 
 
 
             }
@@ -530,10 +531,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:31:7: ( 'UsedTypesInFinally' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:31:9: 'UsedTypesInFinally'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:31:7: ( 'UsedTypesInTry' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:31:9: 'UsedTypesInTry'
             {
-            match("UsedTypesInFinally"); 
+            match("UsedTypesInTry"); 
 
 
             }
@@ -551,10 +552,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:32:7: ( 'ParameterTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:32:9: 'ParameterTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:32:7: ( 'UsedTypesInFinally' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:32:9: 'UsedTypesInFinally'
             {
-            match("ParameterTypes"); 
+            match("UsedTypesInFinally"); 
 
 
             }
@@ -572,10 +573,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:33:7: ( 'ReturnType' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:33:9: 'ReturnType'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:33:7: ( 'ParameterTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:33:9: 'ParameterTypes'
             {
-            match("ReturnType"); 
+            match("ParameterTypes"); 
 
 
             }
@@ -593,10 +594,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:34:7: ( 'InstanceofTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:34:9: 'InstanceofTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:34:7: ( 'ReturnType' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:34:9: 'ReturnType'
             {
-            match("InstanceofTypes"); 
+            match("ReturnType"); 
 
 
             }
@@ -614,10 +615,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:35:7: ( 'AllImplementedTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:35:9: 'AllImplementedTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:35:7: ( 'InstanceofTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:35:9: 'InstanceofTypes'
             {
-            match("AllImplementedTypes"); 
+            match("InstanceofTypes"); 
 
 
             }
@@ -635,10 +636,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:36:7: ( 'AllExtendedTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:36:9: 'AllExtendedTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:36:7: ( 'AllImplementedTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:36:9: 'AllImplementedTypes'
             {
-            match("AllExtendedTypes"); 
+            match("AllImplementedTypes"); 
 
 
             }
@@ -656,10 +657,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:37:7: ( 'FieldType' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:37:9: 'FieldType'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:37:7: ( 'AllExtendedTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:37:9: 'AllExtendedTypes'
             {
-            match("FieldType"); 
+            match("AllExtendedTypes"); 
 
 
             }
@@ -677,10 +678,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:38:7: ( 'CaughtType' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:38:9: 'CaughtType'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:38:7: ( 'FieldType' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:38:9: 'FieldType'
             {
-            match("CaughtType"); 
+            match("FieldType"); 
 
 
             }
@@ -698,10 +699,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:39:7: ( 'DeclaredFieldTypes' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:39:9: 'DeclaredFieldTypes'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:39:7: ( 'CaughtType' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:39:9: 'CaughtType'
             {
-            match("DeclaredFieldTypes"); 
+            match("CaughtType"); 
 
 
             }
@@ -719,10 +720,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:40:7: ( 'DeclaringType' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:40:9: 'DeclaringType'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:40:7: ( 'DeclaredFieldTypes' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:40:9: 'DeclaredFieldTypes'
             {
-            match("DeclaringType"); 
+            match("DeclaredFieldTypes"); 
 
 
             }
@@ -740,10 +741,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:41:7: ( 'VariableType' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:41:9: 'VariableType'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:41:7: ( 'DeclaringType' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:41:9: 'DeclaringType'
             {
-            match("VariableType"); 
+            match("DeclaringType"); 
 
 
             }
@@ -761,10 +762,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:42:7: ( 'CheckedExceptions' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:42:9: 'CheckedExceptions'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:42:7: ( 'VariableType' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:42:9: 'VariableType'
             {
-            match("CheckedExceptions"); 
+            match("VariableType"); 
 
 
             }
@@ -782,10 +783,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:43:7: ( 'UsedMethods' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:43:9: 'UsedMethods'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:43:7: ( 'CheckedExceptions' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:43:9: 'CheckedExceptions'
             {
-            match("UsedMethods"); 
+            match("CheckedExceptions"); 
 
 
             }
@@ -803,10 +804,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:44:7: ( 'UsedMethodsInTry' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:44:9: 'UsedMethodsInTry'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:44:7: ( 'UsedMethods' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:44:9: 'UsedMethods'
             {
-            match("UsedMethodsInTry"); 
+            match("UsedMethods"); 
 
 
             }
@@ -824,10 +825,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:45:7: ( 'UsedMethodsInFinally' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:45:9: 'UsedMethodsInFinally'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:45:7: ( 'UsedMethodsInTry' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:45:9: 'UsedMethodsInTry'
             {
-            match("UsedMethodsInFinally"); 
+            match("UsedMethodsInTry"); 
 
 
             }
@@ -845,10 +846,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:46:7: ( 'OverriddenMethods' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:46:9: 'OverriddenMethods'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:46:7: ( 'UsedMethodsInFinally' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:46:9: 'UsedMethodsInFinally'
             {
-            match("OverriddenMethods"); 
+            match("UsedMethodsInFinally"); 
 
 
             }
@@ -866,10 +867,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:47:7: ( 'DeclaredMethods' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:47:9: 'DeclaredMethods'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:47:7: ( 'OverriddenMethods' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:47:9: 'OverriddenMethods'
             {
-            match("DeclaredMethods"); 
+            match("OverriddenMethods"); 
 
 
             }
@@ -887,10 +888,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:48:7: ( 'DeclaringMethod' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:48:9: 'DeclaringMethod'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:48:7: ( 'DeclaredMethods' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:48:9: 'DeclaredMethods'
             {
-            match("DeclaringMethod"); 
+            match("DeclaredMethods"); 
 
 
             }
@@ -908,10 +909,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:49:7: ( 'UsedAsParameterInMethods' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:49:9: 'UsedAsParameterInMethods'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:49:7: ( 'DeclaringMethod' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:49:9: 'DeclaringMethod'
             {
-            match("UsedAsParameterInMethods"); 
+            match("DeclaringMethod"); 
 
 
             }
@@ -929,10 +930,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:50:7: ( 'UsedAsTargetForMethods' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:50:9: 'UsedAsTargetForMethods'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:50:7: ( 'UsedAsParameterInMethods' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:50:9: 'UsedAsParameterInMethods'
             {
-            match("UsedAsTargetForMethods"); 
+            match("UsedAsParameterInMethods"); 
 
 
             }
@@ -950,10 +951,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:51:7: ( 'ResourcePath' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:51:9: 'ResourcePath'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:51:7: ( 'UsedAsTargetForMethods' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:51:9: 'UsedAsTargetForMethods'
             {
-            match("ResourcePath"); 
+            match("UsedAsTargetForMethods"); 
 
 
             }
@@ -971,10 +972,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:52:7: ( 'ParameterCount' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:52:9: 'ParameterCount'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:52:7: ( 'ResourcePath' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:52:9: 'ResourcePath'
             {
-            match("ParameterCount"); 
+            match("ResourcePath"); 
 
 
             }
@@ -992,10 +993,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:53:7: ( 'Modifiers' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:53:9: 'Modifiers'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:53:7: ( 'ParameterCount' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:53:9: 'ParameterCount'
             {
-            match("Modifiers"); 
+            match("ParameterCount"); 
 
 
             }
@@ -1013,10 +1014,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:54:7: ( 'Timestamp' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:54:9: 'Timestamp'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:54:7: ( 'Modifiers' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:54:9: 'Modifiers'
             {
-            match("Timestamp"); 
+            match("Modifiers"); 
 
 
             }
@@ -1034,10 +1035,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:55:7: ( 'Type' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:55:9: 'Type'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:55:7: ( 'Timestamp' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:55:9: 'Timestamp'
             {
-            match("Type"); 
+            match("Timestamp"); 
 
 
             }
@@ -1055,10 +1056,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:56:7: ( 'ProjectName' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:56:9: 'ProjectName'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:56:7: ( 'Type' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:56:9: 'Type'
             {
-            match("ProjectName"); 
+            match("Type"); 
 
 
             }
@@ -1076,10 +1077,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:57:7: ( 'Annotations' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:57:9: 'Annotations'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:57:7: ( 'ProjectName' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:57:9: 'ProjectName'
             {
-            match("Annotations"); 
+            match("ProjectName"); 
 
 
             }
@@ -1097,10 +1098,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:58:7: ( 'VariableDefinition' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:58:9: 'VariableDefinition'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:58:7: ( 'Annotations' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:58:9: 'Annotations'
             {
-            match("VariableDefinition"); 
+            match("Annotations"); 
 
 
             }
@@ -1118,10 +1119,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:59:7: ( 'private' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:59:9: 'private'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:59:7: ( 'VariableDefinition' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:59:9: 'VariableDefinition'
             {
-            match("private"); 
+            match("VariableDefinition"); 
 
 
             }
@@ -1139,10 +1140,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:60:7: ( 'public' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:60:9: 'public'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:60:7: ( 'private' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:60:9: 'private'
             {
-            match("public"); 
+            match("private"); 
 
 
             }
@@ -1160,10 +1161,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:61:7: ( 'static' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:61:9: 'static'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:61:7: ( 'public' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:61:9: 'public'
             {
-            match("static"); 
+            match("public"); 
 
 
             }
@@ -1181,10 +1182,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:62:7: ( 'final' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:62:9: 'final'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:62:7: ( 'static' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:62:9: 'static'
             {
-            match("final"); 
+            match("static"); 
 
 
             }
@@ -1202,10 +1203,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:63:7: ( 'abstract' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:63:9: 'abstract'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:63:7: ( 'final' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:63:9: 'final'
             {
-            match("abstract"); 
+            match("final"); 
 
 
             }
@@ -1223,10 +1224,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:64:7: ( 'protected' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:64:9: 'protected'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:64:7: ( 'abstract' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:64:9: 'abstract'
             {
-            match("protected"); 
+            match("abstract"); 
 
 
             }
@@ -1244,10 +1245,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:65:7: ( 'class' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:65:9: 'class'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:65:7: ( 'protected' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:65:9: 'protected'
             {
-            match("class"); 
+            match("protected"); 
 
 
             }
@@ -1265,10 +1266,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:66:7: ( 'method' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:66:9: 'method'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:66:7: ( 'class' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:66:9: 'class'
             {
-            match("method"); 
+            match("class"); 
 
 
             }
@@ -1286,10 +1287,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:67:7: ( 'field' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:67:9: 'field'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:67:7: ( 'method' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:67:9: 'method'
             {
-            match("field"); 
+            match("method"); 
 
 
             }
@@ -1307,10 +1308,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:68:7: ( 'trycatch' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:68:9: 'trycatch'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:68:7: ( 'field' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:68:9: 'field'
             {
-            match("trycatch"); 
+            match("field"); 
 
 
             }
@@ -1328,10 +1329,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:69:7: ( 'varusage' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:69:9: 'varusage'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:69:7: ( 'trycatch' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:69:9: 'trycatch'
             {
-            match("varusage"); 
+            match("trycatch"); 
 
 
             }
@@ -1349,10 +1350,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:70:7: ( 'parameter' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:70:9: 'parameter'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:70:7: ( 'varusage' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:70:9: 'varusage'
             {
-            match("parameter"); 
+            match("varusage"); 
 
 
             }
@@ -1370,10 +1371,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:71:7: ( 'nullLiteral' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:71:9: 'nullLiteral'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:71:7: ( 'parameter' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:71:9: 'parameter'
             {
-            match("nullLiteral"); 
+            match("parameter"); 
 
 
             }
@@ -1391,10 +1392,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:72:7: ( 'methodInvocation' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:72:9: 'methodInvocation'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:72:7: ( 'nullLiteral' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:72:9: 'nullLiteral'
             {
-            match("methodInvocation"); 
+            match("nullLiteral"); 
 
 
             }
@@ -1412,10 +1413,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:73:7: ( 'instanceCreation' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:73:9: 'instanceCreation'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:73:7: ( 'methodInvocation' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:73:9: 'methodInvocation'
             {
-            match("instanceCreation"); 
+            match("methodInvocation"); 
 
 
             }
@@ -1433,10 +1434,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:74:7: ( 'uninitialized' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:74:9: 'uninitialized'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:74:7: ( 'instanceCreation' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:74:9: 'instanceCreation'
             {
-            match("uninitialized"); 
+            match("instanceCreation"); 
 
 
             }
@@ -1454,10 +1455,11 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:75:7: ( '-' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:75:9: '-'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:75:7: ( 'uninitialized' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:75:9: 'uninitialized'
             {
-            match('-'); 
+            match("uninitialized"); 
+
 
             }
 
@@ -1474,11 +1476,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:76:7: ( 'NOT' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:76:9: 'NOT'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:76:7: ( '-' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:76:9: '-'
             {
-            match("NOT"); 
-
+            match('-'); 
 
             }
 
@@ -1495,10 +1496,11 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:77:7: ( '!' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:77:9: '!'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:77:7: ( 'NOT' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:77:9: 'NOT'
             {
-            match('!'); 
+            match("NOT"); 
+
 
             }
 
@@ -1515,10 +1517,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:7: ( '+' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:9: '+'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:7: ( '!' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:78:9: '!'
             {
-            match('+'); 
+            match('!'); 
 
             }
 
@@ -1535,11 +1537,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:7: ( 'OR' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:9: 'OR'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:7: ( '+' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:79:9: '+'
             {
-            match("OR"); 
-
+            match('+'); 
 
             }
 
@@ -1556,10 +1557,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:7: ( '||' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:9: '||'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:7: ( 'OR' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:80:9: 'OR'
             {
-            match("||"); 
+            match("OR"); 
 
 
             }
@@ -1577,10 +1578,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:7: ( 'AND' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:9: 'AND'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:7: ( '||' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:81:9: '||'
             {
-            match("AND"); 
+            match("||"); 
 
 
             }
@@ -1593,16 +1594,37 @@ public class InternalLuceneQueryLexer extends Lexer {
     }
     // $ANTLR end "T__84"
 
+    // $ANTLR start "T__85"
+    public final void mT__85() throws RecognitionException {
+        try {
+            int _type = T__85;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:82:7: ( 'AND' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:82:9: 'AND'
+            {
+            match("AND"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__85"
+
     // $ANTLR start "RULE_BOOST"
     public final void mRULE_BOOST() throws RecognitionException {
         try {
             int _type = RULE_BOOST;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:12: ( '^' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:14: '^' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:12: ( '^' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )? )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:14: '^' ( '0' .. '9' )+ ( '.' ( '0' .. '9' )+ )?
             {
             match('^'); 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:18: ( '0' .. '9' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:18: ( '0' .. '9' )+
             int cnt1=0;
             loop1:
             do {
@@ -1616,7 +1638,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:19: '0' .. '9'
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:19: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1632,7 +1654,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:30: ( '.' ( '0' .. '9' )+ )?
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:30: ( '.' ( '0' .. '9' )+ )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1641,10 +1663,10 @@ public class InternalLuceneQueryLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:31: '.' ( '0' .. '9' )+
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:31: '.' ( '0' .. '9' )+
                     {
                     match('.'); 
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:35: ( '0' .. '9' )+
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:35: ( '0' .. '9' )+
                     int cnt2=0;
                     loop2:
                     do {
@@ -1658,7 +1680,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2592:36: '0' .. '9'
+                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2687:36: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1696,8 +1718,8 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_NAMEWITHWC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2594:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '*' | '?' | '<' | '>' | '[' | ']' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '<' | '>' | '[' | ']' | '.' )* )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2594:19: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '*' | '?' | '<' | '>' | '[' | ']' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '<' | '>' | '[' | ']' | '.' )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2689:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '*' | '?' | '<' | '>' | '[' | ']' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '<' | '>' | '[' | ']' | '.' )* )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2689:19: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '*' | '?' | '<' | '>' | '[' | ']' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '<' | '>' | '[' | ']' | '.' )*
             {
             if ( input.LA(1)=='*'||input.LA(1)=='<'||(input.LA(1)>='>' && input.LA(1)<='?')||(input.LA(1)>='A' && input.LA(1)<='[')||input.LA(1)==']'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1708,7 +1730,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2594:67: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '<' | '>' | '[' | ']' | '.' )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2689:67: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '<' | '>' | '[' | ']' | '.' )*
             loop4:
             do {
                 int alt4=2;
@@ -1757,10 +1779,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_PATHWITHWC;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2596:17: ( ( 'A' .. 'Z' ':' | ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' ) ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '.' | '/' )* )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2596:19: ( 'A' .. 'Z' ':' | ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' ) ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '.' | '/' )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2691:17: ( ( 'A' .. 'Z' ':' | ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' ) ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '.' | '/' )* )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2691:19: ( 'A' .. 'Z' ':' | ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' ) ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '.' | '/' )*
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2596:19: ( 'A' .. 'Z' ':' | ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2691:19: ( 'A' .. 'Z' ':' | ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1784,7 +1806,7 @@ public class InternalLuceneQueryLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2596:20: 'A' .. 'Z' ':'
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2691:20: 'A' .. 'Z' ':'
                     {
                     matchRange('A','Z'); 
                     match(':'); 
@@ -1792,7 +1814,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2596:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' )
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2691:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '/' )
                     {
                     if ( input.LA(1)=='/'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                         input.consume();
@@ -1809,7 +1831,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
             }
 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2596:62: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '.' | '/' )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2691:62: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' | '*' | '?' | '.' | '/' )*
             loop6:
             do {
                 int alt6=2;
@@ -1858,10 +1880,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2598:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2598:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2693:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2693:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2598:11: ( '^' )?
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2693:11: ( '^' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1870,7 +1892,7 @@ public class InternalLuceneQueryLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2598:11: '^'
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2693:11: '^'
                     {
                     match('^'); 
 
@@ -1888,7 +1910,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2598:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2693:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop8:
             do {
                 int alt8=2;
@@ -1937,10 +1959,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2600:10: ( ( '0' .. '9' )+ )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2600:12: ( '0' .. '9' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2695:10: ( ( '0' .. '9' )+ )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2695:12: ( '0' .. '9' )+
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2600:12: ( '0' .. '9' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2695:12: ( '0' .. '9' )+
             int cnt9=0;
             loop9:
             do {
@@ -1954,7 +1976,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2600:13: '0' .. '9'
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2695:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1986,10 +2008,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2007,10 +2029,10 @@ public class InternalLuceneQueryLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -2026,7 +2048,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2042,7 +2064,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2067,10 +2089,10 @@ public class InternalLuceneQueryLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2086,7 +2108,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -2102,7 +2124,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2602:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2697:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2145,12 +2167,12 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2604:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2604:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2699:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2699:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2604:24: ( options {greedy=false; } : . )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2699:24: ( options {greedy=false; } : . )*
             loop13:
             do {
                 int alt13=2;
@@ -2175,7 +2197,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2604:52: .
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2699:52: .
             	    {
             	    matchAny(); 
 
@@ -2205,12 +2227,12 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop14:
             do {
                 int alt14=2;
@@ -2223,7 +2245,7 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2243,7 +2265,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:40: ( ( '\\r' )? '\\n' )?
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:40: ( ( '\\r' )? '\\n' )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -2252,9 +2274,9 @@ public class InternalLuceneQueryLexer extends Lexer {
             }
             switch (alt16) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:41: ( '\\r' )? '\\n'
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:41: ( '\\r' )?
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:41: ( '\\r' )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -2263,7 +2285,7 @@ public class InternalLuceneQueryLexer extends Lexer {
                     }
                     switch (alt15) {
                         case 1 :
-                            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2606:41: '\\r'
+                            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2701:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2295,10 +2317,10 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2608:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2608:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2703:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2703:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2608:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2703:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt17=0;
             loop17:
             do {
@@ -2352,8 +2374,8 @@ public class InternalLuceneQueryLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2610:16: ( . )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2610:18: .
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2705:16: ( . )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:2705:18: .
             {
             matchAny(); 
 
@@ -2368,8 +2390,8 @@ public class InternalLuceneQueryLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | RULE_BOOST | RULE_NAMEWITHWC | RULE_PATHWITHWC | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt18=81;
+        // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | RULE_BOOST | RULE_NAMEWITHWC | RULE_PATHWITHWC | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt18=82;
         alt18 = dfa18.predict(input);
         switch (alt18) {
             case 1 :
@@ -2870,70 +2892,77 @@ public class InternalLuceneQueryLexer extends Lexer {
                 }
                 break;
             case 72 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:436: RULE_BOOST
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:436: T__85
+                {
+                mT__85(); 
+
+                }
+                break;
+            case 73 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:442: RULE_BOOST
                 {
                 mRULE_BOOST(); 
 
                 }
                 break;
-            case 73 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:447: RULE_NAMEWITHWC
+            case 74 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:453: RULE_NAMEWITHWC
                 {
                 mRULE_NAMEWITHWC(); 
 
                 }
                 break;
-            case 74 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:463: RULE_PATHWITHWC
+            case 75 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:469: RULE_PATHWITHWC
                 {
                 mRULE_PATHWITHWC(); 
 
                 }
                 break;
-            case 75 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:479: RULE_ID
+            case 76 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:485: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 76 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:487: RULE_INT
+            case 77 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:493: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 77 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:496: RULE_STRING
+            case 78 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:502: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 78 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:508: RULE_ML_COMMENT
+            case 79 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:514: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 79 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:524: RULE_SL_COMMENT
+            case 80 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:530: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 80 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:540: RULE_WS
+            case 81 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:546: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 81 :
-                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:548: RULE_ANY_OTHER
+            case 82 :
+                // ../org.eclipselabs.recommenders.codesearch.rcp.dsl/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/parser/antlr/internal/InternalLuceneQuery.g:1:554: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2950,7 +2979,7 @@ public class InternalLuceneQueryLexer extends Lexer {
         "\4\uffff\30\63\1\uffff\1\63\2\uffff\2\52\2\63\1\uffff\1\61\1\uffff"+
         "\2\52\5\uffff\3\63\1\uffff\1\63\1\uffff\20\63\1\164\20\63\1\uffff"+
         "\1\63\5\uffff\2\61\3\uffff\7\63\1\u0096\13\63\1\uffff\22\63\1\u00b4"+
-        "\1\61\1\uffff\2\61\1\uffff\11\63\1\uffff\15\63\1\u00d0\17\63\1\uffff"+
+        "\2\61\1\uffff\1\61\1\uffff\11\63\1\uffff\15\63\1\u00d0\17\63\1\uffff"+
         "\1\61\32\63\1\uffff\5\63\1\u0100\1\u0101\1\63\1\u0103\43\63\1\u012b"+
         "\1\63\1\u012d\2\uffff\1\63\1\uffff\1\u0130\44\63\1\u0155\1\63\1"+
         "\uffff\1\63\1\uffff\2\63\1\uffff\6\63\1\u0160\35\63\1\uffff\2\63"+
@@ -2958,77 +2987,77 @@ public class InternalLuceneQueryLexer extends Lexer {
         "\u019c\16\63\1\u01ac\1\u01ad\1\u01ae\1\u01af\1\uffff\1\63\2\uffff"+
         "\5\63\1\u01b6\1\63\1\uffff\1\63\1\u01b9\13\63\1\uffff\14\63\1\u01d1"+
         "\2\63\4\uffff\6\63\1\uffff\2\63\1\uffff\4\63\1\u01e1\6\63\1\u01ea"+
-        "\12\63\1\u01f5\1\uffff\3\63\1\u01f9\3\63\1\u01fd\2\63\1\u0200\4"+
-        "\63\1\uffff\10\63\1\uffff\2\63\1\u0210\1\u0211\6\63\1\uffff\3\63"+
-        "\1\uffff\3\63\1\uffff\1\u021e\1\63\1\uffff\6\63\1\u0227\10\63\2"+
-        "\uffff\3\63\1\u0234\6\63\1\u023b\1\63\1\uffff\10\63\1\uffff\3\63"+
-        "\1\u0249\10\63\1\uffff\1\u0252\1\u0253\4\63\1\uffff\7\63\1\u025f"+
-        "\2\63\1\u0262\1\63\1\u0264\1\uffff\7\63\1\u026c\2\uffff\11\63\1"+
-        "\u0276\1\63\1\uffff\2\63\1\uffff\1\63\1\uffff\1\63\1\u027c\4\63"+
-        "\1\u0281\1\uffff\2\63\1\u0284\1\u0285\5\63\1\uffff\5\63\1\uffff"+
-        "\4\63\1\uffff\1\u0294\1\u0295\2\uffff\1\u0296\5\63\1\u029c\1\u029d"+
-        "\1\63\1\u029f\3\63\1\u02a3\3\uffff\3\63\1\u02a7\1\u02a8\2\uffff"+
-        "\1\u02a9\1\uffff\3\63\1\uffff\3\63\3\uffff\1\u02b0\4\63\1\u02b5"+
-        "\1\uffff\3\63\1\u02b9\1\uffff\1\63\1\u02bb\1\63\1\uffff\1\63\1\uffff"+
-        "\1\63\1\u02bf\1\u02c0\2\uffff";
+        "\7\63\1\u01f2\3\63\1\uffff\3\63\1\u01f9\3\63\1\u01fd\2\63\1\u0200"+
+        "\4\63\1\uffff\10\63\1\uffff\2\63\1\u0210\1\u0211\3\63\1\uffff\6"+
+        "\63\1\uffff\3\63\1\uffff\1\u021e\1\63\1\uffff\6\63\1\u0227\10\63"+
+        "\2\uffff\5\63\1\u0236\4\63\1\u023b\1\63\1\uffff\10\63\1\uffff\3"+
+        "\63\1\u0249\6\63\1\u0251\1\u0252\2\63\1\uffff\4\63\1\uffff\7\63"+
+        "\1\u0260\2\63\1\u0263\1\63\1\u0265\1\uffff\7\63\2\uffff\1\63\1\u026e"+
+        "\11\63\1\u0278\1\63\1\uffff\2\63\1\uffff\1\63\1\uffff\1\63\1\u027e"+
+        "\5\63\1\u0284\1\uffff\2\63\1\u0287\1\u0288\5\63\1\uffff\5\63\1\uffff"+
+        "\5\63\1\uffff\1\u0298\1\u0299\2\uffff\1\u029a\5\63\1\u02a0\1\u02a1"+
+        "\1\63\1\u02a3\3\63\1\u02a7\1\63\3\uffff\3\63\1\u02ac\1\u02ad\2\uffff"+
+        "\1\u02ae\1\uffff\3\63\1\uffff\4\63\3\uffff\1\u02b6\5\63\1\u02bc"+
+        "\1\uffff\4\63\1\u02c1\1\uffff\1\63\1\u02c3\2\63\1\uffff\1\63\1\uffff"+
+        "\2\63\1\u02c9\1\u02ca\1\u02cb\3\uffff";
     static final String DFA18_eofS =
-        "\u02c1\uffff";
+        "\u02cc\uffff";
     static final String DFA18_minS =
         "\1\0\3\uffff\30\52\1\uffff\1\52\2\uffff\1\174\1\60\2\52\1\uffff"+
         "\1\52\1\uffff\2\0\5\uffff\3\52\1\uffff\1\52\1\uffff\41\52\1\uffff"+
-        "\1\52\5\uffff\2\0\3\uffff\23\52\1\uffff\23\52\1\0\1\uffff\2\0\1"+
+        "\1\52\5\uffff\2\0\3\uffff\23\52\1\uffff\23\52\2\0\1\uffff\1\0\1"+
         "\uffff\11\52\1\uffff\35\52\1\uffff\1\0\32\52\1\uffff\57\52\2\uffff"+
         "\1\52\1\uffff\47\52\1\uffff\1\52\1\uffff\2\52\1\uffff\44\52\1\uffff"+
         "\12\52\1\uffff\42\52\1\uffff\1\52\2\uffff\7\52\1\uffff\15\52\1\uffff"+
         "\17\52\4\uffff\6\52\1\uffff\2\52\1\uffff\27\52\1\uffff\17\52\1\uffff"+
-        "\10\52\1\uffff\12\52\1\uffff\3\52\1\uffff\3\52\1\uffff\2\52\1\uffff"+
-        "\17\52\2\uffff\14\52\1\uffff\10\52\1\uffff\14\52\1\uffff\6\52\1"+
-        "\uffff\15\52\1\uffff\10\52\2\uffff\13\52\1\uffff\2\52\1\uffff\1"+
-        "\52\1\uffff\7\52\1\uffff\11\52\1\uffff\5\52\1\uffff\4\52\1\uffff"+
-        "\2\52\2\uffff\16\52\3\uffff\5\52\2\uffff\1\52\1\uffff\3\52\1\uffff"+
-        "\3\52\3\uffff\6\52\1\uffff\4\52\1\uffff\3\52\1\uffff\1\52\1\uffff"+
-        "\3\52\2\uffff";
+        "\10\52\1\uffff\7\52\1\uffff\6\52\1\uffff\3\52\1\uffff\2\52\1\uffff"+
+        "\17\52\2\uffff\14\52\1\uffff\10\52\1\uffff\16\52\1\uffff\4\52\1"+
+        "\uffff\15\52\1\uffff\7\52\2\uffff\15\52\1\uffff\2\52\1\uffff\1\52"+
+        "\1\uffff\10\52\1\uffff\11\52\1\uffff\5\52\1\uffff\5\52\1\uffff\2"+
+        "\52\2\uffff\17\52\3\uffff\5\52\2\uffff\1\52\1\uffff\3\52\1\uffff"+
+        "\4\52\3\uffff\7\52\1\uffff\5\52\1\uffff\4\52\1\uffff\1\52\1\uffff"+
+        "\5\52\3\uffff";
     static final String DFA18_maxS =
         "\1\uffff\3\uffff\30\172\1\uffff\1\172\2\uffff\1\174\3\172\1\uffff"+
         "\1\57\1\uffff\2\uffff\5\uffff\3\172\1\uffff\1\172\1\uffff\41\172"+
-        "\1\uffff\1\172\5\uffff\2\uffff\3\uffff\23\172\1\uffff\23\172\1\uffff"+
-        "\1\uffff\2\uffff\1\uffff\11\172\1\uffff\35\172\1\uffff\1\uffff\32"+
+        "\1\uffff\1\172\5\uffff\2\uffff\3\uffff\23\172\1\uffff\23\172\2\uffff"+
+        "\1\uffff\1\uffff\1\uffff\11\172\1\uffff\35\172\1\uffff\1\uffff\32"+
         "\172\1\uffff\57\172\2\uffff\1\172\1\uffff\47\172\1\uffff\1\172\1"+
         "\uffff\2\172\1\uffff\44\172\1\uffff\12\172\1\uffff\42\172\1\uffff"+
         "\1\172\2\uffff\7\172\1\uffff\15\172\1\uffff\17\172\4\uffff\6\172"+
         "\1\uffff\2\172\1\uffff\27\172\1\uffff\17\172\1\uffff\10\172\1\uffff"+
-        "\12\172\1\uffff\3\172\1\uffff\3\172\1\uffff\2\172\1\uffff\17\172"+
-        "\2\uffff\14\172\1\uffff\10\172\1\uffff\14\172\1\uffff\6\172\1\uffff"+
-        "\15\172\1\uffff\10\172\2\uffff\13\172\1\uffff\2\172\1\uffff\1\172"+
-        "\1\uffff\7\172\1\uffff\11\172\1\uffff\5\172\1\uffff\4\172\1\uffff"+
-        "\2\172\2\uffff\16\172\3\uffff\5\172\2\uffff\1\172\1\uffff\3\172"+
-        "\1\uffff\3\172\3\uffff\6\172\1\uffff\4\172\1\uffff\3\172\1\uffff"+
-        "\1\172\1\uffff\3\172\2\uffff";
+        "\7\172\1\uffff\6\172\1\uffff\3\172\1\uffff\2\172\1\uffff\17\172"+
+        "\2\uffff\14\172\1\uffff\10\172\1\uffff\16\172\1\uffff\4\172\1\uffff"+
+        "\15\172\1\uffff\7\172\2\uffff\15\172\1\uffff\2\172\1\uffff\1\172"+
+        "\1\uffff\10\172\1\uffff\11\172\1\uffff\5\172\1\uffff\5\172\1\uffff"+
+        "\2\172\2\uffff\17\172\3\uffff\5\172\2\uffff\1\172\1\uffff\3\172"+
+        "\1\uffff\4\172\3\uffff\7\172\1\uffff\5\172\1\uffff\4\172\1\uffff"+
+        "\1\172\1\uffff\5\172\3\uffff";
     static final String DFA18_acceptS =
-        "\1\uffff\1\1\1\2\1\3\30\uffff\1\101\1\uffff\1\103\1\104\4\uffff"+
-        "\1\111\1\uffff\1\114\2\uffff\1\120\1\121\1\1\1\2\1\3\3\uffff\1\112"+
-        "\1\uffff\1\111\41\uffff\1\101\1\uffff\1\103\1\104\1\106\1\110\1"+
-        "\113\2\uffff\1\114\1\115\1\120\23\uffff\1\105\24\uffff\1\116\2\uffff"+
-        "\1\117\11\uffff\1\107\35\uffff\1\102\33\uffff\1\55\57\uffff\1\64"+
-        "\1\71\1\uffff\1\67\47\uffff\1\62\1\uffff\1\63\2\uffff\1\70\44\uffff"+
-        "\1\61\12\uffff\1\13\42\uffff\1\65\1\uffff\1\72\1\73\7\uffff\1\33"+
-        "\15\uffff\1\23\17\uffff\1\53\1\54\1\66\1\74\6\uffff\1\14\2\uffff"+
-        "\1\27\27\uffff\1\34\17\uffff\1\57\10\uffff\1\41\12\uffff\1\56\3"+
-        "\uffff\1\75\3\uffff\1\5\2\uffff\1\51\17\uffff\1\20\1\37\14\uffff"+
-        "\1\15\10\uffff\1\36\14\uffff\1\22\6\uffff\1\100\15\uffff\1\24\10"+
-        "\uffff\1\26\1\52\13\uffff\1\45\2\uffff\1\46\1\uffff\1\17\7\uffff"+
-        "\1\30\11\uffff\1\32\5\uffff\1\42\4\uffff\1\21\2\uffff\1\76\1\77"+
-        "\16\uffff\1\40\1\44\1\4\5\uffff\1\11\1\35\1\uffff\1\25\3\uffff\1"+
-        "\60\3\uffff\1\31\1\10\1\16\6\uffff\1\43\4\uffff\1\12\3\uffff\1\7"+
-        "\1\uffff\1\50\3\uffff\1\47\1\6";
+        "\1\uffff\1\1\1\2\1\3\30\uffff\1\102\1\uffff\1\104\1\105\4\uffff"+
+        "\1\112\1\uffff\1\115\2\uffff\1\121\1\122\1\1\1\2\1\3\3\uffff\1\113"+
+        "\1\uffff\1\112\41\uffff\1\102\1\uffff\1\104\1\105\1\107\1\111\1"+
+        "\114\2\uffff\1\115\1\116\1\121\23\uffff\1\106\25\uffff\1\117\1\uffff"+
+        "\1\120\11\uffff\1\110\35\uffff\1\103\33\uffff\1\56\57\uffff\1\65"+
+        "\1\72\1\uffff\1\70\47\uffff\1\63\1\uffff\1\64\2\uffff\1\71\44\uffff"+
+        "\1\62\12\uffff\1\13\42\uffff\1\66\1\uffff\1\73\1\74\7\uffff\1\34"+
+        "\15\uffff\1\24\17\uffff\1\54\1\55\1\67\1\75\6\uffff\1\14\2\uffff"+
+        "\1\30\27\uffff\1\35\17\uffff\1\60\10\uffff\1\42\7\uffff\1\57\6\uffff"+
+        "\1\76\3\uffff\1\5\2\uffff\1\52\17\uffff\1\20\1\40\14\uffff\1\15"+
+        "\10\uffff\1\37\16\uffff\1\23\4\uffff\1\101\15\uffff\1\25\7\uffff"+
+        "\1\27\1\53\15\uffff\1\46\2\uffff\1\47\1\uffff\1\17\10\uffff\1\31"+
+        "\11\uffff\1\33\5\uffff\1\43\5\uffff\1\22\2\uffff\1\77\1\100\17\uffff"+
+        "\1\41\1\45\1\4\5\uffff\1\11\1\36\1\uffff\1\26\3\uffff\1\61\4\uffff"+
+        "\1\32\1\10\1\16\7\uffff\1\44\5\uffff\1\12\4\uffff\1\7\1\uffff\1"+
+        "\51\5\uffff\1\50\1\21\1\6";
     static final String DFA18_specialS =
-        "\1\6\46\uffff\1\3\1\2\63\uffff\1\0\1\7\52\uffff\1\5\1\uffff\1\10"+
-        "\1\4\51\uffff\1\1\u020b\uffff}>";
+        "\1\2\46\uffff\1\10\1\6\63\uffff\1\4\1\7\52\uffff\1\0\1\3\1\uffff"+
+        "\1\1\51\uffff\1\5\u0216\uffff}>";
     static final String[] DFA18_transitionS = {
             "\11\52\2\51\2\52\1\51\22\52\1\51\1\36\1\47\4\52\1\50\1\1\1"+
             "\2\1\44\1\37\1\52\1\34\1\52\1\45\12\46\1\3\1\52\1\44\1\52\2"+
-            "\44\1\52\1\6\1\42\1\15\1\7\1\13\1\4\2\42\1\12\3\42\1\17\1\35"+
-            "\1\16\1\14\1\42\1\5\1\42\1\20\1\10\1\11\4\42\1\44\1\52\1\44"+
+            "\44\1\52\1\6\1\42\1\15\1\7\1\14\1\4\2\42\1\13\3\42\1\17\1\35"+
+            "\1\16\1\12\1\42\1\5\1\42\1\20\1\10\1\11\4\42\1\44\1\52\1\44"+
             "\1\41\1\43\1\52\1\24\1\43\1\25\2\43\1\23\2\43\1\32\3\43\1\26"+
             "\1\31\1\43\1\21\2\43\1\22\1\27\1\33\1\30\4\43\1\52\1\40\uff83"+
             "\52",
@@ -3049,11 +3078,11 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\1\61\4\uffff\1\64\1\uffff\32"+
             "\62\4\uffff\1\62\1\uffff\1\73\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\1\61\4\uffff\1\64\1\uffff\32"+
-            "\62\4\uffff\1\62\1\uffff\14\62\1\74\1\75\14\62",
+            "\62\4\uffff\1\62\1\uffff\1\74\20\62\1\75\10\62",
             "\1\64\3\uffff\1\64\1\61\12\62\1\61\4\uffff\1\64\1\uffff\32"+
-            "\62\4\uffff\1\62\1\uffff\27\62\1\76\2\62",
+            "\62\4\uffff\1\62\1\uffff\14\62\1\76\1\77\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\1\61\4\uffff\1\64\1\uffff\32"+
-            "\62\4\uffff\1\62\1\uffff\1\77\20\62\1\100\10\62",
+            "\62\4\uffff\1\62\1\uffff\27\62\1\100\2\62",
             "\1\64\3\uffff\1\64\1\61\12\62\1\61\4\uffff\1\64\1\uffff\32"+
             "\62\4\uffff\1\62\1\uffff\1\101\6\62\1\102\22\62",
             "\1\64\3\uffff\1\64\1\61\12\62\1\61\4\uffff\1\64\1\uffff\21"+
@@ -3132,15 +3161,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\21\62\1\153\10\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\154\12\62",
+            "\uffff\1\62\1\uffff\21\62\1\154\10\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\155\7\62",
+            "\uffff\1\62\1\uffff\16\62\1\155\13\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\156\6\62",
+            "\uffff\1\62\1\uffff\17\62\1\156\12\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\21\62\1\157\10\62",
+            "\uffff\1\62\1\uffff\22\62\1\157\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\160\13\62",
+            "\uffff\1\62\1\uffff\23\62\1\160\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\24\62\1\161\5\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3190,8 +3219,8 @@ public class InternalLuceneQueryLexer extends Lexer {
             "",
             "",
             "",
-            "\52\u0089\1\u0088\3\u0089\14\u008a\5\u0089\1\u008a\1\u0089"+
-            "\32\u008a\4\u0089\1\u008a\1\u0089\32\u008a\uff85\u0089",
+            "\52\u008a\1\u0088\3\u008a\14\u0089\5\u008a\1\u0089\1\u008a"+
+            "\32\u0089\4\u008a\1\u0089\1\u008a\32\u0089\uff85\u008a",
             "\52\u008c\1\u008b\3\u008c\14\u008b\5\u008c\1\u008b\1\u008c"+
             "\32\u008b\4\u008c\1\u008b\1\u008c\32\u008b\uff85\u008c",
             "",
@@ -3221,15 +3250,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\10\62\1\u0099\21\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\13\62\1\u009a\16\62",
+            "\uffff\1\62\1\uffff\1\u009a\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\u009b\6\62",
+            "\uffff\1\62\1\uffff\11\62\1\u009b\20\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u009c\25\62",
+            "\uffff\1\62\1\uffff\13\62\1\u009c\16\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u009d\31\62",
+            "\uffff\1\62\1\uffff\23\62\1\u009d\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\11\62\1\u009e\20\62",
+            "\uffff\1\62\1\uffff\4\62\1\u009e\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\6\62\1\u009f\23\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3276,12 +3305,12 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
-            "\52\u0089\1\u0088\3\u0089\1\u008a\1\u00b5\12\u008a\5\u0089"+
-            "\1\u008a\1\u0089\32\u008a\4\u0089\1\u008a\1\u0089\32\u008a\uff85"+
-            "\u0089",
+            "\52\u008a\1\u0088\3\u008a\1\u0089\1\u00b5\12\u0089\5\u008a"+
+            "\1\u0089\1\u008a\32\u0089\4\u008a\1\u0089\1\u008a\32\u0089\uff85"+
+            "\u008a",
+            "\52\u008a\1\u0088\3\u008a\14\u0089\5\u008a\1\u0089\1\u008a"+
+            "\32\u0089\4\u008a\1\u0089\1\u008a\32\u0089\uff85\u008a",
             "",
-            "\52\u0089\1\u0088\3\u0089\14\u008a\5\u0089\1\u008a\1\u0089"+
-            "\32\u008a\4\u0089\1\u008a\1\u0089\32\u008a\uff85\u0089",
             "\52\u008c\1\u008b\3\u008c\14\u008b\5\u008c\1\u008b\1\u008c"+
             "\32\u008b\4\u008c\1\u008b\1\u008c\32\u008b\uff85\u008c",
             "",
@@ -3312,15 +3341,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\1\u00c5\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u00c6\25\62",
+            "\uffff\1\62\1\uffff\14\62\1\u00c6\15\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u00c7\31\62",
+            "\uffff\1\62\1\uffff\4\62\1\u00c7\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u00c8\14\62",
+            "\uffff\1\62\1\uffff\4\62\1\u00c8\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u00c9\15\62",
+            "\uffff\1\62\1\uffff\1\u00c9\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u00ca\25\62",
+            "\uffff\1\62\1\uffff\15\62\1\u00ca\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\7\62\1\u00cb\22\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3365,8 +3394,8 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\10\62\1\u00df\21\62",
             "",
-            "\52\u0089\1\u0088\3\u0089\14\u008a\5\u0089\1\u008a\1\u0089"+
-            "\32\u008a\4\u0089\1\u008a\1\u0089\32\u008a\uff85\u0089",
+            "\52\u008a\1\u0088\3\u008a\14\u0089\5\u008a\1\u0089\1\u008a"+
+            "\32\u0089\4\u008a\1\u0089\1\u008a\32\u0089\uff85\u008a",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\20\62\1"+
             "\u00e0\11\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3400,15 +3429,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\1\62\1\u00f0\30\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u00f1\15\62",
+            "\uffff\1\62\1\uffff\4\62\1\u00f1\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u00f2\14\62",
+            "\uffff\1\62\1\uffff\2\62\1\u00f2\27\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u00f3\26\62",
+            "\uffff\1\62\1\uffff\14\62\1\u00f3\15\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u00f4\25\62",
+            "\uffff\1\62\1\uffff\15\62\1\u00f4\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\2\62\1\u00f5\27\62",
+            "\uffff\1\62\1\uffff\3\62\1\u00f5\26\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\23\62\1\u00f6\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3488,15 +3517,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\13\62\1\u011e\16\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u011f\25\62",
+            "\uffff\1\62\1\uffff\23\62\1\u011f\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\2\62\1\u0120\27\62",
+            "\uffff\1\62\1\uffff\23\62\1\u0120\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\4\62\1\u0121\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\u0122\6\62",
+            "\uffff\1\62\1\uffff\2\62\1\u0122\27\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\u0123\6\62",
+            "\uffff\1\62\1\uffff\4\62\1\u0123\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\23\62\1"+
             "\u0124\6\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3580,15 +3609,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\4\62\1\u014a\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u014b\14\62",
+            "\uffff\1\62\1\uffff\4\62\1\u014b\25\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\15\62\1"+
+            "\u014c\14\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u014c\25\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u014d\26\62",
+            "\uffff\1\62\1\uffff\15\62\1\u014d\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\4\62\1\u014e\25\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\15\62\1"+
-            "\u014f\14\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\3\62\1\u014f\26\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\30\62\1\u0150\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\4\62\1"+
@@ -3668,15 +3697,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\u0176\11\62\1\u0174\5\62\1\u0175\6\62\4\uffff\1\62\1\uffff"+
             "\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\u0177\6\62",
+            "\uffff\1\62\1\uffff\21\62\1\u0177\10\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u0178\13\62",
+            "\uffff\1\62\1\uffff\1\u0178\31\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\23\62\1\u0179\6\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\16\62\1\u017a\13\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\23\62\1"+
-            "\u0179\6\62\4\uffff\1\62\1\uffff\32\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\21\62\1\u017a\10\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u017b\31\62",
+            "\u017b\6\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\17\62\1\u017c\12\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3758,16 +3787,16 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\uffff\1\62\1\uffff\30\62\1\u01a1\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\4\62\1\u01a2\25\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u01a3\25\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\5\62\1\u01a4\24\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u01a5\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\2\62\1"+
-            "\u01a7\20\62\1\u01a6\6\62\4\uffff\1\62\1\uffff\32\62",
+            "\u01a4\20\62\1\u01a3\6\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u01a8\15\62",
+            "\uffff\1\62\1\uffff\14\62\1\u01a5\15\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\4\62\1\u01a6\25\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\5\62\1\u01a7\24\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\30\62\1\u01a8\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\4\62\1\u01a9\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -3848,17 +3877,17 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\5\62\1\u01ca\24\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u01cb\26\62",
+            "\uffff\1\62\1\uffff\30\62\1\u01cb\1\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\16\62\1\u01cc\13\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\4\62\1\u01cd\25\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\3\62\1\u01ce\26\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\23\62\1"+
-            "\u01cc\6\62\4\uffff\1\62\1\uffff\32\62",
+            "\u01cf\6\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\u01cd\12\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u01ce\1\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u01cf\13\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u01d0\25\62",
+            "\uffff\1\62\1\uffff\17\62\1\u01d0\12\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
@@ -3924,19 +3953,19 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\uffff\1\62\1\uffff\4\62\1\u01ee\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\10\62\1\u01ef\21\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\23\62\1"+
-            "\u01f0\6\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u01f1\1\62",
+            "\uffff\1\62\1\uffff\17\62\1\u01f0\12\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u01f2\25\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\u01f3\12\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\24\62\1\u01f4\5\62",
+            "\uffff\1\62\1\uffff\24\62\1\u01f1\5\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\23\62\1"+
+            "\u01f3\6\62\4\uffff\1\62\1\uffff\32\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\30\62\1\u01f4\1\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\4\62\1\u01f5\25\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\17\62\1\u01f6\12\62",
@@ -4002,16 +4031,16 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\15\62\1\u0212\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u0213\1\62",
+            "\uffff\1\62\1\uffff\4\62\1\u0213\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\u0214\12\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u0215\7\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u0216\25\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u0217\14\62",
+            "\uffff\1\62\1\uffff\15\62\1\u0214\14\62",
             "",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\30\62\1\u0215\1\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\17\62\1\u0216\12\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\22\62\1\u0217\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\23\62\1\u0218\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -4068,16 +4097,16 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\10\62\1\u0231\21\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\u0232\12\62",
+            "\uffff\1\62\1\uffff\22\62\1\u0232\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u0233\25\62",
+            "\uffff\1\62\1\uffff\23\62\1\u0233\6\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\17\62\1\u0234\12\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\4\62\1\u0235\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u0235\7\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\u0236\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\10\62\1\u0237\21\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
@@ -4130,128 +4159,132 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\uffff\1\62\1\uffff\21\62\1\u024e\10\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\23\62\1\u024f\6\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
+            "\64\1\uffff\22\62\1\u0250\7\62\1\63\1\uffff\1\63\1\uffff\1\62"+
+            "\1\uffff\32\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
+            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
+            "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u0250\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u0253\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u0251\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u0254\7\62",
             "",
-            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
-            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
-            "\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
-            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
-            "\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u0254\13\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\16\62\1\u0255\13\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\16\62\1\u0256\13\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\16\62\1\u0257\13\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\16\62\1\u0258\13\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u0258\31\62",
+            "\uffff\1\62\1\uffff\1\u0259\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\27\62\1\u0259\2\62",
+            "\uffff\1\62\1\uffff\27\62\1\u025a\2\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u025a\13\62",
+            "\uffff\1\62\1\uffff\16\62\1\u025b\13\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u025b\26\62",
+            "\uffff\1\62\1\uffff\3\62\1\u025c\26\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u025c\1\62",
+            "\uffff\1\62\1\uffff\30\62\1\u025d\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u025d\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u025e\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u025e\31\62",
+            "\uffff\1\62\1\uffff\1\u025f\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u0260\15\62",
+            "\uffff\1\62\1\uffff\14\62\1\u0261\15\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\u0261\12\62",
+            "\uffff\1\62\1\uffff\17\62\1\u0262\12\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u0263\31\62",
+            "\uffff\1\62\1\uffff\1\u0264\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\13\62\1\u0265\16\62",
+            "\uffff\1\62\1\uffff\13\62\1\u0266\16\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u0266\1\62",
+            "\uffff\1\62\1\uffff\30\62\1\u0267\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u0267\14\62",
+            "\uffff\1\62\1\uffff\15\62\1\u0268\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\10\62\1"+
-            "\u0268\21\62\4\uffff\1\62\1\uffff\32\62",
+            "\u0269\21\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\14\62\1"+
-            "\u0269\15\62\4\uffff\1\62\1\uffff\32\62",
+            "\u026a\15\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\10\62\1\u026a\21\62",
+            "\uffff\1\62\1\uffff\10\62\1\u026b\21\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u026b\7\62",
+            "\uffff\1\62\1\uffff\23\62\1\u026c\6\62",
+            "",
+            "",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\22\62\1\u026d\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
-            "",
-            "",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u026d\14\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u026e\26\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\15\62\1\u026f\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u0270\14\62",
+            "\uffff\1\62\1\uffff\3\62\1\u0270\26\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u0271\15\62",
+            "\uffff\1\62\1\uffff\15\62\1\u0271\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\u0272\12\62",
+            "\uffff\1\62\1\uffff\15\62\1\u0272\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u0273\26\62",
+            "\uffff\1\62\1\uffff\14\62\1\u0273\15\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\17\62\1\u0274\12\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\3\62\1\u0275\26\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\15\62\1"+
-            "\u0274\14\62\4\uffff\1\62\1\uffff\32\62",
+            "\u0276\14\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\17\62\1\u0275\12\62",
+            "\uffff\1\62\1\uffff\17\62\1\u0277\12\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u0277\15\62",
+            "\uffff\1\62\1\uffff\14\62\1\u0279\15\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u0278\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u027a\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u0279\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u027b\25\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\13\62\1\u027a\16\62",
+            "\uffff\1\62\1\uffff\13\62\1\u027c\16\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\13\62\1\u027b\16\62",
+            "\uffff\1\62\1\uffff\13\62\1\u027d\16\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u027d\31\62",
+            "\uffff\1\62\1\uffff\1\u027f\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u027e\14\62",
+            "\uffff\1\62\1\uffff\15\62\1\u0280\14\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u027f\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u0281\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u0280\13\62",
+            "\uffff\1\62\1\uffff\16\62\1\u0282\13\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\21\62\1\u0283\10\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u0282\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u0285\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u0283\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u0286\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
@@ -4259,35 +4292,37 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u0286\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u0289\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\21\62\1\u0287\10\62",
+            "\uffff\1\62\1\uffff\21\62\1\u028a\10\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\15\62\1"+
-            "\u0288\14\62\4\uffff\1\62\1\uffff\32\62",
+            "\u028b\14\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u0289\31\62",
+            "\uffff\1\62\1\uffff\1\u028c\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u028a\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u028d\25\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u028b\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u028e\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u028c\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u028f\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u028d\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u0290\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\13\62\1\u028e\16\62",
+            "\uffff\1\62\1\uffff\13\62\1\u0291\16\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u028f\1\62",
+            "\uffff\1\62\1\uffff\30\62\1\u0292\1\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\13\62\1\u0290\16\62",
+            "\uffff\1\62\1\uffff\13\62\1\u0293\16\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\14\62\1"+
-            "\u0291\15\62\4\uffff\1\62\1\uffff\32\62",
+            "\u0294\15\62\4\uffff\1\62\1\uffff\32\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\u0292\6\62",
+            "\uffff\1\62\1\uffff\23\62\1\u0295\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u0293\14\62",
+            "\uffff\1\62\1\uffff\15\62\1\u0296\14\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\24\62\1\u0297\5\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
@@ -4301,15 +4336,15 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u0297\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u029b\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\1\u0298\31\62",
+            "\uffff\1\62\1\uffff\1\u029c\31\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u0299\15\62",
+            "\uffff\1\62\1\uffff\14\62\1\u029d\15\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u029a\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u029e\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u029b\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u029f\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
@@ -4317,100 +4352,116 @@ public class InternalLuceneQueryLexer extends Lexer {
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u029e\1\62",
+            "\uffff\1\62\1\uffff\30\62\1\u02a2\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\13\62\1\u02a0\16\62",
+            "\uffff\1\62\1\uffff\13\62\1\u02a4\16\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u02a1\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u02a5\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\7\62\1\u02a2\22\62",
+            "\uffff\1\62\1\uffff\7\62\1\u02a6\22\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\2\62\1\u02a8\27\62",
             "",
             "",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u02a4\7\62",
+            "\uffff\1\62\1\uffff\22\62\1\u02a9\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\14\62\1\u02a5\15\62",
+            "\uffff\1\62\1\uffff\14\62\1\u02aa\15\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u02a6\25\62",
+            "\uffff\1\62\1\uffff\4\62\1\u02ab\25\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
-            "",
-            "",
-            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
-            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
-            "\62",
-            "",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\30\62\1\u02aa\1\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\23\62\1\u02ab\6\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u02ac\13\62",
-            "",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u02ad\7\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\4\62\1\u02ae\25\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u02af\7\62",
-            "",
             "",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
+            "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\7\62\1\u02b1\22\62",
+            "\uffff\1\62\1\uffff\30\62\1\u02af\1\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u02b2\26\62",
+            "\uffff\1\62\1\uffff\23\62\1\u02b0\6\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\10\62\1\u02b3\21\62",
+            "\uffff\1\62\1\uffff\16\62\1\u02b1\13\62",
+            "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u02b4\7\62",
+            "\uffff\1\62\1\uffff\23\62\1\u02b2\6\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\22\62\1\u02b3\7\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\4\62\1\u02b4\25\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\22\62\1\u02b5\7\62",
+            "",
+            "",
+            "",
+            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
+            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
+            "\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\7\62\1\u02b7\22\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\3\62\1\u02b8\26\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\24\62\1\u02b9\5\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\10\62\1\u02ba\21\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\22\62\1\u02bb\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u02b6\13\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u02b7\7\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\16\62\1\u02b8\13\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
-            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
-            "\62",
-            "",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\3\62\1\u02ba\26\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
-            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
-            "\62",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\15\62\1\u02bc\14\62",
-            "",
-            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
-            "\uffff\1\62\1\uffff\22\62\1\u02bd\7\62",
-            "",
+            "\uffff\1\62\1\uffff\16\62\1\u02bd\13\62",
             "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
             "\uffff\1\62\1\uffff\22\62\1\u02be\7\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\21\62\1\u02bf\10\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\16\62\1\u02c0\13\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
+            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
+            "\62",
+            "",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\3\62\1\u02c2\26\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
+            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
+            "\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\1\u02c4\31\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\15\62\1\u02c5\14\62",
+            "",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\22\62\1\u02c6\7\62",
+            "",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\13\62\1\u02c7\16\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\5\uffff\1\64\1\uffff\32\62\4"+
+            "\uffff\1\62\1\uffff\22\62\1\u02c8\7\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
             "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
             "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
             "\62",
+            "\1\64\3\uffff\1\64\1\61\12\62\2\uffff\1\63\1\uffff\1\63\1"+
+            "\64\1\uffff\32\62\1\63\1\uffff\1\63\1\uffff\1\62\1\uffff\32"+
+            "\62",
+            "",
             "",
             ""
     };
@@ -4445,73 +4496,13 @@ public class InternalLuceneQueryLexer extends Lexer {
             this.transition = DFA18_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | RULE_BOOST | RULE_NAMEWITHWC | RULE_PATHWITHWC | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | RULE_BOOST | RULE_NAMEWITHWC | RULE_PATHWITHWC | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA18_92 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA18_92=='*') ) {s = 136;}
-
-                        else if ( ((LA18_92>='\u0000' && LA18_92<=')')||(LA18_92>='+' && LA18_92<='-')||(LA18_92>=':' && LA18_92<='>')||LA18_92=='@'||(LA18_92>='[' && LA18_92<='^')||LA18_92=='`'||(LA18_92>='{' && LA18_92<='\uFFFF')) ) {s = 137;}
-
-                        else if ( ((LA18_92>='.' && LA18_92<='9')||LA18_92=='?'||(LA18_92>='A' && LA18_92<='Z')||LA18_92=='_'||(LA18_92>='a' && LA18_92<='z')) ) {s = 138;}
-
-                        else s = 49;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA18_181 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA18_181=='*') ) {s = 136;}
-
-                        else if ( ((LA18_181>='.' && LA18_181<='9')||LA18_181=='?'||(LA18_181>='A' && LA18_181<='Z')||LA18_181=='_'||(LA18_181>='a' && LA18_181<='z')) ) {s = 138;}
-
-                        else if ( ((LA18_181>='\u0000' && LA18_181<=')')||(LA18_181>='+' && LA18_181<='-')||(LA18_181>=':' && LA18_181<='>')||LA18_181=='@'||(LA18_181>='[' && LA18_181<='^')||LA18_181=='`'||(LA18_181>='{' && LA18_181<='\uFFFF')) ) {s = 137;}
-
-                        else s = 49;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA18_40 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA18_40>='\u0000' && LA18_40<='\uFFFF')) ) {s = 95;}
-
-                        else s = 42;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA18_39 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA18_39>='\u0000' && LA18_39<='\uFFFF')) ) {s = 95;}
-
-                        else s = 42;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA18_139 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA18_139=='*'||(LA18_139>='.' && LA18_139<='9')||LA18_139=='?'||(LA18_139>='A' && LA18_139<='Z')||LA18_139=='_'||(LA18_139>='a' && LA18_139<='z')) ) {s = 139;}
-
-                        else if ( ((LA18_139>='\u0000' && LA18_139<=')')||(LA18_139>='+' && LA18_139<='-')||(LA18_139>=':' && LA18_139<='>')||LA18_139=='@'||(LA18_139>='[' && LA18_139<='^')||LA18_139=='`'||(LA18_139>='{' && LA18_139<='\uFFFF')) ) {s = 140;}
-
-                        else s = 49;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
                         int LA18_136 = input.LA(1);
 
                         s = -1;
@@ -4519,15 +4510,27 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                         else if ( (LA18_136=='*') ) {s = 136;}
 
-                        else if ( (LA18_136=='.'||(LA18_136>='0' && LA18_136<='9')||LA18_136=='?'||(LA18_136>='A' && LA18_136<='Z')||LA18_136=='_'||(LA18_136>='a' && LA18_136<='z')) ) {s = 138;}
+                        else if ( (LA18_136=='.'||(LA18_136>='0' && LA18_136<='9')||LA18_136=='?'||(LA18_136>='A' && LA18_136<='Z')||LA18_136=='_'||(LA18_136>='a' && LA18_136<='z')) ) {s = 137;}
 
-                        else if ( ((LA18_136>='\u0000' && LA18_136<=')')||(LA18_136>='+' && LA18_136<='-')||(LA18_136>=':' && LA18_136<='>')||LA18_136=='@'||(LA18_136>='[' && LA18_136<='^')||LA18_136=='`'||(LA18_136>='{' && LA18_136<='\uFFFF')) ) {s = 137;}
+                        else if ( ((LA18_136>='\u0000' && LA18_136<=')')||(LA18_136>='+' && LA18_136<='-')||(LA18_136>=':' && LA18_136<='>')||LA18_136=='@'||(LA18_136>='[' && LA18_136<='^')||LA18_136=='`'||(LA18_136>='{' && LA18_136<='\uFFFF')) ) {s = 138;}
 
                         else s = 49;
 
                         if ( s>=0 ) return s;
                         break;
-                    case 6 : 
+                    case 1 : 
+                        int LA18_139 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA18_139>='\u0000' && LA18_139<=')')||(LA18_139>='+' && LA18_139<='-')||(LA18_139>=':' && LA18_139<='>')||LA18_139=='@'||(LA18_139>='[' && LA18_139<='^')||LA18_139=='`'||(LA18_139>='{' && LA18_139<='\uFFFF')) ) {s = 140;}
+
+                        else if ( (LA18_139=='*'||(LA18_139>='.' && LA18_139<='9')||LA18_139=='?'||(LA18_139>='A' && LA18_139<='Z')||LA18_139=='_'||(LA18_139>='a' && LA18_139<='z')) ) {s = 139;}
+
+                        else s = 49;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA18_0 = input.LA(1);
 
                         s = -1;
@@ -4549,11 +4552,11 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                         else if ( (LA18_0=='V') ) {s = 9;}
 
-                        else if ( (LA18_0=='I') ) {s = 10;}
+                        else if ( (LA18_0=='P') ) {s = 10;}
 
-                        else if ( (LA18_0=='E') ) {s = 11;}
+                        else if ( (LA18_0=='I') ) {s = 11;}
 
-                        else if ( (LA18_0=='P') ) {s = 12;}
+                        else if ( (LA18_0=='E') ) {s = 12;}
 
                         else if ( (LA18_0=='C') ) {s = 13;}
 
@@ -4617,6 +4620,58 @@ public class InternalLuceneQueryLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
+                    case 3 : 
+                        int LA18_137 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA18_137=='*') ) {s = 136;}
+
+                        else if ( ((LA18_137>='.' && LA18_137<='9')||LA18_137=='?'||(LA18_137>='A' && LA18_137<='Z')||LA18_137=='_'||(LA18_137>='a' && LA18_137<='z')) ) {s = 137;}
+
+                        else if ( ((LA18_137>='\u0000' && LA18_137<=')')||(LA18_137>='+' && LA18_137<='-')||(LA18_137>=':' && LA18_137<='>')||LA18_137=='@'||(LA18_137>='[' && LA18_137<='^')||LA18_137=='`'||(LA18_137>='{' && LA18_137<='\uFFFF')) ) {s = 138;}
+
+                        else s = 49;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA18_92 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA18_92=='*') ) {s = 136;}
+
+                        else if ( ((LA18_92>='.' && LA18_92<='9')||LA18_92=='?'||(LA18_92>='A' && LA18_92<='Z')||LA18_92=='_'||(LA18_92>='a' && LA18_92<='z')) ) {s = 137;}
+
+                        else if ( ((LA18_92>='\u0000' && LA18_92<=')')||(LA18_92>='+' && LA18_92<='-')||(LA18_92>=':' && LA18_92<='>')||LA18_92=='@'||(LA18_92>='[' && LA18_92<='^')||LA18_92=='`'||(LA18_92>='{' && LA18_92<='\uFFFF')) ) {s = 138;}
+
+                        else s = 49;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA18_181 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA18_181=='*') ) {s = 136;}
+
+                        else if ( ((LA18_181>='.' && LA18_181<='9')||LA18_181=='?'||(LA18_181>='A' && LA18_181<='Z')||LA18_181=='_'||(LA18_181>='a' && LA18_181<='z')) ) {s = 137;}
+
+                        else if ( ((LA18_181>='\u0000' && LA18_181<=')')||(LA18_181>='+' && LA18_181<='-')||(LA18_181>=':' && LA18_181<='>')||LA18_181=='@'||(LA18_181>='[' && LA18_181<='^')||LA18_181=='`'||(LA18_181>='{' && LA18_181<='\uFFFF')) ) {s = 138;}
+
+                        else s = 49;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA18_40 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA18_40>='\u0000' && LA18_40<='\uFFFF')) ) {s = 95;}
+
+                        else s = 42;
+
+                        if ( s>=0 ) return s;
+                        break;
                     case 7 : 
                         int LA18_93 = input.LA(1);
 
@@ -4630,16 +4685,12 @@ public class InternalLuceneQueryLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA18_138 = input.LA(1);
+                        int LA18_39 = input.LA(1);
 
                         s = -1;
-                        if ( (LA18_138=='*') ) {s = 136;}
+                        if ( ((LA18_39>='\u0000' && LA18_39<='\uFFFF')) ) {s = 95;}
 
-                        else if ( ((LA18_138>='.' && LA18_138<='9')||LA18_138=='?'||(LA18_138>='A' && LA18_138<='Z')||LA18_138=='_'||(LA18_138>='a' && LA18_138<='z')) ) {s = 138;}
-
-                        else if ( ((LA18_138>='\u0000' && LA18_138<=')')||(LA18_138>='+' && LA18_138<='-')||(LA18_138>=':' && LA18_138<='>')||LA18_138=='@'||(LA18_138>='[' && LA18_138<='^')||LA18_138=='`'||(LA18_138>='{' && LA18_138<='\uFFFF')) ) {s = 137;}
-
-                        else s = 49;
+                        else s = 42;
 
                         if ( s>=0 ) return s;
                         break;

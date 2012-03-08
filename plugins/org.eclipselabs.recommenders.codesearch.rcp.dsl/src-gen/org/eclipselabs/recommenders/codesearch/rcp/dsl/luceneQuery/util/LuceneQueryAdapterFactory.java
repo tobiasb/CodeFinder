@@ -144,9 +144,14 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createDefinitionTypeAdapter();
       }
       @Override
-      public Adapter caseExp1(Exp1 object)
+      public Adapter caseOrExp(OrExp object)
       {
-        return createExp1Adapter();
+        return createOrExpAdapter();
+      }
+      @Override
+      public Adapter caseAndExp(AndExp object)
+      {
+        return createAndExpAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -366,16 +371,31 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1 <em>Exp1</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp <em>Or Exp</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp
    * @generated
    */
-  public Adapter createExp1Adapter()
+  public Adapter createOrExpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp <em>And Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp
+   * @generated
+   */
+  public Adapter createAndExpAdapter()
   {
     return null;
   }

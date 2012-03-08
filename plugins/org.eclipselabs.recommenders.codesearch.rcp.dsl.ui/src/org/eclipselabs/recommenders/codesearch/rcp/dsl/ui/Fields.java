@@ -69,6 +69,9 @@ public class Fields {
     /** Can be applied to: */
     // Generated - please modify in source file
     public final static String VARIABLE_NAME = "VariableName";
+    /** Can be applied to: method */
+    // Generated - please modify in source file
+    public final static String PARAMETER_TYPES_STRUCTURAL = "ParameterTypesStructural";
 
     // TypeField
     /** Can be applied to: class */

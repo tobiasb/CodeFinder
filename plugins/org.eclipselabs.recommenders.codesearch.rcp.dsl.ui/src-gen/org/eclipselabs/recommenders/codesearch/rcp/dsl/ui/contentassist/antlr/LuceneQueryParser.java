@@ -37,7 +37,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getExp2Access().getAlternatives(), "rule__Exp2__Alternatives");
+					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1(), "rule__ClauseExpression__Alternatives_1");
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1_1(), "rule__ClauseExpression__Alternatives_1_1");
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1_1_0_2(), "rule__ClauseExpression__Alternatives_1_1_0_2");
@@ -58,10 +58,12 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDocumentTypeFieldValueAccess().getAlternatives(), "rule__DocumentTypeFieldValue__Alternatives");
 					put(grammarAccess.getDefinitionTypeValueAccess().getAlternatives(), "rule__DefinitionTypeValue__Alternatives");
 					put(grammarAccess.getUnaryExpressionAccess().getAlternatives(), "rule__UnaryExpression__Alternatives");
-					put(grammarAccess.getBinaryExpAccess().getAlternatives(), "rule__BinaryExp__Alternatives");
-					put(grammarAccess.getExp1Access().getGroup(), "rule__Exp1__Group__0");
-					put(grammarAccess.getExp1Access().getGroup_1(), "rule__Exp1__Group_1__0");
-					put(grammarAccess.getExp2Access().getGroup_1(), "rule__Exp2__Group_1__0");
+					put(grammarAccess.getBinaryOrAccess().getAlternatives(), "rule__BinaryOr__Alternatives");
+					put(grammarAccess.getOrExpAccess().getGroup(), "rule__OrExp__Group__0");
+					put(grammarAccess.getOrExpAccess().getGroup_1(), "rule__OrExp__Group_1__0");
+					put(grammarAccess.getAndExpAccess().getGroup(), "rule__AndExp__Group__0");
+					put(grammarAccess.getAndExpAccess().getGroup_1(), "rule__AndExp__Group_1__0");
+					put(grammarAccess.getPrimaryAccess().getGroup_1(), "rule__Primary__Group_1__0");
 					put(grammarAccess.getClauseExpressionAccess().getGroup(), "rule__ClauseExpression__Group__0");
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_0(), "rule__ClauseExpression__Group_1_0__0");
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_0(), "rule__ClauseExpression__Group_1_1_0__0");
@@ -97,9 +99,11 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_10(), "rule__ClauseExpression__Group_1_1_10__0");
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_10_2_1(), "rule__ClauseExpression__Group_1_1_10_2_1__0");
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_10_2_1_1(), "rule__ClauseExpression__Group_1_1_10_2_1_1__0");
-					put(grammarAccess.getExp1Access().getBAssignment_1_1(), "rule__Exp1__BAssignment_1_1");
-					put(grammarAccess.getExp1Access().getRightAssignment_1_2(), "rule__Exp1__RightAssignment_1_2");
-					put(grammarAccess.getExp2Access().getValueAssignment_0(), "rule__Exp2__ValueAssignment_0");
+					put(grammarAccess.getOrExpAccess().getOrAssignment_1_1(), "rule__OrExp__OrAssignment_1_1");
+					put(grammarAccess.getOrExpAccess().getRightAssignment_1_2(), "rule__OrExp__RightAssignment_1_2");
+					put(grammarAccess.getAndExpAccess().getAndAssignment_1_1(), "rule__AndExp__AndAssignment_1_1");
+					put(grammarAccess.getAndExpAccess().getRightAssignment_1_2(), "rule__AndExp__RightAssignment_1_2");
+					put(grammarAccess.getPrimaryAccess().getValueAssignment_0(), "rule__Primary__ValueAssignment_0");
 					put(grammarAccess.getClauseExpressionAccess().getDefaultAssignment_1_0_0(), "rule__ClauseExpression__DefaultAssignment_1_0_0");
 					put(grammarAccess.getClauseExpressionAccess().getFieldAssignment_1_1_0_0(), "rule__ClauseExpression__FieldAssignment_1_1_0_0");
 					put(grammarAccess.getClauseExpressionAccess().getValuesAssignment_1_1_0_2_0(), "rule__ClauseExpression__ValuesAssignment_1_1_0_2_0");
@@ -147,6 +151,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_10(), "rule__SimpleField__ValueAssignment_10");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_11(), "rule__SimpleField__ValueAssignment_11");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_12(), "rule__SimpleField__ValueAssignment_12");
+					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_13(), "rule__SimpleField__ValueAssignment_13");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_0(), "rule__TypeField__ValueAssignment_0");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_1(), "rule__TypeField__ValueAssignment_1");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_2(), "rule__TypeField__ValueAssignment_2");
@@ -189,7 +194,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.antlr.internal.InternalLuceneQueryParser typedParser = (org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.antlr.internal.InternalLuceneQueryParser) parser;
-			typedParser.entryRuleExp1();
+			typedParser.entryRuleOrExp();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

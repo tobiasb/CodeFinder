@@ -4,16 +4,24 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="qL1"
     nsURI="http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1" nsPrefix="qL1">
   <eClassifiers xsi:type="ecore:EClass" name="MethodPattern">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" eType="#//MethodPatternDefinition"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MethodPatternDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
         eType="#//Modifier" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//ReturnType"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methodName" eType="#//MethodName"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterElements" upperBound="-1"
-        eType="#//ParameterElement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterDefinition" eType="#//ParameterDefinition"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="throwsClause" eType="#//Throws"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterDefinition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterElementholder"
+        upperBound="-1" eType="#//ParameterElementHolder" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Modifier">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -21,11 +29,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="ReturnType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParameterElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="#//ParameterType" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
-        eType="#//ParameterType" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParameterElementHolder">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SingleElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ParameterType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MultiElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//SingleElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ParameterType">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -167,11 +167,19 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.EXP1:
+      case LuceneQueryPackage.OR_EXP:
       {
-        Exp1 exp1 = (Exp1)theEObject;
-        T result = caseExp1(exp1);
-        if (result == null) result = caseExpression(exp1);
+        OrExp orExp = (OrExp)theEObject;
+        T result = caseOrExp(orExp);
+        if (result == null) result = caseExpression(orExp);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LuceneQueryPackage.AND_EXP:
+      {
+        AndExp andExp = (AndExp)theEObject;
+        T result = caseAndExp(andExp);
+        if (result == null) result = caseExpression(andExp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -388,17 +396,33 @@ public class LuceneQuerySwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Exp1</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Or Exp</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Exp1</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Or Exp</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExp1(Exp1 object)
+  public T caseOrExp(OrExp object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>And Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>And Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAndExp(AndExp object)
   {
     return null;
   }

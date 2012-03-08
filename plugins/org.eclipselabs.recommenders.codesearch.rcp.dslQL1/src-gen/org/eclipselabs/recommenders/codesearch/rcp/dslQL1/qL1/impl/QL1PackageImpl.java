@@ -15,12 +15,16 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Factory;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 
 /**
@@ -43,6 +47,20 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass methodPatternDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass modifierEClass = null;
 
   /**
@@ -57,7 +75,21 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass parameterElementEClass = null;
+  private EClass parameterElementHolderEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass singleElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass multiElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -158,7 +190,7 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_Modifiers()
+  public EReference getMethodPattern_Definition()
   {
     return (EReference)methodPatternEClass.getEStructuralFeatures().get(0);
   }
@@ -168,9 +200,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_ReturnType()
+  public EClass getMethodPatternDefinition()
   {
-    return (EReference)methodPatternEClass.getEStructuralFeatures().get(1);
+    return methodPatternDefinitionEClass;
   }
 
   /**
@@ -178,9 +210,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_MethodName()
+  public EReference getMethodPatternDefinition_Modifiers()
   {
-    return (EReference)methodPatternEClass.getEStructuralFeatures().get(2);
+    return (EReference)methodPatternDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -188,9 +220,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_ParameterElements()
+  public EReference getMethodPatternDefinition_ReturnType()
   {
-    return (EReference)methodPatternEClass.getEStructuralFeatures().get(3);
+    return (EReference)methodPatternDefinitionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -198,9 +230,49 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMethodPattern_ThrowsClause()
+  public EReference getMethodPatternDefinition_MethodName()
   {
-    return (EReference)methodPatternEClass.getEStructuralFeatures().get(4);
+    return (EReference)methodPatternDefinitionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodPatternDefinition_ParameterDefinition()
+  {
+    return (EReference)methodPatternDefinitionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMethodPatternDefinition_ThrowsClause()
+  {
+    return (EReference)methodPatternDefinitionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameterDefinition()
+  {
+    return parameterDefinitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterDefinition_ParameterElementholder()
+  {
+    return (EReference)parameterDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -248,9 +320,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getParameterElement()
+  public EClass getParameterElementHolder()
   {
-    return parameterElementEClass;
+    return parameterElementHolderEClass;
   }
 
   /**
@@ -258,9 +330,9 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameterElement_Values()
+  public EReference getParameterElementHolder_Element()
   {
-    return (EReference)parameterElementEClass.getEStructuralFeatures().get(0);
+    return (EReference)parameterElementHolderEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -268,9 +340,39 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getParameterElement_Types()
+  public EClass getSingleElement()
   {
-    return (EReference)parameterElementEClass.getEStructuralFeatures().get(1);
+    return singleElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSingleElement_Value()
+  {
+    return (EReference)singleElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMultiElement()
+  {
+    return multiElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMultiElement_Elements()
+  {
+    return (EReference)multiElementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -364,11 +466,17 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
 
     // Create classes and their features
     methodPatternEClass = createEClass(METHOD_PATTERN);
-    createEReference(methodPatternEClass, METHOD_PATTERN__MODIFIERS);
-    createEReference(methodPatternEClass, METHOD_PATTERN__RETURN_TYPE);
-    createEReference(methodPatternEClass, METHOD_PATTERN__METHOD_NAME);
-    createEReference(methodPatternEClass, METHOD_PATTERN__PARAMETER_ELEMENTS);
-    createEReference(methodPatternEClass, METHOD_PATTERN__THROWS_CLAUSE);
+    createEReference(methodPatternEClass, METHOD_PATTERN__DEFINITION);
+
+    methodPatternDefinitionEClass = createEClass(METHOD_PATTERN_DEFINITION);
+    createEReference(methodPatternDefinitionEClass, METHOD_PATTERN_DEFINITION__MODIFIERS);
+    createEReference(methodPatternDefinitionEClass, METHOD_PATTERN_DEFINITION__RETURN_TYPE);
+    createEReference(methodPatternDefinitionEClass, METHOD_PATTERN_DEFINITION__METHOD_NAME);
+    createEReference(methodPatternDefinitionEClass, METHOD_PATTERN_DEFINITION__PARAMETER_DEFINITION);
+    createEReference(methodPatternDefinitionEClass, METHOD_PATTERN_DEFINITION__THROWS_CLAUSE);
+
+    parameterDefinitionEClass = createEClass(PARAMETER_DEFINITION);
+    createEReference(parameterDefinitionEClass, PARAMETER_DEFINITION__PARAMETER_ELEMENTHOLDER);
 
     modifierEClass = createEClass(MODIFIER);
     createEAttribute(modifierEClass, MODIFIER__VALUE);
@@ -376,9 +484,14 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     returnTypeEClass = createEClass(RETURN_TYPE);
     createEAttribute(returnTypeEClass, RETURN_TYPE__VALUE);
 
-    parameterElementEClass = createEClass(PARAMETER_ELEMENT);
-    createEReference(parameterElementEClass, PARAMETER_ELEMENT__VALUES);
-    createEReference(parameterElementEClass, PARAMETER_ELEMENT__TYPES);
+    parameterElementHolderEClass = createEClass(PARAMETER_ELEMENT_HOLDER);
+    createEReference(parameterElementHolderEClass, PARAMETER_ELEMENT_HOLDER__ELEMENT);
+
+    singleElementEClass = createEClass(SINGLE_ELEMENT);
+    createEReference(singleElementEClass, SINGLE_ELEMENT__VALUE);
+
+    multiElementEClass = createEClass(MULTI_ELEMENT);
+    createEReference(multiElementEClass, MULTI_ELEMENT__ELEMENTS);
 
     parameterTypeEClass = createEClass(PARAMETER_TYPE);
     createEAttribute(parameterTypeEClass, PARAMETER_TYPE__VALUE);
@@ -422,11 +535,17 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
 
     // Initialize classes and features; add operations and parameters
     initEClass(methodPatternEClass, MethodPattern.class, "MethodPattern", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMethodPattern_Modifiers(), this.getModifier(), null, "modifiers", null, 0, -1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethodPattern_ReturnType(), this.getReturnType(), null, "returnType", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethodPattern_MethodName(), this.getMethodName(), null, "methodName", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethodPattern_ParameterElements(), this.getParameterElement(), null, "parameterElements", null, 0, -1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMethodPattern_ThrowsClause(), this.getThrows(), null, "throwsClause", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodPattern_Definition(), this.getMethodPatternDefinition(), null, "definition", null, 0, 1, MethodPattern.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(methodPatternDefinitionEClass, MethodPatternDefinition.class, "MethodPatternDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMethodPatternDefinition_Modifiers(), this.getModifier(), null, "modifiers", null, 0, -1, MethodPatternDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodPatternDefinition_ReturnType(), this.getReturnType(), null, "returnType", null, 0, 1, MethodPatternDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodPatternDefinition_MethodName(), this.getMethodName(), null, "methodName", null, 0, 1, MethodPatternDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodPatternDefinition_ParameterDefinition(), this.getParameterDefinition(), null, "parameterDefinition", null, 0, 1, MethodPatternDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodPatternDefinition_ThrowsClause(), this.getThrows(), null, "throwsClause", null, 0, 1, MethodPatternDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterDefinitionEClass, ParameterDefinition.class, "ParameterDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterDefinition_ParameterElementholder(), this.getParameterElementHolder(), null, "parameterElementholder", null, 0, -1, ParameterDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modifierEClass, Modifier.class, "Modifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModifier_Value(), ecorePackage.getEString(), "value", null, 0, 1, Modifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -434,9 +553,14 @@ public class QL1PackageImpl extends EPackageImpl implements QL1Package
     initEClass(returnTypeEClass, ReturnType.class, "ReturnType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReturnType_Value(), ecorePackage.getEString(), "value", null, 0, 1, ReturnType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(parameterElementEClass, ParameterElement.class, "ParameterElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParameterElement_Values(), this.getParameterType(), null, "values", null, 0, -1, ParameterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getParameterElement_Types(), this.getParameterType(), null, "types", null, 0, -1, ParameterElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(parameterElementHolderEClass, ParameterElementHolder.class, "ParameterElementHolder", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterElementHolder_Element(), ecorePackage.getEObject(), null, "element", null, 0, 1, ParameterElementHolder.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(singleElementEClass, SingleElement.class, "SingleElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSingleElement_Value(), this.getParameterType(), null, "value", null, 0, 1, SingleElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(multiElementEClass, MultiElement.class, "MultiElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMultiElement_Elements(), this.getSingleElement(), null, "elements", null, 0, -1, MultiElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(parameterTypeEClass, ParameterType.class, "ParameterType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParameterType_Value(), ecorePackage.getEString(), "value", null, 0, 1, ParameterType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

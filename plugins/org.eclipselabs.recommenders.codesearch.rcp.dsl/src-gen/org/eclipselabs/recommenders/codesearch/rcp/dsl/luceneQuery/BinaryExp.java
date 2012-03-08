@@ -51,7 +51,7 @@ public enum BinaryExp implements Enumerator
    * @generated
    * @ordered
    */
-  AND1(2, "and1", "AND");
+  AND1(0, "and1", "AND");
 
   /**
    * The '<em><b>Or1</b></em>' literal value.
@@ -96,7 +96,7 @@ public enum BinaryExp implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int AND1_VALUE = 2;
+  public static final int AND1_VALUE = 0;
 
   /**
    * An array of all the '<em><b>Binary Exp</b></em>' enumerators.
@@ -170,7 +170,6 @@ public enum BinaryExp implements Enumerator
     {
       case OR1_VALUE: return OR1;
       case OR2_VALUE: return OR2;
-      case AND1_VALUE: return AND1;
     }
     return null;
   }

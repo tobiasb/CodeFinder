@@ -16,6 +16,8 @@
     </genEnums>
     <genClasses ecoreClass="LuceneQuery.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Expression/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Expression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Expression/right"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//ClauseExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/default"/>
@@ -55,10 +57,11 @@
     <genClasses ecoreClass="LuceneQuery.ecore#//DefinitionType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DefinitionType/value"/>
     </genClasses>
-    <genClasses ecoreClass="LuceneQuery.ecore#//Exp1">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Exp1/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//Exp1/b"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//Exp1/right"/>
+    <genClasses ecoreClass="LuceneQuery.ecore#//OrExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//OrExp/or"/>
+    </genClasses>
+    <genClasses ecoreClass="LuceneQuery.ecore#//AndExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//AndExp/and"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

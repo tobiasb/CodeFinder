@@ -38,6 +38,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.OverriddenMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesStructuralIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ProjectNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
@@ -115,6 +116,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new OverriddenMethodsIndexer());
         list.add(new ParameterCountIndexer());
         list.add(new ParameterTypesIndexer());
+        list.add(new ParameterTypesStructuralIndexer());
         list.add(new ProjectNameIndexer());
         list.add(new ResourcePathIndexer());
         list.add(new ReturnTypeIndexer());

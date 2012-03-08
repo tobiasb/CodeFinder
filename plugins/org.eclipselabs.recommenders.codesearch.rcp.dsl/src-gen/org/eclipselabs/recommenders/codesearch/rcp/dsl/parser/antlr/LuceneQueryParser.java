@@ -25,7 +25,7 @@ public class LuceneQueryParser extends org.eclipse.xtext.parser.antlr.AbstractAn
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Exp1";
+		return "OrExp";
 	}
 	
 	public LuceneQueryGrammarAccess getGrammarAccess() {

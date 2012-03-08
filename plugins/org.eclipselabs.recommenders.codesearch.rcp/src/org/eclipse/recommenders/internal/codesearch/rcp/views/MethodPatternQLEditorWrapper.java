@@ -1,7 +1,11 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
+import java.util.List;
 import java.util.Set;
 
+import org.apache.lucene.document.Document;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -17,11 +21,16 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterDefinitionHandler;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
 
+import com.google.common.collect.Lists;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
@@ -86,7 +95,28 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
         ISerializer s = luceneInjector.getInstance(ISerializer.class);
         String searchQuery = s.serialize(e);
         //
-        return codeSearcher.lenientSearch(searchQuery);
+
+        System.out.println("Search: " + searchQuery);
+
+        SearchResult result = codeSearcher.lenientSearch(searchQuery);
+        List<ScoreDoc> validScoreDocs = Lists.newArrayList();
+
+        for (int i = result.scoreDocs().length - 1; i >= 0; i--) {
+            Document d = result.scoreDoc(i);
+
+            String actualParams = d.getFieldable(Fields.PARAMETER_TYPES_STRUCTURAL).stringValue();
+            ParameterDefinition pd = extr.getMethodPatternDefinition(r).getParameterDefinition();
+            Node paramGraph = new ParameterDefinitionHandler().getParameterGraph(pd, false);
+
+            if (extr.paramGraphFitsActualParams(paramGraph, actualParams.split(";"))) {
+                validScoreDocs.add(result.docs.scoreDocs[i]);
+            }
+        }
+        ScoreDoc[] scoreDocs = new ScoreDoc[validScoreDocs.size()];
+        TopDocs d = new TopDocs(validScoreDocs.size(), (ScoreDoc[]) validScoreDocs.toArray(scoreDocs),
+                result.docs.getMaxScore());
+
+        return new SearchResult(result.query, d, result.searcher);
     }
 
     // private EObject translate(Type type, Expression exp) {
@@ -107,8 +137,9 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
 
     @Override
     String[] getExampleQueriesInternal() {
-        return new String[] { "* *(..) throws java.lang.IOException", "String *label*(IJavaElement)",
-                "String *label*(.., IJavaElement, ..)", "static * *" };
+        return new String[] { "* * (Ljava/lang/String, Ljava/util/List)",
+                "* * (Ljava/lang/String, {Ljava/util/List | Ljava/util/Map})", "* *(..) throws java.lang.IOException",
+                "String *label*(IJavaElement)", "String *label*(.., IJavaElement, ..)", "static * *" };
     }
 
     public static String getName() {

@@ -82,7 +82,8 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
       case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
       case LuceneQueryPackage.ANNOTATION_FIELD: return createAnnotationField();
       case LuceneQueryPackage.DEFINITION_TYPE: return createDefinitionType();
-      case LuceneQueryPackage.EXP1: return createExp1();
+      case LuceneQueryPackage.OR_EXP: return createOrExp();
+      case LuceneQueryPackage.AND_EXP: return createAndExp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -270,10 +271,21 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exp1 createExp1()
+  public OrExp createOrExp()
   {
-    Exp1Impl exp1 = new Exp1Impl();
-    return exp1;
+    OrExpImpl orExp = new OrExpImpl();
+    return orExp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AndExp createAndExp()
+  {
+    AndExpImpl andExp = new AndExpImpl();
+    return andExp;
   }
 
   /**

@@ -83,6 +83,20 @@ public class QL1Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL1Package.METHOD_PATTERN_DEFINITION:
+      {
+        MethodPatternDefinition methodPatternDefinition = (MethodPatternDefinition)theEObject;
+        T result = caseMethodPatternDefinition(methodPatternDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.PARAMETER_DEFINITION:
+      {
+        ParameterDefinition parameterDefinition = (ParameterDefinition)theEObject;
+        T result = caseParameterDefinition(parameterDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QL1Package.MODIFIER:
       {
         Modifier modifier = (Modifier)theEObject;
@@ -97,10 +111,24 @@ public class QL1Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case QL1Package.PARAMETER_ELEMENT:
+      case QL1Package.PARAMETER_ELEMENT_HOLDER:
       {
-        ParameterElement parameterElement = (ParameterElement)theEObject;
-        T result = caseParameterElement(parameterElement);
+        ParameterElementHolder parameterElementHolder = (ParameterElementHolder)theEObject;
+        T result = caseParameterElementHolder(parameterElementHolder);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.SINGLE_ELEMENT:
+      {
+        SingleElement singleElement = (SingleElement)theEObject;
+        T result = caseSingleElement(singleElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.MULTI_ELEMENT:
+      {
+        MultiElement multiElement = (MultiElement)theEObject;
+        T result = caseMultiElement(multiElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -146,6 +174,38 @@ public class QL1Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Pattern Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Pattern Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodPatternDefinition(MethodPatternDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameterDefinition(ParameterDefinition object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Modifier</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -178,17 +238,49 @@ public class QL1Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Parameter Element</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Parameter Element Holder</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Parameter Element</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Parameter Element Holder</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseParameterElement(ParameterElement object)
+  public T caseParameterElementHolder(ParameterElementHolder object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Single Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Single Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSingleElement(SingleElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Multi Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Multi Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMultiElement(MultiElement object)
   {
     return null;
   }

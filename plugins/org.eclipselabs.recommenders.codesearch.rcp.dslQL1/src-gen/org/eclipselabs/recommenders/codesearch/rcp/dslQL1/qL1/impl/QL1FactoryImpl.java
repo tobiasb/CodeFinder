@@ -69,9 +69,13 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
     switch (eClass.getClassifierID())
     {
       case QL1Package.METHOD_PATTERN: return createMethodPattern();
+      case QL1Package.METHOD_PATTERN_DEFINITION: return createMethodPatternDefinition();
+      case QL1Package.PARAMETER_DEFINITION: return createParameterDefinition();
       case QL1Package.MODIFIER: return createModifier();
       case QL1Package.RETURN_TYPE: return createReturnType();
-      case QL1Package.PARAMETER_ELEMENT: return createParameterElement();
+      case QL1Package.PARAMETER_ELEMENT_HOLDER: return createParameterElementHolder();
+      case QL1Package.SINGLE_ELEMENT: return createSingleElement();
+      case QL1Package.MULTI_ELEMENT: return createMultiElement();
       case QL1Package.PARAMETER_TYPE: return createParameterType();
       case QL1Package.THROWS: return createThrows();
       case QL1Package.METHOD_NAME: return createMethodName();
@@ -89,6 +93,28 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
   {
     MethodPatternImpl methodPattern = new MethodPatternImpl();
     return methodPattern;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MethodPatternDefinition createMethodPatternDefinition()
+  {
+    MethodPatternDefinitionImpl methodPatternDefinition = new MethodPatternDefinitionImpl();
+    return methodPatternDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParameterDefinition createParameterDefinition()
+  {
+    ParameterDefinitionImpl parameterDefinition = new ParameterDefinitionImpl();
+    return parameterDefinition;
   }
 
   /**
@@ -118,10 +144,32 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ParameterElement createParameterElement()
+  public ParameterElementHolder createParameterElementHolder()
   {
-    ParameterElementImpl parameterElement = new ParameterElementImpl();
-    return parameterElement;
+    ParameterElementHolderImpl parameterElementHolder = new ParameterElementHolderImpl();
+    return parameterElementHolder;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SingleElement createSingleElement()
+  {
+    SingleElementImpl singleElement = new SingleElementImpl();
+    return singleElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MultiElement createMultiElement()
+  {
+    MultiElementImpl multiElement = new MultiElementImpl();
+    return multiElement;
   }
 
   /**

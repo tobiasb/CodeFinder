@@ -6,7 +6,6 @@ import static org.eclipse.jdt.ui.JavaElementLabelProvider.SHOW_POST_QUALIFIED;
 import static org.eclipse.recommenders.utils.Checks.cast;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.core.resources.WorkspaceJob;
@@ -360,6 +359,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                     }
                 } catch (final Exception e) {
                     Activator.logError(e);
+                    setSearchEnabled(true);
                     return Status.CANCEL_STATUS;
                 }
                 return Status.OK_STATUS;
@@ -372,7 +372,13 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
     @Override
     public void setSearchEnabled(final boolean value) {
-        triggerSearchButton.setEnabled(value);
+        Display.getDefault().asyncExec(new Runnable() {
+
+            @Override
+            public void run() {
+                triggerSearchButton.setEnabled(value);
+            }
+        });
     }
 
 }

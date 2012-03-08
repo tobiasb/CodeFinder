@@ -10,11 +10,17 @@
   <genPackages prefix="QL1" basePackage="org.eclipselabs.recommenders.codesearch.rcp.dslQL1"
       disposableProviderFactory="true" ecorePackage="QL1.ecore#/">
     <genClasses ecoreClass="QL1.ecore#//MethodPattern">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/modifiers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/returnType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/methodName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/parameterElements"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/throwsClause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/definition"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//MethodPatternDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/modifiers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/returnType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/methodName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/parameterDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/throwsClause"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//ParameterDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//ParameterDefinition/parameterElementholder"/>
     </genClasses>
     <genClasses ecoreClass="QL1.ecore#//Modifier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Modifier/value"/>
@@ -22,9 +28,14 @@
     <genClasses ecoreClass="QL1.ecore#//ReturnType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//ReturnType/value"/>
     </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//ParameterElement">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//ParameterElement/values"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//ParameterElement/types"/>
+    <genClasses ecoreClass="QL1.ecore#//ParameterElementHolder">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//ParameterElementHolder/element"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//SingleElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//SingleElement/value"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//MultiElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MultiElement/elements"/>
     </genClasses>
     <genClasses ecoreClass="QL1.ecore#//ParameterType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//ParameterType/value"/>

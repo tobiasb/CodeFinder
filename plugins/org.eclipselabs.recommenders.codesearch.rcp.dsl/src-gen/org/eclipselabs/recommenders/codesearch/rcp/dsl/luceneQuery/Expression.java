@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getLeft <em>Left</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getRight <em>Right</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,5 +53,57 @@ public interface Expression extends EObject
    * @generated
    */
   void setValue(ClauseExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Left</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Left</em>' containment reference.
+   * @see #setLeft(Expression)
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage#getExpression_Left()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getLeft();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getLeft <em>Left</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Left</em>' containment reference.
+   * @see #getLeft()
+   * @generated
+   */
+  void setLeft(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Right</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Right</em>' containment reference.
+   * @see #setRight(Expression)
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage#getExpression_Right()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getRight();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression#getRight <em>Right</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Right</em>' containment reference.
+   * @see #getRight()
+   * @generated
+   */
+  void setRight(Expression value);
 
 } // Expression

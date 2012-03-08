@@ -26,4 +26,22 @@ public class ComplexQueryTest extends DslTestBase {
         super.setUp();
         getParseResultAndExpect("Type:method AND Modifiers:private", 0);
     }
+
+    @Test
+    public void testMultipleFields04() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect(
+                "Type:method AND (UsedTypes:org.eclipse.recommenders.codesearch.FeatureWeights OR Modifiers:private)",
+                0);
+    }
+
+    @Test
+    public void testMultipleFields05() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect(
+                "Type:method AND (UsedTypes:org.eclipse.recommenders.codesearch.FeatureWeights OR Modifiers:private OR Type:class)",
+                0);
+    }
 }

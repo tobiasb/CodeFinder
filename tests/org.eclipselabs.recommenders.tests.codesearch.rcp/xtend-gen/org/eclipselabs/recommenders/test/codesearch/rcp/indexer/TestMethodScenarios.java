@@ -6,6 +6,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CheckedExceptionsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesStructuralIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnVariableExpressionIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
@@ -238,6 +239,30 @@ public class TestMethodScenarios extends TestBase {
       String _s = this.s(Fields.CHECKED_EXCEPTIONS, "Ljava/io/IOException");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_l);
+  }
+  
+  @Test
+  public void testParameterTypesStructuralIndexer() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("import java.util.List;");
+      _builder.newLine();
+      _builder.append("public class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void testReturnNames(List l, String s) {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      ParameterTypesStructuralIndexer _parameterTypesStructuralIndexer = new ParameterTypesStructuralIndexer();
+      this.exercise(code, _parameterTypesStructuralIndexer);
+      String _s = this.s(Fields.PARAMETER_TYPES_STRUCTURAL, "Ljava/util/List;Ljava/lang/String;");
+      ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
   }
 }

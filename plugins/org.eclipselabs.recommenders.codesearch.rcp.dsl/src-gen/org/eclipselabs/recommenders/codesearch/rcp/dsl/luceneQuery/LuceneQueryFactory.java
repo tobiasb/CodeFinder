@@ -144,13 +144,22 @@ public interface LuceneQueryFactory extends EFactory
   DefinitionType createDefinitionType();
 
   /**
-   * Returns a new object of class '<em>Exp1</em>'.
+   * Returns a new object of class '<em>Or Exp</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exp1</em>'.
+   * @return a new object of class '<em>Or Exp</em>'.
    * @generated
    */
-  Exp1 createExp1();
+  OrExp createOrExp();
+
+  /**
+   * Returns a new object of class '<em>And Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And Exp</em>'.
+   * @generated
+   */
+  AndExp createAndExp();
 
   /**
    * Returns the package supported by this factory.

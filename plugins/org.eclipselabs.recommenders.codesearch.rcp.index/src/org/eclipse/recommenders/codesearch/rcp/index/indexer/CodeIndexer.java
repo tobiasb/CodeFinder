@@ -29,7 +29,8 @@ import com.google.inject.Inject;
 
 public class CodeIndexer implements ICompilationUnitIndexer {
 
-    private static boolean verbose = false;
+    private static boolean verbose = false; // XXX: Always set me back to false
+                                            // please...
 
     public static void setVerbose(boolean value) {
         verbose = value;
@@ -235,7 +236,6 @@ public class CodeIndexer implements ICompilationUnitIndexer {
             commit();
 
             writer.close();
-
         } catch (final Exception ex) {
             RecommendersPlugin.logError(ex, "failed to close code-search index.");
         }

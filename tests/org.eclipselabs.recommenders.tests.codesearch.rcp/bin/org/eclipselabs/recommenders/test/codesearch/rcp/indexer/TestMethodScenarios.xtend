@@ -7,6 +7,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnVariableExpressionIndexer
 import org.junit.Test
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CheckedExceptionsIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesStructuralIndexer
 
 class TestMethodScenarios extends TestBase {
 	
@@ -156,6 +157,23 @@ class TestMethodScenarios extends TestBase {
 		
 		assertField(l(newArrayList(
 			s(Fields::CHECKED_EXCEPTIONS, "Ljava/io/IOException")
+		)))
+	}
+	
+	@Test
+	def void testParameterTypesStructuralIndexer(){
+		val code = '''
+		import java.util.List;
+		public class MyClass {
+			public void testReturnNames(List l, String s) {
+			}
+		}
+		'''
+		
+		exercise(code, new ParameterTypesStructuralIndexer())
+		
+		assertField(l(newArrayList(
+			s(Fields::PARAMETER_TYPES_STRUCTURAL, "Ljava/util/List;Ljava/lang/String;")
 		)))
 	}
 }

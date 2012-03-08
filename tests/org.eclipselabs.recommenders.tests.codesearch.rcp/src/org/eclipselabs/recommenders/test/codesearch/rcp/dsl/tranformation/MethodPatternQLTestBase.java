@@ -44,7 +44,7 @@ public abstract class MethodPatternQLTestBase extends AbstractXtextTests {
     }
 
     private String sanitize(String s) {
-        return s.replace("(", "").replace(")", "").replace(" ", "");
+        return s.replace("(", "").replace(")", "").replace(" ", "").replace("\r", "").replace("\n", "");
     }
 
     protected void testQuery(String query, String expected) throws Exception {

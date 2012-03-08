@@ -40,6 +40,9 @@ SimpleField {
 	
 	VARIABLE_NAME				= "VariableName"
 	{ varusage }
+	
+	PARAMETER_TYPES_STRUCTURAL	= "ParameterTypesStructural"
+	{ method }
 }
 
 TypeField {

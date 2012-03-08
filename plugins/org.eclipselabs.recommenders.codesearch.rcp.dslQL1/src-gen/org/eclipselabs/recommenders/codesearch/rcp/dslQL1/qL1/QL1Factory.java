@@ -36,6 +36,24 @@ public interface QL1Factory extends EFactory
   MethodPattern createMethodPattern();
 
   /**
+   * Returns a new object of class '<em>Method Pattern Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Pattern Definition</em>'.
+   * @generated
+   */
+  MethodPatternDefinition createMethodPatternDefinition();
+
+  /**
+   * Returns a new object of class '<em>Parameter Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter Definition</em>'.
+   * @generated
+   */
+  ParameterDefinition createParameterDefinition();
+
+  /**
    * Returns a new object of class '<em>Modifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -54,13 +72,31 @@ public interface QL1Factory extends EFactory
   ReturnType createReturnType();
 
   /**
-   * Returns a new object of class '<em>Parameter Element</em>'.
+   * Returns a new object of class '<em>Parameter Element Holder</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter Element</em>'.
+   * @return a new object of class '<em>Parameter Element Holder</em>'.
    * @generated
    */
-  ParameterElement createParameterElement();
+  ParameterElementHolder createParameterElementHolder();
+
+  /**
+   * Returns a new object of class '<em>Single Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Single Element</em>'.
+   * @generated
+   */
+  SingleElement createSingleElement();
+
+  /**
+   * Returns a new object of class '<em>Multi Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Multi Element</em>'.
+   * @generated
+   */
+  MultiElement createMultiElement();
 
   /**
    * Returns a new object of class '<em>Parameter Type</em>'.

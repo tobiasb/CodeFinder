@@ -17,16 +17,16 @@ import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
-	public class Exp1Elements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Exp1");
+	public class OrExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OrExp");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cExp2ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cAndExpParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Action cExp1LeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
-		private final Assignment cBAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cBBinaryExpEnumRuleCall_1_1_0 = (RuleCall)cBAssignment_1_1.eContents().get(0);
+		private final Action cOrExpLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cOrAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cOrBinaryOrEnumRuleCall_1_1_0 = (RuleCall)cOrAssignment_1_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cRightExp1ParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		private final RuleCall cRightOrExpParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
 		/// * * 
 		//
@@ -36,52 +36,94 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//
 		// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 		//
-		//Exp1 returns Expression:
-		//	Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?;
+		//OrExp returns Expression:
+		//	AndExp ({OrExp.left=current} or=BinaryOr? right=OrExp)?;
 		public ParserRule getRule() { return rule; }
 
-		//Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?
+		//AndExp ({OrExp.left=current} or=BinaryOr? right=OrExp)?
 		public Group getGroup() { return cGroup; }
 
-		//Exp2
-		public RuleCall getExp2ParserRuleCall_0() { return cExp2ParserRuleCall_0; }
+		//AndExp
+		public RuleCall getAndExpParserRuleCall_0() { return cAndExpParserRuleCall_0; }
 
-		//({Exp1.left=current} b=BinaryExp? right=Exp1)?
+		//({OrExp.left=current} or=BinaryOr? right=OrExp)?
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{Exp1.left=current}
-		public Action getExp1LeftAction_1_0() { return cExp1LeftAction_1_0; }
+		//{OrExp.left=current}
+		public Action getOrExpLeftAction_1_0() { return cOrExpLeftAction_1_0; }
 
-		//b=BinaryExp?
-		public Assignment getBAssignment_1_1() { return cBAssignment_1_1; }
+		//or=BinaryOr?
+		public Assignment getOrAssignment_1_1() { return cOrAssignment_1_1; }
 
-		//BinaryExp
-		public RuleCall getBBinaryExpEnumRuleCall_1_1_0() { return cBBinaryExpEnumRuleCall_1_1_0; }
+		//BinaryOr
+		public RuleCall getOrBinaryOrEnumRuleCall_1_1_0() { return cOrBinaryOrEnumRuleCall_1_1_0; }
 
-		//right=Exp1
+		//right=OrExp
 		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
 
-		//Exp1
-		public RuleCall getRightExp1ParserRuleCall_1_2_0() { return cRightExp1ParserRuleCall_1_2_0; }
+		//OrExp
+		public RuleCall getRightOrExpParserRuleCall_1_2_0() { return cRightOrExpParserRuleCall_1_2_0; }
 	}
 
-	public class Exp2Elements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Exp2");
+	public class AndExpElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AndExp");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cPrimaryParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cAndExpLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cAndAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAndBinaryAndEnumRuleCall_1_1_0 = (RuleCall)cAndAssignment_1_1.eContents().get(0);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightAndExpParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//// Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+		//
+		//AndExp returns Expression:
+		//	Primary ({AndExp.left=current} and=BinaryAnd right=AndExp)?;
+		public ParserRule getRule() { return rule; }
+
+		//Primary ({AndExp.left=current} and=BinaryAnd right=AndExp)?
+		public Group getGroup() { return cGroup; }
+
+		//Primary
+		public RuleCall getPrimaryParserRuleCall_0() { return cPrimaryParserRuleCall_0; }
+
+		//({AndExp.left=current} and=BinaryAnd right=AndExp)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{AndExp.left=current}
+		public Action getAndExpLeftAction_1_0() { return cAndExpLeftAction_1_0; }
+
+		//and=BinaryAnd
+		public Assignment getAndAssignment_1_1() { return cAndAssignment_1_1; }
+
+		//BinaryAnd
+		public RuleCall getAndBinaryAndEnumRuleCall_1_1_0() { return cAndBinaryAndEnumRuleCall_1_1_0; }
+
+		//right=AndExp
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+
+		//AndExp
+		public RuleCall getRightAndExpParserRuleCall_1_2_0() { return cRightAndExpParserRuleCall_1_2_0; }
+	}
+
+	public class PrimaryElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Primary");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cValueAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cValueClauseExpressionParserRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final RuleCall cUnaryExpressionParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final RuleCall cExp1ParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final RuleCall cOrExpParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		private final RuleCall cBoostTerminalRuleCall_1_4 = (RuleCall)cGroup_1.eContents().get(4);
 		
-		//Exp2 returns Expression:
-		//	value=ClauseExpression | UnaryExpression? "(" Exp1 ")" Boost?;
+		//Primary returns Expression:
+		//	value=ClauseExpression | UnaryExpression? "(" OrExp ")" Boost?;
 		public ParserRule getRule() { return rule; }
 
-		//value=ClauseExpression | UnaryExpression? "(" Exp1 ")" Boost?
+		//value=ClauseExpression | UnaryExpression? "(" OrExp ")" Boost?
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value=ClauseExpression
@@ -90,7 +132,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//ClauseExpression
 		public RuleCall getValueClauseExpressionParserRuleCall_0_0() { return cValueClauseExpressionParserRuleCall_0_0; }
 
-		//UnaryExpression? "(" Exp1 ")" Boost?
+		//UnaryExpression? "(" OrExp ")" Boost?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//UnaryExpression?
@@ -99,8 +141,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_1() { return cLeftParenthesisKeyword_1_1; }
 
-		//Exp1
-		public RuleCall getExp1ParserRuleCall_1_2() { return cExp1ParserRuleCall_1_2; }
+		//OrExp
+		public RuleCall getOrExpParserRuleCall_1_2() { return cOrExpParserRuleCall_1_2; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
@@ -297,26 +339,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBoostTerminalRuleCall_1_1_10_3 = (RuleCall)cGroup_1_1_10.eContents().get(3);
 		
 		/// *
-		//
-		//OrExpr returns Expression:
-		//
-		// AndExpr ({OrExpr.left=current} 'or' right=AndExpr)*;
-		//
-		//
-		//
-		//AndExpr returns Expression:
-		//
-		// Primary ({Multiplication.left=current} 'and' right=Primary)*;
-		//
-		//
-		//
-		//Primary returns Expression:
-		//
-		// FieldExpr |
-		//
-		// '(' OrExpr ')';
-		//
-		//	  * / / *
 		//
 		//	The following rules are generated. Do not modify. Modify source file instead.
 		//
@@ -968,6 +990,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueUsedFieldsInTryKeyword_11_0 = (Keyword)cValueAssignment_11.eContents().get(0);
 		private final Assignment cValueAssignment_12 = (Assignment)cAlternatives.eContents().get(12);
 		private final Keyword cValueVariableNameKeyword_12_0 = (Keyword)cValueAssignment_12.eContents().get(0);
+		private final Assignment cValueAssignment_13 = (Assignment)cAlternatives.eContents().get(13);
+		private final Keyword cValueParameterTypesStructuralKeyword_13_0 = (Keyword)cValueAssignment_13.eContents().get(0);
 		
 		////Generated Rule. Do not modify!
 		//
@@ -975,13 +999,13 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		//	value="FullyQualifiedName" | value="FriendlyName" | value="ReturnVariableExpressions" | value="AllDeclaredMethodNames"
 		//	| value="DeclaredMethodNames" | value="DeclaredFieldNames" | value="AllDeclaredFieldNames" | value="FullText" |
 		//	value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry" |
-		//	value="VariableName";
+		//	value="VariableName" | value="ParameterTypesStructural";
 		public ParserRule getRule() { return rule; }
 
 		//value="FullyQualifiedName" | value="FriendlyName" | value="ReturnVariableExpressions" | value="AllDeclaredMethodNames" |
 		//value="DeclaredMethodNames" | value="DeclaredFieldNames" | value="AllDeclaredFieldNames" | value="FullText" |
 		//value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry" |
-		//value="VariableName"
+		//value="VariableName" | value="ParameterTypesStructural"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//value="FullyQualifiedName"
@@ -1061,6 +1085,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"VariableName"
 		public Keyword getValueVariableNameKeyword_12_0() { return cValueVariableNameKeyword_12_0; }
+
+		//value="ParameterTypesStructural"
+		public Assignment getValueAssignment_13() { return cValueAssignment_13; }
+
+		//"ParameterTypesStructural"
+		public Keyword getValueParameterTypesStructuralKeyword_13_0() { return cValueParameterTypesStructuralKeyword_13_0; }
 	}
 
 	public class TypeFieldElements extends AbstractParserRuleElementFinder {
@@ -1666,21 +1696,19 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	public class BinaryExpElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BinaryExp");
+	public class BinaryOrElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BinaryOr");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cOr1EnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cOr1ORKeyword_0_0 = (Keyword)cOr1EnumLiteralDeclaration_0.eContents().get(0);
 		private final EnumLiteralDeclaration cOr2EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
 		private final Keyword cOr2VerticalLineVerticalLineKeyword_1_0 = (Keyword)cOr2EnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cAnd1EnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cAnd1ANDKeyword_2_0 = (Keyword)cAnd1EnumLiteralDeclaration_2.eContents().get(0);
 		
-		//enum BinaryExp:
-		//	or1="OR" | or2="||" | and1="AND";
+		//enum BinaryOr returns BinaryExp:
+		//	or1="OR" | or2="||";
 		public EnumRule getRule() { return rule; }
 
-		//or1="OR" | or2="||" | and1="AND"
+		//or1="OR" | or2="||"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//or1="OR"
@@ -1694,16 +1722,27 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"||"
 		public Keyword getOr2VerticalLineVerticalLineKeyword_1_0() { return cOr2VerticalLineVerticalLineKeyword_1_0; }
+	}
+
+	public class BinaryAndElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BinaryAnd");
+		private final EnumLiteralDeclaration cAnd1EnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cAnd1ANDKeyword_0 = (Keyword)cAnd1EnumLiteralDeclaration.eContents().get(0);
+		
+		//enum BinaryAnd returns BinaryExp:
+		//	and1="AND";
+		public EnumRule getRule() { return rule; }
 
 		//and1="AND"
-		public EnumLiteralDeclaration getAnd1EnumLiteralDeclaration_2() { return cAnd1EnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getAnd1EnumLiteralDeclaration() { return cAnd1EnumLiteralDeclaration; }
 
 		//"AND"
-		public Keyword getAnd1ANDKeyword_2_0() { return cAnd1ANDKeyword_2_0; }
+		public Keyword getAnd1ANDKeyword_0() { return cAnd1ANDKeyword_0; }
 	}
 	
-	private Exp1Elements pExp1;
-	private Exp2Elements pExp2;
+	private OrExpElements pOrExp;
+	private AndExpElements pAndExp;
+	private PrimaryElements pPrimary;
 	private ClauseExpressionElements pClauseExpression;
 	private SimpleFieldElements pSimpleField;
 	private TypeFieldElements pTypeField;
@@ -1726,7 +1765,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	private AnnotationFieldValueElements pAnnotationFieldValue;
 	private TypeFieldValueElements pTypeFieldValue;
 	private DefinitionTypeValueElements pDefinitionTypeValue;
-	private BinaryExpElements unknownRuleBinaryExp;
+	private BinaryOrElements unknownRuleBinaryOr;
+	private BinaryAndElements unknownRuleBinaryAnd;
 	private UnaryExpressionElements pUnaryExpression;
 	private TerminalRule tBoost;
 	private TerminalRule tNameWithWC;
@@ -1762,47 +1802,39 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//
 	// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	//
-	//Exp1 returns Expression:
-	//	Exp2 ({Exp1.left=current} b=BinaryExp? right=Exp1)?;
-	public Exp1Elements getExp1Access() {
-		return (pExp1 != null) ? pExp1 : (pExp1 = new Exp1Elements());
+	//OrExp returns Expression:
+	//	AndExp ({OrExp.left=current} or=BinaryOr? right=OrExp)?;
+	public OrExpElements getOrExpAccess() {
+		return (pOrExp != null) ? pOrExp : (pOrExp = new OrExpElements());
 	}
 	
-	public ParserRule getExp1Rule() {
-		return getExp1Access().getRule();
+	public ParserRule getOrExpRule() {
+		return getOrExpAccess().getRule();
 	}
 
-	//Exp2 returns Expression:
-	//	value=ClauseExpression | UnaryExpression? "(" Exp1 ")" Boost?;
-	public Exp2Elements getExp2Access() {
-		return (pExp2 != null) ? pExp2 : (pExp2 = new Exp2Elements());
+	//// Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+	//
+	//AndExp returns Expression:
+	//	Primary ({AndExp.left=current} and=BinaryAnd right=AndExp)?;
+	public AndExpElements getAndExpAccess() {
+		return (pAndExp != null) ? pAndExp : (pAndExp = new AndExpElements());
 	}
 	
-	public ParserRule getExp2Rule() {
-		return getExp2Access().getRule();
+	public ParserRule getAndExpRule() {
+		return getAndExpAccess().getRule();
+	}
+
+	//Primary returns Expression:
+	//	value=ClauseExpression | UnaryExpression? "(" OrExp ")" Boost?;
+	public PrimaryElements getPrimaryAccess() {
+		return (pPrimary != null) ? pPrimary : (pPrimary = new PrimaryElements());
+	}
+	
+	public ParserRule getPrimaryRule() {
+		return getPrimaryAccess().getRule();
 	}
 
 	/// *
-	//
-	//OrExpr returns Expression:
-	//
-	// AndExpr ({OrExpr.left=current} 'or' right=AndExpr)*;
-	//
-	//
-	//
-	//AndExpr returns Expression:
-	//
-	// Primary ({Multiplication.left=current} 'and' right=Primary)*;
-	//
-	//
-	//
-	//Primary returns Expression:
-	//
-	// FieldExpr |
-	//
-	// '(' OrExpr ')';
-	//
-	//	  * / / *
 	//
 	//	The following rules are generated. Do not modify. Modify source file instead.
 	//
@@ -1838,7 +1870,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	value="FullyQualifiedName" | value="FriendlyName" | value="ReturnVariableExpressions" | value="AllDeclaredMethodNames"
 	//	| value="DeclaredMethodNames" | value="DeclaredFieldNames" | value="AllDeclaredFieldNames" | value="FullText" |
 	//	value="FieldsRead" | value="FieldsWritten" | value="UsedFieldsInFinally" | value="UsedFieldsInTry" |
-	//	value="VariableName";
+	//	value="VariableName" | value="ParameterTypesStructural";
 	public SimpleFieldElements getSimpleFieldAccess() {
 		return (pSimpleField != null) ? pSimpleField : (pSimpleField = new SimpleFieldElements());
 	}
@@ -2075,14 +2107,24 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getDefinitionTypeValueAccess().getRule();
 	}
 
-	//enum BinaryExp:
-	//	or1="OR" | or2="||" | and1="AND";
-	public BinaryExpElements getBinaryExpAccess() {
-		return (unknownRuleBinaryExp != null) ? unknownRuleBinaryExp : (unknownRuleBinaryExp = new BinaryExpElements());
+	//enum BinaryOr returns BinaryExp:
+	//	or1="OR" | or2="||";
+	public BinaryOrElements getBinaryOrAccess() {
+		return (unknownRuleBinaryOr != null) ? unknownRuleBinaryOr : (unknownRuleBinaryOr = new BinaryOrElements());
 	}
 	
-	public EnumRule getBinaryExpRule() {
-		return getBinaryExpAccess().getRule();
+	public EnumRule getBinaryOrRule() {
+		return getBinaryOrAccess().getRule();
+	}
+
+	//enum BinaryAnd returns BinaryExp:
+	//	and1="AND";
+	public BinaryAndElements getBinaryAndAccess() {
+		return (unknownRuleBinaryAnd != null) ? unknownRuleBinaryAnd : (unknownRuleBinaryAnd = new BinaryAndElements());
+	}
+	
+	public EnumRule getBinaryAndRule() {
+		return getBinaryAndAccess().getRule();
 	}
 
 	//UnaryExpression:

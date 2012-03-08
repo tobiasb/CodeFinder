@@ -228,7 +228,6 @@ public class TestBase extends AbstractTestBase {
     try {
       {
         IndexUpdateService.setBackgroundIndexerActive(false);
-        CodeIndexer.setVerbose(true);
         IWorkspace _workspace = ResourcesPlugin.getWorkspace();
         JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, projectName);
         final JavaProjectFixture fixture = _javaProjectFixture;

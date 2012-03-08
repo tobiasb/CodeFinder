@@ -13,17 +13,18 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.FilePathField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.MethodField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ModifierField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.NumberField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ProjectNameField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField;
@@ -58,6 +59,16 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == LuceneQueryPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case LuceneQueryPackage.AND_EXP:
+				if(context == grammarAccess.getAndExpRule() ||
+				   context == grammarAccess.getAndExpAccess().getAndExpLeftAction_1_0() ||
+				   context == grammarAccess.getOrExpRule() ||
+				   context == grammarAccess.getOrExpAccess().getOrExpLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule()) {
+					sequence_AndExp(context, (AndExp) semanticObject); 
+					return; 
+				}
+				else break;
 			case LuceneQueryPackage.ANNOTATION_FIELD:
 				if(context == grammarAccess.getAnnotationFieldRule()) {
 					sequence_AnnotationField(context, (AnnotationField) semanticObject); 
@@ -82,19 +93,13 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 					return; 
 				}
 				else break;
-			case LuceneQueryPackage.EXP1:
-				if(context == grammarAccess.getExp1Rule() ||
-				   context == grammarAccess.getExp1Access().getExp1LeftAction_1_0() ||
-				   context == grammarAccess.getExp2Rule()) {
-					sequence_Exp1(context, (Exp1) semanticObject); 
-					return; 
-				}
-				else break;
 			case LuceneQueryPackage.EXPRESSION:
-				if(context == grammarAccess.getExp1Rule() ||
-				   context == grammarAccess.getExp1Access().getExp1LeftAction_1_0() ||
-				   context == grammarAccess.getExp2Rule()) {
-					sequence_Exp2(context, (Expression) semanticObject); 
+				if(context == grammarAccess.getAndExpRule() ||
+				   context == grammarAccess.getAndExpAccess().getAndExpLeftAction_1_0() ||
+				   context == grammarAccess.getOrExpRule() ||
+				   context == grammarAccess.getOrExpAccess().getOrExpLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule()) {
+					sequence_Primary(context, (Expression) semanticObject); 
 					return; 
 				}
 				else break;
@@ -119,6 +124,16 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 			case LuceneQueryPackage.NUMBER_FIELD:
 				if(context == grammarAccess.getNumberFieldRule()) {
 					sequence_NumberField(context, (NumberField) semanticObject); 
+					return; 
+				}
+				else break;
+			case LuceneQueryPackage.OR_EXP:
+				if(context == grammarAccess.getAndExpRule() ||
+				   context == grammarAccess.getAndExpAccess().getAndExpLeftAction_1_0() ||
+				   context == grammarAccess.getOrExpRule() ||
+				   context == grammarAccess.getOrExpAccess().getOrExpLeftAction_1_0() ||
+				   context == grammarAccess.getPrimaryRule()) {
+					sequence_OrExp(context, (OrExp) semanticObject); 
 					return; 
 				}
 				else break;
@@ -149,6 +164,15 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (left=AndExp_AndExp_1_0 and=BinaryAnd right=AndExp)
+	 */
+	protected void sequence_AndExp(EObject context, AndExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -222,31 +246,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     ((left=Exp1_Exp1_1_0 b=BinaryExp? right=Exp1) | (left=Exp1_Exp1_1_0 right=Exp1))
-	 */
-	protected void sequence_Exp1(EObject context, Exp1 semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     value=ClauseExpression
-	 */
-	protected void sequence_Exp2(EObject context, Expression semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.EXPRESSION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.EXPRESSION__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getExp2Access().getValueClauseExpressionParserRuleCall_0_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     value='ResourcePath'
 	 */
 	protected void sequence_FilePathField(EObject context, FilePathField semanticObject) {
@@ -313,6 +312,24 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
+	 *     ((left=OrExp_OrExp_1_0 or=BinaryOr? right=OrExp) | (left=OrExp_OrExp_1_0 right=OrExp))
+	 */
+	protected void sequence_OrExp(EObject context, OrExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=ClauseExpression
+	 */
+	protected void sequence_Primary(EObject context, Expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     value='ProjectName'
 	 */
 	protected void sequence_ProjectNameField(EObject context, ProjectNameField semanticObject) {
@@ -342,7 +359,8 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         value='FieldsWritten' | 
 	 *         value='UsedFieldsInFinally' | 
 	 *         value='UsedFieldsInTry' | 
-	 *         value='VariableName'
+	 *         value='VariableName' | 
+	 *         value='ParameterTypesStructural'
 	 *     )
 	 */
 	protected void sequence_SimpleField(EObject context, SimpleField semanticObject) {

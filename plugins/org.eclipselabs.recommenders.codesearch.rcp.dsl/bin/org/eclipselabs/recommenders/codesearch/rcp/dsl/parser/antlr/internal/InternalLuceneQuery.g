@@ -45,7 +45,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGramm
     
     @Override
     protected String getFirstRuleName() {
-    	return "Exp1";	
+    	return "OrExp";	
    	}
    	
    	@Override
@@ -64,49 +64,49 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGramm
 
 
 
-// Entry rule entryRuleExp1
-entryRuleExp1 returns [EObject current=null] 
+// Entry rule entryRuleOrExp
+entryRuleOrExp returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getExp1Rule()); }
-	 iv_ruleExp1=ruleExp1 
-	 { $current=$iv_ruleExp1.current; } 
+	{ newCompositeNode(grammarAccess.getOrExpRule()); }
+	 iv_ruleOrExp=ruleOrExp 
+	 { $current=$iv_ruleOrExp.current; } 
 	 EOF 
 ;
 
-// Rule Exp1
-ruleExp1 returns [EObject current=null] 
+// Rule OrExp
+ruleOrExp returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getExp1Access().getExp2ParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getOrExpAccess().getAndExpParserRuleCall_0()); 
     }
-    this_Exp2_0=ruleExp2
+    this_AndExp_0=ruleAndExp
     { 
-        $current = $this_Exp2_0.current; 
+        $current = $this_AndExp_0.current; 
         afterParserOrEnumRuleCall();
     }
 ((
     {
         $current = forceCreateModelElementAndSet(
-            grammarAccess.getExp1Access().getExp1LeftAction_1_0(),
+            grammarAccess.getOrExpAccess().getOrExpLeftAction_1_0(),
             $current);
     }
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExp1Access().getBBinaryExpEnumRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getOrExpAccess().getOrBinaryOrEnumRuleCall_1_1_0()); 
 	    }
-		lv_b_2_0=ruleBinaryExp		{
+		lv_or_2_0=ruleBinaryOr		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExp1Rule());
+	            $current = createModelElementForParent(grammarAccess.getOrExpRule());
 	        }
        		set(
        			$current, 
-       			"b",
-        		lv_b_2_0, 
-        		"BinaryExp");
+       			"or",
+        		lv_or_2_0, 
+        		"BinaryOr");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -114,17 +114,17 @@ ruleExp1 returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExp1Access().getRightExp1ParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getOrExpAccess().getRightOrExpParserRuleCall_1_2_0()); 
 	    }
-		lv_right_3_0=ruleExp1		{
+		lv_right_3_0=ruleOrExp		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExp1Rule());
+	            $current = createModelElementForParent(grammarAccess.getOrExpRule());
 	        }
        		set(
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Exp1");
+        		"OrExp");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -136,28 +136,100 @@ ruleExp1 returns [EObject current=null]
 
 
 
-// Entry rule entryRuleExp2
-entryRuleExp2 returns [EObject current=null] 
+// Entry rule entryRuleAndExp
+entryRuleAndExp returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getExp2Rule()); }
-	 iv_ruleExp2=ruleExp2 
-	 { $current=$iv_ruleExp2.current; } 
+	{ newCompositeNode(grammarAccess.getAndExpRule()); }
+	 iv_ruleAndExp=ruleAndExp 
+	 { $current=$iv_ruleAndExp.current; } 
 	 EOF 
 ;
 
-// Rule Exp2
-ruleExp2 returns [EObject current=null] 
+// Rule AndExp
+ruleAndExp returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getAndExpAccess().getPrimaryParserRuleCall_0()); 
+    }
+    this_Primary_0=rulePrimary
+    { 
+        $current = $this_Primary_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+((
+    {
+        $current = forceCreateModelElementAndSet(
+            grammarAccess.getAndExpAccess().getAndExpLeftAction_1_0(),
+            $current);
+    }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAndExpAccess().getAndBinaryAndEnumRuleCall_1_1_0()); 
+	    }
+		lv_and_2_0=ruleBinaryAnd		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAndExpRule());
+	        }
+       		set(
+       			$current, 
+       			"and",
+        		lv_and_2_0, 
+        		"BinaryAnd");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getAndExpAccess().getRightAndExpParserRuleCall_1_2_0()); 
+	    }
+		lv_right_3_0=ruleAndExp		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getAndExpRule());
+	        }
+       		set(
+       			$current, 
+       			"right",
+        		lv_right_3_0, 
+        		"AndExp");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))?)
+;
+
+
+
+
+
+// Entry rule entryRulePrimary
+entryRulePrimary returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPrimaryRule()); }
+	 iv_rulePrimary=rulePrimary 
+	 { $current=$iv_rulePrimary.current; } 
+	 EOF 
+;
+
+// Rule Primary
+rulePrimary returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getExp2Access().getValueClauseExpressionParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getPrimaryAccess().getValueClauseExpressionParserRuleCall_0_0()); 
 	    }
 		lv_value_0_0=ruleClauseExpression		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getExp2Rule());
+	            $current = createModelElementForParent(grammarAccess.getPrimaryRule());
 	        }
        		set(
        			$current, 
@@ -171,7 +243,7 @@ ruleExp2 returns [EObject current=null]
 )
     |((
     { 
-        newCompositeNode(grammarAccess.getExp2Access().getUnaryExpressionParserRuleCall_1_0()); 
+        newCompositeNode(grammarAccess.getPrimaryAccess().getUnaryExpressionParserRuleCall_1_0()); 
     }
 ruleUnaryExpression
     { 
@@ -179,24 +251,24 @@ ruleUnaryExpression
     }
 )?	otherlv_2='(' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getExp2Access().getLeftParenthesisKeyword_1_1());
+    	newLeafNode(otherlv_2, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_1());
     }
 
     { 
-        newCompositeNode(grammarAccess.getExp2Access().getExp1ParserRuleCall_1_2()); 
+        newCompositeNode(grammarAccess.getPrimaryAccess().getOrExpParserRuleCall_1_2()); 
     }
-    this_Exp1_3=ruleExp1
+    this_OrExp_3=ruleOrExp
     { 
-        $current = $this_Exp1_3.current; 
+        $current = $this_OrExp_3.current; 
         afterParserOrEnumRuleCall();
     }
 	otherlv_4=')' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getExp2Access().getRightParenthesisKeyword_1_3());
+    	newLeafNode(otherlv_4, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_1_3());
     }
 (this_Boost_5=RULE_BOOST
     { 
-    newLeafNode(this_Boost_5, grammarAccess.getExp2Access().getBoostTerminalRuleCall_1_4()); 
+    newLeafNode(this_Boost_5, grammarAccess.getPrimaryAccess().getBoostTerminalRuleCall_1_4()); 
     }
 )?))
 ;
@@ -1401,6 +1473,22 @@ ruleSimpleField returns [EObject current=null]
 	    }
 
 )
+)
+    |(
+(
+		lv_value_13_0=	'ParameterTypesStructural' 
+    {
+        newLeafNode(lv_value_13_0, grammarAccess.getSimpleFieldAccess().getValueParameterTypesStructuralKeyword_13_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSimpleFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_13_0, "ParameterTypesStructural");
+	    }
+
+)
 ))
 ;
 
@@ -2564,28 +2652,35 @@ ruleFilePathFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatype
 
 
 
-// Rule BinaryExp
-ruleBinaryExp returns [Enumerator current=null] 
+// Rule BinaryOr
+ruleBinaryOr returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
 ((	enumLiteral_0='OR' 
 	{
-        $current = grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getBinaryExpAccess().getOr1EnumLiteralDeclaration_0()); 
+        $current = grammarAccess.getBinaryOrAccess().getOr1EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getBinaryOrAccess().getOr1EnumLiteralDeclaration_0()); 
     }
 )
     |(	enumLiteral_1='||' 
 	{
-        $current = grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_1, grammarAccess.getBinaryExpAccess().getOr2EnumLiteralDeclaration_1()); 
-    }
-)
-    |(	enumLiteral_2='AND' 
-	{
-        $current = grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_2, grammarAccess.getBinaryExpAccess().getAnd1EnumLiteralDeclaration_2()); 
+        $current = grammarAccess.getBinaryOrAccess().getOr2EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getBinaryOrAccess().getOr2EnumLiteralDeclaration_1()); 
     }
 ));
+
+
+
+// Rule BinaryAnd
+ruleBinaryAnd returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+(	enumLiteral_0='AND' 
+	{
+        $current = grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration()); 
+    }
+);
 
 
 

@@ -14,12 +14,12 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Exp1;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.FilePathField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
@@ -27,6 +27,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPa
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.MethodField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ModifierField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.NumberField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ProjectNameField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField;
@@ -136,7 +137,14 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass exp1EClass = null;
+  private EClass orExpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass andExpEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -226,6 +234,26 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
   public EReference getExpression_Value()
   {
     return (EReference)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_Left()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExpression_Right()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -493,9 +521,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getExp1()
+  public EClass getOrExp()
   {
-    return exp1EClass;
+    return orExpEClass;
   }
 
   /**
@@ -503,9 +531,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExp1_Left()
+  public EAttribute getOrExp_Or()
   {
-    return (EReference)exp1EClass.getEStructuralFeatures().get(0);
+    return (EAttribute)orExpEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -513,9 +541,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getExp1_B()
+  public EClass getAndExp()
   {
-    return (EAttribute)exp1EClass.getEStructuralFeatures().get(1);
+    return andExpEClass;
   }
 
   /**
@@ -523,9 +551,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getExp1_Right()
+  public EAttribute getAndExp_And()
   {
-    return (EReference)exp1EClass.getEStructuralFeatures().get(2);
+    return (EAttribute)andExpEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -570,6 +598,8 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     // Create classes and their features
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__VALUE);
+    createEReference(expressionEClass, EXPRESSION__LEFT);
+    createEReference(expressionEClass, EXPRESSION__RIGHT);
 
     clauseExpressionEClass = createEClass(CLAUSE_EXPRESSION);
     createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__DEFAULT);
@@ -609,10 +639,11 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     definitionTypeEClass = createEClass(DEFINITION_TYPE);
     createEAttribute(definitionTypeEClass, DEFINITION_TYPE__VALUE);
 
-    exp1EClass = createEClass(EXP1);
-    createEReference(exp1EClass, EXP1__LEFT);
-    createEAttribute(exp1EClass, EXP1__B);
-    createEReference(exp1EClass, EXP1__RIGHT);
+    orExpEClass = createEClass(OR_EXP);
+    createEAttribute(orExpEClass, OR_EXP__OR);
+
+    andExpEClass = createEClass(AND_EXP);
+    createEAttribute(andExpEClass, AND_EXP__AND);
 
     // Create enums
     binaryExpEEnum = createEEnum(BINARY_EXP);
@@ -647,11 +678,14 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    exp1EClass.getESuperTypes().add(this.getExpression());
+    orExpEClass.getESuperTypes().add(this.getExpression());
+    andExpEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Value(), this.getClauseExpression(), null, "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Left(), this.getExpression(), null, "left", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Right(), this.getExpression(), null, "right", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(clauseExpressionEClass, ClauseExpression.class, "ClauseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getClauseExpression_Default(), ecorePackage.getEString(), "default", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -691,10 +725,11 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEClass(definitionTypeEClass, DefinitionType.class, "DefinitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDefinitionType_Value(), ecorePackage.getEString(), "value", null, 0, 1, DefinitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(exp1EClass, Exp1.class, "Exp1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExp1_Left(), this.getExpression(), null, "left", null, 0, 1, Exp1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getExp1_B(), this.getBinaryExp(), "b", null, 0, 1, Exp1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExp1_Right(), this.getExpression(), null, "right", null, 0, 1, Exp1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(orExpEClass, OrExp.class, "OrExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOrExp_Or(), this.getBinaryExp(), "or", null, 0, 1, OrExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(andExpEClass, AndExp.class, "AndExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAndExp_And(), this.getBinaryExp(), "and", null, 0, 1, AndExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(binaryExpEEnum, BinaryExp.class, "BinaryExp");

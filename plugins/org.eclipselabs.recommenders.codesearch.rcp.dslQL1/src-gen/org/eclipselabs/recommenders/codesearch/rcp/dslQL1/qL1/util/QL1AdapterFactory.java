@@ -84,6 +84,16 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
         return createMethodPatternAdapter();
       }
       @Override
+      public Adapter caseMethodPatternDefinition(MethodPatternDefinition object)
+      {
+        return createMethodPatternDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseParameterDefinition(ParameterDefinition object)
+      {
+        return createParameterDefinitionAdapter();
+      }
+      @Override
       public Adapter caseModifier(Modifier object)
       {
         return createModifierAdapter();
@@ -94,9 +104,19 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
         return createReturnTypeAdapter();
       }
       @Override
-      public Adapter caseParameterElement(ParameterElement object)
+      public Adapter caseParameterElementHolder(ParameterElementHolder object)
       {
-        return createParameterElementAdapter();
+        return createParameterElementHolderAdapter();
+      }
+      @Override
+      public Adapter caseSingleElement(SingleElement object)
+      {
+        return createSingleElementAdapter();
+      }
+      @Override
+      public Adapter caseMultiElement(MultiElement object)
+      {
+        return createMultiElementAdapter();
       }
       @Override
       public Adapter caseParameterType(ParameterType object)
@@ -151,6 +171,36 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition <em>Method Pattern Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition
+   * @generated
+   */
+  public Adapter createMethodPatternDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition <em>Parameter Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition
+   * @generated
+   */
+  public Adapter createParameterDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier <em>Modifier</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -181,16 +231,46 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement <em>Parameter Element</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder <em>Parameter Element Holder</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElement
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder
    * @generated
    */
-  public Adapter createParameterElementAdapter()
+  public Adapter createParameterElementHolderAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement <em>Single Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement
+   * @generated
+   */
+  public Adapter createSingleElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement <em>Multi Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement
+   * @generated
+   */
+  public Adapter createMultiElementAdapter()
   {
     return null;
   }
