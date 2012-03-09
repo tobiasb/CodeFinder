@@ -22,10 +22,6 @@ import com.google.common.collect.Lists;
 public class ParameterDefinitionHandler {
     private final LuceneQueryFactory lqf = new LuceneQueryFactoryImpl();
 
-    // private enum OrderInfo {
-    // First, Middle, Last
-    // }
-
     public Expression process(final EObject o) {
         final List<ClauseExpression> l = Lists.newArrayList();
 
@@ -36,10 +32,10 @@ public class ParameterDefinitionHandler {
     }
 
     private Expression processInternal(List<ClauseExpression> l, final ParameterDefinitionImpl p) {
-        List<StringBuilder> list = new NodeWalker().walk(getParameterGraph(p, true));
+        List<StringBuilder> parameterOptions = new NodeWalker().walk(getParameterGraph(p, true));
 
-        if (list.size() > 0)
-            return ExtractorHelper.buildExpressionTree(convert(list), BinaryExp.OR1);
+        if (parameterOptions.size() > 0)
+            return ExtractorHelper.buildExpressionTree(convertToClauseExpressions(parameterOptions), BinaryExp.OR1);
         else
             return null;
     }
@@ -49,8 +45,7 @@ public class ParameterDefinitionHandler {
         Node currentNode = null;
 
         for (ParameterElementHolder e : p.getParameterElementholder()) {
-            // OrderInfo orderInfo = getOrderInfo(p.getParameterElementholder(),
-            // e);
+
             if (startNode == null) {
                 startNode = new Node();
                 currentNode = startNode;
@@ -70,32 +65,10 @@ public class ParameterDefinitionHandler {
             } else {
                 throw new IllegalStateException(element.eClass().getName() + " is unknown");
             }
-
-            // if (element instanceof SingleElement) {
-            // handle(l, (SingleElement) element);
-            // } else if (element instanceof MultiElement) {
-            // handle(l, (MultiElement) element);
-            // } else {
-            // throw new IllegalStateException(element.eClass().getName() +
-            // " is unknown");
-            // }
         }
 
         return startNode;
     }
-
-    // private OrderInfo getOrderInfo(List<ParameterElementHolder> list,
-    // ParameterElementHolder e) {
-    // final int indexOfE = list.indexOf(e);
-    //
-    // if (indexOfE == 0)
-    // return OrderInfo.First;
-    //
-    // if (indexOfE == list.size() - 1)
-    // return OrderInfo.Last;
-    //
-    // return OrderInfo.Middle;
-    // }
 
     private String getSingleElementValue(EObject e, boolean convertWildcardParameters) {
         final String value = ((SingleElement) e).getValue().getValue();
@@ -108,10 +81,10 @@ public class ParameterDefinitionHandler {
         return value;
     }
 
-    private List<EObject> convert(List<StringBuilder> list) {
+    private List<EObject> convertToClauseExpressions(List<StringBuilder> parameterOptions) {
         final List<EObject> l = Lists.newArrayList();
 
-        for (StringBuilder sb : list) {
+        for (StringBuilder sb : parameterOptions) {
             ClauseExpression clause = lqf.createClauseExpression();
             SimpleField field = lqf.createSimpleField();
             field.setValue(Fields.PARAMETER_TYPES_STRUCTURAL);
@@ -123,28 +96,4 @@ public class ParameterDefinitionHandler {
 
         return l;
     }
-
-    // private void handle(List<ClauseExpression> l, MultiElement e) {
-    // for (SingleElement element : e.getElements()) {
-    // handle(l, element);
-    // }
-    // }
-    //
-    // private void handle(List<ClauseExpression> l, SingleElement e) {
-    // if (!shouldConsider(e))
-    // return;
-    //
-    // ClauseExpression clause = lqf.createClauseExpression();
-    // TypeField field = lqf.createTypeField();
-    // field.setValue(Fields.PARAMETER_TYPES);
-    // clause.setField(field);
-    // clause.getValues().add(e.getValue().getValue());
-    //
-    // l.add(clause);
-    // }
-    //
-    // private boolean shouldConsider(SingleElement e) {
-    // String value = e.getValue().getValue();
-    // return value != null && !value.equals("*") && !value.equals("..");
-    // }
 }

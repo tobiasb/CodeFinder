@@ -53,12 +53,10 @@ final class ContentProvider implements ILazyContentProvider {
     }
 
     private TableViewer viewer;
-    private final JavaElementResolver jdtResolver;
     private final SearchResult searchResults;
 
     ContentProvider(final SearchResult searchResults, final JavaElementResolver jdtResolver) {
         this.searchResults = searchResults;
-        this.jdtResolver = jdtResolver;
     }
 
     @Override
@@ -120,7 +118,9 @@ final class ContentProvider implements ILazyContentProvider {
                             return false;
                         }
 
-                        // caused NPEs: ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod, ast);
+                        // caused NPEs:
+                        // ASTNodeSearchUtil.getMethodDeclarationNode(jdtMethod,
+                        // ast);
                         astMethod = ASTNodeUtils.find(ast, jdtMethod).orNull();
                     } catch (final Exception e) {
                         RecommendersPlugin.logError(e, "failed to find declaring method %s", jdtMethod);

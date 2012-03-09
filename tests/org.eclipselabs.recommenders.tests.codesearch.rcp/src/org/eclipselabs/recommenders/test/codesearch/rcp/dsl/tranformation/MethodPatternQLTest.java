@@ -2,7 +2,6 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 
 import java.util.List;
 
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.NodeWalker;
 import org.junit.Test;
@@ -170,11 +169,9 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         final Node n2 = new Node("T21");
         n1.nextNode = n2; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
-
         String actualParams = "T1;T21;";
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, actualParams.split(";")));
+        checkGraphTrue(n1, actualParams);
     }
 
     @Test
@@ -183,10 +180,8 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         final Node n2 = new Node("T21", "T22");
         n1.nextNode = n2; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
-
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T21;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
+        checkGraphTrue(n1, "T1;T21;");
+        checkGraphTrue(n1, "T1;T22;");
     }
 
     @Test
@@ -197,13 +192,11 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n1.nextNode = n2; // wiring
         n2.nextNode = n3; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "T1;foo;T21;");
+        checkGraphTrue(n1, "T1;foo;T22;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;T21;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;T22;".split(";")));
-
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;foo;bar;T22;".split(";")));
+        checkGraphFalse(n1, "T1;T22;");
+        checkGraphFalse(n1, "T1;foo;bar;T22;");
     }
 
     @Test
@@ -214,14 +207,12 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n1.nextNode = n2; // wiring
         n2.nextNode = n3; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "foo;T1;T21;");
+        checkGraphTrue(n1, "foo;T1;T22;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T21;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T22;".split(";")));
-
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;foo;bar;T22;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;T1;T22;bar;".split(";")));
+        checkGraphFalse(n1, "T1;T22;");
+        checkGraphFalse(n1, "T1;foo;bar;T22;");
+        checkGraphFalse(n1, "foo;T1;T22;bar;");
     }
 
     @Test
@@ -232,13 +223,11 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n1.nextNode = n2; // wiring
         n2.nextNode = n3; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "T1;T21;foo;");
+        checkGraphTrue(n1, "T1;T22;foo;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T21;foo;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;foo;".split(";")));
-
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;foo;bar;T22;".split(";")));
+        checkGraphFalse(n1, "T1;T22;");
+        checkGraphFalse(n1, "T1;foo;bar;T22;");
     }
 
     @Test
@@ -253,13 +242,11 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n3.nextNode = n4; // wiring
         n4.nextNode = n5; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "bar;T1;bla;T21;foo;");
+        checkGraphTrue(n1, "bar;T1;bla;T22;foo;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "bar;T1;bla;T21;foo;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "bar;T1;bla;T22;foo;".split(";")));
-
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;foo;bar;T22;".split(";")));
+        checkGraphFalse(n1, "T1;T22;");
+        checkGraphFalse(n1, "T1;foo;bar;T22;");
     }
 
     @Test
@@ -270,13 +257,11 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n1.nextNode = n2; // wiring
         n2.nextNode = n3; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "T1;foo;T21;");
+        checkGraphTrue(n1, "T1;foo;T22;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;T21;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;T22;".split(";")));
-
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;bar;T22;".split(";")));
+        checkGraphTrue(n1, "T1;T22;");
+        checkGraphTrue(n1, "T1;foo;bar;T22;");
     }
 
     @Test
@@ -288,13 +273,11 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n2.prevNode = n1; // wiring
         n2.nextNode = n3; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "foo;T1;T21;");
+        checkGraphTrue(n1, "foo;T1;T22;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T21;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T22;".split(";")));
-
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+        checkGraphTrue(n1, "foo;foo;T1;T22;");
+        checkGraphTrue(n1, "foo;foo;foo;T1;T21;");
     }
 
     @Test
@@ -306,13 +289,11 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n2.prevNode = n1; // wiring
         n2.nextNode = n3; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "T1;T21;foo;");
+        checkGraphTrue(n1, "T1;T22;foo;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T21;foo;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;foo;".split(";")));
-
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;foo;bar;".split(";")));
+        checkGraphTrue(n1, "T1;T22;");
+        checkGraphTrue(n1, "T1;T22;foo;bar;");
     }
 
     @Test
@@ -325,13 +306,11 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n2.nextNode = n3; // wiring
         n3.prevNode = n2; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "foo;T1;T21;");
+        checkGraphTrue(n1, "foo;T1;bar;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T21;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;bar;".split(";")));
-
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;bar;fobar;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+        checkGraphTrue(n1, "foo;foo;T1;T22;bar;fobar;");
+        checkGraphTrue(n1, "foo;foo;foo;T1;T21;");
     }
 
     @Test
@@ -341,14 +320,12 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n1.nextNode = n2; // wiring
         n2.prevNode = n1; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "T1;");
+        checkGraphTrue(n1, "foo;T1;");
+        checkGraphTrue(n1, "foo;bar;T1;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;bar;T1;".split(";")));
-
-        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;bar;fobar;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+        checkGraphFalse(n1, "foo;foo;T1;T22;bar;fobar;");
+        checkGraphFalse(n1, "foo;foo;foo;T1;T21;");
     }
 
     @Test
@@ -358,14 +335,12 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n1.nextNode = n2; // wiring
         n2.prevNode = n1; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
+        checkGraphTrue(n1, "T1;");
+        checkGraphTrue(n1, "T1;foo;");
+        checkGraphTrue(n1, "T1;foo;bar;");
 
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;".split(";")));
-        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;bar;".split(";")));
-
-        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;bar;fobar;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+        checkGraphFalse(n1, "foo;foo;T1;T22;bar;fobar;");
+        checkGraphFalse(n1, "foo;foo;foo;T1;T21;");
     }
 
     @Test
@@ -375,9 +350,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
         n1.nextNode = n2; // wiring
         n2.prevNode = n1; // wiring
 
-        QL1QueryExtractor qe = new QL1QueryExtractor();
-
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;T21;T31;".split(";")));
-        assertFalse(qe.paramGraphFitsActualParams(n1, "T1;T23;".split(";")));
+        checkGraphFalse(n1, "T1;T21;T31;");
+        checkGraphFalse(n1, "T1;T23;");
     }
 }

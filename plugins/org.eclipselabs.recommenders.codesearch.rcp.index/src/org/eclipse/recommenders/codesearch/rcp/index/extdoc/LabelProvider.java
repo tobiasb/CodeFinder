@@ -56,12 +56,10 @@ public class LabelProvider extends StyledCellLabelProvider {
     private MethodDeclaration astMethod;
     private List<ASTNode> statements;
     private final List<String> searchterms;
-    private final SearchResult searchResults;
 
     public LabelProvider(final JavaElementResolver jdtCache, final List<String> searchterms,
             final SearchResult searchResults) {
         this.searchterms = searchterms;
-        this.searchResults = searchResults;
     }
 
     /**
@@ -173,7 +171,8 @@ public class LabelProvider extends StyledCellLabelProvider {
     private void setCellText(final ViewerCell cell) {
         final StringBuilder sb = new StringBuilder();
         for (final ASTNode n : statements) {
-            // term matching in here:... waiting for contribution of Kristjian...
+            // term matching in here:... waiting for contribution of
+            // Kristjian...
             sb.append(n.toString()).append(IOUtils.LINE_SEPARATOR);
         }
         final String[] split = StringUtils.split(sb.toString(), IOUtils.LINE_SEPARATOR);

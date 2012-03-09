@@ -10,7 +10,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
-import org.eclipse.recommenders.codesearch.rcp.index.wiring.CodesearchIndexModule;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -35,8 +34,6 @@ public class ResourcePathTest {
 
         final Document doc = new Document();
         CodeIndexer.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
-
-        final CodesearchIndexModule factory = new CodesearchIndexModule();
 
         final CodeIndexer index = fixture.index;
         index.addDocument(doc);

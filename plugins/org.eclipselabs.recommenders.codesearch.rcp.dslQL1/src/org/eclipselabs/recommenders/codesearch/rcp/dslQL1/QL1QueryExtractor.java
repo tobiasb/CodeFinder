@@ -28,7 +28,6 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinitio
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ParameterTypeImpl;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterDefinitionHandler;
 
 import com.google.common.collect.Lists;
@@ -36,10 +35,6 @@ import com.google.common.collect.Lists;
 public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResource> {
 
     private final LuceneQueryFactory lqf = new LuceneQueryFactoryImpl();
-
-    public QL1QueryExtractor() {
-
-    }
 
     @Override
     public IParseResult exec(XtextResource state) throws Exception {
@@ -89,13 +84,9 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         List<EObject> exps = Lists.newArrayList();
 
         handle(exps, methodPattern.getModifierDefinition());
-
         handle(exps, methodPattern.getReturnType());
-
         handle(exps, methodPattern.getMethodName());
-
         handle(exps, methodPattern.getParameterDefinition());
-
         handle(exps, methodPattern.getThrowsClause());
 
         if (exps.size() > 0) {
@@ -185,62 +176,5 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         left.setValue(clause);
 
         return left;
-    }
-
-    // public boolean isRelevant(String s, ParameterDefinition p) {
-    // Node n = new ParameterDefinitionHandler().getParameterGraph(p, false);
-    //
-    // String[] actualParams = s.split(";");
-    //
-    // return paramGraphFitsActualParams(n, actualParams);
-    // }
-
-    public boolean paramGraphFitsActualParams(Node paramGraph, String[] params) {
-
-        Node currentNode = paramGraph;
-
-        for (String param : params) {
-            if (fits(currentNode, param)) {
-                if (currentNode != null) {
-                    currentNode = currentNode.nextNode;
-                }
-            } else {
-                if (isIgnoreLeadingNode(currentNode)) {
-                    if (fits(currentNode.nextNode, param)) {
-                        currentNode = currentNode.nextNode.nextNode;
-                    }
-
-                } else if (!isIgnoreTrailingNode(currentNode)) {
-                    return false;
-                }
-            }
-        }
-
-        if (currentNode != null && !isIgnoreTrailingNode(currentNode)) {
-            return false;
-        }
-
-        return true;
-    }
-
-    private boolean isIgnoreTrailingNode(Node n) {
-        return n != null && n.typeNames.contains("..") && n.nextNode == null;
-    }
-
-    private boolean isIgnoreLeadingNode(Node n) {
-        return n != null && n.typeNames.contains("..") && n.prevNode == null;
-    }
-
-    private boolean fits(Node n, String param) {
-        if (n == null)
-            return false;
-
-        if (n.typeNames.contains(param))
-            return true;
-
-        if (n.typeNames.contains("*"))
-            return true;
-
-        return false;
     }
 }

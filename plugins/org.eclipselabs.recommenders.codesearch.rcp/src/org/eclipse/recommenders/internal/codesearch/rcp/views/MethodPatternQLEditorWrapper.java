@@ -31,6 +31,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterDefinitionHandler;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterValidator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.contentassist.QL1ProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
 
@@ -115,7 +116,7 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
                 String actualParams = d.getFieldable(Fields.PARAMETER_TYPES_STRUCTURAL).stringValue();
                 Node paramGraph = new ParameterDefinitionHandler().getParameterGraph(pd, false);
 
-                if (extr.paramGraphFitsActualParams(paramGraph, actualParams.split(";"))) {
+                if (ParameterValidator.paramGraphFitsActualParams(paramGraph, actualParams.split(";"))) {
                     validScoreDocs.add(result.docs.scoreDocs[i]);
                 }
             } else {

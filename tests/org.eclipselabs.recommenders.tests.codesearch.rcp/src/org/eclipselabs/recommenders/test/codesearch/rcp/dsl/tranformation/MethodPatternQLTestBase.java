@@ -11,6 +11,8 @@ import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterValidator;
 
 import com.google.inject.Injector;
 
@@ -55,5 +57,13 @@ public abstract class MethodPatternQLTestBase extends AbstractXtextTests {
         EObject o = qe.transform(result);
 
         assertQueryEqual(expected, serializeLuceneQuery(o));
+    }
+
+    protected void checkGraphTrue(Node n, String s) {
+        assertTrue(ParameterValidator.paramGraphFitsActualParams(n, s.split(";")));
+    }
+
+    protected void checkGraphFalse(Node n, String s) {
+        assertFalse(ParameterValidator.paramGraphFitsActualParams(n, s.split(";")));
     }
 }

@@ -1,24 +1,22 @@
 package org.eclipselabs.recommenders.test.codesearch.rcp.indexer
 
-import org.apache.lucene.store.RAMDirectory
 import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.recommenders.codesearch.rcp.index.Fields
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllDeclaredFieldNamesIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AnnotationsIndexer
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldNamesIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaredFieldTypesIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DeclaringTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsReadIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsWrittenIndexer
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ModifiersIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ProjectNameIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInFinallyIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedFieldsInTryIndexer
@@ -39,7 +37,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
+		 exercise(code, new SimpleNameIndexer())
 		assertNumDocs( 1)
 	}
 
@@ -52,7 +50,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
+		 exercise(code, new SimpleNameIndexer())
 		assertNumDocs( 2)
 	}
 
@@ -70,7 +68,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
+		 exercise(code, new SimpleNameIndexer())
 		assertNumDocs( 3)
 	}
 	
@@ -81,7 +79,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
+		 exercise(code, new SimpleNameIndexer())
 		
 		assertField( l(newArrayList(s(Fields::SIMPLE_NAME, "MyClass"))))
 	}
@@ -94,7 +92,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
+		 exercise(code, new SimpleNameIndexer())
 		
 		assertField( l(newArrayList(s(Fields::SIMPLE_NAME, "test"))))
 	}
@@ -108,7 +106,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer())
+		 exercise(code, new SimpleNameIndexer())
 		
 		assertField( l(newArrayList(s(Fields::SIMPLE_NAME, "map"))))
 	}
@@ -120,7 +118,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer())
+		 exercise(code, new QualifiedNameIndexer())
 		
 		assertField( l(newArrayList(s(Fields::QUALIFIED_NAME, "LMyClass"))))
 	}
@@ -133,7 +131,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer())
+		 exercise(code, new QualifiedNameIndexer())
 		
 		assertField( l(newArrayList(
 			s(Fields::QUALIFIED_NAME, "LMyClass.test()V")
@@ -149,7 +147,7 @@ class TestGeneralScenarios extends TestBase {
 		} 
 		'''
 		
-		 exercise(code, new org.eclipse.recommenders.codesearch.rcp.index.indexer.QualifiedNameIndexer())
+		 exercise(code, new QualifiedNameIndexer())
 		
 		assertField( l(newArrayList(s(Fields::QUALIFIED_NAME, "LMyClass.mapInstance"))))
 	}
@@ -399,7 +397,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, i(newArrayList(new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer(), new DeclaringTypeIndexer())))
+		 exercise(code, i(newArrayList(new SimpleNameIndexer(), new DeclaringTypeIndexer())))
 		
 		assertField( l(newArrayList(
 			s(Fields::SIMPLE_NAME, "foo"),
@@ -415,7 +413,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, i(newArrayList(new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer(), new DeclaringTypeIndexer())))
+		 exercise(code, i(newArrayList(new SimpleNameIndexer(), new DeclaringTypeIndexer())))
 		
 		assertField( l(newArrayList(
 			s(Fields::SIMPLE_NAME, "map"),
@@ -432,7 +430,7 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
-		 exercise(code, i(newArrayList(new org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer(), new DeclaringTypeIndexer())))
+		 exercise(code, i(newArrayList(new SimpleNameIndexer(), new DeclaringTypeIndexer())))
 		
 		assertField( l(newArrayList(
 			s(Fields::SIMPLE_NAME, "SubClass"),
