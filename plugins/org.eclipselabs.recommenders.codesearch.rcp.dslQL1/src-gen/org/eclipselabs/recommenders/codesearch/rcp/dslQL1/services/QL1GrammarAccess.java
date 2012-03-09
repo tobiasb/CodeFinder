@@ -36,8 +36,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	public class MethodPatternDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodPatternDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cModifiersAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cModifiersModifierParserRuleCall_0_0 = (RuleCall)cModifiersAssignment_0.eContents().get(0);
+		private final Assignment cModifierDefinitionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cModifierDefinitionModifierDefinitionParserRuleCall_0_0 = (RuleCall)cModifierDefinitionAssignment_0.eContents().get(0);
 		private final Assignment cReturnTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cReturnTypeReturnTypeParserRuleCall_1_0 = (RuleCall)cReturnTypeAssignment_1.eContents().get(0);
 		private final Assignment cMethodNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -48,19 +48,19 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cThrowsClauseThrowsParserRuleCall_4_0 = (RuleCall)cThrowsClauseAssignment_4.eContents().get(0);
 		
 		//MethodPatternDefinition:
-		//	modifiers+=Modifier* returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
-		//	throwsClause=Throws?;
+		//	modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName
+		//	parameterDefinition=ParameterDefinition? throwsClause=Throws?;
 		public ParserRule getRule() { return rule; }
 
-		//modifiers+=Modifier* returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
-		//throwsClause=Throws?
+		//modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName
+		//parameterDefinition=ParameterDefinition? throwsClause=Throws?
 		public Group getGroup() { return cGroup; }
 
-		//modifiers+=Modifier*
-		public Assignment getModifiersAssignment_0() { return cModifiersAssignment_0; }
+		//modifierDefinition=ModifierDefinition
+		public Assignment getModifierDefinitionAssignment_0() { return cModifierDefinitionAssignment_0; }
 
-		//Modifier
-		public RuleCall getModifiersModifierParserRuleCall_0_0() { return cModifiersModifierParserRuleCall_0_0; }
+		//ModifierDefinition
+		public RuleCall getModifierDefinitionModifierDefinitionParserRuleCall_0_0() { return cModifierDefinitionModifierDefinitionParserRuleCall_0_0; }
 
 		//returnType=ReturnType
 		public Assignment getReturnTypeAssignment_1() { return cReturnTypeAssignment_1; }
@@ -131,6 +131,30 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
+	public class ModifierDefinitionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModifierDefinition");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cModifierDefinitionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cModifiersAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cModifiersModifierParserRuleCall_1_0 = (RuleCall)cModifiersAssignment_1.eContents().get(0);
+		
+		//ModifierDefinition:
+		//	{ModifierDefinition} modifiers+=Modifier*;
+		public ParserRule getRule() { return rule; }
+
+		//{ModifierDefinition} modifiers+=Modifier*
+		public Group getGroup() { return cGroup; }
+
+		//{ModifierDefinition}
+		public Action getModifierDefinitionAction_0() { return cModifierDefinitionAction_0; }
+
+		//modifiers+=Modifier*
+		public Assignment getModifiersAssignment_1() { return cModifiersAssignment_1; }
+
+		//Modifier
+		public RuleCall getModifiersModifierParserRuleCall_1_0() { return cModifiersModifierParserRuleCall_1_0; }
+	}
+
 	public class ModifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Modifier");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -194,17 +218,17 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	public class ReturnTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ReturnType");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueNameWithWCTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueTypeFieldValueParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//ReturnType:
-		//	value=NameWithWC;
+		//	value=TypeFieldValue;
 		public ParserRule getRule() { return rule; }
 
-		//value=NameWithWC
+		//value=TypeFieldValue
 		public Assignment getValueAssignment() { return cValueAssignment; }
 
-		//NameWithWC
-		public RuleCall getValueNameWithWCTerminalRuleCall_0() { return cValueNameWithWCTerminalRuleCall_0; }
+		//TypeFieldValue
+		public RuleCall getValueTypeFieldValueParserRuleCall_0() { return cValueTypeFieldValueParserRuleCall_0; }
 	}
 
 	public class ParameterElementHolderElements extends AbstractParserRuleElementFinder {
@@ -299,22 +323,22 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cValueAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cValueNameWithWCTerminalRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
+		private final RuleCall cValueTypeFieldValueParserRuleCall_0_0 = (RuleCall)cValueAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final Keyword cValueFullStopFullStopKeyword_1_0 = (Keyword)cValueAssignment_1.eContents().get(0);
 		
 		//ParameterType:
-		//	value=NameWithWC | value="..";
+		//	value=TypeFieldValue | value="..";
 		public ParserRule getRule() { return rule; }
 
-		//value=NameWithWC | value=".."
+		//value=TypeFieldValue | value=".."
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//value=NameWithWC
+		//value=TypeFieldValue
 		public Assignment getValueAssignment_0() { return cValueAssignment_0; }
 
-		//NameWithWC
-		public RuleCall getValueNameWithWCTerminalRuleCall_0_0() { return cValueNameWithWCTerminalRuleCall_0_0; }
+		//TypeFieldValue
+		public RuleCall getValueTypeFieldValueParserRuleCall_0_0() { return cValueTypeFieldValueParserRuleCall_0_0; }
 
 		//value=".."
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -328,45 +352,70 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cThrowsKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueNameWithWCTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueTypeFieldValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Throws:
-		//	"throws" value=NameWithWC;
+		//	"throws" value=TypeFieldValue;
 		public ParserRule getRule() { return rule; }
 
-		//"throws" value=NameWithWC
+		//"throws" value=TypeFieldValue
 		public Group getGroup() { return cGroup; }
 
 		//"throws"
 		public Keyword getThrowsKeyword_0() { return cThrowsKeyword_0; }
 
-		//value=NameWithWC
+		//value=TypeFieldValue
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//NameWithWC
-		public RuleCall getValueNameWithWCTerminalRuleCall_1_0() { return cValueNameWithWCTerminalRuleCall_1_0; }
+		//TypeFieldValue
+		public RuleCall getValueTypeFieldValueParserRuleCall_1_0() { return cValueTypeFieldValueParserRuleCall_1_0; }
 	}
 
 	public class MethodNameElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodName");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueNameWithWCTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueSimpleFieldValueParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//MethodName:
-		//	value=NameWithWC;
+		//	value=SimpleFieldValue;
 		public ParserRule getRule() { return rule; }
 
-		//value=NameWithWC
+		//value=SimpleFieldValue
 		public Assignment getValueAssignment() { return cValueAssignment; }
 
+		//SimpleFieldValue
+		public RuleCall getValueSimpleFieldValueParserRuleCall_0() { return cValueSimpleFieldValueParserRuleCall_0; }
+	}
+
+	public class SimpleFieldValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleFieldValue");
+		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//SimpleFieldValue:
+		//	NameWithWC;
+		public ParserRule getRule() { return rule; }
+
 		//NameWithWC
-		public RuleCall getValueNameWithWCTerminalRuleCall_0() { return cValueNameWithWCTerminalRuleCall_0; }
+		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
+	}
+
+	public class TypeFieldValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeFieldValue");
+		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//TypeFieldValue:
+		//	NameWithWC;
+		public ParserRule getRule() { return rule; }
+
+		//NameWithWC
+		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
 	}
 	
 	
 	private MethodPatternElements pMethodPattern;
 	private MethodPatternDefinitionElements pMethodPatternDefinition;
 	private ParameterDefinitionElements pParameterDefinition;
+	private ModifierDefinitionElements pModifierDefinition;
 	private ModifierElements pModifier;
 	private ReturnTypeElements pReturnType;
 	private ParameterElementHolderElements pParameterElementHolder;
@@ -375,6 +424,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	private ParameterTypeElements pParameterType;
 	private ThrowsElements pThrows;
 	private MethodNameElements pMethodName;
+	private SimpleFieldValueElements pSimpleFieldValue;
+	private TypeFieldValueElements pTypeFieldValue;
 	private TerminalRule tNameWithWC;
 	
 	private final GrammarProvider grammarProvider;
@@ -409,8 +460,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodPatternDefinition:
-	//	modifiers+=Modifier* returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
-	//	throwsClause=Throws?;
+	//	modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName
+	//	parameterDefinition=ParameterDefinition? throwsClause=Throws?;
 	public MethodPatternDefinitionElements getMethodPatternDefinitionAccess() {
 		return (pMethodPatternDefinition != null) ? pMethodPatternDefinition : (pMethodPatternDefinition = new MethodPatternDefinitionElements());
 	}
@@ -429,6 +480,16 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		return getParameterDefinitionAccess().getRule();
 	}
 
+	//ModifierDefinition:
+	//	{ModifierDefinition} modifiers+=Modifier*;
+	public ModifierDefinitionElements getModifierDefinitionAccess() {
+		return (pModifierDefinition != null) ? pModifierDefinition : (pModifierDefinition = new ModifierDefinitionElements());
+	}
+	
+	public ParserRule getModifierDefinitionRule() {
+		return getModifierDefinitionAccess().getRule();
+	}
+
 	//Modifier:
 	//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected";
 	public ModifierElements getModifierAccess() {
@@ -440,7 +501,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ReturnType:
-	//	value=NameWithWC;
+	//	value=TypeFieldValue;
 	public ReturnTypeElements getReturnTypeAccess() {
 		return (pReturnType != null) ? pReturnType : (pReturnType = new ReturnTypeElements());
 	}
@@ -480,7 +541,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParameterType:
-	//	value=NameWithWC | value="..";
+	//	value=TypeFieldValue | value="..";
 	public ParameterTypeElements getParameterTypeAccess() {
 		return (pParameterType != null) ? pParameterType : (pParameterType = new ParameterTypeElements());
 	}
@@ -490,7 +551,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Throws:
-	//	"throws" value=NameWithWC;
+	//	"throws" value=TypeFieldValue;
 	public ThrowsElements getThrowsAccess() {
 		return (pThrows != null) ? pThrows : (pThrows = new ThrowsElements());
 	}
@@ -500,13 +561,33 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodName:
-	//	value=NameWithWC;
+	//	value=SimpleFieldValue;
 	public MethodNameElements getMethodNameAccess() {
 		return (pMethodName != null) ? pMethodName : (pMethodName = new MethodNameElements());
 	}
 	
 	public ParserRule getMethodNameRule() {
 		return getMethodNameAccess().getRule();
+	}
+
+	//SimpleFieldValue:
+	//	NameWithWC;
+	public SimpleFieldValueElements getSimpleFieldValueAccess() {
+		return (pSimpleFieldValue != null) ? pSimpleFieldValue : (pSimpleFieldValue = new SimpleFieldValueElements());
+	}
+	
+	public ParserRule getSimpleFieldValueRule() {
+		return getSimpleFieldValueAccess().getRule();
+	}
+
+	//TypeFieldValue:
+	//	NameWithWC;
+	public TypeFieldValueElements getTypeFieldValueAccess() {
+		return (pTypeFieldValue != null) ? pTypeFieldValue : (pTypeFieldValue = new TypeFieldValueElements());
+	}
+	
+	public ParserRule getTypeFieldValueRule() {
+		return getTypeFieldValueAccess().getRule();
 	}
 
 	//terminal NameWithWC:

@@ -5,7 +5,6 @@ import java.util.List;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.NodeWalker;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class MethodPatternQLTest extends MethodPatternQLTestBase {
@@ -264,7 +263,6 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
     }
 
     @Test
-    @Ignore("not possible yet")
     public void paramGraphFitsAnyTest() {
         final Node n1 = new Node("T1");
         final Node n2 = new Node("..");
@@ -282,10 +280,100 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
     }
 
     @Test
+    public void paramGraphFitsAnyTest02() {
+        final Node n1 = new Node("..");
+        final Node n2 = new Node("T1");
+        final Node n3 = new Node("T21", "T22");
+        n1.nextNode = n2; // wiring
+        n2.prevNode = n1; // wiring
+        n2.nextNode = n3; // wiring
+
+        QL1QueryExtractor qe = new QL1QueryExtractor();
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T21;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T22;".split(";")));
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+    }
+
+    @Test
+    public void paramGraphFitsAnyTest03() {
+        final Node n1 = new Node("T1");
+        final Node n2 = new Node("T21", "T22");
+        final Node n3 = new Node("..");
+        n1.nextNode = n2; // wiring
+        n2.prevNode = n1; // wiring
+        n2.nextNode = n3; // wiring
+
+        QL1QueryExtractor qe = new QL1QueryExtractor();
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T21;foo;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;foo;".split(";")));
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;T22;foo;bar;".split(";")));
+    }
+
+    @Test
+    public void paramGraphFitsAnyTest04() {
+        final Node n1 = new Node("..");
+        final Node n2 = new Node("T1");
+        final Node n3 = new Node("..");
+        n1.nextNode = n2; // wiring
+        n2.prevNode = n1; // wiring
+        n2.nextNode = n3; // wiring
+        n3.prevNode = n2; // wiring
+
+        QL1QueryExtractor qe = new QL1QueryExtractor();
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;T21;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;bar;".split(";")));
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;bar;fobar;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+    }
+
+    @Test
+    public void paramGraphFitsAnyTest05() {
+        final Node n1 = new Node("..");
+        final Node n2 = new Node("T1");
+        n1.nextNode = n2; // wiring
+        n2.prevNode = n1; // wiring
+
+        QL1QueryExtractor qe = new QL1QueryExtractor();
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;T1;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "foo;bar;T1;".split(";")));
+
+        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;bar;fobar;".split(";")));
+        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+    }
+
+    @Test
+    public void paramGraphFitsAnyTest06() {
+        final Node n1 = new Node("T1");
+        final Node n2 = new Node("..");
+        n1.nextNode = n2; // wiring
+        n2.prevNode = n1; // wiring
+
+        QL1QueryExtractor qe = new QL1QueryExtractor();
+
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;".split(";")));
+        assertTrue(qe.paramGraphFitsActualParams(n1, "T1;foo;bar;".split(";")));
+
+        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;T1;T22;bar;fobar;".split(";")));
+        assertFalse(qe.paramGraphFitsActualParams(n1, "foo;foo;foo;T1;T21;".split(";")));
+    }
+
+    @Test
     public void paramGraphFitsNotTestSimple01() {
         final Node n1 = new Node("T1");
         final Node n2 = new Node("T21", "T22");
         n1.nextNode = n2; // wiring
+        n2.prevNode = n1; // wiring
 
         QL1QueryExtractor qe = new QL1QueryExtractor();
 

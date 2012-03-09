@@ -71,6 +71,7 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
       case QL1Package.METHOD_PATTERN: return createMethodPattern();
       case QL1Package.METHOD_PATTERN_DEFINITION: return createMethodPatternDefinition();
       case QL1Package.PARAMETER_DEFINITION: return createParameterDefinition();
+      case QL1Package.MODIFIER_DEFINITION: return createModifierDefinition();
       case QL1Package.MODIFIER: return createModifier();
       case QL1Package.RETURN_TYPE: return createReturnType();
       case QL1Package.PARAMETER_ELEMENT_HOLDER: return createParameterElementHolder();
@@ -115,6 +116,17 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
   {
     ParameterDefinitionImpl parameterDefinition = new ParameterDefinitionImpl();
     return parameterDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModifierDefinition createModifierDefinition()
+  {
+    ModifierDefinitionImpl modifierDefinition = new ModifierDefinitionImpl();
+    return modifierDefinition;
   }
 
   /**

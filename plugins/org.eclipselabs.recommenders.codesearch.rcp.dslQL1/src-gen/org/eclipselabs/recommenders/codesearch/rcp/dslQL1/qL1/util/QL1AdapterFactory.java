@@ -94,6 +94,11 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
         return createParameterDefinitionAdapter();
       }
       @Override
+      public Adapter caseModifierDefinition(ModifierDefinition object)
+      {
+        return createModifierDefinitionAdapter();
+      }
+      @Override
       public Adapter caseModifier(Modifier object)
       {
         return createModifierAdapter();
@@ -196,6 +201,21 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition <em>Modifier Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition
+   * @generated
+   */
+  public Adapter createModifierDefinitionAdapter()
   {
     return null;
   }

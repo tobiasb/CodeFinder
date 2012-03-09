@@ -56,6 +56,7 @@ public class ParameterDefinitionHandler {
                 currentNode = startNode;
             } else {
                 currentNode.nextNode = new Node();
+                currentNode.nextNode.prevNode = currentNode;
                 currentNode = currentNode.nextNode;
             }
 

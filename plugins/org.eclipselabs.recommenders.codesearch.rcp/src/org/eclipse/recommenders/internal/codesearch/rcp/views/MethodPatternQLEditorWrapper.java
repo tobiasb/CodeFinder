@@ -12,6 +12,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
+import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaTypeProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.GenericQueryProposalProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.utils.TypeImageProvider;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
@@ -19,15 +23,15 @@ import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterDefinitionHandler;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.contentassist.QL1ProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
 
 import com.google.common.collect.Lists;
@@ -36,7 +40,6 @@ import com.google.inject.Injector;
 @SuppressWarnings("restriction")
 public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
-    private LuceneQueryFactory luceneQueryFactory = null;
     private Injector luceneInjector = null;
 
     public MethodPatternQLEditorWrapper() {
@@ -44,12 +47,14 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
         final LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
         luceneInjector = activator
                 .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY);
-
-        luceneQueryFactory = new LuceneQueryFactoryImpl();
     }
 
     @Override
     void createQueryEditorInternal() {
+
+        QL1ProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new GenericQueryProposalProvider(
+                new JavaTypeProvider(), new DotNotationTypeConverter(), new TypeImageProvider()));
+
         final IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 
             @Override
@@ -104,11 +109,16 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
         for (int i = result.scoreDocs().length - 1; i >= 0; i--) {
             Document d = result.scoreDoc(i);
 
-            String actualParams = d.getFieldable(Fields.PARAMETER_TYPES_STRUCTURAL).stringValue();
             ParameterDefinition pd = extr.getMethodPatternDefinition(r).getParameterDefinition();
-            Node paramGraph = new ParameterDefinitionHandler().getParameterGraph(pd, false);
 
-            if (extr.paramGraphFitsActualParams(paramGraph, actualParams.split(";"))) {
+            if (pd != null) {
+                String actualParams = d.getFieldable(Fields.PARAMETER_TYPES_STRUCTURAL).stringValue();
+                Node paramGraph = new ParameterDefinitionHandler().getParameterGraph(pd, false);
+
+                if (extr.paramGraphFitsActualParams(paramGraph, actualParams.split(";"))) {
+                    validScoreDocs.add(result.docs.scoreDocs[i]);
+                }
+            } else {
                 validScoreDocs.add(result.docs.scoreDocs[i]);
             }
         }
@@ -137,7 +147,8 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
 
     @Override
     String[] getExampleQueriesInternal() {
-        return new String[] { "* * (Ljava/lang/String, Ljava/util/List)",
+        return new String[] { "com.google.inject.Module *(com.google.common.base.Optional)",
+                "* * (Ljava/lang/String, Ljava/util/List)",
                 "* * (Ljava/lang/String, {Ljava/util/List | Ljava/util/Map})", "* *(..) throws java.lang.IOException",
                 "String *label*(IJavaElement)", "String *label*(.., IJavaElement, ..)", "static * *" };
     }

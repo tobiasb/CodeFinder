@@ -6,8 +6,6 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getModifiers <em>Modifiers</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getModifierDefinition <em>Modifier Definition</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getMethodName <em>Method Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getParameterDefinition <em>Parameter Definition</em>}</li>
@@ -33,20 +31,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface MethodPatternDefinition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Modifiers</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier}.
+   * Returns the value of the '<em><b>Modifier Definition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Modifiers</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Modifier Definition</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Modifiers</em>' containment reference list.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getMethodPatternDefinition_Modifiers()
+   * @return the value of the '<em>Modifier Definition</em>' containment reference.
+   * @see #setModifierDefinition(ModifierDefinition)
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getMethodPatternDefinition_ModifierDefinition()
    * @model containment="true"
    * @generated
    */
-  EList<Modifier> getModifiers();
+  ModifierDefinition getModifierDefinition();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getModifierDefinition <em>Modifier Definition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Modifier Definition</em>' containment reference.
+   * @see #getModifierDefinition()
+   * @generated
+   */
+  void setModifierDefinition(ModifierDefinition value);
 
   /**
    * Returns the value of the '<em><b>Return Type</b></em>' containment reference.

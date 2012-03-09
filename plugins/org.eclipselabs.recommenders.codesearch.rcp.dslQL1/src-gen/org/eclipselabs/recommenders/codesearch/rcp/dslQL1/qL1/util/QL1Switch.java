@@ -97,6 +97,13 @@ public class QL1Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL1Package.MODIFIER_DEFINITION:
+      {
+        ModifierDefinition modifierDefinition = (ModifierDefinition)theEObject;
+        T result = caseModifierDefinition(modifierDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QL1Package.MODIFIER:
       {
         Modifier modifier = (Modifier)theEObject;
@@ -201,6 +208,22 @@ public class QL1Switch<T> extends Switch<T>
    * @generated
    */
   public T caseParameterDefinition(ParameterDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Modifier Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Modifier Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModifierDefinition(ModifierDefinition object)
   {
     return null;
   }

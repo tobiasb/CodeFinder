@@ -8,11 +8,16 @@ MethodPattern:
 ;
 
 MethodPatternDefinition:
-	(modifiers+=Modifier)* returnType=ReturnType methodName=MethodName (parameterDefinition=ParameterDefinition)? throwsClause=Throws?
+	modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName (parameterDefinition=ParameterDefinition)? throwsClause=Throws?
 ;
 
 ParameterDefinition:
 	'(' parameterElementholder+=ParameterElementHolder (',' parameterElementholder+=ParameterElementHolder)* ')'
+;
+
+ModifierDefinition:
+	{ModifierDefinition}
+	(modifiers+=Modifier)*
 ;
 
 Modifier:
@@ -25,7 +30,7 @@ Modifier:
 ;
 
 ReturnType:
-	value=NameWithWC
+	value=TypeFieldValue
 ;
 
 ParameterElementHolder:
@@ -41,15 +46,23 @@ MultiElement:
 ;
 
 ParameterType:
-	value=NameWithWC | value='..'
+	value=TypeFieldValue | value='..'
 ;
 
 Throws:
-	'throws' value=NameWithWC
+	'throws' value=TypeFieldValue
 ;
 
 MethodName:
-	value=NameWithWC
+	value=SimpleFieldValue
+;
+
+SimpleFieldValue:
+	NameWithWC
+;
+	
+TypeFieldValue:
+	NameWithWC
 ;
 	
 terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;

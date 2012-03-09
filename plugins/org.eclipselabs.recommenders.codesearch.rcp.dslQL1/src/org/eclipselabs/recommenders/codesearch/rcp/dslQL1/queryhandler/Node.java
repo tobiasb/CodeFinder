@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 public class Node {
     public List<String> typeNames = Lists.newArrayList();
     public Node nextNode;
+    public Node prevNode;
 
     public Node(String... types) {
         for (String t : types)

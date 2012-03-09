@@ -54,6 +54,15 @@ public interface QL1Factory extends EFactory
   ParameterDefinition createParameterDefinition();
 
   /**
+   * Returns a new object of class '<em>Modifier Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Modifier Definition</em>'.
+   * @generated
+   */
+  ModifierDefinition createModifierDefinition();
+
+  /**
    * Returns a new object of class '<em>Modifier</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

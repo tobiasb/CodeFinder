@@ -2,11 +2,12 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.IQueryPartConverter;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.util.EmfFormatter;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
@@ -22,9 +23,11 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ParameterTypeImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterDefinitionHandler;
 
@@ -40,6 +43,25 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
 
     @Override
     public IParseResult exec(XtextResource state) throws Exception {
+        final TreeIterator<EObject> iter = state.getAllContents();
+
+        if (iter.hasNext()) {
+            do {
+                final EObject o = iter.next();
+
+                // The other types, ... are taken care of by
+                // LuceneQueryExtractor
+                if (o instanceof ParameterTypeImpl) {
+                    IQueryPartConverter conv = new DotNotationTypeConverter();
+
+                    final String oldValue = ((ParameterTypeImpl) o).getValue();
+                    final String newValue = conv.convertFrom(oldValue);
+                    ((ParameterTypeImpl) o).setValue(newValue);
+                }
+
+            } while (iter.hasNext());
+        }
+
         IParseResult r = state.getParseResult();
         return r;
     }
@@ -51,7 +73,8 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         exp1.setRight(transformInternal(r));
         exp1.setAnd(BinaryExp.AND1);
 
-        System.out.println(EmfFormatter.objToStr(exp1, (EStructuralFeature) null));
+        // System.out.println(EmfFormatter.objToStr(exp1, (EStructuralFeature)
+        // null));
 
         return exp1;
     }
@@ -65,8 +88,7 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
 
         List<EObject> exps = Lists.newArrayList();
 
-        for (Modifier m : methodPattern.getModifiers())
-            handle(exps, m);
+        handle(exps, methodPattern.getModifierDefinition());
 
         handle(exps, methodPattern.getReturnType());
 
@@ -87,15 +109,18 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         }
     }
 
-    private void handle(List<EObject> exps, Modifier o) {
+    private void handle(List<EObject> exps, ModifierDefinition o) {
         if (o != null) {
-            ClauseExpression clause = lqf.createClauseExpression();
-            ModifierField field = lqf.createModifierField();
-            field.setValue(Fields.MODIFIERS);
-            clause.setField(field);
-            clause.getValues().add(o.getValue());
 
-            exps.add(clause);
+            for (Modifier m : o.getModifiers()) {
+                ClauseExpression clause = lqf.createClauseExpression();
+                ModifierField field = lqf.createModifierField();
+                field.setValue(Fields.MODIFIERS);
+                clause.setField(field);
+                clause.getValues().add(m.getValue());
+
+                exps.add(clause);
+            }
         }
     }
 
@@ -175,18 +200,35 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         Node currentNode = paramGraph;
 
         for (String param : params) {
-            if (!fits(currentNode, param))
-                return false;
+            if (fits(currentNode, param)) {
+                if (currentNode != null) {
+                    currentNode = currentNode.nextNode;
+                }
+            } else {
+                if (isIgnoreLeadingNode(currentNode)) {
+                    if (fits(currentNode.nextNode, param)) {
+                        currentNode = currentNode.nextNode.nextNode;
+                    }
 
-            if (currentNode != null) {
-                currentNode = currentNode.nextNode;
+                } else if (!isIgnoreTrailingNode(currentNode)) {
+                    return false;
+                }
             }
         }
 
-        if (currentNode != null)
+        if (currentNode != null && !isIgnoreTrailingNode(currentNode)) {
             return false;
+        }
 
         return true;
+    }
+
+    private boolean isIgnoreTrailingNode(Node n) {
+        return n != null && n.typeNames.contains("..") && n.nextNode == null;
+    }
+
+    private boolean isIgnoreLeadingNode(Node n) {
+        return n != null && n.typeNames.contains("..") && n.prevNode == null;
     }
 
     private boolean fits(Node n, String param) {

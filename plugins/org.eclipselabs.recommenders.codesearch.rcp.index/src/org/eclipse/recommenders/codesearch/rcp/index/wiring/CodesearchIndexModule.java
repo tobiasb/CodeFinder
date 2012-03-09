@@ -65,7 +65,7 @@ public class CodesearchIndexModule extends AbstractModule {
 
     private File findOrCreateIndexFolder() {
         final File basedir = CodesearchIndexPlugin.getDefault().getStateLocation().toFile();
-        final File indexdir = new File(basedir, "index_v2");
+        final File indexdir = new File(basedir, "index_v3");
         indexdir.mkdirs();
         return indexdir;
     }

@@ -6,12 +6,8 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -19,12 +15,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
@@ -37,7 +30,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MethodPatternDefinitionImpl#getModifiers <em>Modifiers</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MethodPatternDefinitionImpl#getModifierDefinition <em>Modifier Definition</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MethodPatternDefinitionImpl#getReturnType <em>Return Type</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MethodPatternDefinitionImpl#getMethodName <em>Method Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.MethodPatternDefinitionImpl#getParameterDefinition <em>Parameter Definition</em>}</li>
@@ -50,14 +43,14 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 public class MethodPatternDefinitionImpl extends MinimalEObjectImpl.Container implements MethodPatternDefinition
 {
   /**
-   * The cached value of the '{@link #getModifiers() <em>Modifiers</em>}' containment reference list.
+   * The cached value of the '{@link #getModifierDefinition() <em>Modifier Definition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getModifiers()
+   * @see #getModifierDefinition()
    * @generated
    * @ordered
    */
-  protected EList<Modifier> modifiers;
+  protected ModifierDefinition modifierDefinition;
 
   /**
    * The cached value of the '{@link #getReturnType() <em>Return Type</em>}' containment reference.
@@ -125,13 +118,47 @@ public class MethodPatternDefinitionImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Modifier> getModifiers()
+  public ModifierDefinition getModifierDefinition()
   {
-    if (modifiers == null)
+    return modifierDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetModifierDefinition(ModifierDefinition newModifierDefinition, NotificationChain msgs)
+  {
+    ModifierDefinition oldModifierDefinition = modifierDefinition;
+    modifierDefinition = newModifierDefinition;
+    if (eNotificationRequired())
     {
-      modifiers = new EObjectContainmentEList<Modifier>(Modifier.class, this, QL1Package.METHOD_PATTERN_DEFINITION__MODIFIERS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION, oldModifierDefinition, newModifierDefinition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return modifiers;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setModifierDefinition(ModifierDefinition newModifierDefinition)
+  {
+    if (newModifierDefinition != modifierDefinition)
+    {
+      NotificationChain msgs = null;
+      if (modifierDefinition != null)
+        msgs = ((InternalEObject)modifierDefinition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION, null, msgs);
+      if (newModifierDefinition != null)
+        msgs = ((InternalEObject)newModifierDefinition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION, null, msgs);
+      msgs = basicSetModifierDefinition(newModifierDefinition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION, newModifierDefinition, newModifierDefinition));
   }
 
   /**
@@ -336,8 +363,8 @@ public class MethodPatternDefinitionImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIERS:
-        return ((InternalEList<?>)getModifiers()).basicRemove(otherEnd, msgs);
+      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION:
+        return basicSetModifierDefinition(null, msgs);
       case QL1Package.METHOD_PATTERN_DEFINITION__RETURN_TYPE:
         return basicSetReturnType(null, msgs);
       case QL1Package.METHOD_PATTERN_DEFINITION__METHOD_NAME:
@@ -360,8 +387,8 @@ public class MethodPatternDefinitionImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIERS:
-        return getModifiers();
+      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION:
+        return getModifierDefinition();
       case QL1Package.METHOD_PATTERN_DEFINITION__RETURN_TYPE:
         return getReturnType();
       case QL1Package.METHOD_PATTERN_DEFINITION__METHOD_NAME:
@@ -379,15 +406,13 @@ public class MethodPatternDefinitionImpl extends MinimalEObjectImpl.Container im
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIERS:
-        getModifiers().clear();
-        getModifiers().addAll((Collection<? extends Modifier>)newValue);
+      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION:
+        setModifierDefinition((ModifierDefinition)newValue);
         return;
       case QL1Package.METHOD_PATTERN_DEFINITION__RETURN_TYPE:
         setReturnType((ReturnType)newValue);
@@ -415,8 +440,8 @@ public class MethodPatternDefinitionImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIERS:
-        getModifiers().clear();
+      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION:
+        setModifierDefinition((ModifierDefinition)null);
         return;
       case QL1Package.METHOD_PATTERN_DEFINITION__RETURN_TYPE:
         setReturnType((ReturnType)null);
@@ -444,8 +469,8 @@ public class MethodPatternDefinitionImpl extends MinimalEObjectImpl.Container im
   {
     switch (featureID)
     {
-      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIERS:
-        return modifiers != null && !modifiers.isEmpty();
+      case QL1Package.METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION:
+        return modifierDefinition != null;
       case QL1Package.METHOD_PATTERN_DEFINITION__RETURN_TYPE:
         return returnType != null;
       case QL1Package.METHOD_PATTERN_DEFINITION__METHOD_NAME:

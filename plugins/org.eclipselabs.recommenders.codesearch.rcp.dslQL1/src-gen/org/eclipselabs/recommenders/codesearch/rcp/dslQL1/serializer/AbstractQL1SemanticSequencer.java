@@ -17,6 +17,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;
@@ -79,6 +80,12 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL1Package.MODIFIER_DEFINITION:
+				if(context == grammarAccess.getModifierDefinitionRule()) {
+					sequence_ModifierDefinition(context, (ModifierDefinition) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL1Package.MULTI_ELEMENT:
 				if(context == grammarAccess.getMultiElementRule()) {
 					sequence_MultiElement(context, (MultiElement) semanticObject); 
@@ -127,7 +134,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     value=NameWithWC
+	 *     value=SimpleFieldValue
 	 */
 	protected void sequence_MethodName(EObject context, MethodName semanticObject) {
 		if(errorAcceptor != null) {
@@ -136,14 +143,14 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMethodNameAccess().getValueNameWithWCTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getMethodNameAccess().getValueSimpleFieldValueParserRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (modifiers+=Modifier* returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition? throwsClause=Throws?)
+	 *     (modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition? throwsClause=Throws?)
 	 */
 	protected void sequence_MethodPatternDefinition(EObject context, MethodPatternDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -163,6 +170,15 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getMethodPatternAccess().getDefinitionMethodPatternDefinitionParserRuleCall_0(), semanticObject.getDefinition());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (modifiers+=Modifier*)
+	 */
+	protected void sequence_ModifierDefinition(EObject context, ModifierDefinition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -211,7 +227,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (value=NameWithWC | value='..')
+	 *     (value=TypeFieldValue | value='..')
 	 */
 	protected void sequence_ParameterType(EObject context, ParameterType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -220,7 +236,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     value=NameWithWC
+	 *     value=TypeFieldValue
 	 */
 	protected void sequence_ReturnType(EObject context, ReturnType semanticObject) {
 		if(errorAcceptor != null) {
@@ -229,7 +245,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getReturnTypeAccess().getValueNameWithWCTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getReturnTypeAccess().getValueTypeFieldValueParserRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -252,7 +268,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     value=NameWithWC
+	 *     value=TypeFieldValue
 	 */
 	protected void sequence_Throws(EObject context, Throws semanticObject) {
 		if(errorAcceptor != null) {
@@ -261,7 +277,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getThrowsAccess().getValueNameWithWCTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getThrowsAccess().getValueTypeFieldValueParserRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 }
