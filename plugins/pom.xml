@@ -18,6 +18,8 @@
 		<module>org.eclipselabs.recommenders.codesearch.rcp.dsl.ui</module>
 		<module>org.eclipselabs.recommenders.codesearch.rcp.dslQL1</module>
 		<module>org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui</module>
+		<module>org.eclipselabs.recommenders.codesearch.rcp.dslQL2</module>
+		<module>org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui</module>
 	</modules>
   
   	<profiles>

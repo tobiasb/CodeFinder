@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0
+Bundle-Name: Code Search (RCP) QL2
+Bundle-Vendor: Eclipse Code Recommenders
+Bundle-Version: 0.1.0.qualifier
 Bundle-SymbolicName: org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipselabs.recommenders.codesearch.rcp.dslQL2;visibility:=reexport,
