@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen"
+    editDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL2.edit/src" editorDirectory="/org.eclipselabs.recommenders.codesearch.rcp.dslQL2.editor/src"
+    modelPluginID="org.eclipselabs.recommenders.codesearch.rcp.dslQL2" forceOverwrite="true"
+    modelName="QL2" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.eclipselabs.recommenders.codesearch.rcp.dslQL2.edit"
+    editorPluginID="org.eclipselabs.recommenders.codesearch.rcp.dslQL2.editor">
+  <genPackages prefix="QL2" basePackage="org.eclipselabs.recommenders.codesearch.rcp.dslQL2"
+      disposableProviderFactory="true" ecorePackage="QL2.ecore#/">
+    <genClasses ecoreClass="QL2.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//Statement"/>
+    <genClasses ecoreClass="QL2.ecore#//VarDef">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDef/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDef/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

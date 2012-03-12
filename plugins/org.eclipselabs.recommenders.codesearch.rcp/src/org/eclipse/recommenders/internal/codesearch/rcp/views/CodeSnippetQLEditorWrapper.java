@@ -15,7 +15,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFa
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.internal.QL2Activator;
 
 import com.google.inject.Injector;
 
@@ -43,7 +43,7 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
                 try {
                     QL1StandaloneSetup.doSetup();
                     final ResourceSet resourceSet = new ResourceSetImpl();
-                    final Resource resource = resourceSet.createResource(URI.createURI("embedded.ql1"));
+                    final Resource resource = resourceSet.createResource(URI.createURI("embedded.ql2"));
 
                     return (XtextResource) resource;
                 } catch (final Exception e) {
@@ -52,9 +52,9 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
             }
         };
 
-        final QL1Activator activator = QL1Activator.getInstance();
+        final QL2Activator activator = QL2Activator.getInstance();
         final Injector injector = activator
-                .getInjector(QL1Activator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSLQL1_QL1);
+                .getInjector(QL2Activator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSLQL2_QL2);
         final EmbeddedEditorFactory factory = injector.getInstance(EmbeddedEditorFactory.class);
         handle = factory.newEditor(resourceProvider).withParent(parent);
 

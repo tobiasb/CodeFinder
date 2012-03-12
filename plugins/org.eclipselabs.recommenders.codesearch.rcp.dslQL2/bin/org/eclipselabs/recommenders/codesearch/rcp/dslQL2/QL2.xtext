@@ -1,0 +1,25 @@
+grammar org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2 with org.eclipse.xtext.common.Terminals
+
+generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
+
+Model:
+	'{'
+	statements+=Statement+
+	'}'
+	;
+	
+	
+Statement:
+	VarDef //| MethodCall...
+;
+
+VarDef:
+	type=Type name=ID '=' '*'
+;
+
+Type:
+	NameWithWC
+;
+	
+
+terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
