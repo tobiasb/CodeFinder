@@ -16,7 +16,7 @@ public class VariableTypeIndexer extends AbstractIndexer implements IVarUsageInd
         final ITypeBinding type = name.resolveTypeBinding();
         final Optional<String> opt = BindingHelper.getIdentifier(type);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.VARIABLE_TYPE, (opt.get()));
+            addFieldToDocument(document, Fields.VARIABLE_TYPE, (opt.get()));
         }
     }
 

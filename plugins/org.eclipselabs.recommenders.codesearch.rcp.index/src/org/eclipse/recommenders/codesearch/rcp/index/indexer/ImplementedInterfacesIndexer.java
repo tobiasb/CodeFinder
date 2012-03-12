@@ -19,7 +19,7 @@ public class ImplementedInterfacesIndexer extends AbstractIndexer implements ICl
         for (final ITypeBinding interface_ : clazz.getInterfaces()) {
             final Optional<String> opt = BindingHelper.getIdentifier(interface_);
             if (opt.isPresent()) {
-                addAnalyzedField(document, Fields.IMPLEMENTED_TYPES, opt.get());
+                addFieldToDocument(document, Fields.IMPLEMENTED_TYPES, opt.get());
             }
         }
     }

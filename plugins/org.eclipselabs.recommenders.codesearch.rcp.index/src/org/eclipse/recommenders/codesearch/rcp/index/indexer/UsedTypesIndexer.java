@@ -65,7 +65,7 @@ public class UsedTypesIndexer extends AbstractIndexer implements IMethodIndexer,
     private void addUsedType(final Document document, final ITypeBinding typeBinding) {
         final Optional<String> opt = BindingHelper.getIdentifier(typeBinding);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.USED_TYPES, opt.get());
+            addFieldToDocument(document, Fields.USED_TYPES, opt.get());
         }
     }
 }

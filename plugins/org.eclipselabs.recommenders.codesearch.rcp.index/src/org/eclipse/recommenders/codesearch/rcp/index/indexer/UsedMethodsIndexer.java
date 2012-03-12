@@ -24,7 +24,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addAnalyzedField(document, Fields.USED_METHODS, opt.get());
+                    addFieldToDocument(document, Fields.USED_METHODS, opt.get());
                 }
             };
         };
@@ -39,7 +39,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addAnalyzedField(document, Fields.USED_METHODS, opt.get());
+                    addFieldToDocument(document, Fields.USED_METHODS, opt.get());
                 }
             };
         };
@@ -56,7 +56,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addAnalyzedField(document, Fields.USED_METHODS, opt.get());
+                    addFieldToDocument(document, Fields.USED_METHODS, opt.get());
                 }
             };
         };

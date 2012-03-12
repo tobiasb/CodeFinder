@@ -28,7 +28,7 @@ public class FullTextIndexer2 extends AbstractIndexer implements IClassIndexer, 
         @Override
         public boolean visit(final SimpleName node) {
             final String identifier = node.getIdentifier();
-            addNoStoreNoAnalyzed(document, Fields.FULL_TEXT, identifier);
+            addFieldToDocument(document, Fields.FULL_TEXT, identifier);
             return true;
         }
     }

@@ -23,7 +23,7 @@ public class ExtendedTypeIndexer extends AbstractIndexer implements IClassIndexe
         final ITypeBinding superclass = typeBinding.getSuperclass();
         final Optional<String> opt = BindingHelper.getIdentifier(superclass);
         if (opt.isPresent()) {
-            addAnalyzedField(document, fieldName, opt.get());
+            addFieldToDocument(document, fieldName, opt.get());
         }
     }
 

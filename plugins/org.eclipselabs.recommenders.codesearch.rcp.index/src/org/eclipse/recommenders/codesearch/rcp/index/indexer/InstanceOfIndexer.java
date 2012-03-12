@@ -46,7 +46,7 @@ public class InstanceOfIndexer extends AbstractIndexer implements IMethodIndexer
 
             final Optional<String> opt = BindingHelper.getIdentifier(node.getRightOperand());
             if (opt.isPresent()) {
-                addAnalyzedField(document, Fields.INSTANCEOF_TYPES, opt.get());
+                addFieldToDocument(document, Fields.INSTANCEOF_TYPES, opt.get());
             }
 
             return false;

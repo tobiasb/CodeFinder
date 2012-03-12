@@ -30,6 +30,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ExtendedTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsReadIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldsWrittenIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FullTextIndexer2;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.InstanceOfIndexer;
@@ -108,7 +109,8 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new FieldsWrittenIndexer());
         list.add(new FieldTypeIndexer());
         list.add(new SimpleNameIndexer());
-        // list.add(new FullTextIndexer());
+        list.add(new FullTextIndexer());
+        list.add(new FullTextIndexer2());
         list.add(new QualifiedNameIndexer());
         list.add(new ImplementedInterfacesIndexer());
         list.add(new InstanceOfIndexer());
@@ -136,7 +138,6 @@ public class CompilationUnitVisitor extends ASTVisitor {
         list.add(new VariableTargetUsageIndexer());
         list.add(new VariableTypeIndexer());
         list.add(new JavaElementHandleIndexer());
-        list.add(new FullTextIndexer2());
         return list;
     }
 

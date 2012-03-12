@@ -33,7 +33,7 @@ public class ResourcePathTest {
         final String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
 
         final Document doc = new Document();
-        CodeIndexer.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
+        CodeIndexer.addFieldToDocument(doc, Fields.RESOURCE_PATH, filePath);
 
         final CodeIndexer index = fixture.index;
         index.addDocument(doc);
@@ -51,7 +51,7 @@ public class ResourcePathTest {
         final String filePath = "C:\\eclipseworkspace\\junit-workspace\\testProject\\MyInstanceOfClass.java";
 
         final Document doc = new Document();
-        CodeIndexer.addAnalyzedField(doc, Fields.RESOURCE_PATH, filePath);
+        CodeIndexer.addFieldToDocument(doc, Fields.RESOURCE_PATH, filePath);
 
         final CodeIndexer index = fixture.index;
         final CodeSearcher searcherIndex = fixture.searcher;

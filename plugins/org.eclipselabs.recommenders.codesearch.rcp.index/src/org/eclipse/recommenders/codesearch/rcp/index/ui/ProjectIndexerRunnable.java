@@ -12,7 +12,7 @@ package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
 import static com.google.common.collect.Ordering.usingToString;
 import static java.util.Arrays.asList;
-import static org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer.addAnalyzedField;
+import static org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer.addFieldToDocument;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getFile;
 import static org.eclipse.recommenders.utils.Checks.cast;
 
@@ -194,7 +194,8 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         // }
         // final IJavaProject javaProject = root.getJavaProject();
         final String unitName = root.getPath() + "!" + type.getFullyQualifiedName();
-        // final CompilationUnit ast = CompilationUnitHelper.parse(source, unitName, javaProject);
+        // final CompilationUnit ast = CompilationUnitHelper.parse(source,
+        // unitName, javaProject);
         // ast.setProperty("location", rootLocation);
         // ast.setProperty("project", javaProject);
         monitor.subTask(unitName);
@@ -203,8 +204,8 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
 
     private void addArchiveVisitedMarker() throws IOException {
         final Document visited = new Document();
-        addAnalyzedField(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(rootLocation));
-        addAnalyzedField(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
+        addFieldToDocument(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(rootLocation));
+        addFieldToDocument(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
         indexer.addDocument(visited);
     }
 

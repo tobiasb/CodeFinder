@@ -13,7 +13,7 @@ public class FieldTypeIndexer extends AbstractIndexer implements IFieldIndexer {
     public void indexField(final Document document, final FieldDeclaration field) {
         final Optional<String> opt = BindingHelper.getIdentifier(field);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.FIELD_TYPE, opt.get());
+            addFieldToDocument(document, Fields.FIELD_TYPE, opt.get());
         }
     }
 

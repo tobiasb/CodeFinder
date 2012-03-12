@@ -12,7 +12,6 @@ package org.eclipse.recommenders.codesearch.rcp.index.ui;
 
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
-import static org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer.addAnalyzedField;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getFile;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer.getPath;
 import static org.eclipse.recommenders.utils.Checks.cast;
@@ -88,7 +87,8 @@ public class IndexUtilsBackupCopy {
 
                     for (final IJavaElement child : root.getChildren()) {
                         final IPackageFragment fragment = cast(child);
-                        // SourceMapper sourceMapper = ((JarPackageFragmentRoot)root).getSourceMapper();
+                        // SourceMapper sourceMapper =
+                        // ((JarPackageFragmentRoot)root).getSourceMapper();
                         for (final IClassFile clazz : fragment.getClassFiles()) {
                             if (clazz.getElementName().contains("$")) {
                                 continue;
@@ -108,20 +108,24 @@ public class IndexUtilsBackupCopy {
                                 cu.setProperty("project", javaProject);
                                 monitor.subTask(root.getPath() + "!" + unitName);
                                 indexer.add(cu);
-                                // analyzeClassFile(indexer, monitor, location, cu);
+                                // analyzeClassFile(indexer, monitor, location,
+                                // cu);
                             }
                         }
                     }
 
-                    // final Optional<ZipFile> opt = getAttachedSourceArchive(root);
+                    // final Optional<ZipFile> opt =
+                    // getAttachedSourceArchive(root);
                     // if (opt.isPresent()) {
-                    // RecommendersUtilsPlugin.log(StatusUtil.newStatus(IStatus.INFO, "Scanning zip "
+                    // RecommendersUtilsPlugin.log(StatusUtil.newStatus(IStatus.INFO,
+                    // "Scanning zip "
                     // + opt.get().getName(), null));
                     // analyzeSourcesInZip(opt.get(), root, indexer, monitor);
                     // try {
                     // opt.get().close();
                     // } catch (final IOException e) {
-                    // RecommendersUtilsPlugin.logError(e, "failed to close zip stream??");
+                    // RecommendersUtilsPlugin.logError(e,
+                    // "failed to close zip stream??");
                     // }
                     // }
                     addMarkerDocument(indexer, location);
@@ -158,16 +162,15 @@ public class IndexUtilsBackupCopy {
         }
     }
 
-    private static void deleteOldDocumentsForFile(final CodeIndexer indexer, final File location)
-            throws IOException {
+    private static void deleteOldDocumentsForFile(final CodeIndexer indexer, final File location) throws IOException {
         // delete *all* old files for given resource
         indexer.delete(location);
     }
 
     private static void addMarkerDocument(final CodeIndexer indexer, final File location) throws IOException {
         final Document visited = new Document();
-        addAnalyzedField(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location));
-        addAnalyzedField(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
+        CodeIndexer.addFieldToDocument(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location));
+        CodeIndexer.addFieldToDocument(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
         indexer.addDocument(visited);
     }
 

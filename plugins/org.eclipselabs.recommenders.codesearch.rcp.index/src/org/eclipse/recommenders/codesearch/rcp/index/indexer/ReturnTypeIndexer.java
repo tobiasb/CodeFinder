@@ -13,7 +13,7 @@ public class ReturnTypeIndexer extends AbstractIndexer implements IMethodIndexer
     public void indexMethod(final Document document, final MethodDeclaration method) {
         final Optional<String> opt = BindingHelper.getIdentifier(method.getReturnType2());
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.RETURN_TYPE, opt.get());
+            addFieldToDocument(document, Fields.RETURN_TYPE, opt.get());
         }
     }
 }

@@ -50,7 +50,7 @@ public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndex
     private void addFieldForParentTypes(final Document document, final ASTNode n) {
         final Optional<String> opt = BindingHelper.getIdentifier(getDeclaringType(n.getParent()));
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.DECLARING_TYPE, opt.get());
+            addFieldToDocument(document, Fields.DECLARING_TYPE, opt.get());
         }
 
     }

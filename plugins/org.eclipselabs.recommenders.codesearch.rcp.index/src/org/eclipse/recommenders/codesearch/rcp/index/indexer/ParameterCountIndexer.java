@@ -9,6 +9,6 @@ public class ParameterCountIndexer extends AbstractIndexer implements IMethodInd
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addAnalyzedField(document, Fields.PARAMETER_COUNT, method.parameters().size());
+        addFieldToDocument(document, Fields.PARAMETER_COUNT, method.parameters().size());
     }
 }

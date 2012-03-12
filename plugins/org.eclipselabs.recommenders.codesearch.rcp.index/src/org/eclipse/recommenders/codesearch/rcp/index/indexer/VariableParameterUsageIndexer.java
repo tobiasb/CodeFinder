@@ -32,7 +32,7 @@ public class VariableParameterUsageIndexer extends AbstractIndexer implements IV
                          */
                         final Optional<String> opt = BindingHelper.getIdentifier(targetMethod);
                         if (opt.isPresent()) {
-                            addAnalyzedField(document, Fields.USED_AS_PARAMETER_IN_METHODS, opt.get());
+                            addFieldToDocument(document, Fields.USED_AS_PARAMETER_IN_METHODS, opt.get());
                         }
                         break;
                     }

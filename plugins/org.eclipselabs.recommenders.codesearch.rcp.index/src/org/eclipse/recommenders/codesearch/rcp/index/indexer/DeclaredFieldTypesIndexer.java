@@ -38,7 +38,7 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClass
             public boolean visit(final FieldDeclaration node) {
                 final Optional<String> opt = BindingHelper.getIdentifier(node);
                 if (opt.isPresent()) {
-                    addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, opt.get());
+                    addFieldToDocument(document, Fields.DECLARED_FIELD_TYPES, opt.get());
                 }
                 return false;
             }
@@ -63,7 +63,7 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClass
     private void addDeclaredFieldType(final Document document, final VariableDeclarationStatement variableDeclaration) {
         final Optional<String> opt = BindingHelper.getIdentifier(variableDeclaration);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.DECLARED_FIELD_TYPES, opt.get());
+            addFieldToDocument(document, Fields.DECLARED_FIELD_TYPES, opt.get());
         }
     }
 }

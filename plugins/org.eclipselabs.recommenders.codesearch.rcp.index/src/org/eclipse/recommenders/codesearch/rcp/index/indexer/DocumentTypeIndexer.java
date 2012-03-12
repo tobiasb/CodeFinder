@@ -19,27 +19,27 @@ public class DocumentTypeIndexer extends AbstractIndexer implements IMethodIndex
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addAnalyzedField(document, Fields.TYPE, Fields.TYPE_METHOD);
+        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_METHOD);
     }
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
-        addAnalyzedField(document, Fields.TYPE, Fields.TYPE_CLASS);
+        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_CLASS);
     }
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
-        addAnalyzedField(document, Fields.TYPE, Fields.TYPE_FIELD);
+        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_FIELD);
     }
 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
             final CatchClause catchClause) {
-        addAnalyzedField(document, Fields.TYPE, Fields.TYPE_TRYCATCH);
+        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_TRYCATCH);
     }
 
     @Override
     public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
-        addAnalyzedField(document, Fields.TYPE, Fields.TYPE_VARUSAGE);
+        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_VARUSAGE);
     }
 }

@@ -18,7 +18,7 @@ public class DeclaredMethodsIndexer extends AbstractIndexer implements IClassInd
             public boolean visit(final MethodDeclaration node) {
                 final Optional<String> opt = BindingHelper.getIdentifier(node);
                 if (opt.isPresent()) {
-                    addAnalyzedField(document, Fields.DECLARED_METHODS, opt.get());
+                    addFieldToDocument(document, Fields.DECLARED_METHODS, opt.get());
                 }
                 return false;
             }

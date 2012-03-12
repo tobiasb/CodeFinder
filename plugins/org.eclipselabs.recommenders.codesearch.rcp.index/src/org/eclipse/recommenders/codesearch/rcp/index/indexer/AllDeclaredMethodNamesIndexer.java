@@ -21,7 +21,7 @@ public class AllDeclaredMethodNamesIndexer extends DeclaredMethodNamesIndexer im
 
     @Override
     protected void addField(final Document document, final IMethodBinding methodBinding) {
-        addAnalyzedField(document, Fields.ALL_DECLARED_METHOD_NAMES, methodBinding.getName());
+        addFieldToDocument(document, Fields.ALL_DECLARED_METHOD_NAMES, methodBinding.getName());
     }
 
 }

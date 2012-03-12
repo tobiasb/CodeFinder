@@ -70,7 +70,7 @@ public class AbstractTestIndex {
             currentDoc = new Document();
         }
 
-        CodeIndexer.addAnalyzedField(currentDoc, fieldName, fieldValue);
+        CodeIndexer.addFieldToDocument(currentDoc, fieldName, fieldValue);
 
         return this;
     }

@@ -66,14 +66,14 @@ public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClass
     protected void addVariableNames(final Document document, final VariableDeclarationStatement node) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) node.fragments()) {
             final SimpleName name = f.getName();
-            addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, name.getIdentifier());
+            addFieldToDocument(document, Fields.ALL_DECLARED_FIELD_NAMES, name.getIdentifier());
         }
     }
 
     protected void addVariableNames(final Document document, final FieldDeclaration node) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) node.fragments()) {
             final SimpleName name = f.getName();
-            addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, name.getIdentifier());
+            addFieldToDocument(document, Fields.ALL_DECLARED_FIELD_NAMES, name.getIdentifier());
         }
     }
 }

@@ -108,7 +108,7 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     private void addField(final Document document, final ASTNode node) {
         final CompilationUnit cu = (CompilationUnit) node.getRoot();
         final File f = getFile(cu);
-        addAnalyzedField(document, Fields.RESOURCE_PATH, f.getAbsolutePath());
+        addFieldToDocument(document, Fields.RESOURCE_PATH, f.getAbsolutePath());
     }
 
     // public String getResourcePath(final IResource resource) {

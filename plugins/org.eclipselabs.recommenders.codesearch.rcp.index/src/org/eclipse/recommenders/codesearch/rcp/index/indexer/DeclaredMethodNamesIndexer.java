@@ -24,7 +24,7 @@ public class DeclaredMethodNamesIndexer extends AbstractIndexer implements IClas
     }
 
     protected void addField(final Document document, final IMethodBinding methodBinding) {
-        addAnalyzedField(document, Fields.DECLARED_METHODS_NAMES, methodBinding.getName());
+        addFieldToDocument(document, Fields.DECLARED_METHODS_NAMES, methodBinding.getName());
     }
 
 }

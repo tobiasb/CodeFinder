@@ -45,7 +45,7 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
                 continue;
             }
             // Annotation type i.e @Deprecated
-            addAnalyzedField(document, Fields.ANNOTATIONS, opt.get());
+            addFieldToDocument(document, Fields.ANNOTATIONS, opt.get());
 
             for (final IMemberValuePairBinding valuePairBinding : annotation.getAllMemberValuePairs()) {
 
@@ -54,7 +54,7 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
                         // Combination of annotation and value i.e
                         // @SuppressWarnings({"unchecked", "rawtypes"})
                         final String value = opt.get() + ":" + valuePairValue;
-                        addAnalyzedField(document, Fields.ANNOTATIONS, value);
+                        addFieldToDocument(document, Fields.ANNOTATIONS, value);
                     }
                 }
             }

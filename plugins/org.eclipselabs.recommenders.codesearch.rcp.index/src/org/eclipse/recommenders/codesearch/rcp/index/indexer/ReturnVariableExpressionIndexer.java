@@ -16,7 +16,7 @@ public class ReturnVariableExpressionIndexer extends AbstractIndexer implements 
             public boolean visit(final ReturnStatement node) {
                 if (node.getExpression() != null) {
                     // XXX adding the whole string??
-                    addAnalyzedField(document, Fields.RETURN_VARIABLE_EXPRESSIONS, node.getExpression().toString());
+                    addFieldToDocument(document, Fields.RETURN_VARIABLE_EXPRESSIONS, node.getExpression().toString());
                 }
 
                 return false;

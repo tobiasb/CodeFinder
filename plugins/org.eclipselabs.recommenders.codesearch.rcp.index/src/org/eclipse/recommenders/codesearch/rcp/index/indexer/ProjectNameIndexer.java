@@ -39,6 +39,6 @@ public class ProjectNameIndexer extends AbstractIndexer implements IClassIndexer
 
     private void addField(final Document document, final ASTNode node) {
         final String projectName = getProject(node).getName();
-        addAnalyzedField(document, Fields.PROJECT_NAME, projectName);
+        addFieldToDocument(document, Fields.PROJECT_NAME, projectName);
     }
 }

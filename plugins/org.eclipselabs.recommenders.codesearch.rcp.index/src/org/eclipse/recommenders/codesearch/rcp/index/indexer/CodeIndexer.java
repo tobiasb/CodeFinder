@@ -16,7 +16,9 @@ import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IIndexInformationProvider;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IIndexingFieldInformationProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IndexInformationCache;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.SimpleFieldIndexInformation;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
@@ -32,20 +34,24 @@ public class CodeIndexer implements ICompilationUnitIndexer {
     private static boolean verbose = false; // XXX: Always set me back to false
                                             // please...
 
+    private static IIndexingFieldInformationProvider indexingFieldInfoProvider = new SimpleFieldIndexInformation();
+
     public static void setVerbose(boolean value) {
         verbose = value;
     }
 
-    public static void addAnalyzedField(final Document document, final String fieldName, final int fieldValue) {
-        addAnalyzedField(document, fieldName, String.valueOf(fieldValue));
+    public static void setIndexingFieldInformationProvider(
+            IIndexingFieldInformationProvider newIindexingFieldInfoProvider) {
+        indexingFieldInfoProvider = newIindexingFieldInfoProvider;
     }
 
-    public static void addNoStoreNotAnalyzed(final Document document, final String fieldName, final String fieldValue) {
-        addInternal(document, fieldName, fieldValue, Field.Store.NO, Field.Index.NOT_ANALYZED);
+    public static void addFieldToDocument(final Document document, final String fieldName, final int fieldValue) {
+        addFieldToDocument(document, fieldName, String.valueOf(fieldValue));
     }
 
-    public static void addAnalyzedField(final Document document, final String fieldName, final String fieldValue) {
-        addInternal(document, fieldName, fieldValue, Field.Store.YES, Field.Index.ANALYZED);
+    public static void addFieldToDocument(final Document document, final String fieldName, final String fieldValue) {
+        addInternal(document, fieldName, fieldValue, indexingFieldInfoProvider.getStore(fieldName),
+                indexingFieldInfoProvider.getIndex(fieldName));
     }
 
     private static void addInternal(final Document document, final String fieldName, final String fieldValue,

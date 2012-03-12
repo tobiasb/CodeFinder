@@ -21,7 +21,7 @@ public class UsedMethodsInTryIndexer extends AbstractIndexer implements ITryCatc
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addAnalyzedField(document, Fields.USED_METHODS_IN_TRY, opt.get());
+                    addFieldToDocument(document, Fields.USED_METHODS_IN_TRY, opt.get());
                 }
             };
         };

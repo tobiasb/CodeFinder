@@ -25,7 +25,7 @@ public class ParameterTypesStructuralIndexer extends AbstractIndexer implements 
         }
 
         if (!s.equals(""))
-            addAnalyzedField(document, Fields.PARAMETER_TYPES_STRUCTURAL, s);
+            addFieldToDocument(document, Fields.PARAMETER_TYPES_STRUCTURAL, s);
     }
 
 }

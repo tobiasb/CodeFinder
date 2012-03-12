@@ -31,7 +31,7 @@ public class VariableTargetUsageIndexer extends AbstractIndexer implements IVarU
                          */
                         final Optional<String> opt = BindingHelper.getIdentifier(targetMethod);
                         if (opt.isPresent()) {
-                            addAnalyzedField(document, Fields.USED_AS_TAGET_FOR_METHODS, opt.get());
+                            addFieldToDocument(document, Fields.USED_AS_TAGET_FOR_METHODS, opt.get());
                         }
                         break;
                     }

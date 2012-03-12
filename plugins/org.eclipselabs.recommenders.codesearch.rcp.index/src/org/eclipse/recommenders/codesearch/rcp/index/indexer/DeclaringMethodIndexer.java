@@ -14,7 +14,7 @@ public class DeclaringMethodIndexer extends AbstractIndexer implements IVarUsage
     public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
         final Optional<String> opt = BindingHelper.getIdentifier(method);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.DECLARING_METHOD, opt.get());
+            addFieldToDocument(document, Fields.DECLARING_METHOD, opt.get());
         }
     }
 }

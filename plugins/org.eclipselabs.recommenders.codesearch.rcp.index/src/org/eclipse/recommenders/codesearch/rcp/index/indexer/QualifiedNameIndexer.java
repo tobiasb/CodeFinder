@@ -20,7 +20,7 @@ public class QualifiedNameIndexer extends AbstractIndexer implements IMethodInde
     public void indexMethod(final Document document, final MethodDeclaration method) {
         final Optional<String> opt = BindingHelper.getIdentifier(method);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.QUALIFIED_NAME, opt.get());
+            addFieldToDocument(document, Fields.QUALIFIED_NAME, opt.get());
         }
     }
 
@@ -28,7 +28,7 @@ public class QualifiedNameIndexer extends AbstractIndexer implements IMethodInde
     public void indexType(final Document document, final TypeDeclaration type) {
         final Optional<String> opt = BindingHelper.getIdentifier(type);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.QUALIFIED_NAME, opt.get());
+            addFieldToDocument(document, Fields.QUALIFIED_NAME, opt.get());
         }
     }
 
@@ -40,7 +40,7 @@ public class QualifiedNameIndexer extends AbstractIndexer implements IMethodInde
             @SuppressWarnings("unchecked")
             final List<VariableDeclarationFragment> fragments = field.fragments();
             final VariableDeclarationFragment fragment = fragments.get(0);
-            addAnalyzedField(document, Fields.QUALIFIED_NAME, opt.get() + "." + fragment.getName());
+            addFieldToDocument(document, Fields.QUALIFIED_NAME, opt.get() + "." + fragment.getName());
         }
     }
 }

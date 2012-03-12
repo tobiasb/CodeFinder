@@ -18,7 +18,7 @@ public class ParameterTypesIndexer extends AbstractIndexer implements IMethodInd
         for (final SingleVariableDeclaration var : (List<SingleVariableDeclaration>) method.parameters()) {
             final Optional<String> opt = BindingHelper.getIdentifier(var.getType());
             if (opt.isPresent()) {
-                addAnalyzedField(document, Fields.PARAMETER_TYPES, opt.get());
+                addFieldToDocument(document, Fields.PARAMETER_TYPES, opt.get());
             }
         }
     }

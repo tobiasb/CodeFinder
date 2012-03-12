@@ -30,7 +30,7 @@ public class UsedTypesInFinallyIndexer extends AbstractIndexer implements ITryCa
     private void addUsedType(final Document document, final ITypeBinding typeBinding) {
         final Optional<String> opt = BindingHelper.getIdentifier(typeBinding);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.USED_TYPES_IN_FINALLY, opt.get());
+            addFieldToDocument(document, Fields.USED_TYPES_IN_FINALLY, opt.get());
         }
     }
 

@@ -21,7 +21,7 @@ public class UsedMethodsInFinallyIndexer extends AbstractIndexer implements ITry
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addAnalyzedField(document, Fields.USED_METHODS_IN_FINALLY, opt.get());
+                    addFieldToDocument(document, Fields.USED_METHODS_IN_FINALLY, opt.get());
                 }
             };
         };

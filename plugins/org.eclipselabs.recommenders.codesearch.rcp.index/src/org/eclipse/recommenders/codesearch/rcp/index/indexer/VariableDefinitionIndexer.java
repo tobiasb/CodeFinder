@@ -41,6 +41,6 @@ public class VariableDefinitionIndexer extends AbstractIndexer implements IVarUs
     }
 
     private void addField(final Document document, String definitionType) {
-        addAnalyzedField(document, Fields.VARIABLE_DEFINITION, definitionType);
+        addFieldToDocument(document, Fields.VARIABLE_DEFINITION, definitionType);
     }
 }

@@ -1134,10 +1134,10 @@ class TestGeneralScenarios extends TestBase {
 			s(Fields::FIELDS_READ, "LMyOtherOtherException.theWorldMap")
 		)))
 		
-//		assertNotField( l(newArrayList(
-//			s(Fields::TYPE, Fields::TYPE_CLASS),
-//			s(Fields::FIELDS_WRITTEN, "LMyOtherOtherException.someObject")
-//		)))
+		assertNotField( l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::FIELDS_WRITTEN, "LMyOtherOtherException.someObject")
+		)))
 	}
 	
 	@Test

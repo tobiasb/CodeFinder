@@ -16,7 +16,7 @@ public class CaughtTypeIndexer extends AbstractIndexer implements ITryCatchBlock
 
         final Optional<String> opt = BindingHelper.getIdentifier(catchClause.getException().getType());
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.CAUGHT_TYPE, opt.get());
+            addFieldToDocument(document, Fields.CAUGHT_TYPE, opt.get());
         }
     }
 

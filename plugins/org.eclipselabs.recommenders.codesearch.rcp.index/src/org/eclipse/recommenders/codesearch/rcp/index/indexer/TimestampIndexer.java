@@ -18,22 +18,22 @@ public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
             final CatchClause catchClause) {
-        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
-        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
-        addAnalyzedField(document, Fields.TIMESTAMP, getTimeString());
+        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     // XXX Der LastIndexed Timestamp sollte immer der von File.lastModfified sein. Ansonsten erzeugst du 1000de Terme

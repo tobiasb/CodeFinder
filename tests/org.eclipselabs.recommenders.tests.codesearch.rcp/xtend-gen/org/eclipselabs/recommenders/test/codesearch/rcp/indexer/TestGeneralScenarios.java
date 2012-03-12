@@ -1813,6 +1813,11 @@ public class TestGeneralScenarios extends TestBase {
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
+      String _s_2 = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_3 = this.s(Fields.FIELDS_WRITTEN, "LMyOtherOtherException.someObject");
+      ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
+      List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
+      this.assertNotField(_l_1);
   }
   
   @Test

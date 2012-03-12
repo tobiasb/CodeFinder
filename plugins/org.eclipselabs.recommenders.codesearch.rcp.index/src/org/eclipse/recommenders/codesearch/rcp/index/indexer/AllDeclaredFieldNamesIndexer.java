@@ -92,7 +92,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
         }
 
         for (final IVariableBinding field : type.getDeclaredFields()) {
-            addAnalyzedField(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getName());
+            addFieldToDocument(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getName());
         }
 
         if (type.getSuperclass() != null) {

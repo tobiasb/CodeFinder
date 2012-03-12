@@ -19,7 +19,7 @@ public class CheckedExceptionsIndexer extends AbstractIndexer implements IMethod
             final Optional<String> opt = BindingHelper.getTypeIdentifier((SimpleName) exName);
 
             if (opt.isPresent()) {
-                addAnalyzedField(document, Fields.CHECKED_EXCEPTIONS, opt.get());
+                addFieldToDocument(document, Fields.CHECKED_EXCEPTIONS, opt.get());
             }
         }
     }

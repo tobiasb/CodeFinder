@@ -29,7 +29,7 @@ public class UsedTypesInTryIndexer extends AbstractIndexer implements ITryCatchB
     private void addUsedType(final Document document, final ITypeBinding typeBinding) {
         final Optional<String> opt = BindingHelper.getIdentifier(typeBinding);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.USED_TYPES_IN_TRY, opt.get());
+            addFieldToDocument(document, Fields.USED_TYPES_IN_TRY, opt.get());
         }
     }
 }

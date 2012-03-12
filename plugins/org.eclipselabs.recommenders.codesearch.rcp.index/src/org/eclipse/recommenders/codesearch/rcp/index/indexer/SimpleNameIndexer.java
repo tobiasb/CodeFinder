@@ -17,19 +17,19 @@ public class SimpleNameIndexer extends AbstractIndexer implements IMethodIndexer
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addAnalyzedField(document, Fields.SIMPLE_NAME, method.getName().getIdentifier());
+        addFieldToDocument(document, Fields.SIMPLE_NAME, method.getName().getIdentifier());
     }
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
-        addAnalyzedField(document, Fields.SIMPLE_NAME, type.getName().getIdentifier());
+        addFieldToDocument(document, Fields.SIMPLE_NAME, type.getName().getIdentifier());
     }
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) field.fragments()) {
             final SimpleName name = f.getName();
-            addAnalyzedField(document, Fields.SIMPLE_NAME, name.getIdentifier());
+            addFieldToDocument(document, Fields.SIMPLE_NAME, name.getIdentifier());
         }
 
     }

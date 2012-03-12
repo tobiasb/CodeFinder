@@ -34,7 +34,7 @@ public class OverriddenMethodsIndexer extends AbstractIndexer implements IClassI
         final IMethodBinding overriddenBinding = Bindings.findOverriddenMethod(b, true);
         final Optional<String> opt = BindingHelper.getIdentifier(overriddenBinding);
         if (opt.isPresent()) {
-            addAnalyzedField(document, Fields.OVERRIDDEN_METHODS, opt.get());
+            addFieldToDocument(document, Fields.OVERRIDDEN_METHODS, opt.get());
         }
     }
 }

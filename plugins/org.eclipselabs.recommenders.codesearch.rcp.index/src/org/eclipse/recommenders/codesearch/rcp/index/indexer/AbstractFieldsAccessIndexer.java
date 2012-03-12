@@ -38,7 +38,7 @@ public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
                     }
                     final String result = String.format("%1$s.%2$s", optId.get(), simpleName);
 
-                    addAnalyzedField(document, fieldName, result);
+                    addFieldToDocument(document, fieldName, result);
                 }
 
                 return false;

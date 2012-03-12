@@ -10,7 +10,7 @@ public class VariableNameIndexer extends AbstractIndexer implements IVarUsageInd
 
     @Override
     public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
-        addAnalyzedField(document, Fields.VARIABLE_NAME, name.toString());
+        addFieldToDocument(document, Fields.VARIABLE_NAME, name.toString());
     }
 
 }

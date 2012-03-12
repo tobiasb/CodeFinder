@@ -49,6 +49,6 @@ public class ModifiersIndexer extends AbstractIndexer implements IClassIndexer, 
     }
 
     private void addField(final Document document, final String modifier) {
-        addAnalyzedField(document, Fields.MODIFIERS, modifier);
+        addFieldToDocument(document, Fields.MODIFIERS, modifier);
     }
 }
