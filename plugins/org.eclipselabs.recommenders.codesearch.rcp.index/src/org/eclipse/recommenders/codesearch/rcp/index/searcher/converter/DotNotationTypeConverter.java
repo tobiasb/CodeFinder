@@ -4,7 +4,15 @@ public class DotNotationTypeConverter extends AbstractQueryPartConverter {
 
     @Override
     public String convertFrom(final String queryPart) {
-        return "L" + queryPart.replace(".", "/");
+        String tmp = queryPart;
+
+        if (!tmp.startsWith("L")) {
+            tmp = "L" + tmp;
+        }
+
+        tmp = tmp.replace(".", "/");
+
+        return tmp;
     }
 
     @Override

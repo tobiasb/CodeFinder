@@ -15,10 +15,10 @@ import org.apache.lucene.search.TermQuery;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IFieldIndexingStrategy;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IIndexInformationProvider;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IIndexingFieldInformationProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IndexInformationCache;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.SimpleFieldIndexInformation;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.SimpleNameBasedStrategy;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
@@ -34,14 +34,13 @@ public class CodeIndexer implements ICompilationUnitIndexer {
     private static boolean verbose = false; // XXX: Always set me back to false
                                             // please...
 
-    private static IIndexingFieldInformationProvider indexingFieldInfoProvider = new SimpleFieldIndexInformation();
+    private static IFieldIndexingStrategy indexingFieldInfoProvider = new SimpleNameBasedStrategy();
 
     public static void setVerbose(boolean value) {
         verbose = value;
     }
 
-    public static void setIndexingFieldInformationProvider(
-            IIndexingFieldInformationProvider newIindexingFieldInfoProvider) {
+    public static void setIndexingFieldInformationProvider(IFieldIndexingStrategy newIindexingFieldInfoProvider) {
         indexingFieldInfoProvider = newIindexingFieldInfoProvider;
     }
 

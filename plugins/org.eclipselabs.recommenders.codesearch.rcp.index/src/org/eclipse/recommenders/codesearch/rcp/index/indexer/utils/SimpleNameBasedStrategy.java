@@ -12,14 +12,14 @@ import com.google.common.collect.Maps;
  * Simple non dynamic version that uses a hard-coded information set for some
  * predefined fields
  */
-public class SimpleFieldIndexInformation implements IIndexingFieldInformationProvider {
+public class SimpleNameBasedStrategy implements IFieldIndexingStrategy {
 
     private Map<String, Store> storeMap = Maps.newHashMap();
     private Map<String, Index> indexMap = Maps.newHashMap();
 
     private Object helperObj = null;
 
-    public SimpleFieldIndexInformation() {
+    public SimpleNameBasedStrategy() {
         // Extend by filling the two maps...
 
         storeMap.put(Fields.FULL_TEXT, Store.NO);
