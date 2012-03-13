@@ -22,12 +22,18 @@ public class SimpleNameBasedStrategy implements IFieldIndexingStrategy {
     public SimpleNameBasedStrategy() {
         // Extend by filling the two maps...
 
-        storeMap.put(Fields.FULL_TEXT, Store.NO);
+        storeMap.put(Fields.TYPE, Store.YES);
+        storeMap.put(Fields.TIMESTAMP, Store.YES);
+        storeMap.put(Fields.VARIABLE_NAME, Store.YES);
+        storeMap.put(Fields.QUALIFIED_NAME, Store.YES);
+        storeMap.put(Fields.DECLARING_TYPE, Store.YES);
+        storeMap.put(Fields.JAVA_ELEMENT_HANDLE, Store.YES);
+        storeMap.put(Fields.PARAMETER_TYPES_STRUCTURAL, Store.YES);
     }
 
     @Override
     public Store getStore(String fieldName) {
-        return getValueOrDefault(fieldName, storeMap, Store.YES);
+        return getValueOrDefault(fieldName, storeMap, Store.NO);
     }
 
     @Override
