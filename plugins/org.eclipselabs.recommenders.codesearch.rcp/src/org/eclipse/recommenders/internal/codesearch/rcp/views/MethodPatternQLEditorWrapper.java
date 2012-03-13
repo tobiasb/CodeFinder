@@ -149,9 +149,9 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
     @Override
     String[] getExampleQueriesInternal() {
         return new String[] { "com.google.inject.Module *(com.google.common.base.Optional)",
-                "* * (Ljava/lang/String, Ljava/util/List)",
-                "* * (Ljava/lang/String, {Ljava/util/List | Ljava/util/Map})", "* *(..) throws java.lang.IOException",
-                "String *label*(IJavaElement)", "String *label*(.., IJavaElement, ..)", "static * *" };
+                "* * (java.lang.String, java.util.List)", "* * (java.lang.String, {java.util.List | java.util.Map})",
+                "* *(..) throws java.lang.IOException", "String *label*(IJavaElement)",
+                "String *label*(.., IJavaElement, ..)", "static * *" };
     }
 
     public static String getName() {
