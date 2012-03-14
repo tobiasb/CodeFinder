@@ -93,7 +93,7 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         if (rootLocation == null) {
             return;
         }
-        if (hasChanged(rootLocation)) {
+        if (hasNotChanged(rootLocation)) {
             return;
         }
         if (root.isArchive()) {
@@ -143,7 +143,7 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
     private void analyzeCompilationUnit(final ICompilationUnit cu) {
         try {
             final File cuLocation = getFile(cu);
-            if (!hasChanged(cuLocation)) {
+            if (hasNotChanged(cuLocation)) {
                 return;
             }
             final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, monitor);
@@ -157,7 +157,7 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         }
     }
 
-    private boolean hasChanged(final File file) {
+    private boolean hasNotChanged(final File file) {
         final long lastModified = file.lastModified();
         final long lastIndexed = indexer.lastIndexed(file);
         return lastModified < lastIndexed;
