@@ -46,6 +46,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IViewSite;
@@ -65,7 +66,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
     protected TableViewer searchResultTable;
     private Combo exampleCombo;
 
-    private int selectedLanguageIndex = 0;
+    private int selectedLanguageIndex = 2;
     private AbstractEmbeddedEditorWrapper currentEditor = null;
 
     public SearchQueryView() {
@@ -168,6 +169,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
             public void widgetDefaultSelected(final SelectionEvent e) {
             }
         });
+        combo.notifyListeners(SWT.Selection, new Event());
     }
 
     private void createTriggerSearchButton(final Composite parent) {

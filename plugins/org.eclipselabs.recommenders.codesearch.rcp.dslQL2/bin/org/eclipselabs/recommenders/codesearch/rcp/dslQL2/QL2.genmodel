@@ -12,10 +12,14 @@
     <genClasses ecoreClass="QL2.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/statements"/>
     </genClasses>
-    <genClasses ecoreClass="QL2.ecore#//Statement"/>
+    <genClasses ecoreClass="QL2.ecore#//Statement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Statement/name"/>
+    </genClasses>
     <genClasses ecoreClass="QL2.ecore#//VarDef">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDef/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDef/name"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//MethodCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodCall/method"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

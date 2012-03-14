@@ -11,52 +11,51 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Statement</b></em>'.
+ * An implementation of the model object '<em><b>Method Call</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.StatementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodCallImpl#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class StatementImpl extends MinimalEObjectImpl.Container implements Statement
+public class MethodCallImpl extends StatementImpl implements MethodCall
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getMethod()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String METHOD_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getMethod()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String method = METHOD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StatementImpl()
+  protected MethodCallImpl()
   {
     super();
   }
@@ -69,7 +68,7 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   @Override
   protected EClass eStaticClass()
   {
-    return QL2Package.Literals.STATEMENT;
+    return QL2Package.Literals.METHOD_CALL;
   }
 
   /**
@@ -77,9 +76,9 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getMethod()
   {
-    return name;
+    return method;
   }
 
   /**
@@ -87,12 +86,12 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setMethod(String newMethod)
   {
-    String oldName = name;
-    name = newName;
+    String oldMethod = method;
+    method = newMethod;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.STATEMENT__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__METHOD, oldMethod, method));
   }
 
   /**
@@ -105,8 +104,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case QL2Package.STATEMENT__NAME:
-        return getName();
+      case QL2Package.METHOD_CALL__METHOD:
+        return getMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,8 +120,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case QL2Package.STATEMENT__NAME:
-        setName((String)newValue);
+      case QL2Package.METHOD_CALL__METHOD:
+        setMethod((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -138,8 +137,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case QL2Package.STATEMENT__NAME:
-        setName(NAME_EDEFAULT);
+      case QL2Package.METHOD_CALL__METHOD:
+        setMethod(METHOD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -155,8 +154,8 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
   {
     switch (featureID)
     {
-      case QL2Package.STATEMENT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case QL2Package.METHOD_CALL__METHOD:
+        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
     }
     return super.eIsSet(featureID);
   }
@@ -172,10 +171,10 @@ public class StatementImpl extends MinimalEObjectImpl.Container implements State
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (method: ");
+    result.append(method);
     result.append(')');
     return result.toString();
   }
 
-} //StatementImpl
+} //MethodCallImpl

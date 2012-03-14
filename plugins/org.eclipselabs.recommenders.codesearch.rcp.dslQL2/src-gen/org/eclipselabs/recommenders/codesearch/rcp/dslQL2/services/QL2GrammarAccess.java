@@ -20,42 +20,50 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Action cModelAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cStatementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cStatementsStatementParserRuleCall_1_0 = (RuleCall)cStatementsAssignment_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
+		////import "http://www.eclipse.org/xtext/xbase/Xbase"
+		////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+		////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		//Model:
-		//	"{" statements+=Statement* "}";
+		//	{Model} statements+=Statement*;
 		public ParserRule getRule() { return rule; }
 
-		//"{" statements+=Statement* "}"
+		//{Model} statements+=Statement*
 		public Group getGroup() { return cGroup; }
 
-		//"{"
-		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+		//{Model}
+		public Action getModelAction_0() { return cModelAction_0; }
 
 		//statements+=Statement*
 		public Assignment getStatementsAssignment_1() { return cStatementsAssignment_1; }
 
 		//Statement
 		public RuleCall getStatementsStatementParserRuleCall_1_0() { return cStatementsStatementParserRuleCall_1_0; }
-
-		//"}"
-		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
 	}
 
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Statement");
-		private final RuleCall cVarDefParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cVarDefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cMethodCallParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//Statement: //| MethodCall...
-		//	VarDef;
+		//Statement:
+		//	VarDef //...
+		//	| MethodCall;
 		public ParserRule getRule() { return rule; }
 
-		////| MethodCall...
+		//VarDef //...
+		//| MethodCall
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//VarDef
-		public RuleCall getVarDefParserRuleCall() { return cVarDefParserRuleCall; }
+		public RuleCall getVarDefParserRuleCall_0() { return cVarDefParserRuleCall_0; }
+
+		//MethodCall
+		public RuleCall getMethodCallParserRuleCall_1() { return cMethodCallParserRuleCall_1; }
 	}
 
 	public class VarDefElements extends AbstractParserRuleElementFinder {
@@ -64,15 +72,15 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cTypeTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameVarNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cAsteriskKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//VarDef:
-		//	type=Type name=ID "=" "*";
+		//	type=Type name=VarName "=" / *[types::JvmIdentifiableElement|ValidID]* / "*";
 		public ParserRule getRule() { return rule; }
 
-		//type=Type name=ID "=" "*"
+		//type=Type name=VarName "=" / *[types::JvmIdentifiableElement|ValidID]* / "*"
 		public Group getGroup() { return cGroup; }
 
 		//type=Type
@@ -81,17 +89,65 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		//Type
 		public RuleCall getTypeTypeParserRuleCall_0_0() { return cTypeTypeParserRuleCall_0_0; }
 
-		//name=ID
+		//name=VarName
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//VarName
+		public RuleCall getNameVarNameParserRuleCall_1_0() { return cNameVarNameParserRuleCall_1_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
-		//"*"
+		/// *[types::JvmIdentifiableElement|ValidID]* / "*"
 		public Keyword getAsteriskKeyword_3() { return cAsteriskKeyword_3; }
+	}
+
+	public class MethodCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cNameVarNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cMethodAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMethodNameWithWCTerminalRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
+		private final Keyword cLeftParenthesisRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//MethodCall:
+		//	name=VarName "." method=NameWithWC "()";
+		public ParserRule getRule() { return rule; }
+
+		//name=VarName "." method=NameWithWC "()"
+		public Group getGroup() { return cGroup; }
+
+		//name=VarName
+		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+
+		//VarName
+		public RuleCall getNameVarNameParserRuleCall_0_0() { return cNameVarNameParserRuleCall_0_0; }
+
+		//"."
+		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
+
+		//method=NameWithWC
+		public Assignment getMethodAssignment_2() { return cMethodAssignment_2; }
+
+		//NameWithWC
+		public RuleCall getMethodNameWithWCTerminalRuleCall_2_0() { return cMethodNameWithWCTerminalRuleCall_2_0; }
+
+		//"()"
+		public Keyword getLeftParenthesisRightParenthesisKeyword_3() { return cLeftParenthesisRightParenthesisKeyword_3; }
+	}
+
+	public class VarNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarName");
+		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//VarName:
+		//	NameWithWC;
+		public ParserRule getRule() { return rule; }
+
+		//NameWithWC
+		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
@@ -110,6 +166,8 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	private ModelElements pModel;
 	private StatementElements pStatement;
 	private VarDefElements pVarDef;
+	private MethodCallElements pMethodCall;
+	private VarNameElements pVarName;
 	private TypeElements pType;
 	private TerminalRule tNameWithWC;
 	
@@ -134,8 +192,11 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
+	////import "http://www.eclipse.org/xtext/xbase/Xbase"
+	////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+	////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 	//Model:
-	//	"{" statements+=Statement* "}";
+	//	{Model} statements+=Statement*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -144,8 +205,9 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 
-	//Statement: //| MethodCall...
-	//	VarDef;
+	//Statement:
+	//	VarDef //...
+	//	| MethodCall;
 	public StatementElements getStatementAccess() {
 		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
 	}
@@ -155,13 +217,33 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//VarDef:
-	//	type=Type name=ID "=" "*";
+	//	type=Type name=VarName "=" / *[types::JvmIdentifiableElement|ValidID]* / "*";
 	public VarDefElements getVarDefAccess() {
 		return (pVarDef != null) ? pVarDef : (pVarDef = new VarDefElements());
 	}
 	
 	public ParserRule getVarDefRule() {
 		return getVarDefAccess().getRule();
+	}
+
+	//MethodCall:
+	//	name=VarName "." method=NameWithWC "()";
+	public MethodCallElements getMethodCallAccess() {
+		return (pMethodCall != null) ? pMethodCall : (pMethodCall = new MethodCallElements());
+	}
+	
+	public ParserRule getMethodCallRule() {
+		return getMethodCallAccess().getRule();
+	}
+
+	//VarName:
+	//	NameWithWC;
+	public VarNameElements getVarNameAccess() {
+		return (pVarName != null) ? pVarName : (pVarName = new VarNameElements());
+	}
+	
+	public ParserRule getVarNameRule() {
+		return getVarNameAccess().getRule();
 	}
 
 	//Type:

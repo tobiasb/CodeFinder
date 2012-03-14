@@ -77,11 +77,13 @@ ruleModel returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='{' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getModelAccess().getModelAction_0(),
+            $current);
     }
-(
+)(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getModelAccess().getStatementsStatementParserRuleCall_1_0()); 
@@ -99,11 +101,7 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_2='}' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_2());
-    }
-)
+)*)
 ;
 
 
@@ -124,9 +122,9 @@ ruleStatement returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-
+(
     { 
-        newCompositeNode(grammarAccess.getStatementAccess().getVarDefParserRuleCall()); 
+        newCompositeNode(grammarAccess.getStatementAccess().getVarDefParserRuleCall_0()); 
     }
     this_VarDef_0=ruleVarDef
     { 
@@ -134,6 +132,16 @@ ruleStatement returns [EObject current=null]
         afterParserOrEnumRuleCall();
     }
 
+    |
+    { 
+        newCompositeNode(grammarAccess.getStatementAccess().getMethodCallParserRuleCall_1()); 
+    }
+    this_MethodCall_1=ruleMethodCall
+    { 
+        $current = $this_MethodCall_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
 ;
 
 
@@ -174,19 +182,19 @@ ruleVarDef returns [EObject current=null]
 )
 )(
 (
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getVarDefAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getVarDefAccess().getNameVarNameParserRuleCall_1_0()); 
+	    }
+		lv_name_1_0=ruleVarName		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getVarDefRule());
+	            $current = createModelElementForParent(grammarAccess.getVarDefRule());
 	        }
-       		setWithLastConsumed(
+       		set(
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"VarName");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -200,6 +208,99 @@ ruleVarDef returns [EObject current=null]
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleMethodCall
+entryRuleMethodCall returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMethodCallRule()); }
+	 iv_ruleMethodCall=ruleMethodCall 
+	 { $current=$iv_ruleMethodCall.current; } 
+	 EOF 
+;
+
+// Rule MethodCall
+ruleMethodCall returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMethodCallAccess().getNameVarNameParserRuleCall_0_0()); 
+	    }
+		lv_name_0_0=ruleVarName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMethodCallRule());
+	        }
+       		set(
+       			$current, 
+       			"name",
+        		lv_name_0_0, 
+        		"VarName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_1='.' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getMethodCallAccess().getFullStopKeyword_1());
+    }
+(
+(
+		lv_method_2_0=RULE_NAMEWITHWC
+		{
+			newLeafNode(lv_method_2_0, grammarAccess.getMethodCallAccess().getMethodNameWithWCTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMethodCallRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"method",
+        		lv_method_2_0, 
+        		"NameWithWC");
+	    }
+
+)
+)	otherlv_3='()' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getMethodCallAccess().getLeftParenthesisRightParenthesisKeyword_3());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleVarName
+entryRuleVarName returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getVarNameRule()); } 
+	 iv_ruleVarName=ruleVarName 
+	 { $current=$iv_ruleVarName.current.getText(); }  
+	 EOF 
+;
+
+// Rule VarName
+ruleVarName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+    this_NameWithWC_0=RULE_NAMEWITHWC    {
+		$current.merge(this_NameWithWC_0);
+    }
+
+    { 
+    newLeafNode(this_NameWithWC_0, grammarAccess.getVarNameAccess().getNameWithWCTerminalRuleCall()); 
+    }
+
+    ;
 
 
 

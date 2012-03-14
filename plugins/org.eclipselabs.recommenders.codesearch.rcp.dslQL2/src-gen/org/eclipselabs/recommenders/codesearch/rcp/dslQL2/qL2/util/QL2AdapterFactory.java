@@ -94,6 +94,11 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
         return createVarDefAdapter();
       }
       @Override
+      public Adapter caseMethodCall(MethodCall object)
+      {
+        return createMethodCallAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -156,6 +161,21 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVarDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall <em>Method Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall
+   * @generated
+   */
+  public Adapter createMethodCallAdapter()
   {
     return null;
   }
