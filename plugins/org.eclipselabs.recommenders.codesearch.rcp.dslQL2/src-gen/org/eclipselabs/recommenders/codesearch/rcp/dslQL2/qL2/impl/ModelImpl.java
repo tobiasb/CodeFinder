@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +32,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.ModelImpl#getVars <em>Vars</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.ModelImpl#getStatements <em>Statements</em>}</li>
  * </ul>
  * </p>
@@ -39,6 +41,16 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getVars() <em>Vars</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVars()
+   * @generated
+   * @ordered
+   */
+  protected EList<Var> vars;
+
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -75,6 +87,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Var> getVars()
+  {
+    if (vars == null)
+    {
+      vars = new EObjectContainmentEList<Var>(Var.class, this, QL2Package.MODEL__VARS);
+    }
+    return vars;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Statement> getStatements()
   {
     if (statements == null)
@@ -94,6 +120,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case QL2Package.MODEL__VARS:
+        return ((InternalEList<?>)getVars()).basicRemove(otherEnd, msgs);
       case QL2Package.MODEL__STATEMENTS:
         return ((InternalEList<?>)getStatements()).basicRemove(otherEnd, msgs);
     }
@@ -110,6 +138,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case QL2Package.MODEL__VARS:
+        return getVars();
       case QL2Package.MODEL__STATEMENTS:
         return getStatements();
     }
@@ -127,6 +157,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case QL2Package.MODEL__VARS:
+        getVars().clear();
+        getVars().addAll((Collection<? extends Var>)newValue);
+        return;
       case QL2Package.MODEL__STATEMENTS:
         getStatements().clear();
         getStatements().addAll((Collection<? extends Statement>)newValue);
@@ -145,6 +179,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case QL2Package.MODEL__VARS:
+        getVars().clear();
+        return;
       case QL2Package.MODEL__STATEMENTS:
         getStatements().clear();
         return;
@@ -162,6 +199,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case QL2Package.MODEL__VARS:
+        return vars != null && !vars.isEmpty();
       case QL2Package.MODEL__STATEMENTS:
         return statements != null && !statements.isEmpty();
     }

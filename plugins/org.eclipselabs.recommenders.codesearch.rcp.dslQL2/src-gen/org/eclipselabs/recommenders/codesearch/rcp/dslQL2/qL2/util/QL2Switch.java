@@ -98,6 +98,13 @@ public class QL2Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL2Package.VAR:
+      {
+        Var var = (Var)theEObject;
+        T result = caseVar(var);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QL2Package.METHOD_CALL:
       {
         MethodCall methodCall = (MethodCall)theEObject;
@@ -154,6 +161,22 @@ public class QL2Switch<T> extends Switch<T>
    * @generated
    */
   public T caseVarDef(VarDef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Var</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVar(Var object)
   {
     return null;
   }

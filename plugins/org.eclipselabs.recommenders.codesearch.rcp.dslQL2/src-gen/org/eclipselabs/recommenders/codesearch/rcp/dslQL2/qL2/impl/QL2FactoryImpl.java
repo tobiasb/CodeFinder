@@ -71,6 +71,7 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
       case QL2Package.MODEL: return createModel();
       case QL2Package.STATEMENT: return createStatement();
       case QL2Package.VAR_DEF: return createVarDef();
+      case QL2Package.VAR: return createVar();
       case QL2Package.METHOD_CALL: return createMethodCall();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -108,6 +109,17 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
   {
     VarDefImpl varDef = new VarDefImpl();
     return varDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Var createVar()
+  {
+    VarImpl var = new VarImpl();
+    return var;
   }
 
   /**

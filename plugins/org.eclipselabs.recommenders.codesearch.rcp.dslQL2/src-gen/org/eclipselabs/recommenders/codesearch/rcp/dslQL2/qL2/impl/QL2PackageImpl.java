@@ -18,6 +18,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Factory;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef;
 
 /**
@@ -48,6 +49,13 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * @generated
    */
   private EClass varDefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -134,9 +142,19 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Statements()
+  public EReference getModel_Vars()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Statements()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -154,16 +172,6 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_Name()
-  {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getVarDef()
   {
     return varDefEClass;
@@ -174,9 +182,39 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVarDef_Type()
+  public EReference getVarDef_Vars()
   {
-    return (EAttribute)varDefEClass.getEStructuralFeatures().get(0);
+    return (EReference)varDefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVar()
+  {
+    return varEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVar_Type()
+  {
+    return (EAttribute)varEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVar_Name()
+  {
+    return (EAttribute)varEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -194,9 +232,19 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethodCall_Method()
+  public EAttribute getMethodCall_Name()
   {
     return (EAttribute)methodCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethodCall_Method()
+  {
+    return (EAttribute)methodCallEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -230,15 +278,20 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__VARS);
     createEReference(modelEClass, MODEL__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
-    createEAttribute(statementEClass, STATEMENT__NAME);
 
     varDefEClass = createEClass(VAR_DEF);
-    createEAttribute(varDefEClass, VAR_DEF__TYPE);
+    createEReference(varDefEClass, VAR_DEF__VARS);
+
+    varEClass = createEClass(VAR);
+    createEAttribute(varEClass, VAR__TYPE);
+    createEAttribute(varEClass, VAR__NAME);
 
     methodCallEClass = createEClass(METHOD_CALL);
+    createEAttribute(methodCallEClass, METHOD_CALL__NAME);
     createEAttribute(methodCallEClass, METHOD_CALL__METHOD);
   }
 
@@ -276,15 +329,20 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Vars(), this.getVar(), null, "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Statements(), this.getStatement(), null, "statements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varDefEClass, VarDef.class, "VarDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVarDef_Type(), ecorePackage.getEString(), "type", null, 0, 1, VarDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarDef_Vars(), this.getVar(), null, "vars", null, 0, -1, VarDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varEClass, Var.class, "Var", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVar_Type(), ecorePackage.getEString(), "type", null, 0, 1, Var.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVar_Name(), ecorePackage.getEString(), "name", null, 0, 1, Var.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMethodCall_Name(), ecorePackage.getEString(), "name", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource

@@ -54,6 +54,15 @@ public interface QL2Factory extends EFactory
   VarDef createVarDef();
 
   /**
+   * Returns a new object of class '<em>Var</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var</em>'.
+   * @generated
+   */
+  Var createVar();
+
+  /**
    * Returns a new object of class '<em>Method Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

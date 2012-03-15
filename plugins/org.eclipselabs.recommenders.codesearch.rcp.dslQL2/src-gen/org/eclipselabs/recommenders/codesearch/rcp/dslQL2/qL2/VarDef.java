@@ -6,6 +6,7 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +16,7 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef#getVars <em>Vars</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,29 +27,19 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2;
 public interface VarDef extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Vars</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Vars</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute.
-   * @see #setType(String)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarDef_Type()
-   * @model
+   * @return the value of the '<em>Vars</em>' containment reference list.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarDef_Vars()
+   * @model containment="true"
    * @generated
    */
-  String getType();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef#getType <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Type</em>' attribute.
-   * @see #getType()
-   * @generated
-   */
-  void setType(String value);
+  EList<Var> getVars();
 
 } // VarDef

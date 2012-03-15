@@ -10,7 +10,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
 
 import com.google.common.collect.Lists;
 
@@ -48,14 +49,19 @@ public class QL2ProposalProvider extends AbstractQL2ProposalProvider {
         if (!iter.hasNext())
             return result;
 
-        do {
-            final EObject o = iter.next();
+        for (Var var : ((Model) iter.next()).getVars()) {
+            result.add(var.getName());
+        }
 
-            if (o instanceof VarDef) {
-                result.add(((VarDef) o).getName());
-            }
-
-        } while (iter.hasNext());
+        // do {
+        // final EObject o = iter.next();
+        //
+        //
+        // // if (o instanceof VarDef) {
+        // // result.add(((VarDef) o).getVars().get(0)..get.getName());
+        // // }
+        //
+        // } while (iter.hasNext());
 
         return result;
     }

@@ -8,6 +8,7 @@ generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
 
 Model:
 	{Model}
+	('(' vars+=VarDeclaration (',' vars+=VarDeclaration)* ')')?
 	statements+=Statement*
 	;
 	
@@ -16,7 +17,15 @@ Statement:
 ;
 
 VarDef:
+	vars+=VarInitialisation | vars+=VarDeclaration
+;
+
+VarInitialisation returns Var:
 	type=Type name=VarName '=' '*'/*[types::JvmIdentifiableElement|ValidID]*/
+;
+
+VarDeclaration returns Var:
+	type=Type name=VarName
 ;
 	
 MethodCall:

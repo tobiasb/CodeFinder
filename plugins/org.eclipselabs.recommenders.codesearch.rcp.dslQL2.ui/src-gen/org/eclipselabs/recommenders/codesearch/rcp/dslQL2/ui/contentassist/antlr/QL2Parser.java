@@ -38,12 +38,22 @@ public class QL2Parser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
+					put(grammarAccess.getVarDefAccess().getAlternatives(), "rule__VarDef__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-					put(grammarAccess.getVarDefAccess().getGroup(), "rule__VarDef__Group__0");
+					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
+					put(grammarAccess.getModelAccess().getGroup_1_2(), "rule__Model__Group_1_2__0");
+					put(grammarAccess.getVarInitialisationAccess().getGroup(), "rule__VarInitialisation__Group__0");
+					put(grammarAccess.getVarDeclarationAccess().getGroup(), "rule__VarDeclaration__Group__0");
 					put(grammarAccess.getMethodCallAccess().getGroup(), "rule__MethodCall__Group__0");
-					put(grammarAccess.getModelAccess().getStatementsAssignment_1(), "rule__Model__StatementsAssignment_1");
-					put(grammarAccess.getVarDefAccess().getTypeAssignment_0(), "rule__VarDef__TypeAssignment_0");
-					put(grammarAccess.getVarDefAccess().getNameAssignment_1(), "rule__VarDef__NameAssignment_1");
+					put(grammarAccess.getModelAccess().getVarsAssignment_1_1(), "rule__Model__VarsAssignment_1_1");
+					put(grammarAccess.getModelAccess().getVarsAssignment_1_2_1(), "rule__Model__VarsAssignment_1_2_1");
+					put(grammarAccess.getModelAccess().getStatementsAssignment_2(), "rule__Model__StatementsAssignment_2");
+					put(grammarAccess.getVarDefAccess().getVarsAssignment_0(), "rule__VarDef__VarsAssignment_0");
+					put(grammarAccess.getVarDefAccess().getVarsAssignment_1(), "rule__VarDef__VarsAssignment_1");
+					put(grammarAccess.getVarInitialisationAccess().getTypeAssignment_0(), "rule__VarInitialisation__TypeAssignment_0");
+					put(grammarAccess.getVarInitialisationAccess().getNameAssignment_1(), "rule__VarInitialisation__NameAssignment_1");
+					put(grammarAccess.getVarDeclarationAccess().getTypeAssignment_0(), "rule__VarDeclaration__TypeAssignment_0");
+					put(grammarAccess.getVarDeclarationAccess().getNameAssignment_1(), "rule__VarDeclaration__NameAssignment_1");
 					put(grammarAccess.getMethodCallAccess().getNameAssignment_0(), "rule__MethodCall__NameAssignment_0");
 					put(grammarAccess.getMethodCallAccess().getMethodAssignment_2(), "rule__MethodCall__MethodAssignment_2");
 				}

@@ -6,13 +6,20 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef;
 
 /**
@@ -22,7 +29,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDefImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDefImpl#getVars <em>Vars</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +38,14 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef;
 public class VarDefImpl extends StatementImpl implements VarDef
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getVars() <em>Vars</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getVars()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
+  protected EList<Var> vars;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,9 +73,13 @@ public class VarDefImpl extends StatementImpl implements VarDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
+  public EList<Var> getVars()
   {
-    return type;
+    if (vars == null)
+    {
+      vars = new EObjectContainmentEList<Var>(Var.class, this, QL2Package.VAR_DEF__VARS);
+    }
+    return vars;
   }
 
   /**
@@ -86,12 +87,15 @@ public class VarDefImpl extends StatementImpl implements VarDef
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(String newType)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldType = type;
-    type = newType;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR_DEF__TYPE, oldType, type));
+    switch (featureID)
+    {
+      case QL2Package.VAR_DEF__VARS:
+        return ((InternalEList<?>)getVars()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,8 +108,8 @@ public class VarDefImpl extends StatementImpl implements VarDef
   {
     switch (featureID)
     {
-      case QL2Package.VAR_DEF__TYPE:
-        return getType();
+      case QL2Package.VAR_DEF__VARS:
+        return getVars();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +119,15 @@ public class VarDefImpl extends StatementImpl implements VarDef
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case QL2Package.VAR_DEF__TYPE:
-        setType((String)newValue);
+      case QL2Package.VAR_DEF__VARS:
+        getVars().clear();
+        getVars().addAll((Collection<? extends Var>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +143,8 @@ public class VarDefImpl extends StatementImpl implements VarDef
   {
     switch (featureID)
     {
-      case QL2Package.VAR_DEF__TYPE:
-        setType(TYPE_EDEFAULT);
+      case QL2Package.VAR_DEF__VARS:
+        getVars().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,27 +160,10 @@ public class VarDefImpl extends StatementImpl implements VarDef
   {
     switch (featureID)
     {
-      case QL2Package.VAR_DEF__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case QL2Package.VAR_DEF__VARS:
+        return vars != null && !vars.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
-    result.append(type);
-    result.append(')');
-    return result.toString();
   }
 
 } //VarDefImpl

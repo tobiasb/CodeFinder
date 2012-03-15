@@ -10,15 +10,19 @@
   <genPackages prefix="QL2" basePackage="org.eclipselabs.recommenders.codesearch.rcp.dslQL2"
       disposableProviderFactory="true" ecorePackage="QL2.ecore#/">
     <genClasses ecoreClass="QL2.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/vars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/statements"/>
     </genClasses>
-    <genClasses ecoreClass="QL2.ecore#//Statement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Statement/name"/>
-    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//Statement"/>
     <genClasses ecoreClass="QL2.ecore#//VarDef">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDef/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarDef/vars"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//Var">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Var/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Var/name"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//MethodCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodCall/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodCall/method"/>
     </genClasses>
   </genPackages>

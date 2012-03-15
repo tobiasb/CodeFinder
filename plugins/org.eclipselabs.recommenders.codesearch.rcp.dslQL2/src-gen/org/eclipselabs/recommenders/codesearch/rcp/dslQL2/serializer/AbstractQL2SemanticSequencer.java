@@ -16,6 +16,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.services.QL2GrammarAccess;
 
@@ -60,6 +61,16 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL2Package.VAR:
+				if(context == grammarAccess.getVarDeclarationRule()) {
+					sequence_VarDeclaration(context, (Var) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getVarInitialisationRule()) {
+					sequence_VarInitialisation(context, (Var) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL2Package.VAR_DEF:
 				if(context == grammarAccess.getStatementRule() ||
 				   context == grammarAccess.getVarDefRule()) {
@@ -77,8 +88,8 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	 */
 	protected void sequence_MethodCall(EObject context, MethodCall semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATEMENT__NAME));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.METHOD_CALL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.METHOD_CALL__NAME));
 			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.METHOD_CALL__METHOD) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.METHOD_CALL__METHOD));
 		}
@@ -92,7 +103,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (statements+=Statement*)
+	 *     ((vars+=VarDeclaration vars+=VarDeclaration*)? statements+=Statement*)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -103,17 +114,45 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	 * Constraint:
 	 *     (type=Type name=VarName)
 	 */
-	protected void sequence_VarDef(EObject context, VarDef semanticObject) {
+	protected void sequence_VarDeclaration(EObject context, Var semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_DEF__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_DEF__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDefAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getVarDefAccess().getNameVarNameParserRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarDeclarationAccess().getNameVarNameParserRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (vars+=VarInitialisation | vars+=VarDeclaration)
+	 */
+	protected void sequence_VarDef(EObject context, VarDef semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=Type name=VarName)
+	 */
+	protected void sequence_VarInitialisation(EObject context, Var semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarInitialisationAccess().getNameVarNameParserRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 }

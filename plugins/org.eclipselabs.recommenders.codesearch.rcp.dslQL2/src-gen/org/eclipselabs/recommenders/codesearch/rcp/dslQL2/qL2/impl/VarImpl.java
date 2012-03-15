@@ -11,26 +11,47 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Method Call</b></em>'.
+ * An implementation of the model object '<em><b>Var</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodCallImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodCallImpl#getMethod <em>Method</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MethodCallImpl extends StatementImpl implements MethodCall
+public class VarImpl extends MinimalEObjectImpl.Container implements Var
 {
+  /**
+   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected static final String TYPE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getType()
+   * @generated
+   * @ordered
+   */
+  protected String type = TYPE_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -52,31 +73,11 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected static final String METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected String method = METHOD_EDEFAULT;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MethodCallImpl()
+  protected VarImpl()
   {
     super();
   }
@@ -89,7 +90,30 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   @Override
   protected EClass eStaticClass()
   {
-    return QL2Package.Literals.METHOD_CALL;
+    return QL2Package.Literals.VAR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getType()
+  {
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(String newType)
+  {
+    String oldType = type;
+    type = newType;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR__TYPE, oldType, type));
   }
 
   /**
@@ -112,30 +136,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getMethod()
-  {
-    return method;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMethod(String newMethod)
-  {
-    String oldMethod = method;
-    method = newMethod;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__METHOD, oldMethod, method));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR__NAME, oldName, name));
   }
 
   /**
@@ -148,10 +149,10 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
+      case QL2Package.VAR__TYPE:
+        return getType();
+      case QL2Package.VAR__NAME:
         return getName();
-      case QL2Package.METHOD_CALL__METHOD:
-        return getMethod();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,11 +167,11 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
-        setName((String)newValue);
+      case QL2Package.VAR__TYPE:
+        setType((String)newValue);
         return;
-      case QL2Package.METHOD_CALL__METHOD:
-        setMethod((String)newValue);
+      case QL2Package.VAR__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -186,11 +187,11 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
-        setName(NAME_EDEFAULT);
+      case QL2Package.VAR__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
-      case QL2Package.METHOD_CALL__METHOD:
-        setMethod(METHOD_EDEFAULT);
+      case QL2Package.VAR__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -206,10 +207,10 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
+      case QL2Package.VAR__TYPE:
+        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+      case QL2Package.VAR__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case QL2Package.METHOD_CALL__METHOD:
-        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
     }
     return super.eIsSet(featureID);
   }
@@ -225,12 +226,12 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (type: ");
+    result.append(type);
+    result.append(", name: ");
     result.append(name);
-    result.append(", method: ");
-    result.append(method);
     result.append(')');
     return result.toString();
   }
 
-} //MethodCallImpl
+} //VarImpl
