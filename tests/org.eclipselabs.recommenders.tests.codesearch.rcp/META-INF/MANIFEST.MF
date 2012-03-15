@@ -25,4 +25,7 @@ Require-Bundle: org.junit4,
  org.apache.lucene;bundle-version="3.5.0",
  org.eclipse.xtext.junit,
  org.eclipse.xtend2.lib,
- org.eclipselabs.recommenders.codesearch.rcp.index
+ org.eclipselabs.recommenders.codesearch.rcp.index,
+ org.eclipselabs.recommenders.codesearch.rcp.dslQL2,
+ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui,
+ org.eclipse.xtext.ui

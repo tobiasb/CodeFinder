@@ -2,15 +2,23 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 
 import java.util.List;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.NodeWalker;
+import org.eclipselabs.recommenders.test.codesearch.QLTestBase;
 import org.junit.Test;
 
-public class MethodPatternQLTest extends MethodPatternQLTestBase {
+public class MethodPatternQLTest extends QLTestBase {
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+        with(QL1StandaloneSetup.class);
+    }
 
     @Test
     public void transformToLuceneQueryTestOnlyModifier01() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "public * *";
         String expected = "Type:(method) AND (Modifiers):public";
@@ -20,7 +28,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestOnlyModifiers() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "public static * *";
         String expected = "Type:(method) AND (Modifiers):public AND (Modifiers):static";
@@ -30,7 +38,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestOptionalParts() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "public * testName";
         String expected = "Type:(method)AND Modifiers:(public) AND FriendlyName:(testName)";
@@ -40,7 +48,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestThrows() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* * throws exception";
         String expected = "Type:(method) AND CheckedExceptions:(exception) ";
@@ -50,7 +58,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestOnlyModifier02() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "public * *()";
         String expected = "Type:(method)AND Modifiers:(public) ";
@@ -60,7 +68,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestEmptyQuery() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *()";
         String expected = "Type:(method) AND Type:(method)";
@@ -70,7 +78,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionSingle() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *(List)";
         String expected = "Type:(method) AND ParameterTypesStructural:List;";
@@ -80,7 +88,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionSingle02() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *(List, Map)";
         String expected = "Type:(method) AND ParameterTypesStructural:List;Map;";
@@ -90,7 +98,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionMulti() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *({List | Map}, String)";
         String expected = "Type:(method) AND (ParameterTypesStructural:List;String; ParameterTypesStructural:Map;String;)";
@@ -100,7 +108,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionMulti02() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *(String, {List | Map})";
         String expected = "Type:(method) AND (ParameterTypesStructural:String;List; ParameterTypesStructural:String;Map;)";
@@ -110,7 +118,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionMulti03() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *(String, {List | Map}, ..)";
         String expected = "Type:(method) AND (ParameterTypesStructural:String;List;* ParameterTypesStructural:String;Map;*)";
@@ -120,7 +128,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionMulti04() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *(.., String, {List | Map})";
         String expected = "Type:(method) AND (ParameterTypesStructural:*String;List; ParameterTypesStructural:*String;Map;)";
@@ -130,7 +138,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionMulti05() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *(String, *, {List | Map})";
         String expected = "Type:(method) AND (ParameterTypesStructural:String;*List; ParameterTypesStructural:String;*Map;)";
@@ -140,7 +148,7 @@ public class MethodPatternQLTest extends MethodPatternQLTestBase {
 
     @Test
     public void transformToLuceneQueryTestParametersPreselectionMulti06() throws Exception {
-        super.setUp();
+        setUp();
 
         String query = "* *(String, .., {List | Map})";
         String expected = "Type:(method) AND (ParameterTypesStructural:String;*List; ParameterTypesStructural:String;*Map;)";

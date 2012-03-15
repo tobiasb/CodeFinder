@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
+package org.eclipselabs.recommenders.test.codesearch;
 
 import java.io.StringReader;
 
@@ -10,13 +10,12 @@ import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterValidator;
 
 import com.google.inject.Injector;
 
-public abstract class MethodPatternQLTestBase extends AbstractXtextTests {
+public abstract class QLTestBase extends AbstractXtextTests {
 
     private Injector luceneInjector = null;
 
@@ -27,12 +26,10 @@ public abstract class MethodPatternQLTestBase extends AbstractXtextTests {
         final LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
         luceneInjector = activator
                 .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY);
-
-        with(QL1StandaloneSetup.class);
     }
 
     protected IParseResult parse(String query) throws Exception {
-        return getParser().parse(new StringReader(query));
+        return getParser().parse(new StringReader(String.format(query)));
     }
 
     protected String serializeLuceneQuery(EObject o) {

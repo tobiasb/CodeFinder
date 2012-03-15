@@ -99,8 +99,8 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
     @Override
     String[] getExampleQueriesInternal() {
 
-        return new String[] { String.format("A varA = *%nB varB = *%n"),
-                String.format("A varA = *%nB varB = *%nvarA.foo()%nvarB.bar(varA)%n") };
+        return new String[] { String.format("{%nA varA = *%nB varB = *%n}"),
+                String.format("{%nA varA = *%nB varB = *%nvarA.foo()%nvarB.bar(varA)%n}") };
     }
 
     public static String getName() {

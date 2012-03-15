@@ -47,7 +47,7 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodCallAccess().getGroup(), "rule__MethodCall__Group__0");
 					put(grammarAccess.getModelAccess().getVarsAssignment_1_1(), "rule__Model__VarsAssignment_1_1");
 					put(grammarAccess.getModelAccess().getVarsAssignment_1_2_1(), "rule__Model__VarsAssignment_1_2_1");
-					put(grammarAccess.getModelAccess().getStatementsAssignment_2(), "rule__Model__StatementsAssignment_2");
+					put(grammarAccess.getModelAccess().getStatementsAssignment_3(), "rule__Model__StatementsAssignment_3");
 					put(grammarAccess.getVarDefAccess().getVarsAssignment_0(), "rule__VarDef__VarsAssignment_0");
 					put(grammarAccess.getVarDefAccess().getVarsAssignment_1(), "rule__VarDef__VarsAssignment_1");
 					put(grammarAccess.getVarInitialisationAccess().getTypeAssignment_0(), "rule__VarInitialisation__TypeAssignment_0");

@@ -9,7 +9,9 @@ generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
 Model:
 	{Model}
 	('(' vars+=VarDeclaration (',' vars+=VarDeclaration)* ')')?
+	'{'
 	statements+=Statement*
+	'}'
 	;
 	
 Statement:

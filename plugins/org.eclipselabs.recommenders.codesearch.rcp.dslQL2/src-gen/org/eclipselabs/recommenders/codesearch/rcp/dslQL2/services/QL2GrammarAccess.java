@@ -30,17 +30,19 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVarsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
 		private final RuleCall cVarsVarDeclarationParserRuleCall_1_2_1_0 = (RuleCall)cVarsAssignment_1_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
-		private final Assignment cStatementsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cStatementsStatementParserRuleCall_2_0 = (RuleCall)cStatementsAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cStatementsStatementParserRuleCall_3_0 = (RuleCall)cStatementsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		////import "http://www.eclipse.org/xtext/xbase/Xbase"
 		////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 		////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 		//Model:
-		//	{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? statements+=Statement*;
+		//	{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? "{" statements+=Statement* "}";
 		public ParserRule getRule() { return rule; }
 
-		//{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? statements+=Statement*
+		//{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? "{" statements+=Statement* "}"
 		public Group getGroup() { return cGroup; }
 
 		//{Model}
@@ -73,11 +75,17 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
 		//statements+=Statement*
-		public Assignment getStatementsAssignment_2() { return cStatementsAssignment_2; }
+		public Assignment getStatementsAssignment_3() { return cStatementsAssignment_3; }
 
 		//Statement
-		public RuleCall getStatementsStatementParserRuleCall_2_0() { return cStatementsStatementParserRuleCall_2_0; }
+		public RuleCall getStatementsStatementParserRuleCall_3_0() { return cStatementsStatementParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
 	}
 
 	public class StatementElements extends AbstractParserRuleElementFinder {
@@ -290,7 +298,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
 	////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 	//Model:
-	//	{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? statements+=Statement*;
+	//	{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? "{" statements+=Statement* "}";
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
