@@ -2,6 +2,7 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 
 import java.util.List;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.NodeWalker;
@@ -14,6 +15,10 @@ public class MethodPatternQLTest extends QLTestBase {
     protected void setUp() throws Exception {
         super.setUp();
         with(QL1StandaloneSetup.class);
+    }
+
+    private void testQuery(String query, String expected) throws Exception {
+        super.testQuery(query, expected, new QL1QueryExtractor());
     }
 
     @Test

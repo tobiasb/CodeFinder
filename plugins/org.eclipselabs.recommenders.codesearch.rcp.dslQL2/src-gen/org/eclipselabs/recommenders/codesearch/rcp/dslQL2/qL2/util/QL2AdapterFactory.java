@@ -89,11 +89,6 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
-      public Adapter caseVarDef(VarDef object)
-      {
-        return createVarDefAdapter();
-      }
-      @Override
       public Adapter caseVar(Var object)
       {
         return createVarAdapter();
@@ -151,21 +146,6 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStatementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef <em>Var Def</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDef
-   * @generated
-   */
-  public Adapter createVarDefAdapter()
   {
     return null;
   }

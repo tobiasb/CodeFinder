@@ -22,7 +22,6 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodCallImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodCallImpl#getMethod <em>Method</em>}</li>
  * </ul>
  * </p>
@@ -31,26 +30,6 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
  */
 public class MethodCallImpl extends StatementImpl implements MethodCall
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -97,29 +76,6 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getMethod()
   {
     return method;
@@ -148,8 +104,6 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
-        return getName();
       case QL2Package.METHOD_CALL__METHOD:
         return getMethod();
     }
@@ -166,9 +120,6 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
-        setName((String)newValue);
-        return;
       case QL2Package.METHOD_CALL__METHOD:
         setMethod((String)newValue);
         return;
@@ -186,9 +137,6 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case QL2Package.METHOD_CALL__METHOD:
         setMethod(METHOD_EDEFAULT);
         return;
@@ -206,8 +154,6 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_CALL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case QL2Package.METHOD_CALL__METHOD:
         return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
     }
@@ -225,9 +171,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", method: ");
+    result.append(" (method: ");
     result.append(method);
     result.append(')');
     return result.toString();

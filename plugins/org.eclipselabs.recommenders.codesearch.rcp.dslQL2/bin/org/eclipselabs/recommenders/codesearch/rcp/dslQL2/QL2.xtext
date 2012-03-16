@@ -8,38 +8,33 @@ generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
 
 Model:
 	{Model}
-	('(' vars+=VarDeclaration (',' vars+=VarDeclaration)* ')')?
+	('(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')')?
 	'{'
-	statements+=Statement*
+		(statements+=Statement )*
 	'}'
 	;
 	
 Statement:
-	(VarDef | MethodCall) //...
-;
-
-VarDef:
-	vars+=VarInitialisation | vars+=VarDeclaration
-;
-
-VarInitialisation returns Var:
-	type=Type name=VarName '=' '*'/*[types::JvmIdentifiableElement|ValidID]*/
+	('val' VarDeclaration)
+	| ('var' VarInitialisation) 
+	| ('call' MethodCall) //...
 ;
 
 VarDeclaration returns Var:
-	type=Type name=VarName
+	type=Name name=Name
+;
+
+VarInitialisation returns Var:
+	type=Name name=Name '=' '*'/*[types::JvmIdentifiableElement|ValidID]*/
+;
+
+VarDeclarationParam returns Var:
+	type=Name name=Name
 ;
 	
 MethodCall:
-	name=VarName '.' method=NameWithWC '()'
+	name=Name '.' method=Name '()'
 ;
 
-VarName:
-	NameWithWC
-;
-
-Type:
-	NameWithWC
-;
-
-terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
+terminal Name		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
+terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'/'|'.')*;

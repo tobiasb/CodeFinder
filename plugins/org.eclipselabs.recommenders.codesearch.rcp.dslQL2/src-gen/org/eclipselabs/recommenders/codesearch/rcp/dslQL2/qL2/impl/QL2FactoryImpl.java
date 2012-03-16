@@ -70,7 +70,6 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
     {
       case QL2Package.MODEL: return createModel();
       case QL2Package.STATEMENT: return createStatement();
-      case QL2Package.VAR_DEF: return createVarDef();
       case QL2Package.VAR: return createVar();
       case QL2Package.METHOD_CALL: return createMethodCall();
       default:
@@ -98,17 +97,6 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
   {
     StatementImpl statement = new StatementImpl();
     return statement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VarDef createVarDef()
-  {
-    VarDefImpl varDef = new VarDefImpl();
-    return varDef;
   }
 
   /**

@@ -9,6 +9,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.IQueryPa
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.IQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
@@ -32,7 +33,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Parameter
 
 import com.google.common.collect.Lists;
 
-public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResource> {
+public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResource>, IQueryExtractor {
 
     private final LuceneQueryFactory lqf = new LuceneQueryFactoryImpl();
 

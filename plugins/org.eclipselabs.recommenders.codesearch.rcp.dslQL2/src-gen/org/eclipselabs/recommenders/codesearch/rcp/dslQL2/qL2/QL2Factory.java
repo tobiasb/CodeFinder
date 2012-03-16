@@ -45,15 +45,6 @@ public interface QL2Factory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Var Def</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Var Def</em>'.
-   * @generated
-   */
-  VarDef createVarDef();
-
-  /**
    * Returns a new object of class '<em>Var</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

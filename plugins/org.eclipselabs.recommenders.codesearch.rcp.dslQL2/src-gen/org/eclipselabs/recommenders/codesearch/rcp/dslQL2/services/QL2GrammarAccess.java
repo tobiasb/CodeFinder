@@ -24,11 +24,11 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cVarsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cVarsVarDeclarationParserRuleCall_1_1_0 = (RuleCall)cVarsAssignment_1_1.eContents().get(0);
+		private final RuleCall cVarsVarDeclarationParamParserRuleCall_1_1_0 = (RuleCall)cVarsAssignment_1_1.eContents().get(0);
 		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
 		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
 		private final Assignment cVarsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
-		private final RuleCall cVarsVarDeclarationParserRuleCall_1_2_1_0 = (RuleCall)cVarsAssignment_1_2_1.eContents().get(0);
+		private final RuleCall cVarsVarDeclarationParamParserRuleCall_1_2_1_0 = (RuleCall)cVarsAssignment_1_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cStatementsAssignment_3 = (Assignment)cGroup.eContents().get(3);
@@ -36,41 +36,44 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		////import "http://www.eclipse.org/xtext/xbase/Xbase"
+		//
 		////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+		//
 		////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+		//
 		//Model:
-		//	{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? "{" statements+=Statement* "}";
+		//	{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? "{" statements+=Statement* "}";
 		public ParserRule getRule() { return rule; }
 
-		//{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? "{" statements+=Statement* "}"
+		//{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? "{" statements+=Statement* "}"
 		public Group getGroup() { return cGroup; }
 
 		//{Model}
 		public Action getModelAction_0() { return cModelAction_0; }
 
-		//("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")?
+		//("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")?
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
 
-		//vars+=VarDeclaration
+		//vars+=VarDeclarationParam
 		public Assignment getVarsAssignment_1_1() { return cVarsAssignment_1_1; }
 
-		//VarDeclaration
-		public RuleCall getVarsVarDeclarationParserRuleCall_1_1_0() { return cVarsVarDeclarationParserRuleCall_1_1_0; }
+		//VarDeclarationParam
+		public RuleCall getVarsVarDeclarationParamParserRuleCall_1_1_0() { return cVarsVarDeclarationParamParserRuleCall_1_1_0; }
 
-		//("," vars+=VarDeclaration)*
+		//("," vars+=VarDeclarationParam)*
 		public Group getGroup_1_2() { return cGroup_1_2; }
 
 		//","
 		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
 
-		//vars+=VarDeclaration
+		//vars+=VarDeclarationParam
 		public Assignment getVarsAssignment_1_2_1() { return cVarsAssignment_1_2_1; }
 
-		//VarDeclaration
-		public RuleCall getVarsVarDeclarationParserRuleCall_1_2_1_0() { return cVarsVarDeclarationParserRuleCall_1_2_1_0; }
+		//VarDeclarationParam
+		public RuleCall getVarsVarDeclarationParamParserRuleCall_1_2_1_0() { return cVarsVarDeclarationParamParserRuleCall_1_2_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
@@ -91,81 +94,111 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	public class StatementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Statement");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cVarDefParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cMethodCallParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cValKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final RuleCall cVarDeclarationParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cVarKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cVarInitialisationParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cCallKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final RuleCall cMethodCallParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		
 		//Statement:
-		//	VarDef //...
-		//	| MethodCall;
+		//	"val" VarDeclaration //...
+		//
+		//	| "var" VarInitialisation | "call" MethodCall;
 		public ParserRule getRule() { return rule; }
 
-		//VarDef //...
-		//| MethodCall
+		//"val" VarDeclaration //...
+		//
+		//| "var" VarInitialisation | "call" MethodCall
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//VarDef
-		public RuleCall getVarDefParserRuleCall_0() { return cVarDefParserRuleCall_0; }
+		//"val" VarDeclaration
+		public Group getGroup_0() { return cGroup_0; }
 
-		//MethodCall
-		public RuleCall getMethodCallParserRuleCall_1() { return cMethodCallParserRuleCall_1; }
-	}
-
-	public class VarDefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDef");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cVarsAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cVarsVarInitialisationParserRuleCall_0_0 = (RuleCall)cVarsAssignment_0.eContents().get(0);
-		private final Assignment cVarsAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cVarsVarDeclarationParserRuleCall_1_0 = (RuleCall)cVarsAssignment_1.eContents().get(0);
-		
-		//VarDef:
-		//	vars+=VarInitialisation | vars+=VarDeclaration;
-		public ParserRule getRule() { return rule; }
-
-		//vars+=VarInitialisation | vars+=VarDeclaration
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//vars+=VarInitialisation
-		public Assignment getVarsAssignment_0() { return cVarsAssignment_0; }
-
-		//VarInitialisation
-		public RuleCall getVarsVarInitialisationParserRuleCall_0_0() { return cVarsVarInitialisationParserRuleCall_0_0; }
-
-		//vars+=VarDeclaration
-		public Assignment getVarsAssignment_1() { return cVarsAssignment_1; }
+		//"val"
+		public Keyword getValKeyword_0_0() { return cValKeyword_0_0; }
 
 		//VarDeclaration
-		public RuleCall getVarsVarDeclarationParserRuleCall_1_0() { return cVarsVarDeclarationParserRuleCall_1_0; }
+		public RuleCall getVarDeclarationParserRuleCall_0_1() { return cVarDeclarationParserRuleCall_0_1; }
+
+		//"var" VarInitialisation
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"var"
+		public Keyword getVarKeyword_1_0() { return cVarKeyword_1_0; }
+
+		//VarInitialisation
+		public RuleCall getVarInitialisationParserRuleCall_1_1() { return cVarInitialisationParserRuleCall_1_1; }
+
+		//"call" MethodCall
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"call"
+		public Keyword getCallKeyword_2_0() { return cCallKeyword_2_0; }
+
+		//MethodCall
+		public RuleCall getMethodCallParserRuleCall_2_1() { return cMethodCallParserRuleCall_2_1; }
+	}
+
+	public class VarDeclarationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDeclaration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTypeNameTerminalRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameNameTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//VarDeclaration returns Var:
+		//	type=Name name=Name;
+		public ParserRule getRule() { return rule; }
+
+		//type=Name name=Name
+		public Group getGroup() { return cGroup; }
+
+		//type=Name
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+
+		//Name
+		public RuleCall getTypeNameTerminalRuleCall_0_0() { return cTypeNameTerminalRuleCall_0_0; }
+
+		//name=Name
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//Name
+		public RuleCall getNameNameTerminalRuleCall_1_0() { return cNameNameTerminalRuleCall_1_0; }
 	}
 
 	public class VarInitialisationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarInitialisation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypeTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final RuleCall cTypeNameTerminalRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameVarNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameNameTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Keyword cAsteriskKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//VarInitialisation returns Var:
-		//	type=Type name=VarName "=" / *[types::JvmIdentifiableElement|ValidID]* / "*";
+		//	type=Name name=Name "=" / *[types::JvmIdentifiableElement|ValidID]* / "*";
 		public ParserRule getRule() { return rule; }
 
-		//type=Type name=VarName "=" / *[types::JvmIdentifiableElement|ValidID]* / "*"
+		//type=Name name=Name "=" / *[types::JvmIdentifiableElement|ValidID]* / "*"
 		public Group getGroup() { return cGroup; }
 
-		//type=Type
+		//type=Name
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
-		//Type
-		public RuleCall getTypeTypeParserRuleCall_0_0() { return cTypeTypeParserRuleCall_0_0; }
+		//Name
+		public RuleCall getTypeNameTerminalRuleCall_0_0() { return cTypeNameTerminalRuleCall_0_0; }
 
-		//name=VarName
+		//name=Name
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//VarName
-		public RuleCall getNameVarNameParserRuleCall_1_0() { return cNameVarNameParserRuleCall_1_0; }
+		//Name
+		public RuleCall getNameNameTerminalRuleCall_1_0() { return cNameNameTerminalRuleCall_1_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
@@ -174,103 +207,78 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getAsteriskKeyword_3() { return cAsteriskKeyword_3; }
 	}
 
-	public class VarDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDeclaration");
+	public class VarDeclarationParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarDeclarationParam");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cTypeTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
+		private final RuleCall cTypeNameTerminalRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameVarNameParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final RuleCall cNameNameTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//VarDeclaration returns Var:
-		//	type=Type name=VarName;
+		//VarDeclarationParam returns Var:
+		//	type=Name name=Name;
 		public ParserRule getRule() { return rule; }
 
-		//type=Type name=VarName
+		//type=Name name=Name
 		public Group getGroup() { return cGroup; }
 
-		//type=Type
+		//type=Name
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
-		//Type
-		public RuleCall getTypeTypeParserRuleCall_0_0() { return cTypeTypeParserRuleCall_0_0; }
+		//Name
+		public RuleCall getTypeNameTerminalRuleCall_0_0() { return cTypeNameTerminalRuleCall_0_0; }
 
-		//name=VarName
+		//name=Name
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//VarName
-		public RuleCall getNameVarNameParserRuleCall_1_0() { return cNameVarNameParserRuleCall_1_0; }
+		//Name
+		public RuleCall getNameNameTerminalRuleCall_1_0() { return cNameNameTerminalRuleCall_1_0; }
 	}
 
 	public class MethodCallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameVarNameParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
+		private final RuleCall cNameNameTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cMethodAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMethodNameWithWCTerminalRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
+		private final RuleCall cMethodNameTerminalRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
 		private final Keyword cLeftParenthesisRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//MethodCall:
-		//	name=VarName "." method=NameWithWC "()";
+		//	name=Name "." method=Name "()";
 		public ParserRule getRule() { return rule; }
 
-		//name=VarName "." method=NameWithWC "()"
+		//name=Name "." method=Name "()"
 		public Group getGroup() { return cGroup; }
 
-		//name=VarName
+		//name=Name
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
-		//VarName
-		public RuleCall getNameVarNameParserRuleCall_0_0() { return cNameVarNameParserRuleCall_0_0; }
+		//Name
+		public RuleCall getNameNameTerminalRuleCall_0_0() { return cNameNameTerminalRuleCall_0_0; }
 
 		//"."
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 
-		//method=NameWithWC
+		//method=Name
 		public Assignment getMethodAssignment_2() { return cMethodAssignment_2; }
 
-		//NameWithWC
-		public RuleCall getMethodNameWithWCTerminalRuleCall_2_0() { return cMethodNameWithWCTerminalRuleCall_2_0; }
+		//Name
+		public RuleCall getMethodNameTerminalRuleCall_2_0() { return cMethodNameTerminalRuleCall_2_0; }
 
 		//"()"
 		public Keyword getLeftParenthesisRightParenthesisKeyword_3() { return cLeftParenthesisRightParenthesisKeyword_3; }
-	}
-
-	public class VarNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VarName");
-		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//VarName:
-		//	NameWithWC;
-		public ParserRule getRule() { return rule; }
-
-		//NameWithWC
-		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
-	}
-
-	public class TypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Type");
-		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//Type:
-		//	NameWithWC;
-		public ParserRule getRule() { return rule; }
-
-		//NameWithWC
-		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
 	}
 	
 	
 	private ModelElements pModel;
 	private StatementElements pStatement;
-	private VarDefElements pVarDef;
-	private VarInitialisationElements pVarInitialisation;
 	private VarDeclarationElements pVarDeclaration;
+	private VarInitialisationElements pVarInitialisation;
+	private VarDeclarationParamElements pVarDeclarationParam;
 	private MethodCallElements pMethodCall;
-	private VarNameElements pVarName;
-	private TypeElements pType;
+	private TerminalRule tName;
 	private TerminalRule tNameWithWC;
 	
 	private final GrammarProvider grammarProvider;
@@ -295,10 +303,13 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	////import "http://www.eclipse.org/xtext/xbase/Xbase"
+	//
 	////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
+	//
 	////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+	//
 	//Model:
-	//	{Model} ("(" vars+=VarDeclaration ("," vars+=VarDeclaration)* ")")? "{" statements+=Statement* "}";
+	//	{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? "{" statements+=Statement* "}";
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -308,8 +319,9 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Statement:
-	//	VarDef //...
-	//	| MethodCall;
+	//	"val" VarDeclaration //...
+	//
+	//	| "var" VarInitialisation | "call" MethodCall;
 	public StatementElements getStatementAccess() {
 		return (pStatement != null) ? pStatement : (pStatement = new StatementElements());
 	}
@@ -318,28 +330,8 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		return getStatementAccess().getRule();
 	}
 
-	//VarDef:
-	//	vars+=VarInitialisation | vars+=VarDeclaration;
-	public VarDefElements getVarDefAccess() {
-		return (pVarDef != null) ? pVarDef : (pVarDef = new VarDefElements());
-	}
-	
-	public ParserRule getVarDefRule() {
-		return getVarDefAccess().getRule();
-	}
-
-	//VarInitialisation returns Var:
-	//	type=Type name=VarName "=" / *[types::JvmIdentifiableElement|ValidID]* / "*";
-	public VarInitialisationElements getVarInitialisationAccess() {
-		return (pVarInitialisation != null) ? pVarInitialisation : (pVarInitialisation = new VarInitialisationElements());
-	}
-	
-	public ParserRule getVarInitialisationRule() {
-		return getVarInitialisationAccess().getRule();
-	}
-
 	//VarDeclaration returns Var:
-	//	type=Type name=VarName;
+	//	type=Name name=Name;
 	public VarDeclarationElements getVarDeclarationAccess() {
 		return (pVarDeclaration != null) ? pVarDeclaration : (pVarDeclaration = new VarDeclarationElements());
 	}
@@ -348,8 +340,28 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		return getVarDeclarationAccess().getRule();
 	}
 
+	//VarInitialisation returns Var:
+	//	type=Name name=Name "=" / *[types::JvmIdentifiableElement|ValidID]* / "*";
+	public VarInitialisationElements getVarInitialisationAccess() {
+		return (pVarInitialisation != null) ? pVarInitialisation : (pVarInitialisation = new VarInitialisationElements());
+	}
+	
+	public ParserRule getVarInitialisationRule() {
+		return getVarInitialisationAccess().getRule();
+	}
+
+	//VarDeclarationParam returns Var:
+	//	type=Name name=Name;
+	public VarDeclarationParamElements getVarDeclarationParamAccess() {
+		return (pVarDeclarationParam != null) ? pVarDeclarationParam : (pVarDeclarationParam = new VarDeclarationParamElements());
+	}
+	
+	public ParserRule getVarDeclarationParamRule() {
+		return getVarDeclarationParamAccess().getRule();
+	}
+
 	//MethodCall:
-	//	name=VarName "." method=NameWithWC "()";
+	//	name=Name "." method=Name "()";
 	public MethodCallElements getMethodCallAccess() {
 		return (pMethodCall != null) ? pMethodCall : (pMethodCall = new MethodCallElements());
 	}
@@ -358,28 +370,14 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		return getMethodCallAccess().getRule();
 	}
 
-	//VarName:
-	//	NameWithWC;
-	public VarNameElements getVarNameAccess() {
-		return (pVarName != null) ? pVarName : (pVarName = new VarNameElements());
-	}
-	
-	public ParserRule getVarNameRule() {
-		return getVarNameAccess().getRule();
-	}
-
-	//Type:
-	//	NameWithWC;
-	public TypeElements getTypeAccess() {
-		return (pType != null) ? pType : (pType = new TypeElements());
-	}
-	
-	public ParserRule getTypeRule() {
-		return getTypeAccess().getRule();
-	}
+	//terminal Name:
+	//	("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
+	public TerminalRule getNameRule() {
+		return (tName != null) ? tName : (tName = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Name"));
+	} 
 
 	//terminal NameWithWC:
-	//	("a".."z" | "A".."Z" | "_" | "*" | "?") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" | "." | "/")*;
+	//	("a".."z" | "A".."Z" | "_" | "*" | "?") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" | "/" | ".")*;
 	public TerminalRule getNameWithWCRule() {
 		return (tNameWithWC != null) ? tNameWithWC : (tNameWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NameWithWC"));
 	} 

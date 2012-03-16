@@ -3,16 +3,6 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist;
 
-import java.util.List;
-
-import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
-import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
-
-import com.google.common.collect.Lists;
 
 /**
  * see
@@ -21,42 +11,15 @@ import com.google.common.collect.Lists;
  */
 public class QL2ProposalProvider extends AbstractQL2ProposalProvider {
 
-    @Override
-    public void complete_VarDef(EObject model, RuleCall ruleCall, ContentAssistContext context,
-            ICompletionProposalAcceptor acceptor) {
-        // TODO Auto-generated method stub
-        super.complete_VarDef(model, ruleCall, context, acceptor);
-    }
-
-    @Override
-    public void complete_VarName(EObject model, RuleCall ruleCall, ContentAssistContext context,
-            ICompletionProposalAcceptor acceptor) {
-
-        for (String varName : getVarNames(model)) {
-            acceptor.accept(createCompletionProposal(varName, context));
-        }
-    }
-
-    public List<String> getVarNames(EObject model) {
-        List<String> result = Lists.newArrayList();
-
-        if (model == null)
-            return result;
-
-        TreeIterator<EObject> iter = model.eAllContents();
-
-        if (!iter.hasNext())
-            return result;
-
-        do {
-            final EObject o = iter.next();
-
-            if (o instanceof Var) {
-                result.add(((Var) o).getName());
-            }
-
-        } while (iter.hasNext());
-
-        return result;
-    }
+    // @Override
+    // public void complete_VarName(EObject model, RuleCall ruleCall,
+    // ContentAssistContext context,
+    // ICompletionProposalAcceptor acceptor) {
+    //
+    // VariableExtractor e = new VariableExtractor();
+    //
+    // // for (VariableUsage var : e.getVars(model)) {
+    // // acceptor.accept(createCompletionProposal(var.name, context));
+    // // }
+    // }
 }
