@@ -28,4 +28,5 @@ Require-Bundle: org.junit4,
  org.eclipselabs.recommenders.codesearch.rcp.index,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL2,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui,
- org.eclipse.xtext.ui
+ org.eclipse.xtext.ui,
+ org.eclipselabs.recommenders.codesearch.rcp

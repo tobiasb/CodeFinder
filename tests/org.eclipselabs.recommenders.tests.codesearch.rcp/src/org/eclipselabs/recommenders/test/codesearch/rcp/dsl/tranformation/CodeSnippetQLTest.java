@@ -2,7 +2,11 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 
 import java.util.Map;
 
+import org.eclipse.recommenders.internal.codesearch.rcp.views.CodeSnippetQLEditorWrapper;
+import org.eclipse.xtext.parser.IParseResult;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2StandaloneSetup;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist.QL2ProposalProvider;
 import org.eclipselabs.recommenders.test.codesearch.QLTestBase;
@@ -205,5 +209,27 @@ public class CodeSnippetQLTest extends QLTestBase {
         assertTrue(result.containsKey("varA"));
         assertEquals(1, result.get("varA").calledMethodsOnVariable.size());
         assertEquals("testMethod", result.get("varA").calledMethodsOnVariable.get(0));
+    }
+
+    /**
+     * Test example queries that are being shown in UI. This is just a
+     * syntactical test.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testExamples() throws Exception {
+        setUp();
+
+        CodeSnippetQLEditorWrapper w = new CodeSnippetQLEditorWrapper();
+        QL2QueryExtractor qe = new QL2QueryExtractor();
+
+        for (String exampleQuery : w.getExampleQueriesInternal()) {
+            IParseResult result = parse(exampleQuery);
+
+            assertFalse(result.hasSyntaxErrors());
+
+            Map<String, VariableUsage> map = new VariableExtractor().getVars(result.getRootASTElement());
+        }
     }
 }

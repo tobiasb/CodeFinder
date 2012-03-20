@@ -2,6 +2,8 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 
 import java.util.List;
 
+import org.eclipse.recommenders.internal.codesearch.rcp.views.MethodPatternQLEditorWrapper;
+import org.eclipse.xtext.parser.IParseResult;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
@@ -365,5 +367,25 @@ public class MethodPatternQLTest extends QLTestBase {
 
         checkGraphFalse(n1, "T1;T21;T31;");
         checkGraphFalse(n1, "T1;T23;");
+    }
+
+    /**
+     * Test example queries that are being shown in UI. This is just a
+     * syntactical test.
+     * 
+     * @throws Exception
+     */
+    @Test
+    public void testExamples() throws Exception {
+        setUp();
+
+        MethodPatternQLEditorWrapper w = new MethodPatternQLEditorWrapper();
+        QL1QueryExtractor qe = new QL1QueryExtractor();
+
+        for (String exampleQuery : w.getExampleQueriesInternal()) {
+            IParseResult result = parse(exampleQuery);
+
+            assertFalse(result.hasSyntaxErrors());
+        }
     }
 }

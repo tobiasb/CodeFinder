@@ -109,7 +109,7 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
     }
 
     @Override
-    String[] getExampleQueriesInternal() {
+    public String[] getExampleQueriesInternal() {
 
         return new String[] {
                 String.format("{%nvar java.lang.String X%nvar java.util.List Y%n}"),
