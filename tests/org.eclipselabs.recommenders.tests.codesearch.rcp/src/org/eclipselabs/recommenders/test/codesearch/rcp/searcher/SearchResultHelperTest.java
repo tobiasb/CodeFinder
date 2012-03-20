@@ -1,6 +1,8 @@
 package org.eclipselabs.recommenders.test.codesearch.rcp.searcher;
 
+import org.junit.Ignore;
 
+@Ignore
 public class SearchResultHelperTest {
 
     // @Test
