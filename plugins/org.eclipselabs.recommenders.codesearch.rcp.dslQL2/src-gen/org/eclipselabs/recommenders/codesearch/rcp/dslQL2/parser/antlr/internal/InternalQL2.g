@@ -287,9 +287,9 @@ ruleVarInitialisation returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVarInitialisationAccess().getTypeWildcardNameParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getVarInitialisationAccess().getTypeTypeNameParserRuleCall_0_0()); 
 	    }
-		lv_type_0_0=ruleWildcardName		{
+		lv_type_0_0=ruleTypeName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVarInitialisationRule());
 	        }
@@ -297,7 +297,7 @@ ruleVarInitialisation returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"WildcardName");
+        		"TypeName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -352,9 +352,9 @@ ruleVarNullLiteral returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVarNullLiteralAccess().getTypeWildcardNameParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getVarNullLiteralAccess().getTypeTypeNameParserRuleCall_0_0()); 
 	    }
-		lv_type_0_0=ruleWildcardName		{
+		lv_type_0_0=ruleTypeName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVarNullLiteralRule());
 	        }
@@ -362,7 +362,7 @@ ruleVarNullLiteral returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"WildcardName");
+        		"TypeName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -417,9 +417,9 @@ ruleVarDeclaration returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVarDeclarationAccess().getTypeWildcardNameParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getVarDeclarationAccess().getTypeTypeNameParserRuleCall_0_0()); 
 	    }
-		lv_type_0_0=ruleWildcardName		{
+		lv_type_0_0=ruleTypeName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVarDeclarationRule());
 	        }
@@ -427,7 +427,7 @@ ruleVarDeclaration returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"WildcardName");
+        		"TypeName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -474,9 +474,9 @@ ruleVarDeclarationParam returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVarDeclarationParamAccess().getTypeWildcardNameParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getVarDeclarationParamAccess().getTypeTypeNameParserRuleCall_0_0()); 
 	    }
-		lv_type_0_0=ruleWildcardName		{
+		lv_type_0_0=ruleTypeName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVarDeclarationParamRule());
 	        }
@@ -484,7 +484,7 @@ ruleVarDeclarationParam returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_0_0, 
-        		"WildcardName");
+        		"TypeName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -700,6 +700,55 @@ ruleWildcardName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTo
     {
         $current.merge(kw);
         newLeafNode(kw, grammarAccess.getWildcardNameAccess().getQuestionMarkKeyword_2()); 
+    }
+)+
+    ;
+
+
+
+
+
+// Entry rule entryRuleTypeName
+entryRuleTypeName returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getTypeNameRule()); } 
+	 iv_ruleTypeName=ruleTypeName 
+	 { $current=$iv_ruleTypeName.current.getText(); }  
+	 EOF 
+;
+
+// Rule TypeName
+ruleTypeName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getTypeNameAccess().getIDTerminalRuleCall_0()); 
+    }
+
+    |
+	kw='*' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTypeNameAccess().getAsteriskKeyword_1()); 
+    }
+
+    |
+	kw='?' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTypeNameAccess().getQuestionMarkKeyword_2()); 
+    }
+
+    |
+	kw='.' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTypeNameAccess().getFullStopKeyword_3()); 
     }
 )+
     ;

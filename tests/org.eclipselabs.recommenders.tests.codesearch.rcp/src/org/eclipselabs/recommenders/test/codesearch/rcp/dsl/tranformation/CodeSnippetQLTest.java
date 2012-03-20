@@ -63,6 +63,16 @@ public class CodeSnippetQLTest extends QLTestBase {
     }
 
     @Test
+    public void variableDiscoveryTestOneVarFullyQualified() throws Exception {
+        setUp();
+
+        Map<String, VariableUsage> result = parseAndExtractVars("{%n var x.y.z.TypeA varA%n}");
+
+        assertEquals(1, result.size());
+        assertTrue(result.containsKey("varA"));
+    }
+
+    @Test
     public void variableDiscoveryTestEmpty() throws Exception {
         setUp();
 

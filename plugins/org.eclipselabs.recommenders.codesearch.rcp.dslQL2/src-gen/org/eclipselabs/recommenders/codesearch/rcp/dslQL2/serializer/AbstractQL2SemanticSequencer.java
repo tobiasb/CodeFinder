@@ -141,7 +141,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=WildcardName name=ID)
+	 *     (type=TypeName name=ID)
 	 */
 	protected void sequence_VarDeclarationParam(EObject context, VarDeclarationParam semanticObject) {
 		if(errorAcceptor != null) {
@@ -152,7 +152,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -160,7 +160,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=WildcardName name=ID)
+	 *     (type=TypeName name=ID)
 	 */
 	protected void sequence_VarDeclaration(EObject context, VarDeclaration semanticObject) {
 		if(errorAcceptor != null) {
@@ -171,7 +171,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -179,7 +179,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=WildcardName name=ID)
+	 *     (type=TypeName name=ID)
 	 */
 	protected void sequence_VarInitialisation(EObject context, VarInitialisation semanticObject) {
 		if(errorAcceptor != null) {
@@ -190,7 +190,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarInitialisationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -198,7 +198,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=WildcardName name=ID)
+	 *     (type=TypeName name=ID)
 	 */
 	protected void sequence_VarNullLiteral(EObject context, VarNullLiteral semanticObject) {
 		if(errorAcceptor != null) {
@@ -209,7 +209,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarNullLiteralAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarNullLiteralAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarNullLiteralAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}

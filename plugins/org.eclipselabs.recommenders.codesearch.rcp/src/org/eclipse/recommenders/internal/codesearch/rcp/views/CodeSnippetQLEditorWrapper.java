@@ -111,11 +111,12 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
     @Override
     String[] getExampleQueriesInternal() {
 
-        return new String[] { String.format("{%nvar java.lang.String X%nvar java.util.List Y%n}"),
-                String.format("{%nA varA = *%nB varB = *%n}"),
-                String.format("{%nvar java.lang.String varA = *%ncall varA.toString()%n}"),
-                String.format("{%nvar A varA = *%nvar B varB%ncall varA.testMethod()%ncall varB.testMethod2()%n}"),
-                String.format("(X varX)%n{%nA varA = *%nB varB = *%nvarA.foo()%nvarB.bar(varA)%n}") };
+        return new String[] {
+                String.format("{%nvar java.lang.String X%nvar java.util.List Y%n}"),
+                String.format("{%n//Variable declaration/initialization%nvar A varA = *%nvar B varB = *%n}"),
+                String.format("{%n//Method invocation%nvar java.lang.String varA = *%ncall varA.toString()%n}"),
+                String.format("{%n//Call of static method%nvar *String varA = *%nscall java.lang.String.format(varA)%n}"),
+                String.format("(*List listVar)%n{%n//Different kinds of variable declaration%nvar *String stringVar1 = *%nvar *String stringVar2%nvar *String stringVar3 = null%n}") };
     }
 
     public static String getName() {
