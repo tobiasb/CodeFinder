@@ -18,7 +18,11 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Factory;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +51,28 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass varEClass = null;
+  private EClass varInitialisationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varNullLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass varDeclarationParamEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -55,6 +80,13 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * @generated
    */
   private EClass methodCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass staticMethodCallEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -164,9 +196,9 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStatement_Name()
+  public EClass getVarInitialisation()
   {
-    return (EAttribute)statementEClass.getEStructuralFeatures().get(0);
+    return varInitialisationEClass;
   }
 
   /**
@@ -174,9 +206,9 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getVar()
+  public EAttribute getVarInitialisation_Type()
   {
-    return varEClass;
+    return (EAttribute)varInitialisationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -184,9 +216,99 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getVar_Type()
+  public EAttribute getVarInitialisation_Name()
   {
-    return (EAttribute)varEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)varInitialisationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVarNullLiteral()
+  {
+    return varNullLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarNullLiteral_Type()
+  {
+    return (EAttribute)varNullLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarNullLiteral_Name()
+  {
+    return (EAttribute)varNullLiteralEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVarDeclaration()
+  {
+    return varDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarDeclaration_Type()
+  {
+    return (EAttribute)varDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarDeclaration_Name()
+  {
+    return (EAttribute)varDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVarDeclarationParam()
+  {
+    return varDeclarationParamEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarDeclarationParam_Type()
+  {
+    return (EAttribute)varDeclarationParamEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getVarDeclarationParam_Name()
+  {
+    return (EAttribute)varDeclarationParamEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -204,9 +326,59 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethodCall_Method()
+  public EAttribute getMethodCall_NameCallee()
   {
     return (EAttribute)methodCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethodCall_Method()
+  {
+    return (EAttribute)methodCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethodCall_NameCaller()
+  {
+    return (EAttribute)methodCallEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getStaticMethodCall()
+  {
+    return staticMethodCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStaticMethodCall_Method()
+  {
+    return (EAttribute)staticMethodCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStaticMethodCall_Name()
+  {
+    return (EAttribute)staticMethodCallEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -244,13 +416,31 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     createEReference(modelEClass, MODEL__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
-    createEAttribute(statementEClass, STATEMENT__NAME);
 
-    varEClass = createEClass(VAR);
-    createEAttribute(varEClass, VAR__TYPE);
+    varInitialisationEClass = createEClass(VAR_INITIALISATION);
+    createEAttribute(varInitialisationEClass, VAR_INITIALISATION__TYPE);
+    createEAttribute(varInitialisationEClass, VAR_INITIALISATION__NAME);
+
+    varNullLiteralEClass = createEClass(VAR_NULL_LITERAL);
+    createEAttribute(varNullLiteralEClass, VAR_NULL_LITERAL__TYPE);
+    createEAttribute(varNullLiteralEClass, VAR_NULL_LITERAL__NAME);
+
+    varDeclarationEClass = createEClass(VAR_DECLARATION);
+    createEAttribute(varDeclarationEClass, VAR_DECLARATION__TYPE);
+    createEAttribute(varDeclarationEClass, VAR_DECLARATION__NAME);
+
+    varDeclarationParamEClass = createEClass(VAR_DECLARATION_PARAM);
+    createEAttribute(varDeclarationParamEClass, VAR_DECLARATION_PARAM__TYPE);
+    createEAttribute(varDeclarationParamEClass, VAR_DECLARATION_PARAM__NAME);
 
     methodCallEClass = createEClass(METHOD_CALL);
+    createEAttribute(methodCallEClass, METHOD_CALL__NAME_CALLEE);
     createEAttribute(methodCallEClass, METHOD_CALL__METHOD);
+    createEAttribute(methodCallEClass, METHOD_CALL__NAME_CALLER);
+
+    staticMethodCallEClass = createEClass(STATIC_METHOD_CALL);
+    createEAttribute(staticMethodCallEClass, STATIC_METHOD_CALL__METHOD);
+    createEAttribute(staticMethodCallEClass, STATIC_METHOD_CALL__NAME);
   }
 
   /**
@@ -282,22 +472,43 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    varEClass.getESuperTypes().add(this.getStatement());
+    varInitialisationEClass.getESuperTypes().add(this.getStatement());
+    varNullLiteralEClass.getESuperTypes().add(this.getStatement());
+    varDeclarationEClass.getESuperTypes().add(this.getStatement());
     methodCallEClass.getESuperTypes().add(this.getStatement());
+    staticMethodCallEClass.getESuperTypes().add(this.getStatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Vars(), this.getVar(), null, "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Vars(), this.getVarDeclarationParam(), null, "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Statements(), this.getStatement(), null, "statements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(varEClass, Var.class, "Var", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVar_Type(), ecorePackage.getEString(), "type", null, 0, 1, Var.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(varInitialisationEClass, VarInitialisation.class, "VarInitialisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarInitialisation_Type(), ecorePackage.getEString(), "type", null, 0, 1, VarInitialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarInitialisation_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarInitialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varNullLiteralEClass, VarNullLiteral.class, "VarNullLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarNullLiteral_Type(), ecorePackage.getEString(), "type", null, 0, 1, VarNullLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarNullLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarNullLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varDeclarationEClass, VarDeclaration.class, "VarDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarDeclaration_Type(), ecorePackage.getEString(), "type", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(varDeclarationParamEClass, VarDeclarationParam.class, "VarDeclarationParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getVarDeclarationParam_Type(), ecorePackage.getEString(), "type", null, 0, 1, VarDeclarationParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarDeclarationParam_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarDeclarationParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMethodCall_NameCallee(), ecorePackage.getEString(), "nameCallee", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMethodCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMethodCall_NameCaller(), ecorePackage.getEString(), "nameCaller", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(staticMethodCallEClass, StaticMethodCall.class, "StaticMethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStaticMethodCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, StaticMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStaticMethodCall_Name(), ecorePackage.getEString(), "name", null, 0, 1, StaticMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

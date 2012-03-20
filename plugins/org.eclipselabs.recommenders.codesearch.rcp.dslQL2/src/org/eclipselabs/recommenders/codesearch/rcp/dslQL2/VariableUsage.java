@@ -41,10 +41,4 @@ public class VariableUsage {
             return false;
         return true;
     }
-
-    public class VariableParameterUsage {
-        public VariableUsage targetVariable;
-        public String targetType;
-        public String method;
-    }
 }

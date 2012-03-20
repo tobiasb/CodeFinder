@@ -9,32 +9,43 @@ generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
 Model:
 	{Model}
 	('(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')')?
-	'{'
+	('{'
 		(statements+=Statement )*
-	'}'
+	'}')?
 	;
 	
 Statement:
-	('val' VarDeclaration)
-	| ('var' VarInitialisation) 
-	| ('call' MethodCall) //...
+	( 'var' (VarInitialisation 
+		| VarNullLiteral 
+		| VarDeclaration
+	) )
+	| 'call' ( MethodCall)
+	| 'scall' ( StaticMethodCall)
 ;
 
-VarDeclaration returns Var:
-	type=Name name=Name
+VarInitialisation:
+	type=WildcardName name=ID '=' '*'
 ;
 
-VarInitialisation returns Var:
-	type=Name name=Name '=' '*'/*[types::JvmIdentifiableElement|ValidID]*/
+VarNullLiteral:
+	type=WildcardName name=ID '=' 'null'
 ;
 
-VarDeclarationParam returns Var:
-	type=Name name=Name
+VarDeclaration:
+	type=WildcardName name=ID
+;
+
+VarDeclarationParam:
+	type=WildcardName name=ID
 ;
 	
 MethodCall:
-	name=Name '.' method=Name '()'
+	nameCallee=ID '.' method=WildcardName '(' (nameCaller=ID)?  ')'
+;
+	
+StaticMethodCall:
+	method=StaticMethodName '(' name=ID ')'
 ;
 
-terminal Name		: ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
-terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'/'|'.')*;
+WildcardName       : (ID | '*' | '?')+;
+StaticMethodName: WildcardName ( '.' WildcardName)+;

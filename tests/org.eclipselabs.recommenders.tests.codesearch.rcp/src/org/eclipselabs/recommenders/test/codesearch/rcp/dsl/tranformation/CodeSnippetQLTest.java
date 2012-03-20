@@ -2,10 +2,7 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dsl.tranformation;
 
 import java.util.Map;
 
-import org.eclipse.xtext.parser.IParseResult;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2StandaloneSetup;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist.QL2ProposalProvider;
 import org.eclipselabs.recommenders.test.codesearch.QLTestBase;
@@ -36,7 +33,7 @@ public class CodeSnippetQLTest extends QLTestBase {
     public void variableDiscoveryTestMixed02() throws Exception {
         setUp();
 
-        Map<String, VariableUsage> result = parseAndExtractVars("(X varX)%n{%nvar A varA = *%nvar B varB = *%nval C varC%n}");
+        Map<String, VariableUsage> result = parseAndExtractVars("(X varX)%n{%nvar A varA = *%nvar B varB = *%nvar C varC%n}");
 
         assertEquals(4, result.size());
         assertTrue(result.containsKey("varA"));
@@ -49,7 +46,7 @@ public class CodeSnippetQLTest extends QLTestBase {
     public void variableDiscoveryTestMethodParam() throws Exception {
         setUp();
 
-        Map<String, VariableUsage> result = parseAndExtractVars("(X varX)%n{}");
+        Map<String, VariableUsage> result = parseAndExtractVars("(TypeX varX)%n");
 
         assertEquals(1, result.size());
         assertTrue(result.containsKey("varX"));
@@ -59,7 +56,7 @@ public class CodeSnippetQLTest extends QLTestBase {
     public void variableDiscoveryTestOneVar() throws Exception {
         setUp();
 
-        Map<String, VariableUsage> result = parseAndExtractVars("{%n val Aasdf varA%n}");
+        Map<String, VariableUsage> result = parseAndExtractVars("{%n var TypeA varA%n}");
 
         assertEquals(1, result.size());
         assertTrue(result.containsKey("varA"));
@@ -78,8 +75,48 @@ public class CodeSnippetQLTest extends QLTestBase {
     public void transformToLuceneQueryTest() throws Exception {
         setUp();
 
-        String query = "{%n val TypeA varA%n}";
-        String expected = "Type:varusage AND VariableType:TypeA";
+        String query = "{%n var TypeA varA%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:LTypeA AND VariableDefinition:*" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryDeclarationParameterTest() throws Exception {
+        setUp();
+
+        String query = "(TypeA varA){%n}";
+        String[] expected = new String[] { "Type:varusageAND VariableType:LTypeA AND VariableDefinition:parameter " };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryDeclarationMethodInvocationTest() throws Exception {
+        setUp();
+
+        String query = "{%nvar TypeA varA = *%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:LTypeA AND VariableDefinition:instanceCreation" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryDeclarationNoInitialisationTest() throws Exception {
+        setUp();
+
+        String query = "{%nvar TypeA varA%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:LTypeA AND VariableDefinition:*" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryDeclarationNullLiteralTest() throws Exception {
+        setUp();
+
+        String query = "{%nvar TypeA varA = null%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:LTypeA AND VariableDefinition:nullLiteral" };
 
         testQuery(query, expected);
     }
@@ -88,46 +125,68 @@ public class CodeSnippetQLTest extends QLTestBase {
     public void transformToLuceneQueryMultipleVarsTest() throws Exception {
         setUp();
 
-        String query = "{%n val TypeA varA%nval TypeB varB}";
-        String expected = "Type:varusage AND VariableType:TypeB AND VariableType:TypeA";
+        String query = "{%n var TypeA varA%nvar TypeB varB}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:LTypeB AND VariableDefinition:*",
+                "Type:varusage AND VariableType:LTypeA AND VariableDefinition:*" };
 
         testQuery(query, expected);
     }
 
-    private void testQuery(String query, String expected) throws Exception {
-        super.testQuery(query, expected, new QL2QueryExtractor());
-    }
+    @Test
+    public void transformToLuceneQueryMethodCallTest() throws Exception {
+        setUp();
 
-    private Map<String, VariableUsage> parseAndExtractVars(String s) throws Exception {
-        IParseResult r = getParseResultAndExpect(String.format(s), 0);
+        String query = "{%nvar A varA = *%ncall varA.testMethod()%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:LA AND VariableDefinition:instanceCreation AND UsedAsTargetForMethods:L*testMethod\\(*" };
 
-        // if (r.hasSyntaxErrors()) {
-        //
-        // StringBuilder sb = new StringBuilder(String.format("Errors:%n"));
-        // for (INode error : r.getSyntaxErrors()) {
-        // sb.append(String.format("%s%n", error.getSyntaxErrorMessage()));
-        // }
-        //
-        // assertTrue(sb.toString(), !r.hasSyntaxErrors());
-        // }
-
-        return new VariableExtractor().getVars(r.getRootASTElement());
+        testQuery(query, expected);
     }
 
     @Test
-    public void methodCallNonExistentVarTest() throws Exception {
+    public void transformToLuceneQueryMethodCallParameterTest() throws Exception {
+        setUp();
+
+        String query = "{%nvar A varA = *%nvar B varB = *%ncall varB.testMethod(varA)%n}";
+        String[] expected = new String[] {
+                "Type:varusage AND VariableType:LB AND VariableDefinition:instanceCreation AND UsedAsTargetForMethods:L*testMethod\\(*",
+                "Type:varusage AND VariableType:LA AND VariableDefinition:instanceCreation AND UsedAsParameterInMethods:L*B.testMethod\\(*" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryStaticMethodCallParameterTest() throws Exception {
+        setUp();
+
+        String query = "{%nvar A varA = *%nscall java.lang.bla.testMethod(varA)%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:LA AND VariableDefinition:instanceCreation AND UsedAsParameterInMethods:L*java/lang/bla.testMethod\\(*" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryMethodCallMultipleVarsTest() throws Exception {
+        setUp();
+
+        String query = "{%nvar A varA = *%nvar B varB%ncall varA.testMethod()%ncall varB.testMethod2()%n}";
+        String[] expected = new String[] {
+                "Type:varusage AND VariableType:LB AND VariableDefinition:* AND UsedAsTargetForMethods:L*testMethod2\\(*",
+                "Type:varusage AND VariableType:LA AND VariableDefinition:instanceCreation AND UsedAsTargetForMethods:L*testMethod\\(*" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void variableDiscoveryMethodCallNonExistentVarTest() throws Exception {
         setUp();
 
         Map<String, VariableUsage> result = parseAndExtractVars("{%ncall varA.testMethod()%n}");
 
-        assertEquals(1, result.size());
-        assertTrue(result.containsKey("varA"));
-        assertEquals(1, result.get("varA").calledMethodsOnVariable.size());
-        assertEquals("testMethod", result.get("varA").calledMethodsOnVariable.get(0));
+        assertEquals(0, result.size());
     }
 
     @Test
-    public void methodCallTest() throws Exception {
+    public void variableDiscoveryMethodCallTest() throws Exception {
         setUp();
 
         Map<String, VariableUsage> result = parseAndExtractVars("{%nvar A varA = *%ncall varA.testMethod()%n}");

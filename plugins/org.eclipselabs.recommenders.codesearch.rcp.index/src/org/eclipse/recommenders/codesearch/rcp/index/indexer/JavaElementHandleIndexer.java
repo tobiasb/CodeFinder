@@ -42,7 +42,7 @@ public class JavaElementHandleIndexer extends AbstractIndexer implements IMethod
 
     @Override
     public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
-        add(document, name.resolveBinding());
+        add(document, method.resolveBinding());
     }
 
     private void add(final Document document, final IBinding b) {

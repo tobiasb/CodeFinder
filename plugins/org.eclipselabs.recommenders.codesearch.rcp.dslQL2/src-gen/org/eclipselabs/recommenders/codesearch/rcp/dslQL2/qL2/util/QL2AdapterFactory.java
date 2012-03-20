@@ -89,14 +89,34 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
-      public Adapter caseVar(Var object)
+      public Adapter caseVarInitialisation(VarInitialisation object)
       {
-        return createVarAdapter();
+        return createVarInitialisationAdapter();
+      }
+      @Override
+      public Adapter caseVarNullLiteral(VarNullLiteral object)
+      {
+        return createVarNullLiteralAdapter();
+      }
+      @Override
+      public Adapter caseVarDeclaration(VarDeclaration object)
+      {
+        return createVarDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseVarDeclarationParam(VarDeclarationParam object)
+      {
+        return createVarDeclarationParamAdapter();
       }
       @Override
       public Adapter caseMethodCall(MethodCall object)
       {
         return createMethodCallAdapter();
+      }
+      @Override
+      public Adapter caseStaticMethodCall(StaticMethodCall object)
+      {
+        return createStaticMethodCallAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -151,16 +171,61 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var <em>Var</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation <em>Var Initialisation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation
    * @generated
    */
-  public Adapter createVarAdapter()
+  public Adapter createVarInitialisationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral <em>Var Null Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral
+   * @generated
+   */
+  public Adapter createVarNullLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration <em>Var Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration
+   * @generated
+   */
+  public Adapter createVarDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam <em>Var Declaration Param</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam
+   * @generated
+   */
+  public Adapter createVarDeclarationParamAdapter()
   {
     return null;
   }
@@ -176,6 +241,21 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMethodCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall <em>Static Method Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall
+   * @generated
+   */
+  public Adapter createStaticMethodCallAdapter()
   {
     return null;
   }

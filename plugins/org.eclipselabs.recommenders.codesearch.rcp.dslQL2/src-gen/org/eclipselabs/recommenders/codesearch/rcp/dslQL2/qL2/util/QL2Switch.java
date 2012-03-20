@@ -90,11 +90,34 @@ public class QL2Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case QL2Package.VAR:
+      case QL2Package.VAR_INITIALISATION:
       {
-        Var var = (Var)theEObject;
-        T result = caseVar(var);
-        if (result == null) result = caseStatement(var);
+        VarInitialisation varInitialisation = (VarInitialisation)theEObject;
+        T result = caseVarInitialisation(varInitialisation);
+        if (result == null) result = caseStatement(varInitialisation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL2Package.VAR_NULL_LITERAL:
+      {
+        VarNullLiteral varNullLiteral = (VarNullLiteral)theEObject;
+        T result = caseVarNullLiteral(varNullLiteral);
+        if (result == null) result = caseStatement(varNullLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL2Package.VAR_DECLARATION:
+      {
+        VarDeclaration varDeclaration = (VarDeclaration)theEObject;
+        T result = caseVarDeclaration(varDeclaration);
+        if (result == null) result = caseStatement(varDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL2Package.VAR_DECLARATION_PARAM:
+      {
+        VarDeclarationParam varDeclarationParam = (VarDeclarationParam)theEObject;
+        T result = caseVarDeclarationParam(varDeclarationParam);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -103,6 +126,14 @@ public class QL2Switch<T> extends Switch<T>
         MethodCall methodCall = (MethodCall)theEObject;
         T result = caseMethodCall(methodCall);
         if (result == null) result = caseStatement(methodCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL2Package.STATIC_METHOD_CALL:
+      {
+        StaticMethodCall staticMethodCall = (StaticMethodCall)theEObject;
+        T result = caseStaticMethodCall(staticMethodCall);
+        if (result == null) result = caseStatement(staticMethodCall);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -143,17 +174,65 @@ public class QL2Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Var</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Var Initialisation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Var</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Var Initialisation</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVar(Var object)
+  public T caseVarInitialisation(VarInitialisation object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Null Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Null Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarNullLiteral(VarNullLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarDeclaration(VarDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Declaration Param</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Declaration Param</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarDeclarationParam(VarDeclarationParam object)
   {
     return null;
   }
@@ -170,6 +249,22 @@ public class QL2Switch<T> extends Switch<T>
    * @generated
    */
   public T caseMethodCall(MethodCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Static Method Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Static Method Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStaticMethodCall(StaticMethodCall object)
   {
     return null;
   }

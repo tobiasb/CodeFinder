@@ -55,10 +55,12 @@ public class LazyContentProvider implements ILazyContentProvider {
                 viewer.replace(e, index);
                 return;
             }
-            // this is needed to handle special cases which are not directly bound to a java element.
+            // this is needed to handle special cases which are not directly
+            // bound to a java element.
             final String docId = doc.get(Fields.QUALIFIED_NAME);
             final String docType = doc.get(Fields.TYPE);
             final String declaringType = doc.get(Fields.DECLARING_TYPE);
+            final String declaringMethod = doc.get(Fields.DECLARING_METHOD);
             if (docType.equals(Fields.TYPE_CLASS)) {
                 final ITypeName typeName = VmTypeName.get(docId);
                 final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
@@ -71,8 +73,13 @@ public class LazyContentProvider implements ILazyContentProvider {
                 if (method.isPresent()) {
                     viewer.replace(method.get(), index);
                 }
-            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)
-                    || docType.equals(Fields.TYPE_VARUSAGE)) {
+            } else if (docType.equals(Fields.TYPE_VARUSAGE)) {
+                final IMethodName methodName = VmMethodName.get(declaringMethod);
+                final Optional<IMethod> method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
+                if (method.isPresent()) {
+                    viewer.replace(method.get(), index);
+                }
+            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
                 final ITypeName typeName = VmTypeName.get(declaringType);
                 final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                 if (type.isPresent()) {

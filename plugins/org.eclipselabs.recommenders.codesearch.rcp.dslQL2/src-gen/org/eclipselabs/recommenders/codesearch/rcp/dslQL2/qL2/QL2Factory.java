@@ -45,13 +45,40 @@ public interface QL2Factory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Var</em>'.
+   * Returns a new object of class '<em>Var Initialisation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Var</em>'.
+   * @return a new object of class '<em>Var Initialisation</em>'.
    * @generated
    */
-  Var createVar();
+  VarInitialisation createVarInitialisation();
+
+  /**
+   * Returns a new object of class '<em>Var Null Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Null Literal</em>'.
+   * @generated
+   */
+  VarNullLiteral createVarNullLiteral();
+
+  /**
+   * Returns a new object of class '<em>Var Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Declaration</em>'.
+   * @generated
+   */
+  VarDeclaration createVarDeclaration();
+
+  /**
+   * Returns a new object of class '<em>Var Declaration Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Declaration Param</em>'.
+   * @generated
+   */
+  VarDeclarationParam createVarDeclarationParam();
 
   /**
    * Returns a new object of class '<em>Method Call</em>'.
@@ -61,6 +88,15 @@ public interface QL2Factory extends EFactory
    * @generated
    */
   MethodCall createMethodCall();
+
+  /**
+   * Returns a new object of class '<em>Static Method Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Static Method Call</em>'.
+   * @generated
+   */
+  StaticMethodCall createStaticMethodCall();
 
   /**
    * Returns the package supported by this factory.

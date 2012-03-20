@@ -349,6 +349,35 @@ public class TestVariableUsageScenarios extends TestBase {
   }
   
   @Test
+  public void testVariableDefinitionIndexer06() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("public class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void testMethod() {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("String s1 = \"\";");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      this.exercise(code, _i);
+      String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
+      String _s_1 = this.s(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_INSTANCE_CREATION);
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_l);
+  }
+  
+  @Test
   public void testVariableUsedAsParameterIndexer() {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("public class MyClass {");

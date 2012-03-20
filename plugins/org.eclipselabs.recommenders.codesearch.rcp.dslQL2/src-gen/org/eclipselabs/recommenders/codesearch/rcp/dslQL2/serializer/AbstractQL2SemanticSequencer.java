@@ -16,7 +16,11 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.services.QL2GrammarAccess;
 
 @SuppressWarnings("restriction")
@@ -60,21 +64,37 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
-			case QL2Package.VAR:
-				if(context == grammarAccess.getStatementRule()) {
-					sequence_Statement(context, (Var) semanticObject); 
+			case QL2Package.STATIC_METHOD_CALL:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getStaticMethodCallRule()) {
+					sequence_StaticMethodCall(context, (StaticMethodCall) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getVarDeclarationParamRule()) {
-					sequence_VarDeclarationParam(context, (Var) semanticObject); 
+				else break;
+			case QL2Package.VAR_DECLARATION:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getVarDeclarationRule()) {
+					sequence_VarDeclaration(context, (VarDeclaration) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getVarDeclarationRule()) {
-					sequence_VarDeclaration(context, (Var) semanticObject); 
+				else break;
+			case QL2Package.VAR_DECLARATION_PARAM:
+				if(context == grammarAccess.getVarDeclarationParamRule()) {
+					sequence_VarDeclarationParam(context, (VarDeclarationParam) semanticObject); 
 					return; 
 				}
-				else if(context == grammarAccess.getVarInitialisationRule()) {
-					sequence_VarInitialisation(context, (Var) semanticObject); 
+				else break;
+			case QL2Package.VAR_INITIALISATION:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getVarInitialisationRule()) {
+					sequence_VarInitialisation(context, (VarInitialisation) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL2Package.VAR_NULL_LITERAL:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getVarNullLiteralRule()) {
+					sequence_VarNullLiteral(context, (VarNullLiteral) semanticObject); 
 					return; 
 				}
 				else break;
@@ -84,20 +104,10 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (name=Name method=Name)
+	 *     (nameCallee=ID method=WildcardName nameCaller=ID?)
 	 */
 	protected void sequence_MethodCall(EObject context, MethodCall semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.METHOD_CALL__METHOD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.METHOD_CALL__METHOD));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMethodCallAccess().getNameNameTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMethodCallAccess().getMethodNameTerminalRuleCall_2_0(), semanticObject.getMethod());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -112,66 +122,95 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((type=Name name=Name) | (type=Name name=Name))
+	 *     (method=StaticMethodName name=ID)
 	 */
-	protected void sequence_Statement(EObject context, Var semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (type=Name name=Name)
-	 */
-	protected void sequence_VarDeclarationParam(EObject context, Var semanticObject) {
+	protected void sequence_StaticMethodCall(EObject context, StaticMethodCall semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__METHOD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__METHOD));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getTypeNameTerminalRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getNameNameTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getStaticMethodCallAccess().getMethodStaticMethodNameParserRuleCall_0_0(), semanticObject.getMethod());
+		feeder.accept(grammarAccess.getStaticMethodCallAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (type=Name name=Name)
+	 *     (type=WildcardName name=ID)
 	 */
-	protected void sequence_VarDeclaration(EObject context, Var semanticObject) {
+	protected void sequence_VarDeclarationParam(EObject context, VarDeclarationParam semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_DECLARATION_PARAM__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_DECLARATION_PARAM__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_DECLARATION_PARAM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_DECLARATION_PARAM__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeNameTerminalRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getVarDeclarationAccess().getNameNameTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (type=Name name=Name)
+	 *     (type=WildcardName name=ID)
 	 */
-	protected void sequence_VarInitialisation(EObject context, Var semanticObject) {
+	protected void sequence_VarDeclaration(EObject context, VarDeclaration semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_DECLARATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_DECLARATION__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_DECLARATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_DECLARATION__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeNameTerminalRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getVarInitialisationAccess().getNameNameTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=WildcardName name=ID)
+	 */
+	protected void sequence_VarInitialisation(EObject context, VarInitialisation semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_INITIALISATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_INITIALISATION__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_INITIALISATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_INITIALISATION__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarInitialisationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=WildcardName name=ID)
+	 */
+	protected void sequence_VarNullLiteral(EObject context, VarNullLiteral semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_NULL_LITERAL__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_NULL_LITERAL__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_NULL_LITERAL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_NULL_LITERAL__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getVarNullLiteralAccess().getTypeWildcardNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarNullLiteralAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 }

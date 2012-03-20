@@ -1,6 +1,7 @@
 package org.eclipselabs.recommenders.test.codesearch;
 
 import java.io.StringReader;
+import java.util.Map;
 
 import junit.framework.Assert;
 
@@ -9,9 +10,13 @@ import org.eclipse.xtext.junit.AbstractXtextTests;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.IQueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterValidator;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
 
 import com.google.inject.Injector;
 
@@ -62,5 +67,33 @@ public abstract class QLTestBase extends AbstractXtextTests {
 
     protected void checkGraphFalse(Node n, String s) {
         assertFalse(ParameterValidator.paramGraphFitsActualParams(n, s.split(";")));
+    }
+
+    protected void testQuery(String query, String[] expected) throws Exception {
+        QL2QueryExtractor qe = new QL2QueryExtractor();
+
+        IParseResult result = parse(query);
+
+        assertFalse(result.hasSyntaxErrors());
+
+        Map<String, VariableUsage> map = new VariableExtractor().getVars(result.getRootASTElement());
+
+        assertEquals(expected.length, map.size());
+
+        for (int i = 0; i < expected.length; i++) {
+
+            EObject o = qe.transform((VariableUsage) map.values().toArray()[i]);
+
+            LuceneQueryExtractor lextr = new LuceneQueryExtractor();
+            lextr.process(o.eAllContents());
+
+            assertQueryEqual(expected[i], serializeLuceneQuery(o));
+        }
+
+    }
+
+    protected Map<String, VariableUsage> parseAndExtractVars(String s) throws Exception {
+        IParseResult r = getParseResultAndExpect(String.format(s), 0);
+        return new VariableExtractor().getVars(r.getRootASTElement());
     }
 }

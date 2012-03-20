@@ -13,14 +13,31 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/vars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/statements"/>
     </genClasses>
-    <genClasses ecoreClass="QL2.ecore#//Statement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Statement/name"/>
+    <genClasses ecoreClass="QL2.ecore#//Statement"/>
+    <genClasses ecoreClass="QL2.ecore#//VarInitialisation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarInitialisation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarInitialisation/name"/>
     </genClasses>
-    <genClasses ecoreClass="QL2.ecore#//Var">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Var/type"/>
+    <genClasses ecoreClass="QL2.ecore#//VarNullLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarNullLiteral/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarNullLiteral/name"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//VarDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclaration/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//VarDeclarationParam">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclarationParam/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclarationParam/name"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//MethodCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodCall/nameCallee"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodCall/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodCall/nameCaller"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//StaticMethodCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//StaticMethodCall/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//StaticMethodCall/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

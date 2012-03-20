@@ -222,6 +222,24 @@ class TestVariableUsageScenarios extends TestBase {
 	}
 	
 	@Test
+	def void testVariableDefinitionIndexer06(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+			String s1 = "";
+			}
+		}
+		'''
+		
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		
+		assertField(l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_INSTANCE_CREATION)
+		)))		
+	}
+	
+	@Test
 	def void testVariableUsedAsParameterIndexer(){
 		val code = '''
 		public class MyClass {

@@ -32,6 +32,7 @@ public class VariableDefinitionIndexer extends AbstractIndexer implements IVarUs
                     addField(document, Fields.DEFINITION_METHOD_INVOCATION);
                     break;
                 case ASTNode.CLASS_INSTANCE_CREATION:
+                case ASTNode.STRING_LITERAL:
                     addField(document, Fields.DEFINITION_INSTANCE_CREATION);
                     break;
                 }

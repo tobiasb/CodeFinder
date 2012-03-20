@@ -1,9 +1,9 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
-import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResultHelper;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
@@ -23,6 +24,8 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQu
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.internal.QL2Activator;
 
 import com.google.common.collect.Lists;
@@ -79,47 +82,39 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
         IParseResult r = handle.getDocument().readOnly(extr);
 
-        EObject e = extr.transform(r);
+        Map<String, VariableUsage> map = new VariableExtractor().getVars(r.getRootASTElement());
 
-        LuceneQueryExtractor lextr = new LuceneQueryExtractor();
-        lextr.process(e.eAllContents());
-        //
-        ISerializer s = luceneInjector.getInstance(ISerializer.class);
-        String searchQuery = s.serialize(e);
+        List<TopDocs> validScoreDocs = Lists.newArrayList();
+        SearchResult result = null;
 
-        System.out.println("Search: " + searchQuery);
+        for (int i = 0; i < map.values().size(); i++) {
 
-        SearchResult result = codeSearcher.lenientSearch(searchQuery);
-        List<ScoreDoc> validScoreDocs = Lists.newArrayList();
+            EObject o = extr.transform((VariableUsage) map.values().toArray()[i]);
 
-        ScoreDoc[] scoreDocs = new ScoreDoc[validScoreDocs.size()];
-        TopDocs d = new TopDocs(validScoreDocs.size(), (ScoreDoc[]) validScoreDocs.toArray(scoreDocs),
-                result.docs.getMaxScore());
+            LuceneQueryExtractor lextr = new LuceneQueryExtractor();
+            lextr.process(o.eAllContents());
 
-        return new SearchResult(result.query, d, result.searcher);
+            ISerializer s = luceneInjector.getInstance(ISerializer.class);
+            String searchQuery = s.serialize(o);
+
+            System.out.println("Search: " + searchQuery);
+            result = codeSearcher.lenientSearch(searchQuery);
+
+            validScoreDocs.add(result.docs);
+        }
+
+        TopDocs l = SearchResultHelper.getIntersection(validScoreDocs, result.searcher);
+
+        return new SearchResult(null, l, result.searcher);
     }
-
-    // private EObject translate(Type type, Expression exp) {
-    //
-    // org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression e
-    // = luceneQueryFactory
-    // .createExpression();
-    // ClauseExpression c = luceneQueryFactory.createClauseExpression();
-    // ModifierField t = luceneQueryFactory.createModifierField();
-    // t.setValue(Fields.TYPE);
-    // c.setField(t);
-    // c.getValues().add(Fields.MODIFIER_FINAL);
-    //
-    // e.setValue(c);
-    //
-    // return e;
-    // }
 
     @Override
     String[] getExampleQueriesInternal() {
 
-        return new String[] { String.format("{%nA varA = *%nB varB = *%n}"),
-                String.format("{%nA varA = *%nB varB = *%nvarA.foo()%nvarB.bar(varA)%n}"),
+        return new String[] { String.format("{%nvar java.lang.String X%nvar java.util.List Y%n}"),
+                String.format("{%nA varA = *%nB varB = *%n}"),
+                String.format("{%nvar java.lang.String varA = *%ncall varA.toString()%n}"),
+                String.format("{%nvar A varA = *%nvar B varB%ncall varA.testMethod()%ncall varB.testMethod2()%n}"),
                 String.format("(X varX)%n{%nA varA = *%nB varB = *%nvarA.foo()%nvarB.bar(varA)%n}") };
     }
 

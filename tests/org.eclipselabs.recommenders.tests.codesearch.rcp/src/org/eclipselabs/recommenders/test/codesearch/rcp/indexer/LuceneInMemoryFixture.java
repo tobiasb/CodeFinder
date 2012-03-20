@@ -54,14 +54,14 @@ public class LuceneInMemoryFixture {
             searcher = new CodeSearcher(lsearcher, lreader, lqueryParser);
             index = new CodeIndexer(lwriter, searcher);
 
-            CodeIndexer.setIndexingFieldInformationProvider(new TestFieldInformationProvider());
+            CodeIndexer.setIndexingFieldInformationProvider(new TestFieldIndexingStrategy());
 
         } catch (final IOException e) {
             throwUnhandledException(e);
         }
     }
 
-    private class TestFieldInformationProvider implements IFieldIndexingStrategy {
+    private class TestFieldIndexingStrategy implements IFieldIndexingStrategy {
         @Override
         public Store getStore(String fieldName) {
             return Store.YES;

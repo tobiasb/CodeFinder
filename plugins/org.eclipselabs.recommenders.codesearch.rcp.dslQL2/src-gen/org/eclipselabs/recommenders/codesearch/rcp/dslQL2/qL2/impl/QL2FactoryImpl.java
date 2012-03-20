@@ -70,8 +70,12 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
     {
       case QL2Package.MODEL: return createModel();
       case QL2Package.STATEMENT: return createStatement();
-      case QL2Package.VAR: return createVar();
+      case QL2Package.VAR_INITIALISATION: return createVarInitialisation();
+      case QL2Package.VAR_NULL_LITERAL: return createVarNullLiteral();
+      case QL2Package.VAR_DECLARATION: return createVarDeclaration();
+      case QL2Package.VAR_DECLARATION_PARAM: return createVarDeclarationParam();
       case QL2Package.METHOD_CALL: return createMethodCall();
+      case QL2Package.STATIC_METHOD_CALL: return createStaticMethodCall();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -104,10 +108,43 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Var createVar()
+  public VarInitialisation createVarInitialisation()
   {
-    VarImpl var = new VarImpl();
-    return var;
+    VarInitialisationImpl varInitialisation = new VarInitialisationImpl();
+    return varInitialisation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarNullLiteral createVarNullLiteral()
+  {
+    VarNullLiteralImpl varNullLiteral = new VarNullLiteralImpl();
+    return varNullLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarDeclaration createVarDeclaration()
+  {
+    VarDeclarationImpl varDeclaration = new VarDeclarationImpl();
+    return varDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarDeclarationParam createVarDeclarationParam()
+  {
+    VarDeclarationParamImpl varDeclarationParam = new VarDeclarationParamImpl();
+    return varDeclarationParam;
   }
 
   /**
@@ -119,6 +156,17 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
   {
     MethodCallImpl methodCall = new MethodCallImpl();
     return methodCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StaticMethodCall createStaticMethodCall()
+  {
+    StaticMethodCallImpl staticMethodCall = new StaticMethodCallImpl();
+    return staticMethodCall;
   }
 
   /**

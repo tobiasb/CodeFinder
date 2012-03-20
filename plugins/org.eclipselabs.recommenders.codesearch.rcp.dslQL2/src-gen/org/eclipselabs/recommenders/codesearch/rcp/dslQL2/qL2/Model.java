@@ -31,7 +31,7 @@ public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Vars</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Var}.
+   * The list contents are of type {@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Vars</em>' containment reference list isn't clear,
@@ -43,7 +43,7 @@ public interface Model extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Var> getVars();
+  EList<VarDeclarationParam> getVars();
 
   /**
    * Returns the value of the '<em><b>Statements</b></em>' containment reference list.
