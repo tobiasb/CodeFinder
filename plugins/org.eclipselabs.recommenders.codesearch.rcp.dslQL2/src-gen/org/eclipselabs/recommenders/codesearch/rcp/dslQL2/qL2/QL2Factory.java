@@ -99,6 +99,15 @@ public interface QL2Factory extends EFactory
   StaticMethodCall createStaticMethodCall();
 
   /**
+   * Returns a new object of class '<em>Method Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Method Name</em>'.
+   * @generated
+   */
+  MethodName createMethodName();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

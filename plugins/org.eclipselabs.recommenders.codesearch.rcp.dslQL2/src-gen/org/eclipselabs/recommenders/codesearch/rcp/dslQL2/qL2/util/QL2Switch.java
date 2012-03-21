@@ -137,6 +137,13 @@ public class QL2Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL2Package.METHOD_NAME:
+      {
+        MethodName methodName = (MethodName)theEObject;
+        T result = caseMethodName(methodName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QL2Package.TYPE:
       {
         Type type = (Type)theEObject;
@@ -279,6 +286,22 @@ public class QL2Switch<T> extends Switch<T>
    * @generated
    */
   public T caseStaticMethodCall(StaticMethodCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Method Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Method Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMethodName(MethodName object)
   {
     return null;
   }

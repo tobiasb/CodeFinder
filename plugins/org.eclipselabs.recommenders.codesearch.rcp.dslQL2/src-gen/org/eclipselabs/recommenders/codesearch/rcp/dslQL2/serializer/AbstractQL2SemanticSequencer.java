@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
@@ -57,6 +58,12 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 				if(context == grammarAccess.getMethodCallRule() ||
 				   context == grammarAccess.getStatementRule()) {
 					sequence_MethodCall(context, (MethodCall) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL2Package.METHOD_NAME:
+				if(context == grammarAccess.getMethodNameRule()) {
+					sequence_MethodName(context, (MethodName) semanticObject); 
 					return; 
 				}
 				else break;
@@ -118,10 +125,26 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (nameCallee=Name method=WildcardName nameCaller=Name?)
+	 *     (nameCallee=Name method=MethodName nameCaller=Name?)
 	 */
 	protected void sequence_MethodCall(EObject context, MethodCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=WildcardName
+	 */
+	protected void sequence_MethodName(EObject context, MethodName semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.METHOD_NAME__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.METHOD_NAME__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	

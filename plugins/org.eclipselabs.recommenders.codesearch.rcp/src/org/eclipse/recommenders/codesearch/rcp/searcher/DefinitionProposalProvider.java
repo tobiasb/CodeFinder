@@ -35,4 +35,7 @@ public class DefinitionProposalProvider implements IQueryProposalProvider {
         return PlatformUI.getWorkbench().getSharedImages().getImage(ISharedImages.IMG_OBJ_FILE);
     }
 
+    @Override
+    public void setArgument(int index, Object o) {
+    }
 }

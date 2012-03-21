@@ -1,6 +1,7 @@
 package org.eclipse.recommenders.codesearch.rcp.searcher;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.IQueryPartConverter;
@@ -11,11 +12,14 @@ import org.eclipse.recommenders.internal.codesearch.rcp.Activator;
 import org.eclipse.swt.graphics.Image;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.IQueryProposalProvider;
 
+import com.google.common.collect.Maps;
+
 public class GenericQueryProposalProvider implements IQueryProposalProvider {
 
     private final ITermVectorProvider termVectorProvider;
     private final IQueryPartConverter queryPartConverter;
     private final IImageProvider imageProvider;
+    private final Map<Integer, Object> argumentsMap = Maps.newHashMap();
 
     public GenericQueryProposalProvider(final ITermVectorProvider termVectorProvider,
             final IQueryPartConverter queryPartConverter) {
@@ -37,7 +41,7 @@ public class GenericQueryProposalProvider implements IQueryProposalProvider {
         final CodeSearcher searcherIndex = InjectionService.getInstance().requestInstance(CodeSearcher.class);
 
         final Long start = System.currentTimeMillis();
-        termVectorProvider.load(searcherIndex);
+        termVectorProvider.load(searcherIndex, argumentsMap);
         List<String> disjunctTermVector = termVectorProvider.getDisjunctTermVector();
         final Long duration = System.currentTimeMillis() - start;
 
@@ -61,5 +65,14 @@ public class GenericQueryProposalProvider implements IQueryProposalProvider {
             return imageProvider.getImage();
 
         return null;
+    }
+
+    protected Object getArgument(int index) {
+        return this.argumentsMap.get(index);
+    }
+
+    @Override
+    public void setArgument(int index, Object o) {
+        this.argumentsMap.put(index, o);
     }
 }

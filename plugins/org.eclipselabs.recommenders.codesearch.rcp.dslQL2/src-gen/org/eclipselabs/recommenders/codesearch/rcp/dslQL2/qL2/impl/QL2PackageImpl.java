@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Factory;
@@ -89,6 +90,13 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * @generated
    */
   private EClass staticMethodCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass methodNameEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -352,9 +360,9 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMethodCall_Method()
+  public EReference getMethodCall_Method()
   {
-    return (EAttribute)methodCallEClass.getEStructuralFeatures().get(1);
+    return (EReference)methodCallEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -395,6 +403,26 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
   public EReference getStaticMethodCall_Name()
   {
     return (EReference)staticMethodCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMethodName()
+  {
+    return methodNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMethodName_Value()
+  {
+    return (EAttribute)methodNameEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -491,12 +519,15 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
 
     methodCallEClass = createEClass(METHOD_CALL);
     createEReference(methodCallEClass, METHOD_CALL__NAME_CALLEE);
-    createEAttribute(methodCallEClass, METHOD_CALL__METHOD);
+    createEReference(methodCallEClass, METHOD_CALL__METHOD);
     createEReference(methodCallEClass, METHOD_CALL__NAME_CALLER);
 
     staticMethodCallEClass = createEClass(STATIC_METHOD_CALL);
     createEAttribute(staticMethodCallEClass, STATIC_METHOD_CALL__METHOD);
     createEReference(staticMethodCallEClass, STATIC_METHOD_CALL__NAME);
+
+    methodNameEClass = createEClass(METHOD_NAME);
+    createEAttribute(methodNameEClass, METHOD_NAME__VALUE);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__VALUE);
@@ -565,12 +596,15 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
 
     initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodCall_NameCallee(), this.getName_(), null, "nameCallee", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMethodCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMethodCall_Method(), this.getMethodName(), null, "method", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMethodCall_NameCaller(), this.getName_(), null, "nameCaller", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(staticMethodCallEClass, StaticMethodCall.class, "StaticMethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStaticMethodCall_Method(), ecorePackage.getEString(), "method", null, 0, 1, StaticMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStaticMethodCall_Name(), this.getName_(), null, "name", null, 0, 1, StaticMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(methodNameEClass, MethodName.class, "MethodName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMethodName_Value(), ecorePackage.getEString(), "value", null, 0, 1, MethodName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Value(), ecorePackage.getEString(), "value", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -12,7 +12,15 @@ public class ProposalProviderHelper {
             ICompletionProposalAcceptor acceptor, ICompletionProposalFactory proposalFactory,
             HashMap<QueryProposalType, IQueryProposalProvider> providerMap) {
 
+        fillProposals(proposalType, context, acceptor, proposalFactory, providerMap, null);
+    }
+
+    public static void fillProposals(QueryProposalType proposalType, ContentAssistContext context,
+            ICompletionProposalAcceptor acceptor, ICompletionProposalFactory proposalFactory,
+            HashMap<QueryProposalType, IQueryProposalProvider> providerMap, Object arg1) {
+
         IQueryProposalProvider p = providerMap.get(proposalType);
+        p.setArgument(0, arg1);
 
         if (p != null) {
             for (String type : p.getProposals()) {

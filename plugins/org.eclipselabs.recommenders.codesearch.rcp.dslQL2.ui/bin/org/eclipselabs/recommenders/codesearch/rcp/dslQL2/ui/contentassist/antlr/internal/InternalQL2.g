@@ -281,6 +281,34 @@ finally {
 
 
 
+// Entry rule entryRuleMethodName
+entryRuleMethodName 
+:
+{ before(grammarAccess.getMethodNameRule()); }
+	 ruleMethodName
+{ after(grammarAccess.getMethodNameRule()); } 
+	 EOF 
+;
+
+// Rule MethodName
+ruleMethodName
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getMethodNameAccess().getValueAssignment()); }
+(rule__MethodName__ValueAssignment)
+{ after(grammarAccess.getMethodNameAccess().getValueAssignment()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleType
 entryRuleType 
 :
@@ -2065,8 +2093,8 @@ rule__MethodCall__MethodAssignment_2
     }
 :
 (
-{ before(grammarAccess.getMethodCallAccess().getMethodWildcardNameParserRuleCall_2_0()); }
-	ruleWildcardName{ after(grammarAccess.getMethodCallAccess().getMethodWildcardNameParserRuleCall_2_0()); }
+{ before(grammarAccess.getMethodCallAccess().getMethodMethodNameParserRuleCall_2_0()); }
+	ruleMethodName{ after(grammarAccess.getMethodCallAccess().getMethodMethodNameParserRuleCall_2_0()); }
 )
 
 ;
@@ -2112,6 +2140,21 @@ rule__StaticMethodCall__NameAssignment_2
 (
 { before(grammarAccess.getStaticMethodCallAccess().getNameNameParserRuleCall_2_0()); }
 	ruleName{ after(grammarAccess.getStaticMethodCallAccess().getNameNameParserRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MethodName__ValueAssignment
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0()); }
+	ruleWildcardName{ after(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0()); }
 )
 
 ;

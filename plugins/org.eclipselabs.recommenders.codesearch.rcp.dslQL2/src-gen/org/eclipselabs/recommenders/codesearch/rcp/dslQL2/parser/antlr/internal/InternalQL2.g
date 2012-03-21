@@ -553,9 +553,9 @@ ruleMethodCall returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMethodCallAccess().getMethodWildcardNameParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getMethodCallAccess().getMethodMethodNameParserRuleCall_2_0()); 
 	    }
-		lv_method_2_0=ruleWildcardName		{
+		lv_method_2_0=ruleMethodName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMethodCallRule());
 	        }
@@ -563,7 +563,7 @@ ruleMethodCall returns [EObject current=null]
        			$current, 
        			"method",
         		lv_method_2_0, 
-        		"WildcardName");
+        		"MethodName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -659,6 +659,45 @@ ruleStaticMethodCall returns [EObject current=null]
     {
     	newLeafNode(otherlv_3, grammarAccess.getStaticMethodCallAccess().getRightParenthesisKeyword_3());
     }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleMethodName
+entryRuleMethodName returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getMethodNameRule()); }
+	 iv_ruleMethodName=ruleMethodName 
+	 { $current=$iv_ruleMethodName.current; } 
+	 EOF 
+;
+
+// Rule MethodName
+ruleMethodName returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0()); 
+	    }
+		lv_value_0_0=ruleWildcardName		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMethodNameRule());
+	        }
+       		set(
+       			$current, 
+       			"value",
+        		lv_value_0_0, 
+        		"WildcardName");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
 )
 ;
 

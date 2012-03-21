@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 
@@ -46,24 +47,14 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   protected Name nameCallee;
 
   /**
-   * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
+   * The cached value of the '{@link #getMethod() <em>Method</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getMethod()
    * @generated
    * @ordered
    */
-  protected static final String METHOD_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMethod()
-   * @generated
-   * @ordered
-   */
-  protected String method = METHOD_EDEFAULT;
+  protected MethodName method;
 
   /**
    * The cached value of the '{@link #getNameCaller() <em>Name Caller</em>}' containment reference.
@@ -149,7 +140,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getMethod()
+  public MethodName getMethod()
   {
     return method;
   }
@@ -159,12 +150,37 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(String newMethod)
+  public NotificationChain basicSetMethod(MethodName newMethod, NotificationChain msgs)
   {
-    String oldMethod = method;
+    MethodName oldMethod = method;
     method = newMethod;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__METHOD, oldMethod, method));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__METHOD, oldMethod, newMethod);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMethod(MethodName newMethod)
+  {
+    if (newMethod != method)
+    {
+      NotificationChain msgs = null;
+      if (method != null)
+        msgs = ((InternalEObject)method).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL2Package.METHOD_CALL__METHOD, null, msgs);
+      if (newMethod != null)
+        msgs = ((InternalEObject)newMethod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL2Package.METHOD_CALL__METHOD, null, msgs);
+      msgs = basicSetMethod(newMethod, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__METHOD, newMethod, newMethod));
   }
 
   /**
@@ -227,6 +243,8 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     {
       case QL2Package.METHOD_CALL__NAME_CALLEE:
         return basicSetNameCallee(null, msgs);
+      case QL2Package.METHOD_CALL__METHOD:
+        return basicSetMethod(null, msgs);
       case QL2Package.METHOD_CALL__NAME_CALLER:
         return basicSetNameCaller(null, msgs);
     }
@@ -267,7 +285,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
         setNameCallee((Name)newValue);
         return;
       case QL2Package.METHOD_CALL__METHOD:
-        setMethod((String)newValue);
+        setMethod((MethodName)newValue);
         return;
       case QL2Package.METHOD_CALL__NAME_CALLER:
         setNameCaller((Name)newValue);
@@ -290,7 +308,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
         setNameCallee((Name)null);
         return;
       case QL2Package.METHOD_CALL__METHOD:
-        setMethod(METHOD_EDEFAULT);
+        setMethod((MethodName)null);
         return;
       case QL2Package.METHOD_CALL__NAME_CALLER:
         setNameCaller((Name)null);
@@ -312,28 +330,11 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
       case QL2Package.METHOD_CALL__NAME_CALLEE:
         return nameCallee != null;
       case QL2Package.METHOD_CALL__METHOD:
-        return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
+        return method != null;
       case QL2Package.METHOD_CALL__NAME_CALLER:
         return nameCaller != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (method: ");
-    result.append(method);
-    result.append(')');
-    return result.toString();
   }
 
 } //MethodCallImpl

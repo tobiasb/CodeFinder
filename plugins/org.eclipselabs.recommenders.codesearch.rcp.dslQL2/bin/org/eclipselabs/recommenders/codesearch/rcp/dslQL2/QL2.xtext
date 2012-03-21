@@ -40,11 +40,15 @@ VarDeclarationParam:
 ;
 	
 MethodCall:
-	nameCallee=Name '.' method=WildcardName '(' (nameCaller=Name)?  ')'
+	nameCallee=Name '.' method=MethodName '(' (nameCaller=Name)?  ')'
 ;
 	
 StaticMethodCall:
 	method=WildcardNameConcatenated '(' name=Name ')'
+;
+
+MethodName: 
+	value=WildcardName
 ;
 
 Type:

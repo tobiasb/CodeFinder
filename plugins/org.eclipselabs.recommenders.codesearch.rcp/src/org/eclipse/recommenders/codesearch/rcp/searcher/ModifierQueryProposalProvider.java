@@ -36,4 +36,7 @@ public class ModifierQueryProposalProvider implements IQueryProposalProvider {
                 .getImage(org.eclipse.ui.ide.IDE.SharedImages.IMG_OBJS_BKMRK_TSK);
     }
 
+    @Override
+    public void setArgument(int index, Object o) {
+    }
 }

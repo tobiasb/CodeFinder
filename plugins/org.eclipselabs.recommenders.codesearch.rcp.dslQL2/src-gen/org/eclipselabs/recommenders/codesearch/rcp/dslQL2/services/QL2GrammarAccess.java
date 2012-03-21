@@ -290,17 +290,17 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameCalleeNameParserRuleCall_0_0 = (RuleCall)cNameCalleeAssignment_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cMethodAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMethodWildcardNameParserRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
+		private final RuleCall cMethodMethodNameParserRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNameCallerAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cNameCallerNameParserRuleCall_4_0 = (RuleCall)cNameCallerAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//MethodCall:
-		//	nameCallee=Name "." method=WildcardName "(" nameCaller=Name? ")";
+		//	nameCallee=Name "." method=MethodName "(" nameCaller=Name? ")";
 		public ParserRule getRule() { return rule; }
 
-		//nameCallee=Name "." method=WildcardName "(" nameCaller=Name? ")"
+		//nameCallee=Name "." method=MethodName "(" nameCaller=Name? ")"
 		public Group getGroup() { return cGroup; }
 
 		//nameCallee=Name
@@ -312,11 +312,11 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		//"."
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 
-		//method=WildcardName
+		//method=MethodName
 		public Assignment getMethodAssignment_2() { return cMethodAssignment_2; }
 
-		//WildcardName
-		public RuleCall getMethodWildcardNameParserRuleCall_2_0() { return cMethodWildcardNameParserRuleCall_2_0; }
+		//MethodName
+		public RuleCall getMethodMethodNameParserRuleCall_2_0() { return cMethodMethodNameParserRuleCall_2_0; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
@@ -365,6 +365,22 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
+
+	public class MethodNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodName");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueWildcardNameParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//MethodName:
+		//	value=WildcardName;
+		public ParserRule getRule() { return rule; }
+
+		//value=WildcardName
+		public Assignment getValueAssignment() { return cValueAssignment; }
+
+		//WildcardName
+		public RuleCall getValueWildcardNameParserRuleCall_0() { return cValueWildcardNameParserRuleCall_0; }
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
@@ -460,6 +476,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	private VarDeclarationParamElements pVarDeclarationParam;
 	private MethodCallElements pMethodCall;
 	private StaticMethodCallElements pStaticMethodCall;
+	private MethodNameElements pMethodName;
 	private TypeElements pType;
 	private NameElements pName;
 	private WildcardNameConcatenatedElements pWildcardNameConcatenated;
@@ -553,7 +570,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodCall:
-	//	nameCallee=Name "." method=WildcardName "(" nameCaller=Name? ")";
+	//	nameCallee=Name "." method=MethodName "(" nameCaller=Name? ")";
 	public MethodCallElements getMethodCallAccess() {
 		return (pMethodCall != null) ? pMethodCall : (pMethodCall = new MethodCallElements());
 	}
@@ -570,6 +587,16 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getStaticMethodCallRule() {
 		return getStaticMethodCallAccess().getRule();
+	}
+
+	//MethodName:
+	//	value=WildcardName;
+	public MethodNameElements getMethodNameAccess() {
+		return (pMethodName != null) ? pMethodName : (pMethodName = new MethodNameElements());
+	}
+	
+	public ParserRule getMethodNameRule() {
+		return getMethodNameAccess().getRule();
 	}
 
 	//Type:

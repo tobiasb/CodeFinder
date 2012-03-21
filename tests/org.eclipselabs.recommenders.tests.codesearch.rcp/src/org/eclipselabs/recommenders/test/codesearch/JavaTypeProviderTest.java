@@ -1,6 +1,7 @@
 package org.eclipselabs.recommenders.test.codesearch;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -20,7 +21,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
         final ITermVectorProvider sut = new JavaTypeProvider();
 
         final CodeSearcher index = getSearchIndexer();
-        sut.load(index);
+        sut.load(index, new HashMap<Integer, Object>());
 
         final List<String> result = sut.getDisjunctTermVector();
 
@@ -35,7 +36,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
         final ITermVectorProvider sut = new JavaTypeProvider();
 
         final CodeSearcher index = getSearchIndexer();
-        sut.load(index);
+        sut.load(index, new HashMap<Integer, Object>());
 
         final List<String> result = sut.getDisjunctTermVector();
 
@@ -50,7 +51,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
         final ITermVectorProvider sut = new JavaTypeProvider();
 
         final CodeSearcher index = getSearchIndexer();
-        sut.load(index);
+        sut.load(index, new HashMap<Integer, Object>());
 
         final List<String> result = sut.getDisjunctTermVector();
 
@@ -65,7 +66,7 @@ public class JavaTypeProviderTest extends AbstractTestIndex {
         final ITermVectorProvider sut = new JavaTypeProvider();
 
         final CodeSearcher index = getSearchIndexer();
-        sut.load(index);
+        sut.load(index, new HashMap<Integer, Object>());
 
         final List<String> result = sut.getDisjunctTermVector();
 

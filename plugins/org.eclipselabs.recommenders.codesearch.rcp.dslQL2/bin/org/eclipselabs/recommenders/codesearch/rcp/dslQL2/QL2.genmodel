@@ -32,12 +32,15 @@
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//MethodCall">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//MethodCall/nameCallee"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodCall/method"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//MethodCall/method"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//MethodCall/nameCaller"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//StaticMethodCall">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//StaticMethodCall/method"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//StaticMethodCall/name"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//MethodName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodName/value"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Type/value"/>

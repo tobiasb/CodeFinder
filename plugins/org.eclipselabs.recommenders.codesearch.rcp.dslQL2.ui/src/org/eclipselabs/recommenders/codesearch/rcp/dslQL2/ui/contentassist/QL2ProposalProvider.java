@@ -4,17 +4,23 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalFactory;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.EmfHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.IQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.ProposalProviderHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 
 import com.google.common.collect.Maps;
 
@@ -45,14 +51,61 @@ public class QL2ProposalProvider extends AbstractQL2ProposalProvider {
     }
 
     @Override
-    public void complete_Type(EObject model, RuleCall ruleCall, ContentAssistContext context,
+    public void complete_MethodName(EObject model, RuleCall ruleCall, ContentAssistContext context,
             ICompletionProposalAcceptor acceptor) {
-        fillProposals(QueryProposalType.TYPE, context, acceptor);
+
+        EObject root = EmfHelper.getRoot(model);
+        VariableExtractor e = new VariableExtractor();
+        Map<String, VariableUsage> vars = e.getVars(root);
+
+        Object variableType = null;
+
+        String nameCallee = ((MethodCall) model).getNameCallee().getValue();
+
+        if (vars.containsKey(nameCallee)) {
+            VariableUsage calleeVar = vars.get(nameCallee);
+
+            DotNotationTypeConverter conv = new DotNotationTypeConverter();
+            variableType = conv.convertFrom(calleeVar.type);
+
+        }
+
+        fillMethodNameProposals(context, acceptor, this, provider, variableType);
     }
 
-    private void fillProposals(QueryProposalType proposalType, ContentAssistContext context,
+    @Override
+    public void complete_Type(EObject model, RuleCall ruleCall, ContentAssistContext context,
             ICompletionProposalAcceptor acceptor) {
 
-        ProposalProviderHelper.fillProposals(proposalType, context, acceptor, this, provider);
+        ProposalProviderHelper.fillProposals(QueryProposalType.TYPE, context, acceptor, this, provider);
+    }
+
+    private static void fillMethodNameProposals(ContentAssistContext context, ICompletionProposalAcceptor acceptor,
+            ICompletionProposalFactory proposalFactory, HashMap<QueryProposalType, IQueryProposalProvider> providerMap,
+            Object arg1) {
+
+        IQueryProposalProvider p = providerMap.get(QueryProposalType.METHOD);
+        p.setArgument(0, arg1);
+
+        if (p != null) {
+            for (String type : p.getProposals()) {
+                if (type == null)
+                    continue;
+
+                String proposal = p.convert(type);
+
+                String methodName = getRawMethodNameWithBrackets(proposal);
+
+                acceptor.accept(proposalFactory.createCompletionProposal(methodName, new StyledString(methodName),
+                        p.getImage(), context));
+            }
+        }
+    }
+
+    public static String getRawMethodNameWithBrackets(String qualifiedMethodName) {
+        String methodWoReturnType = qualifiedMethodName.substring(0, qualifiedMethodName.lastIndexOf(")") + 1);
+
+        return methodWoReturnType.substring(methodWoReturnType.lastIndexOf(".") + 1,
+                methodWoReturnType.lastIndexOf(")") + 1);
     }
 }

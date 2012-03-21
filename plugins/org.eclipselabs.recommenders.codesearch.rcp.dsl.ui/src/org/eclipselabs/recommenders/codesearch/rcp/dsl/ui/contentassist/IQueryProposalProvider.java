@@ -10,4 +10,6 @@ public interface IQueryProposalProvider {
     public String convert(String source);
 
     public Image getImage();
+
+    public void setArgument(int index, Object o);
 }

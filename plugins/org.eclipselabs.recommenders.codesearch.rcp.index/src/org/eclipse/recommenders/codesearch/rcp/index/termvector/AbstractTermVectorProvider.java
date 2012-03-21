@@ -1,6 +1,7 @@
 package org.eclipse.recommenders.codesearch.rcp.index.termvector;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.google.common.collect.Lists;
@@ -34,7 +35,7 @@ public abstract class AbstractTermVectorProvider implements ITermVectorProvider 
     protected abstract String[] getFields();
 
     @Override
-    public void load(final ITermVectorConsumable consumable) {
+    public void load(final ITermVectorConsumable consumable, final Map<Integer, Object> argumentsMap) {
         final Set<String> result = Sets.newHashSet();
 
         final Set<String> types = consumable.getTermVector(getFields());

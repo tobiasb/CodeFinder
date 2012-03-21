@@ -54,30 +54,30 @@ public interface MethodCall extends Statement
   void setNameCallee(Name value);
 
   /**
-   * Returns the value of the '<em><b>Method</b></em>' attribute.
+   * Returns the value of the '<em><b>Method</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Method</em>' attribute isn't clear,
+   * If the meaning of the '<em>Method</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method</em>' attribute.
-   * @see #setMethod(String)
+   * @return the value of the '<em>Method</em>' containment reference.
+   * @see #setMethod(MethodName)
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getMethodCall_Method()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getMethod();
+  MethodName getMethod();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getMethod <em>Method</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getMethod <em>Method</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Method</em>' attribute.
+   * @param value the new value of the '<em>Method</em>' containment reference.
    * @see #getMethod()
    * @generated
    */
-  void setMethod(String value);
+  void setMethod(MethodName value);
 
   /**
    * Returns the value of the '<em><b>Name Caller</b></em>' containment reference.

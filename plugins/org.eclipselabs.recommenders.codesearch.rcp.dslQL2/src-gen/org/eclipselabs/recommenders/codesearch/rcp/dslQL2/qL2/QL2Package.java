@@ -284,7 +284,7 @@ public interface QL2Package extends EPackage
   int METHOD_CALL__NAME_CALLEE = STATEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Method</b></em>' attribute.
+   * The feature id for the '<em><b>Method</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -348,6 +348,34 @@ public interface QL2Package extends EPackage
   int STATIC_METHOD_CALL_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl <em>Method Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getMethodName()
+   * @generated
+   */
+  int METHOD_NAME = 8;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_NAME__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Method Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int METHOD_NAME_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.TypeImpl <em>Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -355,7 +383,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getType()
    * @generated
    */
-  int TYPE = 8;
+  int TYPE = 9;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -383,7 +411,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getName_()
    * @generated
    */
-  int NAME = 9;
+  int NAME = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -596,15 +624,15 @@ public interface QL2Package extends EPackage
   EReference getMethodCall_NameCallee();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getMethod <em>Method</em>}'.
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Method</em>'.
+   * @return the meta object for the containment reference '<em>Method</em>'.
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getMethod()
    * @see #getMethodCall()
    * @generated
    */
-  EAttribute getMethodCall_Method();
+  EReference getMethodCall_Method();
 
   /**
    * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getNameCaller <em>Name Caller</em>}'.
@@ -648,6 +676,27 @@ public interface QL2Package extends EPackage
    * @generated
    */
   EReference getStaticMethodCall_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName <em>Method Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Method Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName
+   * @generated
+   */
+  EClass getMethodName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName#getValue()
+   * @see #getMethodName()
+   * @generated
+   */
+  EAttribute getMethodName_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type <em>Type</em>}'.
@@ -873,12 +922,12 @@ public interface QL2Package extends EPackage
     EReference METHOD_CALL__NAME_CALLEE = eINSTANCE.getMethodCall_NameCallee();
 
     /**
-     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Method</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METHOD_CALL__METHOD = eINSTANCE.getMethodCall_Method();
+    EReference METHOD_CALL__METHOD = eINSTANCE.getMethodCall_Method();
 
     /**
      * The meta object literal for the '<em><b>Name Caller</b></em>' containment reference feature.
@@ -913,6 +962,24 @@ public interface QL2Package extends EPackage
      * @generated
      */
     EReference STATIC_METHOD_CALL__NAME = eINSTANCE.getStaticMethodCall_Name();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl <em>Method Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getMethodName()
+     * @generated
+     */
+    EClass METHOD_NAME = eINSTANCE.getMethodName();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute METHOD_NAME__VALUE = eINSTANCE.getMethodName_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.TypeImpl <em>Type</em>}' class.

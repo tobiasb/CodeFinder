@@ -37,14 +37,15 @@ public class VariableExtractor {
                     VariableUsage vCallee = result.get(m.getNameCallee().getValue());
 
                     if (vCallee != null) {
-                        vCallee.calledMethodsOnVariable.add(m.getMethod());
+                        vCallee.calledMethodsOnVariable.add(m.getMethod().getValue());
                     }
 
                     if (m.getNameCaller() != null) {
                         VariableUsage vCaller = result.get(m.getNameCaller().getValue());
 
                         if (vCaller != null) {
-                            VariableParameterUsage parameterUsage = new VariableParameterUsage(vCallee, m.getMethod());
+                            VariableParameterUsage parameterUsage = new VariableParameterUsage(vCallee, m.getMethod()
+                                    .getValue());
 
                             vCaller.parameterUsages.add(parameterUsage);
                         }
