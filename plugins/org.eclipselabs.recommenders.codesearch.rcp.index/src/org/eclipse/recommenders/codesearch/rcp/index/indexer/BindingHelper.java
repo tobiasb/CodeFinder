@@ -18,7 +18,6 @@ import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
 import com.google.common.base.Optional;
 
-//TODO XXX danger seeker: these methods all may return null!
 public final class BindingHelper {
 
     public static Optional<String> getIdentifier(final MethodDeclaration node) {
@@ -85,9 +84,4 @@ public final class BindingHelper {
         }
         return of(opt.get().getIdentifier());
     }
-
-    // public static String getIdentifier(final IName name) {
-    // return name != null ? name.getIdentifier() : null;
-    // }
-
 }

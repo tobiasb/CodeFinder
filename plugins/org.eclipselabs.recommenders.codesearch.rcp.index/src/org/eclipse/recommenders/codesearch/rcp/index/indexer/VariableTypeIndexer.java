@@ -19,5 +19,4 @@ public class VariableTypeIndexer extends AbstractIndexer implements IVarUsageInd
             addFieldToDocument(document, Fields.VARIABLE_TYPE, (opt.get()));
         }
     }
-
 }

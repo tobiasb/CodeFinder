@@ -793,7 +793,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
+			s(Fields::DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
 	
@@ -810,7 +810,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
+			s(Fields::DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
 	
@@ -829,7 +829,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
+			s(Fields::DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
 	
@@ -849,7 +849,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "map")
+			s(Fields::DECLARED_FIELD_NAMES, "map")
 		)))	
 	}
 	
@@ -913,6 +913,7 @@ class TestGeneralScenarios extends TestBase {
 	def void testAllFieldNamesIndexerClass(){
 		val code = '''
 		import java.util.Map;
+		import java.io.IOException;
 		public class MyOtherException extends IOException {
 			private Map theMapyMap;
 		}
@@ -924,92 +925,77 @@ class TestGeneralScenarios extends TestBase {
 			s(Fields::TYPE, Fields::TYPE_CLASS),
 			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
 		)))
-	}
-	
-	@Test
-	def void testAllFieldNamesIndexerMethod(){
-		val code = '''
-		import java.util.Map;
-		public class MyOtherException extends IOException {
-			private Map theMapyMap;
-			void doThisAndThat() {
-			}
-		}
-		'''
-		
-		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
-		
 		assertField( l(newArrayList(
-			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
+			s(Fields::TYPE, Fields::TYPE_CLASS),
+			s(Fields::ALL_DECLARED_FIELD_NAMES, "serialVersionUID")
 		)))
 	}
 	
-	@Test
-	def void testAllFieldNamesIndexerMethod02(){
-		val code = '''
-		import java.util.Map;
-		public class MyOtherException extends IOException {
-			private Map theMapyMap;
-			void doThisAndThat() {
-				private Map someOtherMap;
-			}
-		}
-		'''
-		
-		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
-		
-		assertField( l(newArrayList(
-			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
-		)))
-	}
-	
-	@Test
-	def void testAllFieldNamesIndexerTryCatch(){
-		val code = '''
-		import java.util.Map;
-		public class MyOtherException extends IOException {
-			private Map theMapyMap;
-			void doThisAndThat() {
-				try {}
-				catch(Exception ex) {}
-			}
-		}
-		'''
-		
-		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
-		
-		assertField( l(newArrayList(
-			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
-		)))
-	}
-	
-	@Test
-	def void testAllFieldNamesIndexerTryCatch02(){
-		val code = '''
-		import java.util.Map;
-		public class MyOtherException extends IOException {
-			private Map theMapyMap;
-			void doThisAndThat() {
-				try {}
-				catch(Exception ex) {
-					private Map someOtherMap;
-				}
-			}
-		}
-		'''
-		
-		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
-		
-		assertField( l(newArrayList(
-			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap"),
-			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
-		)))
-	}
+//	@Test
+//	def void testAllFieldNamesIndexerMethod(){
+//		val code = '''
+//		import java.util.Map;
+//		public class MyOtherException extends IOException {
+//			void doThisAndThat() {
+//				Map theMapyMap;
+//			}
+//		}
+//		'''
+//		
+//		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
+//		
+//		assertField( l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_METHOD),
+//			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
+//		)))
+//	}
+//	
+//	@Test
+//	def void testAllFieldNamesIndexerMethod02(){
+//		val code = '''
+//		import java.util.Map;
+//		public class MyOtherException extends IOException {
+//			private Map theMapyMap;
+//			void doThisAndThat() {
+//				Map someOtherMap;
+//			}
+//		}
+//		'''
+//		
+//		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
+//		
+//		assertField( l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_METHOD),
+//			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
+//		)))
+//		assertNotField( l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_METHOD),
+//			s(Fields::ALL_DECLARED_FIELD_NAMES, "theMapyMap")
+//		)))
+//	}
+//	
+//	@Test
+//	def void testAllFieldNamesIndexerTryCatch(){
+//		val code = '''
+//		import java.util.Map;
+//		public class MyOtherException extends IOException {
+//			private Map theMapyMap;
+//			void doThisAndThat() {
+//				try {}
+//				catch(Exception ex) {
+//					Map someOtherMap;
+//				}
+//			}
+//		}
+//		'''
+//		
+//		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new AllDeclaredFieldNamesIndexer())))
+//		
+//		assertField( l(newArrayList(
+//			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
+//			s(Fields::ALL_DECLARED_FIELD_NAMES, "someOtherMap")
+//		)))
+//	}
 	
 	@Test
 	def void testAllFieldNamesIndexerClass02(){

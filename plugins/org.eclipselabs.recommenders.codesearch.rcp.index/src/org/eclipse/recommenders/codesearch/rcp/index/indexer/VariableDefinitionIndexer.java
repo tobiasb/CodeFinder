@@ -12,7 +12,7 @@ public class VariableDefinitionIndexer extends AbstractIndexer implements IVarUs
 
     @Override
     public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
-        // wow - this method is ugly
+
         switch (name.getParent().getNodeType()) {
         case ASTNode.SINGLE_VARIABLE_DECLARATION:
             addField(document, Fields.DEFINITION_PARAMETER);

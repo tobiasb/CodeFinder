@@ -20,9 +20,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer {
 
-    // XXX Deine Indexer speichern komplette Expressions als Terme ab. Zum Beispiel der DeclaredFieldNameIndexer
-    // speichert "Map map = new HashMap()" ab, sollte aber wohl nur "map" abspeichern. Der RETURN_VARIABLE_EXPRESSIONS
-    // indexer speichert das gesamte Literal im Index ab. Das sind zigtausende einzigartige Strings.
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
         final ASTVisitor visitor = new ASTVisitor() {
@@ -66,14 +63,14 @@ public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClass
     protected void addVariableNames(final Document document, final VariableDeclarationStatement node) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) node.fragments()) {
             final SimpleName name = f.getName();
-            addFieldToDocument(document, Fields.ALL_DECLARED_FIELD_NAMES, name.getIdentifier());
+            addFieldToDocument(document, Fields.DECLARED_FIELD_NAMES, name.getIdentifier());
         }
     }
 
     protected void addVariableNames(final Document document, final FieldDeclaration node) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) node.fragments()) {
             final SimpleName name = f.getName();
-            addFieldToDocument(document, Fields.ALL_DECLARED_FIELD_NAMES, name.getIdentifier());
+            addFieldToDocument(document, Fields.DECLARED_FIELD_NAMES, name.getIdentifier());
         }
     }
 }

@@ -1236,7 +1236,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1261,7 +1261,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1292,7 +1292,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1326,7 +1326,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "map");
+      String _s_1 = this.s(Fields.DECLARED_FIELD_NAMES, "map");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1427,6 +1427,8 @@ public class TestGeneralScenarios extends TestBase {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("import java.util.Map;");
       _builder.newLine();
+      _builder.append("import java.io.IOException;");
+      _builder.newLine();
       _builder.append("public class MyOtherException extends IOException {");
       _builder.newLine();
       _builder.append("\t");
@@ -1445,153 +1447,11 @@ public class TestGeneralScenarios extends TestBase {
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
-  }
-  
-  @Test
-  public void testAllFieldNamesIndexerMethod() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("import java.util.Map;");
-      _builder.newLine();
-      _builder.append("public class MyOtherException extends IOException {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("private Map theMapyMap;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("void doThisAndThat() {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      AllDeclaredFieldNamesIndexer _allDeclaredFieldNamesIndexer = new AllDeclaredFieldNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      this.exercise(code, _i);
-      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "theMapyMap");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(_l);
-  }
-  
-  @Test
-  public void testAllFieldNamesIndexerMethod02() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("import java.util.Map;");
-      _builder.newLine();
-      _builder.append("public class MyOtherException extends IOException {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("private Map theMapyMap;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("void doThisAndThat() {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("private Map someOtherMap;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      AllDeclaredFieldNamesIndexer _allDeclaredFieldNamesIndexer = new AllDeclaredFieldNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      this.exercise(code, _i);
-      String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "theMapyMap");
-      String _s_2 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "someOtherMap");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(_l);
-  }
-  
-  @Test
-  public void testAllFieldNamesIndexerTryCatch() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("import java.util.Map;");
-      _builder.newLine();
-      _builder.append("public class MyOtherException extends IOException {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("private Map theMapyMap;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("void doThisAndThat() {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("try {}");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("catch(Exception ex) {}");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      AllDeclaredFieldNamesIndexer _allDeclaredFieldNamesIndexer = new AllDeclaredFieldNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      this.exercise(code, _i);
-      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "theMapyMap");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(_l);
-  }
-  
-  @Test
-  public void testAllFieldNamesIndexerTryCatch02() {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("import java.util.Map;");
-      _builder.newLine();
-      _builder.append("public class MyOtherException extends IOException {");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("private Map theMapyMap;");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("void doThisAndThat() {");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("try {}");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("catch(Exception ex) {");
-      _builder.newLine();
-      _builder.append("\t\t\t");
-      _builder.append("private Map someOtherMap;");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("\t");
-      _builder.append("}");
-      _builder.newLine();
-      _builder.append("}");
-      _builder.newLine();
-      final CharSequence code = _builder;
-      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      AllDeclaredFieldNamesIndexer _allDeclaredFieldNamesIndexer = new AllDeclaredFieldNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
-      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-      this.exercise(code, _i);
-      String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "theMapyMap");
-      String _s_2 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "someOtherMap");
-      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1, _s_2);
-      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
-      this.assertField(_l);
+      String _s_2 = this.s(Fields.TYPE, Fields.TYPE_CLASS);
+      String _s_3 = this.s(Fields.ALL_DECLARED_FIELD_NAMES, "serialVersionUID");
+      ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
+      List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
+      this.assertField(_l_1);
   }
   
   @Test

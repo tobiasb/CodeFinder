@@ -10,6 +10,14 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 
 import com.google.common.base.Optional;
 
+/**
+ * Indexes a different view on method parameters.
+ * 
+ * Example: public void testReturnNames(List l, String s) { }
+ * 
+ * is indexed as Ljava/util/List;Ljava/lang/String;
+ * 
+ */
 public class ParameterTypesStructuralIndexer extends AbstractIndexer implements IMethodIndexer {
 
     @Override
