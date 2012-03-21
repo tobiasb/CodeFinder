@@ -7,13 +7,16 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
 
 /**
@@ -33,24 +36,14 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationPara
 public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implements VarDeclarationParam
 {
   /**
-   * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+   * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getType()
    * @generated
    * @ordered
    */
-  protected static final String TYPE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getType()
-   * @generated
-   * @ordered
-   */
-  protected String type = TYPE_EDEFAULT;
+  protected Type type;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -98,7 +91,7 @@ public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getType()
+  public Type getType()
   {
     return type;
   }
@@ -108,12 +101,37 @@ public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(String newType)
+  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
   {
-    String oldType = type;
+    Type oldType = type;
     type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR_DECLARATION_PARAM__TYPE, oldType, type));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL2Package.VAR_DECLARATION_PARAM__TYPE, oldType, newType);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setType(Type newType)
+  {
+    if (newType != type)
+    {
+      NotificationChain msgs = null;
+      if (type != null)
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL2Package.VAR_DECLARATION_PARAM__TYPE, null, msgs);
+      if (newType != null)
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL2Package.VAR_DECLARATION_PARAM__TYPE, null, msgs);
+      msgs = basicSetType(newType, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR_DECLARATION_PARAM__TYPE, newType, newType));
   }
 
   /**
@@ -145,6 +163,22 @@ public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implem
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case QL2Package.VAR_DECLARATION_PARAM__TYPE:
+        return basicSetType(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -168,7 +202,7 @@ public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case QL2Package.VAR_DECLARATION_PARAM__TYPE:
-        setType((String)newValue);
+        setType((Type)newValue);
         return;
       case QL2Package.VAR_DECLARATION_PARAM__NAME:
         setName((String)newValue);
@@ -188,7 +222,7 @@ public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case QL2Package.VAR_DECLARATION_PARAM__TYPE:
-        setType(TYPE_EDEFAULT);
+        setType((Type)null);
         return;
       case QL2Package.VAR_DECLARATION_PARAM__NAME:
         setName(NAME_EDEFAULT);
@@ -208,7 +242,7 @@ public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implem
     switch (featureID)
     {
       case QL2Package.VAR_DECLARATION_PARAM__TYPE:
-        return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+        return type != null;
       case QL2Package.VAR_DECLARATION_PARAM__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
@@ -226,9 +260,7 @@ public class VarDeclarationParamImpl extends MinimalEObjectImpl.Container implem
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
-    result.append(type);
-    result.append(", name: ");
+    result.append(" (name: ");
     result.append(name);
     result.append(')');
     return result.toString();

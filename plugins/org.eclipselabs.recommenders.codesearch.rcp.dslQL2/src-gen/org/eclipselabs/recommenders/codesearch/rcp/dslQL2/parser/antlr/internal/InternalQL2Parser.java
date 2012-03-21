@@ -745,38 +745,38 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVarInitialisation"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:283:1: ruleVarInitialisation returns [EObject current=null] : ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:283:1: ruleVarInitialisation returns [EObject current=null] : ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' ) ;
     public final EObject ruleVarInitialisation() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_1_0=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
-        AntlrDatatypeRuleToken lv_type_0_0 = null;
+        EObject lv_type_0_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:286:28: ( ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:286:28: ( ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:2: ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:2: ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= '*'
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:2: ( (lv_type_0_0= ruleTypeName ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:288:1: (lv_type_0_0= ruleTypeName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:287:2: ( (lv_type_0_0= ruleType ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:288:1: (lv_type_0_0= ruleType )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:288:1: (lv_type_0_0= ruleTypeName )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:289:3: lv_type_0_0= ruleTypeName
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:288:1: (lv_type_0_0= ruleType )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:289:3: lv_type_0_0= ruleType
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getVarInitialisationAccess().getTypeTypeNameParserRuleCall_0_0()); 
+              	        newCompositeNode(grammarAccess.getVarInitialisationAccess().getTypeTypeParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeName_in_ruleVarInitialisation612);
-            lv_type_0_0=ruleTypeName();
+            pushFollow(FOLLOW_ruleType_in_ruleVarInitialisation612);
+            lv_type_0_0=ruleType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -789,7 +789,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                      			current, 
                      			"type",
                       		lv_type_0_0, 
-                      		"TypeName");
+                      		"Type");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -904,38 +904,38 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVarNullLiteral"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:348:1: ruleVarNullLiteral returns [EObject current=null] : ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:348:1: ruleVarNullLiteral returns [EObject current=null] : ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' ) ;
     public final EObject ruleVarNullLiteral() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_1_0=null;
         Token otherlv_2=null;
         Token otherlv_3=null;
-        AntlrDatatypeRuleToken lv_type_0_0 = null;
+        EObject lv_type_0_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:351:28: ( ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:351:28: ( ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:2: ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:2: ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '=' otherlv_3= 'null'
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:2: ( (lv_type_0_0= ruleTypeName ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:353:1: (lv_type_0_0= ruleTypeName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:352:2: ( (lv_type_0_0= ruleType ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:353:1: (lv_type_0_0= ruleType )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:353:1: (lv_type_0_0= ruleTypeName )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:354:3: lv_type_0_0= ruleTypeName
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:353:1: (lv_type_0_0= ruleType )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:354:3: lv_type_0_0= ruleType
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getVarNullLiteralAccess().getTypeTypeNameParserRuleCall_0_0()); 
+              	        newCompositeNode(grammarAccess.getVarNullLiteralAccess().getTypeTypeParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeName_in_ruleVarNullLiteral750);
-            lv_type_0_0=ruleTypeName();
+            pushFollow(FOLLOW_ruleType_in_ruleVarNullLiteral750);
+            lv_type_0_0=ruleType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -948,7 +948,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                      			current, 
                      			"type",
                       		lv_type_0_0, 
-                      		"TypeName");
+                      		"Type");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -1063,36 +1063,36 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVarDeclaration"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:413:1: ruleVarDeclaration returns [EObject current=null] : ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:413:1: ruleVarDeclaration returns [EObject current=null] : ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleVarDeclaration() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_1_0=null;
-        AntlrDatatypeRuleToken lv_type_0_0 = null;
+        EObject lv_type_0_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:416:28: ( ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:416:28: ( ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:2: ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:2: ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:2: ( (lv_type_0_0= ruleTypeName ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:418:1: (lv_type_0_0= ruleTypeName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:417:2: ( (lv_type_0_0= ruleType ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:418:1: (lv_type_0_0= ruleType )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:418:1: (lv_type_0_0= ruleTypeName )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:419:3: lv_type_0_0= ruleTypeName
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:418:1: (lv_type_0_0= ruleType )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:419:3: lv_type_0_0= ruleType
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getVarDeclarationAccess().getTypeTypeNameParserRuleCall_0_0()); 
+              	        newCompositeNode(grammarAccess.getVarDeclarationAccess().getTypeTypeParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeName_in_ruleVarDeclaration888);
-            lv_type_0_0=ruleTypeName();
+            pushFollow(FOLLOW_ruleType_in_ruleVarDeclaration888);
+            lv_type_0_0=ruleType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -1105,7 +1105,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                      			current, 
                      			"type",
                       		lv_type_0_0, 
-                      		"TypeName");
+                      		"Type");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -1208,36 +1208,36 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVarDeclarationParam"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:470:1: ruleVarDeclarationParam returns [EObject current=null] : ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:470:1: ruleVarDeclarationParam returns [EObject current=null] : ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleVarDeclarationParam() throws RecognitionException {
         EObject current = null;
 
         Token lv_name_1_0=null;
-        AntlrDatatypeRuleToken lv_type_0_0 = null;
+        EObject lv_type_0_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:473:28: ( ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:473:28: ( ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:1: ( ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:2: ( (lv_type_0_0= ruleTypeName ) ) ( (lv_name_1_0= RULE_ID ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:1: ( ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:2: ( (lv_type_0_0= ruleType ) ) ( (lv_name_1_0= RULE_ID ) )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:2: ( (lv_type_0_0= ruleTypeName ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:475:1: (lv_type_0_0= ruleTypeName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:474:2: ( (lv_type_0_0= ruleType ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:475:1: (lv_type_0_0= ruleType )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:475:1: (lv_type_0_0= ruleTypeName )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:476:3: lv_type_0_0= ruleTypeName
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:475:1: (lv_type_0_0= ruleType )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:476:3: lv_type_0_0= ruleType
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getVarDeclarationParamAccess().getTypeTypeNameParserRuleCall_0_0()); 
+              	        newCompositeNode(grammarAccess.getVarDeclarationParamAccess().getTypeTypeParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleTypeName_in_ruleVarDeclarationParam1002);
-            lv_type_0_0=ruleTypeName();
+            pushFollow(FOLLOW_ruleType_in_ruleVarDeclarationParam1002);
+            lv_type_0_0=ruleType();
 
             state._fsp--;
             if (state.failed) return current;
@@ -1250,7 +1250,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                      			current, 
                      			"type",
                       		lv_type_0_0, 
-                      		"TypeName");
+                      		"Type");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -1353,49 +1353,56 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMethodCall"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:527:1: ruleMethodCall returns [EObject current=null] : ( ( (lv_nameCallee_0_0= RULE_ID ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= RULE_ID ) )? otherlv_5= ')' ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:527:1: ruleMethodCall returns [EObject current=null] : ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' ) ;
     public final EObject ruleMethodCall() throws RecognitionException {
         EObject current = null;
 
-        Token lv_nameCallee_0_0=null;
         Token otherlv_1=null;
         Token otherlv_3=null;
-        Token lv_nameCaller_4_0=null;
         Token otherlv_5=null;
+        EObject lv_nameCallee_0_0 = null;
+
         AntlrDatatypeRuleToken lv_method_2_0 = null;
+
+        EObject lv_nameCaller_4_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:530:28: ( ( ( (lv_nameCallee_0_0= RULE_ID ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= RULE_ID ) )? otherlv_5= ')' ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= RULE_ID ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= RULE_ID ) )? otherlv_5= ')' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:530:28: ( ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= RULE_ID ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= RULE_ID ) )? otherlv_5= ')' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:2: ( (lv_nameCallee_0_0= RULE_ID ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= RULE_ID ) )? otherlv_5= ')'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:2: ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleWildcardName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')'
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:2: ( (lv_nameCallee_0_0= RULE_ID ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:532:1: (lv_nameCallee_0_0= RULE_ID )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:2: ( (lv_nameCallee_0_0= ruleName ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:532:1: (lv_nameCallee_0_0= ruleName )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:532:1: (lv_nameCallee_0_0= RULE_ID )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:533:3: lv_nameCallee_0_0= RULE_ID
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:532:1: (lv_nameCallee_0_0= ruleName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:533:3: lv_nameCallee_0_0= ruleName
             {
-            lv_nameCallee_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMethodCall1112); if (state.failed) return current;
             if ( state.backtracking==0 ) {
-
-              			newLeafNode(lv_nameCallee_0_0, grammarAccess.getMethodCallAccess().getNameCalleeIDTerminalRuleCall_0_0()); 
-              		
+               
+              	        newCompositeNode(grammarAccess.getMethodCallAccess().getNameCalleeNameParserRuleCall_0_0()); 
+              	    
             }
+            pushFollow(FOLLOW_ruleName_in_ruleMethodCall1116);
+            lv_nameCallee_0_0=ruleName();
+
+            state._fsp--;
+            if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElement(grammarAccess.getMethodCallRule());
+              	            current = createModelElementForParent(grammarAccess.getMethodCallRule());
               	        }
-                     		setWithLastConsumed(
+                     		set(
                      			current, 
                      			"nameCallee",
                       		lv_nameCallee_0_0, 
-                      		"ID");
+                      		"Name");
+              	        afterParserOrEnumRuleCall();
               	    
             }
 
@@ -1404,7 +1411,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,22,FOLLOW_22_in_ruleMethodCall1129); if (state.failed) return current;
+            otherlv_1=(Token)match(input,22,FOLLOW_22_in_ruleMethodCall1128); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getMethodCallAccess().getFullStopKeyword_1());
@@ -1421,7 +1428,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
               	        newCompositeNode(grammarAccess.getMethodCallAccess().getMethodWildcardNameParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleWildcardName_in_ruleMethodCall1150);
+            pushFollow(FOLLOW_ruleWildcardName_in_ruleMethodCall1149);
             lv_method_2_0=ruleWildcardName();
 
             state._fsp--;
@@ -1445,13 +1452,13 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,11,FOLLOW_11_in_ruleMethodCall1162); if (state.failed) return current;
+            otherlv_3=(Token)match(input,11,FOLLOW_11_in_ruleMethodCall1161); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getMethodCallAccess().getLeftParenthesisKeyword_3());
                   
             }
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:575:1: ( (lv_nameCaller_4_0= RULE_ID ) )?
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:575:1: ( (lv_nameCaller_4_0= ruleName ) )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1460,27 +1467,32 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:576:1: (lv_nameCaller_4_0= RULE_ID )
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:576:1: (lv_nameCaller_4_0= ruleName )
                     {
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:576:1: (lv_nameCaller_4_0= RULE_ID )
-                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:577:3: lv_nameCaller_4_0= RULE_ID
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:576:1: (lv_nameCaller_4_0= ruleName )
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:577:3: lv_nameCaller_4_0= ruleName
                     {
-                    lv_nameCaller_4_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleMethodCall1179); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
-
-                      			newLeafNode(lv_nameCaller_4_0, grammarAccess.getMethodCallAccess().getNameCallerIDTerminalRuleCall_4_0()); 
-                      		
+                       
+                      	        newCompositeNode(grammarAccess.getMethodCallAccess().getNameCallerNameParserRuleCall_4_0()); 
+                      	    
                     }
+                    pushFollow(FOLLOW_ruleName_in_ruleMethodCall1182);
+                    lv_nameCaller_4_0=ruleName();
+
+                    state._fsp--;
+                    if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                       	        if (current==null) {
-                      	            current = createModelElement(grammarAccess.getMethodCallRule());
+                      	            current = createModelElementForParent(grammarAccess.getMethodCallRule());
                       	        }
-                             		setWithLastConsumed(
+                             		set(
                              			current, 
                              			"nameCaller",
                               		lv_nameCaller_4_0, 
-                              		"ID");
+                              		"Name");
+                      	        afterParserOrEnumRuleCall();
                       	    
                     }
 
@@ -1492,7 +1504,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleMethodCall1197); if (state.failed) return current;
+            otherlv_5=(Token)match(input,13,FOLLOW_13_in_ruleMethodCall1195); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_5, grammarAccess.getMethodCallAccess().getRightParenthesisKeyword_5());
@@ -1535,7 +1547,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStaticMethodCallRule()); 
             }
-            pushFollow(FOLLOW_ruleStaticMethodCall_in_entryRuleStaticMethodCall1233);
+            pushFollow(FOLLOW_ruleStaticMethodCall_in_entryRuleStaticMethodCall1231);
             iv_ruleStaticMethodCall=ruleStaticMethodCall();
 
             state._fsp--;
@@ -1543,7 +1555,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStaticMethodCall; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStaticMethodCall1243); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStaticMethodCall1241); if (state.failed) return current;
 
             }
 
@@ -1561,38 +1573,39 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStaticMethodCall"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:614:1: ruleStaticMethodCall returns [EObject current=null] : ( ( (lv_method_0_0= ruleStaticMethodName ) ) otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ')' ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:614:1: ruleStaticMethodCall returns [EObject current=null] : ( ( (lv_method_0_0= ruleWildcardNameConcatenated ) ) otherlv_1= '(' ( (lv_name_2_0= ruleName ) ) otherlv_3= ')' ) ;
     public final EObject ruleStaticMethodCall() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
-        Token lv_name_2_0=null;
         Token otherlv_3=null;
         AntlrDatatypeRuleToken lv_method_0_0 = null;
+
+        EObject lv_name_2_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:617:28: ( ( ( (lv_method_0_0= ruleStaticMethodName ) ) otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ')' ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:1: ( ( (lv_method_0_0= ruleStaticMethodName ) ) otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ')' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:617:28: ( ( ( (lv_method_0_0= ruleWildcardNameConcatenated ) ) otherlv_1= '(' ( (lv_name_2_0= ruleName ) ) otherlv_3= ')' ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:1: ( ( (lv_method_0_0= ruleWildcardNameConcatenated ) ) otherlv_1= '(' ( (lv_name_2_0= ruleName ) ) otherlv_3= ')' )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:1: ( ( (lv_method_0_0= ruleStaticMethodName ) ) otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ')' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:2: ( (lv_method_0_0= ruleStaticMethodName ) ) otherlv_1= '(' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ')'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:1: ( ( (lv_method_0_0= ruleWildcardNameConcatenated ) ) otherlv_1= '(' ( (lv_name_2_0= ruleName ) ) otherlv_3= ')' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:2: ( (lv_method_0_0= ruleWildcardNameConcatenated ) ) otherlv_1= '(' ( (lv_name_2_0= ruleName ) ) otherlv_3= ')'
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:2: ( (lv_method_0_0= ruleStaticMethodName ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:619:1: (lv_method_0_0= ruleStaticMethodName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:618:2: ( (lv_method_0_0= ruleWildcardNameConcatenated ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:619:1: (lv_method_0_0= ruleWildcardNameConcatenated )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:619:1: (lv_method_0_0= ruleStaticMethodName )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:620:3: lv_method_0_0= ruleStaticMethodName
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:619:1: (lv_method_0_0= ruleWildcardNameConcatenated )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:620:3: lv_method_0_0= ruleWildcardNameConcatenated
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getStaticMethodCallAccess().getMethodStaticMethodNameParserRuleCall_0_0()); 
+              	        newCompositeNode(grammarAccess.getStaticMethodCallAccess().getMethodWildcardNameConcatenatedParserRuleCall_0_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleStaticMethodName_in_ruleStaticMethodCall1289);
-            lv_method_0_0=ruleStaticMethodName();
+            pushFollow(FOLLOW_ruleWildcardNameConcatenated_in_ruleStaticMethodCall1287);
+            lv_method_0_0=ruleWildcardNameConcatenated();
 
             state._fsp--;
             if (state.failed) return current;
@@ -1605,7 +1618,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                      			current, 
                      			"method",
                       		lv_method_0_0, 
-                      		"StaticMethodName");
+                      		"WildcardNameConcatenated");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -1615,34 +1628,39 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,11,FOLLOW_11_in_ruleStaticMethodCall1301); if (state.failed) return current;
+            otherlv_1=(Token)match(input,11,FOLLOW_11_in_ruleStaticMethodCall1299); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_1, grammarAccess.getStaticMethodCallAccess().getLeftParenthesisKeyword_1());
                   
             }
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:640:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:641:1: (lv_name_2_0= RULE_ID )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:640:1: ( (lv_name_2_0= ruleName ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:641:1: (lv_name_2_0= ruleName )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:641:1: (lv_name_2_0= RULE_ID )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:642:3: lv_name_2_0= RULE_ID
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:641:1: (lv_name_2_0= ruleName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:642:3: lv_name_2_0= ruleName
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleStaticMethodCall1318); if (state.failed) return current;
             if ( state.backtracking==0 ) {
-
-              			newLeafNode(lv_name_2_0, grammarAccess.getStaticMethodCallAccess().getNameIDTerminalRuleCall_2_0()); 
-              		
+               
+              	        newCompositeNode(grammarAccess.getStaticMethodCallAccess().getNameNameParserRuleCall_2_0()); 
+              	    
             }
+            pushFollow(FOLLOW_ruleName_in_ruleStaticMethodCall1320);
+            lv_name_2_0=ruleName();
+
+            state._fsp--;
+            if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElement(grammarAccess.getStaticMethodCallRule());
+              	            current = createModelElementForParent(grammarAccess.getStaticMethodCallRule());
               	        }
-                     		setWithLastConsumed(
+                     		set(
                      			current, 
                      			"name",
                       		lv_name_2_0, 
-                      		"ID");
+                      		"Name");
+              	        afterParserOrEnumRuleCall();
               	    
             }
 
@@ -1651,7 +1669,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleStaticMethodCall1335); if (state.failed) return current;
+            otherlv_3=(Token)match(input,13,FOLLOW_13_in_ruleStaticMethodCall1332); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
                   	newLeafNode(otherlv_3, grammarAccess.getStaticMethodCallAccess().getRightParenthesisKeyword_3());
@@ -1679,30 +1697,30 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleStaticMethodCall"
 
 
-    // $ANTLR start "entryRuleWildcardName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:670:1: entryRuleWildcardName returns [String current=null] : iv_ruleWildcardName= ruleWildcardName EOF ;
-    public final String entryRuleWildcardName() throws RecognitionException {
-        String current = null;
+    // $ANTLR start "entryRuleType"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:670:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
+    public final EObject entryRuleType() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleWildcardName = null;
+        EObject iv_ruleType = null;
 
 
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:671:2: (iv_ruleWildcardName= ruleWildcardName EOF )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:672:2: iv_ruleWildcardName= ruleWildcardName EOF
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:671:2: (iv_ruleType= ruleType EOF )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:672:2: iv_ruleType= ruleType EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getWildcardNameRule()); 
+               newCompositeNode(grammarAccess.getTypeRule()); 
             }
-            pushFollow(FOLLOW_ruleWildcardName_in_entryRuleWildcardName1372);
-            iv_ruleWildcardName=ruleWildcardName();
+            pushFollow(FOLLOW_ruleType_in_entryRuleType1368);
+            iv_ruleType=ruleType();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleWildcardName.getText(); 
+               current =iv_ruleType; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleWildcardName1383); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleType1378); if (state.failed) return current;
 
             }
 
@@ -1716,101 +1734,57 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleWildcardName"
+    // $ANTLR end "entryRuleType"
 
 
-    // $ANTLR start "ruleWildcardName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:679:1: ruleWildcardName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+ ;
-    public final AntlrDatatypeRuleToken ruleWildcardName() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+    // $ANTLR start "ruleType"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:679:1: ruleType returns [EObject current=null] : ( (lv_value_0_0= ruleWildcardNameConcatenated ) ) ;
+    public final EObject ruleType() throws RecognitionException {
+        EObject current = null;
 
-        Token this_ID_0=null;
-        Token kw=null;
+        AntlrDatatypeRuleToken lv_value_0_0 = null;
+
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:682:28: ( (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+ )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:683:1: (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:682:28: ( ( (lv_value_0_0= ruleWildcardNameConcatenated ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:683:1: ( (lv_value_0_0= ruleWildcardNameConcatenated ) )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:683:1: (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+
-            int cnt8=0;
-            loop8:
-            do {
-                int alt8=4;
-                switch ( input.LA(1) ) {
-                case RULE_ID:
-                    {
-                    alt8=1;
-                    }
-                    break;
-                case 20:
-                    {
-                    alt8=2;
-                    }
-                    break;
-                case 23:
-                    {
-                    alt8=3;
-                    }
-                    break;
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:683:1: ( (lv_value_0_0= ruleWildcardNameConcatenated ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:684:1: (lv_value_0_0= ruleWildcardNameConcatenated )
+            {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:684:1: (lv_value_0_0= ruleWildcardNameConcatenated )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:685:3: lv_value_0_0= ruleWildcardNameConcatenated
+            {
+            if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getTypeAccess().getValueWildcardNameConcatenatedParserRuleCall_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleWildcardNameConcatenated_in_ruleType1423);
+            lv_value_0_0=ruleWildcardNameConcatenated();
 
-                }
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
 
-                switch (alt8) {
-            	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:683:6: this_ID_0= RULE_ID
-            	    {
-            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWildcardName1423); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
+              	        if (current==null) {
+              	            current = createModelElementForParent(grammarAccess.getTypeRule());
+              	        }
+                     		set(
+                     			current, 
+                     			"value",
+                      		lv_value_0_0, 
+                      		"WildcardNameConcatenated");
+              	        afterParserOrEnumRuleCall();
+              	    
+            }
 
-            	      		current.merge(this_ID_0);
-            	          
-            	    }
-            	    if ( state.backtracking==0 ) {
-            	       
-            	          newLeafNode(this_ID_0, grammarAccess.getWildcardNameAccess().getIDTerminalRuleCall_0()); 
-            	          
-            	    }
+            }
 
-            	    }
-            	    break;
-            	case 2 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:692:2: kw= '*'
-            	    {
-            	    kw=(Token)match(input,20,FOLLOW_20_in_ruleWildcardName1447); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
 
-            	              current.merge(kw);
-            	              newLeafNode(kw, grammarAccess.getWildcardNameAccess().getAsteriskKeyword_1()); 
-            	          
-            	    }
-
-            	    }
-            	    break;
-            	case 3 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:699:2: kw= '?'
-            	    {
-            	    kw=(Token)match(input,23,FOLLOW_23_in_ruleWildcardName1466); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	              current.merge(kw);
-            	              newLeafNode(kw, grammarAccess.getWildcardNameAccess().getQuestionMarkKeyword_2()); 
-            	          
-            	    }
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt8 >= 1 ) break loop8;
-            	    if (state.backtracking>0) {state.failed=true; return current;}
-                        EarlyExitException eee =
-                            new EarlyExitException(8, input);
-                        throw eee;
-                }
-                cnt8++;
-            } while (true);
+            }
 
 
             }
@@ -1828,33 +1802,33 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleWildcardName"
+    // $ANTLR end "ruleType"
 
 
-    // $ANTLR start "entryRuleTypeName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:712:1: entryRuleTypeName returns [String current=null] : iv_ruleTypeName= ruleTypeName EOF ;
-    public final String entryRuleTypeName() throws RecognitionException {
-        String current = null;
+    // $ANTLR start "entryRuleName"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:709:1: entryRuleName returns [EObject current=null] : iv_ruleName= ruleName EOF ;
+    public final EObject entryRuleName() throws RecognitionException {
+        EObject current = null;
 
-        AntlrDatatypeRuleToken iv_ruleTypeName = null;
+        EObject iv_ruleName = null;
 
 
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:713:2: (iv_ruleTypeName= ruleTypeName EOF )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:714:2: iv_ruleTypeName= ruleTypeName EOF
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:710:2: (iv_ruleName= ruleName EOF )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:711:2: iv_ruleName= ruleName EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getTypeNameRule()); 
+               newCompositeNode(grammarAccess.getNameRule()); 
             }
-            pushFollow(FOLLOW_ruleTypeName_in_entryRuleTypeName1508);
-            iv_ruleTypeName=ruleTypeName();
+            pushFollow(FOLLOW_ruleName_in_entryRuleName1458);
+            iv_ruleName=ruleName();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleTypeName.getText(); 
+               current =iv_ruleName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleTypeName1519); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleName1468); if (state.failed) return current;
 
             }
 
@@ -1868,12 +1842,267 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleTypeName"
+    // $ANTLR end "entryRuleName"
 
 
-    // $ANTLR start "ruleTypeName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:721:1: ruleTypeName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | kw= '*' | kw= '?' | kw= '.' )+ ;
-    public final AntlrDatatypeRuleToken ruleTypeName() throws RecognitionException {
+    // $ANTLR start "ruleName"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:718:1: ruleName returns [EObject current=null] : ( (lv_value_0_0= RULE_ID ) ) ;
+    public final EObject ruleName() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_value_0_0=null;
+
+         enterRule(); 
+            
+        try {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:721:28: ( ( (lv_value_0_0= RULE_ID ) ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:722:1: ( (lv_value_0_0= RULE_ID ) )
+            {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:722:1: ( (lv_value_0_0= RULE_ID ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:723:1: (lv_value_0_0= RULE_ID )
+            {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:723:1: (lv_value_0_0= RULE_ID )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:724:3: lv_value_0_0= RULE_ID
+            {
+            lv_value_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleName1509); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(lv_value_0_0, grammarAccess.getNameAccess().getValueIDTerminalRuleCall_0()); 
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElement(grammarAccess.getNameRule());
+              	        }
+                     		setWithLastConsumed(
+                     			current, 
+                     			"value",
+                      		lv_value_0_0, 
+                      		"ID");
+              	    
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleName"
+
+
+    // $ANTLR start "entryRuleWildcardNameConcatenated"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:748:1: entryRuleWildcardNameConcatenated returns [String current=null] : iv_ruleWildcardNameConcatenated= ruleWildcardNameConcatenated EOF ;
+    public final String entryRuleWildcardNameConcatenated() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleWildcardNameConcatenated = null;
+
+
+        try {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:749:2: (iv_ruleWildcardNameConcatenated= ruleWildcardNameConcatenated EOF )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:750:2: iv_ruleWildcardNameConcatenated= ruleWildcardNameConcatenated EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getWildcardNameConcatenatedRule()); 
+            }
+            pushFollow(FOLLOW_ruleWildcardNameConcatenated_in_entryRuleWildcardNameConcatenated1550);
+            iv_ruleWildcardNameConcatenated=ruleWildcardNameConcatenated();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleWildcardNameConcatenated.getText(); 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWildcardNameConcatenated1561); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleWildcardNameConcatenated"
+
+
+    // $ANTLR start "ruleWildcardNameConcatenated"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:757:1: ruleWildcardNameConcatenated returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )* ) ;
+    public final AntlrDatatypeRuleToken ruleWildcardNameConcatenated() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_WildcardName_0 = null;
+
+        AntlrDatatypeRuleToken this_WildcardName_2 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:760:28: ( (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )* ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:761:1: (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )* )
+            {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:761:1: (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )* )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:762:5: this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )*
+            {
+            if ( state.backtracking==0 ) {
+               
+                      newCompositeNode(grammarAccess.getWildcardNameConcatenatedAccess().getWildcardNameParserRuleCall_0()); 
+                  
+            }
+            pushFollow(FOLLOW_ruleWildcardName_in_ruleWildcardNameConcatenated1608);
+            this_WildcardName_0=ruleWildcardName();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              		current.merge(this_WildcardName_0);
+                  
+            }
+            if ( state.backtracking==0 ) {
+               
+                      afterParserOrEnumRuleCall();
+                  
+            }
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:772:1: (kw= '.' this_WildcardName_2= ruleWildcardName )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
+
+                if ( (LA8_0==22) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:773:2: kw= '.' this_WildcardName_2= ruleWildcardName
+            	    {
+            	    kw=(Token)match(input,22,FOLLOW_22_in_ruleWildcardNameConcatenated1627); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	              current.merge(kw);
+            	              newLeafNode(kw, grammarAccess.getWildcardNameConcatenatedAccess().getFullStopKeyword_1_0()); 
+            	          
+            	    }
+            	    if ( state.backtracking==0 ) {
+            	       
+            	              newCompositeNode(grammarAccess.getWildcardNameConcatenatedAccess().getWildcardNameParserRuleCall_1_1()); 
+            	          
+            	    }
+            	    pushFollow(FOLLOW_ruleWildcardName_in_ruleWildcardNameConcatenated1649);
+            	    this_WildcardName_2=ruleWildcardName();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      		current.merge(this_WildcardName_2);
+            	          
+            	    }
+            	    if ( state.backtracking==0 ) {
+            	       
+            	              afterParserOrEnumRuleCall();
+            	          
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleWildcardNameConcatenated"
+
+
+    // $ANTLR start "entryRuleWildcardName"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:797:1: entryRuleWildcardName returns [String current=null] : iv_ruleWildcardName= ruleWildcardName EOF ;
+    public final String entryRuleWildcardName() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleWildcardName = null;
+
+
+        try {
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:798:2: (iv_ruleWildcardName= ruleWildcardName EOF )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:799:2: iv_ruleWildcardName= ruleWildcardName EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getWildcardNameRule()); 
+            }
+            pushFollow(FOLLOW_ruleWildcardName_in_entryRuleWildcardName1697);
+            iv_ruleWildcardName=ruleWildcardName();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleWildcardName.getText(); 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleWildcardName1708); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleWildcardName"
+
+
+    // $ANTLR start "ruleWildcardName"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:806:1: ruleWildcardName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+ ;
+    public final AntlrDatatypeRuleToken ruleWildcardName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token this_ID_0=null;
@@ -1882,29 +2111,29 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:724:28: ( (this_ID_0= RULE_ID | kw= '*' | kw= '?' | kw= '.' )+ )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:725:1: (this_ID_0= RULE_ID | kw= '*' | kw= '?' | kw= '.' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:809:28: ( (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+ )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:810:1: (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:725:1: (this_ID_0= RULE_ID | kw= '*' | kw= '?' | kw= '.' )+
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:810:1: (this_ID_0= RULE_ID | kw= '*' | kw= '?' )+
             int cnt9=0;
             loop9:
             do {
-                int alt9=5;
+                int alt9=4;
                 switch ( input.LA(1) ) {
                 case RULE_ID:
                     {
-                    int LA9_1 = input.LA(2);
+                    int LA9_2 = input.LA(2);
 
-                    if ( (LA9_1==EOF) ) {
-                        int LA9_6 = input.LA(3);
+                    if ( (LA9_2==EOF) ) {
+                        int LA9_5 = input.LA(3);
 
-                        if ( (LA9_6==EOF) ) {
+                        if ( (LA9_5==EOF) ) {
                             alt9=1;
                         }
 
 
                     }
-                    else if ( (LA9_1==RULE_ID||LA9_1==20||(LA9_1>=22 && LA9_1<=23)) ) {
+                    else if ( (LA9_2==RULE_ID||LA9_2==11||LA9_2==20||(LA9_2>=22 && LA9_2<=23)) ) {
                         alt9=1;
                     }
 
@@ -1921,19 +2150,14 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                     alt9=3;
                     }
                     break;
-                case 22:
-                    {
-                    alt9=4;
-                    }
-                    break;
 
                 }
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:725:6: this_ID_0= RULE_ID
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:810:6: this_ID_0= RULE_ID
             	    {
-            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleTypeName1559); if (state.failed) return current;
+            	    this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleWildcardName1748); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		current.merge(this_ID_0);
@@ -1941,46 +2165,33 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
             	    }
             	    if ( state.backtracking==0 ) {
             	       
-            	          newLeafNode(this_ID_0, grammarAccess.getTypeNameAccess().getIDTerminalRuleCall_0()); 
+            	          newLeafNode(this_ID_0, grammarAccess.getWildcardNameAccess().getIDTerminalRuleCall_0()); 
             	          
             	    }
 
             	    }
             	    break;
             	case 2 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:734:2: kw= '*'
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:819:2: kw= '*'
             	    {
-            	    kw=(Token)match(input,20,FOLLOW_20_in_ruleTypeName1583); if (state.failed) return current;
+            	    kw=(Token)match(input,20,FOLLOW_20_in_ruleWildcardName1772); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
-            	              newLeafNode(kw, grammarAccess.getTypeNameAccess().getAsteriskKeyword_1()); 
+            	              newLeafNode(kw, grammarAccess.getWildcardNameAccess().getAsteriskKeyword_1()); 
             	          
             	    }
 
             	    }
             	    break;
             	case 3 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:741:2: kw= '?'
+            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:826:2: kw= '?'
             	    {
-            	    kw=(Token)match(input,23,FOLLOW_23_in_ruleTypeName1602); if (state.failed) return current;
+            	    kw=(Token)match(input,23,FOLLOW_23_in_ruleWildcardName1791); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              current.merge(kw);
-            	              newLeafNode(kw, grammarAccess.getTypeNameAccess().getQuestionMarkKeyword_2()); 
-            	          
-            	    }
-
-            	    }
-            	    break;
-            	case 4 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:748:2: kw= '.'
-            	    {
-            	    kw=(Token)match(input,22,FOLLOW_22_in_ruleTypeName1621); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	              current.merge(kw);
-            	              newLeafNode(kw, grammarAccess.getTypeNameAccess().getFullStopKeyword_3()); 
+            	              newLeafNode(kw, grammarAccess.getWildcardNameAccess().getQuestionMarkKeyword_2()); 
             	          
             	    }
 
@@ -2013,192 +2224,37 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleTypeName"
-
-
-    // $ANTLR start "entryRuleStaticMethodName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:761:1: entryRuleStaticMethodName returns [String current=null] : iv_ruleStaticMethodName= ruleStaticMethodName EOF ;
-    public final String entryRuleStaticMethodName() throws RecognitionException {
-        String current = null;
-
-        AntlrDatatypeRuleToken iv_ruleStaticMethodName = null;
-
-
-        try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:762:2: (iv_ruleStaticMethodName= ruleStaticMethodName EOF )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:763:2: iv_ruleStaticMethodName= ruleStaticMethodName EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getStaticMethodNameRule()); 
-            }
-            pushFollow(FOLLOW_ruleStaticMethodName_in_entryRuleStaticMethodName1663);
-            iv_ruleStaticMethodName=ruleStaticMethodName();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleStaticMethodName.getText(); 
-            }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStaticMethodName1674); if (state.failed) return current;
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleStaticMethodName"
-
-
-    // $ANTLR start "ruleStaticMethodName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:770:1: ruleStaticMethodName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )+ ) ;
-    public final AntlrDatatypeRuleToken ruleStaticMethodName() throws RecognitionException {
-        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
-
-        Token kw=null;
-        AntlrDatatypeRuleToken this_WildcardName_0 = null;
-
-        AntlrDatatypeRuleToken this_WildcardName_2 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:773:28: ( (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )+ ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:774:1: (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )+ )
-            {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:774:1: (this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )+ )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:775:5: this_WildcardName_0= ruleWildcardName (kw= '.' this_WildcardName_2= ruleWildcardName )+
-            {
-            if ( state.backtracking==0 ) {
-               
-                      newCompositeNode(grammarAccess.getStaticMethodNameAccess().getWildcardNameParserRuleCall_0()); 
-                  
-            }
-            pushFollow(FOLLOW_ruleWildcardName_in_ruleStaticMethodName1721);
-            this_WildcardName_0=ruleWildcardName();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              		current.merge(this_WildcardName_0);
-                  
-            }
-            if ( state.backtracking==0 ) {
-               
-                      afterParserOrEnumRuleCall();
-                  
-            }
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:785:1: (kw= '.' this_WildcardName_2= ruleWildcardName )+
-            int cnt10=0;
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( (LA10_0==22) ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:786:2: kw= '.' this_WildcardName_2= ruleWildcardName
-            	    {
-            	    kw=(Token)match(input,22,FOLLOW_22_in_ruleStaticMethodName1740); if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	              current.merge(kw);
-            	              newLeafNode(kw, grammarAccess.getStaticMethodNameAccess().getFullStopKeyword_1_0()); 
-            	          
-            	    }
-            	    if ( state.backtracking==0 ) {
-            	       
-            	              newCompositeNode(grammarAccess.getStaticMethodNameAccess().getWildcardNameParserRuleCall_1_1()); 
-            	          
-            	    }
-            	    pushFollow(FOLLOW_ruleWildcardName_in_ruleStaticMethodName1762);
-            	    this_WildcardName_2=ruleWildcardName();
-
-            	    state._fsp--;
-            	    if (state.failed) return current;
-            	    if ( state.backtracking==0 ) {
-
-            	      		current.merge(this_WildcardName_2);
-            	          
-            	    }
-            	    if ( state.backtracking==0 ) {
-            	       
-            	              afterParserOrEnumRuleCall();
-            	          
-            	    }
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt10 >= 1 ) break loop10;
-            	    if (state.backtracking>0) {state.failed=true; return current;}
-                        EarlyExitException eee =
-                            new EarlyExitException(10, input);
-                        throw eee;
-                }
-                cnt10++;
-            } while (true);
-
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-               leaveRule(); 
-            }
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleStaticMethodName"
+    // $ANTLR end "ruleWildcardName"
 
     // Delegated rules
 
 
     protected DFA5 dfa5 = new DFA5(this);
     static final String DFA5_eotS =
-        "\12\uffff";
+        "\16\uffff";
     static final String DFA5_eofS =
-        "\5\uffff\1\7\4\uffff";
+        "\5\uffff\1\11\5\uffff\1\11\2\uffff";
     static final String DFA5_minS =
-        "\6\4\1\24\3\uffff";
+        "\11\4\1\uffff\1\24\1\4\2\uffff";
     static final String DFA5_maxS =
-        "\6\27\1\25\3\uffff";
+        "\11\27\1\uffff\1\25\1\27\2\uffff";
     static final String DFA5_acceptS =
-        "\7\uffff\1\3\1\1\1\2";
+        "\11\uffff\1\3\2\uffff\1\1\1\2";
     static final String DFA5_specialS =
-        "\12\uffff}>";
+        "\16\uffff}>";
     static final String[] DFA5_transitionS = {
-            "\1\1\17\uffff\1\2\1\uffff\1\4\1\3",
+            "\1\1\17\uffff\1\2\2\uffff\1\3",
             "\1\5\17\uffff\1\2\1\uffff\1\4\1\3",
             "\1\5\17\uffff\1\2\1\uffff\1\4\1\3",
             "\1\5\17\uffff\1\2\1\uffff\1\4\1\3",
-            "\1\5\17\uffff\1\2\1\uffff\1\4\1\3",
-            "\1\5\12\uffff\4\7\1\6\1\2\1\uffff\1\4\1\3",
-            "\1\10\1\11",
+            "\1\6\17\uffff\1\7\2\uffff\1\10",
+            "\1\5\12\uffff\4\11\1\12\1\2\1\uffff\1\4\1\3",
+            "\1\13\17\uffff\1\7\1\uffff\1\4\1\10",
+            "\1\13\17\uffff\1\7\1\uffff\1\4\1\10",
+            "\1\13\17\uffff\1\7\1\uffff\1\4\1\10",
             "",
+            "\1\14\1\15",
+            "\1\13\12\uffff\4\11\1\12\1\7\1\uffff\1\4\1\10",
             "",
             ""
     };
@@ -2240,9 +2296,9 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel81 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel91 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_ruleModel141 = new BitSet(new long[]{0x0000000000D00010L});
+    public static final BitSet FOLLOW_11_in_ruleModel141 = new BitSet(new long[]{0x0000000000900010L});
     public static final BitSet FOLLOW_ruleVarDeclarationParam_in_ruleModel162 = new BitSet(new long[]{0x0000000000003000L});
-    public static final BitSet FOLLOW_12_in_ruleModel175 = new BitSet(new long[]{0x0000000000D00010L});
+    public static final BitSet FOLLOW_12_in_ruleModel175 = new BitSet(new long[]{0x0000000000900010L});
     public static final BitSet FOLLOW_ruleVarDeclarationParam_in_ruleModel196 = new BitSet(new long[]{0x0000000000003000L});
     public static final BitSet FOLLOW_13_in_ruleModel210 = new BitSet(new long[]{0x0000000000004002L});
     public static final BitSet FOLLOW_14_in_ruleModel225 = new BitSet(new long[]{0x0000000000078000L});
@@ -2250,7 +2306,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15_in_ruleModel259 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleStatement_in_entryRuleStatement297 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleStatement307 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleStatement345 = new BitSet(new long[]{0x0000000000D00010L});
+    public static final BitSet FOLLOW_16_in_ruleStatement345 = new BitSet(new long[]{0x0000000000900010L});
     public static final BitSet FOLLOW_ruleVarInitialisation_in_ruleStatement371 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVarNullLiteral_in_ruleStatement401 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVarDeclaration_in_ruleStatement431 = new BitSet(new long[]{0x0000000000000002L});
@@ -2260,53 +2316,53 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleStaticMethodCall_in_ruleStatement520 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVarInitialisation_in_entryRuleVarInitialisation556 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVarInitialisation566 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeName_in_ruleVarInitialisation612 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleVarInitialisation612 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleVarInitialisation629 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_19_in_ruleVarInitialisation646 = new BitSet(new long[]{0x0000000000100000L});
     public static final BitSet FOLLOW_20_in_ruleVarInitialisation658 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVarNullLiteral_in_entryRuleVarNullLiteral694 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVarNullLiteral704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeName_in_ruleVarNullLiteral750 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleVarNullLiteral750 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleVarNullLiteral767 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_19_in_ruleVarNullLiteral784 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_21_in_ruleVarNullLiteral796 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVarDeclaration_in_entryRuleVarDeclaration832 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVarDeclaration842 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeName_in_ruleVarDeclaration888 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleVarDeclaration888 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleVarDeclaration905 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleVarDeclarationParam_in_entryRuleVarDeclarationParam946 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleVarDeclarationParam956 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleTypeName_in_ruleVarDeclarationParam1002 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleType_in_ruleVarDeclarationParam1002 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleVarDeclarationParam1019 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMethodCall_in_entryRuleMethodCall1060 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMethodCall1070 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMethodCall1112 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleMethodCall1129 = new BitSet(new long[]{0x0000000000900010L});
-    public static final BitSet FOLLOW_ruleWildcardName_in_ruleMethodCall1150 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleMethodCall1162 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleMethodCall1179 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleMethodCall1197 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStaticMethodCall_in_entryRuleStaticMethodCall1233 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStaticMethodCall1243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStaticMethodName_in_ruleStaticMethodCall1289 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_ruleStaticMethodCall1301 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleStaticMethodCall1318 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleStaticMethodCall1335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWildcardName_in_entryRuleWildcardName1372 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleWildcardName1383 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleWildcardName1423 = new BitSet(new long[]{0x0000000000900012L});
-    public static final BitSet FOLLOW_20_in_ruleWildcardName1447 = new BitSet(new long[]{0x0000000000900012L});
-    public static final BitSet FOLLOW_23_in_ruleWildcardName1466 = new BitSet(new long[]{0x0000000000900012L});
-    public static final BitSet FOLLOW_ruleTypeName_in_entryRuleTypeName1508 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleTypeName1519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleTypeName1559 = new BitSet(new long[]{0x0000000000D00012L});
-    public static final BitSet FOLLOW_20_in_ruleTypeName1583 = new BitSet(new long[]{0x0000000000D00012L});
-    public static final BitSet FOLLOW_23_in_ruleTypeName1602 = new BitSet(new long[]{0x0000000000D00012L});
-    public static final BitSet FOLLOW_22_in_ruleTypeName1621 = new BitSet(new long[]{0x0000000000D00012L});
-    public static final BitSet FOLLOW_ruleStaticMethodName_in_entryRuleStaticMethodName1663 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStaticMethodName1674 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWildcardName_in_ruleStaticMethodName1721 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_ruleStaticMethodName1740 = new BitSet(new long[]{0x0000000000900010L});
-    public static final BitSet FOLLOW_ruleWildcardName_in_ruleStaticMethodName1762 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_ruleName_in_ruleMethodCall1116 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_ruleMethodCall1128 = new BitSet(new long[]{0x0000000000900010L});
+    public static final BitSet FOLLOW_ruleWildcardName_in_ruleMethodCall1149 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleMethodCall1161 = new BitSet(new long[]{0x0000000000002010L});
+    public static final BitSet FOLLOW_ruleName_in_ruleMethodCall1182 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleMethodCall1195 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStaticMethodCall_in_entryRuleStaticMethodCall1231 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStaticMethodCall1241 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWildcardNameConcatenated_in_ruleStaticMethodCall1287 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_ruleStaticMethodCall1299 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleName_in_ruleStaticMethodCall1320 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleStaticMethodCall1332 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_entryRuleType1368 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleType1378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWildcardNameConcatenated_in_ruleType1423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleName_in_entryRuleName1458 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleName1468 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleName1509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWildcardNameConcatenated_in_entryRuleWildcardNameConcatenated1550 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWildcardNameConcatenated1561 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWildcardName_in_ruleWildcardNameConcatenated1608 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_22_in_ruleWildcardNameConcatenated1627 = new BitSet(new long[]{0x0000000000900010L});
+    public static final BitSet FOLLOW_ruleWildcardName_in_ruleWildcardNameConcatenated1649 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_ruleWildcardName_in_entryRuleWildcardName1697 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleWildcardName1708 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleWildcardName1748 = new BitSet(new long[]{0x0000000000900012L});
+    public static final BitSet FOLLOW_20_in_ruleWildcardName1772 = new BitSet(new long[]{0x0000000000900012L});
+    public static final BitSet FOLLOW_23_in_ruleWildcardName1791 = new BitSet(new long[]{0x0000000000900012L});
 
 }

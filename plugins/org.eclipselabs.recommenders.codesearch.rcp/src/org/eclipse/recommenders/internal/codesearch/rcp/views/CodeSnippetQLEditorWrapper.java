@@ -12,6 +12,10 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResultHelper;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
+import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaTypeProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.GenericQueryProposalProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.utils.TypeImageProvider;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
@@ -21,11 +25,13 @@ import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist.QL2ProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.internal.QL2Activator;
 
 import com.google.common.collect.Lists;
@@ -48,6 +54,10 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
     @Override
     void createQueryEditorInternal() {
+
+        QL2ProposalProvider.addQueryProposalProvider(QueryProposalType.TYPE, new GenericQueryProposalProvider(
+                new JavaTypeProvider(), new DotNotationTypeConverter(), new TypeImageProvider()));
+
         final IEditedResourceProvider resourceProvider = new IEditedResourceProvider() {
 
             @Override

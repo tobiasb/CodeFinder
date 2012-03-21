@@ -40,7 +40,6 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getStatementAccess().getAlternatives(), "rule__Statement__Alternatives");
 					put(grammarAccess.getStatementAccess().getAlternatives_0_1(), "rule__Statement__Alternatives_0_1");
 					put(grammarAccess.getWildcardNameAccess().getAlternatives(), "rule__WildcardName__Alternatives");
-					put(grammarAccess.getTypeNameAccess().getAlternatives(), "rule__TypeName__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
 					put(grammarAccess.getModelAccess().getGroup_1_2(), "rule__Model__Group_1_2__0");
@@ -54,8 +53,8 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getVarDeclarationParamAccess().getGroup(), "rule__VarDeclarationParam__Group__0");
 					put(grammarAccess.getMethodCallAccess().getGroup(), "rule__MethodCall__Group__0");
 					put(grammarAccess.getStaticMethodCallAccess().getGroup(), "rule__StaticMethodCall__Group__0");
-					put(grammarAccess.getStaticMethodNameAccess().getGroup(), "rule__StaticMethodName__Group__0");
-					put(grammarAccess.getStaticMethodNameAccess().getGroup_1(), "rule__StaticMethodName__Group_1__0");
+					put(grammarAccess.getWildcardNameConcatenatedAccess().getGroup(), "rule__WildcardNameConcatenated__Group__0");
+					put(grammarAccess.getWildcardNameConcatenatedAccess().getGroup_1(), "rule__WildcardNameConcatenated__Group_1__0");
 					put(grammarAccess.getModelAccess().getVarsAssignment_1_1(), "rule__Model__VarsAssignment_1_1");
 					put(grammarAccess.getModelAccess().getVarsAssignment_1_2_1(), "rule__Model__VarsAssignment_1_2_1");
 					put(grammarAccess.getModelAccess().getStatementsAssignment_2_1(), "rule__Model__StatementsAssignment_2_1");
@@ -72,6 +71,8 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodCallAccess().getNameCallerAssignment_4(), "rule__MethodCall__NameCallerAssignment_4");
 					put(grammarAccess.getStaticMethodCallAccess().getMethodAssignment_0(), "rule__StaticMethodCall__MethodAssignment_0");
 					put(grammarAccess.getStaticMethodCallAccess().getNameAssignment_2(), "rule__StaticMethodCall__NameAssignment_2");
+					put(grammarAccess.getTypeAccess().getValueAssignment(), "rule__Type__ValueAssignment");
+					put(grammarAccess.getNameAccess().getValueAssignment(), "rule__Name__ValueAssignment");
 				}
 			};
 		}

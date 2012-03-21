@@ -7,11 +7,14 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
 
@@ -52,24 +55,14 @@ public class StaticMethodCallImpl extends StatementImpl implements StaticMethodC
   protected String method = METHOD_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected Name name;
 
   /**
    * <!-- begin-user-doc -->
@@ -120,7 +113,7 @@ public class StaticMethodCallImpl extends StatementImpl implements StaticMethodC
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public Name getName()
   {
     return name;
   }
@@ -130,12 +123,53 @@ public class StaticMethodCallImpl extends StatementImpl implements StaticMethodC
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public NotificationChain basicSetName(Name newName, NotificationChain msgs)
   {
-    String oldName = name;
+    Name oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.STATIC_METHOD_CALL__NAME, oldName, name));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL2Package.STATIC_METHOD_CALL__NAME, oldName, newName);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setName(Name newName)
+  {
+    if (newName != name)
+    {
+      NotificationChain msgs = null;
+      if (name != null)
+        msgs = ((InternalEObject)name).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL2Package.STATIC_METHOD_CALL__NAME, null, msgs);
+      if (newName != null)
+        msgs = ((InternalEObject)newName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL2Package.STATIC_METHOD_CALL__NAME, null, msgs);
+      msgs = basicSetName(newName, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.STATIC_METHOD_CALL__NAME, newName, newName));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case QL2Package.STATIC_METHOD_CALL__NAME:
+        return basicSetName(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -170,7 +204,7 @@ public class StaticMethodCallImpl extends StatementImpl implements StaticMethodC
         setMethod((String)newValue);
         return;
       case QL2Package.STATIC_METHOD_CALL__NAME:
-        setName((String)newValue);
+        setName((Name)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -190,7 +224,7 @@ public class StaticMethodCallImpl extends StatementImpl implements StaticMethodC
         setMethod(METHOD_EDEFAULT);
         return;
       case QL2Package.STATIC_METHOD_CALL__NAME:
-        setName(NAME_EDEFAULT);
+        setName((Name)null);
         return;
     }
     super.eUnset(featureID);
@@ -209,7 +243,7 @@ public class StaticMethodCallImpl extends StatementImpl implements StaticMethodC
       case QL2Package.STATIC_METHOD_CALL__METHOD:
         return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
       case QL2Package.STATIC_METHOD_CALL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+        return name != null;
     }
     return super.eIsSet(featureID);
   }
@@ -227,8 +261,6 @@ public class StaticMethodCallImpl extends StatementImpl implements StaticMethodC
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (method: ");
     result.append(method);
-    result.append(", name: ");
-    result.append(name);
     result.append(')');
     return result.toString();
   }

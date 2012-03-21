@@ -76,6 +76,8 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
       case QL2Package.VAR_DECLARATION_PARAM: return createVarDeclarationParam();
       case QL2Package.METHOD_CALL: return createMethodCall();
       case QL2Package.STATIC_METHOD_CALL: return createStaticMethodCall();
+      case QL2Package.TYPE: return createType();
+      case QL2Package.NAME: return createName();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -167,6 +169,28 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
   {
     StaticMethodCallImpl staticMethodCall = new StaticMethodCallImpl();
     return staticMethodCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Name createName()
+  {
+    NameImpl name = new NameImpl();
+    return name;
   }
 
   /**

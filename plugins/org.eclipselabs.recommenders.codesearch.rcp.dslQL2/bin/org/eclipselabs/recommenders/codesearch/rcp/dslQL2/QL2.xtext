@@ -24,29 +24,36 @@ Statement:
 ;
 
 VarInitialisation:
-	type=TypeName name=ID '=' '*'
+	type=Type name=ID '=' '*'
 ;
 
 VarNullLiteral:
-	type=TypeName name=ID '=' 'null'
+	type=Type name=ID '=' 'null'
 ;
 
 VarDeclaration:
-	type=TypeName name=ID
+	type=Type name=ID
 ;
 
 VarDeclarationParam:
-	type=TypeName name=ID
+	type=Type name=ID
 ;
 	
 MethodCall:
-	nameCallee=ID '.' method=WildcardName '(' (nameCaller=ID)?  ')'
+	nameCallee=Name '.' method=WildcardName '(' (nameCaller=Name)?  ')'
 ;
 	
 StaticMethodCall:
-	method=StaticMethodName '(' name=ID ')'
+	method=WildcardNameConcatenated '(' name=Name ')'
 ;
 
-WildcardName       	: (ID | '*' | '?')+;
-TypeName      		: (ID | '*' | '?' | '.')+;
-StaticMethodName	: WildcardName ( '.' WildcardName)+;
+Type:
+	value=WildcardNameConcatenated
+;
+
+Name: 
+	value=ID
+;
+
+WildcardNameConcatenated	: WildcardName ( '.' WildcardName)*;
+WildcardName       			: (ID | '*' | '?')+;

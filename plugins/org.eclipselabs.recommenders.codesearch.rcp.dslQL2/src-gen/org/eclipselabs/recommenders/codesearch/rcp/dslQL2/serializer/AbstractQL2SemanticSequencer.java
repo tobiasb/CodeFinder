@@ -15,8 +15,10 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
@@ -64,10 +66,22 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL2Package.NAME:
+				if(context == grammarAccess.getNameRule()) {
+					sequence_Name(context, (Name) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL2Package.STATIC_METHOD_CALL:
 				if(context == grammarAccess.getStatementRule() ||
 				   context == grammarAccess.getStaticMethodCallRule()) {
 					sequence_StaticMethodCall(context, (StaticMethodCall) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL2Package.TYPE:
+				if(context == grammarAccess.getTypeRule()) {
+					sequence_Type(context, (Type) semanticObject); 
 					return; 
 				}
 				else break;
@@ -104,7 +118,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (nameCallee=ID method=WildcardName nameCaller=ID?)
+	 *     (nameCallee=Name method=WildcardName nameCaller=Name?)
 	 */
 	protected void sequence_MethodCall(EObject context, MethodCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -122,7 +136,23 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (method=StaticMethodName name=ID)
+	 *     value=ID
+	 */
+	protected void sequence_Name(EObject context, Name semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.NAME__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.NAME__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getNameAccess().getValueIDTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (method=WildcardNameConcatenated name=Name)
 	 */
 	protected void sequence_StaticMethodCall(EObject context, StaticMethodCall semanticObject) {
 		if(errorAcceptor != null) {
@@ -133,15 +163,31 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getStaticMethodCallAccess().getMethodStaticMethodNameParserRuleCall_0_0(), semanticObject.getMethod());
-		feeder.accept(grammarAccess.getStaticMethodCallAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getStaticMethodCallAccess().getMethodWildcardNameConcatenatedParserRuleCall_0_0(), semanticObject.getMethod());
+		feeder.accept(grammarAccess.getStaticMethodCallAccess().getNameNameParserRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (type=TypeName name=ID)
+	 *     value=WildcardNameConcatenated
+	 */
+	protected void sequence_Type(EObject context, Type semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.TYPE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.TYPE__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getTypeAccess().getValueWildcardNameConcatenatedParserRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=Type name=ID)
 	 */
 	protected void sequence_VarDeclarationParam(EObject context, VarDeclarationParam semanticObject) {
 		if(errorAcceptor != null) {
@@ -152,7 +198,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarDeclarationParamAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -160,7 +206,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=TypeName name=ID)
+	 *     (type=Type name=ID)
 	 */
 	protected void sequence_VarDeclaration(EObject context, VarDeclaration semanticObject) {
 		if(errorAcceptor != null) {
@@ -171,7 +217,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarDeclarationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -179,7 +225,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=TypeName name=ID)
+	 *     (type=Type name=ID)
 	 */
 	protected void sequence_VarInitialisation(EObject context, VarInitialisation semanticObject) {
 		if(errorAcceptor != null) {
@@ -190,7 +236,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarInitialisationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
@@ -198,7 +244,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (type=TypeName name=ID)
+	 *     (type=Type name=ID)
 	 */
 	protected void sequence_VarNullLiteral(EObject context, VarNullLiteral semanticObject) {
 		if(errorAcceptor != null) {
@@ -209,7 +255,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarNullLiteralAccess().getTypeTypeNameParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarNullLiteralAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getVarNullLiteralAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}

@@ -3,6 +3,20 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist;
 
+import java.util.HashMap;
+import java.util.Set;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.RuleCall;
+import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
+import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.EmfHelper;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.IQueryProposalProvider;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.ProposalProviderHelper;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
+
+import com.google.common.collect.Maps;
 
 /**
  * see
@@ -11,15 +25,34 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist;
  */
 public class QL2ProposalProvider extends AbstractQL2ProposalProvider {
 
-    // @Override
-    // public void complete_VarName(EObject model, RuleCall ruleCall,
-    // ContentAssistContext context,
-    // ICompletionProposalAcceptor acceptor) {
-    //
-    // VariableExtractor e = new VariableExtractor();
-    //
-    // // for (VariableUsage var : e.getVars(model)) {
-    // // acceptor.accept(createCompletionProposal(var.name, context));
-    // // }
-    // }
+    private static HashMap<QueryProposalType, IQueryProposalProvider> provider = Maps.newHashMap();
+
+    public static void addQueryProposalProvider(QueryProposalType type, IQueryProposalProvider provider) {
+        QL2ProposalProvider.provider.put(type, provider);
+    }
+
+    @Override
+    public void complete_Name(EObject model, RuleCall ruleCall, ContentAssistContext context,
+            ICompletionProposalAcceptor acceptor) {
+        EObject root = EmfHelper.getRoot(model);
+        VariableExtractor e = new VariableExtractor();
+
+        Set<String> varNames = e.getVars(root).keySet();
+
+        for (String varName : varNames) {
+            acceptor.accept(createCompletionProposal(varName, context));
+        }
+    }
+
+    @Override
+    public void complete_Type(EObject model, RuleCall ruleCall, ContentAssistContext context,
+            ICompletionProposalAcceptor acceptor) {
+        fillProposals(QueryProposalType.TYPE, context, acceptor);
+    }
+
+    private void fillProposals(QueryProposalType proposalType, ContentAssistContext context,
+            ICompletionProposalAcceptor acceptor) {
+
+        ProposalProviderHelper.fillProposals(proposalType, context, acceptor, this, provider);
+    }
 }

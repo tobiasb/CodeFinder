@@ -28,30 +28,30 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2;
 public interface MethodCall extends Statement
 {
   /**
-   * Returns the value of the '<em><b>Name Callee</b></em>' attribute.
+   * Returns the value of the '<em><b>Name Callee</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name Callee</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name Callee</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name Callee</em>' attribute.
-   * @see #setNameCallee(String)
+   * @return the value of the '<em>Name Callee</em>' containment reference.
+   * @see #setNameCallee(Name)
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getMethodCall_NameCallee()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getNameCallee();
+  Name getNameCallee();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getNameCallee <em>Name Callee</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getNameCallee <em>Name Callee</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name Callee</em>' attribute.
+   * @param value the new value of the '<em>Name Callee</em>' containment reference.
    * @see #getNameCallee()
    * @generated
    */
-  void setNameCallee(String value);
+  void setNameCallee(Name value);
 
   /**
    * Returns the value of the '<em><b>Method</b></em>' attribute.
@@ -80,29 +80,29 @@ public interface MethodCall extends Statement
   void setMethod(String value);
 
   /**
-   * Returns the value of the '<em><b>Name Caller</b></em>' attribute.
+   * Returns the value of the '<em><b>Name Caller</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name Caller</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name Caller</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name Caller</em>' attribute.
-   * @see #setNameCaller(String)
+   * @return the value of the '<em>Name Caller</em>' containment reference.
+   * @see #setNameCaller(Name)
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getMethodCall_NameCaller()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getNameCaller();
+  Name getNameCaller();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getNameCaller <em>Name Caller</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getNameCaller <em>Name Caller</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name Caller</em>' attribute.
+   * @param value the new value of the '<em>Name Caller</em>' containment reference.
    * @see #getNameCaller()
    * @generated
    */
-  void setNameCaller(String value);
+  void setNameCaller(Name value);
 
 } // MethodCall

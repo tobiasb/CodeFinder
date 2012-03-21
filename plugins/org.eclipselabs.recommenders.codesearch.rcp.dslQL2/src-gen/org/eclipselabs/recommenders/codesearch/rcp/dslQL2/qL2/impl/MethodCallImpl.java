@@ -7,12 +7,15 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 
 /**
@@ -33,24 +36,14 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 public class MethodCallImpl extends StatementImpl implements MethodCall
 {
   /**
-   * The default value of the '{@link #getNameCallee() <em>Name Callee</em>}' attribute.
+   * The cached value of the '{@link #getNameCallee() <em>Name Callee</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getNameCallee()
    * @generated
    * @ordered
    */
-  protected static final String NAME_CALLEE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getNameCallee() <em>Name Callee</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNameCallee()
-   * @generated
-   * @ordered
-   */
-  protected String nameCallee = NAME_CALLEE_EDEFAULT;
+  protected Name nameCallee;
 
   /**
    * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
@@ -73,24 +66,14 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
   protected String method = METHOD_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getNameCaller() <em>Name Caller</em>}' attribute.
+   * The cached value of the '{@link #getNameCaller() <em>Name Caller</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getNameCaller()
    * @generated
    * @ordered
    */
-  protected static final String NAME_CALLER_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getNameCaller() <em>Name Caller</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getNameCaller()
-   * @generated
-   * @ordered
-   */
-  protected String nameCaller = NAME_CALLER_EDEFAULT;
+  protected Name nameCaller;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,7 +101,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNameCallee()
+  public Name getNameCallee()
   {
     return nameCallee;
   }
@@ -128,12 +111,37 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNameCallee(String newNameCallee)
+  public NotificationChain basicSetNameCallee(Name newNameCallee, NotificationChain msgs)
   {
-    String oldNameCallee = nameCallee;
+    Name oldNameCallee = nameCallee;
     nameCallee = newNameCallee;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME_CALLEE, oldNameCallee, nameCallee));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME_CALLEE, oldNameCallee, newNameCallee);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameCallee(Name newNameCallee)
+  {
+    if (newNameCallee != nameCallee)
+    {
+      NotificationChain msgs = null;
+      if (nameCallee != null)
+        msgs = ((InternalEObject)nameCallee).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL2Package.METHOD_CALL__NAME_CALLEE, null, msgs);
+      if (newNameCallee != null)
+        msgs = ((InternalEObject)newNameCallee).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL2Package.METHOD_CALL__NAME_CALLEE, null, msgs);
+      msgs = basicSetNameCallee(newNameCallee, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME_CALLEE, newNameCallee, newNameCallee));
   }
 
   /**
@@ -164,7 +172,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getNameCaller()
+  public Name getNameCaller()
   {
     return nameCaller;
   }
@@ -174,12 +182,55 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNameCaller(String newNameCaller)
+  public NotificationChain basicSetNameCaller(Name newNameCaller, NotificationChain msgs)
   {
-    String oldNameCaller = nameCaller;
+    Name oldNameCaller = nameCaller;
     nameCaller = newNameCaller;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME_CALLER, oldNameCaller, nameCaller));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME_CALLER, oldNameCaller, newNameCaller);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setNameCaller(Name newNameCaller)
+  {
+    if (newNameCaller != nameCaller)
+    {
+      NotificationChain msgs = null;
+      if (nameCaller != null)
+        msgs = ((InternalEObject)nameCaller).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL2Package.METHOD_CALL__NAME_CALLER, null, msgs);
+      if (newNameCaller != null)
+        msgs = ((InternalEObject)newNameCaller).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL2Package.METHOD_CALL__NAME_CALLER, null, msgs);
+      msgs = basicSetNameCaller(newNameCaller, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_CALL__NAME_CALLER, newNameCaller, newNameCaller));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case QL2Package.METHOD_CALL__NAME_CALLEE:
+        return basicSetNameCallee(null, msgs);
+      case QL2Package.METHOD_CALL__NAME_CALLER:
+        return basicSetNameCaller(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -213,13 +264,13 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     switch (featureID)
     {
       case QL2Package.METHOD_CALL__NAME_CALLEE:
-        setNameCallee((String)newValue);
+        setNameCallee((Name)newValue);
         return;
       case QL2Package.METHOD_CALL__METHOD:
         setMethod((String)newValue);
         return;
       case QL2Package.METHOD_CALL__NAME_CALLER:
-        setNameCaller((String)newValue);
+        setNameCaller((Name)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -236,13 +287,13 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     switch (featureID)
     {
       case QL2Package.METHOD_CALL__NAME_CALLEE:
-        setNameCallee(NAME_CALLEE_EDEFAULT);
+        setNameCallee((Name)null);
         return;
       case QL2Package.METHOD_CALL__METHOD:
         setMethod(METHOD_EDEFAULT);
         return;
       case QL2Package.METHOD_CALL__NAME_CALLER:
-        setNameCaller(NAME_CALLER_EDEFAULT);
+        setNameCaller((Name)null);
         return;
     }
     super.eUnset(featureID);
@@ -259,11 +310,11 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     switch (featureID)
     {
       case QL2Package.METHOD_CALL__NAME_CALLEE:
-        return NAME_CALLEE_EDEFAULT == null ? nameCallee != null : !NAME_CALLEE_EDEFAULT.equals(nameCallee);
+        return nameCallee != null;
       case QL2Package.METHOD_CALL__METHOD:
         return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
       case QL2Package.METHOD_CALL__NAME_CALLER:
-        return NAME_CALLER_EDEFAULT == null ? nameCaller != null : !NAME_CALLER_EDEFAULT.equals(nameCaller);
+        return nameCaller != null;
     }
     return super.eIsSet(featureID);
   }
@@ -279,12 +330,8 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (nameCallee: ");
-    result.append(nameCallee);
-    result.append(", method: ");
+    result.append(" (method: ");
     result.append(method);
-    result.append(", nameCaller: ");
-    result.append(nameCaller);
     result.append(')');
     return result.toString();
   }

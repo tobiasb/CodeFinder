@@ -77,16 +77,6 @@ public class LuceneQueryProposalProvider extends AbstractLuceneQueryProposalProv
     private void fillProposals(QueryProposalType proposalType, ContentAssistContext context,
             ICompletionProposalAcceptor acceptor) {
 
-        IQueryProposalProvider p = provider.get(proposalType);
-
-        if (p != null) {
-            for (String type : p.getProposals()) {
-                if (type == null)
-                    continue;
-
-                String proposal = p.convert(type);
-                acceptor.accept(createCompletionProposal(proposal, proposal, p.getImage(), context));
-            }
-        }
+        ProposalProviderHelper.fillProposals(proposalType, context, acceptor, this, provider);
     }
 }

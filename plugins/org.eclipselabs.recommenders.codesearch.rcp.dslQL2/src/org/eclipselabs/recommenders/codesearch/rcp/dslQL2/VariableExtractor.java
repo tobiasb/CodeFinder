@@ -33,25 +33,27 @@ public class VariableExtractor {
             if (o instanceof MethodCall) {
                 MethodCall m = (MethodCall) o;
 
-                VariableUsage vCallee = result.get(m.getNameCallee());
+                if (m.getNameCallee() != null) {
+                    VariableUsage vCallee = result.get(m.getNameCallee().getValue());
 
-                if (vCallee != null) {
-                    vCallee.calledMethodsOnVariable.add(m.getMethod());
-                }
+                    if (vCallee != null) {
+                        vCallee.calledMethodsOnVariable.add(m.getMethod());
+                    }
 
-                if (m.getNameCaller() != null) {
-                    VariableUsage vCaller = result.get(m.getNameCaller());
+                    if (m.getNameCaller() != null) {
+                        VariableUsage vCaller = result.get(m.getNameCaller().getValue());
 
-                    if (vCaller != null) {
-                        VariableParameterUsage parameterUsage = new VariableParameterUsage(vCallee, m.getMethod());
+                        if (vCaller != null) {
+                            VariableParameterUsage parameterUsage = new VariableParameterUsage(vCallee, m.getMethod());
 
-                        vCaller.parameterUsages.add(parameterUsage);
+                            vCaller.parameterUsages.add(parameterUsage);
+                        }
                     }
                 }
             } else if (o instanceof StaticMethodCall) {
                 StaticMethodCall m = (StaticMethodCall) o;
 
-                VariableUsage vCaller = result.get(m.getName());
+                VariableUsage vCaller = result.get(m.getName().getValue());
 
                 if (vCaller != null) {
                     VariableParameterUsage parameterUsage = new VariableParameterUsage(null, m.getMethod());
@@ -100,28 +102,28 @@ public class VariableExtractor {
 
     private VariableUsage getVarUsage(VarDeclaration o) {
         VariableUsage v = new VariableUsage(o.getName(), null);
-        v.type = o.getType();
+        v.type = o.getType().getValue();
         v.origin = "*";
         return v;
     }
 
     private VariableUsage getVarUsage(VarInitialisation o) {
         VariableUsage v = new VariableUsage(o.getName(), null);
-        v.type = o.getType();
+        v.type = o.getType().getValue();
         v.origin = Fields.DEFINITION_INSTANCE_CREATION;
         return v;
     }
 
     private VariableUsage getVarUsage(VarDeclarationParam o) {
         VariableUsage v = new VariableUsage(o.getName(), null);
-        v.type = o.getType();
+        v.type = o.getType().getValue();
         v.origin = Fields.DEFINITION_PARAMETER;
         return v;
     }
 
     private VariableUsage getVarUsage(VarNullLiteral o) {
         VariableUsage v = new VariableUsage(o.getName(), null);
-        v.type = o.getType();
+        v.type = o.getType().getValue();
         v.origin = Fields.DEFINITION_NULLLITERAL;
         return v;
     }
