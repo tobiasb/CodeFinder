@@ -106,7 +106,8 @@ public class CodeSearcher implements ITermVectorConsumable {
         final Set<String> result = Sets.newHashSet();
         for (final String field : fieldNames) {
             try {
-                final String[] values = FieldCache.DEFAULT.getStrings(reader, field);
+                final String[] values = FieldCache.DEFAULT.getStringIndex(reader, field).lookup;
+
                 result.addAll(Lists.newArrayList(values));
             } catch (final IOException e) {
                 RecommendersUtilsPlugin.logError(e, "Exception during reopening of index reader");

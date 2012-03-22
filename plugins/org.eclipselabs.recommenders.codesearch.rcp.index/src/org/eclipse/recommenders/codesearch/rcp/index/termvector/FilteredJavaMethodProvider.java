@@ -13,8 +13,9 @@ public class FilteredJavaMethodProvider extends JavaMethodProvider {
         final String prefix = (String) argumentsMap.get(0);
 
         final Set<String> result = Sets.newHashSet();
+        final Set<String> allItems = consumable.getTermVector(getFields());
 
-        for (String type : consumable.getTermVector(getFields())) {
+        for (String type : allItems) {
             if (type.startsWith(prefix)) {
                 result.add(type);
             }

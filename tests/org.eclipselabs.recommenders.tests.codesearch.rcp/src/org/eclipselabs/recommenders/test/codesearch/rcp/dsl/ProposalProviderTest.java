@@ -23,4 +23,12 @@ public class ProposalProviderTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testMethodNameConversionParameter() {
+        String expected = "doX()";
+        String actual = QL2ProposalProvider.getRawMethodNameWithBrackets("org.test.SomeType.doX(Lorg.test.SomeType;)V");
+
+        assertEquals(expected, actual);
+    }
 }

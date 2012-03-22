@@ -22,6 +22,7 @@ public class SimpleNameBasedStrategy implements IFieldIndexingStrategy {
     public SimpleNameBasedStrategy() {
         // Extend by filling the two maps...
 
+        // We read these fields from source code
         storeMap.put(Fields.TYPE, Store.YES);
         storeMap.put(Fields.TIMESTAMP, Store.YES);
         storeMap.put(Fields.VARIABLE_NAME, Store.YES);
@@ -31,6 +32,7 @@ public class SimpleNameBasedStrategy implements IFieldIndexingStrategy {
         storeMap.put(Fields.JAVA_ELEMENT_HANDLE, Store.YES);
         storeMap.put(Fields.PARAMETER_TYPES_STRUCTURAL, Store.YES);
 
+        // We won't search for these fields
         indexMap.put(Fields.TIMESTAMP, Index.NO);
         indexMap.put(Fields.JAVA_ELEMENT_HANDLE, Index.NO);
     }

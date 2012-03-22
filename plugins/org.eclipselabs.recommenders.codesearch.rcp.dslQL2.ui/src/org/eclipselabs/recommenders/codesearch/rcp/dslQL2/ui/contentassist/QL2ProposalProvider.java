@@ -103,9 +103,8 @@ public class QL2ProposalProvider extends AbstractQL2ProposalProvider {
     }
 
     public static String getRawMethodNameWithBrackets(String qualifiedMethodName) {
-        String methodWoReturnType = qualifiedMethodName.substring(0, qualifiedMethodName.lastIndexOf(")") + 1);
+        String methodWoReturnType = qualifiedMethodName.substring(0, qualifiedMethodName.indexOf("("));
 
-        return methodWoReturnType.substring(methodWoReturnType.lastIndexOf(".") + 1,
-                methodWoReturnType.lastIndexOf(")") + 1);
+        return methodWoReturnType.substring(methodWoReturnType.lastIndexOf(".") + 1) + "()";
     }
 }
