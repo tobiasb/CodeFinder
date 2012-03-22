@@ -129,6 +129,7 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
                 String.format("{%nvar java.lang.String X%nvar java.util.List Y%n}"),
                 String.format("{%n//Variable declaration/initialization%nvar A varA = *%nvar B varB = *%n}"),
                 String.format("{%n//Method invocation%nvar java.lang.String varA = *%ncall varA.toString()%n}"),
+                String.format("{%n//Method invocation%nvar org.test.SomeType varA%n%n}"),
                 String.format("{%n//Method proposal%nvar org.test.SomeTestClass varA = *%n//call varA.%n}"),
                 String.format("{%n//Call of static method%nvar *String varA = *%nscall java.lang.String.format(varA)%n}"),
                 String.format("(*List listVar)%n{%n//Different kinds of variable declaration%nvar *String stringVar1 = *%nvar *String stringVar2%nvar *String stringVar3 = null%n}") };
