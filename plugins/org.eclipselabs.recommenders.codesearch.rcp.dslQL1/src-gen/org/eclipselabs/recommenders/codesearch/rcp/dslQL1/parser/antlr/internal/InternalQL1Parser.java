@@ -21,9 +21,10 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalQL1Parser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAMEWITHWC", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "','", "')'", "'static'", "'private'", "'public'", "'final'", "'abstract'", "'protected'", "'{'", "'|'", "'}'", "'..'", "'throws'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAMEWITHWC", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'('", "','", "')'", "'static'", "'private'", "'public'", "'final'", "'abstract'", "'protected'", "'{'", "'|'", "'}'", "'..'", "'throws'", "'void'"
     };
     public static final int RULE_ID=5;
+    public static final int T__26=26;
     public static final int T__25=25;
     public static final int T__24=24;
     public static final int T__23=23;
@@ -1187,7 +1188,7 @@ public class InternalQL1Parser extends AbstractInternalAntlrParser {
             int alt6=2;
             int LA6_0 = input.LA(1);
 
-            if ( (LA6_0==RULE_NAMEWITHWC||LA6_0==24) ) {
+            if ( (LA6_0==RULE_NAMEWITHWC||LA6_0==24||LA6_0==26) ) {
                 alt6=1;
             }
             else if ( (LA6_0==21) ) {
@@ -1623,7 +1624,7 @@ public class InternalQL1Parser extends AbstractInternalAntlrParser {
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==RULE_NAMEWITHWC) ) {
+            if ( (LA8_0==RULE_NAMEWITHWC||LA8_0==26) ) {
                 alt8=1;
             }
             else if ( (LA8_0==24) ) {
@@ -2038,25 +2039,63 @@ public class InternalQL1Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeFieldValue"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:826:1: ruleTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_NameWithWC_0= RULE_NAMEWITHWC ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:826:1: ruleTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'void' | this_NameWithWC_1= RULE_NAMEWITHWC ) ;
     public final AntlrDatatypeRuleToken ruleTypeFieldValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_NameWithWC_0=null;
+        Token kw=null;
+        Token this_NameWithWC_1=null;
 
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:829:28: (this_NameWithWC_0= RULE_NAMEWITHWC )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:830:5: this_NameWithWC_0= RULE_NAMEWITHWC
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:829:28: ( (kw= 'void' | this_NameWithWC_1= RULE_NAMEWITHWC ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:830:1: (kw= 'void' | this_NameWithWC_1= RULE_NAMEWITHWC )
             {
-            this_NameWithWC_0=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue1804); 
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:830:1: (kw= 'void' | this_NameWithWC_1= RULE_NAMEWITHWC )
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            		current.merge(this_NameWithWC_0);
-                
-             
-                newLeafNode(this_NameWithWC_0, grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); 
-                
+            if ( (LA9_0==26) ) {
+                alt9=1;
+            }
+            else if ( (LA9_0==RULE_NAMEWITHWC) ) {
+                alt9=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 9, 0, input);
+
+                throw nvae;
+            }
+            switch (alt9) {
+                case 1 :
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:831:2: kw= 'void'
+                    {
+                    kw=(Token)match(input,26,FOLLOW_26_in_ruleTypeFieldValue1803); 
+
+                            current.merge(kw);
+                            newLeafNode(kw, grammarAccess.getTypeFieldValueAccess().getVoidKeyword_0()); 
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/parser/antlr/internal/InternalQL1.g:837:10: this_NameWithWC_1= RULE_NAMEWITHWC
+                    {
+                    this_NameWithWC_1=(Token)match(input,RULE_NAMEWITHWC,FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue1824); 
+
+                    		current.merge(this_NameWithWC_1);
+                        
+                     
+                        newLeafNode(this_NameWithWC_1, grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall_1()); 
+                        
+
+                    }
+                    break;
+
+            }
+
 
             }
 
@@ -2083,16 +2122,16 @@ public class InternalQL1Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleMethodPatternDefinition_in_ruleMethodPattern130 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMethodPatternDefinition_in_entryRuleMethodPatternDefinition165 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMethodPatternDefinition175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleModifierDefinition_in_ruleMethodPatternDefinition221 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleModifierDefinition_in_ruleMethodPatternDefinition221 = new BitSet(new long[]{0x0000000004000010L});
     public static final BitSet FOLLOW_ruleReturnType_in_ruleMethodPatternDefinition242 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleMethodName_in_ruleMethodPatternDefinition263 = new BitSet(new long[]{0x0000000002001002L});
     public static final BitSet FOLLOW_ruleParameterDefinition_in_ruleMethodPatternDefinition284 = new BitSet(new long[]{0x0000000002000002L});
     public static final BitSet FOLLOW_ruleThrows_in_ruleMethodPatternDefinition306 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParameterDefinition_in_entryRuleParameterDefinition343 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleParameterDefinition353 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_ruleParameterDefinition390 = new BitSet(new long[]{0x0000000001200010L});
+    public static final BitSet FOLLOW_12_in_ruleParameterDefinition390 = new BitSet(new long[]{0x0000000005200010L});
     public static final BitSet FOLLOW_ruleParameterElementHolder_in_ruleParameterDefinition411 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_13_in_ruleParameterDefinition424 = new BitSet(new long[]{0x0000000001200010L});
+    public static final BitSet FOLLOW_13_in_ruleParameterDefinition424 = new BitSet(new long[]{0x0000000005200010L});
     public static final BitSet FOLLOW_ruleParameterElementHolder_in_ruleParameterDefinition445 = new BitSet(new long[]{0x0000000000006000L});
     public static final BitSet FOLLOW_14_in_ruleParameterDefinition459 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleModifierDefinition_in_entryRuleModifierDefinition495 = new BitSet(new long[]{0x0000000000000000L});
@@ -2118,9 +2157,9 @@ public class InternalQL1Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleParameterType_in_ruleSingleElement1148 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMultiElement_in_entryRuleMultiElement1183 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMultiElement1193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_ruleMultiElement1230 = new BitSet(new long[]{0x0000000001000010L});
+    public static final BitSet FOLLOW_21_in_ruleMultiElement1230 = new BitSet(new long[]{0x0000000005000010L});
     public static final BitSet FOLLOW_ruleSingleElement_in_ruleMultiElement1251 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_22_in_ruleMultiElement1264 = new BitSet(new long[]{0x0000000001000010L});
+    public static final BitSet FOLLOW_22_in_ruleMultiElement1264 = new BitSet(new long[]{0x0000000005000010L});
     public static final BitSet FOLLOW_ruleSingleElement_in_ruleMultiElement1285 = new BitSet(new long[]{0x0000000000C00000L});
     public static final BitSet FOLLOW_23_in_ruleMultiElement1299 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleParameterType_in_entryRuleParameterType1335 = new BitSet(new long[]{0x0000000000000000L});
@@ -2129,7 +2168,7 @@ public class InternalQL1Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_24_in_ruleParameterType1415 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleThrows_in_entryRuleThrows1464 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleThrows1474 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_ruleThrows1511 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_25_in_ruleThrows1511 = new BitSet(new long[]{0x0000000004000010L});
     public static final BitSet FOLLOW_ruleTypeFieldValue_in_ruleThrows1532 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleMethodName_in_entryRuleMethodName1568 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleMethodName1578 = new BitSet(new long[]{0x0000000000000002L});
@@ -2139,6 +2178,7 @@ public class InternalQL1Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleSimpleFieldValue1709 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTypeFieldValue_in_entryRuleTypeFieldValue1754 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTypeFieldValue1765 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue1804 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_ruleTypeFieldValue1803 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_ruleTypeFieldValue1824 = new BitSet(new long[]{0x0000000000000002L});
 
 }

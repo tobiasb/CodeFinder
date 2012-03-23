@@ -10,6 +10,7 @@ import org.eclipse.jdt.core.ITypeRoot;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Type;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.names.VmTypeName;
@@ -77,5 +78,13 @@ public abstract class AbstractIndexer {
             }
         }
         return absent();
+    }
+
+    protected boolean returnsVoid(final MethodDeclaration method) {
+        return method != null && isVoid(method.getReturnType2());
+    }
+
+    protected boolean isVoid(final Type type) {
+        return type != null && type.toString().equals("void");
     }
 }

@@ -46,6 +46,32 @@ public class TestMethodScenarios extends TestBase {
   }
   
   @Test
+  public void testReturnTypeVoidIndexer() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("public class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void testReturnSomething() {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      ReturnTypeIndexer _returnTypeIndexer = new ReturnTypeIndexer();
+      this.exercise(code, _returnTypeIndexer);
+      String _s = this.s(Fields.RETURN_TYPE, "Lvoid");
+      ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
+      this.assertField(_l);
+      String _s_1 = this.s(Fields.RETURN_TYPE, "V");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s_1);
+      List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertNotField(_l_1);
+  }
+  
+  @Test
   public void testParameterTypesIndexer() {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("import java.util.List;");

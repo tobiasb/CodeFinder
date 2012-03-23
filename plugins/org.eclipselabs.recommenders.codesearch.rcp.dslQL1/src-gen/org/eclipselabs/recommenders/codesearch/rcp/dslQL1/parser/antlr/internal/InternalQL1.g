@@ -827,14 +827,21 @@ ruleTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRule
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-    this_NameWithWC_0=RULE_NAMEWITHWC    {
-		$current.merge(this_NameWithWC_0);
+(
+	kw='void' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getTypeFieldValueAccess().getVoidKeyword_0()); 
+    }
+
+    |    this_NameWithWC_1=RULE_NAMEWITHWC    {
+		$current.merge(this_NameWithWC_1);
     }
 
     { 
-    newLeafNode(this_NameWithWC_0, grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); 
+    newLeafNode(this_NameWithWC_1, grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall_1()); 
     }
-
+)
     ;
 
 

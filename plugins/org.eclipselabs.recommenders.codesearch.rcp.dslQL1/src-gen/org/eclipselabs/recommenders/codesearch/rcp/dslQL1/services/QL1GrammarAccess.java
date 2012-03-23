@@ -401,14 +401,22 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 
 	public class TypeFieldValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeFieldValue");
-		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cVoidKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final RuleCall cNameWithWCTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//TypeFieldValue:
-		//	NameWithWC;
+		//	"void" | NameWithWC;
 		public ParserRule getRule() { return rule; }
 
+		//"void" | NameWithWC
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"void"
+		public Keyword getVoidKeyword_0() { return cVoidKeyword_0; }
+
 		//NameWithWC
-		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
+		public RuleCall getNameWithWCTerminalRuleCall_1() { return cNameWithWCTerminalRuleCall_1; }
 	}
 	
 	
@@ -581,7 +589,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TypeFieldValue:
-	//	NameWithWC;
+	//	"void" | NameWithWC;
 	public TypeFieldValueElements getTypeFieldValueAccess() {
 		return (pTypeFieldValue != null) ? pTypeFieldValue : (pTypeFieldValue = new TypeFieldValueElements());
 	}

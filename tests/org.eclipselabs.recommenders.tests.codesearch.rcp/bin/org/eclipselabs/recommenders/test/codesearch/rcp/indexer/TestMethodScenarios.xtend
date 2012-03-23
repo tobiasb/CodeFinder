@@ -30,6 +30,26 @@ class TestMethodScenarios extends TestBase {
 	}
 	
 	@Test
+	def void testReturnTypeVoidIndexer(){
+		val code = '''
+		public class MyClass {
+			public void testReturnSomething() {
+			}
+		}
+		'''
+		
+		exercise(code, new ReturnTypeIndexer())
+		
+		assertField(l(newArrayList(
+			s(Fields::RETURN_TYPE, "Lvoid")
+		)))
+		
+		assertNotField(l(newArrayList(
+			s(Fields::RETURN_TYPE, "V")
+		)))
+	}
+	
+	@Test
 	def void testParameterTypesIndexer(){
 		val code = '''
 		import java.util.List;

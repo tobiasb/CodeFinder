@@ -62,7 +62,7 @@ SimpleFieldValue:
 ;
 	
 TypeFieldValue:
-	NameWithWC
+	'void' | NameWithWC
 ;
 	
 terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;

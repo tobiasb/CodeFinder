@@ -436,9 +436,9 @@ ruleTypeFieldValue
     }
 	:
 (
-{ before(grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); }
-	RULE_NAMEWITHWC
-{ after(grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall()); }
+{ before(grammarAccess.getTypeFieldValueAccess().getAlternatives()); }
+(rule__TypeFieldValue__Alternatives)
+{ after(grammarAccess.getTypeFieldValueAccess().getAlternatives()); }
 )
 
 ;
@@ -532,6 +532,30 @@ rule__ParameterType__Alternatives
 { before(grammarAccess.getParameterTypeAccess().getValueAssignment_1()); }
 (rule__ParameterType__ValueAssignment_1)
 { after(grammarAccess.getParameterTypeAccess().getValueAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TypeFieldValue__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTypeFieldValueAccess().getVoidKeyword_0()); }
+
+	'void' 
+
+{ after(grammarAccess.getTypeFieldValueAccess().getVoidKeyword_0()); }
+)
+
+    |(
+{ before(grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall_1()); }
+	RULE_NAMEWITHWC
+{ after(grammarAccess.getTypeFieldValueAccess().getNameWithWCTerminalRuleCall_1()); }
 )
 
 ;

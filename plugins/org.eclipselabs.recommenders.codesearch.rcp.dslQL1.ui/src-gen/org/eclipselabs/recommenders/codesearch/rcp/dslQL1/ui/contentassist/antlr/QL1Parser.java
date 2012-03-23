@@ -40,6 +40,7 @@ public class QL1Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getModifierAccess().getAlternatives(), "rule__Modifier__Alternatives");
 					put(grammarAccess.getParameterElementHolderAccess().getAlternatives(), "rule__ParameterElementHolder__Alternatives");
 					put(grammarAccess.getParameterTypeAccess().getAlternatives(), "rule__ParameterType__Alternatives");
+					put(grammarAccess.getTypeFieldValueAccess().getAlternatives(), "rule__TypeFieldValue__Alternatives");
 					put(grammarAccess.getMethodPatternDefinitionAccess().getGroup(), "rule__MethodPatternDefinition__Group__0");
 					put(grammarAccess.getParameterDefinitionAccess().getGroup(), "rule__ParameterDefinition__Group__0");
 					put(grammarAccess.getParameterDefinitionAccess().getGroup_2(), "rule__ParameterDefinition__Group_2__0");
