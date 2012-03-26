@@ -12,7 +12,8 @@ MethodPatternDefinition:
 ;
 
 ParameterDefinition:
-	'(' parameterElementholder+=ParameterElementHolder (',' parameterElementholder+=ParameterElementHolder)* ')'
+	{ParameterDefinition}
+	'(' (parameterElementholder+=ParameterElementHolder (',' parameterElementholder+=ParameterElementHolder)*)? ')'
 ;
 
 ModifierDefinition:

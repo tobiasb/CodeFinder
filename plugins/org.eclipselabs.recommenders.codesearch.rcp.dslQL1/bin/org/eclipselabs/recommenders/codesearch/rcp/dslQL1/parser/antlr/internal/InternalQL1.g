@@ -227,53 +227,59 @@ ruleParameterDefinition returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='(' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getParameterDefinitionAccess().getLeftParenthesisKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getParameterDefinitionAccess().getParameterDefinitionAction_0(),
+            $current);
     }
-(
+)	otherlv_1='(' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getParameterDefinitionAccess().getLeftParenthesisKeyword_1());
+    }
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getParameterDefinitionAccess().getParameterElementholderParameterElementHolderParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getParameterDefinitionAccess().getParameterElementholderParameterElementHolderParserRuleCall_2_0_0()); 
 	    }
-		lv_parameterElementholder_1_0=ruleParameterElementHolder		{
+		lv_parameterElementholder_2_0=ruleParameterElementHolder		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getParameterDefinitionRule());
 	        }
        		add(
        			$current, 
        			"parameterElementholder",
-        		lv_parameterElementholder_1_0, 
+        		lv_parameterElementholder_2_0, 
         		"ParameterElementHolder");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_2=',' 
+)(	otherlv_3=',' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getParameterDefinitionAccess().getCommaKeyword_2_0());
+    	newLeafNode(otherlv_3, grammarAccess.getParameterDefinitionAccess().getCommaKeyword_2_1_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getParameterDefinitionAccess().getParameterElementholderParameterElementHolderParserRuleCall_2_1_0()); 
+	        newCompositeNode(grammarAccess.getParameterDefinitionAccess().getParameterElementholderParameterElementHolderParserRuleCall_2_1_1_0()); 
 	    }
-		lv_parameterElementholder_3_0=ruleParameterElementHolder		{
+		lv_parameterElementholder_4_0=ruleParameterElementHolder		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getParameterDefinitionRule());
 	        }
        		add(
        			$current, 
        			"parameterElementholder",
-        		lv_parameterElementholder_3_0, 
+        		lv_parameterElementholder_4_0, 
         		"ParameterElementHolder");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_4=')' 
+))*)?	otherlv_5=')' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getParameterDefinitionAccess().getRightParenthesisKeyword_3());
+    	newLeafNode(otherlv_5, grammarAccess.getParameterDefinitionAccess().getRightParenthesisKeyword_3());
     }
 )
 ;

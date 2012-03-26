@@ -7,6 +7,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.NumberField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
@@ -34,10 +35,11 @@ public class ParameterDefinitionHandler {
     private Expression processInternal(List<ClauseExpression> l, final ParameterDefinitionImpl p) {
         List<StringBuilder> parameterOptions = new NodeWalker().walk(getParameterGraph(p, true));
 
-        if (parameterOptions.size() > 0)
+        if (parameterOptions.size() > 0) {
             return ExtractorHelper.buildExpressionTree(convertToClauseExpressions(parameterOptions), BinaryExp.OR1);
-        else
-            return null;
+        } else {
+            return getZeroParametersExpression();
+        }
     }
 
     public Node getParameterGraph(final ParameterDefinition p, boolean convertWildcardParameters) {
@@ -95,5 +97,17 @@ public class ParameterDefinitionHandler {
         }
 
         return l;
+    }
+
+    private Expression getZeroParametersExpression() {
+        Expression exp = lqf.createExpression();
+        ClauseExpression clause = lqf.createClauseExpression();
+        NumberField type = lqf.createNumberField();
+        type.setValue(Fields.PARAMETER_COUNT);
+        clause.setField(type);
+        clause.getValues().add(String.valueOf(0));
+        exp.setValue(clause);
+
+        return exp;
     }
 }

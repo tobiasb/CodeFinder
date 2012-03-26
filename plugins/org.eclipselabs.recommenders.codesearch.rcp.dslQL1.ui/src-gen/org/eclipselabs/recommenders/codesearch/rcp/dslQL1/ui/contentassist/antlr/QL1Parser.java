@@ -44,6 +44,7 @@ public class QL1Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodPatternDefinitionAccess().getGroup(), "rule__MethodPatternDefinition__Group__0");
 					put(grammarAccess.getParameterDefinitionAccess().getGroup(), "rule__ParameterDefinition__Group__0");
 					put(grammarAccess.getParameterDefinitionAccess().getGroup_2(), "rule__ParameterDefinition__Group_2__0");
+					put(grammarAccess.getParameterDefinitionAccess().getGroup_2_1(), "rule__ParameterDefinition__Group_2_1__0");
 					put(grammarAccess.getModifierDefinitionAccess().getGroup(), "rule__ModifierDefinition__Group__0");
 					put(grammarAccess.getMultiElementAccess().getGroup(), "rule__MultiElement__Group__0");
 					put(grammarAccess.getMultiElementAccess().getGroup_2(), "rule__MultiElement__Group_2__0");
@@ -54,8 +55,8 @@ public class QL1Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodPatternDefinitionAccess().getMethodNameAssignment_2(), "rule__MethodPatternDefinition__MethodNameAssignment_2");
 					put(grammarAccess.getMethodPatternDefinitionAccess().getParameterDefinitionAssignment_3(), "rule__MethodPatternDefinition__ParameterDefinitionAssignment_3");
 					put(grammarAccess.getMethodPatternDefinitionAccess().getThrowsClauseAssignment_4(), "rule__MethodPatternDefinition__ThrowsClauseAssignment_4");
-					put(grammarAccess.getParameterDefinitionAccess().getParameterElementholderAssignment_1(), "rule__ParameterDefinition__ParameterElementholderAssignment_1");
-					put(grammarAccess.getParameterDefinitionAccess().getParameterElementholderAssignment_2_1(), "rule__ParameterDefinition__ParameterElementholderAssignment_2_1");
+					put(grammarAccess.getParameterDefinitionAccess().getParameterElementholderAssignment_2_0(), "rule__ParameterDefinition__ParameterElementholderAssignment_2_0");
+					put(grammarAccess.getParameterDefinitionAccess().getParameterElementholderAssignment_2_1_1(), "rule__ParameterDefinition__ParameterElementholderAssignment_2_1_1");
 					put(grammarAccess.getModifierDefinitionAccess().getModifiersAssignment_1(), "rule__ModifierDefinition__ModifiersAssignment_1");
 					put(grammarAccess.getModifierAccess().getValueAssignment_0(), "rule__Modifier__ValueAssignment_0");
 					put(grammarAccess.getModifierAccess().getValueAssignment_1(), "rule__Modifier__ValueAssignment_1");

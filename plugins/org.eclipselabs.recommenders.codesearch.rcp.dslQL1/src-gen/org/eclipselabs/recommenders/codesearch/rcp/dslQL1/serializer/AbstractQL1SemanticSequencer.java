@@ -209,7 +209,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (parameterElementholder+=ParameterElementHolder parameterElementholder+=ParameterElementHolder*)
+	 *     ((parameterElementholder+=ParameterElementHolder parameterElementholder+=ParameterElementHolder*)?)
 	 */
 	protected void sequence_ParameterDefinition(EObject context, ParameterDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

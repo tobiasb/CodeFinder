@@ -48,7 +48,7 @@ public class MethodPatternQLTest extends QLTestBase {
         setUp();
 
         String query = "public * testName";
-        String expected = "Type:(method)AND Modifiers:(public) AND FriendlyName:(testName)";
+        String expected = "Type:(method) AND Modifiers:(public) AND FriendlyName:(testName)";
 
         testQuery(query, expected);
     }
@@ -68,7 +68,7 @@ public class MethodPatternQLTest extends QLTestBase {
         setUp();
 
         String query = "public * *()";
-        String expected = "Type:(method)AND Modifiers:(public) ";
+        String expected = "Type:(method) AND Modifiers:(public) AND ParameterCount:0";
 
         testQuery(query, expected);
     }
@@ -78,7 +78,7 @@ public class MethodPatternQLTest extends QLTestBase {
         setUp();
 
         String query = "* *()";
-        String expected = "Type:(method) AND Type:(method)";
+        String expected = "Type:(method) AND ParameterCount:0";
 
         testQuery(query, expected);
     }
@@ -159,6 +159,16 @@ public class MethodPatternQLTest extends QLTestBase {
 
         String query = "* *(String, .., {List | Map})";
         String expected = "Type:(method) AND (ParameterTypesStructural:String;*List; ParameterTypesStructural:String;*Map;)";
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryTestAnyParameters() throws Exception {
+        setUp();
+
+        String query = "* *(..)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:*)";
 
         testQuery(query, expected);
     }

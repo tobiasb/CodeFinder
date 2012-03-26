@@ -90,42 +90,52 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	public class ParameterDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cParameterElementholderAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cParameterElementholderParameterElementHolderParserRuleCall_1_0 = (RuleCall)cParameterElementholderAssignment_1.eContents().get(0);
+		private final Action cParameterDefinitionAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cParameterElementholderAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cParameterElementholderParameterElementHolderParserRuleCall_2_1_0 = (RuleCall)cParameterElementholderAssignment_2_1.eContents().get(0);
+		private final Assignment cParameterElementholderAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cParameterElementholderParameterElementHolderParserRuleCall_2_0_0 = (RuleCall)cParameterElementholderAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cParameterElementholderAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cParameterElementholderParameterElementHolderParserRuleCall_2_1_1_0 = (RuleCall)cParameterElementholderAssignment_2_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ParameterDefinition:
-		//	"(" parameterElementholder+=ParameterElementHolder ("," parameterElementholder+=ParameterElementHolder)* ")";
+		//	{ParameterDefinition} "(" (parameterElementholder+=ParameterElementHolder (","
+		//	parameterElementholder+=ParameterElementHolder)*)? ")";
 		public ParserRule getRule() { return rule; }
 
-		//"(" parameterElementholder+=ParameterElementHolder ("," parameterElementholder+=ParameterElementHolder)* ")"
+		//{ParameterDefinition} "(" (parameterElementholder+=ParameterElementHolder (","
+		//parameterElementholder+=ParameterElementHolder)*)? ")"
 		public Group getGroup() { return cGroup; }
 
+		//{ParameterDefinition}
+		public Action getParameterDefinitionAction_0() { return cParameterDefinitionAction_0; }
+
 		//"("
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 
-		//parameterElementholder+=ParameterElementHolder
-		public Assignment getParameterElementholderAssignment_1() { return cParameterElementholderAssignment_1; }
-
-		//ParameterElementHolder
-		public RuleCall getParameterElementholderParameterElementHolderParserRuleCall_1_0() { return cParameterElementholderParameterElementHolderParserRuleCall_1_0; }
-
-		//("," parameterElementholder+=ParameterElementHolder)*
+		//(parameterElementholder+=ParameterElementHolder ("," parameterElementholder+=ParameterElementHolder)*)?
 		public Group getGroup_2() { return cGroup_2; }
 
-		//","
-		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
-
 		//parameterElementholder+=ParameterElementHolder
-		public Assignment getParameterElementholderAssignment_2_1() { return cParameterElementholderAssignment_2_1; }
+		public Assignment getParameterElementholderAssignment_2_0() { return cParameterElementholderAssignment_2_0; }
 
 		//ParameterElementHolder
-		public RuleCall getParameterElementholderParameterElementHolderParserRuleCall_2_1_0() { return cParameterElementholderParameterElementHolderParserRuleCall_2_1_0; }
+		public RuleCall getParameterElementholderParameterElementHolderParserRuleCall_2_0_0() { return cParameterElementholderParameterElementHolderParserRuleCall_2_0_0; }
+
+		//("," parameterElementholder+=ParameterElementHolder)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//","
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
+
+		//parameterElementholder+=ParameterElementHolder
+		public Assignment getParameterElementholderAssignment_2_1_1() { return cParameterElementholderAssignment_2_1_1; }
+
+		//ParameterElementHolder
+		public RuleCall getParameterElementholderParameterElementHolderParserRuleCall_2_1_1_0() { return cParameterElementholderParameterElementHolderParserRuleCall_2_1_1_0; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -479,7 +489,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ParameterDefinition:
-	//	"(" parameterElementholder+=ParameterElementHolder ("," parameterElementholder+=ParameterElementHolder)* ")";
+	//	{ParameterDefinition} "(" (parameterElementholder+=ParameterElementHolder (","
+	//	parameterElementholder+=ParameterElementHolder)*)? ")";
 	public ParameterDefinitionElements getParameterDefinitionAccess() {
 		return (pParameterDefinition != null) ? pParameterDefinition : (pParameterDefinition = new ParameterDefinitionElements());
 	}

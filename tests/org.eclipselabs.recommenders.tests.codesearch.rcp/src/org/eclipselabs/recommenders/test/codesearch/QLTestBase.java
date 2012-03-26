@@ -56,6 +56,9 @@ public abstract class QLTestBase extends AbstractXtextTests {
         // QL1QueryExtractor qe = new QL1QueryExtractor();
 
         IParseResult result = parse(query);
+
+        assertFalse(result.hasSyntaxErrors());
+
         EObject o = qe.transform(result);
 
         assertQueryEqual(expected, serializeLuceneQuery(o));
