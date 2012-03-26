@@ -118,10 +118,13 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
     @Override
     String[] getExampleQueriesInternal() {
-        return new String[] { "UsedTypes:java.util.List",
+        return new String[] {
+                "UsedTypes:java.util.List",
                 "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)",
                 "UsedTypes:java.util.List AND Type:method",
-                "UsedTypes:*Document Type:method Modifiers:private FriendlyName:addDoc FieldsRead:*Store.YES" };
+                "UsedTypes:*Document Type:method Modifiers:private FriendlyName:addDoc FieldsRead:*Store.YES",
+                "/* Finde Klasse, die von AbstractButton erbt, exec.. überschreibt und nicht doOk aufruft */\n"
+                        + "Type:class AND AllExtendedTypes:*AbstractButton AND OverriddenMethods:*exec AND NOT UsedMethods:*doOk" };
     }
 
     public static String getName() {
