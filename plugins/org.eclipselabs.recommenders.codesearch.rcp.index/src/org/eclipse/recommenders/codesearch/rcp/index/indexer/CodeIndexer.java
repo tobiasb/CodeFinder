@@ -183,7 +183,8 @@ public class CodeIndexer implements ICompilationUnitIndexer {
         if (term == null || term.text() == null) {
             return;
         }
-        final Query q = new TermQuery(term);
+
+        final Query q = new TermQuery(new Term(term.field(), term.text().toLowerCase()));
         writer.deleteDocuments(q);
     }
 

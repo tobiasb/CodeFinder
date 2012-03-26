@@ -17,6 +17,6 @@ public class TermVectorTest extends AbstractTestIndex {
         final Set<String> vec = getSearchIndexer().getTermVector(new String[] { Fields.USED_TYPES });
 
         Assert.assertEquals(1, vec.size());
-        Assert.assertTrue(vec.contains("testTermVector01"));
+        Assert.assertTrue(vec.contains("testtermvector01"));
     }
 }

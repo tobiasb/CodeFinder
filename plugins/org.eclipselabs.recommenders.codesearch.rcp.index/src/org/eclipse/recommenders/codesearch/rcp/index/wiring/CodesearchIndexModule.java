@@ -10,7 +10,6 @@ import java.util.Map;
 import javax.inject.Inject;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.KeywordAnalyzer;
 import org.apache.lucene.analysis.PerFieldAnalyzerWrapper;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
@@ -25,6 +24,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.CodeSearch;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.analyzer.JavaSourceCodeAnalyzer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.analyzer.LowerCaseKeywordAnalyzer;
 import org.eclipse.recommenders.codesearch.rcp.index.ui.IndexUpdateService;
 
 import com.google.common.collect.Maps;
@@ -65,7 +65,7 @@ public class CodesearchIndexModule extends AbstractModule {
 
     private File findOrCreateIndexFolder() {
         final File basedir = CodesearchIndexPlugin.getDefault().getStateLocation().toFile();
-        final File indexdir = new File(basedir, "index_v3");
+        final File indexdir = new File(basedir, "index_v4");
         indexdir.mkdirs();
         return indexdir;
     }
@@ -102,7 +102,7 @@ public class CodesearchIndexModule extends AbstractModule {
     public Analyzer analyzer() {
         final Map<String, Analyzer> analyzerPerField = Maps.newHashMap();
         analyzerPerField.put(Fields.FULL_TEXT, new JavaSourceCodeAnalyzer());
-        return new PerFieldAnalyzerWrapper(new KeywordAnalyzer(), analyzerPerField);
+        return new PerFieldAnalyzerWrapper(new LowerCaseKeywordAnalyzer(version()), analyzerPerField);
     }
 
     @Provides
