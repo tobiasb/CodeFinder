@@ -51,9 +51,12 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
                     IQueryPartConverter conv = new DotNotationTypeConverter();
 
                     final String oldValue = ((ParameterTypeImpl) o).getValue();
-                    final String newValue = conv.convertFrom(oldValue);
 
-                    ((ParameterTypeImpl) o).setValue(newValue);
+                    if (!oldValue.equals("..")) {
+                        final String newValue = conv.convertFrom(oldValue);
+
+                        ((ParameterTypeImpl) o).setValue(newValue);
+                    }
                 }
 
             } while (iter.hasNext());

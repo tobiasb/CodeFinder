@@ -48,6 +48,13 @@ public class ParameterValidator {
         if (n.typeNames.contains("*"))
             return true;
 
+        for (String p : n.typeNames) {
+            String pattern = p.replaceAll("\\.", "\\\\.").replaceAll("\\*", ".\\*");
+
+            if (param.matches(pattern))
+                return true;
+        }
+
         return false;
     }
 }

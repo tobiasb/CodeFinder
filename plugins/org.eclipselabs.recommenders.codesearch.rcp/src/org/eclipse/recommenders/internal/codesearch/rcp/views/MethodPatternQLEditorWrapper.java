@@ -22,6 +22,7 @@ import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.StringQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
@@ -86,6 +87,8 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
     @Override
     public SearchResult search() throws Exception {
 
+        System.out.println(handle.getDocument().readOnly(new StringQueryExtractor()));
+
         QL1QueryExtractor extr = new QL1QueryExtractor();
 
         IParseResult r = handle.getDocument().readOnly(extr);
@@ -112,7 +115,7 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
 
             ParameterDefinition pd = extr.getMethodPatternDefinition(r).getParameterDefinition();
 
-            if (pd != null) {
+            if (pd != null && pd.getParameterElementholder().size() > 0) {
                 String actualParams = d.getFieldable(Fields.PARAMETER_TYPES_STRUCTURAL).stringValue();
                 Node paramGraph = new ParameterDefinitionHandler().getParameterGraph(pd, false);
 
@@ -129,22 +132,6 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
 
         return new SearchResult(result.query, d, result.searcher);
     }
-
-    // private EObject translate(Type type, Expression exp) {
-    //
-    // org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression e
-    // = luceneQueryFactory
-    // .createExpression();
-    // ClauseExpression c = luceneQueryFactory.createClauseExpression();
-    // ModifierField t = luceneQueryFactory.createModifierField();
-    // t.setValue(Fields.TYPE);
-    // c.setField(t);
-    // c.getValues().add(Fields.MODIFIER_FINAL);
-    //
-    // e.setValue(c);
-    //
-    // return e;
-    // }
 
     @Override
     public String[] getExampleQueriesInternal() {
