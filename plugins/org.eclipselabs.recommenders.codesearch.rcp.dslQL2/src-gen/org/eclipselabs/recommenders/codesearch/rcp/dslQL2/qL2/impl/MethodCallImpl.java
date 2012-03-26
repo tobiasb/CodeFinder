@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 
@@ -54,7 +54,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * @generated
    * @ordered
    */
-  protected MethodName method;
+  protected CalledMethodName method;
 
   /**
    * The cached value of the '{@link #getNameCaller() <em>Name Caller</em>}' containment reference.
@@ -140,7 +140,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public MethodName getMethod()
+  public CalledMethodName getMethod()
   {
     return method;
   }
@@ -150,9 +150,9 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetMethod(MethodName newMethod, NotificationChain msgs)
+  public NotificationChain basicSetMethod(CalledMethodName newMethod, NotificationChain msgs)
   {
-    MethodName oldMethod = method;
+    CalledMethodName oldMethod = method;
     method = newMethod;
     if (eNotificationRequired())
     {
@@ -167,7 +167,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethod(MethodName newMethod)
+  public void setMethod(CalledMethodName newMethod)
   {
     if (newMethod != method)
     {
@@ -285,7 +285,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
         setNameCallee((Name)newValue);
         return;
       case QL2Package.METHOD_CALL__METHOD:
-        setMethod((MethodName)newValue);
+        setMethod((CalledMethodName)newValue);
         return;
       case QL2Package.METHOD_CALL__NAME_CALLER:
         setNameCaller((Name)newValue);
@@ -308,7 +308,7 @@ public class MethodCallImpl extends StatementImpl implements MethodCall
         setNameCallee((Name)null);
         return;
       case QL2Package.METHOD_CALL__METHOD:
-        setMethod((MethodName)null);
+        setMethod((CalledMethodName)null);
         return;
       case QL2Package.METHOD_CALL__NAME_CALLER:
         setNameCaller((Name)null);

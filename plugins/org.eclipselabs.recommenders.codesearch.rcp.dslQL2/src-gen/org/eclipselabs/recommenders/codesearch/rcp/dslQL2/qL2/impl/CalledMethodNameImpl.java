@@ -13,23 +13,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Method Name</b></em>'.
+ * An implementation of the model object '<em><b>Called Method Name</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.CalledMethodNameImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MethodNameImpl extends MinimalEObjectImpl.Container implements MethodName
+public class CalledMethodNameImpl extends MinimalEObjectImpl.Container implements CalledMethodName
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -56,7 +56,7 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MethodNameImpl()
+  protected CalledMethodNameImpl()
   {
     super();
   }
@@ -69,7 +69,7 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
   @Override
   protected EClass eStaticClass()
   {
-    return QL2Package.Literals.METHOD_NAME;
+    return QL2Package.Literals.CALLED_METHOD_NAME;
   }
 
   /**
@@ -92,7 +92,7 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.METHOD_NAME__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.CALLED_METHOD_NAME__VALUE, oldValue, value));
   }
 
   /**
@@ -105,7 +105,7 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_NAME__VALUE:
+      case QL2Package.CALLED_METHOD_NAME__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -121,7 +121,7 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_NAME__VALUE:
+      case QL2Package.CALLED_METHOD_NAME__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -138,7 +138,7 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_NAME__VALUE:
+      case QL2Package.CALLED_METHOD_NAME__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -155,7 +155,7 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
   {
     switch (featureID)
     {
-      case QL2Package.METHOD_NAME__VALUE:
+      case QL2Package.CALLED_METHOD_NAME__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -178,4 +178,4 @@ public class MethodNameImpl extends MinimalEObjectImpl.Container implements Meth
     return result.toString();
   }
 
-} //MethodNameImpl
+} //CalledMethodNameImpl

@@ -1,18 +1,22 @@
-grammar org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2 with org.eclipse.xtext.common.Terminals
+grammar org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2 with org.eclipse.xtext.common.Terminals//org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1
+
+//import "platform:/resource/org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/QL1.genmodel"//"http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1" as QL1
+import "platform:/resource/org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/QL1.ecore" as QL1
 
 generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
 
-//import "http://www.eclipse.org/xtext/xbase/Xbase"
-//import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
-//import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
 	{Model}
-	('(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')')?
+	('(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')')?//
 	('{'
 		(statements+=Statement )*
 	'}')?
 	;
+	
+//ParameterDefinition:
+//	'(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')'
+//;
 	
 Statement:
 	( 'var' (VarInitialisation 
@@ -40,14 +44,14 @@ VarDeclarationParam:
 ;
 	
 MethodCall:
-	nameCallee=Name '.' method=MethodName '(' (nameCaller=Name)?  ')'
+	nameCallee=Name '.' method=CalledMethodName '(' (nameCaller=Name)?  ')'
 ;
 	
 StaticMethodCall:
 	method=WildcardNameConcatenated '(' name=Name ')'
 ;
 
-MethodName: 
+CalledMethodName: 
 	value=WildcardName
 ;
 

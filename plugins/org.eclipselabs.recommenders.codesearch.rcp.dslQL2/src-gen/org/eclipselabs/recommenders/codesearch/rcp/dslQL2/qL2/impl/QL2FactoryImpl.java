@@ -76,7 +76,7 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
       case QL2Package.VAR_DECLARATION_PARAM: return createVarDeclarationParam();
       case QL2Package.METHOD_CALL: return createMethodCall();
       case QL2Package.STATIC_METHOD_CALL: return createStaticMethodCall();
-      case QL2Package.METHOD_NAME: return createMethodName();
+      case QL2Package.CALLED_METHOD_NAME: return createCalledMethodName();
       case QL2Package.TYPE: return createType();
       case QL2Package.NAME: return createName();
       default:
@@ -177,10 +177,10 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MethodName createMethodName()
+  public CalledMethodName createCalledMethodName()
   {
-    MethodNameImpl methodName = new MethodNameImpl();
-    return methodName;
+    CalledMethodNameImpl calledMethodName = new CalledMethodNameImpl();
+    return calledMethodName;
   }
 
   /**

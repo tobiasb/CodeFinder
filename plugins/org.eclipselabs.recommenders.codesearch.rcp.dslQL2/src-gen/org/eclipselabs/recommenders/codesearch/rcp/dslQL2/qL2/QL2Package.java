@@ -348,14 +348,14 @@ public interface QL2Package extends EPackage
   int STATIC_METHOD_CALL_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl <em>Method Name</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.CalledMethodNameImpl <em>Called Method Name</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getMethodName()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.CalledMethodNameImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getCalledMethodName()
    * @generated
    */
-  int METHOD_NAME = 8;
+  int CALLED_METHOD_NAME = 8;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -364,16 +364,16 @@ public interface QL2Package extends EPackage
    * @generated
    * @ordered
    */
-  int METHOD_NAME__VALUE = 0;
+  int CALLED_METHOD_NAME__VALUE = 0;
 
   /**
-   * The number of structural features of the '<em>Method Name</em>' class.
+   * The number of structural features of the '<em>Called Method Name</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_NAME_FEATURE_COUNT = 1;
+  int CALLED_METHOD_NAME_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.TypeImpl <em>Type</em>}' class.
@@ -678,25 +678,25 @@ public interface QL2Package extends EPackage
   EReference getStaticMethodCall_Name();
 
   /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName <em>Method Name</em>}'.
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName <em>Called Method Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Method Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName
+   * @return the meta object for class '<em>Called Method Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName
    * @generated
    */
-  EClass getMethodName();
+  EClass getCalledMethodName();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName#getValue()
-   * @see #getMethodName()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName#getValue()
+   * @see #getCalledMethodName()
    * @generated
    */
-  EAttribute getMethodName_Value();
+  EAttribute getCalledMethodName_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type <em>Type</em>}'.
@@ -964,14 +964,14 @@ public interface QL2Package extends EPackage
     EReference STATIC_METHOD_CALL__NAME = eINSTANCE.getStaticMethodCall_Name();
 
     /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl <em>Method Name</em>}' class.
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.CalledMethodNameImpl <em>Called Method Name</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodNameImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getMethodName()
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.CalledMethodNameImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getCalledMethodName()
      * @generated
      */
-    EClass METHOD_NAME = eINSTANCE.getMethodName();
+    EClass CALLED_METHOD_NAME = eINSTANCE.getCalledMethodName();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -979,7 +979,7 @@ public interface QL2Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METHOD_NAME__VALUE = eINSTANCE.getMethodName_Value();
+    EAttribute CALLED_METHOD_NAME__VALUE = eINSTANCE.getCalledMethodName_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.TypeImpl <em>Type</em>}' class.

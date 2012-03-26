@@ -281,25 +281,25 @@ finally {
 
 
 
-// Entry rule entryRuleMethodName
-entryRuleMethodName 
+// Entry rule entryRuleCalledMethodName
+entryRuleCalledMethodName 
 :
-{ before(grammarAccess.getMethodNameRule()); }
-	 ruleMethodName
-{ after(grammarAccess.getMethodNameRule()); } 
+{ before(grammarAccess.getCalledMethodNameRule()); }
+	 ruleCalledMethodName
+{ after(grammarAccess.getCalledMethodNameRule()); } 
 	 EOF 
 ;
 
-// Rule MethodName
-ruleMethodName
+// Rule CalledMethodName
+ruleCalledMethodName
     @init {
 		int stackSize = keepStackSize();
     }
 	:
 (
-{ before(grammarAccess.getMethodNameAccess().getValueAssignment()); }
-(rule__MethodName__ValueAssignment)
-{ after(grammarAccess.getMethodNameAccess().getValueAssignment()); }
+{ before(grammarAccess.getCalledMethodNameAccess().getValueAssignment()); }
+(rule__CalledMethodName__ValueAssignment)
+{ after(grammarAccess.getCalledMethodNameAccess().getValueAssignment()); }
 )
 
 ;
@@ -2093,8 +2093,8 @@ rule__MethodCall__MethodAssignment_2
     }
 :
 (
-{ before(grammarAccess.getMethodCallAccess().getMethodMethodNameParserRuleCall_2_0()); }
-	ruleMethodName{ after(grammarAccess.getMethodCallAccess().getMethodMethodNameParserRuleCall_2_0()); }
+{ before(grammarAccess.getMethodCallAccess().getMethodCalledMethodNameParserRuleCall_2_0()); }
+	ruleCalledMethodName{ after(grammarAccess.getMethodCallAccess().getMethodCalledMethodNameParserRuleCall_2_0()); }
 )
 
 ;
@@ -2147,14 +2147,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MethodName__ValueAssignment
+rule__CalledMethodName__ValueAssignment
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0()); }
-	ruleWildcardName{ after(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0()); }
+{ before(grammarAccess.getCalledMethodNameAccess().getValueWildcardNameParserRuleCall_0()); }
+	ruleWildcardName{ after(grammarAccess.getCalledMethodNameAccess().getValueWildcardNameParserRuleCall_0()); }
 )
 
 ;

@@ -36,17 +36,15 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStatementsStatementParserRuleCall_2_1_0 = (RuleCall)cStatementsAssignment_2_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
 		
-		////import "http://www.eclipse.org/xtext/xbase/Xbase"
-		//
-		////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
-		//
-		////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-		//
 		//Model:
-		//	{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? ("{" statements+=Statement* "}")?;
+		//	{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? //
+		//
+		//	("{" statements+=Statement* "}")?;
 		public ParserRule getRule() { return rule; }
 
-		//{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? ("{" statements+=Statement* "}")?
+		//{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? //
+		//
+		//("{" statements+=Statement* "}")?
 		public Group getGroup() { return cGroup; }
 
 		//{Model}
@@ -111,6 +109,12 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cScallKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final RuleCall cStaticMethodCallParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		
+		////ParameterDefinition:
+		//
+		////	'(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')'
+		//
+		////;
+		//
 		//Statement:
 		//	"var" (VarInitialisation | VarNullLiteral | VarDeclaration) | "call" MethodCall | "scall" StaticMethodCall;
 		public ParserRule getRule() { return rule; }
@@ -290,17 +294,17 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameCalleeNameParserRuleCall_0_0 = (RuleCall)cNameCalleeAssignment_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cMethodAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMethodMethodNameParserRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
+		private final RuleCall cMethodCalledMethodNameParserRuleCall_2_0 = (RuleCall)cMethodAssignment_2.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cNameCallerAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cNameCallerNameParserRuleCall_4_0 = (RuleCall)cNameCallerAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//MethodCall:
-		//	nameCallee=Name "." method=MethodName "(" nameCaller=Name? ")";
+		//	nameCallee=Name "." method=CalledMethodName "(" nameCaller=Name? ")";
 		public ParserRule getRule() { return rule; }
 
-		//nameCallee=Name "." method=MethodName "(" nameCaller=Name? ")"
+		//nameCallee=Name "." method=CalledMethodName "(" nameCaller=Name? ")"
 		public Group getGroup() { return cGroup; }
 
 		//nameCallee=Name
@@ -312,11 +316,11 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		//"."
 		public Keyword getFullStopKeyword_1() { return cFullStopKeyword_1; }
 
-		//method=MethodName
+		//method=CalledMethodName
 		public Assignment getMethodAssignment_2() { return cMethodAssignment_2; }
 
-		//MethodName
-		public RuleCall getMethodMethodNameParserRuleCall_2_0() { return cMethodMethodNameParserRuleCall_2_0; }
+		//CalledMethodName
+		public RuleCall getMethodCalledMethodNameParserRuleCall_2_0() { return cMethodCalledMethodNameParserRuleCall_2_0; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
@@ -367,12 +371,12 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
-	public class MethodNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodName");
+	public class CalledMethodNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CalledMethodName");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValueWildcardNameParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//MethodName:
+		//CalledMethodName:
 		//	value=WildcardName;
 		public ParserRule getRule() { return rule; }
 
@@ -476,7 +480,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	private VarDeclarationParamElements pVarDeclarationParam;
 	private MethodCallElements pMethodCall;
 	private StaticMethodCallElements pStaticMethodCall;
-	private MethodNameElements pMethodName;
+	private CalledMethodNameElements pCalledMethodName;
 	private TypeElements pType;
 	private NameElements pName;
 	private WildcardNameConcatenatedElements pWildcardNameConcatenated;
@@ -503,14 +507,10 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	////import "http://www.eclipse.org/xtext/xbase/Xbase"
-	//
-	////import "http://www.eclipse.org/xtext/common/JavaVMTypes" as types
-	//
-	////import "http://www.eclipse.org/emf/2002/Ecore" as ecore
-	//
 	//Model:
-	//	{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? ("{" statements+=Statement* "}")?;
+	//	{Model} ("(" vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)* ")")? //
+	//
+	//	("{" statements+=Statement* "}")?;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -519,6 +519,12 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 
+	////ParameterDefinition:
+	//
+	////	'(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')'
+	//
+	////;
+	//
 	//Statement:
 	//	"var" (VarInitialisation | VarNullLiteral | VarDeclaration) | "call" MethodCall | "scall" StaticMethodCall;
 	public StatementElements getStatementAccess() {
@@ -570,7 +576,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodCall:
-	//	nameCallee=Name "." method=MethodName "(" nameCaller=Name? ")";
+	//	nameCallee=Name "." method=CalledMethodName "(" nameCaller=Name? ")";
 	public MethodCallElements getMethodCallAccess() {
 		return (pMethodCall != null) ? pMethodCall : (pMethodCall = new MethodCallElements());
 	}
@@ -589,14 +595,14 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		return getStaticMethodCallAccess().getRule();
 	}
 
-	//MethodName:
+	//CalledMethodName:
 	//	value=WildcardName;
-	public MethodNameElements getMethodNameAccess() {
-		return (pMethodName != null) ? pMethodName : (pMethodName = new MethodNameElements());
+	public CalledMethodNameElements getCalledMethodNameAccess() {
+		return (pCalledMethodName != null) ? pCalledMethodName : (pCalledMethodName = new CalledMethodNameElements());
 	}
 	
-	public ParserRule getMethodNameRule() {
-		return getMethodNameAccess().getRule();
+	public ParserRule getCalledMethodNameRule() {
+		return getCalledMethodNameAccess().getRule();
 	}
 
 	//Type:

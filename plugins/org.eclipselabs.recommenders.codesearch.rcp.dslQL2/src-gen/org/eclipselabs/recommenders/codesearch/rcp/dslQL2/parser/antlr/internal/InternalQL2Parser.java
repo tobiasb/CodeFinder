@@ -1353,7 +1353,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMethodCall"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:527:1: ruleMethodCall returns [EObject current=null] : ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' ) ;
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:527:1: ruleMethodCall returns [EObject current=null] : ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleCalledMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' ) ;
     public final EObject ruleMethodCall() throws RecognitionException {
         EObject current = null;
 
@@ -1370,11 +1370,11 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:530:28: ( ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:530:28: ( ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleCalledMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleCalledMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:2: ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')'
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:1: ( ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleCalledMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')' )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:2: ( (lv_nameCallee_0_0= ruleName ) ) otherlv_1= '.' ( (lv_method_2_0= ruleCalledMethodName ) ) otherlv_3= '(' ( (lv_nameCaller_4_0= ruleName ) )? otherlv_5= ')'
             {
             // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:531:2: ( (lv_nameCallee_0_0= ruleName ) )
             // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:532:1: (lv_nameCallee_0_0= ruleName )
@@ -1417,19 +1417,19 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                   	newLeafNode(otherlv_1, grammarAccess.getMethodCallAccess().getFullStopKeyword_1());
                   
             }
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:553:1: ( (lv_method_2_0= ruleMethodName ) )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:554:1: (lv_method_2_0= ruleMethodName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:553:1: ( (lv_method_2_0= ruleCalledMethodName ) )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:554:1: (lv_method_2_0= ruleCalledMethodName )
             {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:554:1: (lv_method_2_0= ruleMethodName )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:555:3: lv_method_2_0= ruleMethodName
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:554:1: (lv_method_2_0= ruleCalledMethodName )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:555:3: lv_method_2_0= ruleCalledMethodName
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getMethodCallAccess().getMethodMethodNameParserRuleCall_2_0()); 
+              	        newCompositeNode(grammarAccess.getMethodCallAccess().getMethodCalledMethodNameParserRuleCall_2_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleMethodName_in_ruleMethodCall1149);
-            lv_method_2_0=ruleMethodName();
+            pushFollow(FOLLOW_ruleCalledMethodName_in_ruleMethodCall1149);
+            lv_method_2_0=ruleCalledMethodName();
 
             state._fsp--;
             if (state.failed) return current;
@@ -1442,7 +1442,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
                      			current, 
                      			"method",
                       		lv_method_2_0, 
-                      		"MethodName");
+                      		"CalledMethodName");
               	        afterParserOrEnumRuleCall();
               	    
             }
@@ -1697,30 +1697,30 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleStaticMethodCall"
 
 
-    // $ANTLR start "entryRuleMethodName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:670:1: entryRuleMethodName returns [EObject current=null] : iv_ruleMethodName= ruleMethodName EOF ;
-    public final EObject entryRuleMethodName() throws RecognitionException {
+    // $ANTLR start "entryRuleCalledMethodName"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:670:1: entryRuleCalledMethodName returns [EObject current=null] : iv_ruleCalledMethodName= ruleCalledMethodName EOF ;
+    public final EObject entryRuleCalledMethodName() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleMethodName = null;
+        EObject iv_ruleCalledMethodName = null;
 
 
         try {
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:671:2: (iv_ruleMethodName= ruleMethodName EOF )
-            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:672:2: iv_ruleMethodName= ruleMethodName EOF
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:671:2: (iv_ruleCalledMethodName= ruleCalledMethodName EOF )
+            // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:672:2: iv_ruleCalledMethodName= ruleCalledMethodName EOF
             {
             if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getMethodNameRule()); 
+               newCompositeNode(grammarAccess.getCalledMethodNameRule()); 
             }
-            pushFollow(FOLLOW_ruleMethodName_in_entryRuleMethodName1368);
-            iv_ruleMethodName=ruleMethodName();
+            pushFollow(FOLLOW_ruleCalledMethodName_in_entryRuleCalledMethodName1368);
+            iv_ruleCalledMethodName=ruleCalledMethodName();
 
             state._fsp--;
             if (state.failed) return current;
             if ( state.backtracking==0 ) {
-               current =iv_ruleMethodName; 
+               current =iv_ruleCalledMethodName; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMethodName1378); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCalledMethodName1378); if (state.failed) return current;
 
             }
 
@@ -1734,12 +1734,12 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleMethodName"
+    // $ANTLR end "entryRuleCalledMethodName"
 
 
-    // $ANTLR start "ruleMethodName"
-    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:679:1: ruleMethodName returns [EObject current=null] : ( (lv_value_0_0= ruleWildcardName ) ) ;
-    public final EObject ruleMethodName() throws RecognitionException {
+    // $ANTLR start "ruleCalledMethodName"
+    // ../org.eclipselabs.recommenders.codesearch.rcp.dslQL2/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL2/parser/antlr/internal/InternalQL2.g:679:1: ruleCalledMethodName returns [EObject current=null] : ( (lv_value_0_0= ruleWildcardName ) ) ;
+    public final EObject ruleCalledMethodName() throws RecognitionException {
         EObject current = null;
 
         AntlrDatatypeRuleToken lv_value_0_0 = null;
@@ -1759,10 +1759,10 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
             {
             if ( state.backtracking==0 ) {
                
-              	        newCompositeNode(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0()); 
+              	        newCompositeNode(grammarAccess.getCalledMethodNameAccess().getValueWildcardNameParserRuleCall_0()); 
               	    
             }
-            pushFollow(FOLLOW_ruleWildcardName_in_ruleMethodName1423);
+            pushFollow(FOLLOW_ruleWildcardName_in_ruleCalledMethodName1423);
             lv_value_0_0=ruleWildcardName();
 
             state._fsp--;
@@ -1770,7 +1770,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
 
               	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getMethodNameRule());
+              	            current = createModelElementForParent(grammarAccess.getCalledMethodNameRule());
               	        }
                      		set(
                      			current, 
@@ -1802,7 +1802,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "ruleMethodName"
+    // $ANTLR end "ruleCalledMethodName"
 
 
     // $ANTLR start "entryRuleType"
@@ -2446,7 +2446,7 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRuleMethodCall1070 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleName_in_ruleMethodCall1116 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_22_in_ruleMethodCall1128 = new BitSet(new long[]{0x0000000000900010L});
-    public static final BitSet FOLLOW_ruleMethodName_in_ruleMethodCall1149 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_ruleCalledMethodName_in_ruleMethodCall1149 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_11_in_ruleMethodCall1161 = new BitSet(new long[]{0x0000000000002010L});
     public static final BitSet FOLLOW_ruleName_in_ruleMethodCall1182 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_ruleMethodCall1195 = new BitSet(new long[]{0x0000000000000002L});
@@ -2456,9 +2456,9 @@ public class InternalQL2Parser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_11_in_ruleStaticMethodCall1299 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleName_in_ruleStaticMethodCall1320 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_ruleStaticMethodCall1332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMethodName_in_entryRuleMethodName1368 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMethodName1378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleWildcardName_in_ruleMethodName1423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCalledMethodName_in_entryRuleCalledMethodName1368 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCalledMethodName1378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleWildcardName_in_ruleCalledMethodName1423 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleType_in_entryRuleType1458 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleType1468 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleWildcardNameConcatenated_in_ruleType1513 = new BitSet(new long[]{0x0000000000000002L});

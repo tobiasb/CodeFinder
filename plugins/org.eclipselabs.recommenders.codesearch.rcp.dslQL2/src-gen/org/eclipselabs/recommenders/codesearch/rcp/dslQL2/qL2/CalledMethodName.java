@@ -10,21 +10,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Method Name</b></em>'.
+ * A representation of the model object '<em><b>Called Method Name</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getMethodName()
+ * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getCalledMethodName()
  * @model
  * @generated
  */
-public interface MethodName extends EObject
+public interface CalledMethodName extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -36,14 +36,14 @@ public interface MethodName extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getMethodName_Value()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getCalledMethodName_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -52,4 +52,4 @@ public interface MethodName extends EObject
    */
   void setValue(String value);
 
-} // MethodName
+} // CalledMethodName

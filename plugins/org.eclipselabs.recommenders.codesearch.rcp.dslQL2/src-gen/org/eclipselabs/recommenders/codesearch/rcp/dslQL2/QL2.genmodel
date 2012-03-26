@@ -39,8 +39,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//StaticMethodCall/method"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//StaticMethodCall/name"/>
     </genClasses>
-    <genClasses ecoreClass="QL2.ecore#//MethodName">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//MethodName/value"/>
+    <genClasses ecoreClass="QL2.ecore#//CalledMethodName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//CalledMethodName/value"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//Type/value"/>

@@ -29,7 +29,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MethodCall" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameCallee" eType="#//Name"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//MethodName"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="method" eType="#//CalledMethodName"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nameCaller" eType="#//Name"
         containment="true"/>
@@ -38,7 +38,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Name" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MethodName">
+  <eClassifiers xsi:type="ecore:EClass" name="CalledMethodName">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type">

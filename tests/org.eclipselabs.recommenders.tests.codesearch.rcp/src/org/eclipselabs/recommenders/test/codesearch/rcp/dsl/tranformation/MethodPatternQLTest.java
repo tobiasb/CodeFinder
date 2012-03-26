@@ -97,7 +97,7 @@ public class MethodPatternQLTest extends QLTestBase {
     public void transformToLuceneQueryTestParametersPreselectionSingle02() throws Exception {
         setUp();
 
-        String query = "* *(List, Map)";
+        String query = "* * (List, Map)";
         String expected = "Type:(method) AND ParameterTypesStructural:List;Map;";
 
         testQuery(query, expected);
@@ -383,9 +383,7 @@ public class MethodPatternQLTest extends QLTestBase {
         QL1QueryExtractor qe = new QL1QueryExtractor();
 
         for (String exampleQuery : w.getExampleQueriesInternal()) {
-            IParseResult result = parse(exampleQuery);
-
-            assertFalse(result.hasSyntaxErrors());
+            IParseResult result = getParseResultAndExpect(exampleQuery, 0);
         }
     }
 }

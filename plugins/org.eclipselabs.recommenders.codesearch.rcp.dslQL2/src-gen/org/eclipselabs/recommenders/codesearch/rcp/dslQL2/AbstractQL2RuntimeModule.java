@@ -41,12 +41,12 @@ public abstract class AbstractQL2RuntimeModule extends DefaultRuntimeModule {
 
 	// contributed by org.eclipse.xtext.generator.serializer.SerializerFragment
 	public Class<? extends org.eclipse.xtext.serializer.sequencer.ISemanticSequencer> bindISemanticSequencer() {
-		return org.eclipselabs.recommenders.codesearch.rcp.dslQL2.serializer.AbstractQL2SemanticSequencer.class;
+		return org.eclipselabs.recommenders.codesearch.rcp.dslQL2.serializer.QL2SemanticSequencer.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.serializer.SerializerFragment
 	public Class<? extends org.eclipse.xtext.serializer.sequencer.ISyntacticSequencer> bindISyntacticSequencer() {
-		return org.eclipselabs.recommenders.codesearch.rcp.dslQL2.serializer.AbstractQL2SyntacticSequencer.class;
+		return org.eclipselabs.recommenders.codesearch.rcp.dslQL2.serializer.QL2SyntacticSequencer.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.serializer.SerializerFragment

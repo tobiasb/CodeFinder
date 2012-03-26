@@ -51,7 +51,7 @@ public class QL2ProposalProvider extends AbstractQL2ProposalProvider {
     }
 
     @Override
-    public void complete_MethodName(EObject model, RuleCall ruleCall, ContentAssistContext context,
+    public void complete_CalledMethodName(EObject model, RuleCall ruleCall, ContentAssistContext context,
             ICompletionProposalAcceptor acceptor) {
 
         EObject root = EmfHelper.getRoot(model);

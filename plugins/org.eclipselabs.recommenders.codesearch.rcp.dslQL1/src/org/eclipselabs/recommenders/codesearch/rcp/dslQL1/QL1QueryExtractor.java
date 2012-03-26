@@ -52,6 +52,7 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
 
                     final String oldValue = ((ParameterTypeImpl) o).getValue();
                     final String newValue = conv.convertFrom(oldValue);
+
                     ((ParameterTypeImpl) o).setValue(newValue);
                 }
 
@@ -163,7 +164,7 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
     }
 
     private boolean isSpecified(String value) {
-        return !value.equals("*");
+        return value != null && !value.equals("*");
     }
 
     private Expression getMethodTypeExpression() {

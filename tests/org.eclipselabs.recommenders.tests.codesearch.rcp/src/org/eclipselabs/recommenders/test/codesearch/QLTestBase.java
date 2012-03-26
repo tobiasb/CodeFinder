@@ -72,7 +72,7 @@ public abstract class QLTestBase extends AbstractXtextTests {
     protected void testQuery(String query, String[] expected) throws Exception {
         QL2QueryExtractor qe = new QL2QueryExtractor();
 
-        IParseResult result = parse(query);
+        IParseResult result = getParseResultAndExpect(String.format(query), 0);
 
         assertFalse(result.hasSyntaxErrors());
 

@@ -13,8 +13,8 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
@@ -54,16 +54,16 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == QL2Package.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case QL2Package.CALLED_METHOD_NAME:
+				if(context == grammarAccess.getCalledMethodNameRule()) {
+					sequence_CalledMethodName(context, (CalledMethodName) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL2Package.METHOD_CALL:
 				if(context == grammarAccess.getMethodCallRule() ||
 				   context == grammarAccess.getStatementRule()) {
 					sequence_MethodCall(context, (MethodCall) semanticObject); 
-					return; 
-				}
-				else break;
-			case QL2Package.METHOD_NAME:
-				if(context == grammarAccess.getMethodNameRule()) {
-					sequence_MethodName(context, (MethodName) semanticObject); 
 					return; 
 				}
 				else break;
@@ -125,26 +125,26 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (nameCallee=Name method=MethodName nameCaller=Name?)
+	 *     value=WildcardName
 	 */
-	protected void sequence_MethodCall(EObject context, MethodCall semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_CalledMethodName(EObject context, CalledMethodName semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.CALLED_METHOD_NAME__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.CALLED_METHOD_NAME__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getCalledMethodNameAccess().getValueWildcardNameParserRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     value=WildcardName
+	 *     (nameCallee=Name method=CalledMethodName nameCaller=Name?)
 	 */
-	protected void sequence_MethodName(EObject context, MethodName semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.METHOD_NAME__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.METHOD_NAME__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_MethodCall(EObject context, MethodCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

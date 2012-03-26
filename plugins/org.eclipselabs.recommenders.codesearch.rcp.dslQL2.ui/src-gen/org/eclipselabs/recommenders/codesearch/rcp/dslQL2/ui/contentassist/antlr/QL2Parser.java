@@ -71,7 +71,7 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getMethodCallAccess().getNameCallerAssignment_4(), "rule__MethodCall__NameCallerAssignment_4");
 					put(grammarAccess.getStaticMethodCallAccess().getMethodAssignment_0(), "rule__StaticMethodCall__MethodAssignment_0");
 					put(grammarAccess.getStaticMethodCallAccess().getNameAssignment_2(), "rule__StaticMethodCall__NameAssignment_2");
-					put(grammarAccess.getMethodNameAccess().getValueAssignment(), "rule__MethodName__ValueAssignment");
+					put(grammarAccess.getCalledMethodNameAccess().getValueAssignment(), "rule__CalledMethodName__ValueAssignment");
 					put(grammarAccess.getTypeAccess().getValueAssignment(), "rule__Type__ValueAssignment");
 					put(grammarAccess.getNameAccess().getValueAssignment(), "rule__Name__ValueAssignment");
 				}

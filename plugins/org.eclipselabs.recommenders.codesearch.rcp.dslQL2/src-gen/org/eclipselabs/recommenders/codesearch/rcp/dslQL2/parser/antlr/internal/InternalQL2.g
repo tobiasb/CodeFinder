@@ -553,9 +553,9 @@ ruleMethodCall returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMethodCallAccess().getMethodMethodNameParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getMethodCallAccess().getMethodCalledMethodNameParserRuleCall_2_0()); 
 	    }
-		lv_method_2_0=ruleMethodName		{
+		lv_method_2_0=ruleCalledMethodName		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMethodCallRule());
 	        }
@@ -563,7 +563,7 @@ ruleMethodCall returns [EObject current=null]
        			$current, 
        			"method",
         		lv_method_2_0, 
-        		"MethodName");
+        		"CalledMethodName");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -666,28 +666,28 @@ ruleStaticMethodCall returns [EObject current=null]
 
 
 
-// Entry rule entryRuleMethodName
-entryRuleMethodName returns [EObject current=null] 
+// Entry rule entryRuleCalledMethodName
+entryRuleCalledMethodName returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getMethodNameRule()); }
-	 iv_ruleMethodName=ruleMethodName 
-	 { $current=$iv_ruleMethodName.current; } 
+	{ newCompositeNode(grammarAccess.getCalledMethodNameRule()); }
+	 iv_ruleCalledMethodName=ruleCalledMethodName 
+	 { $current=$iv_ruleCalledMethodName.current; } 
 	 EOF 
 ;
 
-// Rule MethodName
-ruleMethodName returns [EObject current=null] 
+// Rule CalledMethodName
+ruleCalledMethodName returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMethodNameAccess().getValueWildcardNameParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getCalledMethodNameAccess().getValueWildcardNameParserRuleCall_0()); 
 	    }
 		lv_value_0_0=ruleWildcardName		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getMethodNameRule());
+	            $current = createModelElementForParent(grammarAccess.getCalledMethodNameRule());
 	        }
        		set(
        			$current, 

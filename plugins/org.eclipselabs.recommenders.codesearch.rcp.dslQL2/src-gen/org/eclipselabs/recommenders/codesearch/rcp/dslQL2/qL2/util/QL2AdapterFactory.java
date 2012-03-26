@@ -119,9 +119,9 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
         return createStaticMethodCallAdapter();
       }
       @Override
-      public Adapter caseMethodName(MethodName object)
+      public Adapter caseCalledMethodName(CalledMethodName object)
       {
-        return createMethodNameAdapter();
+        return createCalledMethodNameAdapter();
       }
       @Override
       public Adapter caseType(Type object)
@@ -276,16 +276,16 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName <em>Method Name</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName <em>Called Method Name</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodName
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName
    * @generated
    */
-  public Adapter createMethodNameAdapter()
+  public Adapter createCalledMethodNameAdapter()
   {
     return null;
   }

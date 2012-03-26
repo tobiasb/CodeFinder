@@ -62,12 +62,12 @@ public interface MethodCall extends Statement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Method</em>' containment reference.
-   * @see #setMethod(MethodName)
+   * @see #setMethod(CalledMethodName)
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getMethodCall_Method()
    * @model containment="true"
    * @generated
    */
-  MethodName getMethod();
+  CalledMethodName getMethod();
 
   /**
    * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall#getMethod <em>Method</em>}' containment reference.
@@ -77,7 +77,7 @@ public interface MethodCall extends Statement
    * @see #getMethod()
    * @generated
    */
-  void setMethod(MethodName value);
+  void setMethod(CalledMethodName value);
 
   /**
    * Returns the value of the '<em><b>Name Caller</b></em>' containment reference.
