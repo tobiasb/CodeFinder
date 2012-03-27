@@ -1,5 +1,7 @@
 package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 
+import static org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher.prepareSearchTerm;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -139,7 +141,8 @@ public class CodeIndexer implements ICompilationUnitIndexer {
 
     private Optional<Long> lastIndexedInternal(final File location) {
         try {
-            final Query query = new TermQuery(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location)));
+            final Query query = new TermQuery(prepareSearchTerm(Fields.RESOURCE_PATH,
+                    ResourcePathIndexer.getPath(location)));
             final FieldSelector selector = new SetBasedFieldSelector(Sets.newHashSet(Fields.TIMESTAMP),
                     Sets.<String> newHashSet());
             final List<Document> docs = searcher.search(query, selector, 1);
@@ -176,7 +179,7 @@ public class CodeIndexer implements ICompilationUnitIndexer {
     }
 
     public void delete(final File location) throws IOException {
-        delete(new Term(Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location)));
+        delete(prepareSearchTerm(Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(location)));
     }
 
     public void delete(final Term term) throws IOException {
@@ -184,7 +187,7 @@ public class CodeIndexer implements ICompilationUnitIndexer {
             return;
         }
 
-        final Query q = new TermQuery(new Term(term.field(), term.text().toLowerCase()));
+        final Query q = new TermQuery(prepareSearchTerm(term.field(), term.text().toLowerCase()));
         writer.deleteDocuments(q);
     }
 
@@ -192,7 +195,7 @@ public class CodeIndexer implements ICompilationUnitIndexer {
     public void delete(final CompilationUnit cu) throws IOException {
         final String cuPath = ResourcePathIndexer.getPath(cu);
 
-        delete(new Term(Fields.RESOURCE_PATH, cuPath));
+        delete(prepareSearchTerm(Fields.RESOURCE_PATH, cuPath));
     }
 
     public void commit() {

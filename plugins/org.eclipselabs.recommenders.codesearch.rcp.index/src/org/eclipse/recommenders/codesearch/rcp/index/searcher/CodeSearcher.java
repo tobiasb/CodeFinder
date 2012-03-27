@@ -153,4 +153,7 @@ public class CodeSearcher implements ITermVectorConsumable {
         return reader.docFreq(t);
     }
 
+    public static Term prepareSearchTerm(String field, String value) {
+        return new Term(field, value.toLowerCase());
+    }
 }

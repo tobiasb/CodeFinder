@@ -3,6 +3,7 @@ package org.eclipse.recommenders.codesearch.rcp.index.extdoc;
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
 import static org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper.getIdentifier;
+import static org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher.prepareSearchTerm;
 import static org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider.Status.NOT_AVAILABLE;
 import static org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider.Status.OK;
 import static org.eclipse.recommenders.rcp.events.JavaSelectionEvent.JavaSelectionLocation.METHOD_BODY;
@@ -149,10 +150,6 @@ public class LocalExamplesProvider extends ExtdocProvider {
         jdtVarType = opt.get();
         varType = jdtResolver.toRecType(opt.get()).getIdentifier();
         return varType != null;
-    }
-
-    private Term prepareSearchTerm(String field, String value) {
-        return new Term(field, value.toLowerCase());
     }
 
     private BooleanQuery createQuery() {
