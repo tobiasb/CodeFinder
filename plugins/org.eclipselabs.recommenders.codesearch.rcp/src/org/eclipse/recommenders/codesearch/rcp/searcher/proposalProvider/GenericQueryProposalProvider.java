@@ -1,4 +1,4 @@
-package org.eclipse.recommenders.codesearch.rcp.searcher;
+package org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider;
 
 import java.util.List;
 import java.util.Map;
@@ -6,9 +6,8 @@ import java.util.Map;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.IQueryPartConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.ITermVectorProvider;
-import org.eclipse.recommenders.codesearch.rcp.searcher.utils.IImageProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.imageProvider.IImageProvider;
 import org.eclipse.recommenders.injection.InjectionService;
-import org.eclipse.recommenders.internal.codesearch.rcp.Activator;
 import org.eclipse.swt.graphics.Image;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.IQueryProposalProvider;
 
@@ -40,12 +39,8 @@ public class GenericQueryProposalProvider implements IQueryProposalProvider {
 
         final CodeSearcher searcherIndex = InjectionService.getInstance().requestInstance(CodeSearcher.class);
 
-        final Long start = System.currentTimeMillis();
         termVectorProvider.load(searcherIndex, argumentsMap);
         List<String> disjunctTermVector = termVectorProvider.getDisjunctTermVector();
-        final Long duration = System.currentTimeMillis() - start;
-
-        Activator.logInfo("Loading proposals took %sms", duration);
 
         return disjunctTermVector;
     }

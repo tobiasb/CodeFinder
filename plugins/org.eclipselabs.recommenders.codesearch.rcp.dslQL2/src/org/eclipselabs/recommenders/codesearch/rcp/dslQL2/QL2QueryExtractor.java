@@ -2,66 +2,29 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2;
 
 import java.util.List;
 
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.parser.IParseResult;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.util.concurrent.IUnitOfWork;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ExtractorHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.MethodField;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ExtractorHelper;
 
 import com.google.common.collect.Lists;
 
-public class QL2QueryExtractor implements IUnitOfWork<IParseResult, XtextResource> {
+public class QL2QueryExtractor {
 
     private final LuceneQueryFactory lqf = new LuceneQueryFactoryImpl();
 
-    @Override
-    public IParseResult exec(XtextResource state) throws Exception {
-        final TreeIterator<EObject> iter = state.getAllContents();
-
-        // if (iter.hasNext()) {
-        // do {
-        // final EObject o = iter.next();
-        //
-        // // The other types, ... are taken care of by
-        // // LuceneQueryExtractor
-        // if (o instanceof ParameterTypeImpl) {
-        // IQueryPartConverter conv = new DotNotationTypeConverter();
-        //
-        // final String oldValue = ((ParameterTypeImpl) o).getValue();
-        // final String newValue = conv.convertFrom(oldValue);
-        // ((ParameterTypeImpl) o).setValue(newValue);
-        // }
-        //
-        // } while (iter.hasNext());
-        // }
-
-        IParseResult r = state.getParseResult();
-        return r;
-    }
-
     public EObject transform(VariableUsage v) {
-        // Map<String, VariableUsage> map = new
-        // VariableExtractor().getVars(r.getRootASTElement());
 
         AndExp exp1 = lqf.createAndExp();
         exp1.setLeft(getVarUsageTypeExpression());
         exp1.setRight(transformInternal(v));
         exp1.setAnd(BinaryExp.AND1);
-
-        // Set<VariableUsage> d = new
-        // VariableExtractor().getVars(r.getRootASTElement());
 
         // System.out.println(EmfFormatter.objToStr(exp1, (EStructuralFeature)
         // null));
@@ -77,7 +40,7 @@ public class QL2QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         exps.add(getDefinitionTypeExpression(v));
 
         for (String calledMethod : v.calledMethodsOnVariable) {
-            exps.add(getCalledMethodExpression(calledMethod));
+            exps.add(getUsedAsTargetMethodExpression(calledMethod));
         }
 
         for (VariableParameterUsage varParamUsage : v.parameterUsages) {
@@ -95,6 +58,10 @@ public class QL2QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         }
     }
 
+    private ClauseExpression getUsedAsTargetMethodExpression(String calledMethodName) {
+        return ExtractorHelper.getMethodFieldExpression(Fields.USED_AS_TAGET_FOR_METHODS, "*" + calledMethodName);
+    }
+
     private ClauseExpression getUsedAsParameterExpression(VariableParameterUsage varParamUsage) {
         ClauseExpression c = lqf.createClauseExpression();
         MethodField f = lqf.createMethodField();
@@ -108,43 +75,15 @@ public class QL2QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         return c;
     }
 
-    private ClauseExpression getCalledMethodExpression(String calledMethod) {
-        ClauseExpression c = lqf.createClauseExpression();
-        MethodField f = lqf.createMethodField();
-        f.setValue(Fields.USED_AS_TAGET_FOR_METHODS);
-        c.setField(f);
-        c.getValues().add("*" + calledMethod);
-        return c;
-    }
-
     private ClauseExpression getDefinitionTypeExpression(VariableUsage v) {
-        ClauseExpression clause = lqf.createClauseExpression();
-        DefinitionType field = lqf.createDefinitionType();
-        field.setValue(Fields.VARIABLE_DEFINITION);
-        clause.setField(field);
-        clause.getValues().add(v.origin);
-        return clause;
+        return ExtractorHelper.getDefinitionTypeExpression(Fields.VARIABLE_DEFINITION, v.origin);
     }
 
     private ClauseExpression getVariableTypeExpression(VariableUsage v) {
-        ClauseExpression clause = lqf.createClauseExpression();
-        TypeField field = lqf.createTypeField();
-        field.setValue(Fields.VARIABLE_TYPE);
-        clause.setField(field);
-        clause.getValues().add(v.type);
-        return clause;
+        return ExtractorHelper.getTypeExpression(Fields.VARIABLE_TYPE, v.type);
     }
 
     private Expression getVarUsageTypeExpression() {
-
-        Expression left = lqf.createExpression();
-        ClauseExpression clause = lqf.createClauseExpression();
-        DocumentTypeField type = lqf.createDocumentTypeField();
-        type.setValue(Fields.TYPE);
-        clause.setField(type);
-        clause.getValues().add(Fields.TYPE_VARUSAGE);
-        left.setValue(clause);
-
-        return left;
+        return ExtractorHelper.getDocumentTypeExpression(Fields.TYPE_VARUSAGE);
     }
 }

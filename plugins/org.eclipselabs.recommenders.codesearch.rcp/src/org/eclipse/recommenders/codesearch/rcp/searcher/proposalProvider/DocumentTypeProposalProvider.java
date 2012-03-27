@@ -1,4 +1,4 @@
-package org.eclipse.recommenders.codesearch.rcp.searcher;
+package org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider;
 
 import java.util.List;
 
@@ -37,5 +37,6 @@ public class DocumentTypeProposalProvider implements IQueryProposalProvider {
 
     @Override
     public void setArgument(int index, Object o) {
+        // Not used
     }
 }

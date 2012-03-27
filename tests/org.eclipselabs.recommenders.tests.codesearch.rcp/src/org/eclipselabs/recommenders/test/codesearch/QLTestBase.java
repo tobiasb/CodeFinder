@@ -9,9 +9,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.junit.AbstractXtextTests;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.serializer.ISerializer;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.IQueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterValidator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
@@ -51,9 +51,7 @@ public abstract class QLTestBase extends AbstractXtextTests {
         return s.replace("(", "").replace(")", "").replace(" ", "").replace("\r", "").replace("\n", "");
     }
 
-    protected <T extends IQueryExtractor> void testQuery(String query, String expected, T qe) throws Exception {
-
-        // QL1QueryExtractor qe = new QL1QueryExtractor();
+    protected void testQuery(String query, String expected, QL1QueryExtractor qe) throws Exception {
 
         IParseResult result = parse(query);
 

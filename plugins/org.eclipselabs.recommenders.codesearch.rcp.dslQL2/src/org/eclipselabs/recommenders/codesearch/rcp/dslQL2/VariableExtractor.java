@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;

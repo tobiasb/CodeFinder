@@ -1,6 +1,6 @@
 package org.eclipse.recommenders.codesearch.rcp.index.searcher.converter;
 
-public class PathValueConverter extends AbstractQueryPartConverter implements IQueryPartConverter {
+public class PathValueConverter implements IQueryPartConverter {
 
     @Override
     public String convertFrom(final String queryPart) {

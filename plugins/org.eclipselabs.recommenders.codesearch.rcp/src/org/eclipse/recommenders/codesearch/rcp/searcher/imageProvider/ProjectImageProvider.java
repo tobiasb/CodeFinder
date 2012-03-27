@@ -1,4 +1,4 @@
-package org.eclipse.recommenders.codesearch.rcp.searcher.utils;
+package org.eclipse.recommenders.codesearch.rcp.searcher.imageProvider;
 
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.PlatformUI;

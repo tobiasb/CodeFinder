@@ -4,23 +4,18 @@ import java.util.List;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.IQueryPartConverter;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.IQueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ExtractorHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ModifierField;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
@@ -33,7 +28,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Parameter
 
 import com.google.common.collect.Lists;
 
-public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResource>, IQueryExtractor {
+public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResource> {
 
     private final LuceneQueryFactory lqf = new LuceneQueryFactoryImpl();
 
@@ -69,7 +64,7 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
     public EObject transform(IParseResult r) {
 
         AndExp exp1 = lqf.createAndExp();
-        exp1.setLeft(getMethodTypeExpression());
+        exp1.setLeft(ExtractorHelper.getDocumentTypeExpression(Fields.TYPE_METHOD));
         exp1.setRight(transformInternal(r));
         exp1.setAnd(BinaryExp.AND1);
 
@@ -101,7 +96,7 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
              * Basically an empty query. We append another trivial
              * "document must be type method" clause to have a valid emf-tree
              */
-            return getMethodTypeExpression();
+            return ExtractorHelper.getDocumentTypeExpression(Fields.TYPE_METHOD);
         }
     }
 
@@ -109,50 +104,26 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
         if (o != null) {
 
             for (Modifier m : o.getModifiers()) {
-                ClauseExpression clause = lqf.createClauseExpression();
-                ModifierField field = lqf.createModifierField();
-                field.setValue(Fields.MODIFIERS);
-                clause.setField(field);
-                clause.getValues().add(m.getValue());
-
-                exps.add(clause);
+                exps.add(ExtractorHelper.getModifierFieldExpression(Fields.MODIFIERS, m.getValue()));
             }
         }
     }
 
     private void handle(List<EObject> exps, MethodName o) {
         if (o != null && isSpecified(o.getValue())) {
-            ClauseExpression clause = lqf.createClauseExpression();
-            SimpleField field = lqf.createSimpleField();
-            field.setValue(Fields.SIMPLE_NAME);
-            clause.setField(field);
-            clause.getValues().add(o.getValue());
-
-            exps.add(clause);
+            exps.add(ExtractorHelper.getSimpleFieldExpression(Fields.SIMPLE_NAME, o.getValue()));
         }
     }
 
     private void handle(List<EObject> exps, ReturnType o) {
         if (o != null && isSpecified(o.getValue())) {
-            ClauseExpression clause = lqf.createClauseExpression();
-            TypeField field = lqf.createTypeField();
-            field.setValue(Fields.RETURN_TYPE);
-            clause.setField(field);
-            clause.getValues().add(o.getValue());
-
-            exps.add(clause);
+            exps.add(ExtractorHelper.getTypeExpression(Fields.RETURN_TYPE, o.getValue()));
         }
     }
 
     private void handle(List<EObject> exps, Throws o) {
         if (o != null && isSpecified(o.getValue())) {
-            ClauseExpression clause = lqf.createClauseExpression();
-            TypeField field = lqf.createTypeField();
-            field.setValue(Fields.CHECKED_EXCEPTIONS);
-            clause.setField(field);
-            clause.getValues().add(o.getValue());
-
-            exps.add(clause);
+            exps.add(ExtractorHelper.getTypeExpression(Fields.CHECKED_EXCEPTIONS, o.getValue()));
         }
     }
 
@@ -168,18 +139,5 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
 
     private boolean isSpecified(String value) {
         return value != null && !value.equals("*");
-    }
-
-    private Expression getMethodTypeExpression() {
-
-        Expression left = lqf.createExpression();
-        ClauseExpression clause = lqf.createClauseExpression();
-        DocumentTypeField type = lqf.createDocumentTypeField();
-        type.setValue(Fields.TYPE);
-        clause.setField(type);
-        clause.getValues().add(Fields.TYPE_METHOD);
-        left.setValue(clause);
-
-        return left;
     }
 }

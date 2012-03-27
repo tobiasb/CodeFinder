@@ -71,16 +71,4 @@ public class SearchResultHelper {
         ScoreDoc[] resultDocs = new ScoreDoc[docs.size()];
         return new TopDocs(docs.size(), docs.values().toArray(resultDocs), 0);
     }
-
-    // public static <T> List<T> intersection(List<T> list1, List<T> list2) {
-    // List<T> list = new ArrayList<T>();
-    //
-    // for (T t : list1) {
-    // if (list2.contains(t)) {
-    // list.add(t);
-    // }
-    // }
-    //
-    // return list;
-    // }
 }

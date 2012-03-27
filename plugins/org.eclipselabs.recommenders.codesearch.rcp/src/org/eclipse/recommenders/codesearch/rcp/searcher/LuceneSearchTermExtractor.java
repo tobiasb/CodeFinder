@@ -24,11 +24,6 @@ public class LuceneSearchTermExtractor implements IUnitOfWork<Set<String>, Xtext
             if (o instanceof ClauseExpressionImpl) {
                 final ClauseExpressionImpl impl = (ClauseExpressionImpl) o;
 
-                // final String _default = value2.getDefault();
-                // if (_default != null) {
-                // res.add(_default.replaceAll("\\W", "").toLowerCase());
-                // }
-
                 for (int i = 0; i < impl.getValues().size(); i++) {
                     final String value = impl.getValues().get(i);
 

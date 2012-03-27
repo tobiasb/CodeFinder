@@ -3,6 +3,8 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ExtractorHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
@@ -10,8 +12,6 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFa
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.NumberField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.Fields;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ExtractorHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;

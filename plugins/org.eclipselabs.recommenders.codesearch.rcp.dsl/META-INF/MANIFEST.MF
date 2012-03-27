@@ -26,15 +26,16 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtend2.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearch.rcp.dsl,
- org.eclipselabs.recommenders.codesearch.rcp.dsl.services,
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors,
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.formatting,
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.generator,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.util,
- org.eclipselabs.recommenders.codesearch.rcp.dsl.serializer,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.parser.antlr,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.parser.antlr.internal,
- org.eclipselabs.recommenders.codesearch.rcp.dsl.validation,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.scoping,
- org.eclipselabs.recommenders.codesearch.rcp.dsl.generator,
- org.eclipselabs.recommenders.codesearch.rcp.dsl.formatting
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.serializer,
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.services,
+ org.eclipselabs.recommenders.codesearch.rcp.dsl.validation
 

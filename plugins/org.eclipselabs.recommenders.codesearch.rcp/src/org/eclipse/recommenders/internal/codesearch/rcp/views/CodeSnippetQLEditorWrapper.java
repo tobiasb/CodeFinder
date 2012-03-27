@@ -15,17 +15,16 @@ import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResultHelper
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.FilteredJavaMethodProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaTypeProvider;
-import org.eclipse.recommenders.codesearch.rcp.searcher.GenericQueryProposalProvider;
-import org.eclipse.recommenders.codesearch.rcp.searcher.utils.TypeImageProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.imageProvider.TypeImageProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider.GenericQueryProposalProvider;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryFactoryImpl;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ParseResultExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
@@ -41,7 +40,6 @@ import com.google.inject.Injector;
 @SuppressWarnings("restriction")
 public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
-    private LuceneQueryFactory luceneQueryFactory = null;
     private Injector luceneInjector = null;
 
     public CodeSnippetQLEditorWrapper() {
@@ -49,8 +47,6 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
         final LuceneQueryActivator activator = LuceneQueryActivator.getInstance();
         luceneInjector = activator
                 .getInjector(LuceneQueryActivator.ORG_ECLIPSELABS_RECOMMENDERS_CODESEARCH_RCP_DSL_LUCENEQUERY);
-
-        luceneQueryFactory = new LuceneQueryFactoryImpl();
     }
 
     @Override
@@ -92,14 +88,14 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
     @Override
     public SearchResult search() throws Exception {
 
-        QL2QueryExtractor extr = new QL2QueryExtractor();
-
-        IParseResult r = handle.getDocument().readOnly(extr);
+        IParseResult r = handle.getDocument().readOnly(new ParseResultExtractor());
 
         Map<String, VariableUsage> map = new VariableExtractor().getVars(r.getRootASTElement());
 
         List<TopDocs> validScoreDocs = Lists.newArrayList();
         SearchResult result = null;
+
+        QL2QueryExtractor extr = new QL2QueryExtractor();
 
         for (int i = 0; i < map.values().size(); i++) {
 

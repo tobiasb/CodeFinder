@@ -24,7 +24,7 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IFieldIndexingStrategy;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.strategy.IFieldIndexingStrategy;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.wiring.CodesearchIndexModule;
 

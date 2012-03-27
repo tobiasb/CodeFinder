@@ -1,4 +1,4 @@
-package org.eclipse.recommenders.codesearch.rcp.index.indexer.utils;
+package org.eclipse.recommenders.codesearch.rcp.index.indexer.strategy;
 
 import org.apache.lucene.document.Field;
 

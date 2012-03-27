@@ -1,4 +1,4 @@
-package org.eclipselabs.recommenders.codesearch.rcp.dsl;
+package org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors;
 
 import java.io.ByteArrayOutputStream;
 
