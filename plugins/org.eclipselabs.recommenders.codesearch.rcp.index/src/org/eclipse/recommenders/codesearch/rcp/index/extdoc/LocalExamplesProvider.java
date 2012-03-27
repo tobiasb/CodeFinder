@@ -36,8 +36,8 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.internal.corext.dom.LinkedNodeFinder;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.BindingHelper;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
+import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.extdoc.rcp.providers.ExtdocProvider;
 import org.eclipse.recommenders.extdoc.rcp.providers.JavaSelectionSubscriber;
 import org.eclipse.recommenders.rcp.events.JavaSelectionEvent;
@@ -67,8 +67,7 @@ public class LocalExamplesProvider extends ExtdocProvider {
     private IType jdtVarType;
 
     @Inject
-    public LocalExamplesProvider(final CodeSearcher searcher, final JavaElementResolver jdtResolver)
-            throws IOException {
+    public LocalExamplesProvider(final CodeSearcher searcher, final JavaElementResolver jdtResolver) throws IOException {
         this.searcher = searcher;
         this.jdtResolver = jdtResolver;
     }
@@ -152,12 +151,16 @@ public class LocalExamplesProvider extends ExtdocProvider {
         return varType != null;
     }
 
+    private Term prepareSearchTerm(String field, String value) {
+        return new Term(field, value.toLowerCase());
+    }
+
     private BooleanQuery createQuery() {
 
         // TODO: cleanup needed
 
         final BooleanQuery query = new BooleanQuery();
-        final Term typeTerm = new Term(Fields.VARIABLE_TYPE, varType);
+        final Term typeTerm = prepareSearchTerm(Fields.VARIABLE_TYPE, varType);
         final TermQuery typeQuery = new TermQuery(typeTerm);
         query.add(typeQuery, Occur.MUST);
         searchterms = Lists.newArrayList();
@@ -179,9 +182,9 @@ public class LocalExamplesProvider extends ExtdocProvider {
                 // matches more than the method itself, but that'S a minor thing
                 searchterms.add(targetMethod.getType().toString());
                 if (isUsedInArguments(use, targetMethod.arguments())) {
-                    term = new Term(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
+                    term = prepareSearchTerm(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
                 } else {
-                    term = new Term(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
+                    term = prepareSearchTerm(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
                 }
                 break;
             }
@@ -194,13 +197,13 @@ public class LocalExamplesProvider extends ExtdocProvider {
                 }
                 searchterms.add(targetMethod.getName().toString());
                 if (isUsedInArguments(use, targetMethod.arguments())) {
-                    term = new Term(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
+                    term = prepareSearchTerm(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
                 } else {
-                    term = new Term(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
+                    term = prepareSearchTerm(Fields.USED_AS_TAGET_FOR_METHODS, optMethod.get());
                 }
                 break;
             case ASTNode.SINGLE_VARIABLE_DECLARATION:
-                term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_PARAMETER);
+                term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_PARAMETER);
                 break;
             case ASTNode.VARIABLE_DECLARATION_FRAGMENT:
                 final VariableDeclarationFragment declParent = (VariableDeclarationFragment) use.getParent();
@@ -208,24 +211,24 @@ public class LocalExamplesProvider extends ExtdocProvider {
                 final Expression initializer = declParent.getInitializer();
                 Optional<Tuple<IMethod, String>> def = absent();
                 if (initializer == null) {
-                    term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_UNINITIALIZED);
+                    term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_UNINITIALIZED);
                     break;
                 } else {
 
                     switch (initializer.getNodeType()) {
                     case ASTNode.NULL_LITERAL:
-                        term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_NULLLITERAL);
+                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_NULLLITERAL);
                         break;
                     case ASTNode.SUPER_METHOD_INVOCATION:
-                        term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
+                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
                         def = findMethod((SuperMethodInvocation) initializer);
                         break;
                     case ASTNode.METHOD_INVOCATION:
-                        term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
+                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
                         def = findMethod((MethodInvocation) initializer);
                         break;
                     case ASTNode.CLASS_INSTANCE_CREATION: {
-                        term = new Term(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_INSTANCE_CREATION);
+                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_INSTANCE_CREATION);
                         def = findMethod((ClassInstanceCreation) initializer);
                         break;
                     }
@@ -245,8 +248,8 @@ public class LocalExamplesProvider extends ExtdocProvider {
                     }
                     if (def.isPresent()) {
                         searchterms.add(def.get().getFirst().getElementName());
-                        final TermQuery subquery = new TermQuery(new Term(Fields.VARIABLE_DEFINITION, def.get()
-                                .getSecond()));
+                        final TermQuery subquery = new TermQuery(prepareSearchTerm(Fields.VARIABLE_DEFINITION, def
+                                .get().getSecond()));
                         subquery.setBoost(2);
                         query.add(subquery, Occur.SHOULD);
                     }
