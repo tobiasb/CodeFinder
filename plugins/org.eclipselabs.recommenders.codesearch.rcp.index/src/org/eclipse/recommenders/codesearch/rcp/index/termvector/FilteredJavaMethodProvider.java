@@ -10,7 +10,8 @@ public class FilteredJavaMethodProvider extends JavaMethodProvider {
 
     @Override
     public void load(final ITermVectorConsumable consumable, final Map<Integer, Object> argumentsMap) {
-        final String prefix = (String) argumentsMap.get(0);
+        String prefix = (String) argumentsMap.get(0);
+        prefix = prefix.toLowerCase();
 
         final Set<String> result = Sets.newHashSet();
         final Set<String> allItems = consumable.getTermVector(getFields());
@@ -18,6 +19,11 @@ public class FilteredJavaMethodProvider extends JavaMethodProvider {
         for (String type : allItems) {
             if (type.startsWith(prefix)) {
                 result.add(type);
+            } else {
+                String pattern = prefix.replaceAll("\\.", "\\\\.").replaceAll("\\*", ".\\*") + ".*";
+
+                if (type.matches(pattern))
+                    result.add(type);
             }
         }
 
