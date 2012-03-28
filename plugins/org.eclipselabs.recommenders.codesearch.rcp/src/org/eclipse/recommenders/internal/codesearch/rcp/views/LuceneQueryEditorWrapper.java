@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.apache.lucene.index.CorruptIndexException;
 import org.apache.lucene.queryParser.ParseException;
-import org.apache.lucene.search.Query;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -111,8 +110,8 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
     SearchResult search() throws ParseException, CorruptIndexException, IOException {
         final String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor());
         resetXtextQuery();
-        final Query query = codeSearcher.getParser().parse(searchQuery);
-        final SearchResult searchResult = codeSearcher.lenientSearch(query);
+        System.out.println("Search: " + searchQuery);
+        final SearchResult searchResult = codeSearcher.lenientSearch(searchQuery);
         return searchResult;
     }
 

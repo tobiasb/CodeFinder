@@ -199,7 +199,8 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         // ast.setProperty("location", rootLocation);
         // ast.setProperty("project", javaProject);
         monitor.subTask(unitName);
-        indexer.add(ast);
+        indexer.add(ast); // XXX Marcel, bekommen wir dann hier nicht redundante
+                          // Dokumente in den Index?
     }
 
     private void addArchiveVisitedMarker() throws IOException {
