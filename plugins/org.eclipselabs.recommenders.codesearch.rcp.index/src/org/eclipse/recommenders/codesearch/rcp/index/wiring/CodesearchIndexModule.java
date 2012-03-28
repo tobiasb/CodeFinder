@@ -108,7 +108,7 @@ public class CodesearchIndexModule extends AbstractModule {
     @Provides
     public QueryParser queryParser(final Version version, final Analyzer analyzer) {
         final QueryParser parser = new QueryParser(version, Fields.FULL_TEXT, analyzer);
-        parser.setLowercaseExpandedTerms(false);
+        parser.setLowercaseExpandedTerms(true);
         parser.setAllowLeadingWildcard(true);
         return parser;
     }
