@@ -31,9 +31,7 @@ public class ExampleTest extends QLTestBase {
         CodeSnippetQLEditorWrapper w = new CodeSnippetQLEditorWrapper();
 
         for (String exampleQuery : w.getExampleQueriesInternal()) {
-            IParseResult result = parse(exampleQuery);
-
-            assertFalse(result.hasSyntaxErrors());
+            IParseResult result = getParseResultAndExpect(exampleQuery, 0);
 
             Map<String, VariableUsage> map = new VariableExtractor().getVars(result.getRootASTElement());
         }
