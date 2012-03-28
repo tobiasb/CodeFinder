@@ -147,6 +147,8 @@ class TestBase extends AbstractTestBase {
         
         cuParsed.accept(visitor)
         index.commit
+        
+        return index
     }
 	
 	def exercise(CharSequence code, IIndexer indexer){

@@ -212,19 +212,22 @@ public class TestBase extends AbstractTestBase {
     return _string;
   }
   
-  public void exercise(final CharSequence code, final List<IIndexer> indexer) {
-    this.exercise(code, indexer, "test");
+  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer) {
+    CodeIndexer _exercise = this.exercise(code, indexer, "test");
+    return _exercise;
   }
   
-  public void exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
-    this.exercise(code, indexer, projectName, "MyClass.java");
+  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName) {
+    CodeIndexer _exercise = this.exercise(code, indexer, projectName, "MyClass.java");
+    return _exercise;
   }
   
-  public void exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
-    this.exercise(code, null, null, indexer, projectName, fileName);
+  public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer, final String projectName, final String fileName) {
+    CodeIndexer _exercise = this.exercise(code, null, null, indexer, projectName, fileName);
+    return _exercise;
   }
   
-  public void exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
+  public CodeIndexer exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
     try {
       {
         IndexUpdateService.setBackgroundIndexerActive(false);
@@ -243,16 +246,18 @@ public class TestBase extends AbstractTestBase {
         visitor.addIndexer(indexer);
         cuParsed.accept(visitor);
         this.index.commit();
+        return this.index;
       }
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
-  public void exercise(final CharSequence code, final IIndexer indexer) {
+  public CodeIndexer exercise(final CharSequence code, final IIndexer indexer) {
     ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(indexer);
     List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
-    this.exercise(code, _i);
+    CodeIndexer _exercise = this.exercise(code, _i);
+    return _exercise;
   }
   
   public List<String> l(final String[] items) {
