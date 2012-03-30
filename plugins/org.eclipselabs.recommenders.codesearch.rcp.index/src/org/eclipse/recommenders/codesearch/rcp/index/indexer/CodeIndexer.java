@@ -33,8 +33,8 @@ import com.google.inject.Inject;
 
 public class CodeIndexer implements ICompilationUnitIndexer {
 
-    private static boolean verbose = false; // XXX: Always set me back to false
-                                            // please...
+    private static boolean verbose = true; // XXX: Always set me back to false
+                                           // please...
 
     private static IFieldIndexingStrategy indexingFieldInfoProvider = new SimpleNameBasedStrategy();
 

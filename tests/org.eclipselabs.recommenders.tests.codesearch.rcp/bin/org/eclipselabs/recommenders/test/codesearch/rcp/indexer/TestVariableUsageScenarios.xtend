@@ -254,7 +254,27 @@ class TestVariableUsageScenarios extends TestBase {
 		
 		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
-			s(Fields::USED_AS_PARAMETER_IN_METHODS, "Ljava/io/PrintStream.println(Ljava/lang/String;)V")
+			s(Fields::USED_AS_PARAMETER_IN_METHODS, "Ljava/io/PrintStream.println(Ljava/lang/String;)V|System.out")
+		)))		
+	}
+	
+	@Test
+	def void testVariableUsedAsParameterIndexer02(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+		        String s1 = null;
+		        String s2 = null;
+		        s2.compareTo(s1);
+			}
+		}
+		'''
+		
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableParameterUsageIndexer())))
+		
+		assertField(l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::USED_AS_PARAMETER_IN_METHODS, "Ljava/lang/String.compareTo(Ljava/lang/String;)I|s2")
 		)))		
 	}
 	

@@ -31,6 +31,7 @@ public class SimpleNameBasedStrategy implements IFieldIndexingStrategy {
         storeMap.put(Fields.DECLARING_METHOD, Store.YES);
         storeMap.put(Fields.JAVA_ELEMENT_HANDLE, Store.YES);
         storeMap.put(Fields.PARAMETER_TYPES_STRUCTURAL, Store.YES);
+        storeMap.put(Fields.USED_AS_PARAMETER_IN_METHODS, Store.YES);
 
         // We won't search for these fields
         indexMap.put(Fields.TIMESTAMP, Index.NO);

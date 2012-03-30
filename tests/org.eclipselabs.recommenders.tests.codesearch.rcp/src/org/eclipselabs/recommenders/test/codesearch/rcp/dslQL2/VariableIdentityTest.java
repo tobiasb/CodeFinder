@@ -5,10 +5,10 @@ import org.eclipse.recommenders.codesearch.rcp.searcher.CodeSnippetQLSearcher;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2StandaloneSetup;
 import org.eclipselabs.recommenders.test.codesearch.rcp.indexer.TestBase;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class VariableIdentityTest extends QL2TestBase {
+
     @Override
     protected void setUp() throws Exception {
         super.setUp();
@@ -20,9 +20,9 @@ public class VariableIdentityTest extends QL2TestBase {
         setUp();
 
         TestBase tb = new TestBase();
-        tb.exercise(VariableIdentityTestSourceCode.testPositiveCase, getVarUsageIndexer());
+        tb.exercise(VariableIdentityTestStrings.testPositiveCase, getVarUsageIndexer());
 
-        IParseResult parseResult = parse("{%n  var *String s%nvar *List l%n%ncall l.add(s)%ncall l.contains(s)%n}");
+        IParseResult parseResult = parse(VariableIdentityTestStrings.varIdentityQueryString.toString());
         assertFalse(parseResult.hasSyntaxErrors());
 
         CodeSnippetQLSearcher QL2Searcher = new CodeSnippetQLSearcher(luceneInjector);
@@ -31,15 +31,14 @@ public class VariableIdentityTest extends QL2TestBase {
         assertEquals(1, searchResult.scoreDocs().length);
     }
 
-    @Ignore
     @Test
     public void testNegativeCase() throws Exception {
         setUp();
 
         TestBase tb = new TestBase();
-        tb.exercise(VariableIdentityTestSourceCode.testNegativeCase, getVarUsageIndexer());
+        tb.exercise(VariableIdentityTestStrings.testNegativeCase, getVarUsageIndexer());
 
-        IParseResult parseResult = parse("{%n  var *String s%nvar *List l%n%ncall l.add(s)%ncall l.contains(s)%n}");
+        IParseResult parseResult = parse(VariableIdentityTestStrings.varIdentityQueryString.toString());
         assertFalse(parseResult.hasSyntaxErrors());
 
         CodeSnippetQLSearcher QL2Searcher = new CodeSnippetQLSearcher(luceneInjector);

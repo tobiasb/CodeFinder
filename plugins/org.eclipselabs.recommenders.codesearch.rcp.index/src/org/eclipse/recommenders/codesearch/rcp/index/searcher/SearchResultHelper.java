@@ -38,8 +38,16 @@ public class SearchResultHelper {
             }
         }
 
-        ScoreDoc[] resultDocs = new ScoreDoc[list.size()];
-        return new TopDocs(list.size(), list.toArray(resultDocs), 0);
+        return asTopDocs(list);
+    }
+
+    public static TopDocs asTopDocs(List<ScoreDoc> scoreDocs) {
+        ScoreDoc[] resultDocs = new ScoreDoc[scoreDocs.size()];
+        return new TopDocs(scoreDocs.size(), scoreDocs.toArray(resultDocs), 0);
+    }
+
+    public static TopDocs asTopDocs(ScoreDoc[] scoreDocs) {
+        return new TopDocs(scoreDocs.length, scoreDocs, 0);
     }
 
     private static boolean areEqual(ScoreDoc d1, ScoreDoc d2, IndexSearcher searcher, String fieldName) {

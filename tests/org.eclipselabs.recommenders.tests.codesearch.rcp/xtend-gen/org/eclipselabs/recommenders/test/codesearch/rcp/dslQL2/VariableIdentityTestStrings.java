@@ -4,7 +4,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 
 @SuppressWarnings("all")
-public class VariableIdentityTestSourceCode {
+public class VariableIdentityTestStrings {
   public static CharSequence testPositiveCase = new Function0<CharSequence>() {
     public CharSequence apply() {
       StringConcatenation _builder = new StringConcatenation();
@@ -51,10 +51,10 @@ public class VariableIdentityTestSourceCode {
       _builder.append("String s1 = \"\";");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("List l1 = null;");
+      _builder.append("String s2 = \"\";");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("String s2 = \"\";");
+      _builder.append("List l1 = null;");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("List l2 = null;");
@@ -65,13 +65,39 @@ public class VariableIdentityTestSourceCode {
       _builder.append("l1.add(s1);");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("l1.contains(s2);");
+      _builder.append("l2.contains(s1);");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("l2.contains(s1);");
+      _builder.newLine();
+      _builder.append("\t\t");
+      _builder.append("l1.contains(s2);");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      return _builder;
+    }
+  }.apply();
+  
+  public static CharSequence varIdentityQueryString = new Function0<CharSequence>() {
+    public CharSequence apply() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("{");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("var *String s");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("var *List l");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("call l.add(s)");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("call l.contains(s)");
       _builder.newLine();
       _builder.append("}");
       return _builder;

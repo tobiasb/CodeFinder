@@ -145,6 +145,10 @@ public class CodeSearcher implements ITermVectorConsumable {
         return result;
     }
 
+    public Document getDocument(int docId) throws CorruptIndexException, IOException {
+        return searcher.doc(docId);
+    }
+
     public QueryParser getParser() {
         return parser;
     }

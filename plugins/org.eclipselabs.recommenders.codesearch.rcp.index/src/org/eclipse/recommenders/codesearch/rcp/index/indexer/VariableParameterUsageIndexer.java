@@ -26,13 +26,17 @@ public class VariableParameterUsageIndexer extends AbstractIndexer implements IV
 
                     if (targetMethod.arguments().size() > 0 && targetMethod.arguments().indexOf(linkedName) > -1) {
                         /*
-                         * The idea is that when the the parent node of a simple name is a method invocation and the
-                         * simple name is in the parameter list then it is being used as a parameter of a method
-                         * invocation.
+                         * The idea is that when the the parent node of a simple
+                         * name is a method invocation and the simple name is in
+                         * the parameter list then it is being used as a
+                         * parameter of a method invocation.
                          */
                         final Optional<String> opt = BindingHelper.getIdentifier(targetMethod);
                         if (opt.isPresent()) {
-                            addFieldToDocument(document, Fields.USED_AS_PARAMETER_IN_METHODS, opt.get());
+
+                            String value = String.format("%s|%s", opt.get(), targetMethod.getExpression());
+
+                            addFieldToDocument(document, Fields.USED_AS_PARAMETER_IN_METHODS, value);
                         }
                         break;
                     }

@@ -403,7 +403,42 @@ public class TestVariableUsageScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
-      String _s_1 = this.s(Fields.USED_AS_PARAMETER_IN_METHODS, "Ljava/io/PrintStream.println(Ljava/lang/String;)V");
+      String _s_1 = this.s(Fields.USED_AS_PARAMETER_IN_METHODS, "Ljava/io/PrintStream.println(Ljava/lang/String;)V|System.out");
+      ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
+      this.assertField(_l);
+  }
+  
+  @Test
+  public void testVariableUsedAsParameterIndexer02() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("public class MyClass {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("public void testMethod() {");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("String s1 = null;");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("String s2 = null;");
+      _builder.newLine();
+      _builder.append("        ");
+      _builder.append("s2.compareTo(s1);");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
+      VariableParameterUsageIndexer _variableParameterUsageIndexer = new VariableParameterUsageIndexer();
+      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableParameterUsageIndexer);
+      List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
+      this.exercise(code, _i);
+      String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
+      String _s_1 = this.s(Fields.USED_AS_PARAMETER_IN_METHODS, "Ljava/lang/String.compareTo(Ljava/lang/String;)I|s2");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);

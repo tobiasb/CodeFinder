@@ -1,6 +1,6 @@
 package org.eclipselabs.recommenders.test.codesearch.rcp.dslQL2
 
-class VariableIdentityTestSourceCode {
+class VariableIdentityTestStrings {
 	public static CharSequence testPositiveCase = '''
 	import java.util.List;
 	public class TestClass {
@@ -18,13 +18,23 @@ class VariableIdentityTestSourceCode {
 	public class TestClass {
 		public void nonono() {
 			String s1 = "";
-			List l1 = null;
 			String s2 = "";
+			List l1 = null;
 			List l2 = null;
 			
 			l1.add(s1);
-			l1.contains(s2);
 			l2.contains(s1);
+			
+			l1.contains(s2);
 		}
+	}'''
+	
+	public static CharSequence varIdentityQueryString = '''
+	{
+		var *String s
+		var *List l
+		
+		call l.add(s)
+		call l.contains(s)
 	}'''
 }
