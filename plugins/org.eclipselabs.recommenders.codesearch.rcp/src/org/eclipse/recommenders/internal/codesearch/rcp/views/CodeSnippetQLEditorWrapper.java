@@ -1,40 +1,30 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import org.apache.lucene.search.TopDocs;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
-import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResultHelper;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.FilteredJavaMethodProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaTypeProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.CodeSnippetQLSearcher;
 import org.eclipse.recommenders.codesearch.rcp.searcher.imageProvider.TypeImageProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider.GenericQueryProposalProvider;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ParseResultExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist.QL2ProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.internal.QL2Activator;
 
-import com.google.common.collect.Lists;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
@@ -90,38 +80,14 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
         IParseResult r = handle.getDocument().readOnly(new ParseResultExtractor());
 
-        Map<String, VariableUsage> map = new VariableExtractor().getVars(r.getRootASTElement());
-
-        List<TopDocs> validScoreDocs = Lists.newArrayList();
-        SearchResult result = null;
-
-        QL2QueryExtractor extr = new QL2QueryExtractor();
-
-        for (int i = 0; i < map.values().size(); i++) {
-
-            EObject o = extr.transform((VariableUsage) map.values().toArray()[i]);
-
-            LuceneQueryExtractor lextr = new LuceneQueryExtractor();
-            lextr.process(o.eAllContents());
-
-            ISerializer s = luceneInjector.getInstance(ISerializer.class);
-            String searchQuery = s.serialize(o);
-
-            System.out.println("Search: " + searchQuery);
-            result = codeSearcher.lenientSearch(searchQuery);
-
-            validScoreDocs.add(result.docs);
-        }
-
-        TopDocs l = SearchResultHelper.getIntersection(validScoreDocs, result.searcher);
-
-        return new SearchResult(null, l, result.searcher);
+        return new CodeSnippetQLSearcher().search(luceneInjector, codeSearcher, r.getRootASTElement());
     }
 
     @Override
     public String[] getExampleQueriesInternal() {
 
         return new String[] {
+                String.format("{//identity problem%n  var *String s%nvar *List l%n%ncall l.add(s)%ncall l.contains(s)%n}"),
                 String.format("{%nvar *SomeType X%n//call X.%n}"),
                 String.format("{%nvar java.lang.String X%nvar java.util.List Y%n}"),
                 String.format("{%n//Variable declaration/initialization%nvar A varA = *%nvar B varB = *%n}"),

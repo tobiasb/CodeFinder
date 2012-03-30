@@ -11,9 +11,6 @@ import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterValidator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
@@ -22,7 +19,7 @@ import com.google.inject.Injector;
 
 public abstract class QLTestBase extends AbstractXtextTests {
 
-    private Injector luceneInjector = null;
+    public Injector luceneInjector = null;
 
     @Override
     protected void setUp() throws Exception {
@@ -49,25 +46,6 @@ public abstract class QLTestBase extends AbstractXtextTests {
 
     private String sanitize(String s) {
         return s.replace("(", "").replace(")", "").replace(" ", "").replace("\r", "").replace("\n", "");
-    }
-
-    protected void testQuery(String query, String expected, QL1QueryExtractor qe) throws Exception {
-
-        IParseResult result = parse(query);
-
-        assertFalse(result.hasSyntaxErrors());
-
-        EObject o = qe.transform(result);
-
-        assertQueryEqual(expected, serializeLuceneQuery(o));
-    }
-
-    protected void checkGraphTrue(Node n, String s) {
-        assertTrue(ParameterValidator.paramGraphFitsActualParams(n, s.split(";")));
-    }
-
-    protected void checkGraphFalse(Node n, String s) {
-        assertFalse(ParameterValidator.paramGraphFitsActualParams(n, s.split(";")));
     }
 
     protected void testQuery(String query, String[] expected) throws Exception {

@@ -17,7 +17,7 @@ class TestTryCatchScenarios extends TestBase {
 		val code = '''
 		import java.util.Map;
 		
-		public class MyClass {	
+		public class testUsedTypesInTryIndexer {	
 			public void test() {
 				try {
 					Map map;
@@ -41,7 +41,7 @@ class TestTryCatchScenarios extends TestBase {
 		val code = '''
 		import java.util.Map;
 		
-		public class MyClass {	
+		public class testUsedTypesInFinallyIndexer {	
 			public void test() {
 				try {
 				} catch(Exception ex) {
@@ -64,7 +64,7 @@ class TestTryCatchScenarios extends TestBase {
 	@Test
 	def void testCaughtTypeIndexer(){
 		val code = '''		
-		public class MyClass {	
+		public class testCaughtTypeIndexer {	
 			public void test() {
 				try {
 				} catch(Exception ex) {
@@ -88,7 +88,7 @@ class TestTryCatchScenarios extends TestBase {
 		val code = '''
 		import java.util.Map;
 		
-		public class MyClass {	
+		public class testUsedMethodsInTryIndexer {	
 			public List test() {
 				Map<String, String> map;
 				try {
@@ -112,7 +112,7 @@ class TestTryCatchScenarios extends TestBase {
 		val code = '''
 		import java.util.Map;
 		
-		public class MyClass {	
+		public class testUsedMethodsInFinallyIndexer {	
 			public List test() {
 				Map<String, String> map;
 				try {

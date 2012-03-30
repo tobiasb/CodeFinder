@@ -39,6 +39,7 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipselabs.recommenders.test.codesearch.rcp.indexer.TestBase;
+import org.junit.Ignore;
 import org.junit.Test;
 
 @SuppressWarnings("all")
@@ -172,6 +173,26 @@ public class TestGeneralScenarios extends TestBase {
       QualifiedNameIndexer _qualifiedNameIndexer = new QualifiedNameIndexer();
       this.exercise(code, _qualifiedNameIndexer);
       String _s = this.s(Fields.QUALIFIED_NAME, "LMyClass");
+      ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
+      List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
+      this.assertField(_l);
+  }
+  
+  @Ignore
+  @Test
+  public void testFullyQualifiedNameIndexer04() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("package org.test;");
+      _builder.newLine();
+      _builder.newLine();
+      _builder.append("public class MyClass {");
+      _builder.newLine();
+      _builder.append("} ");
+      _builder.newLine();
+      final CharSequence code = _builder;
+      QualifiedNameIndexer _qualifiedNameIndexer = new QualifiedNameIndexer();
+      this.exercise(code, _qualifiedNameIndexer);
+      String _s = this.s(Fields.QUALIFIED_NAME, "Lorg/test/MyClass");
       ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_s);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList, String.class)));
       this.assertField(_l);
@@ -1642,7 +1663,7 @@ public class TestGeneralScenarios extends TestBase {
       _builder.newLine();
       _builder.append("import java.io.IOException;");
       _builder.newLine();
-      _builder.append("public class MyOtherOtherException extends IOException {");
+      _builder.append("public class testFieldsReadIndexerMethod extends IOException {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public Map theWorldMap;");
@@ -1669,12 +1690,12 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_1 = this.s(Fields.FIELDS_READ, "LMyOtherOtherException.theWorldMap");
+      String _s_1 = this.s(Fields.FIELDS_READ, "LtestFieldsReadIndexerMethod.theWorldMap");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
       String _s_2 = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_3 = this.s(Fields.FIELDS_WRITTEN, "LMyOtherOtherException.someObject");
+      String _s_3 = this.s(Fields.FIELDS_WRITTEN, "LtestFieldsReadIndexerMethod.someObject");
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
       this.assertNotField(_l_1);
@@ -1685,7 +1706,7 @@ public class TestGeneralScenarios extends TestBase {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("import java.io.IOException;");
       _builder.newLine();
-      _builder.append("public class Testclass {");
+      _builder.append("public class testFieldsReadIndexerClass {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public Object someObject = null;");
@@ -1706,7 +1727,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.FIELDS_READ, "LTestclass.someObject");
+      String _s_1 = this.s(Fields.FIELDS_READ, "LtestFieldsReadIndexerClass.someObject");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -1717,7 +1738,7 @@ public class TestGeneralScenarios extends TestBase {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("import java.io.IOException;");
       _builder.newLine();
-      _builder.append("public class Testclass extends IOException {");
+      _builder.append("public class testFieldsReadIndexerTryCatch extends IOException {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public Object someObject = null;");
@@ -1756,7 +1777,7 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.FIELDS_READ, "LTestclass.someObject");
+      String _s_1 = this.s(Fields.FIELDS_READ, "LtestFieldsReadIndexerTryCatch.someObject");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);

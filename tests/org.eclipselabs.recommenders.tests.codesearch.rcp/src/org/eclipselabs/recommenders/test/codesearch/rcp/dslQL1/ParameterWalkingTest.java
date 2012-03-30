@@ -5,10 +5,9 @@ import java.util.List;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.NodeWalker;
-import org.eclipselabs.recommenders.test.codesearch.QLTestBase;
 import org.junit.Test;
 
-public class ParameterWalkingTest extends QLTestBase {
+public class ParameterWalkingTest extends QL1TestBase {
 
     @Override
     protected void setUp() throws Exception {

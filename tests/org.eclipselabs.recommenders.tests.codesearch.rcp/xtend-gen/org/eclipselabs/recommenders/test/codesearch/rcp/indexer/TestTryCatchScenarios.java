@@ -24,7 +24,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("import java.util.Map;");
       _builder.newLine();
       _builder.newLine();
-      _builder.append("public class MyClass {\t");
+      _builder.append("public class testUsedTypesInTryIndexer {\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public void test() {");
@@ -68,7 +68,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("import java.util.Map;");
       _builder.newLine();
       _builder.newLine();
-      _builder.append("public class MyClass {\t");
+      _builder.append("public class testUsedTypesInFinallyIndexer {\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public void test() {");
@@ -112,7 +112,7 @@ public class TestTryCatchScenarios extends TestBase {
   @Test
   public void testCaughtTypeIndexer() {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("public class MyClass {\t");
+      _builder.append("public class testCaughtTypeIndexer {\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public void test() {");
@@ -156,7 +156,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("import java.util.Map;");
       _builder.newLine();
       _builder.newLine();
-      _builder.append("public class MyClass {\t");
+      _builder.append("public class testUsedMethodsInTryIndexer {\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public List test() {");
@@ -200,7 +200,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("import java.util.Map;");
       _builder.newLine();
       _builder.newLine();
-      _builder.append("public class MyClass {\t");
+      _builder.append("public class testUsedMethodsInFinallyIndexer {\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public List test() {");

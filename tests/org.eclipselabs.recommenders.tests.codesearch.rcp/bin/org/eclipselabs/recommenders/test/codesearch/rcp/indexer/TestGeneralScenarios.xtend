@@ -27,6 +27,7 @@ import org.eclipse.recommenders.tests.jdt.JavaProjectFixture
 import org.junit.Test
 
 import static org.eclipselabs.recommenders.test.codesearch.rcp.indexer.TestBase.*
+import org.junit.Ignore
 
 class TestGeneralScenarios extends TestBase {
 
@@ -121,6 +122,21 @@ class TestGeneralScenarios extends TestBase {
 		 exercise(code, new QualifiedNameIndexer())
 		
 		assertField( l(newArrayList(s(Fields::QUALIFIED_NAME, "LMyClass"))))
+	}
+	
+	@Ignore
+	@Test
+	def void testFullyQualifiedNameIndexer04(){
+		val code = '''
+		package org.test;
+		
+		public class MyClass {
+		} 
+		'''
+		
+		 exercise(code, new QualifiedNameIndexer())
+		
+		assertField( l(newArrayList(s(Fields::QUALIFIED_NAME, "Lorg/test/MyClass"))))
 	}
 	
 	@Test
@@ -1104,7 +1120,7 @@ class TestGeneralScenarios extends TestBase {
 		val code = '''
 		import java.util.Map;
 		import java.io.IOException;
-		public class MyOtherOtherException extends IOException {
+		public class testFieldsReadIndexerMethod extends IOException {
 			public Map theWorldMap;
 			public static void theBestMethodEver() {
 				MyOtherOtherException m;
@@ -1117,12 +1133,12 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::FIELDS_READ, "LMyOtherOtherException.theWorldMap")
+			s(Fields::FIELDS_READ, "LtestFieldsReadIndexerMethod.theWorldMap")
 		)))
 		
 		assertNotField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::FIELDS_WRITTEN, "LMyOtherOtherException.someObject")
+			s(Fields::FIELDS_WRITTEN, "LtestFieldsReadIndexerMethod.someObject")
 		)))
 	}
 	
@@ -1130,7 +1146,7 @@ class TestGeneralScenarios extends TestBase {
 	def void testFieldsReadIndexerClass(){
 		val code = '''
 		import java.io.IOException;
-		public class Testclass {
+		public class testFieldsReadIndexerClass {
 			public Object someObject = null;
 			public Testclass ob = new Testclass();
 			public Object anObject = ob.someObject;
@@ -1141,7 +1157,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::FIELDS_READ, "LTestclass.someObject")
+			s(Fields::FIELDS_READ, "LtestFieldsReadIndexerClass.someObject")
 		)))
 		
 //		assertNotField( l(newArrayList(
@@ -1154,7 +1170,7 @@ class TestGeneralScenarios extends TestBase {
 	def void testFieldsReadIndexerTryCatch(){
 		val code = '''
 		import java.io.IOException;
-		public class Testclass extends IOException {
+		public class testFieldsReadIndexerTryCatch extends IOException {
 			public Object someObject = null;
 			public Object theWorldMap = (new Testclass()).someObject;
 			public static void theBestMethodEver() {
@@ -1171,7 +1187,7 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::FIELDS_READ, "LTestclass.someObject")
+			s(Fields::FIELDS_READ, "LtestFieldsReadIndexerTryCatch.someObject")
 		)))
 		
 //		assertNotField( l(newArrayList(
