@@ -12,7 +12,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.xtext.parser.IParseResult;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
@@ -31,12 +30,11 @@ public class MethodPatternQLSearcher extends AbstractQLSearcher {
     @Override
     public SearchResult search(CodeSearcher codeSearcher, IParseResult parseResult) throws IOException, ParseException {
 
-        QL1QueryExtractor extr = new QL1QueryExtractor();
+        QL1QueryExtractor ql1QueryExtractor = new QL1QueryExtractor();
 
-        EObject e = extr.transform(parseResult);
+        EObject e = ql1QueryExtractor.transform(parseResult);
 
-        LuceneQueryExtractor lextr = new LuceneQueryExtractor();
-        lextr.process(e.eAllContents());
+        luceneQueryExtractor.process(e.eAllContents());
 
         String searchQuery = serializeLuceneQuery(e);
 
@@ -48,7 +46,7 @@ public class MethodPatternQLSearcher extends AbstractQLSearcher {
         for (int i = result.scoreDocs().length - 1; i >= 0; i--) {
             Document d = result.scoreDoc(i);
 
-            ParameterDefinition pd = extr.getMethodPatternDefinition(parseResult).getParameterDefinition();
+            ParameterDefinition pd = ql1QueryExtractor.getMethodPatternDefinition(parseResult).getParameterDefinition();
 
             if (pd != null && pd.getParameterElementholder().size() > 0) {
                 String actualParams = d.getFieldable(Fields.PARAMETER_TYPES_STRUCTURAL).stringValue();

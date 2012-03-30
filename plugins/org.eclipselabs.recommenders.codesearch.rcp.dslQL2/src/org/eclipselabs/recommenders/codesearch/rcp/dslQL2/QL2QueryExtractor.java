@@ -19,7 +19,7 @@ public class QL2QueryExtractor {
 
     private final LuceneQueryFactory lqf = new LuceneQueryFactoryImpl();
 
-    public EObject transform(VariableUsage v) {
+    public EObject createLuceneQuery(VariableUsage v) {
 
         AndExp exp1 = lqf.createAndExp();
         exp1.setLeft(getVarUsageTypeExpression());

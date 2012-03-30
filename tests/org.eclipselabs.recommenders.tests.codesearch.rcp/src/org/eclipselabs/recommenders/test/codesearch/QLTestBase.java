@@ -61,7 +61,7 @@ public abstract class QLTestBase extends AbstractXtextTests {
 
         for (int i = 0; i < expected.length; i++) {
 
-            EObject o = qe.transform((VariableUsage) map.values().toArray()[i]);
+            EObject o = qe.createLuceneQuery((VariableUsage) map.values().toArray()[i]);
 
             LuceneQueryExtractor lextr = new LuceneQueryExtractor();
             lextr.process(o.eAllContents());

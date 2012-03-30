@@ -8,6 +8,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.serializer.ISerializer;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
 
 import com.google.inject.Injector;
 
@@ -16,6 +17,7 @@ public abstract class AbstractQLSearcher {
             ParseException;
 
     private Injector luceneInjector;
+    protected LuceneQueryExtractor luceneQueryExtractor = new LuceneQueryExtractor();
 
     public AbstractQLSearcher(Injector injector) {
         this.luceneInjector = injector;
