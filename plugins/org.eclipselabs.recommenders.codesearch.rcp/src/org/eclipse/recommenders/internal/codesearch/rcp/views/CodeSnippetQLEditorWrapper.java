@@ -80,7 +80,7 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
         IParseResult r = handle.getDocument().readOnly(new ParseResultExtractor());
 
-        return new CodeSnippetQLSearcher().search(luceneInjector, codeSearcher, r.getRootASTElement());
+        return new CodeSnippetQLSearcher(luceneInjector).search(codeSearcher, r);
     }
 
     @Override

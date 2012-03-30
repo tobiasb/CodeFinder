@@ -1,42 +1,30 @@
 package org.eclipse.recommenders.internal.codesearch.rcp.views;
 
-import java.util.List;
 import java.util.Set;
 
-import org.apache.lucene.document.Document;
-import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.termvector.JavaTypeProvider;
+import org.eclipse.recommenders.codesearch.rcp.searcher.MethodPatternQLSearcher;
 import org.eclipse.recommenders.codesearch.rcp.searcher.imageProvider.TypeImageProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider.GenericQueryProposalProvider;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.serializer.ISerializer;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ParseResultExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.StringQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Node;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterDefinitionHandler;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.ParameterValidator;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.contentassist.QL1ProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.internal.QL1Activator;
 
-import com.google.common.collect.Lists;
 import com.google.inject.Injector;
 
 @SuppressWarnings("restriction")
@@ -89,48 +77,9 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
 
         System.out.println(handle.getDocument().readOnly(new StringQueryExtractor()));
 
-        QL1QueryExtractor extr = new QL1QueryExtractor();
+        IParseResult r = handle.getDocument().readOnly(new ParseResultExtractor());
 
-        IParseResult r = handle.getDocument().readOnly(extr);
-
-        EObject e = extr.transform(r);
-        //
-        // EObject e = translate(q.type, q.exp);
-
-        //
-        LuceneQueryExtractor lextr = new LuceneQueryExtractor();
-        lextr.process(e.eAllContents());
-        //
-        ISerializer s = luceneInjector.getInstance(ISerializer.class);
-        String searchQuery = s.serialize(e);
-        //
-
-        System.out.println("Search: " + searchQuery);
-
-        SearchResult result = codeSearcher.lenientSearch(searchQuery);
-        List<ScoreDoc> validScoreDocs = Lists.newArrayList();
-
-        for (int i = result.scoreDocs().length - 1; i >= 0; i--) {
-            Document d = result.scoreDoc(i);
-
-            ParameterDefinition pd = extr.getMethodPatternDefinition(r).getParameterDefinition();
-
-            if (pd != null && pd.getParameterElementholder().size() > 0) {
-                String actualParams = d.getFieldable(Fields.PARAMETER_TYPES_STRUCTURAL).stringValue();
-                Node paramGraph = new ParameterDefinitionHandler().getParameterGraph(pd, false);
-
-                if (ParameterValidator.paramGraphFitsActualParams(paramGraph, actualParams.split(";"))) {
-                    validScoreDocs.add(result.docs.scoreDocs[i]);
-                }
-            } else {
-                validScoreDocs.add(result.docs.scoreDocs[i]);
-            }
-        }
-        ScoreDoc[] scoreDocs = new ScoreDoc[validScoreDocs.size()];
-        TopDocs d = new TopDocs(validScoreDocs.size(), (ScoreDoc[]) validScoreDocs.toArray(scoreDocs),
-                result.docs.getMaxScore());
-
-        return new SearchResult(result.query, d, result.searcher);
+        return new MethodPatternQLSearcher(luceneInjector).search(codeSearcher, r);
     }
 
     @Override

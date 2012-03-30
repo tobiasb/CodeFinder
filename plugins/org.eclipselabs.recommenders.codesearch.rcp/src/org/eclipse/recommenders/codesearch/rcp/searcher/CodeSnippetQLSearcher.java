@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResultHelper;
-import org.eclipse.xtext.serializer.ISerializer;
+import org.eclipse.xtext.parser.IParseResult;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2QueryExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
@@ -19,11 +19,14 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableUsage;
 import com.google.common.collect.Lists;
 import com.google.inject.Injector;
 
-public class CodeSnippetQLSearcher {
-    public SearchResult search(Injector luceneInjector, CodeSearcher codeSearcher, EObject codeSnippetQLASTRoot)
-            throws IOException, ParseException {
+public class CodeSnippetQLSearcher extends AbstractQLSearcher {
+    public CodeSnippetQLSearcher(Injector injector) {
+        super(injector);
+    }
 
-        Map<String, VariableUsage> map = new VariableExtractor().getVars(codeSnippetQLASTRoot);
+    public SearchResult search(CodeSearcher codeSearcher, IParseResult parseResult) throws IOException, ParseException {
+
+        Map<String, VariableUsage> map = new VariableExtractor().getVars(parseResult.getRootASTElement());
 
         List<TopDocs> validScoreDocs = Lists.newArrayList();
         SearchResult result = null;
@@ -31,14 +34,14 @@ public class CodeSnippetQLSearcher {
         QL2QueryExtractor extr = new QL2QueryExtractor();
 
         for (int i = 0; i < map.values().size(); i++) {
+            VariableUsage currVar = (VariableUsage) map.values().toArray()[i];
 
-            EObject o = extr.transform((VariableUsage) map.values().toArray()[i]);
+            EObject o = extr.transform(currVar);
 
             LuceneQueryExtractor lextr = new LuceneQueryExtractor();
             lextr.process(o.eAllContents());
 
-            ISerializer s = luceneInjector.getInstance(ISerializer.class);
-            String searchQuery = s.serialize(o);
+            String searchQuery = serializeLuceneQuery(o);
 
             System.out.println("Search: " + searchQuery);
             result = codeSearcher.lenientSearch(searchQuery);

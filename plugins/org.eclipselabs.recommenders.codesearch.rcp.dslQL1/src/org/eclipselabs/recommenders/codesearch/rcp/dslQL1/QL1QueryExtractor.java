@@ -8,8 +8,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.IQueryPartConverter;
 import org.eclipse.xtext.parser.IParseResult;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ExtractorHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
@@ -28,13 +26,12 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Parameter
 
 import com.google.common.collect.Lists;
 
-public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResource> {
+public class QL1QueryExtractor {
 
     private final LuceneQueryFactory lqf = new LuceneQueryFactoryImpl();
 
-    @Override
-    public IParseResult exec(XtextResource state) throws Exception {
-        final TreeIterator<EObject> iter = state.getAllContents();
+    public void preProcess(IParseResult parseResult) {
+        final TreeIterator<EObject> iter = parseResult.getRootASTElement().eAllContents();
 
         if (iter.hasNext()) {
             do {
@@ -56,12 +53,11 @@ public class QL1QueryExtractor implements IUnitOfWork<IParseResult, XtextResourc
 
             } while (iter.hasNext());
         }
-
-        IParseResult r = state.getParseResult();
-        return r;
     }
 
     public EObject transform(IParseResult r) {
+
+        preProcess(r);
 
         AndExp exp1 = lqf.createAndExp();
         exp1.setLeft(ExtractorHelper.getDocumentTypeExpression(Fields.TYPE_METHOD));

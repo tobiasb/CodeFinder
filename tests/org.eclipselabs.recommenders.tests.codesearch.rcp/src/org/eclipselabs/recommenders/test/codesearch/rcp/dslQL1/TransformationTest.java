@@ -85,8 +85,8 @@ public class TransformationTest extends QL1TestBase {
     public void transformToLuceneQueryTestParametersPreselectionSingle02() throws Exception {
         setUp();
 
-        String query = "* * (List, Map)";
-        String expected = "Type:(method) AND ParameterTypesStructural:List;Map;";
+        String query = "* * (*List, Map)";
+        String expected = "Type:(method) AND ParameterTypesStructural:L*List;LMap;";
 
         testQuery(query, expected);
     }
@@ -95,8 +95,8 @@ public class TransformationTest extends QL1TestBase {
     public void transformToLuceneQueryTestParametersPreselectionMulti() throws Exception {
         setUp();
 
-        String query = "* *({List | Map}, String)";
-        String expected = "Type:(method) AND (ParameterTypesStructural:List;String; ParameterTypesStructural:Map;String;)";
+        String query = "* *({*List | Map}, String)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:L*List;LString; ParameterTypesStructural:LMap;LString;)";
 
         testQuery(query, expected);
     }
@@ -105,8 +105,8 @@ public class TransformationTest extends QL1TestBase {
     public void transformToLuceneQueryTestParametersPreselectionMulti02() throws Exception {
         setUp();
 
-        String query = "* *(String, {List | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:String;List; ParameterTypesStructural:String;Map;)";
+        String query = "* *(String, {*List | Map})";
+        String expected = "Type:(method) AND (ParameterTypesStructural:LString;L*List; ParameterTypesStructural:LString;LMap;)";
 
         testQuery(query, expected);
     }
@@ -115,8 +115,8 @@ public class TransformationTest extends QL1TestBase {
     public void transformToLuceneQueryTestParametersPreselectionMulti03() throws Exception {
         setUp();
 
-        String query = "* *(String, {List | Map}, ..)";
-        String expected = "Type:(method) AND (ParameterTypesStructural:String;List;* ParameterTypesStructural:String;Map;*)";
+        String query = "* *(String, {*List | Map}, ..)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:LString;L*List;* ParameterTypesStructural:LString;LMap;*)";
 
         testQuery(query, expected);
     }
@@ -125,8 +125,8 @@ public class TransformationTest extends QL1TestBase {
     public void transformToLuceneQueryTestParametersPreselectionMulti04() throws Exception {
         setUp();
 
-        String query = "* *(.., String, {List | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:*String;List; ParameterTypesStructural:*String;Map;)";
+        String query = "* *(.., String, {*List | Map})";
+        String expected = "Type:(method) AND (ParameterTypesStructural:*LString;L*List; ParameterTypesStructural:*LString;LMap;)";
 
         testQuery(query, expected);
     }
@@ -135,8 +135,8 @@ public class TransformationTest extends QL1TestBase {
     public void transformToLuceneQueryTestParametersPreselectionMulti05() throws Exception {
         setUp();
 
-        String query = "* *(String, *, {List | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:String;*List; ParameterTypesStructural:String;*Map;)";
+        String query = "* *(String, *, {*List | Map})";
+        String expected = "Type:(method) AND (ParameterTypesStructural:LString;L*;L*List; ParameterTypesStructural:LString;L*;LMap;)";
 
         testQuery(query, expected);
     }
@@ -145,8 +145,8 @@ public class TransformationTest extends QL1TestBase {
     public void transformToLuceneQueryTestParametersPreselectionMulti06() throws Exception {
         setUp();
 
-        String query = "* *(String, .., {List | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:String;*List; ParameterTypesStructural:String;*Map;)";
+        String query = "* *(String, .., {*List | Map})";
+        String expected = "Type:(method) AND (ParameterTypesStructural:LString;*L*List; ParameterTypesStructural:LString;*LMap;)";
 
         testQuery(query, expected);
     }

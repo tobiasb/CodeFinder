@@ -25,8 +25,8 @@ public class VariableIdentityTest extends QL2TestBase {
         IParseResult parseResult = parse("{%n  var *String s%nvar *List l%n%ncall l.add(s)%ncall l.contains(s)%n}");
         assertFalse(parseResult.hasSyntaxErrors());
 
-        CodeSnippetQLSearcher QL2Searcher = new CodeSnippetQLSearcher();
-        SearchResult searchResult = QL2Searcher.search(luceneInjector, tb.search, parseResult.getRootASTElement());
+        CodeSnippetQLSearcher QL2Searcher = new CodeSnippetQLSearcher(luceneInjector);
+        SearchResult searchResult = QL2Searcher.search(tb.search, parseResult);
 
         assertEquals(1, searchResult.scoreDocs().length);
     }
@@ -42,8 +42,8 @@ public class VariableIdentityTest extends QL2TestBase {
         IParseResult parseResult = parse("{%n  var *String s%nvar *List l%n%ncall l.add(s)%ncall l.contains(s)%n}");
         assertFalse(parseResult.hasSyntaxErrors());
 
-        CodeSnippetQLSearcher QL2Searcher = new CodeSnippetQLSearcher();
-        SearchResult searchResult = QL2Searcher.search(luceneInjector, tb.search, parseResult.getRootASTElement());
+        CodeSnippetQLSearcher QL2Searcher = new CodeSnippetQLSearcher(luceneInjector);
+        SearchResult searchResult = QL2Searcher.search(tb.search, parseResult);
 
         assertEquals(0, searchResult.scoreDocs().length);
     }
