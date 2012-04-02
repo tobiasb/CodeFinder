@@ -198,6 +198,22 @@ public class SearchQueryView extends ViewPart implements ISearchView {
         link.setText("<a>Feedback...</a>");
         GridData linkGridData = new GridData();
         link.setLayoutData(linkGridData);
+
+        link.addSelectionListener(new SelectionListener() {
+
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                parent.getDisplay().syncExec(new Runnable() {
+                    public void run() {
+                        new FeedbackForm(parent.getDisplay(), currentEditor.getSearchQuery());
+                    }
+                });
+            }
+
+            @Override
+            public void widgetDefaultSelected(SelectionEvent e) {
+            }
+        });
     }
 
     private void createSearchResultsViewer(final Composite parent) {
