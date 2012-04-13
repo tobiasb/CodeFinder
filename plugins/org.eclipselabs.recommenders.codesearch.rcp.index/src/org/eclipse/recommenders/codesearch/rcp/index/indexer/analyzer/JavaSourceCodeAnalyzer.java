@@ -4,11 +4,15 @@ import java.io.Reader;
 import java.util.Set;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.LowerCaseTokenizer;
+import org.apache.lucene.analysis.LowerCaseFilter;
 import org.apache.lucene.analysis.StopFilter;
 import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.util.Version;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.CamelCaseTokenizer;
+import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.DotSplitTokenizer;
+import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.WordSplitTokenizer;
 
 public class JavaSourceCodeAnalyzer extends Analyzer {
 
@@ -27,7 +31,15 @@ public class JavaSourceCodeAnalyzer extends Analyzer {
 
     @Override
     public TokenStream tokenStream(String fieldName, Reader reader) {
-        return new StopFilter(Version.LUCENE_35, new LowerCaseTokenizer(Version.LUCENE_35, reader),
-                javaSourceCodeStopSet);
+        final Version version = Version.LUCENE_35;
+
+        TokenStream resultTokenStream = new StandardTokenizer(version, reader);
+        resultTokenStream = new StopFilter(version, resultTokenStream, javaSourceCodeStopSet);
+        resultTokenStream = new WordSplitTokenizer(resultTokenStream);
+        resultTokenStream = new DotSplitTokenizer(resultTokenStream);
+        resultTokenStream = new CamelCaseTokenizer(resultTokenStream);
+        resultTokenStream = new LowerCaseFilter(version, resultTokenStream);
+
+        return resultTokenStream;
     }
 }
