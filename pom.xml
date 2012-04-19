@@ -20,7 +20,11 @@
 		<repository>
 			<id>indigo</id>
 			<layout>p2</layout>
-			<url>http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo/</url>
+			<url>http://download.eclipse.org/releases/indigo/</url>
+		</repository>
+			<id>indigo delta</id>
+			<layout>p2</layout>
+			<url>http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack</url>
 		</repository>
         <repository>
 			<id>recommenders-3rd</id>
@@ -35,7 +39,7 @@
 		<repository>
 			<id>recommenders-eclipse</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/recommenders/updates/head/e37</url>
+			<url>http://download.eclipse.org/recommenders/updates/train/e42</url>
 		</repository>
         <repository>
 			<id>xtext</id>
