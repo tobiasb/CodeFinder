@@ -22,6 +22,7 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/indigo/</url>
 		</repository>
+        <repository>
 			<id>indigo delta</id>
 			<layout>p2</layout>
 			<url>http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack</url>
