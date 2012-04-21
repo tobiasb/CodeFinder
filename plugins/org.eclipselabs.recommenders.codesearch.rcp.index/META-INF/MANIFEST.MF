@@ -18,7 +18,7 @@ Require-Bundle: org.apache.lucene;bundle-version="3.5.0",
  org.apache.commons.lang3,
  org.apache.lucene.analysis
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Eclipse Code Recommenders
 Export-Package: org.eclipse.recommenders.codesearch.rcp.index,
  org.eclipse.recommenders.codesearch.rcp.index.extdoc,

@@ -25,7 +25,7 @@ Import-Package: org.apache.log4j,
  org.apache.commons.logging,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend2.lib
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearch.rcp.dslQL2,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL2.services,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2,

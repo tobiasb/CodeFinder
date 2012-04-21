@@ -22,7 +22,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.1.0";visibility:=reexport,
 Import-Package: org.apache.log4j,
  org.apache.commons.logging,
  org.eclipse.xtext.xbase.lib
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearch.internal.rcp.dsl,
  org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.services,
  org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields,
