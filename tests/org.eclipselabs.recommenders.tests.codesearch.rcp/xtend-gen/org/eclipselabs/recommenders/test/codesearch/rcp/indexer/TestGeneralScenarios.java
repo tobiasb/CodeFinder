@@ -2155,6 +2155,7 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
+      TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);
@@ -2183,6 +2184,7 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
+      TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);
@@ -2208,6 +2210,7 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
+      TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);
@@ -2248,6 +2251,7 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("}");
       _builder.newLine();
       final CharSequence code = _builder;
+      TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
       ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);

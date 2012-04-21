@@ -5,7 +5,10 @@
 		<artifactId>org.eclipselabs.recommenders.tests.codesearch.parent</artifactId>
 		<version>0.1.0-SNAPSHOT</version>
 	</parent>
+
 	<modelVersion>4.0.0</modelVersion>
+	<version>0.5.1-SNAPSHOT</version>
+
 	<artifactId>org.eclipse.recommenders.tests</artifactId>
 	<packaging>eclipse-plugin</packaging>
-<version>0.5.1-SNAPSHOT</version></project>
+</project>

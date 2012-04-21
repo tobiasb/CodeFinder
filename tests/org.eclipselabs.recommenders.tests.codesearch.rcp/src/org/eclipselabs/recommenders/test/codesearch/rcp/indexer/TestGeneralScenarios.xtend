@@ -1418,6 +1418,8 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
+        TimestampIndexer::updateCurrentTimestamp();
+		
 		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				
 		assertFieldStartsWith( l(newArrayList(
@@ -1435,6 +1437,8 @@ class TestGeneralScenarios extends TestBase {
 		}
 		'''
 		
+        TimestampIndexer::updateCurrentTimestamp();
+		
 		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				
 		assertFieldStartsWith( l(newArrayList(
@@ -1450,6 +1454,8 @@ class TestGeneralScenarios extends TestBase {
 			private String s;
 		}
 		'''
+		
+        TimestampIndexer::updateCurrentTimestamp();
 		
 		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				
@@ -1471,6 +1477,8 @@ class TestGeneralScenarios extends TestBase {
 			}
 		}
 		'''
+		
+        TimestampIndexer::updateCurrentTimestamp();
 		
 		 exercise(code, i(newArrayList(new DocumentTypeIndexer(), new TimestampIndexer())))
 				

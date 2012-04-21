@@ -15,6 +15,8 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer,
         ITryCatchBlockIndexer {
 
+    private static Long currentTimestamp = 0L;
+
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
             final CatchClause catchClause) {
@@ -36,14 +38,22 @@ public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, 
         addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
-    // XXX Der LastIndexed Timestamp sollte immer der von File.lastModfified sein. Ansonsten erzeugst du 1000de Terme
-    // ohne sinnvolle Bedeutung.
     public static String getTimeString() {
         final long timestamp = getTime();
         return String.valueOf(timestamp);
     }
 
+    /**
+     * In order to keep the index smaller we use one timestamp for all indexed
+     * items in the current indexing "job". This method updates this timestamp
+     * value to the current system time
+     */
+    public static void updateCurrentTimestamp() {
+        currentTimestamp = System.currentTimeMillis();
+    }
+
     public static Long getTime() {
-        return System.currentTimeMillis();
+    	updateCurrentTimestamp(); //temporarily until the "only update once per indexing" is activated
+        return currentTimestamp;
     }
 }

@@ -37,6 +37,7 @@ import org.eclipse.jdt.internal.core.JavaProject;
 import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitAdded;
 import org.eclipse.recommenders.rcp.events.JavaModelEvents.CompilationUnitRemoved;
@@ -81,7 +82,8 @@ public class IndexUpdateService {
                 @Override
                 public void run() {
                     try {
-                        ;
+                        TimestampIndexer.updateCurrentTimestamp();
+
                         monitor.beginTask("Indexing", projects.length + 1);
                         monitor.subTask("");
                         monitor.worked(1);
@@ -172,6 +174,8 @@ public class IndexUpdateService {
 
     private void tryIndexing(final ICompilationUnit cu) {
         try {
+            TimestampIndexer.updateCurrentTimestamp();
+
             final File file = ResourcePathIndexer.getFile(cu);
             indexer.delete(file);
             final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);

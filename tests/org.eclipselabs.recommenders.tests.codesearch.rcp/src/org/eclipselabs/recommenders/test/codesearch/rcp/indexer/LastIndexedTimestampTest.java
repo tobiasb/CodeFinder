@@ -36,6 +36,9 @@ public class LastIndexedTimestampTest extends AbstractTestIndex {
         indexer.add(new TimestampIndexer());
 
         final CompilationUnit cu = CompilationUnitHelper.parse(icu);
+
+        TimestampIndexer.updateCurrentTimestamp();
+
         index.index(cu, indexer);
         index.commit();
 
