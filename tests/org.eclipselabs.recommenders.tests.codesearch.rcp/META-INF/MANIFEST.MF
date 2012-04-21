@@ -4,8 +4,8 @@ Bundle-Name: Code Search Query (RCP) - Tests
 Bundle-SymbolicName: org.eclipselabs.recommenders.tests.codesearch.rcp
 Bundle-Version: 0.1.0.qualifier
 Bundle-Vendor: Eclipse Code Recommenders
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: org.junit4,
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.junit,
  org.apache.log4j,
  org.eclipse.ui,
  org.apache.commons.io,
