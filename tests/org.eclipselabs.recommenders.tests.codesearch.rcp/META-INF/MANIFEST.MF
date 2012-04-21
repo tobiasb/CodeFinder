@@ -29,6 +29,4 @@ Require-Bundle: org.junit4,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL2,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui,
  org.eclipse.xtext.ui,
- org.eclipselabs.recommenders.codesearch.rcp,
- org.apache.lucene.analysis,
- org.apache.lucene.core
+ org.eclipselabs.recommenders.codesearch.rcp

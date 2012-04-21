@@ -15,8 +15,7 @@ Require-Bundle: org.apache.lucene;bundle-version="3.5.0",
  org.eclipse.ui,
  org.eclipse.jface.text,
  org.eclipse.recommenders.extdoc.rcp;resolution:=optional,
- org.apache.commons.lang3,
- org.apache.lucene.analysis
+ org.apache.commons.lang3
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: Eclipse Code Recommenders
