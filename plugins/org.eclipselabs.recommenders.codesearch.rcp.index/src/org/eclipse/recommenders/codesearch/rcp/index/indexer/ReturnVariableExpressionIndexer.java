@@ -7,16 +7,18 @@ import org.eclipse.jdt.core.dom.ReturnStatement;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 
-public class ReturnVariableExpressionIndexer extends AbstractIndexer implements IMethodIndexer {
+public class ReturnVariableExpressionIndexer implements IMethodIndexer {
 
     @Override
+    /**
+     * Indexes the whole return expression as a token
+     */
     public void indexMethod(final Document document, final MethodDeclaration method) {
         final ASTVisitor visitor = new ASTVisitor() {
             @Override
             public boolean visit(final ReturnStatement node) {
                 if (node.getExpression() != null) {
-                    // XXX adding the whole string??
-                    addFieldToDocument(document, Fields.RETURN_VARIABLE_EXPRESSIONS, node.getExpression().toString());
+                	CodeIndexer.addFieldToDocument(document, Fields.RETURN_VARIABLE_EXPRESSIONS, node.getExpression().toString());
                 }
 
                 return false;

@@ -17,7 +17,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
+public class DeclaredFieldNamesIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer {
 
     @Override
@@ -63,14 +63,14 @@ public class DeclaredFieldNamesIndexer extends AbstractIndexer implements IClass
     protected void addVariableNames(final Document document, final VariableDeclarationStatement node) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) node.fragments()) {
             final SimpleName name = f.getName();
-            addFieldToDocument(document, Fields.DECLARED_FIELD_NAMES, name.getIdentifier());
+            CodeIndexer.addFieldToDocument(document, Fields.DECLARED_FIELD_NAMES, name.getIdentifier());
         }
     }
 
     protected void addVariableNames(final Document document, final FieldDeclaration node) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) node.fragments()) {
             final SimpleName name = f.getName();
-            addFieldToDocument(document, Fields.DECLARED_FIELD_NAMES, name.getIdentifier());
+            CodeIndexer.addFieldToDocument(document, Fields.DECLARED_FIELD_NAMES, name.getIdentifier());
         }
     }
 }

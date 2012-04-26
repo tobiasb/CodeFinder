@@ -15,7 +15,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 
 import com.google.common.base.Optional;
 
-public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
+public class DeclaredFieldTypesIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer {
 
     @Override
@@ -38,7 +38,7 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClass
             public boolean visit(final FieldDeclaration node) {
                 final Optional<String> opt = BindingHelper.getIdentifier(node);
                 if (opt.isPresent()) {
-                    addFieldToDocument(document, Fields.DECLARED_FIELD_TYPES, opt.get());
+                	CodeIndexer.addFieldToDocument(document, Fields.DECLARED_FIELD_TYPES, opt.get());
                 }
                 return false;
             }
@@ -63,7 +63,7 @@ public class DeclaredFieldTypesIndexer extends AbstractIndexer implements IClass
     private void addDeclaredFieldType(final Document document, final VariableDeclarationStatement variableDeclaration) {
         final Optional<String> opt = BindingHelper.getIdentifier(variableDeclaration);
         if (opt.isPresent()) {
-            addFieldToDocument(document, Fields.DECLARED_FIELD_TYPES, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.DECLARED_FIELD_TYPES, opt.get());
         }
     }
 }

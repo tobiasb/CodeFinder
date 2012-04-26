@@ -14,7 +14,7 @@ import org.eclipse.jdt.core.dom.SimpleType;
 import org.eclipse.jdt.core.dom.SuperConstructorInvocation;
 import org.eclipse.jdt.core.dom.SuperMethodInvocation;
 import org.eclipse.jdt.core.dom.TryStatement;
-import org.eclipse.recommenders.codesearch.rcp.index.indexer.AbstractIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.AstHelper;
 import org.eclipse.recommenders.utils.names.ITypeName;
 import org.eclipse.recommenders.utils.rcp.ast.BindingUtils;
 
@@ -87,7 +87,7 @@ public abstract class TypeUseVisitor extends ASTVisitor {
 
     private void handleTypeUseInternal(final ITypeBinding typeBinding) {
         final ITypeName typeName = BindingUtils.toTypeName(typeBinding).orNull();
-        if (!AbstractIndexer.isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
+        if (!AstHelper.isPrimitiveOrArrayOrNullOrObjectOrString(typeName)) {
             handleTypeUse(typeBinding);
         }
     }

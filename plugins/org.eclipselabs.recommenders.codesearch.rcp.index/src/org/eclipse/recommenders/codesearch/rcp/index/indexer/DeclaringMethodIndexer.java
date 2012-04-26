@@ -8,13 +8,13 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsag
 
 import com.google.common.base.Optional;
 
-public class DeclaringMethodIndexer extends AbstractIndexer implements IVarUsageIndexer {
+public class DeclaringMethodIndexer implements IVarUsageIndexer {
 
     @Override
     public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
         final Optional<String> opt = BindingHelper.getIdentifier(method);
         if (opt.isPresent()) {
-            addFieldToDocument(document, Fields.DECLARING_METHOD, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.DECLARING_METHOD, opt.get());
         }
     }
 }

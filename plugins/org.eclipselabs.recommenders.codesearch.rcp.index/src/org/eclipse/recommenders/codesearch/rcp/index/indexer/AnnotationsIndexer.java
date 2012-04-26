@@ -13,7 +13,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 
 import com.google.common.base.Optional;
 
-public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer {
+public class AnnotationsIndexer implements IClassIndexer, IMethodIndexer {
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
@@ -45,7 +45,7 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
                 continue;
             }
             // Annotation type i.e @Deprecated
-            addFieldToDocument(document, Fields.ANNOTATIONS, opt.get());
+            CodeIndexer.addFieldToDocument(document, Fields.ANNOTATIONS, opt.get());
 
             for (final IMemberValuePairBinding valuePairBinding : annotation.getAllMemberValuePairs()) {
 
@@ -54,7 +54,7 @@ public class AnnotationsIndexer extends AbstractIndexer implements IClassIndexer
                         // Combination of annotation and value i.e
                         // @SuppressWarnings({"unchecked", "rawtypes"})
                         final String value = opt.get() + ":" + valuePairValue;
-                        addFieldToDocument(document, Fields.ANNOTATIONS, value);
+                        CodeIndexer.addFieldToDocument(document, Fields.ANNOTATIONS, value);
                     }
                 }
             }

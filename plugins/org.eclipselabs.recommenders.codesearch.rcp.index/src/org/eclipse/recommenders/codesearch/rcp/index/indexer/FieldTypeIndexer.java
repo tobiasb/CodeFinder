@@ -7,13 +7,13 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 
 import com.google.common.base.Optional;
 
-public class FieldTypeIndexer extends AbstractIndexer implements IFieldIndexer {
+public class FieldTypeIndexer implements IFieldIndexer {
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
         final Optional<String> opt = BindingHelper.getIdentifier(field);
         if (opt.isPresent()) {
-            addFieldToDocument(document, Fields.FIELD_TYPE, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.FIELD_TYPE, opt.get());
         }
     }
 

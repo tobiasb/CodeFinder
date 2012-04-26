@@ -12,26 +12,26 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class FullTextIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer,
+public class FullTextIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer,
         IFieldIndexer {
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
-        addFieldToDocument(document, Fields.FULL_TEXT, field.toString().trim());
+    	CodeIndexer.addFieldToDocument(document, Fields.FULL_TEXT, field.toString().trim());
     }
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addFieldToDocument(document, Fields.FULL_TEXT, method.toString().trim());
+    	CodeIndexer.addFieldToDocument(document, Fields.FULL_TEXT, method.toString().trim());
     }
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
-        addFieldToDocument(document, Fields.FULL_TEXT, type.toString().trim());
+    	CodeIndexer.addFieldToDocument(document, Fields.FULL_TEXT, type.toString().trim());
     }
 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
-        addFieldToDocument(document, Fields.FULL_TEXT, catchClause.toString().trim());
+    	CodeIndexer.addFieldToDocument(document, Fields.FULL_TEXT, catchClause.toString().trim());
     }
 }

@@ -12,7 +12,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 import com.google.common.base.Optional;
 
 @SuppressWarnings("restriction")
-public class OverriddenMethodsIndexer extends AbstractIndexer implements IClassIndexer {
+public class OverriddenMethodsIndexer implements IClassIndexer {
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
         final ASTVisitor visitor = new ASTVisitor() {
@@ -34,7 +34,7 @@ public class OverriddenMethodsIndexer extends AbstractIndexer implements IClassI
         final IMethodBinding overriddenBinding = Bindings.findOverriddenMethod(b, true);
         final Optional<String> opt = BindingHelper.getIdentifier(overriddenBinding);
         if (opt.isPresent()) {
-            addFieldToDocument(document, Fields.OVERRIDDEN_METHODS, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.OVERRIDDEN_METHODS, opt.get());
         }
     }
 }

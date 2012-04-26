@@ -10,7 +10,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 
 import com.google.common.base.Optional;
 
-public class ParameterTypesIndexer extends AbstractIndexer implements IMethodIndexer {
+public class ParameterTypesIndexer implements IMethodIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
@@ -18,7 +18,7 @@ public class ParameterTypesIndexer extends AbstractIndexer implements IMethodInd
         for (final SingleVariableDeclaration var : (List<SingleVariableDeclaration>) method.parameters()) {
             final Optional<String> opt = BindingHelper.getIdentifier(var.getType());
             if (opt.isPresent()) {
-                addFieldToDocument(document, Fields.PARAMETER_TYPES, opt.get());
+            	CodeIndexer.addFieldToDocument(document, Fields.PARAMETER_TYPES, opt.get());
             }
         }
     }

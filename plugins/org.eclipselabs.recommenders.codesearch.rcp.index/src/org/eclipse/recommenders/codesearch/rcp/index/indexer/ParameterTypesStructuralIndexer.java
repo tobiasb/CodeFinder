@@ -18,7 +18,7 @@ import com.google.common.base.Optional;
  * is indexed as Ljava/util/List;Ljava/lang/String;
  * 
  */
-public class ParameterTypesStructuralIndexer extends AbstractIndexer implements IMethodIndexer {
+public class ParameterTypesStructuralIndexer implements IMethodIndexer {
 
     @Override
     public void indexMethod(Document document, MethodDeclaration method) {
@@ -33,7 +33,7 @@ public class ParameterTypesStructuralIndexer extends AbstractIndexer implements 
         }
 
         if (!s.equals(""))
-            addFieldToDocument(document, Fields.PARAMETER_TYPES_STRUCTURAL, s);
+        	CodeIndexer.addFieldToDocument(document, Fields.PARAMETER_TYPES_STRUCTURAL, s);
     }
 
 }

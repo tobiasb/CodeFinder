@@ -14,32 +14,32 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
-public class DocumentTypeIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer,
+public class DocumentTypeIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer,
         ITryCatchBlockIndexer, IVarUsageIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_METHOD);
+    	CodeIndexer.addFieldToDocument(document, Fields.TYPE, Fields.TYPE_METHOD);
     }
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
-        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_CLASS);
+    	CodeIndexer.addFieldToDocument(document, Fields.TYPE, Fields.TYPE_CLASS);
     }
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
-        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_FIELD);
+    	CodeIndexer.addFieldToDocument(document, Fields.TYPE, Fields.TYPE_FIELD);
     }
 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
             final CatchClause catchClause) {
-        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_TRYCATCH);
+    	CodeIndexer.addFieldToDocument(document, Fields.TYPE, Fields.TYPE_TRYCATCH);
     }
 
     @Override
     public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
-        addFieldToDocument(document, Fields.TYPE, Fields.TYPE_VARUSAGE);
+    	CodeIndexer.addFieldToDocument(document, Fields.TYPE, Fields.TYPE_VARUSAGE);
     }
 }

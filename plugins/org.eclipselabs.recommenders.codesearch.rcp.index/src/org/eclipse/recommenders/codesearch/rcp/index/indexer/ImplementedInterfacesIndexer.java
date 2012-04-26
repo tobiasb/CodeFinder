@@ -8,7 +8,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 
 import com.google.common.base.Optional;
 
-public class ImplementedInterfacesIndexer extends AbstractIndexer implements IClassIndexer {
+public class ImplementedInterfacesIndexer implements IClassIndexer {
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
@@ -19,7 +19,7 @@ public class ImplementedInterfacesIndexer extends AbstractIndexer implements ICl
         for (final ITypeBinding interface_ : clazz.getInterfaces()) {
             final Optional<String> opt = BindingHelper.getIdentifier(interface_);
             if (opt.isPresent()) {
-                addFieldToDocument(document, Fields.IMPLEMENTED_TYPES, opt.get());
+            	CodeIndexer.addFieldToDocument(document, Fields.IMPLEMENTED_TYPES, opt.get());
             }
         }
     }

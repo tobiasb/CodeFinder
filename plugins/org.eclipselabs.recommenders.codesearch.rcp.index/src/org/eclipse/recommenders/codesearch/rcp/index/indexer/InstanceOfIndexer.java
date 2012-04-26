@@ -14,7 +14,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 
 import com.google.common.base.Optional;
 
-public class InstanceOfIndexer extends AbstractIndexer implements IMethodIndexer, ITryCatchBlockIndexer, IClassIndexer {
+public class InstanceOfIndexer implements IMethodIndexer, ITryCatchBlockIndexer, IClassIndexer {
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
@@ -46,7 +46,7 @@ public class InstanceOfIndexer extends AbstractIndexer implements IMethodIndexer
 
             final Optional<String> opt = BindingHelper.getIdentifier(node.getRightOperand());
             if (opt.isPresent()) {
-                addFieldToDocument(document, Fields.INSTANCEOF_TYPES, opt.get());
+            	CodeIndexer.addFieldToDocument(document, Fields.INSTANCEOF_TYPES, opt.get());
             }
 
             return false;

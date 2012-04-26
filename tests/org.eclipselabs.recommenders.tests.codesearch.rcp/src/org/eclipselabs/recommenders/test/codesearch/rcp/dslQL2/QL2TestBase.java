@@ -18,7 +18,7 @@ import org.junit.Ignore;
 
 import com.google.common.collect.Lists;
 
-@Ignore
+@Ignore("This is a base class")
 public class QL2TestBase extends QLTestBase {
 
     protected List<IIndexer> getVarUsageIndexer() {

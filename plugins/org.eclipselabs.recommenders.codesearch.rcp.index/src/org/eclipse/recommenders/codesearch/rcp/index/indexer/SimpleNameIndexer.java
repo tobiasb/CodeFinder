@@ -13,23 +13,23 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 
-public class SimpleNameIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
+public class SimpleNameIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addFieldToDocument(document, Fields.SIMPLE_NAME, method.getName().getIdentifier());
+    	CodeIndexer.addFieldToDocument(document, Fields.SIMPLE_NAME, method.getName().getIdentifier());
     }
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
-        addFieldToDocument(document, Fields.SIMPLE_NAME, type.getName().getIdentifier());
+    	CodeIndexer.addFieldToDocument(document, Fields.SIMPLE_NAME, type.getName().getIdentifier());
     }
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
         for (final VariableDeclarationFragment f : (List<VariableDeclarationFragment>) field.fragments()) {
             final SimpleName name = f.getName();
-            addFieldToDocument(document, Fields.SIMPLE_NAME, name.getIdentifier());
+            CodeIndexer.addFieldToDocument(document, Fields.SIMPLE_NAME, name.getIdentifier());
         }
 
     }

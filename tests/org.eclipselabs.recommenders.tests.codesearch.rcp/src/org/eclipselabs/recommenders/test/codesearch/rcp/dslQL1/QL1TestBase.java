@@ -8,7 +8,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.queryhandler.Parameter
 import org.eclipselabs.recommenders.test.codesearch.QLTestBase;
 import org.junit.Ignore;
 
-@Ignore
+@Ignore("This is a base class")
 public class QL1TestBase extends QLTestBase {
 
     protected void testQuery(String query, String expected) throws Exception {

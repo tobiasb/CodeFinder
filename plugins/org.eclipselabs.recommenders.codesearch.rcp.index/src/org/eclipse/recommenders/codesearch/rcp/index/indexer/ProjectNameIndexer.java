@@ -13,7 +13,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class ProjectNameIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
+public class ProjectNameIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer, IFieldIndexer {
 
     @Override
@@ -38,7 +38,7 @@ public class ProjectNameIndexer extends AbstractIndexer implements IClassIndexer
     }
 
     private void addField(final Document document, final ASTNode node) {
-        final String projectName = getProject(node).getName();
-        addFieldToDocument(document, Fields.PROJECT_NAME, projectName);
+        final String projectName = AstHelper.getProject(node).getName();
+        CodeIndexer.addFieldToDocument(document, Fields.PROJECT_NAME, projectName);
     }
 }

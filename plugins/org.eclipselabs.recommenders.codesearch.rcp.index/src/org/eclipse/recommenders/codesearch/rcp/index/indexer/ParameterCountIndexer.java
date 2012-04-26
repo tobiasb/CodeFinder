@@ -5,10 +5,10 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 
-public class ParameterCountIndexer extends AbstractIndexer implements IMethodIndexer {
+public class ParameterCountIndexer implements IMethodIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addFieldToDocument(document, Fields.PARAMETER_COUNT, method.parameters().size());
+    	CodeIndexer.addFieldToDocument(document, Fields.PARAMETER_COUNT, method.parameters().size());
     }
 }

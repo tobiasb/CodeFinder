@@ -7,7 +7,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 
-public class DeclaredMethodNamesIndexer extends AbstractIndexer implements IClassIndexer {
+public class DeclaredMethodNamesIndexer implements IClassIndexer {
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
@@ -24,7 +24,7 @@ public class DeclaredMethodNamesIndexer extends AbstractIndexer implements IClas
     }
 
     protected void addField(final Document document, final IMethodBinding methodBinding) {
-        addFieldToDocument(document, Fields.DECLARED_METHODS_NAMES, methodBinding.getName());
+    	CodeIndexer.addFieldToDocument(document, Fields.DECLARED_METHODS_NAMES, methodBinding.getName());
     }
 
 }

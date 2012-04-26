@@ -10,7 +10,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 
-public class ModifiersIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer {
+public class ModifiersIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer {
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
@@ -49,6 +49,6 @@ public class ModifiersIndexer extends AbstractIndexer implements IClassIndexer, 
     }
 
     private void addField(final Document document, final String modifier) {
-        addFieldToDocument(document, Fields.MODIFIERS, modifier);
+    	CodeIndexer.addFieldToDocument(document, Fields.MODIFIERS, modifier);
     }
 }

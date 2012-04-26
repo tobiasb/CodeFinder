@@ -10,7 +10,7 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 
 import com.google.common.base.Optional;
 
-public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
+public abstract class AbstractFieldsAccessIndexer {
     public enum AssignmentSide {
         RIGHT, LEFT
     }
@@ -28,7 +28,7 @@ public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
                         || side.equals(AssignmentSide.RIGHT)) {
                     final SimpleName simpleName = node.getName();
 
-                    final Optional<TypeDeclaration> opt = getDeclaringType(node);
+                    final Optional<TypeDeclaration> opt = AstHelper.getDeclaringType(node);
                     if (!opt.isPresent()) {
                         return false;
                     }
@@ -38,7 +38,7 @@ public abstract class AbstractFieldsAccessIndexer extends AbstractIndexer {
                     }
                     final String result = String.format("%1$s.%2$s", optId.get(), simpleName);
 
-                    addFieldToDocument(document, fieldName, result);
+                    CodeIndexer.addFieldToDocument(document, fieldName, result);
                 }
 
                 return false;

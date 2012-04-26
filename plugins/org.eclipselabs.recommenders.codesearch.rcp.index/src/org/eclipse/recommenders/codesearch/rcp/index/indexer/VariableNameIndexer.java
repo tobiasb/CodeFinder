@@ -6,11 +6,11 @@ import org.eclipse.jdt.core.dom.SimpleName;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
-public class VariableNameIndexer extends AbstractIndexer implements IVarUsageIndexer {
+public class VariableNameIndexer implements IVarUsageIndexer {
 
     @Override
     public void indexVarUsage(Document document, MethodDeclaration method, SimpleName name) {
-        addFieldToDocument(document, Fields.VARIABLE_NAME, name.toString());
+    	CodeIndexer.addFieldToDocument(document, Fields.VARIABLE_NAME, name.toString());
     }
 
 }

@@ -27,7 +27,7 @@ public class AllImplementedInterfacesIndexer extends ImplementedInterfacesIndexe
                 final Optional<ITypeName> opt = BindingUtils.toTypeName(superclass);
 
                 if (opt.isPresent()) {
-                    addFieldToDocument(document, Fields.ALL_IMPLEMENTED_TYPES, opt.get().getIdentifier());
+                	CodeIndexer.addFieldToDocument(document, Fields.ALL_IMPLEMENTED_TYPES, opt.get().getIdentifier());
                 }
 
                 superclass = superclass.getInterfaces().length > 0 ? superclass.getInterfaces()[0] : null;

@@ -17,7 +17,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsag
 
 import com.google.common.base.Optional;
 
-public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndexer, IMethodIndexer, IClassIndexer,
+public class DeclaringTypeIndexer implements IFieldIndexer, IMethodIndexer, IClassIndexer,
         ITryCatchBlockIndexer, IVarUsageIndexer {
 
     @Override
@@ -48,9 +48,9 @@ public class DeclaringTypeIndexer extends AbstractIndexer implements IFieldIndex
     }
 
     private void addFieldForParentTypes(final Document document, final ASTNode n) {
-        final Optional<String> opt = BindingHelper.getIdentifier(getDeclaringType(n.getParent()));
+        final Optional<String> opt = BindingHelper.getIdentifier(AstHelper.getDeclaringType(n.getParent()));
         if (opt.isPresent()) {
-            addFieldToDocument(document, Fields.DECLARING_TYPE, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.DECLARING_TYPE, opt.get());
         }
 
     }

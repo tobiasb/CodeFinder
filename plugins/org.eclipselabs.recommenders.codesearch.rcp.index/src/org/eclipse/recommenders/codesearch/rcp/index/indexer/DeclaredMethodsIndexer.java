@@ -9,7 +9,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 
 import com.google.common.base.Optional;
 
-public class DeclaredMethodsIndexer extends AbstractIndexer implements IClassIndexer {
+public class DeclaredMethodsIndexer implements IClassIndexer {
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
@@ -18,7 +18,7 @@ public class DeclaredMethodsIndexer extends AbstractIndexer implements IClassInd
             public boolean visit(final MethodDeclaration node) {
                 final Optional<String> opt = BindingHelper.getIdentifier(node);
                 if (opt.isPresent()) {
-                    addFieldToDocument(document, Fields.DECLARED_METHODS, opt.get());
+                	CodeIndexer.addFieldToDocument(document, Fields.DECLARED_METHODS, opt.get());
                 }
                 return false;
             }

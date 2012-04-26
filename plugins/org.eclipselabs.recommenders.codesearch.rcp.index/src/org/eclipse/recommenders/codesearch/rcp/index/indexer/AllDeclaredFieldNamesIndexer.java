@@ -24,7 +24,7 @@ public class AllDeclaredFieldNamesIndexer extends DeclaredFieldNamesIndexer impl
         }
 
         for (final IVariableBinding field : type.getDeclaredFields()) {
-            addFieldToDocument(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getName());
+        	CodeIndexer.addFieldToDocument(document, Fields.ALL_DECLARED_FIELD_NAMES, field.getName());
         }
     }
 

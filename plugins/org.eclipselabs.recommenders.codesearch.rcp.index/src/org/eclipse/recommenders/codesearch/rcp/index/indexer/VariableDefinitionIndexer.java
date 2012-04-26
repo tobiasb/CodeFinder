@@ -8,7 +8,7 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
-public class VariableDefinitionIndexer extends AbstractIndexer implements IVarUsageIndexer {
+public class VariableDefinitionIndexer implements IVarUsageIndexer {
 
     @Override
     public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
@@ -42,6 +42,6 @@ public class VariableDefinitionIndexer extends AbstractIndexer implements IVarUs
     }
 
     private void addField(final Document document, String definitionType) {
-        addFieldToDocument(document, Fields.VARIABLE_DEFINITION, definitionType);
+    	CodeIndexer.addFieldToDocument(document, Fields.VARIABLE_DEFINITION, definitionType);
     }
 }

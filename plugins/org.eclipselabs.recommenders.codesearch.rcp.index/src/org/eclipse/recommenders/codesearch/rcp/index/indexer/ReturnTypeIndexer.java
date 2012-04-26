@@ -8,7 +8,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 
 import com.google.common.base.Optional;
 
-public class ReturnTypeIndexer extends AbstractIndexer implements IMethodIndexer {
+public class ReturnTypeIndexer implements IMethodIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
@@ -19,8 +19,8 @@ public class ReturnTypeIndexer extends AbstractIndexer implements IMethodIndexer
     }
 
     private void addReturnsVoidField(final Document document, Type returnType) {
-        if (isVoid(returnType)) {
-            addFieldToDocument(document, Fields.RETURN_TYPE, "Lvoid");
+        if (AstHelper.isVoid(returnType)) {
+        	CodeIndexer.addFieldToDocument(document, Fields.RETURN_TYPE, "Lvoid");
         }
     }
 
@@ -28,7 +28,7 @@ public class ReturnTypeIndexer extends AbstractIndexer implements IMethodIndexer
         final Optional<String> opt = BindingHelper.getIdentifier(returnType);
         if (opt.isPresent() && !opt.get().equals("V")) {
             // Ignore "V" which would be the case for void return types
-            addFieldToDocument(document, Fields.RETURN_TYPE, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.RETURN_TYPE, opt.get());
         }
     }
 }

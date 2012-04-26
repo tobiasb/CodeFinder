@@ -14,7 +14,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class FullTextIndexer2 extends AbstractIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer,
+public class FullTextIndexer2 implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer,
         IFieldIndexer {
 
     private final class LiteralsCollector extends ASTVisitor {
@@ -28,7 +28,7 @@ public class FullTextIndexer2 extends AbstractIndexer implements IClassIndexer, 
         @Override
         public boolean visit(final SimpleName node) {
             final String identifier = node.getIdentifier();
-            addFieldToDocument(document, Fields.FULL_TEXT, identifier);
+            CodeIndexer.addFieldToDocument(document, Fields.FULL_TEXT, identifier);
             return true;
         }
     }

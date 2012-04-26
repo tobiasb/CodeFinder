@@ -8,7 +8,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodI
 
 import com.google.common.base.Optional;
 
-public class CheckedExceptionsIndexer extends AbstractIndexer implements IMethodIndexer {
+public class CheckedExceptionsIndexer implements IMethodIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
@@ -19,7 +19,7 @@ public class CheckedExceptionsIndexer extends AbstractIndexer implements IMethod
             final Optional<String> opt = BindingHelper.getTypeIdentifier((SimpleName) exName);
 
             if (opt.isPresent()) {
-                addFieldToDocument(document, Fields.CHECKED_EXCEPTIONS, opt.get());
+            	CodeIndexer.addFieldToDocument(document, Fields.CHECKED_EXCEPTIONS, opt.get());
             }
         }
     }

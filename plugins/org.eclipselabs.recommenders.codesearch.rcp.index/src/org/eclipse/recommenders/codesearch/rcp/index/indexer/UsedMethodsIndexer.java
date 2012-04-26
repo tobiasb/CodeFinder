@@ -15,7 +15,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.MethodCallV
 
 import com.google.common.base.Optional;
 
-public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer {
+public class UsedMethodsIndexer implements IClassIndexer, IMethodIndexer, ITryCatchBlockIndexer {
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
@@ -24,7 +24,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addFieldToDocument(document, Fields.USED_METHODS, opt.get());
+                	CodeIndexer.addFieldToDocument(document, Fields.USED_METHODS, opt.get());
                 }
             };
         };
@@ -39,7 +39,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addFieldToDocument(document, Fields.USED_METHODS, opt.get());
+                	CodeIndexer.addFieldToDocument(document, Fields.USED_METHODS, opt.get());
                 }
             };
         };
@@ -56,7 +56,7 @@ public class UsedMethodsIndexer extends AbstractIndexer implements IClassIndexer
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addFieldToDocument(document, Fields.USED_METHODS, opt.get());
+                	CodeIndexer.addFieldToDocument(document, Fields.USED_METHODS, opt.get());
                 }
             };
         };

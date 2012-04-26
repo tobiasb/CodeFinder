@@ -27,7 +27,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsag
 
 import com.google.common.annotations.VisibleForTesting;
 
-public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer,
+public class ResourcePathIndexer implements IClassIndexer, IMethodIndexer,
         ITryCatchBlockIndexer, IFieldIndexer, IVarUsageIndexer {
 
     public static String getPath(final IJavaElement e) {
@@ -108,19 +108,6 @@ public class ResourcePathIndexer extends AbstractIndexer implements IClassIndexe
     private void addField(final Document document, final ASTNode node) {
         final CompilationUnit cu = (CompilationUnit) node.getRoot();
         final File f = getFile(cu);
-        addFieldToDocument(document, Fields.RESOURCE_PATH, f.getAbsolutePath());
+        CodeIndexer.addFieldToDocument(document, Fields.RESOURCE_PATH, f.getAbsolutePath());
     }
-
-    // public String getResourcePath(final IResource resource) {
-    // return getResourcePath(resource.getFullPath());
-    // }
-    //
-    // public static String getResourcePath(final IPath path) {
-    // return path.toPortableString();
-    // }
-    //
-    // public static String getResourcePath(final File file) {
-    // return getResourcePath(Path.fromOSString(file.getAbsolutePath()));
-    // }
-
 }

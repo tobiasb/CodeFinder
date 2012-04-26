@@ -12,7 +12,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsag
 import com.google.common.base.Optional;
 
 @SuppressWarnings("restriction")
-public class VariableTargetUsageIndexer extends AbstractIndexer implements IVarUsageIndexer {
+public class VariableTargetUsageIndexer implements IVarUsageIndexer {
 
     @Override
     public void indexVarUsage(final Document document, final MethodDeclaration method, final SimpleName name) {
@@ -31,7 +31,7 @@ public class VariableTargetUsageIndexer extends AbstractIndexer implements IVarU
                          */
                         final Optional<String> opt = BindingHelper.getIdentifier(targetMethod);
                         if (opt.isPresent()) {
-                            addFieldToDocument(document, Fields.USED_AS_TAGET_FOR_METHODS, opt.get());
+                        	CodeIndexer.addFieldToDocument(document, Fields.USED_AS_TAGET_FOR_METHODS, opt.get());
                         }
                         break;
                     }

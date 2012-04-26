@@ -11,7 +11,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.MethodCallV
 
 import com.google.common.base.Optional;
 
-public class UsedMethodsInFinallyIndexer extends AbstractIndexer implements ITryCatchBlockIndexer {
+public class UsedMethodsInFinallyIndexer implements ITryCatchBlockIndexer {
 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
@@ -21,7 +21,7 @@ public class UsedMethodsInFinallyIndexer extends AbstractIndexer implements ITry
             protected void handleMethodCall(final IMethodBinding methodBinding) {
                 final Optional<String> opt = BindingHelper.getIdentifier(methodBinding);
                 if (opt.isPresent()) {
-                    addFieldToDocument(document, Fields.USED_METHODS_IN_FINALLY, opt.get());
+                	CodeIndexer.addFieldToDocument(document, Fields.USED_METHODS_IN_FINALLY, opt.get());
                 }
             };
         };

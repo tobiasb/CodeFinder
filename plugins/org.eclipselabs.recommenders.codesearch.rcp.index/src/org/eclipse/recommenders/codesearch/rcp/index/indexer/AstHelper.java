@@ -3,7 +3,6 @@ package org.eclipse.recommenders.codesearch.rcp.index.indexer;
 import static com.google.common.base.Optional.absent;
 import static com.google.common.base.Optional.of;
 
-import org.apache.lucene.document.Document;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.ITypeRoot;
@@ -17,24 +16,7 @@ import org.eclipse.recommenders.utils.names.VmTypeName;
 
 import com.google.common.base.Optional;
 
-public abstract class AbstractIndexer {
-
-    // XXX diese methoden sollten eigentlich in einer statische helfer klasse.
-    // Du nutzt zwar vererbung aber eigentlich
-    // gehören diese Methoden hier nicht rein. Static imports machen das auch
-    // schön. Vorteil: Deine Methoden kann man
-    // noch aus anderen teilen des System benutzen (siehe BindungUtils etc.)
-    // oder
-    // isPrimitiveOrArrayOrNullOrObjectOrString
-
-    protected void addFieldToDocument(final Document document, final String fieldName, final int fieldValue) {
-        CodeIndexer.addFieldToDocument(document, fieldName, fieldValue);
-    }
-
-    protected void addFieldToDocument(final Document document, final String fieldName, final String fieldValue) {
-        CodeIndexer.addFieldToDocument(document, fieldName, fieldValue);
-    }
-
+public class AstHelper {
     public static boolean isPrimitiveOrArrayOrNullOrObjectOrString(final ITypeName type) {
         return isNullOrArrayType(type) || type.isPrimitiveType() || type == VmTypeName.OBJECT
                 || type == VmTypeName.STRING;
@@ -49,7 +31,7 @@ public abstract class AbstractIndexer {
     // getName(), msg, origin);
     // }
 
-    protected IProject getProject(ASTNode node) {
+    public static IProject getProject(ASTNode node) {
         while (node != null && !(node instanceof CompilationUnit)) {
             node = node.getParent();
         }
@@ -61,7 +43,7 @@ public abstract class AbstractIndexer {
         return root.getJavaProject().getProject();
     }
 
-    protected Optional<TypeDeclaration> getDeclaringType(ASTNode node) {
+    public static Optional<TypeDeclaration> getDeclaringType(ASTNode node) {
         for (; node != null; node = node.getParent()) {
             if (node instanceof TypeDeclaration) {
                 return of((TypeDeclaration) node);
@@ -71,7 +53,7 @@ public abstract class AbstractIndexer {
         return absent();
     }
 
-    protected Optional<MethodDeclaration> getDeclaringMethod(ASTNode node) {
+    public static Optional<MethodDeclaration> getDeclaringMethod(ASTNode node) {
         for (; node != null; node = node.getParent()) {
             if (node instanceof MethodDeclaration) {
                 return of((MethodDeclaration) node);
@@ -80,11 +62,11 @@ public abstract class AbstractIndexer {
         return absent();
     }
 
-    protected boolean returnsVoid(final MethodDeclaration method) {
+    public static boolean returnsVoid(final MethodDeclaration method) {
         return method != null && isVoid(method.getReturnType2());
     }
 
-    protected boolean isVoid(final Type type) {
+    public static boolean isVoid(final Type type) {
         return type != null && type.toString().equals("void");
     }
 }

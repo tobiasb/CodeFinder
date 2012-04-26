@@ -19,7 +19,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 
-public class JavaElementHandleIndexer extends AbstractIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer,
+public class JavaElementHandleIndexer implements IMethodIndexer, IClassIndexer, IFieldIndexer,
         IVarUsageIndexer {
 
     @Override

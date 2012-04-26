@@ -8,7 +8,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 
 import com.google.common.base.Optional;
 
-public class CaughtTypeIndexer extends AbstractIndexer implements ITryCatchBlockIndexer {
+public class CaughtTypeIndexer implements ITryCatchBlockIndexer {
 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
@@ -16,7 +16,7 @@ public class CaughtTypeIndexer extends AbstractIndexer implements ITryCatchBlock
 
         final Optional<String> opt = BindingHelper.getIdentifier(catchClause.getException().getType());
         if (opt.isPresent()) {
-            addFieldToDocument(document, Fields.CAUGHT_TYPE, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.CAUGHT_TYPE, opt.get());
         }
     }
 

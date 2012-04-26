@@ -8,7 +8,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIn
 
 import com.google.common.base.Optional;
 
-public class ExtendedTypeIndexer extends AbstractIndexer implements IClassIndexer {
+public class ExtendedTypeIndexer implements IClassIndexer {
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
@@ -23,7 +23,7 @@ public class ExtendedTypeIndexer extends AbstractIndexer implements IClassIndexe
         final ITypeBinding superclass = typeBinding.getSuperclass();
         final Optional<String> opt = BindingHelper.getIdentifier(superclass);
         if (opt.isPresent()) {
-            addFieldToDocument(document, fieldName, opt.get());
+        	CodeIndexer.addFieldToDocument(document, fieldName, opt.get());
         }
     }
 

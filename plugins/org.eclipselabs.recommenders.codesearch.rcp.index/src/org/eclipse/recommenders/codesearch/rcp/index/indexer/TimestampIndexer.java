@@ -12,7 +12,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIn
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IMethodIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 
-public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer,
+public class TimestampIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer,
         ITryCatchBlockIndexer {
 
     private static Long currentTimestamp = 0L;
@@ -20,22 +20,22 @@ public class TimestampIndexer extends AbstractIndexer implements IClassIndexer, 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
             final CatchClause catchClause) {
-        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
+    	CodeIndexer.addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     @Override
     public void indexField(final Document document, final FieldDeclaration field) {
-        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
+    	CodeIndexer.addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     @Override
     public void indexMethod(final Document document, final MethodDeclaration method) {
-        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
+    	CodeIndexer.addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     @Override
     public void indexType(final Document document, final TypeDeclaration type) {
-        addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
+    	CodeIndexer.addFieldToDocument(document, Fields.TIMESTAMP, getTimeString());
     }
 
     public static String getTimeString() {

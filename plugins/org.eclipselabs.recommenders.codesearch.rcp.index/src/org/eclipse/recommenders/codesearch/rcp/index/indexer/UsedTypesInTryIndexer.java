@@ -10,7 +10,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.TypeUseVisi
 
 import com.google.common.base.Optional;
 
-public class UsedTypesInTryIndexer extends AbstractIndexer implements ITryCatchBlockIndexer {
+public class UsedTypesInTryIndexer implements ITryCatchBlockIndexer {
 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement, final CatchClause catchClause) {
@@ -29,7 +29,7 @@ public class UsedTypesInTryIndexer extends AbstractIndexer implements ITryCatchB
     private void addUsedType(final Document document, final ITypeBinding typeBinding) {
         final Optional<String> opt = BindingHelper.getIdentifier(typeBinding);
         if (opt.isPresent()) {
-            addFieldToDocument(document, Fields.USED_TYPES_IN_TRY, opt.get());
+        	CodeIndexer.addFieldToDocument(document, Fields.USED_TYPES_IN_TRY, opt.get());
         }
     }
 }
