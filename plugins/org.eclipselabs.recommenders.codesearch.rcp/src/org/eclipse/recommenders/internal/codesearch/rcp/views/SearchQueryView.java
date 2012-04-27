@@ -66,7 +66,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
     protected TableViewer searchResultTable;
     private Combo exampleCombo;
 
-    private int selectedLanguageIndex = 2;
+    private int selectedLanguageIndex = 0;
     private AbstractEmbeddedEditorWrapper currentEditor = null;
 
     public SearchQueryView() {
