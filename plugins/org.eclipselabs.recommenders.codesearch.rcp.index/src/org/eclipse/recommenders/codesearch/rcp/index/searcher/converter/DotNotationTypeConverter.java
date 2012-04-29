@@ -6,6 +6,13 @@ public class DotNotationTypeConverter implements IQueryPartConverter {
     public String convertFrom(final String queryPart) {
         String tmp = queryPart;
 
+        // If user entered a non-qualified type (e.g. IWorkbench) then prepend a wildcard operator automatically
+        if(!tmp.startsWith("*")) {
+	        if( !(tmp.contains(".") || tmp.contains("/")) && !tmp.startsWith("L*")) {
+	        	tmp = "*" + tmp;
+	        }
+        }
+        
         if (!tmp.startsWith("L")) {
             tmp = "L" + tmp;
         }
@@ -20,6 +27,10 @@ public class DotNotationTypeConverter implements IQueryPartConverter {
         String tmp = queryPart;
 
         if (tmp.startsWith("L")) {
+            tmp = tmp.substring(1);
+        }
+        
+        if(tmp.startsWith("*")) {
             tmp = tmp.substring(1);
         }
 
