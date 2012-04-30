@@ -102,10 +102,6 @@ public class FeedbackForm {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-            for (String line; (line = reader.readLine()) != null;) {
-                // System.out.println(line);
-            }
-
             writer.close();
             reader.close();
         } catch (Exception ex) {

@@ -27,7 +27,8 @@ public class ExampleTest extends QLTestBase {
         MethodPatternQLEditorWrapper w = new MethodPatternQLEditorWrapper();
 
         for (String exampleQuery : w.getExampleQueriesInternal()) {
-            IParseResult result = getParseResultAndExpect(exampleQuery, 0);
+            @SuppressWarnings("unused")
+			IParseResult result = getParseResultAndExpect(exampleQuery, 0);
         }
     }
 }

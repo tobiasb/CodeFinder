@@ -33,7 +33,8 @@ public class ExampleTest extends QLTestBase {
         for (String exampleQuery : w.getExampleQueriesInternal()) {
             IParseResult result = getParseResultAndExpect(exampleQuery, 0);
 
-            Map<String, VariableUsage> map = new VariableExtractor().getVars(result.getRootASTElement());
+            @SuppressWarnings("unused")
+			Map<String, VariableUsage> map = new VariableExtractor().getVars(result.getRootASTElement());
         }
     }
 }

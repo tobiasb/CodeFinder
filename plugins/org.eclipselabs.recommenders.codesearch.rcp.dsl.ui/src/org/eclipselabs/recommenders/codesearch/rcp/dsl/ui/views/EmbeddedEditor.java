@@ -10,7 +10,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
-import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorModelAccess;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryStandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
@@ -19,7 +18,7 @@ import com.google.inject.Injector;
 
 public class EmbeddedEditor extends ViewPart {
 
-    private EmbeddedEditorModelAccess partialEditor;
+//    private EmbeddedEditorModelAccess partialEditor;
 
     public EmbeddedEditor() {
     }
@@ -55,7 +54,7 @@ public class EmbeddedEditor extends ViewPart {
                 parent);
         // keep the partialEditor as instance var to read / write the edited
         // text
-        partialEditor = handle.createPartialEditor(true);
+//        partialEditor = handle.createPartialEditor(true);
         handle.getViewer().addTextInputListener(new ITextInputListener() {
 
             @Override
