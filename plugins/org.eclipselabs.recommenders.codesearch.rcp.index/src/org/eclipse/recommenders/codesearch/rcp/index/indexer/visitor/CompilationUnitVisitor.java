@@ -86,61 +86,6 @@ public class CompilationUnitVisitor extends ASTVisitor {
         indexer = Lists.newArrayList();
     }
 
-    public static List<IIndexer> getDefaultIndexer() {
-
-        final List<IIndexer> list = Lists.newArrayList();
-
-        list.add(new AllDeclaredFieldNamesIndexer());
-        list.add(new AllDeclaredMethodNamesIndexer());
-        list.add(new AllExtendedTypesIndexer());
-        list.add(new AllImplementedInterfacesIndexer());
-        list.add(new AnnotationsIndexer());
-        list.add(new CaughtTypeIndexer());
-        list.add(new CheckedExceptionsIndexer());
-        list.add(new DeclaredFieldNamesIndexer());
-        list.add(new DeclaredFieldTypesIndexer());
-        list.add(new DeclaredMethodNamesIndexer());
-        list.add(new DeclaredMethodsIndexer());
-        list.add(new DeclaringMethodIndexer());
-        list.add(new DeclaringTypeIndexer());
-        list.add(new DocumentTypeIndexer());
-        list.add(new ExtendedTypeIndexer());
-        list.add(new FieldsReadIndexer());
-        list.add(new FieldsWrittenIndexer());
-        list.add(new FieldTypeIndexer());
-        list.add(new SimpleNameIndexer());
-        list.add(new FullTextIndexer());
-        list.add(new FullTextIndexer2());
-        list.add(new QualifiedNameIndexer());
-        list.add(new ImplementedInterfacesIndexer());
-        list.add(new InstanceOfIndexer());
-        list.add(new ModifiersIndexer());
-        list.add(new OverriddenMethodsIndexer());
-        list.add(new ParameterCountIndexer());
-        list.add(new ParameterTypesIndexer());
-        list.add(new ParameterTypesStructuralIndexer());
-        list.add(new ProjectNameIndexer());
-        list.add(new ResourcePathIndexer());
-        list.add(new ReturnTypeIndexer());
-        // list.add(new ReturnVariableExpressionIndexer());
-        list.add(new TimestampIndexer());
-        list.add(new UsedFieldsInFinallyIndexer());
-        list.add(new UsedFieldsInTryIndexer());
-        list.add(new UsedMethodsIndexer());
-        list.add(new UsedMethodsInFinallyIndexer());
-        list.add(new UsedMethodsInTryIndexer());
-        list.add(new UsedTypesIndexer());
-        list.add(new UsedTypesInFinallyIndexer());
-        list.add(new UsedTypesInTryIndexer());
-        list.add(new VariableDefinitionIndexer());
-        list.add(new VariableNameIndexer());
-        list.add(new VariableParameterUsageIndexer());
-        list.add(new VariableTargetUsageIndexer());
-        list.add(new VariableTypeIndexer());
-        list.add(new JavaElementHandleIndexer());
-        return list;
-    }
-
     @Override
     public boolean visit(final TypeDeclaration node) {
         final Document document = new Document();
