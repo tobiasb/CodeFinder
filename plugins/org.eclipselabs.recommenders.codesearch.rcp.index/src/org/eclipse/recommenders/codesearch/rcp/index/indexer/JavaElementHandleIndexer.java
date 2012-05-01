@@ -54,7 +54,6 @@ public class JavaElementHandleIndexer implements IMethodIndexer, IClassIndexer, 
             return;
         }
         final String h = e.getHandleIdentifier();
-        final Field field = new Field(Fields.JAVA_ELEMENT_HANDLE, h, Store.YES, Index.NO);
-        document.add(field);
+    	CodeIndexer.addFieldToDocument(document, Fields.JAVA_ELEMENT_HANDLE, h);
     }
 }

@@ -61,32 +61,35 @@ public class LazyContentProvider implements ILazyContentProvider {
             final String docType = doc.get(Fields.TYPE);
             final String declaringType = doc.get(Fields.DECLARING_TYPE);
             final String declaringMethod = doc.get(Fields.DECLARING_METHOD);
-            if (docType.equals(Fields.TYPE_CLASS)) {
+            if (docId != null && docType.equals(Fields.TYPE_CLASS)) {
                 final ITypeName typeName = VmTypeName.get(docId);
                 final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                 if (type.isPresent()) {
                     viewer.replace(type.get(), index);
+                    return;
                 }
-            } else if (docType.equals(Fields.TYPE_METHOD)) {
+            } else if (docId != null && docType.equals(Fields.TYPE_METHOD)) {
                 final IMethodName methodName = VmMethodName.get(docId);
                 final Optional<IMethod> method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
                 if (method.isPresent()) {
                     viewer.replace(method.get(), index);
+                    return;
                 }
-            } else if (docType.equals(Fields.TYPE_VARUSAGE)) {
+            } else if (declaringMethod != null && docType.equals(Fields.TYPE_VARUSAGE)) {
                 final IMethodName methodName = VmMethodName.get(declaringMethod);
                 final Optional<IMethod> method = JavaElementResolver.INSTANCE.toJdtMethod(methodName);
                 if (method.isPresent()) {
                     viewer.replace(method.get(), index);
+                    return;
                 }
-            } else if (docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
+            } else if (declaringMethod != null && docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
                 final ITypeName typeName = VmTypeName.get(declaringType);
                 final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                 if (type.isPresent()) {
                     viewer.replace(type.get(), index);
+                    return;
                 }
             }
-
         } catch (final Exception e) {
             RecommendersUtilsPlugin.logError(e, "Failed to determine java element for document '%s'", doc);
         }
