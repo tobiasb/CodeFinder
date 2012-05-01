@@ -88,7 +88,7 @@ public class LazyContentProvider implements ILazyContentProvider {
             }
 
         } catch (final Exception e) {
-            RecommendersUtilsPlugin.logError(e, "Failed to determine java element for document '%d'", doc);
+            RecommendersUtilsPlugin.logError(e, "Failed to determine java element for document '%s'", doc);
         }
     }
 }
