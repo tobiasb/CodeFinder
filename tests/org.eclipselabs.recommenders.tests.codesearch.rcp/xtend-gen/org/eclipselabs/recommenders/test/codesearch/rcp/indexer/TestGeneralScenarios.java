@@ -407,7 +407,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedTypesIndexer _usedTypesIndexer = new UsedTypesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedTypesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_usedTypesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -456,7 +456,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedTypesIndexer _usedTypesIndexer = new UsedTypesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedTypesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_usedTypesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -502,7 +502,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       UsedTypesIndexer _usedTypesIndexer = new UsedTypesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _usedTypesIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _usedTypesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -552,7 +552,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedMethodsIndexer _usedMethodsIndexer = new UsedMethodsIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedMethodsIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_usedMethodsIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -600,7 +600,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedMethodsIndexer _usedMethodsIndexer = new UsedMethodsIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedMethodsIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_usedMethodsIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -636,7 +636,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.SIMPLE_NAME, "foo");
@@ -659,7 +659,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.SIMPLE_NAME, "map");
@@ -685,7 +685,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_simpleNameIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.SIMPLE_NAME, "SubClass");
@@ -714,7 +714,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaringTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -743,7 +743,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       DeclaringTypeIndexer _declaringTypeIndexer = new DeclaringTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaringTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _declaringTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -763,7 +763,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ProjectNameIndexer _projectNameIndexer = new ProjectNameIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_projectNameIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_projectNameIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i, "projectName");
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -789,7 +789,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ProjectNameIndexer _projectNameIndexer = new ProjectNameIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_projectNameIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_projectNameIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i, "projectName");
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -812,7 +812,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ProjectNameIndexer _projectNameIndexer = new ProjectNameIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_projectNameIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_projectNameIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i, "projectName");
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
@@ -844,7 +844,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ProjectNameIndexer _projectNameIndexer = new ProjectNameIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_projectNameIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_projectNameIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i, "projectName");
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -878,7 +878,7 @@ public class TestGeneralScenarios extends TestBase {
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
         DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
         List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
         visitor.addIndexer(_i);
         cuParsed.accept(visitor);
@@ -926,7 +926,7 @@ public class TestGeneralScenarios extends TestBase {
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
         DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
         List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
         visitor.addIndexer(_i);
         cuParsed.accept(visitor);
@@ -971,7 +971,7 @@ public class TestGeneralScenarios extends TestBase {
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
         DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
         List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
         visitor.addIndexer(_i);
         cuParsed.accept(visitor);
@@ -1025,7 +1025,7 @@ public class TestGeneralScenarios extends TestBase {
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
         DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
         List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
         visitor.addIndexer(_i);
         cuParsed.accept(visitor);
@@ -1076,7 +1076,7 @@ public class TestGeneralScenarios extends TestBase {
         CompilationUnitVisitor visitor = _compilationUnitVisitor;
         ResourcePathIndexer _resourcePathIndexer = new ResourcePathIndexer();
         DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-        ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
+        ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_resourcePathIndexer, _documentTypeIndexer);
         List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
         visitor.addIndexer(_i);
         cuParsed.accept(visitor);
@@ -1104,7 +1104,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ModifiersIndexer _modifiersIndexer = new ModifiersIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_modifiersIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_modifiersIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1124,7 +1124,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ModifiersIndexer _modifiersIndexer = new ModifiersIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_modifiersIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_modifiersIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1148,7 +1148,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ModifiersIndexer _modifiersIndexer = new ModifiersIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_modifiersIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_modifiersIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -1171,7 +1171,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ModifiersIndexer _modifiersIndexer = new ModifiersIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_modifiersIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_modifiersIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -1197,7 +1197,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ModifiersIndexer _modifiersIndexer = new ModifiersIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_modifiersIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_modifiersIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
@@ -1222,7 +1222,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       ModifiersIndexer _modifiersIndexer = new ModifiersIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_modifiersIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_modifiersIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
@@ -1253,7 +1253,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1278,7 +1278,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1309,7 +1309,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -1343,7 +1343,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DeclaredFieldNamesIndexer _declaredFieldNamesIndexer = new DeclaredFieldNamesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_declaredFieldNamesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -1368,7 +1368,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DeclaredFieldTypesIndexer _declaredFieldTypesIndexer = new DeclaredFieldTypesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1399,7 +1399,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DeclaredFieldTypesIndexer _declaredFieldTypesIndexer = new DeclaredFieldTypesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -1433,7 +1433,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DeclaredFieldTypesIndexer _declaredFieldTypesIndexer = new DeclaredFieldTypesIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_declaredFieldTypesIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -1460,7 +1460,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AllDeclaredFieldNamesIndexer _allDeclaredFieldNamesIndexer = new AllDeclaredFieldNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1492,7 +1492,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AllDeclaredFieldNamesIndexer _allDeclaredFieldNamesIndexer = new AllDeclaredFieldNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _allDeclaredFieldNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1515,7 +1515,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       FullTextIndexer _fullTextIndexer = new FullTextIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fullTextIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1548,7 +1548,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       FullTextIndexer _fullTextIndexer = new FullTextIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fullTextIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -1593,7 +1593,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       FullTextIndexer _fullTextIndexer = new FullTextIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fullTextIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -1643,7 +1643,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       FullTextIndexer _fullTextIndexer = new FullTextIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fullTextIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _fullTextIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
@@ -1937,7 +1937,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AnnotationsIndexer _annotationsIndexer = new AnnotationsIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _annotationsIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _annotationsIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -1959,7 +1959,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AnnotationsIndexer _annotationsIndexer = new AnnotationsIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _annotationsIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _annotationsIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -2000,7 +2000,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AnnotationsIndexer _annotationsIndexer = new AnnotationsIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _annotationsIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _annotationsIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -2045,7 +2045,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       InstanceOfIndexer _instanceOfIndexer = new InstanceOfIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -2085,7 +2085,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       InstanceOfIndexer _instanceOfIndexer = new InstanceOfIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -2137,7 +2137,7 @@ public class TestGeneralScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       InstanceOfIndexer _instanceOfIndexer = new InstanceOfIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _instanceOfIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -2158,7 +2158,7 @@ public class TestGeneralScenarios extends TestBase {
       TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _timestampIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -2187,7 +2187,7 @@ public class TestGeneralScenarios extends TestBase {
       TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _timestampIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_METHOD);
@@ -2213,7 +2213,7 @@ public class TestGeneralScenarios extends TestBase {
       TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _timestampIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
@@ -2254,7 +2254,7 @@ public class TestGeneralScenarios extends TestBase {
       TimestampIndexer.updateCurrentTimestamp();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       TimestampIndexer _timestampIndexer = new TimestampIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _timestampIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _timestampIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);

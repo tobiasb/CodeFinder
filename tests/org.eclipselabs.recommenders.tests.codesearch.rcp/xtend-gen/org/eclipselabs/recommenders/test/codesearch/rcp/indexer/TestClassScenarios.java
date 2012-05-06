@@ -12,6 +12,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ExtendedTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ImplementedInterfacesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.OverriddenMethodsIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -72,7 +73,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       OverriddenMethodsIndexer _overriddenMethodsIndexer = new OverriddenMethodsIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _overriddenMethodsIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _overriddenMethodsIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -94,7 +95,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       ExtendedTypeIndexer _extendedTypeIndexer = new ExtendedTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _extendedTypeIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _extendedTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -116,7 +117,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AllExtendedTypesIndexer _allExtendedTypesIndexer = new AllExtendedTypesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allExtendedTypesIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _allExtendedTypesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -140,7 +141,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       ImplementedInterfacesIndexer _implementedInterfacesIndexer = new ImplementedInterfacesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _implementedInterfacesIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _implementedInterfacesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -162,7 +163,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AllImplementedInterfacesIndexer _allImplementedInterfacesIndexer = new AllImplementedInterfacesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allImplementedInterfacesIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _allImplementedInterfacesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -192,7 +193,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       DeclaredMethodNamesIndexer _declaredMethodNamesIndexer = new DeclaredMethodNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -225,7 +226,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       AllDeclaredMethodNamesIndexer _allDeclaredMethodNamesIndexer = new AllDeclaredMethodNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _allDeclaredMethodNamesIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _allDeclaredMethodNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
@@ -259,7 +260,7 @@ public class TestClassScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       DeclaredMethodNamesIndexer _declaredMethodNamesIndexer = new DeclaredMethodNamesIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
+      ArrayList<IClassIndexer> _newArrayList = CollectionLiterals.<IClassIndexer>newArrayList(_documentTypeIndexer, _declaredMethodNamesIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);

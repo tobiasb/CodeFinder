@@ -11,6 +11,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableParameterUs
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableTargetUsageIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.VariableTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IVarUsageIndexer;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -38,7 +39,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       DeclaringMethodIndexer _declaringMethodIndexer = new DeclaringMethodIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _declaringMethodIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _declaringMethodIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -67,7 +68,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableNameIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -96,7 +97,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableNameIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -127,7 +128,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableNameIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -156,7 +157,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableTypeIndexer _variableTypeIndexer = new VariableTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableTypeIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -186,7 +187,7 @@ public class TestVariableUsageScenarios extends TestBase {
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableTypeIndexer _variableTypeIndexer = new VariableTypeIndexer();
       VariableNameIndexer _variableNameIndexer = new VariableNameIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableTypeIndexer, _variableNameIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableTypeIndexer, _variableNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -222,7 +223,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -248,7 +249,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -277,7 +278,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -306,7 +307,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -338,7 +339,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -367,7 +368,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableDefinitionIndexer _variableDefinitionIndexer = new VariableDefinitionIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableDefinitionIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -399,7 +400,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableParameterUsageIndexer _variableParameterUsageIndexer = new VariableParameterUsageIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableParameterUsageIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableParameterUsageIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -434,7 +435,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableParameterUsageIndexer _variableParameterUsageIndexer = new VariableParameterUsageIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableParameterUsageIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableParameterUsageIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);
@@ -466,7 +467,7 @@ public class TestVariableUsageScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       VariableTargetUsageIndexer _variableTargetUsageIndexer = new VariableTargetUsageIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _variableTargetUsageIndexer);
+      ArrayList<IVarUsageIndexer> _newArrayList = CollectionLiterals.<IVarUsageIndexer>newArrayList(_documentTypeIndexer, _variableTargetUsageIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_VARUSAGE);

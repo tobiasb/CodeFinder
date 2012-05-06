@@ -10,6 +10,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedMethodsInTryInd
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedTypesInFinallyIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.UsedTypesInTryIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatchBlockIndexer;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
@@ -52,7 +53,7 @@ public class TestTryCatchScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedTypesInTryIndexer _usedTypesInTryIndexer = new UsedTypesInTryIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedTypesInTryIndexer, _documentTypeIndexer);
+      ArrayList<ITryCatchBlockIndexer> _newArrayList = CollectionLiterals.<ITryCatchBlockIndexer>newArrayList(_usedTypesInTryIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -99,7 +100,7 @@ public class TestTryCatchScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedTypesInFinallyIndexer _usedTypesInFinallyIndexer = new UsedTypesInFinallyIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedTypesInFinallyIndexer, _documentTypeIndexer);
+      ArrayList<ITryCatchBlockIndexer> _newArrayList = CollectionLiterals.<ITryCatchBlockIndexer>newArrayList(_usedTypesInFinallyIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -140,7 +141,7 @@ public class TestTryCatchScenarios extends TestBase {
       final CharSequence code = _builder;
       CaughtTypeIndexer _caughtTypeIndexer = new CaughtTypeIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_caughtTypeIndexer, _documentTypeIndexer);
+      ArrayList<ITryCatchBlockIndexer> _newArrayList = CollectionLiterals.<ITryCatchBlockIndexer>newArrayList(_caughtTypeIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -184,7 +185,7 @@ public class TestTryCatchScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedMethodsInTryIndexer _usedMethodsInTryIndexer = new UsedMethodsInTryIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedMethodsInTryIndexer, _documentTypeIndexer);
+      ArrayList<ITryCatchBlockIndexer> _newArrayList = CollectionLiterals.<ITryCatchBlockIndexer>newArrayList(_usedMethodsInTryIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
@@ -231,7 +232,7 @@ public class TestTryCatchScenarios extends TestBase {
       final CharSequence code = _builder;
       UsedMethodsInFinallyIndexer _usedMethodsInFinallyIndexer = new UsedMethodsInFinallyIndexer();
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_usedMethodsInFinallyIndexer, _documentTypeIndexer);
+      ArrayList<ITryCatchBlockIndexer> _newArrayList = CollectionLiterals.<ITryCatchBlockIndexer>newArrayList(_usedMethodsInFinallyIndexer, _documentTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);

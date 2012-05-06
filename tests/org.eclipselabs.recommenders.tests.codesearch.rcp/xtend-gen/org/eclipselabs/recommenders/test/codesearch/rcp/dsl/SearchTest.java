@@ -24,7 +24,7 @@ public class SearchTest extends SearchTestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _simpleNameIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _simpleNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       StringConcatenation _builder_1 = new StringConcatenation();
@@ -48,7 +48,7 @@ public class SearchTest extends SearchTestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       SimpleNameIndexer _simpleNameIndexer = new SimpleNameIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _simpleNameIndexer);
+      ArrayList<IIndexer> _newArrayList = CollectionLiterals.<IIndexer>newArrayList(_documentTypeIndexer, _simpleNameIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       StringConcatenation _builder_1 = new StringConcatenation();

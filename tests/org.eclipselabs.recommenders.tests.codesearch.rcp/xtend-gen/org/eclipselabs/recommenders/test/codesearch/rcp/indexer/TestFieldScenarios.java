@@ -5,6 +5,7 @@ import java.util.List;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.FieldTypeIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -29,7 +30,7 @@ public class TestFieldScenarios extends TestBase {
       final CharSequence code = _builder;
       DocumentTypeIndexer _documentTypeIndexer = new DocumentTypeIndexer();
       FieldTypeIndexer _fieldTypeIndexer = new FieldTypeIndexer();
-      ArrayList<Object> _newArrayList = CollectionLiterals.<Object>newArrayList(_documentTypeIndexer, _fieldTypeIndexer);
+      ArrayList<IFieldIndexer> _newArrayList = CollectionLiterals.<IFieldIndexer>newArrayList(_documentTypeIndexer, _fieldTypeIndexer);
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_FIELD);
