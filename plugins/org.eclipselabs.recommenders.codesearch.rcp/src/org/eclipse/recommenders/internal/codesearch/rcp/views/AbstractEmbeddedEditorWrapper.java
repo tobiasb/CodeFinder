@@ -51,29 +51,22 @@ public abstract class AbstractEmbeddedEditorWrapper {
 
         parent.getChildren()[0].addKeyListener(new KeyListener() {
 
-            boolean ctrlPressed = false;
-
-            @Override
-            public void keyReleased(final KeyEvent e) {
-                if (e.keyCode == SWT.CTRL) {
-                    ctrlPressed = false;
-                }
-            }
-
             @Override
             public void keyPressed(final KeyEvent e) {
-                if (e.keyCode == SWT.CTRL) {
-                    ctrlPressed = true;
-                }
-
-                if (e.character == '\r' && ctrlPressed) {
-                    try {
-                        searchView.doSearch();
-                    } catch (final Exception e1) {
-                        Activator.log(e1);
-                    }
+                if(((e.stateMask & SWT.CTRL) == SWT.CTRL) && (e.keyCode == '\r'))
+                {
+                	try {
+						searchView.doSearch();
+						e.doit = false;
+					} catch (Exception e1) {
+                      Activator.log(e1);
+					}
                 }
             }
+            
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
         });
 
         parent.layout();
