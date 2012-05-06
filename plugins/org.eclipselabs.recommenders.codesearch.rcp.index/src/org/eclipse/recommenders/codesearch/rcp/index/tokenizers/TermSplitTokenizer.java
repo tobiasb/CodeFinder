@@ -1,14 +1,3 @@
-/*
- * Copyright (c) 2009 Andrejs Jermakovics.
- * 
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- *
- * Contributors:
- *     Andrejs Jermakovics - initial implementation
- */
 package org.eclipse.recommenders.codesearch.rcp.index.tokenizers;
 
 import java.io.IOException;
@@ -21,9 +10,6 @@ import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 import org.apache.lucene.analysis.tokenattributes.PositionIncrementAttribute;
 import org.apache.lucene.analysis.tokenattributes.TermAttribute;
 
-/**
- * Splits terms. Returns the original term and its split parts
- */
 public abstract class TermSplitTokenizer extends TokenFilter {
 
     private LinkedList<Token> tokens = new LinkedList<Token>();
@@ -34,10 +20,6 @@ public abstract class TermSplitTokenizer extends TokenFilter {
 
     public TermSplitTokenizer(TokenStream in) {
         super(in);
-
-        assert (in.hasAttribute(TermAttribute.class));
-        assert (in.hasAttribute(OffsetAttribute.class));
-        assert (in.hasAttribute(PositionIncrementAttribute.class));
 
         termAtt = (TermAttribute) addAttribute(TermAttribute.class);
         offsetAtt = (OffsetAttribute) addAttribute(OffsetAttribute.class);
@@ -56,7 +38,7 @@ public abstract class TermSplitTokenizer extends TokenFilter {
                     applyToken(tokens.removeFirst());
             }
         } else {
-            return false; // does not have any more tokens
+            return false;
         }
 
         return true;
@@ -75,7 +57,7 @@ public abstract class TermSplitTokenizer extends TokenFilter {
                 int termPartEndPos = termPartPos + termPart.length();
 
                 Token newToken = new Token(termPart, termPartPos, termPartEndPos);
-                newToken.setPositionIncrement(0); // in the same position
+                newToken.setPositionIncrement(0);
 
                 tokens.add(newToken);
             }
@@ -88,20 +70,9 @@ public abstract class TermSplitTokenizer extends TokenFilter {
         offsetAtt.setOffset(token.startOffset(), token.endOffset());
     }
 
-    /**
-     * Return original term together with the parts
-     * 
-     * @return returnOriginalTerm
-     */
     protected boolean returnOriginalTerm() {
         return false;
     }
 
-    /**
-     * Split term into an array of terms
-     * 
-     * @param term
-     * @return split term
-     */
     public abstract String[] splitTerm(String term);
 }
