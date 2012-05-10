@@ -206,7 +206,6 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         final Document visited = new Document();
         addFieldToDocument(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(rootLocation));
         addFieldToDocument(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
-        //indexer.delete(rootLocation);
         indexer.addDocument(visited);
     }
 
