@@ -112,8 +112,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 
 	//Generated Rule. Do not modify!
 	SimpleField:
-			value='FullyQualifiedName'
-		| 	value='FriendlyName'
+		 	value='FriendlyName'
 		| 	value='ReturnVariableExpressions'
 		| 	value='AllDeclaredMethodNames'
 		| 	value='DeclaredMethodNames'
@@ -130,7 +129,8 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	
 	//Generated Rule. Do not modify!
 	TypeField:
-			value='ImplementedTypes'
+			value='FullyQualifiedName'
+		|	value='ImplementedTypes'
 		| 	value='ExtendedTypes'
 		| 	value='UsedTypes'
 		| 	value='UsedTypesInTry'

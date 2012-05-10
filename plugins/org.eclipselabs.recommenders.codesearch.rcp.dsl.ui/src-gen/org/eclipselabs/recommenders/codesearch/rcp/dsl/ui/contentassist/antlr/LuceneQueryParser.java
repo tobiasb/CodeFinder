@@ -151,7 +151,6 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_10(), "rule__SimpleField__ValueAssignment_10");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_11(), "rule__SimpleField__ValueAssignment_11");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_12(), "rule__SimpleField__ValueAssignment_12");
-					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_13(), "rule__SimpleField__ValueAssignment_13");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_0(), "rule__TypeField__ValueAssignment_0");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_1(), "rule__TypeField__ValueAssignment_1");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_2(), "rule__TypeField__ValueAssignment_2");
@@ -168,6 +167,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_13(), "rule__TypeField__ValueAssignment_13");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_14(), "rule__TypeField__ValueAssignment_14");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_15(), "rule__TypeField__ValueAssignment_15");
+					put(grammarAccess.getTypeFieldAccess().getValueAssignment_16(), "rule__TypeField__ValueAssignment_16");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_0(), "rule__MethodField__ValueAssignment_0");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_1(), "rule__MethodField__ValueAssignment_1");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_2(), "rule__MethodField__ValueAssignment_2");

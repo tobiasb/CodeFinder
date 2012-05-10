@@ -347,7 +347,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
-	 *         value='FullyQualifiedName' | 
 	 *         value='FriendlyName' | 
 	 *         value='ReturnVariableExpressions' | 
 	 *         value='AllDeclaredMethodNames' | 
@@ -387,6 +386,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
+	 *         value='FullyQualifiedName' | 
 	 *         value='ImplementedTypes' | 
 	 *         value='ExtendedTypes' | 
 	 *         value='UsedTypes' | 

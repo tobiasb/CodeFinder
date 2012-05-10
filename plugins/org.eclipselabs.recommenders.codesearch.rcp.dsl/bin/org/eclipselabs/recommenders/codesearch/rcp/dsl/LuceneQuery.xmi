@@ -340,9 +340,6 @@
       </type>
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
-          <terminal xsi:type="xtext:Keyword" value="FullyQualifiedName"/>
-        </elements>
-        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="FriendlyName"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
@@ -388,6 +385,9 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl/LuceneQuery#//TypeField"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+          <terminal xsi:type="xtext:Keyword" value="FullyQualifiedName"/>
+        </elements>
         <elements xsi:type="xtext:Assignment" feature="value" operator="=">
           <terminal xsi:type="xtext:Keyword" value="ImplementedTypes"/>
         </elements>
