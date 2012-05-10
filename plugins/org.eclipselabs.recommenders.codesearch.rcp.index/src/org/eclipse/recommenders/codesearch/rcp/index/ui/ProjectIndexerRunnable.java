@@ -36,6 +36,7 @@ import org.eclipse.jdt.ui.SharedASTProvider;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerConfigBean;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.TimestampIndexer;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
@@ -150,8 +151,9 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
             if (ast == null) {
                 return;
             }
+            
             indexer.delete(cuLocation);
-            indexer.index(ast);
+            indexer.index(ast, new CodeIndexerConfigBean(true, 1.5f));
         } catch (final Exception e) {
             RecommendersUtilsPlugin.logError(e, "Failed to index '%s'", cu.getResource().getFullPath());
         }
@@ -199,7 +201,8 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         // ast.setProperty("location", rootLocation);
         // ast.setProperty("project", javaProject);
         monitor.subTask(unitName);
-        indexer.index(ast, false);
+        
+        indexer.index(ast, new CodeIndexerConfigBean(false, 1.0f));
     }
 
     private void addArchiveVisitedMarker() throws IOException {

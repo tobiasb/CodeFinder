@@ -23,6 +23,8 @@ import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.TryStatement;
 import org.eclipse.jdt.core.dom.TypeDeclaration;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexer;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerDefaultConfigBean;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.CodeIndexerConfigBean;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IFieldIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
@@ -36,6 +38,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
 
     private CodeIndexer index = null;
     private final List<IIndexer> indexer;
+    private CodeIndexerConfigBean settings;
 
     public void addIndexer(final IIndexer indexer) {
         this.indexer.add(indexer);
@@ -46,8 +49,13 @@ public class CompilationUnitVisitor extends ASTVisitor {
     }
 
     public CompilationUnitVisitor(final CodeIndexer index) {
+    	this(index, new CodeIndexerDefaultConfigBean());
+    }
+    
+    public CompilationUnitVisitor(final CodeIndexer index, final CodeIndexerConfigBean settings) {
         this.index = index;
-        indexer = Lists.newArrayList();
+        this.indexer = Lists.newArrayList();
+        this.settings = settings;
     }
 
     @Override
@@ -136,6 +144,7 @@ public class CompilationUnitVisitor extends ASTVisitor {
     private void addDocument(final Document document) {
 
         try {
+        	document.setBoost(settings.getDocumentBoost());
             index.addDocument(document);
         } catch (final IOException e) {
             RecommendersUtilsPlugin.logError(e, "Exception during document save.");

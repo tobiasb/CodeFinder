@@ -97,12 +97,12 @@ public class CodeIndexer implements ICompilationUnitIndexer {
 
     @Override
     public void index(final CompilationUnit cu) throws IOException {
-        index(cu, true);
+        index(cu, new CodeIndexerDefaultConfigBean());
     }
 
     @Override
-    public void index(final CompilationUnit cu, boolean deleteFromIndex) throws IOException {
-        index(cu, deleteFromIndex, defaultIndexer);
+    public void index(final CompilationUnit cu, CodeIndexerConfigBean settings) throws IOException {
+        index(cu, settings, defaultIndexer);
     }
 
     @Override
@@ -115,15 +115,15 @@ public class CodeIndexer implements ICompilationUnitIndexer {
 
     @Override
     public void index(final CompilationUnit cu, final List<IIndexer> indexer) throws IOException {
-    	index(cu, true, indexer);
+    	index(cu, new CodeIndexerDefaultConfigBean(), indexer);
     }
     
-    private void index(final CompilationUnit cu, boolean deleteFromIndex, final List<IIndexer> indexer) throws IOException {
-        if(deleteFromIndex) {
+    private void index(final CompilationUnit cu, CodeIndexerConfigBean settings, final List<IIndexer> indexer) throws IOException {
+        if(settings.isDeleteDocumentFirst()) {
         	delete(cu);
         }
         
-        final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
+        final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this, settings);
         visitor.addIndexer(indexer);
         
         try {
