@@ -47,7 +47,7 @@
             </and>
         </definition>
     </extension>
-    <extension
+    <!--extension
             point="org.eclipse.ui.preferencePages">
         <page
             class="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.QL1ExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
@@ -82,7 +82,7 @@
 			</enabledWhen>
 	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
         </page>
-    </extension>
+    </extension-->
     <extension
         point="org.eclipse.ui.keywords">
         <keyword
@@ -158,7 +158,7 @@
             class="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.QL1ExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
-   <extension
+   <!--extension
             point="org.eclipse.ui.preferencePages">
         <page
             category="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1"
@@ -181,7 +181,7 @@
 			</enabledWhen>
 	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
         </page>
-    </extension>
+    </extension-->
 
 	<!-- Quick Outline -->
 	<extension
@@ -248,7 +248,7 @@
          </command>
       </menuContribution>
    </extension>
-   <extension point="org.eclipse.ui.preferencePages">
+   <!--extension point="org.eclipse.ui.preferencePages">
 	    <page
 	        category="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1"
 	        class="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.QL1ExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage"
@@ -256,7 +256,7 @@
 	        name="Refactoring">
 	        <keywordReference id="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.keyword_QL1"/>
 	    </page>
-	</extension>
+	</extension-->
 
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1.compare.contentViewers"
