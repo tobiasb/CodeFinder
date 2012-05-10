@@ -95,25 +95,14 @@ public class CodeIndexer implements ICompilationUnitIndexer {
         indexInformationProvider = new IndexInformationCache();
     }
 
-    /**
-     * Adds a compilation unit to the index without previously checking and
-     * deleting old versions/documents in the index.
-     */
-    public void add(final CompilationUnit cu) {
-        final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
-        visitor.addIndexer(defaultIndexer);
-        try {
-            cu.accept(visitor);
-        } catch (final Exception e) {
-            RecommendersUtilsPlugin.logError(e, "Exception while indexing %s", cu);
-        }
-        // add to internal cache
-        indexInformationProvider.setLastIndexed(ResourcePathIndexer.getFile(cu), TimestampIndexer.getTime());
+    @Override
+    public void index(final CompilationUnit cu) throws IOException {
+        index(cu, true);
     }
 
     @Override
-    public void index(final CompilationUnit cu) throws IOException {
-        index(cu, defaultIndexer);
+    public void index(final CompilationUnit cu, boolean deleteFromIndex) throws IOException {
+        index(cu, deleteFromIndex, defaultIndexer);
     }
 
     @Override
@@ -123,16 +112,30 @@ public class CodeIndexer implements ICompilationUnitIndexer {
         index(cu, tmpIndexerCollection);
     }
 
+
     @Override
     public void index(final CompilationUnit cu, final List<IIndexer> indexer) throws IOException {
-        delete(cu);
+    	index(cu, true, indexer);
+    }
+    
+    private void index(final CompilationUnit cu, boolean deleteFromIndex, final List<IIndexer> indexer) throws IOException {
+        if(deleteFromIndex) {
+        	delete(cu);
+        }
+        
         final CompilationUnitVisitor visitor = new CompilationUnitVisitor(this);
         visitor.addIndexer(indexer);
-        cu.accept(visitor);
+        
+        try {
+        	cu.accept(visitor);
+        } catch (final Exception e) {
+            RecommendersUtilsPlugin.logError(e, "Exception while indexing %s", ResourcePathIndexer.getFile(cu));
+        }
+        
         // add to internal cache
         indexInformationProvider.setLastIndexed(ResourcePathIndexer.getFile(cu), TimestampIndexer.getTime());
     }
-
+    
     @Override
     public long lastIndexed(final File location) {
         Optional<Long> lastIndexed = indexInformationProvider.getLastIndexed(location);
@@ -207,7 +210,7 @@ public class CodeIndexer implements ICompilationUnitIndexer {
     @Override
     public void delete(final CompilationUnit cu) throws IOException {
         final String cuPath = ResourcePathIndexer.getPath(cu);
-
+        
         delete(prepareSearchTerm(Fields.RESOURCE_PATH, cuPath));
     }
 
@@ -224,10 +227,14 @@ public class CodeIndexer implements ICompilationUnitIndexer {
             writer.forceMerge(10, true);
             writer.commit();
         } catch (final Exception e) {
-            RecommendersPlugin.logError(e, "failed to commit latest changes to code-search index.");
+            RecommendersPlugin.logError(e, "failed to compact code-search index.");
         }
     }
 
+    /**
+     * Adds a document to the index without previously checking and
+     * deleting old versions of the "same" document in the index.
+     */
     public void addDocument(final Document d) throws IOException {
         writer.addDocument(d);
     }

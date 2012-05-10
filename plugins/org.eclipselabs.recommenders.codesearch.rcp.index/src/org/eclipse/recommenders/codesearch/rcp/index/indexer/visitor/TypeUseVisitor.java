@@ -33,8 +33,13 @@ public abstract class TypeUseVisitor extends ASTVisitor {
 
     @Override
     public boolean visit(final SimpleType node) {
+    	try {
         final ITypeBinding b = node.resolveBinding();
         handleTypeUseInternal(b);
+    	} catch(NullPointerException ex) {
+    		//Ignore, might be thrown in DefaultBindingResolver:1542
+    	}
+    	
         return false;
     }
 

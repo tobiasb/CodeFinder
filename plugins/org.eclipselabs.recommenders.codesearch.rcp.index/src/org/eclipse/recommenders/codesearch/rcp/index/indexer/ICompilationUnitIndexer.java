@@ -29,6 +29,14 @@ public interface ICompilationUnitIndexer {
     public void index(final CompilationUnit cu) throws IOException;
 
     /**
+     * Indexes a CompilationUnit using the set of default indexers. Before indexing all documents with the same
+     * ResourcePath will be deleted from the index if deleteFromIndex equals true.
+     * 
+     * @see org.eclipse.recommenders.codesearch.rcp.index.indexer.ResourcePathIndexer
+     */
+    public void index(final CompilationUnit cu, boolean deleteFromIndex) throws IOException;
+
+    /**
      * Indexes a CompilationUnit using only the provided indexer. Before indexing all documents with the same
      * ResourcePath will be deleted from the index.
      * 

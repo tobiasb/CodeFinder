@@ -62,8 +62,13 @@ public final class BindingHelper {
     }
 
     public static Optional<String> getIdentifier(final VariableDeclarationStatement node) {
+    	try {
         final ITypeBinding b = node.getType().resolveBinding();
-        return getIdentifier(b);
+        	return getIdentifier(b);
+    	} catch(NullPointerException ex) {
+    		//Ignore, might be thrown in DefaultBindingResolver:1542
+    		return absent();
+    	}
     }
 
     public static Optional<String> getIdentifier(final ITypeBinding b) {

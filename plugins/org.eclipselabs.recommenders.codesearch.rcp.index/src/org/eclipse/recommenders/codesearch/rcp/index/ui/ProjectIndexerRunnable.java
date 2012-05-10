@@ -170,7 +170,7 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         return sourceMapper != null;
     }
 
-    private void analyzeClassFile(final IClassFile clazz) {
+    private void analyzeClassFile(final IClassFile clazz) throws IOException {
         if (monitor.isCanceled()) {
             return;
         }
@@ -199,14 +199,14 @@ public class ProjectIndexerRunnable implements IRunnableWithProgress {
         // ast.setProperty("location", rootLocation);
         // ast.setProperty("project", javaProject);
         monitor.subTask(unitName);
-        indexer.add(ast); // XXX Marcel, bekommen wir dann hier nicht redundante
-                          // Dokumente in den Index?
+        indexer.index(ast, false);
     }
 
     private void addArchiveVisitedMarker() throws IOException {
         final Document visited = new Document();
         addFieldToDocument(visited, Fields.RESOURCE_PATH, ResourcePathIndexer.getPath(rootLocation));
         addFieldToDocument(visited, Fields.TIMESTAMP, TimestampIndexer.getTimeString());
+        //indexer.delete(rootLocation);
         indexer.addDocument(visited);
     }
 
