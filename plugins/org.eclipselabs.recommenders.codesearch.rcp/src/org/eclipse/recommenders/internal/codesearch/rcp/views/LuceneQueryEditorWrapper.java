@@ -129,6 +129,7 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
     @Override
     String[] getExampleQueriesInternal() {
         return new String[] {
+        		"FullyQualifiedName:org.eclipse.ui.*",
                 "UsedTypes:java.util.List",
                 "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)",
                 "UsedTypes:java.util.List AND Type:method",
