@@ -177,7 +177,6 @@ public class IndexUpdateService {
             TimestampIndexer.updateCurrentTimestamp();
 
             final File file = ResourcePathIndexer.getFile(cu);
-            indexer.delete(file);
             final CompilationUnit ast = SharedASTProvider.getAST(cu, SharedASTProvider.WAIT_YES, null);
             indexer.index(ast);
         } catch (final Exception e) {

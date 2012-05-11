@@ -43,6 +43,9 @@ public class CodeSnippetQLSearcher extends AbstractQLSearcher {
         VariableExtractor varExtractor = new VariableExtractor();
         Map<String, VariableUsage> map = varExtractor.getVars(parseResult.getRootASTElement());
 
+        if(map.size() == 0)
+        	return null;
+        
         List<TopDocs> validScoreDocs = Lists.newArrayList();
         SearchResult result = null;
 

@@ -361,8 +361,10 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
             @Override
             public void run() {
+            	int resultCount = (result != null && result.scoreDocs() != null) ? result.scoreDocs().length : 0;
+            	
                 searchResultTable.setInput(result);
-                searchResultTable.setItemCount(result.scoreDocs().length);
+                searchResultTable.setItemCount(resultCount);
                 triggerSearchButton.setEnabled(true);
             }
         });

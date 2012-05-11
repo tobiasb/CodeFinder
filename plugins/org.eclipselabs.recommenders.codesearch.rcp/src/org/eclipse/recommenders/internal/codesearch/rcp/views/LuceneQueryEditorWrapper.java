@@ -36,12 +36,14 @@ import org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider.Definit
 import org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider.DocumentTypeProposalProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider.GenericQueryProposalProvider;
 import org.eclipse.recommenders.codesearch.rcp.searcher.proposalProvider.ModifierQueryProposalProvider;
+import org.eclipse.xtext.parser.IParseResult;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.embedded.EmbeddedEditorFactory;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
 import org.eclipse.xtext.util.concurrent.IUnitOfWork;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryStandaloneSetup;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.LuceneQueryExtractor;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.extractors.ParseResultExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.LuceneQueryProposalProvider;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.QueryProposalType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.internal.LuceneQueryActivator;
@@ -119,6 +121,11 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
 
     @Override
     SearchResult search() throws ParseException, CorruptIndexException, IOException {
+        IParseResult r = handle.getDocument().readOnly(new ParseResultExtractor());
+
+        if(r.hasSyntaxErrors())
+        	return null;
+        
         final String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor());
         resetXtextQuery();
         System.out.println("Search: " + searchQuery);

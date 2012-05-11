@@ -86,10 +86,13 @@ public class MethodPatternQLEditorWrapper extends AbstractEmbeddedEditorWrapper 
     @Override
     public SearchResult search() throws Exception {
 
-        System.out.println(handle.getDocument().readOnly(new StringQueryExtractor()));
+        //System.out.println(handle.getDocument().readOnly(new StringQueryExtractor()));
 
         IParseResult r = handle.getDocument().readOnly(new ParseResultExtractor());
 
+        if(r.hasSyntaxErrors())
+        	return null;
+        
         return new MethodPatternQLSearcher(luceneInjector).search(codeSearcher, r);
     }
 
