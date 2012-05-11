@@ -97,6 +97,7 @@ public class CodeSearcher implements ITermVectorConsumable {
      */
     public SearchResult lenientSearch(final Query query) throws IOException {
         renewReader();
+        
         final TopDocs docs = searcher.search(query, reader.numDocs() + 1);
         return new SearchResult(query, docs, searcher);
     }
@@ -107,6 +108,7 @@ public class CodeSearcher implements ITermVectorConsumable {
     public SearchResult lenientSearch(final Query query, final int maxHits) throws IOException {
         Checks.ensureIsGreaterOrEqualTo(maxHits, 1, "max hits must be greater zero");
         renewReader();
+        
         final TopDocs docs = searcher.search(query, maxHits);
         return new SearchResult(query, docs, searcher);
     }
