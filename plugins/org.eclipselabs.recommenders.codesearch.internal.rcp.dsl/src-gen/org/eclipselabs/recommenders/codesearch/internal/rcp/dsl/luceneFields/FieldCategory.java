@@ -7,7 +7,6 @@
 package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**

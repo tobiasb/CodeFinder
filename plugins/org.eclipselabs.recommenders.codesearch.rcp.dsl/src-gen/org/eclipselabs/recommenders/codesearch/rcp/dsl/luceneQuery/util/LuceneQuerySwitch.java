@@ -8,10 +8,23 @@ package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.*;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.FilePathField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.MethodField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ModifierField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.NumberField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ProjectNameField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TypeField;
 
 /**
  * <!-- begin-user-doc -->

@@ -1,7 +1,5 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.serializer;
 
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
@@ -30,6 +28,9 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGrammarAccess;
+
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 @SuppressWarnings("restriction")
 public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequencer {

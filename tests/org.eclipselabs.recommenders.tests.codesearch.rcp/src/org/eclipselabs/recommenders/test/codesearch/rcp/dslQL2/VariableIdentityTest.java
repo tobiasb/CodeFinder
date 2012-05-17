@@ -2,9 +2,9 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dslQL2;
 
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.codesearch.rcp.searcher.CodeSnippetQLSearcher;
+import org.eclipse.recommenders.test.codesearch.rcp.indexer.TestBase;
 import org.eclipse.xtext.parser.IParseResult;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2StandaloneSetup;
-import org.eclipse.recommenders.test.codesearch.rcp.indexer.TestBase;
 import org.junit.Test;
 
 public class VariableIdentityTest extends QL2TestBase {

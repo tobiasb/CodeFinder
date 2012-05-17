@@ -36,7 +36,6 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.CastExpression;
 import org.eclipse.jdt.core.dom.ClassInstanceCreation;
-import org.eclipse.jdt.core.dom.ConstructorInvocation;
 import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.IMethodBinding;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
@@ -282,9 +281,9 @@ public class LocalExamplesProvider extends ExtdocProvider {
         return findMethod(s.resolveMethodBinding());
     }
 
-    private static Optional<Tuple<IMethod, String>> findMethod(final ConstructorInvocation s) {
-        return findMethod(s.resolveConstructorBinding());
-    }
+//    private static Optional<Tuple<IMethod, String>> findMethod(final ConstructorInvocation s) {
+//        return findMethod(s.resolveConstructorBinding());
+//    }
 
     private static Optional<Tuple<IMethod, String>> findMethod(final ClassInstanceCreation s) {
         return findMethod(s.resolveConstructorBinding());

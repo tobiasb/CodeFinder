@@ -8,10 +8,20 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.*;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 
 /**
  * <!-- begin-user-doc -->

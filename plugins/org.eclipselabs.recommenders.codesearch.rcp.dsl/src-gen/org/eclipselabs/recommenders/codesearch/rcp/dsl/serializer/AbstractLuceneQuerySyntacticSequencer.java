@@ -1,7 +1,7 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.serializer;
 
-import com.google.inject.Inject;
 import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
@@ -13,6 +13,8 @@ import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISyn
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGrammarAccess;
+
+import com.google.inject.Inject;
 
 @SuppressWarnings("restriction")
 public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequencer {

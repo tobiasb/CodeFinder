@@ -36,9 +36,11 @@ public abstract class AnalysisTestBase {
             while (stream.incrementToken()) {
                 result.add(stream.getAttribute(TermAttribute.class).term());
             }
+            stream.close();
         } catch (IOException e) {
             // not thrown b/c we're using a string reader...
         }
+        
 
         return result;
     }

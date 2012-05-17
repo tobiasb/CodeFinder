@@ -4,8 +4,8 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui;
 
-import org.eclipse.xtext.ui.DefaultUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.DefaultUiModule;
 
 /**
  * Manual modifications go to {org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.QL2UiModule}

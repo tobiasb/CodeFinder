@@ -1,7 +1,5 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.serializer;
 
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
@@ -25,6 +23,9 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationPara
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.services.QL2GrammarAccess;
+
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 @SuppressWarnings("restriction")
 public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {

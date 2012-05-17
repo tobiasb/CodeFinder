@@ -85,9 +85,10 @@ public class QL2ProposalProvider extends AbstractQL2ProposalProvider {
             Object arg1) {
 
         IQueryProposalProvider p = providerMap.get(QueryProposalType.METHOD);
-        p.setArgument(0, arg1);
 
         if (p != null) {
+        	p.setArgument(0, arg1);
+        	
             for (String type : p.getProposals()) {
                 if (type == null)
                     continue;

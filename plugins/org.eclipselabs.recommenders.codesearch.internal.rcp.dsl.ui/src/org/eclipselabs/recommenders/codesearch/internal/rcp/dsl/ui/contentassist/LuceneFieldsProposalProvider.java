@@ -3,7 +3,6 @@
 */
 package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.ui.contentassist;
 
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.ui.contentassist.AbstractLuceneFieldsProposalProvider;
 /**
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#contentAssist on how to customize content assistant
  */

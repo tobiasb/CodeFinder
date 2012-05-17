@@ -1,7 +1,5 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.serializer;
 
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
@@ -27,6 +25,9 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
+
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 @SuppressWarnings("restriction")
 public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {

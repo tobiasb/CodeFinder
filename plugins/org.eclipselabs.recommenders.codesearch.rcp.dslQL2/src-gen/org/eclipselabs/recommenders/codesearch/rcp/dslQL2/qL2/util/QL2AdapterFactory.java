@@ -8,12 +8,20 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.*;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
 
 /**
  * <!-- begin-user-doc -->

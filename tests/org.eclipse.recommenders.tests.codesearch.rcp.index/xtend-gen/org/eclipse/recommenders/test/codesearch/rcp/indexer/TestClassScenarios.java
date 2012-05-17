@@ -2,6 +2,7 @@ package org.eclipse.recommenders.test.codesearch.rcp.indexer;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllDeclaredMethodNamesIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.AllExtendedTypesIndexer;
@@ -14,7 +15,6 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ImplementedInterfac
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.OverriddenMethodsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IClassIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
-import org.eclipse.recommenders.test.codesearch.rcp.indexer.TestBase;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;

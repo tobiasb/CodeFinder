@@ -3,10 +3,10 @@
 */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.parser.antlr;
 
-import com.google.inject.Inject;
-
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
+
+import com.google.inject.Inject;
 
 public class QL1Parser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser {
 	

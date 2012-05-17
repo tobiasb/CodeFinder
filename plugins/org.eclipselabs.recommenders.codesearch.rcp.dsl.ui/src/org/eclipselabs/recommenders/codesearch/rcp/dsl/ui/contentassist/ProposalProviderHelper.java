@@ -31,9 +31,10 @@ public class ProposalProviderHelper {
             HashMap<QueryProposalType, IQueryProposalProvider> providerMap, Object arg1) {
 
         IQueryProposalProvider p = providerMap.get(proposalType);
-        p.setArgument(0, arg1);
 
         if (p != null) {
+        	p.setArgument(0, arg1);
+        
             for (String type : p.getProposals()) {
                 if (type == null)
                     continue;

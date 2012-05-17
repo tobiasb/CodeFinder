@@ -149,7 +149,8 @@ public class LabelProvider extends StyledCellLabelProvider {
                     if (((ReturnStatement) sup).getExpression() instanceof SimpleName) {
                         break;
                     }
-                case ASTNode.METHOD_INVOCATION:
+					//$FALL-THROUGH$
+				case ASTNode.METHOD_INVOCATION:
                 case ASTNode.SUPER_METHOD_INVOCATION:
                 case ASTNode.FIELD_ACCESS:
                 case ASTNode.SUPER_FIELD_ACCESS:

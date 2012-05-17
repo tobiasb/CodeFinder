@@ -9,12 +9,14 @@ package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.im
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.*;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldCategory;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsFactory;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model;
 
 /**
  * <!-- begin-user-doc -->

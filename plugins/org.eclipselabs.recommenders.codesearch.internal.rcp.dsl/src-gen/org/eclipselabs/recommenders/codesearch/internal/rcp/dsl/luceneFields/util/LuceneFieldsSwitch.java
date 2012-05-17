@@ -8,10 +8,12 @@ package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.ut
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.Switch;
-
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.*;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldCategory;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model;
 
 /**
  * <!-- begin-user-doc -->

@@ -1,7 +1,5 @@
 package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.serializer;
 
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
@@ -16,6 +14,9 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Fie
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.services.LuceneFieldsGrammarAccess;
+
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 @SuppressWarnings("restriction")
 public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSequencer {
