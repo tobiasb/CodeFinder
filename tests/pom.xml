@@ -14,6 +14,7 @@
 	
 	<modules>
 		<module>org.eclipse.recommenders.tests</module>
+		<module>org.eclipse.recommenders.tests.codesearch.rcp.index</module>
 		<module>org.eclipselabs.recommenders.tests.codesearch.rcp</module>
     </modules>
   

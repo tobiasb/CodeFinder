@@ -86,7 +86,7 @@
          unpack="false"/>
 
    <plugin
-         id="org.eclipselabs.recommenders.codesearch.rcp.index"
+         id="org.eclipse.recommenders.codesearch.rcp.index"
          download-size="0"
          install-size="0"
          version="0.1.0.qualifier"

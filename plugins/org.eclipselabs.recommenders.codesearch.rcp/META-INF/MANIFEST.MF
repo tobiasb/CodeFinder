@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.jdt.core,
  org.eclipse.xtext.ui,
  org.apache.lucene;bundle-version="3.5.0",
  org.eclipse.ui.ide;bundle-version="3.5.0",
- org.eclipselabs.recommenders.codesearch.rcp.index,
+ org.eclipse.recommenders.codesearch.rcp.index,
  org.eclipselabs.recommenders.codesearch.rcp.dsl.ui,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui,
  org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui

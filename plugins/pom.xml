@@ -13,7 +13,7 @@
 	
 	<modules>
 		<module>org.eclipselabs.recommenders.codesearch.rcp</module>
-		<module>org.eclipselabs.recommenders.codesearch.rcp.index</module>
+		<module>org.eclipse.recommenders.codesearch.rcp.index</module>
 		<module>org.eclipselabs.recommenders.codesearch.rcp.dsl</module>
 		<module>org.eclipselabs.recommenders.codesearch.rcp.dsl.ui</module>
 		<module>org.eclipselabs.recommenders.codesearch.rcp.dslQL1</module>
