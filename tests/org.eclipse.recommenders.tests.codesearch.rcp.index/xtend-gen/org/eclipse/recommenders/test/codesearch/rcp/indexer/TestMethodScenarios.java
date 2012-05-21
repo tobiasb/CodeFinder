@@ -2,7 +2,6 @@ package org.eclipse.recommenders.test.codesearch.rcp.indexer;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.CheckedExceptionsIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterCountIndexer;
@@ -11,6 +10,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.ParameterTypesStruc
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.ReturnVariableExpressionIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
+import org.eclipse.recommenders.test.codesearch.rcp.indexer.TestBase;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;

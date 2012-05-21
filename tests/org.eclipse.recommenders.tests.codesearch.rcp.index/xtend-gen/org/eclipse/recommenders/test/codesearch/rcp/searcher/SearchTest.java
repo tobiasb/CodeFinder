@@ -2,7 +2,6 @@ package org.eclipse.recommenders.test.codesearch.rcp.searcher;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.DocumentTypeIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.SimpleNameIndexer;
