@@ -26,6 +26,7 @@ import org.junit.Ignore
 
 import static junit.framework.Assert.*
 import static org.eclipse.recommenders.test.codesearch.rcp.indexer.TestBase.*
+import org.apache.lucene.document.Document
 
 @Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 class TestBase extends AbstractTestBase {
@@ -74,7 +75,11 @@ class TestBase extends AbstractTestBase {
     		}
     	}
     	
-		assertTrue('''There was no document with «expected»'''.toString, false)
+		assertTrue('''There was no document with «expected»
+		
+		Documents present:
+		«getAllDocsAsString(search.getDocuments)»'''.toString, false)
+		
 		return false
     }
     
@@ -101,8 +106,22 @@ class TestBase extends AbstractTestBase {
     		}
     	}
     	
-		assertTrue('''There was no document with (startswith) «expected»'''.toString, false)
+		assertTrue('''There was no document with (startswith) «expected»
+		
+		Documents present:
+		«getAllDocsAsString(search.getDocuments)»'''.toString, false)
 		return false
+    }
+    
+    def getAllDocsAsString(List<Document> docs) {
+    	
+    	var docsFound = '''''';
+    	for(document : search.getDocuments) {   
+    		docsFound = '''«docsFound»
+    		«document.toString»'''
+    	}
+    	
+    	return docsFound
     }
     
     def assertNotField( List<String> expected) {

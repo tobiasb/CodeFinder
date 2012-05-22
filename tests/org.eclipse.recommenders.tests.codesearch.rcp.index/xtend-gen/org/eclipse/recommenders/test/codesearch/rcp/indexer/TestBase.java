@@ -112,6 +112,16 @@ public class TestBase extends AbstractTestBase {
         StringConcatenation _builder = new StringConcatenation();
         _builder.append("There was no document with ");
         _builder.append(expected, "");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("Documents present:");
+        _builder.newLine();
+        _builder.append("\t\t");
+        List<Document> _documents_1 = this.search.getDocuments();
+        CharSequence _allDocsAsString = this.getAllDocsAsString(_documents_1);
+        _builder.append(_allDocsAsString, "		");
         String _string = _builder.toString();
         Assert.assertTrue(_string, false);
         return false;
@@ -155,9 +165,41 @@ public class TestBase extends AbstractTestBase {
         StringConcatenation _builder = new StringConcatenation();
         _builder.append("There was no document with (startswith) ");
         _builder.append(expected, "");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("Documents present:");
+        _builder.newLine();
+        _builder.append("\t\t");
+        List<Document> _documents_1 = this.search.getDocuments();
+        CharSequence _allDocsAsString = this.getAllDocsAsString(_documents_1);
+        _builder.append(_allDocsAsString, "		");
         String _string = _builder.toString();
         Assert.assertTrue(_string, false);
         return false;
+      }
+    } catch (Exception _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public CharSequence getAllDocsAsString(final List<Document> docs) {
+    try {
+      {
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence docsFound = _builder;
+        List<Document> _documents = this.search.getDocuments();
+        for (final Document document : _documents) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append(docsFound, "");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("    \t\t");
+          String _string = document.toString();
+          _builder_1.append(_string, "    		");
+          docsFound = _builder_1;
+        }
+        return docsFound;
       }
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
