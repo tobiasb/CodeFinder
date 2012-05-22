@@ -163,13 +163,13 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("public List test() {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Map<String, String> map;");
+      _builder.append("String s = \"\";");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("try {");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("map.put(\"test\", \"test\");");
+      _builder.append("s.concat(\"test\");");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("} catch(Exception ex) {");
@@ -189,7 +189,7 @@ public class TestTryCatchScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.USED_METHODS_IN_TRY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+      String _s_1 = this.s(Fields.USED_METHODS_IN_TRY, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
@@ -207,7 +207,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("public List test() {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Map<String, String> map;");
+      _builder.append("String s = \"\";");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("try {");
@@ -219,7 +219,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("} finally {");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("map.put(\"test\", \"test\");");
+      _builder.append("s.concat(\"test\");");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("}");
@@ -236,7 +236,7 @@ public class TestTryCatchScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_1 = this.s(Fields.USED_METHODS_IN_FINALLY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+      String _s_1 = this.s(Fields.USED_METHODS_IN_FINALLY, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);

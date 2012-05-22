@@ -358,27 +358,25 @@ class TestGeneralScenarios extends TestBase {
 	
 	@Test
 	def void testUsedMethodsIndexer(){
-		val code = '''
-		import java.util.Map;
-		
-		public class MyClass {	
+		val code = '''		
+		public class MyClass {
 			public List test() {
-				Map<String, String> map;
-				map.put("test", "test");
+				String s = "";
+				s.concat("test");
 			}
 		}
 		'''
 		
-		 exercise(code, i(newArrayList(new UsedMethodsIndexer(), new DocumentTypeIndexer())))
+		exercise(code, i(newArrayList(new UsedMethodsIndexer(), new DocumentTypeIndexer())))
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+			s(Fields::USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;")
 		)))
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+			s(Fields::USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	
@@ -388,10 +386,10 @@ class TestGeneralScenarios extends TestBase {
 		import java.util.Map;
 		public class MyClass {	
 			public List test() {
-				Map<String, String> map;
+				String s = "";
 				try {
 				} catch(Exception ex) {
-					map.put("test", "test");
+					s.concat("test");
 				}
 			}
 		}
@@ -401,17 +399,17 @@ class TestGeneralScenarios extends TestBase {
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_CLASS),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+			s(Fields::USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;")
 		)))
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_METHOD),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+			s(Fields::USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;")
 		)))
 		
 		assertField( l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+			s(Fields::USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	

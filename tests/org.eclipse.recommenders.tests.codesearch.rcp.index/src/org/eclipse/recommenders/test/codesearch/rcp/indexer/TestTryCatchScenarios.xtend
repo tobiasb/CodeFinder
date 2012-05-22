@@ -101,9 +101,9 @@ class TestTryCatchScenarios extends TestBase {
 		
 		public class testUsedMethodsInTryIndexer {	
 			public List test() {
-				Map<String, String> map;
+				String s = "";
 				try {
-					map.put("test", "test");
+					s.concat("test");
 				} catch(Exception ex) {
 				}
 			}
@@ -114,7 +114,7 @@ class TestTryCatchScenarios extends TestBase {
 				
 		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::USED_METHODS_IN_TRY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+			s(Fields::USED_METHODS_IN_TRY, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	
@@ -125,11 +125,11 @@ class TestTryCatchScenarios extends TestBase {
 		
 		public class testUsedMethodsInFinallyIndexer {	
 			public List test() {
-				Map<String, String> map;
+				String s = "";
 				try {
 				} catch(Exception ex) {
 				} finally {
-					map.put("test", "test");
+					s.concat("test");
 				}
 			}
 		}
@@ -139,7 +139,7 @@ class TestTryCatchScenarios extends TestBase {
 			
 		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_TRYCATCH),
-			s(Fields::USED_METHODS_IN_FINALLY, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;")
+			s(Fields::USED_METHODS_IN_FINALLY, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;")
 		)))
 	}
 	

@@ -39,7 +39,7 @@ public class UsedMethodsIndexer implements IClassIndexer, IMethodIndexer, ITryCa
                 }
             };
         };
-
+        
         method.accept(visitor);
     }
 

@@ -530,19 +530,16 @@ public class TestGeneralScenarios extends TestBase {
   @Test
   public void testUsedMethodsIndexer() {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("import java.util.Map;");
-      _builder.newLine();
-      _builder.newLine();
-      _builder.append("public class MyClass {\t");
+      _builder.append("public class MyClass {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("public List test() {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Map<String, String> map;");
+      _builder.append("String s = \"\";");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("map.put(\"test\", \"test\");");
+      _builder.append("s.concat(\"test\");");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("}");
@@ -556,12 +553,12 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
       String _s_2 = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
       this.assertField(_l_1);
@@ -578,7 +575,7 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("public List test() {");
       _builder.newLine();
       _builder.append("\t\t");
-      _builder.append("Map<String, String> map;");
+      _builder.append("String s = \"\";");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("try {");
@@ -587,7 +584,7 @@ public class TestGeneralScenarios extends TestBase {
       _builder.append("} catch(Exception ex) {");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("map.put(\"test\", \"test\");");
+      _builder.append("s.concat(\"test\");");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("}");
@@ -604,17 +601,17 @@ public class TestGeneralScenarios extends TestBase {
       List<IIndexer> _i = this.i(((IIndexer[])Conversions.unwrapArray(_newArrayList, IIndexer.class)));
       this.exercise(code, _i);
       String _s = this.s(Fields.TYPE, Fields.TYPE_CLASS);
-      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+      String _s_1 = this.s(Fields.USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_1 = CollectionLiterals.<String>newArrayList(_s, _s_1);
       List<String> _l = this.l(((String[])Conversions.unwrapArray(_newArrayList_1, String.class)));
       this.assertField(_l);
       String _s_2 = this.s(Fields.TYPE, Fields.TYPE_METHOD);
-      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+      String _s_3 = this.s(Fields.USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_2 = CollectionLiterals.<String>newArrayList(_s_2, _s_3);
       List<String> _l_1 = this.l(((String[])Conversions.unwrapArray(_newArrayList_2, String.class)));
       this.assertField(_l_1);
       String _s_4 = this.s(Fields.TYPE, Fields.TYPE_TRYCATCH);
-      String _s_5 = this.s(Fields.USED_METHODS, "Ljava/util/Map.put(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;");
+      String _s_5 = this.s(Fields.USED_METHODS, "Ljava/lang/String.concat(Ljava/lang/String;)Ljava/lang/String;");
       ArrayList<String> _newArrayList_3 = CollectionLiterals.<String>newArrayList(_s_4, _s_5);
       List<String> _l_2 = this.l(((String[])Conversions.unwrapArray(_newArrayList_3, String.class)));
       this.assertField(_l_2);
