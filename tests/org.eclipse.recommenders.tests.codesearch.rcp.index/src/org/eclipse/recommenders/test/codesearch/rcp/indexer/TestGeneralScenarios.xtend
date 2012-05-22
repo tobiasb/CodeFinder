@@ -364,7 +364,7 @@ class TestGeneralScenarios extends TestBase {
 		public class MyClass {	
 			public List test() {
 				Map<String, String> map;
-				map.put("", "");
+				map.put("test", "test");
 			}
 		}
 		'''
@@ -391,7 +391,7 @@ class TestGeneralScenarios extends TestBase {
 				Map<String, String> map;
 				try {
 				} catch(Exception ex) {
-					map.put("", "");
+					map.put("test", "test");
 				}
 			}
 		}

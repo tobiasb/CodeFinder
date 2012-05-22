@@ -103,7 +103,7 @@ class TestTryCatchScenarios extends TestBase {
 			public List test() {
 				Map<String, String> map;
 				try {
-					map.put("", "");
+					map.put("test", "test");
 				} catch(Exception ex) {
 				}
 			}
@@ -129,7 +129,7 @@ class TestTryCatchScenarios extends TestBase {
 				try {
 				} catch(Exception ex) {
 				} finally {
-					map.put("", "");
+					map.put("test", "test");
 				}
 			}
 		}

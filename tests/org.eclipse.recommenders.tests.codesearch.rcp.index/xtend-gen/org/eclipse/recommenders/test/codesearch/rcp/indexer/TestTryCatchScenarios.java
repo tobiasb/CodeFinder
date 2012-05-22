@@ -169,7 +169,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("try {");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("map.put(\"\", \"\");");
+      _builder.append("map.put(\"test\", \"test\");");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("} catch(Exception ex) {");
@@ -219,7 +219,7 @@ public class TestTryCatchScenarios extends TestBase {
       _builder.append("} finally {");
       _builder.newLine();
       _builder.append("\t\t\t");
-      _builder.append("map.put(\"\", \"\");");
+      _builder.append("map.put(\"test\", \"test\");");
       _builder.newLine();
       _builder.append("\t\t");
       _builder.append("}");
