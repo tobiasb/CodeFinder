@@ -492,9 +492,9 @@ ruleSimpleFieldValue
     }
 	:
 (
-{ before(grammarAccess.getSimpleFieldValueAccess().getNameWithWCTerminalRuleCall()); }
-	RULE_NAMEWITHWC
-{ after(grammarAccess.getSimpleFieldValueAccess().getNameWithWCTerminalRuleCall()); }
+{ before(grammarAccess.getSimpleFieldValueAccess().getAlternatives()); }
+(rule__SimpleFieldValue__Alternatives)
+{ after(grammarAccess.getSimpleFieldValueAccess().getAlternatives()); }
 )
 
 ;
@@ -1464,6 +1464,28 @@ rule__MethodField__Alternatives
 { before(grammarAccess.getMethodFieldAccess().getValueAssignment_7()); }
 (rule__MethodField__ValueAssignment_7)
 { after(grammarAccess.getMethodFieldAccess().getValueAssignment_7()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SimpleFieldValue__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSimpleFieldValueAccess().getQuotedNameWithWCTerminalRuleCall_0()); }
+	RULE_QUOTEDNAMEWITHWC
+{ after(grammarAccess.getSimpleFieldValueAccess().getQuotedNameWithWCTerminalRuleCall_0()); }
+)
+
+    |(
+{ before(grammarAccess.getSimpleFieldValueAccess().getNameWithWCTerminalRuleCall_1()); }
+	RULE_NAMEWITHWC
+{ after(grammarAccess.getSimpleFieldValueAccess().getNameWithWCTerminalRuleCall_1()); }
 )
 
 ;
@@ -7400,6 +7422,8 @@ finally {
 
 
 RULE_BOOST : '^' ('0'..'9')+ ('.' ('0'..'9')+)?;
+
+RULE_QUOTEDNAMEWITHWC : '"' ' '? RULE_NAMEWITHWC (' ' RULE_NAMEWITHWC?)* '"';
 
 RULE_NAMEWITHWC : ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
 

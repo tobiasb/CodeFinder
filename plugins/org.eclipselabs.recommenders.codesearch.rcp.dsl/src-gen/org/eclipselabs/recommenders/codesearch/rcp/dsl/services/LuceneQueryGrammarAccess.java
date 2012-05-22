@@ -1469,18 +1469,26 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class SimpleFieldValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimpleFieldValue");
-		private final RuleCall cNameWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cQuotedNameWithWCTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cNameWithWCTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		/// *
 		//
 		//	End of generated rules.
 		//
 		//	* / SimpleFieldValue:
-		//	NameWithWC;
+		//	QuotedNameWithWC | NameWithWC;
 		public ParserRule getRule() { return rule; }
 
+		//QuotedNameWithWC | NameWithWC
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//QuotedNameWithWC
+		public RuleCall getQuotedNameWithWCTerminalRuleCall_0() { return cQuotedNameWithWCTerminalRuleCall_0; }
+
 		//NameWithWC
-		public RuleCall getNameWithWCTerminalRuleCall() { return cNameWithWCTerminalRuleCall; }
+		public RuleCall getNameWithWCTerminalRuleCall_1() { return cNameWithWCTerminalRuleCall_1; }
 	}
 
 	public class MethodFieldValueElements extends AbstractParserRuleElementFinder {
@@ -1783,6 +1791,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	private BinaryAndElements unknownRuleBinaryAnd;
 	private UnaryExpressionElements pUnaryExpression;
 	private TerminalRule tBoost;
+	private TerminalRule tQuotedNameWithWC;
 	private TerminalRule tNameWithWC;
 	private TerminalRule tPathWithWC;
 	private FilePathFieldValueElements pFilePathFieldValue;
@@ -2023,7 +2032,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	End of generated rules.
 	//
 	//	* / SimpleFieldValue:
-	//	NameWithWC;
+	//	QuotedNameWithWC | NameWithWC;
 	public SimpleFieldValueElements getSimpleFieldValueAccess() {
 		return (pSimpleFieldValue != null) ? pSimpleFieldValue : (pSimpleFieldValue = new SimpleFieldValueElements());
 	}
@@ -2156,6 +2165,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	"^" "0".."9"+ ("." "0".."9"+)?;
 	public TerminalRule getBoostRule() {
 		return (tBoost != null) ? tBoost : (tBoost = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "Boost"));
+	} 
+
+	//terminal QuotedNameWithWC:
+	//	"\"" " "? NameWithWC (" " NameWithWC?)* "\"";
+	public TerminalRule getQuotedNameWithWCRule() {
+		return (tQuotedNameWithWC != null) ? tQuotedNameWithWC : (tQuotedNameWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "QuotedNameWithWC"));
 	} 
 
 	//terminal NameWithWC:

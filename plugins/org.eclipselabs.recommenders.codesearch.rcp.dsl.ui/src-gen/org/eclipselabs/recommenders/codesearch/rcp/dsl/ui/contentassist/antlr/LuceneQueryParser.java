@@ -54,6 +54,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleFieldAccess().getAlternatives(), "rule__SimpleField__Alternatives");
 					put(grammarAccess.getTypeFieldAccess().getAlternatives(), "rule__TypeField__Alternatives");
 					put(grammarAccess.getMethodFieldAccess().getAlternatives(), "rule__MethodField__Alternatives");
+					put(grammarAccess.getSimpleFieldValueAccess().getAlternatives(), "rule__SimpleFieldValue__Alternatives");
 					put(grammarAccess.getModifierFieldValueAccess().getAlternatives(), "rule__ModifierFieldValue__Alternatives");
 					put(grammarAccess.getDocumentTypeFieldValueAccess().getAlternatives(), "rule__DocumentTypeFieldValue__Alternatives");
 					put(grammarAccess.getDefinitionTypeValueAccess().getAlternatives(), "rule__DefinitionTypeValue__Alternatives");

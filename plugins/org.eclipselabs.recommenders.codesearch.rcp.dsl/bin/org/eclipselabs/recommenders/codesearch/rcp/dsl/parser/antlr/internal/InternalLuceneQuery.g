@@ -2222,14 +2222,22 @@ ruleSimpleFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-    this_NameWithWC_0=RULE_NAMEWITHWC    {
-		$current.merge(this_NameWithWC_0);
+(    this_QuotedNameWithWC_0=RULE_QUOTEDNAMEWITHWC    {
+		$current.merge(this_QuotedNameWithWC_0);
     }
 
     { 
-    newLeafNode(this_NameWithWC_0, grammarAccess.getSimpleFieldValueAccess().getNameWithWCTerminalRuleCall()); 
+    newLeafNode(this_QuotedNameWithWC_0, grammarAccess.getSimpleFieldValueAccess().getQuotedNameWithWCTerminalRuleCall_0()); 
     }
 
+    |    this_NameWithWC_1=RULE_NAMEWITHWC    {
+		$current.merge(this_NameWithWC_1);
+    }
+
+    { 
+    newLeafNode(this_NameWithWC_1, grammarAccess.getSimpleFieldValueAccess().getNameWithWCTerminalRuleCall_1()); 
+    }
+)
     ;
 
 
@@ -2691,6 +2699,8 @@ ruleBinaryAnd returns [Enumerator current=null]
 
 
 RULE_BOOST : '^' ('0'..'9')+ ('.' ('0'..'9')+)?;
+
+RULE_QUOTEDNAMEWITHWC : '"' ' '? RULE_NAMEWITHWC (' ' RULE_NAMEWITHWC?)* '"';
 
 RULE_NAMEWITHWC : ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
 

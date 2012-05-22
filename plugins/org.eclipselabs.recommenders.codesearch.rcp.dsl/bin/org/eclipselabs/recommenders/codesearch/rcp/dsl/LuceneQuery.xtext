@@ -206,7 +206,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	
 
 	SimpleFieldValue:
-		NameWithWC
+		QuotedNameWithWC | NameWithWC
 	;
 	
 	MethodFieldValue:
@@ -274,6 +274,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 		'^' ('0'..'9')+ ('.' ('0'..'9')+)? 
 	;
 	
+	terminal QuotedNameWithWC : ('"' ' '? NameWithWC (' ' NameWithWC?)* '"');
 	terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
 	terminal PathWithWC  	: (('A'..'Z' ':') | ('a'..'z'|'A'..'Z'|'_'|'/')) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
 	
