@@ -12,10 +12,24 @@ public class BinaryExpressionTest extends DslTestBase {
     }
 
     @Test
-    public void testAnd02WithBrackets() throws Exception {
+    public void testAnd01WithBrackets() throws Exception {
 
         super.setUp();
         getParseResultAndExpect("(UsedTypes:java.util.List) AND (UsedTypes:java.util.Map)", 0);
+    }
+    
+    @Test
+    public void testAnd02() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect("UsedTypes:java.util.List && UsedTypes:java.util.Map", 0);
+    }
+
+    @Test
+    public void testAnd02WithBrackets() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect("(UsedTypes:java.util.List) && (UsedTypes:java.util.Map)", 0);
     }
 
     @Test
@@ -26,10 +40,24 @@ public class BinaryExpressionTest extends DslTestBase {
     }
 
     @Test
-    public void testOr02WithBrackets() throws Exception {
+    public void testOr02() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect("UsedTypes:java.util.List || UsedTypes:java.util.Map", 0);
+    }
+
+    @Test
+    public void testOr01WithBrackets() throws Exception {
 
         super.setUp();
         getParseResultAndExpect("(UsedTypes:java.util.List) OR (UsedTypes:java.util.Map)", 0);
+    }
+
+    @Test
+    public void testOr02WithBrackets() throws Exception {
+
+        super.setUp();
+        getParseResultAndExpect("(UsedTypes:java.util.List) || (UsedTypes:java.util.Map)", 0);
     }
 
     @Test

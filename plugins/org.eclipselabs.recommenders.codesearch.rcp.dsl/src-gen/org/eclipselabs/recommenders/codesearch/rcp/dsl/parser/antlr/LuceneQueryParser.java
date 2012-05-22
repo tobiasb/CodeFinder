@@ -3,10 +3,10 @@
 */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.parser.antlr;
 
+import com.google.inject.Inject;
+
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGrammarAccess;
-
-import com.google.inject.Inject;
 
 public class LuceneQueryParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser {
 	

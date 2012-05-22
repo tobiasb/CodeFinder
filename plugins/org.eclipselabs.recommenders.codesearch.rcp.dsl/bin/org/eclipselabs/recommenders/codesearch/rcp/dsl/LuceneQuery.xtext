@@ -263,7 +263,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	;
 	
 	enum BinaryAnd returns BinaryExp:
-		and1='AND'
+		and1='AND' | and2='&&'
 	;
 
 	UnaryExpression:

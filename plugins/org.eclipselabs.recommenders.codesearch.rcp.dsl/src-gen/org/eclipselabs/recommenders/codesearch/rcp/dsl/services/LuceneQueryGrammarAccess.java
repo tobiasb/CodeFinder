@@ -4,24 +4,14 @@
 
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.services;
 
-import org.eclipse.xtext.Action;
-import org.eclipse.xtext.Alternatives;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.EnumLiteralDeclaration;
-import org.eclipse.xtext.EnumRule;
-import org.eclipse.xtext.Grammar;
-import org.eclipse.xtext.GrammarUtil;
-import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
-import org.eclipse.xtext.service.GrammarProvider;
-
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.Inject;
+
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.service.GrammarProvider;
+import org.eclipse.xtext.service.AbstractElementFinder.*;
+
+import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 
 @Singleton
 public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
@@ -1738,18 +1728,30 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class BinaryAndElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BinaryAnd");
-		private final EnumLiteralDeclaration cAnd1EnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
-		private final Keyword cAnd1ANDKeyword_0 = (Keyword)cAnd1EnumLiteralDeclaration.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cAnd1EnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cAnd1ANDKeyword_0_0 = (Keyword)cAnd1EnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cAnd2EnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cAnd2AmpersandAmpersandKeyword_1_0 = (Keyword)cAnd2EnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum BinaryAnd returns BinaryExp:
-		//	and1="AND";
+		//	and1="AND" | and2="&&";
 		public EnumRule getRule() { return rule; }
 
+		//and1="AND" | and2="&&"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//and1="AND"
-		public EnumLiteralDeclaration getAnd1EnumLiteralDeclaration() { return cAnd1EnumLiteralDeclaration; }
+		public EnumLiteralDeclaration getAnd1EnumLiteralDeclaration_0() { return cAnd1EnumLiteralDeclaration_0; }
 
 		//"AND"
-		public Keyword getAnd1ANDKeyword_0() { return cAnd1ANDKeyword_0; }
+		public Keyword getAnd1ANDKeyword_0_0() { return cAnd1ANDKeyword_0_0; }
+
+		//and2="&&"
+		public EnumLiteralDeclaration getAnd2EnumLiteralDeclaration_1() { return cAnd2EnumLiteralDeclaration_1; }
+
+		//"&&"
+		public Keyword getAnd2AmpersandAmpersandKeyword_1_0() { return cAnd2AmpersandAmpersandKeyword_1_0; }
 	}
 	
 	private OrExpElements pOrExp;
@@ -2131,7 +2133,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum BinaryAnd returns BinaryExp:
-	//	and1="AND";
+	//	and1="AND" | and2="&&";
 	public BinaryAndElements getBinaryAndAccess() {
 		return (unknownRuleBinaryAnd != null) ? unknownRuleBinaryAnd : (unknownRuleBinaryAnd = new BinaryAndElements());
 	}

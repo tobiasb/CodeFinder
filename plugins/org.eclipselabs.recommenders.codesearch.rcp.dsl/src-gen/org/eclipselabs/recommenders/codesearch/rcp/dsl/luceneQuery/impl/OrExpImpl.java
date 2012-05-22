@@ -7,8 +7,11 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp;

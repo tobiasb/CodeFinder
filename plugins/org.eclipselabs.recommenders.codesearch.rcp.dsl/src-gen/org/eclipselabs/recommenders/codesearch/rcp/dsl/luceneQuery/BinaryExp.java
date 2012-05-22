@@ -51,7 +51,17 @@ public enum BinaryExp implements Enumerator
    * @generated
    * @ordered
    */
-  AND1(0, "and1", "AND");
+  AND1(0, "and1", "AND"),
+
+  /**
+   * The '<em><b>And2</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #AND2_VALUE
+   * @generated
+   * @ordered
+   */
+  AND2(1, "and2", "&&");
 
   /**
    * The '<em><b>Or1</b></em>' literal value.
@@ -99,6 +109,21 @@ public enum BinaryExp implements Enumerator
   public static final int AND1_VALUE = 0;
 
   /**
+   * The '<em><b>And2</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>And2</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #AND2
+   * @model name="and2" literal="&&"
+   * @generated
+   * @ordered
+   */
+  public static final int AND2_VALUE = 1;
+
+  /**
    * An array of all the '<em><b>Binary Exp</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -110,6 +135,7 @@ public enum BinaryExp implements Enumerator
       OR1,
       OR2,
       AND1,
+      AND2,
     };
 
   /**

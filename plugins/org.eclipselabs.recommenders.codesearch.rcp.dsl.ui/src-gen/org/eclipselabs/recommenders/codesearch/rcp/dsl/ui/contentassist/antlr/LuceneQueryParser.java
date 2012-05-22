@@ -4,17 +4,18 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.contentassist.antlr;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.AbstractContentAssistParser;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.FollowElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGrammarAccess;
 
 import com.google.inject.Inject;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGrammarAccess;
 
 public class LuceneQueryParser extends AbstractContentAssistParser {
 	
@@ -58,6 +59,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDefinitionTypeValueAccess().getAlternatives(), "rule__DefinitionTypeValue__Alternatives");
 					put(grammarAccess.getUnaryExpressionAccess().getAlternatives(), "rule__UnaryExpression__Alternatives");
 					put(grammarAccess.getBinaryOrAccess().getAlternatives(), "rule__BinaryOr__Alternatives");
+					put(grammarAccess.getBinaryAndAccess().getAlternatives(), "rule__BinaryAnd__Alternatives");
 					put(grammarAccess.getOrExpAccess().getGroup(), "rule__OrExp__Group__0");
 					put(grammarAccess.getOrExpAccess().getGroup_1(), "rule__OrExp__Group_1__0");
 					put(grammarAccess.getAndExpAccess().getGroup(), "rule__AndExp__Group__0");

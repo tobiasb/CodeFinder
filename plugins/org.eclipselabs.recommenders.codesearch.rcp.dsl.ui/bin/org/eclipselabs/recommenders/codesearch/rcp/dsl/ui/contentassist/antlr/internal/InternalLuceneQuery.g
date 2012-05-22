@@ -839,10 +839,9 @@ ruleBinaryAnd
     }
 :
 (
-{ before(grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration()); }
-(	'AND' 
-)
-{ after(grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration()); }
+{ before(grammarAccess.getBinaryAndAccess().getAlternatives()); }
+(rule__BinaryAnd__Alternatives)
+{ after(grammarAccess.getBinaryAndAccess().getAlternatives()); }
 )
 
 ;
@@ -1689,6 +1688,30 @@ rule__BinaryOr__Alternatives
 (	'||' 
 )
 { after(grammarAccess.getBinaryOrAccess().getOr2EnumLiteralDeclaration_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__BinaryAnd__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration_0()); }
+(	'AND' 
+)
+{ after(grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration_0()); }
+)
+
+    |(
+{ before(grammarAccess.getBinaryAndAccess().getAnd2EnumLiteralDeclaration_1()); }
+(	'&&' 
+)
+{ after(grammarAccess.getBinaryAndAccess().getAnd2EnumLiteralDeclaration_1()); }
 )
 
 ;

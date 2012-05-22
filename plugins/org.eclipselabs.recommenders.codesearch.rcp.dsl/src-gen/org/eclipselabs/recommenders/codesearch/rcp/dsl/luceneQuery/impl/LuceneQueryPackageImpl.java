@@ -11,7 +11,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
@@ -734,6 +736,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     addEEnumLiteral(binaryExpEEnum, BinaryExp.OR1);
     addEEnumLiteral(binaryExpEEnum, BinaryExp.OR2);
     addEEnumLiteral(binaryExpEEnum, BinaryExp.AND1);
+    addEEnumLiteral(binaryExpEEnum, BinaryExp.AND2);
 
     // Create resource
     createResource(eNS_URI);

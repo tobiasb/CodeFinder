@@ -2675,12 +2675,18 @@ ruleBinaryOr returns [Enumerator current=null]
 ruleBinaryAnd returns [Enumerator current=null] 
     @init { enterRule(); }
     @after { leaveRule(); }:
-(	enumLiteral_0='AND' 
+((	enumLiteral_0='AND' 
 	{
-        $current = grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration().getEnumLiteral().getInstance();
-        newLeafNode(enumLiteral_0, grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration()); 
+        $current = grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getBinaryAndAccess().getAnd1EnumLiteralDeclaration_0()); 
     }
-);
+)
+    |(	enumLiteral_1='&&' 
+	{
+        $current = grammarAccess.getBinaryAndAccess().getAnd2EnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getBinaryAndAccess().getAnd2EnumLiteralDeclaration_1()); 
+    }
+));
 
 
 

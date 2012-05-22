@@ -4,8 +4,8 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.ui;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.DefaultUiModule;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * Manual modifications go to {org.eclipselabs.recommenders.codesearch.rcp.dsl.ui.LuceneQueryUiModule}

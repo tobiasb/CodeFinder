@@ -7,6 +7,7 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
