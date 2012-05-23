@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationMethodConverter;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.converter.DotNotationTypeConverter;
@@ -126,7 +127,11 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
         if(r.hasSyntaxErrors())
         	return null;
         
-        final String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor());
+        String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor()).trim();
+        
+        //XXX: Quick workaround to prevent most of the "empty" result rows until I have time to fix it
+        searchQuery = String.format("(%s) AND %s:*", searchQuery, Fields.QUALIFIED_NAME);
+        
         resetXtextQuery();
         System.out.println("Search: " + searchQuery);
         final SearchResult searchResult = codeSearcher.lenientSearch(searchQuery);
