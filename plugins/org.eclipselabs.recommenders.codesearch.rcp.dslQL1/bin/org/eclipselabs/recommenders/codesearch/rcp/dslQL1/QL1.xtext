@@ -8,7 +8,7 @@ MethodPattern:
 ;
 
 MethodPatternDefinition:
-	modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName (parameterDefinition=ParameterDefinition)? throwsClause=Throws?
+	modifier=Modifier returnType=ReturnType methodName=MethodName (parameterDefinition=ParameterDefinition)? throwsClause=Throws?
 ;
 
 ParameterDefinition:
@@ -16,12 +16,12 @@ ParameterDefinition:
 	'(' (parameterElementholder+=ParameterElementHolder (',' parameterElementholder+=ParameterElementHolder)*)? ')'
 ;
 
-ModifierDefinition:
-	{ModifierDefinition}
-	(modifiers+=Modifier)*
+Modifier:
+	{Modifier}
+	(modifiers+=ModifierValue)*
 ;
 
-Modifier:
+ModifierValue:
 	(value='static' 
 	| value='private' 
 	| value='public' 

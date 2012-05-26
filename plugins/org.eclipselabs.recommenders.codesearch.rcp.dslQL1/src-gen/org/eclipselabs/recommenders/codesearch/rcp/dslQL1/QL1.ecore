@@ -8,7 +8,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MethodPatternDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modifierDefinition" eType="#//ModifierDefinition"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modifier" eType="#//Modifier"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//ReturnType"
         containment="true"/>
@@ -23,11 +23,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterElementholder"
         upperBound="-1" eType="#//ParameterElementHolder" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModifierDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
-        eType="#//Modifier" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Modifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
+        eType="#//ModifierValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModifierValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReturnType">

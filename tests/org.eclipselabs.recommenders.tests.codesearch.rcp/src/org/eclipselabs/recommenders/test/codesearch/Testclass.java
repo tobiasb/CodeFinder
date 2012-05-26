@@ -2,8 +2,11 @@ package org.eclipselabs.recommenders.test.codesearch;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.core.commands.Command;
+import org.eclipse.core.commands.common.NotDefinedException;
 import org.junit.Ignore;
 
 @Ignore
@@ -37,4 +40,13 @@ public class Testclass extends IOException {
             // Somethin's fishy
         }
     }
+    
+	public static final Collection generateCombinations(final Command command)
+			throws NotDefinedException {
+		
+		//...
+		
+				return null;
+		
+	}
 }

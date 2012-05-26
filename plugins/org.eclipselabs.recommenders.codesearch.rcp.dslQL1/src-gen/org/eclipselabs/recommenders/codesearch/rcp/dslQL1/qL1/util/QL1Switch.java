@@ -8,20 +8,10 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,17 +97,17 @@ public class QL1Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case QL1Package.MODIFIER_DEFINITION:
-      {
-        ModifierDefinition modifierDefinition = (ModifierDefinition)theEObject;
-        T result = caseModifierDefinition(modifierDefinition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case QL1Package.MODIFIER:
       {
         Modifier modifier = (Modifier)theEObject;
         T result = caseModifier(modifier);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL1Package.MODIFIER_VALUE:
+      {
+        ModifierValue modifierValue = (ModifierValue)theEObject;
+        T result = caseModifierValue(modifierValue);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -223,22 +213,6 @@ public class QL1Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Modifier Definition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Modifier Definition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseModifierDefinition(ModifierDefinition object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Modifier</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -250,6 +224,22 @@ public class QL1Switch<T> extends Switch<T>
    * @generated
    */
   public T caseModifier(Modifier object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Modifier Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Modifier Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModifierValue(ModifierValue object)
   {
     return null;
   }

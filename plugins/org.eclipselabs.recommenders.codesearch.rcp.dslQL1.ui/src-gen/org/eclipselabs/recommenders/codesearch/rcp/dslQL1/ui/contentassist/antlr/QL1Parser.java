@@ -4,17 +4,18 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui.contentassist.antlr;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.AbstractContentAssistParser;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.FollowElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
 
 import com.google.inject.Inject;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
 
 public class QL1Parser extends AbstractContentAssistParser {
 	
@@ -36,7 +37,7 @@ public class QL1Parser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getModifierAccess().getAlternatives(), "rule__Modifier__Alternatives");
+					put(grammarAccess.getModifierValueAccess().getAlternatives(), "rule__ModifierValue__Alternatives");
 					put(grammarAccess.getParameterElementHolderAccess().getAlternatives(), "rule__ParameterElementHolder__Alternatives");
 					put(grammarAccess.getParameterTypeAccess().getAlternatives(), "rule__ParameterType__Alternatives");
 					put(grammarAccess.getTypeFieldValueAccess().getAlternatives(), "rule__TypeFieldValue__Alternatives");
@@ -44,25 +45,25 @@ public class QL1Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getParameterDefinitionAccess().getGroup(), "rule__ParameterDefinition__Group__0");
 					put(grammarAccess.getParameterDefinitionAccess().getGroup_2(), "rule__ParameterDefinition__Group_2__0");
 					put(grammarAccess.getParameterDefinitionAccess().getGroup_2_1(), "rule__ParameterDefinition__Group_2_1__0");
-					put(grammarAccess.getModifierDefinitionAccess().getGroup(), "rule__ModifierDefinition__Group__0");
+					put(grammarAccess.getModifierAccess().getGroup(), "rule__Modifier__Group__0");
 					put(grammarAccess.getMultiElementAccess().getGroup(), "rule__MultiElement__Group__0");
 					put(grammarAccess.getMultiElementAccess().getGroup_2(), "rule__MultiElement__Group_2__0");
 					put(grammarAccess.getThrowsAccess().getGroup(), "rule__Throws__Group__0");
 					put(grammarAccess.getMethodPatternAccess().getDefinitionAssignment(), "rule__MethodPattern__DefinitionAssignment");
-					put(grammarAccess.getMethodPatternDefinitionAccess().getModifierDefinitionAssignment_0(), "rule__MethodPatternDefinition__ModifierDefinitionAssignment_0");
+					put(grammarAccess.getMethodPatternDefinitionAccess().getModifierAssignment_0(), "rule__MethodPatternDefinition__ModifierAssignment_0");
 					put(grammarAccess.getMethodPatternDefinitionAccess().getReturnTypeAssignment_1(), "rule__MethodPatternDefinition__ReturnTypeAssignment_1");
 					put(grammarAccess.getMethodPatternDefinitionAccess().getMethodNameAssignment_2(), "rule__MethodPatternDefinition__MethodNameAssignment_2");
 					put(grammarAccess.getMethodPatternDefinitionAccess().getParameterDefinitionAssignment_3(), "rule__MethodPatternDefinition__ParameterDefinitionAssignment_3");
 					put(grammarAccess.getMethodPatternDefinitionAccess().getThrowsClauseAssignment_4(), "rule__MethodPatternDefinition__ThrowsClauseAssignment_4");
 					put(grammarAccess.getParameterDefinitionAccess().getParameterElementholderAssignment_2_0(), "rule__ParameterDefinition__ParameterElementholderAssignment_2_0");
 					put(grammarAccess.getParameterDefinitionAccess().getParameterElementholderAssignment_2_1_1(), "rule__ParameterDefinition__ParameterElementholderAssignment_2_1_1");
-					put(grammarAccess.getModifierDefinitionAccess().getModifiersAssignment_1(), "rule__ModifierDefinition__ModifiersAssignment_1");
-					put(grammarAccess.getModifierAccess().getValueAssignment_0(), "rule__Modifier__ValueAssignment_0");
-					put(grammarAccess.getModifierAccess().getValueAssignment_1(), "rule__Modifier__ValueAssignment_1");
-					put(grammarAccess.getModifierAccess().getValueAssignment_2(), "rule__Modifier__ValueAssignment_2");
-					put(grammarAccess.getModifierAccess().getValueAssignment_3(), "rule__Modifier__ValueAssignment_3");
-					put(grammarAccess.getModifierAccess().getValueAssignment_4(), "rule__Modifier__ValueAssignment_4");
-					put(grammarAccess.getModifierAccess().getValueAssignment_5(), "rule__Modifier__ValueAssignment_5");
+					put(grammarAccess.getModifierAccess().getModifiersAssignment_1(), "rule__Modifier__ModifiersAssignment_1");
+					put(grammarAccess.getModifierValueAccess().getValueAssignment_0(), "rule__ModifierValue__ValueAssignment_0");
+					put(grammarAccess.getModifierValueAccess().getValueAssignment_1(), "rule__ModifierValue__ValueAssignment_1");
+					put(grammarAccess.getModifierValueAccess().getValueAssignment_2(), "rule__ModifierValue__ValueAssignment_2");
+					put(grammarAccess.getModifierValueAccess().getValueAssignment_3(), "rule__ModifierValue__ValueAssignment_3");
+					put(grammarAccess.getModifierValueAccess().getValueAssignment_4(), "rule__ModifierValue__ValueAssignment_4");
+					put(grammarAccess.getModifierValueAccess().getValueAssignment_5(), "rule__ModifierValue__ValueAssignment_5");
 					put(grammarAccess.getReturnTypeAccess().getValueAssignment(), "rule__ReturnType__ValueAssignment");
 					put(grammarAccess.getParameterElementHolderAccess().getElementAssignment_0(), "rule__ParameterElementHolder__ElementAssignment_0");
 					put(grammarAccess.getParameterElementHolderAccess().getElementAssignment_1(), "rule__ParameterElementHolder__ElementAssignment_1");

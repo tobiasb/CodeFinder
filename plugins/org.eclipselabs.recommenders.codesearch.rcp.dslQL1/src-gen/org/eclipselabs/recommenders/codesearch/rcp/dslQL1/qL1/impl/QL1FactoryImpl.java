@@ -9,22 +9,12 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Factory;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,8 +71,8 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
       case QL1Package.METHOD_PATTERN: return createMethodPattern();
       case QL1Package.METHOD_PATTERN_DEFINITION: return createMethodPatternDefinition();
       case QL1Package.PARAMETER_DEFINITION: return createParameterDefinition();
-      case QL1Package.MODIFIER_DEFINITION: return createModifierDefinition();
       case QL1Package.MODIFIER: return createModifier();
+      case QL1Package.MODIFIER_VALUE: return createModifierValue();
       case QL1Package.RETURN_TYPE: return createReturnType();
       case QL1Package.PARAMETER_ELEMENT_HOLDER: return createParameterElementHolder();
       case QL1Package.SINGLE_ELEMENT: return createSingleElement();
@@ -133,10 +123,10 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ModifierDefinition createModifierDefinition()
+  public Modifier createModifier()
   {
-    ModifierDefinitionImpl modifierDefinition = new ModifierDefinitionImpl();
-    return modifierDefinition;
+    ModifierImpl modifier = new ModifierImpl();
+    return modifier;
   }
 
   /**
@@ -144,10 +134,10 @@ public class QL1FactoryImpl extends EFactoryImpl implements QL1Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Modifier createModifier()
+  public ModifierValue createModifierValue()
   {
-    ModifierImpl modifier = new ModifierImpl();
-    return modifier;
+    ModifierValueImpl modifierValue = new ModifierValueImpl();
+    return modifierValue;
   }
 
   /**

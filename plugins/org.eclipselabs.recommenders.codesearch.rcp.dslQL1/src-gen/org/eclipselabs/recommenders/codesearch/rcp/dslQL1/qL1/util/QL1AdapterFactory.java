@@ -8,21 +8,12 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterType;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -103,14 +94,14 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
         return createParameterDefinitionAdapter();
       }
       @Override
-      public Adapter caseModifierDefinition(ModifierDefinition object)
-      {
-        return createModifierDefinitionAdapter();
-      }
-      @Override
       public Adapter caseModifier(Modifier object)
       {
         return createModifierAdapter();
+      }
+      @Override
+      public Adapter caseModifierValue(ModifierValue object)
+      {
+        return createModifierValueAdapter();
       }
       @Override
       public Adapter caseReturnType(ReturnType object)
@@ -215,21 +206,6 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition <em>Modifier Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition
-   * @generated
-   */
-  public Adapter createModifierDefinitionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier <em>Modifier</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -240,6 +216,21 @@ public class QL1AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModifierAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue <em>Modifier Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue
+   * @generated
+   */
+  public Adapter createModifierValueAdapter()
   {
     return null;
   }

@@ -28,7 +28,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQu
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
@@ -90,7 +90,7 @@ public class QL1QueryExtractor {
 
         List<EObject> exps = Lists.newArrayList();
 
-        handle(exps, methodPattern.getModifierDefinition());
+        handle(exps, methodPattern.getModifier());
         handle(exps, methodPattern.getReturnType());
         handle(exps, methodPattern.getMethodName());
         handle(exps, methodPattern.getParameterDefinition());
@@ -107,10 +107,10 @@ public class QL1QueryExtractor {
         }
     }
 
-    private void handle(List<EObject> exps, ModifierDefinition o) {
+    private void handle(List<EObject> exps, Modifier o) {
         if (o != null) {
 
-            for (Modifier m : o.getModifiers()) {
+            for (ModifierValue m : o.getModifiers()) {
                 exps.add(ExtractorHelper.getModifierFieldExpression(Fields.MODIFIERS, m.getValue()));
             }
         }

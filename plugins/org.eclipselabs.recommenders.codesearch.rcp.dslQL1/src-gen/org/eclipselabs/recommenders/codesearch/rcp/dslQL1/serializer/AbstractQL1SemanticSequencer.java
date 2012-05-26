@@ -1,5 +1,7 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.serializer;
 
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
@@ -15,7 +17,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodName;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPattern;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MultiElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterDefinition;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ParameterElementHolder;
@@ -25,9 +27,6 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.SingleElement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Throws;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
-
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 @SuppressWarnings("restriction")
 public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
@@ -81,9 +80,9 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
-			case QL1Package.MODIFIER_DEFINITION:
-				if(context == grammarAccess.getModifierDefinitionRule()) {
-					sequence_ModifierDefinition(context, (ModifierDefinition) semanticObject); 
+			case QL1Package.MODIFIER_VALUE:
+				if(context == grammarAccess.getModifierValueRule()) {
+					sequence_ModifierValue(context, (ModifierValue) semanticObject); 
 					return; 
 				}
 				else break;
@@ -151,7 +150,7 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition? throwsClause=Throws?)
+	 *     (modifier=Modifier returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition? throwsClause=Throws?)
 	 */
 	protected void sequence_MethodPatternDefinition(EObject context, MethodPatternDefinition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -176,15 +175,6 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (modifiers+=Modifier*)
-	 */
-	protected void sequence_ModifierDefinition(EObject context, ModifierDefinition semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
 	 *         value='static' | 
 	 *         value='private' | 
@@ -193,6 +183,15 @@ public class AbstractQL1SemanticSequencer extends AbstractSemanticSequencer {
 	 *         value='abstract' | 
 	 *         value='protected'
 	 *     )
+	 */
+	protected void sequence_ModifierValue(EObject context, ModifierValue semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (modifiers+=ModifierValue*)
 	 */
 	protected void sequence_Modifier(EObject context, Modifier semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

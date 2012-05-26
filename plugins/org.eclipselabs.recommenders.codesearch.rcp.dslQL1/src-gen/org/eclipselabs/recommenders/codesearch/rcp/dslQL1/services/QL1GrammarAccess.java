@@ -4,22 +4,14 @@
 
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services;
 
-import org.eclipse.xtext.Action;
-import org.eclipse.xtext.Alternatives;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.Grammar;
-import org.eclipse.xtext.GrammarUtil;
-import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
-import org.eclipse.xtext.service.GrammarProvider;
-
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.Inject;
+
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.service.GrammarProvider;
+import org.eclipse.xtext.service.AbstractElementFinder.*;
+
+import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 
 @Singleton
 public class QL1GrammarAccess extends AbstractGrammarElementFinder {
@@ -44,8 +36,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	public class MethodPatternDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodPatternDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cModifierDefinitionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cModifierDefinitionModifierDefinitionParserRuleCall_0_0 = (RuleCall)cModifierDefinitionAssignment_0.eContents().get(0);
+		private final Assignment cModifierAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cModifierModifierParserRuleCall_0_0 = (RuleCall)cModifierAssignment_0.eContents().get(0);
 		private final Assignment cReturnTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cReturnTypeReturnTypeParserRuleCall_1_0 = (RuleCall)cReturnTypeAssignment_1.eContents().get(0);
 		private final Assignment cMethodNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -56,19 +48,19 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cThrowsClauseThrowsParserRuleCall_4_0 = (RuleCall)cThrowsClauseAssignment_4.eContents().get(0);
 		
 		//MethodPatternDefinition:
-		//	modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName
-		//	parameterDefinition=ParameterDefinition? throwsClause=Throws?;
+		//	modifier=Modifier returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
+		//	throwsClause=Throws?;
 		public ParserRule getRule() { return rule; }
 
-		//modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName
-		//parameterDefinition=ParameterDefinition? throwsClause=Throws?
+		//modifier=Modifier returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
+		//throwsClause=Throws?
 		public Group getGroup() { return cGroup; }
 
-		//modifierDefinition=ModifierDefinition
-		public Assignment getModifierDefinitionAssignment_0() { return cModifierDefinitionAssignment_0; }
+		//modifier=Modifier
+		public Assignment getModifierAssignment_0() { return cModifierAssignment_0; }
 
-		//ModifierDefinition
-		public RuleCall getModifierDefinitionModifierDefinitionParserRuleCall_0_0() { return cModifierDefinitionModifierDefinitionParserRuleCall_0_0; }
+		//Modifier
+		public RuleCall getModifierModifierParserRuleCall_0_0() { return cModifierModifierParserRuleCall_0_0; }
 
 		//returnType=ReturnType
 		public Assignment getReturnTypeAssignment_1() { return cReturnTypeAssignment_1; }
@@ -149,32 +141,32 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
-	public class ModifierDefinitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModifierDefinition");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cModifierDefinitionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cModifiersAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cModifiersModifierParserRuleCall_1_0 = (RuleCall)cModifiersAssignment_1.eContents().get(0);
-		
-		//ModifierDefinition:
-		//	{ModifierDefinition} modifiers+=Modifier*;
-		public ParserRule getRule() { return rule; }
-
-		//{ModifierDefinition} modifiers+=Modifier*
-		public Group getGroup() { return cGroup; }
-
-		//{ModifierDefinition}
-		public Action getModifierDefinitionAction_0() { return cModifierDefinitionAction_0; }
-
-		//modifiers+=Modifier*
-		public Assignment getModifiersAssignment_1() { return cModifiersAssignment_1; }
-
-		//Modifier
-		public RuleCall getModifiersModifierParserRuleCall_1_0() { return cModifiersModifierParserRuleCall_1_0; }
-	}
-
 	public class ModifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Modifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cModifierAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cModifiersAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cModifiersModifierValueParserRuleCall_1_0 = (RuleCall)cModifiersAssignment_1.eContents().get(0);
+		
+		//Modifier:
+		//	{Modifier} modifiers+=ModifierValue*;
+		public ParserRule getRule() { return rule; }
+
+		//{Modifier} modifiers+=ModifierValue*
+		public Group getGroup() { return cGroup; }
+
+		//{Modifier}
+		public Action getModifierAction_0() { return cModifierAction_0; }
+
+		//modifiers+=ModifierValue*
+		public Assignment getModifiersAssignment_1() { return cModifiersAssignment_1; }
+
+		//ModifierValue
+		public RuleCall getModifiersModifierValueParserRuleCall_1_0() { return cModifiersModifierValueParserRuleCall_1_0; }
+	}
+
+	public class ModifierValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModifierValue");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Assignment cValueAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final Keyword cValueStaticKeyword_0_0 = (Keyword)cValueAssignment_0.eContents().get(0);
@@ -189,7 +181,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment_5 = (Assignment)cAlternatives.eContents().get(5);
 		private final Keyword cValueProtectedKeyword_5_0 = (Keyword)cValueAssignment_5.eContents().get(0);
 		
-		//Modifier:
+		//ModifierValue:
 		//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected";
 		public ParserRule getRule() { return rule; }
 
@@ -441,8 +433,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	private MethodPatternElements pMethodPattern;
 	private MethodPatternDefinitionElements pMethodPatternDefinition;
 	private ParameterDefinitionElements pParameterDefinition;
-	private ModifierDefinitionElements pModifierDefinition;
 	private ModifierElements pModifier;
+	private ModifierValueElements pModifierValue;
 	private ReturnTypeElements pReturnType;
 	private ParameterElementHolderElements pParameterElementHolder;
 	private SingleElementElements pSingleElement;
@@ -486,8 +478,8 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodPatternDefinition:
-	//	modifierDefinition=ModifierDefinition returnType=ReturnType methodName=MethodName
-	//	parameterDefinition=ParameterDefinition? throwsClause=Throws?;
+	//	modifier=Modifier returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
+	//	throwsClause=Throws?;
 	public MethodPatternDefinitionElements getMethodPatternDefinitionAccess() {
 		return (pMethodPatternDefinition != null) ? pMethodPatternDefinition : (pMethodPatternDefinition = new MethodPatternDefinitionElements());
 	}
@@ -507,24 +499,24 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		return getParameterDefinitionAccess().getRule();
 	}
 
-	//ModifierDefinition:
-	//	{ModifierDefinition} modifiers+=Modifier*;
-	public ModifierDefinitionElements getModifierDefinitionAccess() {
-		return (pModifierDefinition != null) ? pModifierDefinition : (pModifierDefinition = new ModifierDefinitionElements());
-	}
-	
-	public ParserRule getModifierDefinitionRule() {
-		return getModifierDefinitionAccess().getRule();
-	}
-
 	//Modifier:
-	//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected";
+	//	{Modifier} modifiers+=ModifierValue*;
 	public ModifierElements getModifierAccess() {
 		return (pModifier != null) ? pModifier : (pModifier = new ModifierElements());
 	}
 	
 	public ParserRule getModifierRule() {
 		return getModifierAccess().getRule();
+	}
+
+	//ModifierValue:
+	//	value="static" | value="private" | value="public" | value="final" | value="abstract" | value="protected";
+	public ModifierValueElements getModifierValueAccess() {
+		return (pModifierValue != null) ? pModifierValue : (pModifierValue = new ModifierValueElements());
+	}
+	
+	public ParserRule getModifierValueRule() {
+		return getModifierValueAccess().getRule();
 	}
 
 	//ReturnType:

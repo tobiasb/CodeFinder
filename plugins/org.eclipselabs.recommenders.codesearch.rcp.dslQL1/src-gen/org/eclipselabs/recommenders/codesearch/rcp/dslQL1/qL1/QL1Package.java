@@ -99,13 +99,13 @@ public interface QL1Package extends EPackage
   int METHOD_PATTERN_DEFINITION = 1;
 
   /**
-   * The feature id for the '<em><b>Modifier Definition</b></em>' containment reference.
+   * The feature id for the '<em><b>Modifier</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION = 0;
+  int METHOD_PATTERN_DEFINITION__MODIFIER = 0;
 
   /**
    * The feature id for the '<em><b>Return Type</b></em>' containment reference.
@@ -181,14 +181,14 @@ public interface QL1Package extends EPackage
   int PARAMETER_DEFINITION_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierDefinitionImpl <em>Modifier Definition</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierImpl <em>Modifier</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierDefinitionImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getModifierDefinition()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getModifier()
    * @generated
    */
-  int MODIFIER_DEFINITION = 3;
+  int MODIFIER = 3;
 
   /**
    * The feature id for the '<em><b>Modifiers</b></em>' containment reference list.
@@ -197,35 +197,7 @@ public interface QL1Package extends EPackage
    * @generated
    * @ordered
    */
-  int MODIFIER_DEFINITION__MODIFIERS = 0;
-
-  /**
-   * The number of structural features of the '<em>Modifier Definition</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER_DEFINITION_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierImpl <em>Modifier</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getModifier()
-   * @generated
-   */
-  int MODIFIER = 4;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODIFIER__VALUE = 0;
+  int MODIFIER__MODIFIERS = 0;
 
   /**
    * The number of structural features of the '<em>Modifier</em>' class.
@@ -235,6 +207,34 @@ public interface QL1Package extends EPackage
    * @ordered
    */
   int MODIFIER_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierValueImpl <em>Modifier Value</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierValueImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getModifierValue()
+   * @generated
+   */
+  int MODIFIER_VALUE = 4;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODIFIER_VALUE__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Modifier Value</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODIFIER_VALUE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ReturnTypeImpl <em>Return Type</em>}' class.
@@ -465,15 +465,15 @@ public interface QL1Package extends EPackage
   EClass getMethodPatternDefinition();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getModifierDefinition <em>Modifier Definition</em>}'.
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getModifier <em>Modifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Modifier Definition</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getModifierDefinition()
+   * @return the meta object for the containment reference '<em>Modifier</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getModifier()
    * @see #getMethodPatternDefinition()
    * @generated
    */
-  EReference getMethodPatternDefinition_ModifierDefinition();
+  EReference getMethodPatternDefinition_Modifier();
 
   /**
    * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.MethodPatternDefinition#getReturnType <em>Return Type</em>}'.
@@ -541,27 +541,6 @@ public interface QL1Package extends EPackage
   EReference getParameterDefinition_ParameterElementholder();
 
   /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition <em>Modifier Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Modifier Definition</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition
-   * @generated
-   */
-  EClass getModifierDefinition();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition#getModifiers <em>Modifiers</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Modifiers</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierDefinition#getModifiers()
-   * @see #getModifierDefinition()
-   * @generated
-   */
-  EReference getModifierDefinition_Modifiers();
-
-  /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier <em>Modifier</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -572,15 +551,36 @@ public interface QL1Package extends EPackage
   EClass getModifier();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getModifiers <em>Modifiers</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getValue()
+   * @return the meta object for the containment reference list '<em>Modifiers</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getModifiers()
    * @see #getModifier()
    * @generated
    */
-  EAttribute getModifier_Value();
+  EReference getModifier_Modifiers();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue <em>Modifier Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Modifier Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue
+   * @generated
+   */
+  EClass getModifierValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue#getValue()
+   * @see #getModifierValue()
+   * @generated
+   */
+  EAttribute getModifierValue_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ReturnType <em>Return Type</em>}'.
@@ -781,12 +781,12 @@ public interface QL1Package extends EPackage
     EClass METHOD_PATTERN_DEFINITION = eINSTANCE.getMethodPatternDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Modifier Definition</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Modifier</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference METHOD_PATTERN_DEFINITION__MODIFIER_DEFINITION = eINSTANCE.getMethodPatternDefinition_ModifierDefinition();
+    EReference METHOD_PATTERN_DEFINITION__MODIFIER = eINSTANCE.getMethodPatternDefinition_Modifier();
 
     /**
      * The meta object literal for the '<em><b>Return Type</b></em>' containment reference feature.
@@ -839,24 +839,6 @@ public interface QL1Package extends EPackage
     EReference PARAMETER_DEFINITION__PARAMETER_ELEMENTHOLDER = eINSTANCE.getParameterDefinition_ParameterElementholder();
 
     /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierDefinitionImpl <em>Modifier Definition</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierDefinitionImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getModifierDefinition()
-     * @generated
-     */
-    EClass MODIFIER_DEFINITION = eINSTANCE.getModifierDefinition();
-
-    /**
-     * The meta object literal for the '<em><b>Modifiers</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODIFIER_DEFINITION__MODIFIERS = eINSTANCE.getModifierDefinition_Modifiers();
-
-    /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierImpl <em>Modifier</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -867,12 +849,30 @@ public interface QL1Package extends EPackage
     EClass MODIFIER = eINSTANCE.getModifier();
 
     /**
+     * The meta object literal for the '<em><b>Modifiers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODIFIER__MODIFIERS = eINSTANCE.getModifier_Modifiers();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierValueImpl <em>Modifier Value</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ModifierValueImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.QL1PackageImpl#getModifierValue()
+     * @generated
+     */
+    EClass MODIFIER_VALUE = eINSTANCE.getModifierValue();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODIFIER__VALUE = eINSTANCE.getModifier_Value();
+    EAttribute MODIFIER_VALUE__VALUE = eINSTANCE.getModifierValue_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.impl.ReturnTypeImpl <em>Return Type</em>}' class.

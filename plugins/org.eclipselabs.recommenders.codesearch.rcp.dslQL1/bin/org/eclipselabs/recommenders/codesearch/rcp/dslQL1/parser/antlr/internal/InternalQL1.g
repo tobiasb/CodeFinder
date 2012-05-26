@@ -119,17 +119,17 @@ ruleMethodPatternDefinition returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMethodPatternDefinitionAccess().getModifierDefinitionModifierDefinitionParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getMethodPatternDefinitionAccess().getModifierModifierParserRuleCall_0_0()); 
 	    }
-		lv_modifierDefinition_0_0=ruleModifierDefinition		{
+		lv_modifier_0_0=ruleModifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMethodPatternDefinitionRule());
 	        }
        		set(
        			$current, 
-       			"modifierDefinition",
-        		lv_modifierDefinition_0_0, 
-        		"ModifierDefinition");
+       			"modifier",
+        		lv_modifier_0_0, 
+        		"Modifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -288,51 +288,6 @@ ruleParameterDefinition returns [EObject current=null]
 
 
 
-// Entry rule entryRuleModifierDefinition
-entryRuleModifierDefinition returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getModifierDefinitionRule()); }
-	 iv_ruleModifierDefinition=ruleModifierDefinition 
-	 { $current=$iv_ruleModifierDefinition.current; } 
-	 EOF 
-;
-
-// Rule ModifierDefinition
-ruleModifierDefinition returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-((
-    {
-        $current = forceCreateModelElement(
-            grammarAccess.getModifierDefinitionAccess().getModifierDefinitionAction_0(),
-            $current);
-    }
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getModifierDefinitionAccess().getModifiersModifierParserRuleCall_1_0()); 
-	    }
-		lv_modifiers_1_0=ruleModifier		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getModifierDefinitionRule());
-	        }
-       		add(
-       			$current, 
-       			"modifiers",
-        		lv_modifiers_1_0, 
-        		"Modifier");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*)
-;
-
-
-
-
-
 // Entry rule entryRuleModifier
 entryRuleModifier returns [EObject current=null] 
 	:
@@ -348,15 +303,60 @@ ruleModifier returns [EObject current=null]
     }
     @after { leaveRule(); }:
 ((
+    {
+        $current = forceCreateModelElement(
+            grammarAccess.getModifierAccess().getModifierAction_0(),
+            $current);
+    }
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModifierAccess().getModifiersModifierValueParserRuleCall_1_0()); 
+	    }
+		lv_modifiers_1_0=ruleModifierValue		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModifierRule());
+	        }
+       		add(
+       			$current, 
+       			"modifiers",
+        		lv_modifiers_1_0, 
+        		"ModifierValue");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*)
+;
+
+
+
+
+
+// Entry rule entryRuleModifierValue
+entryRuleModifierValue returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getModifierValueRule()); }
+	 iv_ruleModifierValue=ruleModifierValue 
+	 { $current=$iv_ruleModifierValue.current; } 
+	 EOF 
+;
+
+// Rule ModifierValue
+ruleModifierValue returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
 (
 		lv_value_0_0=	'static' 
     {
-        newLeafNode(lv_value_0_0, grammarAccess.getModifierAccess().getValueStaticKeyword_0_0());
+        newLeafNode(lv_value_0_0, grammarAccess.getModifierValueAccess().getValueStaticKeyword_0_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModifierRule());
+	            $current = createModelElement(grammarAccess.getModifierValueRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_0_0, "static");
 	    }
@@ -367,12 +367,12 @@ ruleModifier returns [EObject current=null]
 (
 		lv_value_1_0=	'private' 
     {
-        newLeafNode(lv_value_1_0, grammarAccess.getModifierAccess().getValuePrivateKeyword_1_0());
+        newLeafNode(lv_value_1_0, grammarAccess.getModifierValueAccess().getValuePrivateKeyword_1_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModifierRule());
+	            $current = createModelElement(grammarAccess.getModifierValueRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_1_0, "private");
 	    }
@@ -383,12 +383,12 @@ ruleModifier returns [EObject current=null]
 (
 		lv_value_2_0=	'public' 
     {
-        newLeafNode(lv_value_2_0, grammarAccess.getModifierAccess().getValuePublicKeyword_2_0());
+        newLeafNode(lv_value_2_0, grammarAccess.getModifierValueAccess().getValuePublicKeyword_2_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModifierRule());
+	            $current = createModelElement(grammarAccess.getModifierValueRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_2_0, "public");
 	    }
@@ -399,12 +399,12 @@ ruleModifier returns [EObject current=null]
 (
 		lv_value_3_0=	'final' 
     {
-        newLeafNode(lv_value_3_0, grammarAccess.getModifierAccess().getValueFinalKeyword_3_0());
+        newLeafNode(lv_value_3_0, grammarAccess.getModifierValueAccess().getValueFinalKeyword_3_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModifierRule());
+	            $current = createModelElement(grammarAccess.getModifierValueRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_3_0, "final");
 	    }
@@ -415,12 +415,12 @@ ruleModifier returns [EObject current=null]
 (
 		lv_value_4_0=	'abstract' 
     {
-        newLeafNode(lv_value_4_0, grammarAccess.getModifierAccess().getValueAbstractKeyword_4_0());
+        newLeafNode(lv_value_4_0, grammarAccess.getModifierValueAccess().getValueAbstractKeyword_4_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModifierRule());
+	            $current = createModelElement(grammarAccess.getModifierValueRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_4_0, "abstract");
 	    }
@@ -431,12 +431,12 @@ ruleModifier returns [EObject current=null]
 (
 		lv_value_5_0=	'protected' 
     {
-        newLeafNode(lv_value_5_0, grammarAccess.getModifierAccess().getValueProtectedKeyword_5_0());
+        newLeafNode(lv_value_5_0, grammarAccess.getModifierValueAccess().getValueProtectedKeyword_5_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModifierRule());
+	            $current = createModelElement(grammarAccess.getModifierValueRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_5_0, "protected");
 	    }

@@ -13,7 +13,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPattern/definition"/>
     </genClasses>
     <genClasses ecoreClass="QL1.ecore#//MethodPatternDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/modifierDefinition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/modifier"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/returnType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/methodName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//MethodPatternDefinition/parameterDefinition"/>
@@ -22,11 +22,11 @@
     <genClasses ecoreClass="QL1.ecore#//ParameterDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//ParameterDefinition/parameterElementholder"/>
     </genClasses>
-    <genClasses ecoreClass="QL1.ecore#//ModifierDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//ModifierDefinition/modifiers"/>
-    </genClasses>
     <genClasses ecoreClass="QL1.ecore#//Modifier">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//Modifier/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL1.ecore#//Modifier/modifiers"/>
+    </genClasses>
+    <genClasses ecoreClass="QL1.ecore#//ModifierValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//ModifierValue/value"/>
     </genClasses>
     <genClasses ecoreClass="QL1.ecore#//ReturnType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL1.ecore#//ReturnType/value"/>

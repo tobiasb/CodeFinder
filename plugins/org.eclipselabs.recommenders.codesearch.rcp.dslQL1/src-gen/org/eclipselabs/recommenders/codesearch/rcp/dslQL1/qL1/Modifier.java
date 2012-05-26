@@ -6,6 +6,8 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getModifiers <em>Modifiers</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,29 +29,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface Modifier extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Modifiers</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.ModifierValue}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Modifiers</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getModifier_Value()
-   * @model
+   * @return the value of the '<em>Modifiers</em>' containment reference list.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.QL1Package#getModifier_Modifiers()
+   * @model containment="true"
    * @generated
    */
-  String getValue();
-
-  /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL1.qL1.Modifier#getValue <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
-   * @generated
-   */
-  void setValue(String value);
+  EList<ModifierValue> getModifiers();
 
 } // Modifier

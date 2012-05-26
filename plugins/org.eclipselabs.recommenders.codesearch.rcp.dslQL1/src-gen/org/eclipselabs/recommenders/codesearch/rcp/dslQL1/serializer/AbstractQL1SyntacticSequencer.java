@@ -1,7 +1,7 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL1.serializer;
 
+import com.google.inject.Inject;
 import java.util.List;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
@@ -10,8 +10,6 @@ import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.services.QL1GrammarAccess;
-
-import com.google.inject.Inject;
 
 @SuppressWarnings("restriction")
 public class AbstractQL1SyntacticSequencer extends AbstractSyntacticSequencer {
