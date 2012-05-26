@@ -16,8 +16,41 @@ class LuceneFieldsGenerator implements IGenerator {
 		for (e : resource.allContents.toIterable.filter(typeof(Model))) {
 			fsa.generateFile(e.className + ".java", e.compileFieldsClass)
 			fsa.generateFile("LuceneQueryBaseGenerated.xtext", e.compileXtextBaseClass)
+			fsa.generateFile("FieldsOverview.tex", e.compileTexFieldOverview)
 		}
 	} 
+	
+	def compileTexFieldOverview(Model m) {
+		'''% This file is generated
+		
+		«FOR category : m.fieldCategories»
+		\begin{longtable}{|l|l|l|}
+		\hline
+		\multicolumn{3}{|l|}{\textsl{«category.categoryName»}}\\\hline
+		\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
+		\endfirsthead
+		\multicolumn{3}{@{}l}{\ldots continued}\\\hline
+		\multicolumn{3}{|l|}{\textsl{«category.categoryName»}}\\\hline
+		\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
+		\hline
+		\endhead
+		\hline
+		\multicolumn{3}{r@{}}{continued \ldots}\\
+		\endfoot
+		\hline
+		\endlastfoot
+		\hline
+		«FOR field : category.fields»
+			\cfield{«field.name.replace('_', '\\_')»} & \parbox[t]{4cm}{«FOR t : field.types»«if(field.types.indexOf(t)>0){'\\\\ '}»«t.toTypeName»«ENDFOR»} & TODO \\
+			«ENDFOR»
+		\hline
+		\caption{My caption for this table\label{foo}}\\\hline
+		\end{longtable}
+		
+		«ENDFOR»
+		
+% End of generated file'''
+	}
 	
 	def compileXtextBaseClass(Model m) {
 		var b = new BooleanHandler();

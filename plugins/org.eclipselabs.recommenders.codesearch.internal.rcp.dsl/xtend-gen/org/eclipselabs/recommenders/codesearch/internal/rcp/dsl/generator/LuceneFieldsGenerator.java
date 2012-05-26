@@ -32,8 +32,120 @@ public class LuceneFieldsGenerator implements IGenerator {
         fsa.generateFile(_operator_plus, _compileFieldsClass);
         CharSequence _compileXtextBaseClass = this.compileXtextBaseClass(e);
         fsa.generateFile("LuceneQueryBaseGenerated.xtext", _compileXtextBaseClass);
+        CharSequence _compileTexFieldOverview = this.compileTexFieldOverview(e);
+        fsa.generateFile("FieldsOverview.tex", _compileTexFieldOverview);
       }
     }
+  }
+  
+  public CharSequence compileTexFieldOverview(final Model m) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("% This file is generated");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    {
+      EList<FieldCategory> _fieldCategories = m.getFieldCategories();
+      for(final FieldCategory category : _fieldCategories) {
+        _builder.append("\t\t");
+        _builder.append("\\begin{longtable}{|l|l|l|}");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\hline");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\multicolumn{3}{|l|}{\\textsl{");
+        String _categoryName = category.getCategoryName();
+        _builder.append(_categoryName, "		");
+        _builder.append("}}\\\\\\hline");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\\textbf{Field Name} & \\textbf{Target} & \\textbf{Description}\\\\");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\endfirsthead");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\multicolumn{3}{@{}l}{\\ldots continued}\\\\\\hline");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\multicolumn{3}{|l|}{\\textsl{");
+        String _categoryName_1 = category.getCategoryName();
+        _builder.append(_categoryName_1, "		");
+        _builder.append("}}\\\\\\hline");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\\textbf{Field Name} & \\textbf{Target} & \\textbf{Description}\\\\");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\hline");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\endhead");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\hline");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\multicolumn{3}{r@{}}{continued \\ldots}\\\\");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\endfoot");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\hline");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\endlastfoot");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\hline");
+        _builder.newLine();
+        {
+          EList<Field> _fields = category.getFields();
+          for(final Field field : _fields) {
+            _builder.append("\t\t");
+            _builder.append("\\cfield{");
+            String _name = field.getName();
+            String _replace = _name.replace("_", "\\_");
+            _builder.append(_replace, "		");
+            _builder.append("} & \\parbox[t]{4cm}{");
+            {
+              EList<FieldType> _types = field.getTypes();
+              for(final FieldType t : _types) {
+                String _xifexpression = null;
+                EList<FieldType> _types_1 = field.getTypes();
+                int _indexOf = _types_1.indexOf(t);
+                boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
+                if (_operator_greaterThan) {
+                  _xifexpression = "\\\\ ";
+                }
+                _builder.append(_xifexpression, "		");
+                String _typeName = this.toTypeName(t);
+                _builder.append(_typeName, "		");
+              }
+            }
+            _builder.append("} & TODO \\\\");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t\t");
+        _builder.append("\\hline");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\caption{My caption for this table\\label{foo}}\\\\\\hline");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\\end{longtable}");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("% End of generated file");
+    return _builder;
   }
   
   public CharSequence compileXtextBaseClass(final Model m) {
