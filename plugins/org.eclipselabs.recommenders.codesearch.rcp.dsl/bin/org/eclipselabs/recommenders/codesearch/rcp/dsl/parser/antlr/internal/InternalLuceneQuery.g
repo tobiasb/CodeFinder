@@ -2702,9 +2702,13 @@ RULE_BOOST : '^' ('0'..'9')+ ('.' ('0'..'9')+)?;
 
 RULE_QUOTEDNAMEWITHWC : '"' ' '? RULE_NAMEWITHWC (' ' RULE_NAMEWITHWC?)* '"';
 
-RULE_NAMEWITHWC : ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']') ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|'.')*;
+RULE_ESCAPEDSPECIALCHAR : '\\' RULE_LUCENESPECIALCHAR;
+
+RULE_NAMEWITHWC : ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']'|RULE_ESCAPEDSPECIALCHAR) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|RULE_ESCAPEDSPECIALCHAR|'.')*;
 
 RULE_PATHWITHWC : ('A'..'Z' ':'|('a'..'z'|'A'..'Z'|'_'|'/')) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
+
+RULE_LUCENESPECIALCHAR : ('+'|'-'|'&&'|'||'|'!'|'('|')'|'{'|'}'|'['|']'|'^'|'"'|'~'|'*'|'?'|':'|'\\');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

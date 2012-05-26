@@ -1792,8 +1792,10 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	private UnaryExpressionElements pUnaryExpression;
 	private TerminalRule tBoost;
 	private TerminalRule tQuotedNameWithWC;
+	private TerminalRule tEscapedSpecialChar;
 	private TerminalRule tNameWithWC;
 	private TerminalRule tPathWithWC;
+	private TerminalRule tLuceneSpecialChar;
 	private FilePathFieldValueElements pFilePathFieldValue;
 	
 	private final GrammarProvider grammarProvider;
@@ -2173,9 +2175,15 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return (tQuotedNameWithWC != null) ? tQuotedNameWithWC : (tQuotedNameWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "QuotedNameWithWC"));
 	} 
 
+	//terminal EscapedSpecialChar:
+	//	"\\" LuceneSpecialChar;
+	public TerminalRule getEscapedSpecialCharRule() {
+		return (tEscapedSpecialChar != null) ? tEscapedSpecialChar : (tEscapedSpecialChar = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "EscapedSpecialChar"));
+	} 
+
 	//terminal NameWithWC:
-	//	("a".."z" | "A".."Z" | "_" | "*" | "?" | "<" | ">" | "[" | "]") ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" |
-	//	"<" | ">" | "[" | "]" | ".")*;
+	//	("a".."z" | "A".."Z" | "_" | "*" | "?" | "<" | ">" | "[" | "]" | EscapedSpecialChar) ("a".."z" | "A".."Z" | "_" |
+	//	"0".."9" | "*" | "?" | "<" | ">" | "[" | "]" | EscapedSpecialChar | ".")*;
 	public TerminalRule getNameWithWCRule() {
 		return (tNameWithWC != null) ? tNameWithWC : (tNameWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NameWithWC"));
 	} 
@@ -2184,6 +2192,12 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	//	("A".."Z" ":" | ("a".."z" | "A".."Z" | "_" | "/")) ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" | "." | "/")*;
 	public TerminalRule getPathWithWCRule() {
 		return (tPathWithWC != null) ? tPathWithWC : (tPathWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "PathWithWC"));
+	} 
+
+	//terminal LuceneSpecialChar:
+	//	"+" | "-" | "&&" | "||" | "!" | "(" | ")" | "{" | "}" | "[" | "]" | "^" | "\"" | "~" | "*" | "?" | ":" | "\\";
+	public TerminalRule getLuceneSpecialCharRule() {
+		return (tLuceneSpecialChar != null) ? tLuceneSpecialChar : (tLuceneSpecialChar = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "LuceneSpecialChar"));
 	} 
 
 	////-----------------

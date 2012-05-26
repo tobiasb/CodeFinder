@@ -22,11 +22,11 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalLuceneQueryParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAMEWITHWC", "RULE_INT", "RULE_PATHWITHWC", "RULE_QUOTEDNAMEWITHWC", "RULE_BOOST", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'private'", "'public'", "'static'", "'final'", "'abstract'", "'protected'", "'class'", "'method'", "'field'", "'trycatch'", "'varusage'", "'parameter'", "'nullLiteral'", "'methodInvocation'", "'instanceCreation'", "'uninitialized'", "'-'", "'NOT'", "'!'", "'+'", "'OR'", "'||'", "'AND'", "'&&'", "'('", "')'", "':'", "'FriendlyName'", "'ReturnVariableExpressions'", "'AllDeclaredMethodNames'", "'DeclaredMethodNames'", "'DeclaredFieldNames'", "'AllDeclaredFieldNames'", "'FullText'", "'FieldsRead'", "'FieldsWritten'", "'UsedFieldsInFinally'", "'UsedFieldsInTry'", "'VariableName'", "'ParameterTypesStructural'", "'FullyQualifiedName'", "'ImplementedTypes'", "'ExtendedTypes'", "'UsedTypes'", "'UsedTypesInTry'", "'UsedTypesInFinally'", "'ParameterTypes'", "'ReturnType'", "'InstanceofTypes'", "'AllImplementedTypes'", "'AllExtendedTypes'", "'FieldType'", "'CaughtType'", "'DeclaredFieldTypes'", "'DeclaringType'", "'VariableType'", "'CheckedExceptions'", "'UsedMethods'", "'UsedMethodsInTry'", "'UsedMethodsInFinally'", "'OverriddenMethods'", "'DeclaredMethods'", "'DeclaringMethod'", "'UsedAsParameterInMethods'", "'UsedAsTargetForMethods'", "'ResourcePath'", "'ParameterCount'", "'Modifiers'", "'Timestamp'", "'Type'", "'ProjectName'", "'Annotations'", "'VariableDefinition'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_NAMEWITHWC", "RULE_INT", "RULE_PATHWITHWC", "RULE_QUOTEDNAMEWITHWC", "RULE_BOOST", "RULE_LUCENESPECIALCHAR", "RULE_ESCAPEDSPECIALCHAR", "RULE_ID", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'private'", "'public'", "'static'", "'final'", "'abstract'", "'protected'", "'class'", "'method'", "'field'", "'trycatch'", "'varusage'", "'parameter'", "'nullLiteral'", "'methodInvocation'", "'instanceCreation'", "'uninitialized'", "'-'", "'NOT'", "'!'", "'+'", "'OR'", "'||'", "'AND'", "'&&'", "'('", "')'", "':'", "'FriendlyName'", "'ReturnVariableExpressions'", "'AllDeclaredMethodNames'", "'DeclaredMethodNames'", "'DeclaredFieldNames'", "'AllDeclaredFieldNames'", "'FullText'", "'FieldsRead'", "'FieldsWritten'", "'UsedFieldsInFinally'", "'UsedFieldsInTry'", "'VariableName'", "'ParameterTypesStructural'", "'FullyQualifiedName'", "'ImplementedTypes'", "'ExtendedTypes'", "'UsedTypes'", "'UsedTypesInTry'", "'UsedTypesInFinally'", "'ParameterTypes'", "'ReturnType'", "'InstanceofTypes'", "'AllImplementedTypes'", "'AllExtendedTypes'", "'FieldType'", "'CaughtType'", "'DeclaredFieldTypes'", "'DeclaringType'", "'VariableType'", "'CheckedExceptions'", "'UsedMethods'", "'UsedMethodsInTry'", "'UsedMethodsInFinally'", "'OverriddenMethods'", "'DeclaredMethods'", "'DeclaringMethod'", "'UsedAsParameterInMethods'", "'UsedAsTargetForMethods'", "'ResourcePath'", "'ParameterCount'", "'Modifiers'", "'Timestamp'", "'Type'", "'ProjectName'", "'Annotations'", "'VariableDefinition'"
     };
     public static final int T__68=68;
     public static final int T__69=69;
-    public static final int RULE_ID=9;
+    public static final int RULE_ID=11;
     public static final int T__66=66;
     public static final int T__67=67;
     public static final int T__64=64;
@@ -41,20 +41,18 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=14;
+    public static final int RULE_ANY_OTHER=16;
     public static final int T__21=21;
     public static final int T__20=20;
     public static final int T__61=61;
     public static final int T__60=60;
     public static final int EOF=-1;
     public static final int T__55=55;
-    public static final int T__56=56;
     public static final int T__19=19;
+    public static final int T__56=56;
     public static final int T__57=57;
     public static final int T__58=58;
-    public static final int T__16=16;
     public static final int T__51=51;
-    public static final int T__15=15;
     public static final int T__52=52;
     public static final int T__18=18;
     public static final int T__53=53;
@@ -81,14 +79,16 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final int RULE_NAMEWITHWC=4;
     public static final int RULE_QUOTEDNAMEWITHWC=7;
     public static final int T__85=85;
-    public static final int RULE_SL_COMMENT=12;
+    public static final int RULE_SL_COMMENT=14;
     public static final int T__84=84;
     public static final int T__87=87;
     public static final int T__86=86;
-    public static final int RULE_ML_COMMENT=11;
+    public static final int T__89=89;
+    public static final int T__88=88;
+    public static final int RULE_ML_COMMENT=13;
     public static final int T__30=30;
     public static final int T__31=31;
-    public static final int RULE_STRING=10;
+    public static final int RULE_STRING=12;
     public static final int T__32=32;
     public static final int T__71=71;
     public static final int T__33=33;
@@ -99,9 +99,11 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final int T__36=36;
     public static final int T__37=37;
     public static final int T__38=38;
+    public static final int RULE_LUCENESPECIALCHAR=9;
     public static final int T__39=39;
     public static final int RULE_BOOST=8;
-    public static final int RULE_WS=13;
+    public static final int RULE_ESCAPEDSPECIALCHAR=10;
+    public static final int RULE_WS=15;
     public static final int T__76=76;
     public static final int T__75=75;
     public static final int T__74=74;
@@ -2260,14 +2262,14 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:858:1: ( ( ( rule__Primary__ValueAssignment_0 ) ) | ( ( rule__Primary__Group_1__0 ) ) )
             int alt1=2;
             switch ( input.LA(1) ) {
-            case 31:
+            case 33:
                 {
                 int LA1_1 = input.LA(2);
 
-                if ( (LA1_1==RULE_NAMEWITHWC||LA1_1==RULE_QUOTEDNAMEWITHWC||(LA1_1>=42 && LA1_1<=87)) ) {
+                if ( (LA1_1==RULE_NAMEWITHWC||LA1_1==RULE_QUOTEDNAMEWITHWC||(LA1_1>=44 && LA1_1<=89)) ) {
                     alt1=1;
                 }
-                else if ( (LA1_1==39) ) {
+                else if ( (LA1_1==41) ) {
                     alt1=2;
                 }
                 else {
@@ -2278,14 +2280,14 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 }
                 }
                 break;
-            case 32:
+            case 34:
                 {
                 int LA1_2 = input.LA(2);
 
-                if ( (LA1_2==39) ) {
+                if ( (LA1_2==41) ) {
                     alt1=2;
                 }
-                else if ( (LA1_2==RULE_NAMEWITHWC||LA1_2==RULE_QUOTEDNAMEWITHWC||(LA1_2>=42 && LA1_2<=87)) ) {
+                else if ( (LA1_2==RULE_NAMEWITHWC||LA1_2==RULE_QUOTEDNAMEWITHWC||(LA1_2>=44 && LA1_2<=89)) ) {
                     alt1=1;
                 }
                 else {
@@ -2296,14 +2298,14 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 }
                 }
                 break;
-            case 33:
+            case 35:
                 {
                 int LA1_3 = input.LA(2);
 
-                if ( (LA1_3==RULE_NAMEWITHWC||LA1_3==RULE_QUOTEDNAMEWITHWC||(LA1_3>=42 && LA1_3<=87)) ) {
+                if ( (LA1_3==RULE_NAMEWITHWC||LA1_3==RULE_QUOTEDNAMEWITHWC||(LA1_3>=44 && LA1_3<=89)) ) {
                     alt1=1;
                 }
-                else if ( (LA1_3==39) ) {
+                else if ( (LA1_3==41) ) {
                     alt1=2;
                 }
                 else {
@@ -2314,14 +2316,14 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 }
                 }
                 break;
-            case 34:
+            case 36:
                 {
                 int LA1_4 = input.LA(2);
 
-                if ( (LA1_4==39) ) {
+                if ( (LA1_4==41) ) {
                     alt1=2;
                 }
-                else if ( (LA1_4==RULE_NAMEWITHWC||LA1_4==RULE_QUOTEDNAMEWITHWC||(LA1_4>=42 && LA1_4<=87)) ) {
+                else if ( (LA1_4==RULE_NAMEWITHWC||LA1_4==RULE_QUOTEDNAMEWITHWC||(LA1_4>=44 && LA1_4<=89)) ) {
                     alt1=1;
                 }
                 else {
@@ -2334,8 +2336,6 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 break;
             case RULE_NAMEWITHWC:
             case RULE_QUOTEDNAMEWITHWC:
-            case 42:
-            case 43:
             case 44:
             case 45:
             case 46:
@@ -2380,11 +2380,13 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             case 85:
             case 86:
             case 87:
+            case 88:
+            case 89:
                 {
                 alt1=1;
                 }
                 break;
-            case 39:
+            case 41:
                 {
                 alt1=2;
                 }
@@ -2478,7 +2480,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA2_0==RULE_NAMEWITHWC||LA2_0==RULE_QUOTEDNAMEWITHWC) ) {
                 alt2=1;
             }
-            else if ( ((LA2_0>=42 && LA2_0<=87)) ) {
+            else if ( ((LA2_0>=44 && LA2_0<=89)) ) {
                 alt2=2;
             }
             else {
@@ -2565,8 +2567,6 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:902:1: ( ( ( rule__ClauseExpression__Group_1_1_0__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_1__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_2__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_3__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_4__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_5__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_6__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_7__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_8__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_9__0 ) ) | ( ( rule__ClauseExpression__Group_1_1_10__0 ) ) )
             int alt3=11;
             switch ( input.LA(1) ) {
-            case 42:
-            case 43:
             case 44:
             case 45:
             case 46:
@@ -2578,12 +2578,12 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             case 52:
             case 53:
             case 54:
+            case 55:
+            case 56:
                 {
                 alt3=1;
                 }
                 break;
-            case 55:
-            case 56:
             case 57:
             case 58:
             case 59:
@@ -2599,58 +2599,60 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             case 69:
             case 70:
             case 71:
+            case 72:
+            case 73:
                 {
                 alt3=2;
                 }
                 break;
-            case 72:
-            case 73:
             case 74:
             case 75:
             case 76:
             case 77:
             case 78:
             case 79:
+            case 80:
+            case 81:
                 {
                 alt3=3;
                 }
                 break;
-            case 80:
+            case 82:
                 {
                 alt3=4;
                 }
                 break;
-            case 81:
+            case 83:
                 {
                 alt3=5;
                 }
                 break;
-            case 82:
+            case 84:
                 {
                 alt3=6;
                 }
                 break;
-            case 83:
+            case 85:
                 {
                 alt3=7;
                 }
                 break;
-            case 84:
+            case 86:
                 {
                 alt3=8;
                 }
                 break;
-            case 85:
+            case 87:
                 {
                 alt3=9;
                 }
                 break;
-            case 86:
+            case 88:
                 {
                 alt3=10;
                 }
                 break;
-            case 87:
+            case 89:
                 {
                 alt3=11;
                 }
@@ -2969,7 +2971,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA4_0==RULE_NAMEWITHWC||LA4_0==RULE_QUOTEDNAMEWITHWC) ) {
                 alt4=1;
             }
-            else if ( (LA4_0==39) ) {
+            else if ( (LA4_0==41) ) {
                 alt4=2;
             }
             else {
@@ -3060,7 +3062,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA5_0==RULE_NAMEWITHWC) ) {
                 alt5=1;
             }
-            else if ( (LA5_0==39) ) {
+            else if ( (LA5_0==41) ) {
                 alt5=2;
             }
             else {
@@ -3151,7 +3153,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA6_0==RULE_NAMEWITHWC) ) {
                 alt6=1;
             }
-            else if ( (LA6_0==39) ) {
+            else if ( (LA6_0==41) ) {
                 alt6=2;
             }
             else {
@@ -3242,7 +3244,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA7_0==RULE_PATHWITHWC) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==39) ) {
+            else if ( (LA7_0==41) ) {
                 alt7=2;
             }
             else {
@@ -3333,7 +3335,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA8_0==RULE_INT) ) {
                 alt8=1;
             }
-            else if ( (LA8_0==39) ) {
+            else if ( (LA8_0==41) ) {
                 alt8=2;
             }
             else {
@@ -3421,10 +3423,10 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( ((LA9_0>=15 && LA9_0<=20)) ) {
+            if ( ((LA9_0>=17 && LA9_0<=22)) ) {
                 alt9=1;
             }
-            else if ( (LA9_0==39) ) {
+            else if ( (LA9_0==41) ) {
                 alt9=2;
             }
             else {
@@ -3515,7 +3517,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA10_0==RULE_NAMEWITHWC) ) {
                 alt10=1;
             }
-            else if ( (LA10_0==39) ) {
+            else if ( (LA10_0==41) ) {
                 alt10=2;
             }
             else {
@@ -3603,10 +3605,10 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( ((LA11_0>=21 && LA11_0<=25)) ) {
+            if ( ((LA11_0>=23 && LA11_0<=27)) ) {
                 alt11=1;
             }
-            else if ( (LA11_0==39) ) {
+            else if ( (LA11_0==41) ) {
                 alt11=2;
             }
             else {
@@ -3697,7 +3699,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA12_0==RULE_NAMEWITHWC) ) {
                 alt12=1;
             }
-            else if ( (LA12_0==39) ) {
+            else if ( (LA12_0==41) ) {
                 alt12=2;
             }
             else {
@@ -3788,7 +3790,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             if ( (LA13_0==RULE_NAMEWITHWC) ) {
                 alt13=1;
             }
-            else if ( (LA13_0==39) ) {
+            else if ( (LA13_0==41) ) {
                 alt13=2;
             }
             else {
@@ -3876,10 +3878,10 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( ((LA14_0>=26 && LA14_0<=30)) ) {
+            if ( ((LA14_0>=28 && LA14_0<=32)) ) {
                 alt14=1;
             }
-            else if ( (LA14_0==39) ) {
+            else if ( (LA14_0==41) ) {
                 alt14=2;
             }
             else {
@@ -3966,67 +3968,67 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1220:1: ( ( ( rule__SimpleField__ValueAssignment_0 ) ) | ( ( rule__SimpleField__ValueAssignment_1 ) ) | ( ( rule__SimpleField__ValueAssignment_2 ) ) | ( ( rule__SimpleField__ValueAssignment_3 ) ) | ( ( rule__SimpleField__ValueAssignment_4 ) ) | ( ( rule__SimpleField__ValueAssignment_5 ) ) | ( ( rule__SimpleField__ValueAssignment_6 ) ) | ( ( rule__SimpleField__ValueAssignment_7 ) ) | ( ( rule__SimpleField__ValueAssignment_8 ) ) | ( ( rule__SimpleField__ValueAssignment_9 ) ) | ( ( rule__SimpleField__ValueAssignment_10 ) ) | ( ( rule__SimpleField__ValueAssignment_11 ) ) | ( ( rule__SimpleField__ValueAssignment_12 ) ) )
             int alt15=13;
             switch ( input.LA(1) ) {
-            case 42:
+            case 44:
                 {
                 alt15=1;
                 }
                 break;
-            case 43:
+            case 45:
                 {
                 alt15=2;
                 }
                 break;
-            case 44:
+            case 46:
                 {
                 alt15=3;
                 }
                 break;
-            case 45:
+            case 47:
                 {
                 alt15=4;
                 }
                 break;
-            case 46:
+            case 48:
                 {
                 alt15=5;
                 }
                 break;
-            case 47:
+            case 49:
                 {
                 alt15=6;
                 }
                 break;
-            case 48:
+            case 50:
                 {
                 alt15=7;
                 }
                 break;
-            case 49:
+            case 51:
                 {
                 alt15=8;
                 }
                 break;
-            case 50:
+            case 52:
                 {
                 alt15=9;
                 }
                 break;
-            case 51:
+            case 53:
                 {
                 alt15=10;
                 }
                 break;
-            case 52:
+            case 54:
                 {
                 alt15=11;
                 }
                 break;
-            case 53:
+            case 55:
                 {
                 alt15=12;
                 }
                 break;
-            case 54:
+            case 56:
                 {
                 alt15=13;
                 }
@@ -4391,87 +4393,87 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1308:1: ( ( ( rule__TypeField__ValueAssignment_0 ) ) | ( ( rule__TypeField__ValueAssignment_1 ) ) | ( ( rule__TypeField__ValueAssignment_2 ) ) | ( ( rule__TypeField__ValueAssignment_3 ) ) | ( ( rule__TypeField__ValueAssignment_4 ) ) | ( ( rule__TypeField__ValueAssignment_5 ) ) | ( ( rule__TypeField__ValueAssignment_6 ) ) | ( ( rule__TypeField__ValueAssignment_7 ) ) | ( ( rule__TypeField__ValueAssignment_8 ) ) | ( ( rule__TypeField__ValueAssignment_9 ) ) | ( ( rule__TypeField__ValueAssignment_10 ) ) | ( ( rule__TypeField__ValueAssignment_11 ) ) | ( ( rule__TypeField__ValueAssignment_12 ) ) | ( ( rule__TypeField__ValueAssignment_13 ) ) | ( ( rule__TypeField__ValueAssignment_14 ) ) | ( ( rule__TypeField__ValueAssignment_15 ) ) | ( ( rule__TypeField__ValueAssignment_16 ) ) )
             int alt16=17;
             switch ( input.LA(1) ) {
-            case 55:
+            case 57:
                 {
                 alt16=1;
                 }
                 break;
-            case 56:
+            case 58:
                 {
                 alt16=2;
                 }
                 break;
-            case 57:
+            case 59:
                 {
                 alt16=3;
                 }
                 break;
-            case 58:
+            case 60:
                 {
                 alt16=4;
                 }
                 break;
-            case 59:
+            case 61:
                 {
                 alt16=5;
                 }
                 break;
-            case 60:
+            case 62:
                 {
                 alt16=6;
                 }
                 break;
-            case 61:
+            case 63:
                 {
                 alt16=7;
                 }
                 break;
-            case 62:
+            case 64:
                 {
                 alt16=8;
                 }
                 break;
-            case 63:
+            case 65:
                 {
                 alt16=9;
                 }
                 break;
-            case 64:
+            case 66:
                 {
                 alt16=10;
                 }
                 break;
-            case 65:
+            case 67:
                 {
                 alt16=11;
                 }
                 break;
-            case 66:
+            case 68:
                 {
                 alt16=12;
                 }
                 break;
-            case 67:
+            case 69:
                 {
                 alt16=13;
                 }
                 break;
-            case 68:
+            case 70:
                 {
                 alt16=14;
                 }
                 break;
-            case 69:
+            case 71:
                 {
                 alt16=15;
                 }
                 break;
-            case 70:
+            case 72:
                 {
                 alt16=16;
                 }
                 break;
-            case 71:
+            case 73:
                 {
                 alt16=17;
                 }
@@ -4936,42 +4938,42 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1420:1: ( ( ( rule__MethodField__ValueAssignment_0 ) ) | ( ( rule__MethodField__ValueAssignment_1 ) ) | ( ( rule__MethodField__ValueAssignment_2 ) ) | ( ( rule__MethodField__ValueAssignment_3 ) ) | ( ( rule__MethodField__ValueAssignment_4 ) ) | ( ( rule__MethodField__ValueAssignment_5 ) ) | ( ( rule__MethodField__ValueAssignment_6 ) ) | ( ( rule__MethodField__ValueAssignment_7 ) ) )
             int alt17=8;
             switch ( input.LA(1) ) {
-            case 72:
+            case 74:
                 {
                 alt17=1;
                 }
                 break;
-            case 73:
+            case 75:
                 {
                 alt17=2;
                 }
                 break;
-            case 74:
+            case 76:
                 {
                 alt17=3;
                 }
                 break;
-            case 75:
+            case 77:
                 {
                 alt17=4;
                 }
                 break;
-            case 76:
+            case 78:
                 {
                 alt17=5;
                 }
                 break;
-            case 77:
+            case 79:
                 {
                 alt17=6;
                 }
                 break;
-            case 78:
+            case 80:
                 {
                 alt17=7;
                 }
                 break;
-            case 79:
+            case 81:
                 {
                 alt17=8;
                 }
@@ -5282,32 +5284,32 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1500:1: ( ( 'private' ) | ( 'public' ) | ( 'static' ) | ( 'final' ) | ( 'abstract' ) | ( 'protected' ) )
             int alt19=6;
             switch ( input.LA(1) ) {
-            case 15:
+            case 17:
                 {
                 alt19=1;
                 }
                 break;
-            case 16:
+            case 18:
                 {
                 alt19=2;
                 }
                 break;
-            case 17:
+            case 19:
                 {
                 alt19=3;
                 }
                 break;
-            case 18:
+            case 20:
                 {
                 alt19=4;
                 }
                 break;
-            case 19:
+            case 21:
                 {
                 alt19=5;
                 }
                 break;
-            case 20:
+            case 22:
                 {
                 alt19=6;
                 }
@@ -5327,7 +5329,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1502:1: 'private'
                     {
                      before(grammarAccess.getModifierFieldValueAccess().getPrivateKeyword_0()); 
-                    match(input,15,FOLLOW_15_in_rule__ModifierFieldValue__Alternatives3410); 
+                    match(input,17,FOLLOW_17_in_rule__ModifierFieldValue__Alternatives3410); 
                      after(grammarAccess.getModifierFieldValueAccess().getPrivateKeyword_0()); 
 
                     }
@@ -5342,7 +5344,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1510:1: 'public'
                     {
                      before(grammarAccess.getModifierFieldValueAccess().getPublicKeyword_1()); 
-                    match(input,16,FOLLOW_16_in_rule__ModifierFieldValue__Alternatives3430); 
+                    match(input,18,FOLLOW_18_in_rule__ModifierFieldValue__Alternatives3430); 
                      after(grammarAccess.getModifierFieldValueAccess().getPublicKeyword_1()); 
 
                     }
@@ -5357,7 +5359,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1518:1: 'static'
                     {
                      before(grammarAccess.getModifierFieldValueAccess().getStaticKeyword_2()); 
-                    match(input,17,FOLLOW_17_in_rule__ModifierFieldValue__Alternatives3450); 
+                    match(input,19,FOLLOW_19_in_rule__ModifierFieldValue__Alternatives3450); 
                      after(grammarAccess.getModifierFieldValueAccess().getStaticKeyword_2()); 
 
                     }
@@ -5372,7 +5374,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1526:1: 'final'
                     {
                      before(grammarAccess.getModifierFieldValueAccess().getFinalKeyword_3()); 
-                    match(input,18,FOLLOW_18_in_rule__ModifierFieldValue__Alternatives3470); 
+                    match(input,20,FOLLOW_20_in_rule__ModifierFieldValue__Alternatives3470); 
                      after(grammarAccess.getModifierFieldValueAccess().getFinalKeyword_3()); 
 
                     }
@@ -5387,7 +5389,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1534:1: 'abstract'
                     {
                      before(grammarAccess.getModifierFieldValueAccess().getAbstractKeyword_4()); 
-                    match(input,19,FOLLOW_19_in_rule__ModifierFieldValue__Alternatives3490); 
+                    match(input,21,FOLLOW_21_in_rule__ModifierFieldValue__Alternatives3490); 
                      after(grammarAccess.getModifierFieldValueAccess().getAbstractKeyword_4()); 
 
                     }
@@ -5402,7 +5404,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1542:1: 'protected'
                     {
                      before(grammarAccess.getModifierFieldValueAccess().getProtectedKeyword_5()); 
-                    match(input,20,FOLLOW_20_in_rule__ModifierFieldValue__Alternatives3510); 
+                    match(input,22,FOLLOW_22_in_rule__ModifierFieldValue__Alternatives3510); 
                      after(grammarAccess.getModifierFieldValueAccess().getProtectedKeyword_5()); 
 
                     }
@@ -5437,27 +5439,27 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1558:1: ( ( 'class' ) | ( 'method' ) | ( 'field' ) | ( 'trycatch' ) | ( 'varusage' ) )
             int alt20=5;
             switch ( input.LA(1) ) {
-            case 21:
+            case 23:
                 {
                 alt20=1;
                 }
                 break;
-            case 22:
+            case 24:
                 {
                 alt20=2;
                 }
                 break;
-            case 23:
+            case 25:
                 {
                 alt20=3;
                 }
                 break;
-            case 24:
+            case 26:
                 {
                 alt20=4;
                 }
                 break;
-            case 25:
+            case 27:
                 {
                 alt20=5;
                 }
@@ -5477,7 +5479,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1560:1: 'class'
                     {
                      before(grammarAccess.getDocumentTypeFieldValueAccess().getClassKeyword_0()); 
-                    match(input,21,FOLLOW_21_in_rule__DocumentTypeFieldValue__Alternatives3545); 
+                    match(input,23,FOLLOW_23_in_rule__DocumentTypeFieldValue__Alternatives3545); 
                      after(grammarAccess.getDocumentTypeFieldValueAccess().getClassKeyword_0()); 
 
                     }
@@ -5492,7 +5494,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1568:1: 'method'
                     {
                      before(grammarAccess.getDocumentTypeFieldValueAccess().getMethodKeyword_1()); 
-                    match(input,22,FOLLOW_22_in_rule__DocumentTypeFieldValue__Alternatives3565); 
+                    match(input,24,FOLLOW_24_in_rule__DocumentTypeFieldValue__Alternatives3565); 
                      after(grammarAccess.getDocumentTypeFieldValueAccess().getMethodKeyword_1()); 
 
                     }
@@ -5507,7 +5509,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1576:1: 'field'
                     {
                      before(grammarAccess.getDocumentTypeFieldValueAccess().getFieldKeyword_2()); 
-                    match(input,23,FOLLOW_23_in_rule__DocumentTypeFieldValue__Alternatives3585); 
+                    match(input,25,FOLLOW_25_in_rule__DocumentTypeFieldValue__Alternatives3585); 
                      after(grammarAccess.getDocumentTypeFieldValueAccess().getFieldKeyword_2()); 
 
                     }
@@ -5522,7 +5524,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1584:1: 'trycatch'
                     {
                      before(grammarAccess.getDocumentTypeFieldValueAccess().getTrycatchKeyword_3()); 
-                    match(input,24,FOLLOW_24_in_rule__DocumentTypeFieldValue__Alternatives3605); 
+                    match(input,26,FOLLOW_26_in_rule__DocumentTypeFieldValue__Alternatives3605); 
                      after(grammarAccess.getDocumentTypeFieldValueAccess().getTrycatchKeyword_3()); 
 
                     }
@@ -5537,7 +5539,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1592:1: 'varusage'
                     {
                      before(grammarAccess.getDocumentTypeFieldValueAccess().getVarusageKeyword_4()); 
-                    match(input,25,FOLLOW_25_in_rule__DocumentTypeFieldValue__Alternatives3625); 
+                    match(input,27,FOLLOW_27_in_rule__DocumentTypeFieldValue__Alternatives3625); 
                      after(grammarAccess.getDocumentTypeFieldValueAccess().getVarusageKeyword_4()); 
 
                     }
@@ -5572,27 +5574,27 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1608:1: ( ( 'parameter' ) | ( 'nullLiteral' ) | ( 'methodInvocation' ) | ( 'instanceCreation' ) | ( 'uninitialized' ) )
             int alt21=5;
             switch ( input.LA(1) ) {
-            case 26:
+            case 28:
                 {
                 alt21=1;
                 }
                 break;
-            case 27:
+            case 29:
                 {
                 alt21=2;
                 }
                 break;
-            case 28:
+            case 30:
                 {
                 alt21=3;
                 }
                 break;
-            case 29:
+            case 31:
                 {
                 alt21=4;
                 }
                 break;
-            case 30:
+            case 32:
                 {
                 alt21=5;
                 }
@@ -5612,7 +5614,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1610:1: 'parameter'
                     {
                      before(grammarAccess.getDefinitionTypeValueAccess().getParameterKeyword_0()); 
-                    match(input,26,FOLLOW_26_in_rule__DefinitionTypeValue__Alternatives3660); 
+                    match(input,28,FOLLOW_28_in_rule__DefinitionTypeValue__Alternatives3660); 
                      after(grammarAccess.getDefinitionTypeValueAccess().getParameterKeyword_0()); 
 
                     }
@@ -5627,7 +5629,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1618:1: 'nullLiteral'
                     {
                      before(grammarAccess.getDefinitionTypeValueAccess().getNullLiteralKeyword_1()); 
-                    match(input,27,FOLLOW_27_in_rule__DefinitionTypeValue__Alternatives3680); 
+                    match(input,29,FOLLOW_29_in_rule__DefinitionTypeValue__Alternatives3680); 
                      after(grammarAccess.getDefinitionTypeValueAccess().getNullLiteralKeyword_1()); 
 
                     }
@@ -5642,7 +5644,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1626:1: 'methodInvocation'
                     {
                      before(grammarAccess.getDefinitionTypeValueAccess().getMethodInvocationKeyword_2()); 
-                    match(input,28,FOLLOW_28_in_rule__DefinitionTypeValue__Alternatives3700); 
+                    match(input,30,FOLLOW_30_in_rule__DefinitionTypeValue__Alternatives3700); 
                      after(grammarAccess.getDefinitionTypeValueAccess().getMethodInvocationKeyword_2()); 
 
                     }
@@ -5657,7 +5659,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1634:1: 'instanceCreation'
                     {
                      before(grammarAccess.getDefinitionTypeValueAccess().getInstanceCreationKeyword_3()); 
-                    match(input,29,FOLLOW_29_in_rule__DefinitionTypeValue__Alternatives3720); 
+                    match(input,31,FOLLOW_31_in_rule__DefinitionTypeValue__Alternatives3720); 
                      after(grammarAccess.getDefinitionTypeValueAccess().getInstanceCreationKeyword_3()); 
 
                     }
@@ -5672,7 +5674,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1642:1: 'uninitialized'
                     {
                      before(grammarAccess.getDefinitionTypeValueAccess().getUninitializedKeyword_4()); 
-                    match(input,30,FOLLOW_30_in_rule__DefinitionTypeValue__Alternatives3740); 
+                    match(input,32,FOLLOW_32_in_rule__DefinitionTypeValue__Alternatives3740); 
                      after(grammarAccess.getDefinitionTypeValueAccess().getUninitializedKeyword_4()); 
 
                     }
@@ -5707,22 +5709,22 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1658:1: ( ( '-' ) | ( 'NOT' ) | ( '!' ) | ( '+' ) )
             int alt22=4;
             switch ( input.LA(1) ) {
-            case 31:
+            case 33:
                 {
                 alt22=1;
                 }
                 break;
-            case 32:
+            case 34:
                 {
                 alt22=2;
                 }
                 break;
-            case 33:
+            case 35:
                 {
                 alt22=3;
                 }
                 break;
-            case 34:
+            case 36:
                 {
                 alt22=4;
                 }
@@ -5742,7 +5744,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1660:1: '-'
                     {
                      before(grammarAccess.getUnaryExpressionAccess().getHyphenMinusKeyword_0()); 
-                    match(input,31,FOLLOW_31_in_rule__UnaryExpression__Alternatives3775); 
+                    match(input,33,FOLLOW_33_in_rule__UnaryExpression__Alternatives3775); 
                      after(grammarAccess.getUnaryExpressionAccess().getHyphenMinusKeyword_0()); 
 
                     }
@@ -5757,7 +5759,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1668:1: 'NOT'
                     {
                      before(grammarAccess.getUnaryExpressionAccess().getNOTKeyword_1()); 
-                    match(input,32,FOLLOW_32_in_rule__UnaryExpression__Alternatives3795); 
+                    match(input,34,FOLLOW_34_in_rule__UnaryExpression__Alternatives3795); 
                      after(grammarAccess.getUnaryExpressionAccess().getNOTKeyword_1()); 
 
                     }
@@ -5772,7 +5774,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1676:1: '!'
                     {
                      before(grammarAccess.getUnaryExpressionAccess().getExclamationMarkKeyword_2()); 
-                    match(input,33,FOLLOW_33_in_rule__UnaryExpression__Alternatives3815); 
+                    match(input,35,FOLLOW_35_in_rule__UnaryExpression__Alternatives3815); 
                      after(grammarAccess.getUnaryExpressionAccess().getExclamationMarkKeyword_2()); 
 
                     }
@@ -5787,7 +5789,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1684:1: '+'
                     {
                      before(grammarAccess.getUnaryExpressionAccess().getPlusSignKeyword_3()); 
-                    match(input,34,FOLLOW_34_in_rule__UnaryExpression__Alternatives3835); 
+                    match(input,36,FOLLOW_36_in_rule__UnaryExpression__Alternatives3835); 
                      after(grammarAccess.getUnaryExpressionAccess().getPlusSignKeyword_3()); 
 
                     }
@@ -5823,10 +5825,10 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==35) ) {
+            if ( (LA23_0==37) ) {
                 alt23=1;
             }
-            else if ( (LA23_0==36) ) {
+            else if ( (LA23_0==38) ) {
                 alt23=2;
             }
             else {
@@ -5846,7 +5848,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1703:1: ( 'OR' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1703:3: 'OR'
                     {
-                    match(input,35,FOLLOW_35_in_rule__BinaryOr__Alternatives3870); 
+                    match(input,37,FOLLOW_37_in_rule__BinaryOr__Alternatives3870); 
 
                     }
 
@@ -5867,7 +5869,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1710:1: ( '||' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1710:3: '||'
                     {
-                    match(input,36,FOLLOW_36_in_rule__BinaryOr__Alternatives3891); 
+                    match(input,38,FOLLOW_38_in_rule__BinaryOr__Alternatives3891); 
 
                     }
 
@@ -5906,10 +5908,10 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==37) ) {
+            if ( (LA24_0==39) ) {
                 alt24=1;
             }
-            else if ( (LA24_0==38) ) {
+            else if ( (LA24_0==40) ) {
                 alt24=2;
             }
             else {
@@ -5929,7 +5931,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1727:1: ( 'AND' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1727:3: 'AND'
                     {
-                    match(input,37,FOLLOW_37_in_rule__BinaryAnd__Alternatives3927); 
+                    match(input,39,FOLLOW_39_in_rule__BinaryAnd__Alternatives3927); 
 
                     }
 
@@ -5950,7 +5952,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1734:1: ( '&&' )
                     // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:1734:3: '&&'
                     {
-                    match(input,38,FOLLOW_38_in_rule__BinaryAnd__Alternatives3948); 
+                    match(input,40,FOLLOW_40_in_rule__BinaryAnd__Alternatives3948); 
 
                     }
 
@@ -6108,7 +6110,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt25=2;
             int LA25_0 = input.LA(1);
 
-            if ( (LA25_0==RULE_NAMEWITHWC||LA25_0==RULE_QUOTEDNAMEWITHWC||(LA25_0>=31 && LA25_0<=36)||LA25_0==39||(LA25_0>=42 && LA25_0<=87)) ) {
+            if ( (LA25_0==RULE_NAMEWITHWC||LA25_0==RULE_QUOTEDNAMEWITHWC||(LA25_0>=33 && LA25_0<=38)||LA25_0==41||(LA25_0>=44 && LA25_0<=89)) ) {
                 alt25=1;
             }
             switch (alt25) {
@@ -6279,7 +6281,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( ((LA26_0>=35 && LA26_0<=36)) ) {
+            if ( ((LA26_0>=37 && LA26_0<=38)) ) {
                 alt26=1;
             }
             switch (alt26) {
@@ -6529,7 +6531,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( ((LA27_0>=37 && LA27_0<=38)) ) {
+            if ( ((LA27_0>=39 && LA27_0<=40)) ) {
                 alt27=1;
             }
             switch (alt27) {
@@ -6865,7 +6867,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt28=2;
             int LA28_0 = input.LA(1);
 
-            if ( ((LA28_0>=31 && LA28_0<=34)) ) {
+            if ( ((LA28_0>=33 && LA28_0<=36)) ) {
                 alt28=1;
             }
             switch (alt28) {
@@ -6957,7 +6959,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2103:1: '('
             {
              before(grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_1()); 
-            match(input,39,FOLLOW_39_in_rule__Primary__Group_1__1__Impl4685); 
+            match(input,41,FOLLOW_41_in_rule__Primary__Group_1__1__Impl4685); 
              after(grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_1()); 
 
             }
@@ -7111,7 +7113,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2163:1: ')'
             {
              before(grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_1_3()); 
-            match(input,40,FOLLOW_40_in_rule__Primary__Group_1__3__Impl4806); 
+            match(input,42,FOLLOW_42_in_rule__Primary__Group_1__3__Impl4806); 
              after(grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_1_3()); 
 
             }
@@ -7277,7 +7279,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( ((LA30_0>=31 && LA30_0<=34)) ) {
+            if ( ((LA30_0>=33 && LA30_0<=36)) ) {
                 alt30=1;
             }
             switch (alt30) {
@@ -7706,7 +7708,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2383:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_0_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_0__1__Impl5243); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_0__1__Impl5243); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_0_1()); 
 
             }
@@ -7953,7 +7955,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2479:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_0_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_0_2_1__0__Impl5432); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_0_2_1__0__Impl5432); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_0_2_1_0()); 
 
             }
@@ -8034,7 +8036,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt33=2;
                 int LA33_0 = input.LA(1);
 
-                if ( (LA33_0==RULE_NAMEWITHWC||LA33_0==RULE_QUOTEDNAMEWITHWC||(LA33_0>=31 && LA33_0<=34)) ) {
+                if ( (LA33_0==RULE_NAMEWITHWC||LA33_0==RULE_QUOTEDNAMEWITHWC||(LA33_0>=33 && LA33_0<=36)) ) {
                     alt33=1;
                 }
 
@@ -8126,7 +8128,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2538:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_0_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_0_2_1__2__Impl5552); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_0_2_1__2__Impl5552); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_0_2_1_2()); 
 
             }
@@ -8205,7 +8207,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt34=2;
             int LA34_0 = input.LA(1);
 
-            if ( ((LA34_0>=31 && LA34_0<=34)) ) {
+            if ( ((LA34_0>=33 && LA34_0<=36)) ) {
                 alt34=1;
             }
             switch (alt34) {
@@ -8554,7 +8556,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2696:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_1_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_1__1__Impl5867); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_1__1__Impl5867); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_1_1()); 
 
             }
@@ -8801,7 +8803,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2792:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_1_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_1_2_1__0__Impl6056); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_1_2_1__0__Impl6056); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_1_2_1_0()); 
 
             }
@@ -8882,7 +8884,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt37=2;
                 int LA37_0 = input.LA(1);
 
-                if ( (LA37_0==RULE_NAMEWITHWC||(LA37_0>=31 && LA37_0<=34)) ) {
+                if ( (LA37_0==RULE_NAMEWITHWC||(LA37_0>=33 && LA37_0<=36)) ) {
                     alt37=1;
                 }
 
@@ -8974,7 +8976,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:2851:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_1_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_1_2_1__2__Impl6176); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_1_2_1__2__Impl6176); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_1_2_1_2()); 
 
             }
@@ -9053,7 +9055,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( ((LA38_0>=31 && LA38_0<=34)) ) {
+            if ( ((LA38_0>=33 && LA38_0<=36)) ) {
                 alt38=1;
             }
             switch (alt38) {
@@ -9402,7 +9404,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3009:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_2_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_2__1__Impl6491); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_2__1__Impl6491); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_2_1()); 
 
             }
@@ -9649,7 +9651,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3105:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_2_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_2_2_1__0__Impl6680); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_2_2_1__0__Impl6680); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_2_2_1_0()); 
 
             }
@@ -9730,7 +9732,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt41=2;
                 int LA41_0 = input.LA(1);
 
-                if ( (LA41_0==RULE_NAMEWITHWC||(LA41_0>=31 && LA41_0<=34)) ) {
+                if ( (LA41_0==RULE_NAMEWITHWC||(LA41_0>=33 && LA41_0<=36)) ) {
                     alt41=1;
                 }
 
@@ -9822,7 +9824,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3164:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_2_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_2_2_1__2__Impl6800); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_2_2_1__2__Impl6800); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_2_2_1_2()); 
 
             }
@@ -9901,7 +9903,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt42=2;
             int LA42_0 = input.LA(1);
 
-            if ( ((LA42_0>=31 && LA42_0<=34)) ) {
+            if ( ((LA42_0>=33 && LA42_0<=36)) ) {
                 alt42=1;
             }
             switch (alt42) {
@@ -10250,7 +10252,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3322:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_3_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_3__1__Impl7115); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_3__1__Impl7115); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_3_1()); 
 
             }
@@ -10497,7 +10499,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3418:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_3_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_3_2_1__0__Impl7304); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_3_2_1__0__Impl7304); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_3_2_1_0()); 
 
             }
@@ -10578,7 +10580,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt45=2;
                 int LA45_0 = input.LA(1);
 
-                if ( (LA45_0==RULE_PATHWITHWC||(LA45_0>=31 && LA45_0<=34)) ) {
+                if ( (LA45_0==RULE_PATHWITHWC||(LA45_0>=33 && LA45_0<=36)) ) {
                     alt45=1;
                 }
 
@@ -10670,7 +10672,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3477:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_3_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_3_2_1__2__Impl7424); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_3_2_1__2__Impl7424); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_3_2_1_2()); 
 
             }
@@ -10749,7 +10751,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt46=2;
             int LA46_0 = input.LA(1);
 
-            if ( ((LA46_0>=31 && LA46_0<=34)) ) {
+            if ( ((LA46_0>=33 && LA46_0<=36)) ) {
                 alt46=1;
             }
             switch (alt46) {
@@ -11098,7 +11100,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3635:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_4_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_4__1__Impl7739); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_4__1__Impl7739); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_4_1()); 
 
             }
@@ -11345,7 +11347,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3731:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_4_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_4_2_1__0__Impl7928); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_4_2_1__0__Impl7928); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_4_2_1_0()); 
 
             }
@@ -11426,7 +11428,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt49=2;
                 int LA49_0 = input.LA(1);
 
-                if ( (LA49_0==RULE_INT||(LA49_0>=31 && LA49_0<=34)) ) {
+                if ( (LA49_0==RULE_INT||(LA49_0>=33 && LA49_0<=36)) ) {
                     alt49=1;
                 }
 
@@ -11518,7 +11520,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3790:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_4_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_4_2_1__2__Impl8048); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_4_2_1__2__Impl8048); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_4_2_1_2()); 
 
             }
@@ -11597,7 +11599,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt50=2;
             int LA50_0 = input.LA(1);
 
-            if ( ((LA50_0>=31 && LA50_0<=34)) ) {
+            if ( ((LA50_0>=33 && LA50_0<=36)) ) {
                 alt50=1;
             }
             switch (alt50) {
@@ -11946,7 +11948,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:3948:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_5_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_5__1__Impl8363); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_5__1__Impl8363); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_5_1()); 
 
             }
@@ -12193,7 +12195,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4044:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_5_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_5_2_1__0__Impl8552); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_5_2_1__0__Impl8552); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_5_2_1_0()); 
 
             }
@@ -12274,7 +12276,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt53=2;
                 int LA53_0 = input.LA(1);
 
-                if ( ((LA53_0>=15 && LA53_0<=20)||(LA53_0>=31 && LA53_0<=34)) ) {
+                if ( ((LA53_0>=17 && LA53_0<=22)||(LA53_0>=33 && LA53_0<=36)) ) {
                     alt53=1;
                 }
 
@@ -12366,7 +12368,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4103:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_5_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_5_2_1__2__Impl8672); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_5_2_1__2__Impl8672); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_5_2_1_2()); 
 
             }
@@ -12445,7 +12447,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt54=2;
             int LA54_0 = input.LA(1);
 
-            if ( ((LA54_0>=31 && LA54_0<=34)) ) {
+            if ( ((LA54_0>=33 && LA54_0<=36)) ) {
                 alt54=1;
             }
             switch (alt54) {
@@ -12794,7 +12796,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4261:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_6_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_6__1__Impl8987); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_6__1__Impl8987); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_6_1()); 
 
             }
@@ -13041,7 +13043,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4357:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_6_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_6_2_1__0__Impl9176); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_6_2_1__0__Impl9176); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_6_2_1_0()); 
 
             }
@@ -13122,7 +13124,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt57=2;
                 int LA57_0 = input.LA(1);
 
-                if ( (LA57_0==RULE_NAMEWITHWC||(LA57_0>=31 && LA57_0<=34)) ) {
+                if ( (LA57_0==RULE_NAMEWITHWC||(LA57_0>=33 && LA57_0<=36)) ) {
                     alt57=1;
                 }
 
@@ -13214,7 +13216,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4416:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_6_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_6_2_1__2__Impl9296); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_6_2_1__2__Impl9296); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_6_2_1_2()); 
 
             }
@@ -13293,7 +13295,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt58=2;
             int LA58_0 = input.LA(1);
 
-            if ( ((LA58_0>=31 && LA58_0<=34)) ) {
+            if ( ((LA58_0>=33 && LA58_0<=36)) ) {
                 alt58=1;
             }
             switch (alt58) {
@@ -13642,7 +13644,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4574:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_7_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_7__1__Impl9611); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_7__1__Impl9611); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_7_1()); 
 
             }
@@ -13889,7 +13891,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4670:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_7_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_7_2_1__0__Impl9800); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_7_2_1__0__Impl9800); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_7_2_1_0()); 
 
             }
@@ -13970,7 +13972,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt61=2;
                 int LA61_0 = input.LA(1);
 
-                if ( ((LA61_0>=21 && LA61_0<=25)||(LA61_0>=31 && LA61_0<=34)) ) {
+                if ( ((LA61_0>=23 && LA61_0<=27)||(LA61_0>=33 && LA61_0<=36)) ) {
                     alt61=1;
                 }
 
@@ -14062,7 +14064,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4729:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_7_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_7_2_1__2__Impl9920); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_7_2_1__2__Impl9920); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_7_2_1_2()); 
 
             }
@@ -14141,7 +14143,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt62=2;
             int LA62_0 = input.LA(1);
 
-            if ( ((LA62_0>=31 && LA62_0<=34)) ) {
+            if ( ((LA62_0>=33 && LA62_0<=36)) ) {
                 alt62=1;
             }
             switch (alt62) {
@@ -14490,7 +14492,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4887:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_8_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_8__1__Impl10235); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_8__1__Impl10235); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_8_1()); 
 
             }
@@ -14737,7 +14739,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:4983:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_8_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_8_2_1__0__Impl10424); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_8_2_1__0__Impl10424); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_8_2_1_0()); 
 
             }
@@ -14818,7 +14820,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt65=2;
                 int LA65_0 = input.LA(1);
 
-                if ( (LA65_0==RULE_NAMEWITHWC||(LA65_0>=31 && LA65_0<=34)) ) {
+                if ( (LA65_0==RULE_NAMEWITHWC||(LA65_0>=33 && LA65_0<=36)) ) {
                     alt65=1;
                 }
 
@@ -14910,7 +14912,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:5042:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_8_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_8_2_1__2__Impl10544); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_8_2_1__2__Impl10544); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_8_2_1_2()); 
 
             }
@@ -14989,7 +14991,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt66=2;
             int LA66_0 = input.LA(1);
 
-            if ( ((LA66_0>=31 && LA66_0<=34)) ) {
+            if ( ((LA66_0>=33 && LA66_0<=36)) ) {
                 alt66=1;
             }
             switch (alt66) {
@@ -15338,7 +15340,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:5200:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_9_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_9__1__Impl10859); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_9__1__Impl10859); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_9_1()); 
 
             }
@@ -15585,7 +15587,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:5296:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_9_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_9_2_1__0__Impl11048); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_9_2_1__0__Impl11048); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_9_2_1_0()); 
 
             }
@@ -15666,7 +15668,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt69=2;
                 int LA69_0 = input.LA(1);
 
-                if ( (LA69_0==RULE_NAMEWITHWC||(LA69_0>=31 && LA69_0<=34)) ) {
+                if ( (LA69_0==RULE_NAMEWITHWC||(LA69_0>=33 && LA69_0<=36)) ) {
                     alt69=1;
                 }
 
@@ -15758,7 +15760,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:5355:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_9_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_9_2_1__2__Impl11168); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_9_2_1__2__Impl11168); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_9_2_1_2()); 
 
             }
@@ -15837,7 +15839,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt70=2;
             int LA70_0 = input.LA(1);
 
-            if ( ((LA70_0>=31 && LA70_0<=34)) ) {
+            if ( ((LA70_0>=33 && LA70_0<=36)) ) {
                 alt70=1;
             }
             switch (alt70) {
@@ -16186,7 +16188,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:5513:1: ':'
             {
              before(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_10_1()); 
-            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_10__1__Impl11483); 
+            match(input,43,FOLLOW_43_in_rule__ClauseExpression__Group_1_1_10__1__Impl11483); 
              after(grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_10_1()); 
 
             }
@@ -16433,7 +16435,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:5609:1: '('
             {
              before(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_10_2_1_0()); 
-            match(input,39,FOLLOW_39_in_rule__ClauseExpression__Group_1_1_10_2_1__0__Impl11672); 
+            match(input,41,FOLLOW_41_in_rule__ClauseExpression__Group_1_1_10_2_1__0__Impl11672); 
              after(grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_10_2_1_0()); 
 
             }
@@ -16514,7 +16516,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
                 int alt73=2;
                 int LA73_0 = input.LA(1);
 
-                if ( ((LA73_0>=26 && LA73_0<=34)) ) {
+                if ( ((LA73_0>=28 && LA73_0<=36)) ) {
                     alt73=1;
                 }
 
@@ -16606,7 +16608,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:5668:1: ')'
             {
              before(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_10_2_1_2()); 
-            match(input,40,FOLLOW_40_in_rule__ClauseExpression__Group_1_1_10_2_1__2__Impl11792); 
+            match(input,42,FOLLOW_42_in_rule__ClauseExpression__Group_1_1_10_2_1__2__Impl11792); 
              after(grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_10_2_1_2()); 
 
             }
@@ -16685,7 +16687,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             int alt74=2;
             int LA74_0 = input.LA(1);
 
-            if ( ((LA74_0>=31 && LA74_0<=34)) ) {
+            if ( ((LA74_0>=33 && LA74_0<=36)) ) {
                 alt74=1;
             }
             switch (alt74) {
@@ -18514,7 +18516,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6373:1: 'FriendlyName'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueFriendlyNameKeyword_0_0()); 
-            match(input,42,FOLLOW_42_in_rule__SimpleField__ValueAssignment_013235); 
+            match(input,44,FOLLOW_44_in_rule__SimpleField__ValueAssignment_013235); 
              after(grammarAccess.getSimpleFieldAccess().getValueFriendlyNameKeyword_0_0()); 
 
             }
@@ -18559,7 +18561,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6396:1: 'ReturnVariableExpressions'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueReturnVariableExpressionsKeyword_1_0()); 
-            match(input,43,FOLLOW_43_in_rule__SimpleField__ValueAssignment_113279); 
+            match(input,45,FOLLOW_45_in_rule__SimpleField__ValueAssignment_113279); 
              after(grammarAccess.getSimpleFieldAccess().getValueReturnVariableExpressionsKeyword_1_0()); 
 
             }
@@ -18604,7 +18606,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6419:1: 'AllDeclaredMethodNames'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueAllDeclaredMethodNamesKeyword_2_0()); 
-            match(input,44,FOLLOW_44_in_rule__SimpleField__ValueAssignment_213323); 
+            match(input,46,FOLLOW_46_in_rule__SimpleField__ValueAssignment_213323); 
              after(grammarAccess.getSimpleFieldAccess().getValueAllDeclaredMethodNamesKeyword_2_0()); 
 
             }
@@ -18649,7 +18651,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6442:1: 'DeclaredMethodNames'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueDeclaredMethodNamesKeyword_3_0()); 
-            match(input,45,FOLLOW_45_in_rule__SimpleField__ValueAssignment_313367); 
+            match(input,47,FOLLOW_47_in_rule__SimpleField__ValueAssignment_313367); 
              after(grammarAccess.getSimpleFieldAccess().getValueDeclaredMethodNamesKeyword_3_0()); 
 
             }
@@ -18694,7 +18696,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6465:1: 'DeclaredFieldNames'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueDeclaredFieldNamesKeyword_4_0()); 
-            match(input,46,FOLLOW_46_in_rule__SimpleField__ValueAssignment_413411); 
+            match(input,48,FOLLOW_48_in_rule__SimpleField__ValueAssignment_413411); 
              after(grammarAccess.getSimpleFieldAccess().getValueDeclaredFieldNamesKeyword_4_0()); 
 
             }
@@ -18739,7 +18741,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6488:1: 'AllDeclaredFieldNames'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueAllDeclaredFieldNamesKeyword_5_0()); 
-            match(input,47,FOLLOW_47_in_rule__SimpleField__ValueAssignment_513455); 
+            match(input,49,FOLLOW_49_in_rule__SimpleField__ValueAssignment_513455); 
              after(grammarAccess.getSimpleFieldAccess().getValueAllDeclaredFieldNamesKeyword_5_0()); 
 
             }
@@ -18784,7 +18786,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6511:1: 'FullText'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueFullTextKeyword_6_0()); 
-            match(input,48,FOLLOW_48_in_rule__SimpleField__ValueAssignment_613499); 
+            match(input,50,FOLLOW_50_in_rule__SimpleField__ValueAssignment_613499); 
              after(grammarAccess.getSimpleFieldAccess().getValueFullTextKeyword_6_0()); 
 
             }
@@ -18829,7 +18831,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6534:1: 'FieldsRead'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueFieldsReadKeyword_7_0()); 
-            match(input,49,FOLLOW_49_in_rule__SimpleField__ValueAssignment_713543); 
+            match(input,51,FOLLOW_51_in_rule__SimpleField__ValueAssignment_713543); 
              after(grammarAccess.getSimpleFieldAccess().getValueFieldsReadKeyword_7_0()); 
 
             }
@@ -18874,7 +18876,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6557:1: 'FieldsWritten'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueFieldsWrittenKeyword_8_0()); 
-            match(input,50,FOLLOW_50_in_rule__SimpleField__ValueAssignment_813587); 
+            match(input,52,FOLLOW_52_in_rule__SimpleField__ValueAssignment_813587); 
              after(grammarAccess.getSimpleFieldAccess().getValueFieldsWrittenKeyword_8_0()); 
 
             }
@@ -18919,7 +18921,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6580:1: 'UsedFieldsInFinally'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueUsedFieldsInFinallyKeyword_9_0()); 
-            match(input,51,FOLLOW_51_in_rule__SimpleField__ValueAssignment_913631); 
+            match(input,53,FOLLOW_53_in_rule__SimpleField__ValueAssignment_913631); 
              after(grammarAccess.getSimpleFieldAccess().getValueUsedFieldsInFinallyKeyword_9_0()); 
 
             }
@@ -18964,7 +18966,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6603:1: 'UsedFieldsInTry'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueUsedFieldsInTryKeyword_10_0()); 
-            match(input,52,FOLLOW_52_in_rule__SimpleField__ValueAssignment_1013675); 
+            match(input,54,FOLLOW_54_in_rule__SimpleField__ValueAssignment_1013675); 
              after(grammarAccess.getSimpleFieldAccess().getValueUsedFieldsInTryKeyword_10_0()); 
 
             }
@@ -19009,7 +19011,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6626:1: 'VariableName'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueVariableNameKeyword_11_0()); 
-            match(input,53,FOLLOW_53_in_rule__SimpleField__ValueAssignment_1113719); 
+            match(input,55,FOLLOW_55_in_rule__SimpleField__ValueAssignment_1113719); 
              after(grammarAccess.getSimpleFieldAccess().getValueVariableNameKeyword_11_0()); 
 
             }
@@ -19054,7 +19056,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6649:1: 'ParameterTypesStructural'
             {
              before(grammarAccess.getSimpleFieldAccess().getValueParameterTypesStructuralKeyword_12_0()); 
-            match(input,54,FOLLOW_54_in_rule__SimpleField__ValueAssignment_1213763); 
+            match(input,56,FOLLOW_56_in_rule__SimpleField__ValueAssignment_1213763); 
              after(grammarAccess.getSimpleFieldAccess().getValueParameterTypesStructuralKeyword_12_0()); 
 
             }
@@ -19099,7 +19101,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6672:1: 'FullyQualifiedName'
             {
              before(grammarAccess.getTypeFieldAccess().getValueFullyQualifiedNameKeyword_0_0()); 
-            match(input,55,FOLLOW_55_in_rule__TypeField__ValueAssignment_013807); 
+            match(input,57,FOLLOW_57_in_rule__TypeField__ValueAssignment_013807); 
              after(grammarAccess.getTypeFieldAccess().getValueFullyQualifiedNameKeyword_0_0()); 
 
             }
@@ -19144,7 +19146,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6695:1: 'ImplementedTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueImplementedTypesKeyword_1_0()); 
-            match(input,56,FOLLOW_56_in_rule__TypeField__ValueAssignment_113851); 
+            match(input,58,FOLLOW_58_in_rule__TypeField__ValueAssignment_113851); 
              after(grammarAccess.getTypeFieldAccess().getValueImplementedTypesKeyword_1_0()); 
 
             }
@@ -19189,7 +19191,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6718:1: 'ExtendedTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueExtendedTypesKeyword_2_0()); 
-            match(input,57,FOLLOW_57_in_rule__TypeField__ValueAssignment_213895); 
+            match(input,59,FOLLOW_59_in_rule__TypeField__ValueAssignment_213895); 
              after(grammarAccess.getTypeFieldAccess().getValueExtendedTypesKeyword_2_0()); 
 
             }
@@ -19234,7 +19236,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6741:1: 'UsedTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueUsedTypesKeyword_3_0()); 
-            match(input,58,FOLLOW_58_in_rule__TypeField__ValueAssignment_313939); 
+            match(input,60,FOLLOW_60_in_rule__TypeField__ValueAssignment_313939); 
              after(grammarAccess.getTypeFieldAccess().getValueUsedTypesKeyword_3_0()); 
 
             }
@@ -19279,7 +19281,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6764:1: 'UsedTypesInTry'
             {
              before(grammarAccess.getTypeFieldAccess().getValueUsedTypesInTryKeyword_4_0()); 
-            match(input,59,FOLLOW_59_in_rule__TypeField__ValueAssignment_413983); 
+            match(input,61,FOLLOW_61_in_rule__TypeField__ValueAssignment_413983); 
              after(grammarAccess.getTypeFieldAccess().getValueUsedTypesInTryKeyword_4_0()); 
 
             }
@@ -19324,7 +19326,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6787:1: 'UsedTypesInFinally'
             {
              before(grammarAccess.getTypeFieldAccess().getValueUsedTypesInFinallyKeyword_5_0()); 
-            match(input,60,FOLLOW_60_in_rule__TypeField__ValueAssignment_514027); 
+            match(input,62,FOLLOW_62_in_rule__TypeField__ValueAssignment_514027); 
              after(grammarAccess.getTypeFieldAccess().getValueUsedTypesInFinallyKeyword_5_0()); 
 
             }
@@ -19369,7 +19371,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6810:1: 'ParameterTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueParameterTypesKeyword_6_0()); 
-            match(input,61,FOLLOW_61_in_rule__TypeField__ValueAssignment_614071); 
+            match(input,63,FOLLOW_63_in_rule__TypeField__ValueAssignment_614071); 
              after(grammarAccess.getTypeFieldAccess().getValueParameterTypesKeyword_6_0()); 
 
             }
@@ -19414,7 +19416,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6833:1: 'ReturnType'
             {
              before(grammarAccess.getTypeFieldAccess().getValueReturnTypeKeyword_7_0()); 
-            match(input,62,FOLLOW_62_in_rule__TypeField__ValueAssignment_714115); 
+            match(input,64,FOLLOW_64_in_rule__TypeField__ValueAssignment_714115); 
              after(grammarAccess.getTypeFieldAccess().getValueReturnTypeKeyword_7_0()); 
 
             }
@@ -19459,7 +19461,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6856:1: 'InstanceofTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueInstanceofTypesKeyword_8_0()); 
-            match(input,63,FOLLOW_63_in_rule__TypeField__ValueAssignment_814159); 
+            match(input,65,FOLLOW_65_in_rule__TypeField__ValueAssignment_814159); 
              after(grammarAccess.getTypeFieldAccess().getValueInstanceofTypesKeyword_8_0()); 
 
             }
@@ -19504,7 +19506,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6879:1: 'AllImplementedTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueAllImplementedTypesKeyword_9_0()); 
-            match(input,64,FOLLOW_64_in_rule__TypeField__ValueAssignment_914203); 
+            match(input,66,FOLLOW_66_in_rule__TypeField__ValueAssignment_914203); 
              after(grammarAccess.getTypeFieldAccess().getValueAllImplementedTypesKeyword_9_0()); 
 
             }
@@ -19549,7 +19551,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6902:1: 'AllExtendedTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueAllExtendedTypesKeyword_10_0()); 
-            match(input,65,FOLLOW_65_in_rule__TypeField__ValueAssignment_1014247); 
+            match(input,67,FOLLOW_67_in_rule__TypeField__ValueAssignment_1014247); 
              after(grammarAccess.getTypeFieldAccess().getValueAllExtendedTypesKeyword_10_0()); 
 
             }
@@ -19594,7 +19596,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6925:1: 'FieldType'
             {
              before(grammarAccess.getTypeFieldAccess().getValueFieldTypeKeyword_11_0()); 
-            match(input,66,FOLLOW_66_in_rule__TypeField__ValueAssignment_1114291); 
+            match(input,68,FOLLOW_68_in_rule__TypeField__ValueAssignment_1114291); 
              after(grammarAccess.getTypeFieldAccess().getValueFieldTypeKeyword_11_0()); 
 
             }
@@ -19639,7 +19641,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6948:1: 'CaughtType'
             {
              before(grammarAccess.getTypeFieldAccess().getValueCaughtTypeKeyword_12_0()); 
-            match(input,67,FOLLOW_67_in_rule__TypeField__ValueAssignment_1214335); 
+            match(input,69,FOLLOW_69_in_rule__TypeField__ValueAssignment_1214335); 
              after(grammarAccess.getTypeFieldAccess().getValueCaughtTypeKeyword_12_0()); 
 
             }
@@ -19684,7 +19686,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6971:1: 'DeclaredFieldTypes'
             {
              before(grammarAccess.getTypeFieldAccess().getValueDeclaredFieldTypesKeyword_13_0()); 
-            match(input,68,FOLLOW_68_in_rule__TypeField__ValueAssignment_1314379); 
+            match(input,70,FOLLOW_70_in_rule__TypeField__ValueAssignment_1314379); 
              after(grammarAccess.getTypeFieldAccess().getValueDeclaredFieldTypesKeyword_13_0()); 
 
             }
@@ -19729,7 +19731,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:6994:1: 'DeclaringType'
             {
              before(grammarAccess.getTypeFieldAccess().getValueDeclaringTypeKeyword_14_0()); 
-            match(input,69,FOLLOW_69_in_rule__TypeField__ValueAssignment_1414423); 
+            match(input,71,FOLLOW_71_in_rule__TypeField__ValueAssignment_1414423); 
              after(grammarAccess.getTypeFieldAccess().getValueDeclaringTypeKeyword_14_0()); 
 
             }
@@ -19774,7 +19776,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7017:1: 'VariableType'
             {
              before(grammarAccess.getTypeFieldAccess().getValueVariableTypeKeyword_15_0()); 
-            match(input,70,FOLLOW_70_in_rule__TypeField__ValueAssignment_1514467); 
+            match(input,72,FOLLOW_72_in_rule__TypeField__ValueAssignment_1514467); 
              after(grammarAccess.getTypeFieldAccess().getValueVariableTypeKeyword_15_0()); 
 
             }
@@ -19819,7 +19821,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7040:1: 'CheckedExceptions'
             {
              before(grammarAccess.getTypeFieldAccess().getValueCheckedExceptionsKeyword_16_0()); 
-            match(input,71,FOLLOW_71_in_rule__TypeField__ValueAssignment_1614511); 
+            match(input,73,FOLLOW_73_in_rule__TypeField__ValueAssignment_1614511); 
              after(grammarAccess.getTypeFieldAccess().getValueCheckedExceptionsKeyword_16_0()); 
 
             }
@@ -19864,7 +19866,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7063:1: 'UsedMethods'
             {
              before(grammarAccess.getMethodFieldAccess().getValueUsedMethodsKeyword_0_0()); 
-            match(input,72,FOLLOW_72_in_rule__MethodField__ValueAssignment_014555); 
+            match(input,74,FOLLOW_74_in_rule__MethodField__ValueAssignment_014555); 
              after(grammarAccess.getMethodFieldAccess().getValueUsedMethodsKeyword_0_0()); 
 
             }
@@ -19909,7 +19911,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7086:1: 'UsedMethodsInTry'
             {
              before(grammarAccess.getMethodFieldAccess().getValueUsedMethodsInTryKeyword_1_0()); 
-            match(input,73,FOLLOW_73_in_rule__MethodField__ValueAssignment_114599); 
+            match(input,75,FOLLOW_75_in_rule__MethodField__ValueAssignment_114599); 
              after(grammarAccess.getMethodFieldAccess().getValueUsedMethodsInTryKeyword_1_0()); 
 
             }
@@ -19954,7 +19956,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7109:1: 'UsedMethodsInFinally'
             {
              before(grammarAccess.getMethodFieldAccess().getValueUsedMethodsInFinallyKeyword_2_0()); 
-            match(input,74,FOLLOW_74_in_rule__MethodField__ValueAssignment_214643); 
+            match(input,76,FOLLOW_76_in_rule__MethodField__ValueAssignment_214643); 
              after(grammarAccess.getMethodFieldAccess().getValueUsedMethodsInFinallyKeyword_2_0()); 
 
             }
@@ -19999,7 +20001,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7132:1: 'OverriddenMethods'
             {
              before(grammarAccess.getMethodFieldAccess().getValueOverriddenMethodsKeyword_3_0()); 
-            match(input,75,FOLLOW_75_in_rule__MethodField__ValueAssignment_314687); 
+            match(input,77,FOLLOW_77_in_rule__MethodField__ValueAssignment_314687); 
              after(grammarAccess.getMethodFieldAccess().getValueOverriddenMethodsKeyword_3_0()); 
 
             }
@@ -20044,7 +20046,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7155:1: 'DeclaredMethods'
             {
              before(grammarAccess.getMethodFieldAccess().getValueDeclaredMethodsKeyword_4_0()); 
-            match(input,76,FOLLOW_76_in_rule__MethodField__ValueAssignment_414731); 
+            match(input,78,FOLLOW_78_in_rule__MethodField__ValueAssignment_414731); 
              after(grammarAccess.getMethodFieldAccess().getValueDeclaredMethodsKeyword_4_0()); 
 
             }
@@ -20089,7 +20091,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7178:1: 'DeclaringMethod'
             {
              before(grammarAccess.getMethodFieldAccess().getValueDeclaringMethodKeyword_5_0()); 
-            match(input,77,FOLLOW_77_in_rule__MethodField__ValueAssignment_514775); 
+            match(input,79,FOLLOW_79_in_rule__MethodField__ValueAssignment_514775); 
              after(grammarAccess.getMethodFieldAccess().getValueDeclaringMethodKeyword_5_0()); 
 
             }
@@ -20134,7 +20136,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7201:1: 'UsedAsParameterInMethods'
             {
              before(grammarAccess.getMethodFieldAccess().getValueUsedAsParameterInMethodsKeyword_6_0()); 
-            match(input,78,FOLLOW_78_in_rule__MethodField__ValueAssignment_614819); 
+            match(input,80,FOLLOW_80_in_rule__MethodField__ValueAssignment_614819); 
              after(grammarAccess.getMethodFieldAccess().getValueUsedAsParameterInMethodsKeyword_6_0()); 
 
             }
@@ -20179,7 +20181,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7224:1: 'UsedAsTargetForMethods'
             {
              before(grammarAccess.getMethodFieldAccess().getValueUsedAsTargetForMethodsKeyword_7_0()); 
-            match(input,79,FOLLOW_79_in_rule__MethodField__ValueAssignment_714863); 
+            match(input,81,FOLLOW_81_in_rule__MethodField__ValueAssignment_714863); 
              after(grammarAccess.getMethodFieldAccess().getValueUsedAsTargetForMethodsKeyword_7_0()); 
 
             }
@@ -20224,7 +20226,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7247:1: 'ResourcePath'
             {
              before(grammarAccess.getFilePathFieldAccess().getValueResourcePathKeyword_0()); 
-            match(input,80,FOLLOW_80_in_rule__FilePathField__ValueAssignment14907); 
+            match(input,82,FOLLOW_82_in_rule__FilePathField__ValueAssignment14907); 
              after(grammarAccess.getFilePathFieldAccess().getValueResourcePathKeyword_0()); 
 
             }
@@ -20269,7 +20271,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7270:1: 'ParameterCount'
             {
              before(grammarAccess.getNumberFieldAccess().getValueParameterCountKeyword_0()); 
-            match(input,81,FOLLOW_81_in_rule__NumberField__ValueAssignment14951); 
+            match(input,83,FOLLOW_83_in_rule__NumberField__ValueAssignment14951); 
              after(grammarAccess.getNumberFieldAccess().getValueParameterCountKeyword_0()); 
 
             }
@@ -20314,7 +20316,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7293:1: 'Modifiers'
             {
              before(grammarAccess.getModifierFieldAccess().getValueModifiersKeyword_0()); 
-            match(input,82,FOLLOW_82_in_rule__ModifierField__ValueAssignment14995); 
+            match(input,84,FOLLOW_84_in_rule__ModifierField__ValueAssignment14995); 
              after(grammarAccess.getModifierFieldAccess().getValueModifiersKeyword_0()); 
 
             }
@@ -20359,7 +20361,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7316:1: 'Timestamp'
             {
              before(grammarAccess.getTimeFieldAccess().getValueTimestampKeyword_0()); 
-            match(input,83,FOLLOW_83_in_rule__TimeField__ValueAssignment15039); 
+            match(input,85,FOLLOW_85_in_rule__TimeField__ValueAssignment15039); 
              after(grammarAccess.getTimeFieldAccess().getValueTimestampKeyword_0()); 
 
             }
@@ -20404,7 +20406,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7339:1: 'Type'
             {
              before(grammarAccess.getDocumentTypeFieldAccess().getValueTypeKeyword_0()); 
-            match(input,84,FOLLOW_84_in_rule__DocumentTypeField__ValueAssignment15083); 
+            match(input,86,FOLLOW_86_in_rule__DocumentTypeField__ValueAssignment15083); 
              after(grammarAccess.getDocumentTypeFieldAccess().getValueTypeKeyword_0()); 
 
             }
@@ -20449,7 +20451,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7362:1: 'ProjectName'
             {
              before(grammarAccess.getProjectNameFieldAccess().getValueProjectNameKeyword_0()); 
-            match(input,85,FOLLOW_85_in_rule__ProjectNameField__ValueAssignment15127); 
+            match(input,87,FOLLOW_87_in_rule__ProjectNameField__ValueAssignment15127); 
              after(grammarAccess.getProjectNameFieldAccess().getValueProjectNameKeyword_0()); 
 
             }
@@ -20494,7 +20496,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7385:1: 'Annotations'
             {
              before(grammarAccess.getAnnotationFieldAccess().getValueAnnotationsKeyword_0()); 
-            match(input,86,FOLLOW_86_in_rule__AnnotationField__ValueAssignment15171); 
+            match(input,88,FOLLOW_88_in_rule__AnnotationField__ValueAssignment15171); 
              after(grammarAccess.getAnnotationFieldAccess().getValueAnnotationsKeyword_0()); 
 
             }
@@ -20539,7 +20541,7 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
             // ../org.eclipselabs.recommenders.codesearch.rcp.dsl.ui/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dsl/ui/contentassist/antlr/internal/InternalLuceneQuery.g:7408:1: 'VariableDefinition'
             {
              before(grammarAccess.getDefinitionTypeAccess().getValueVariableDefinitionKeyword_0()); 
-            match(input,87,FOLLOW_87_in_rule__DefinitionType__ValueAssignment15215); 
+            match(input,89,FOLLOW_89_in_rule__DefinitionType__ValueAssignment15215); 
              after(grammarAccess.getDefinitionTypeAccess().getValueVariableDefinitionKeyword_0()); 
 
             }
@@ -20730,69 +20732,69 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__MethodField__ValueAssignment_7_in_rule__MethodField__Alternatives3327 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_QUOTEDNAMEWITHWC_in_rule__SimpleFieldValue__Alternatives3360 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_NAMEWITHWC_in_rule__SimpleFieldValue__Alternatives3377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__ModifierFieldValue__Alternatives3410 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__ModifierFieldValue__Alternatives3430 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__ModifierFieldValue__Alternatives3450 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__ModifierFieldValue__Alternatives3470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__ModifierFieldValue__Alternatives3490 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__ModifierFieldValue__Alternatives3510 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_21_in_rule__DocumentTypeFieldValue__Alternatives3545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_22_in_rule__DocumentTypeFieldValue__Alternatives3565 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_rule__DocumentTypeFieldValue__Alternatives3585 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_24_in_rule__DocumentTypeFieldValue__Alternatives3605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_25_in_rule__DocumentTypeFieldValue__Alternatives3625 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_26_in_rule__DefinitionTypeValue__Alternatives3660 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_27_in_rule__DefinitionTypeValue__Alternatives3680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_rule__DefinitionTypeValue__Alternatives3700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_rule__DefinitionTypeValue__Alternatives3720 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_rule__DefinitionTypeValue__Alternatives3740 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_rule__UnaryExpression__Alternatives3775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_32_in_rule__UnaryExpression__Alternatives3795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_33_in_rule__UnaryExpression__Alternatives3815 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_34_in_rule__UnaryExpression__Alternatives3835 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_35_in_rule__BinaryOr__Alternatives3870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_rule__BinaryOr__Alternatives3891 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_37_in_rule__BinaryAnd__Alternatives3927 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_38_in_rule__BinaryAnd__Alternatives3948 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__OrExp__Group__0__Impl_in_rule__OrExp__Group__03981 = new BitSet(new long[]{0xFFFFFC9F80000090L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_17_in_rule__ModifierFieldValue__Alternatives3410 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__ModifierFieldValue__Alternatives3430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__ModifierFieldValue__Alternatives3450 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__ModifierFieldValue__Alternatives3470 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_21_in_rule__ModifierFieldValue__Alternatives3490 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_22_in_rule__ModifierFieldValue__Alternatives3510 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_rule__DocumentTypeFieldValue__Alternatives3545 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_rule__DocumentTypeFieldValue__Alternatives3565 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_25_in_rule__DocumentTypeFieldValue__Alternatives3585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_26_in_rule__DocumentTypeFieldValue__Alternatives3605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_27_in_rule__DocumentTypeFieldValue__Alternatives3625 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_rule__DefinitionTypeValue__Alternatives3660 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_rule__DefinitionTypeValue__Alternatives3680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_30_in_rule__DefinitionTypeValue__Alternatives3700 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_rule__DefinitionTypeValue__Alternatives3720 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_rule__DefinitionTypeValue__Alternatives3740 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_rule__UnaryExpression__Alternatives3775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_rule__UnaryExpression__Alternatives3795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_35_in_rule__UnaryExpression__Alternatives3815 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_36_in_rule__UnaryExpression__Alternatives3835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_37_in_rule__BinaryOr__Alternatives3870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_38_in_rule__BinaryOr__Alternatives3891 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_rule__BinaryAnd__Alternatives3927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_rule__BinaryAnd__Alternatives3948 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__OrExp__Group__0__Impl_in_rule__OrExp__Group__03981 = new BitSet(new long[]{0xFFFFF27E00000090L,0x0000000003FFFFFFL});
     public static final BitSet FOLLOW_rule__OrExp__Group__1_in_rule__OrExp__Group__03984 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAndExp_in_rule__OrExp__Group__0__Impl4011 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OrExp__Group__1__Impl_in_rule__OrExp__Group__14040 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OrExp__Group_1__0_in_rule__OrExp__Group__1__Impl4067 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__OrExp__Group_1__0__Impl_in_rule__OrExp__Group_1__04102 = new BitSet(new long[]{0xFFFFFC9F80000090L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_rule__OrExp__Group_1__0__Impl_in_rule__OrExp__Group_1__04102 = new BitSet(new long[]{0xFFFFF27E00000090L,0x0000000003FFFFFFL});
     public static final BitSet FOLLOW_rule__OrExp__Group_1__1_in_rule__OrExp__Group_1__04105 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__OrExp__Group_1__1__Impl_in_rule__OrExp__Group_1__14163 = new BitSet(new long[]{0xFFFFFC9F80000090L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_rule__OrExp__Group_1__1__Impl_in_rule__OrExp__Group_1__14163 = new BitSet(new long[]{0xFFFFF27E00000090L,0x0000000003FFFFFFL});
     public static final BitSet FOLLOW_rule__OrExp__Group_1__2_in_rule__OrExp__Group_1__14166 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OrExp__OrAssignment_1_1_in_rule__OrExp__Group_1__1__Impl4193 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OrExp__Group_1__2__Impl_in_rule__OrExp__Group_1__24224 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OrExp__RightAssignment_1_2_in_rule__OrExp__Group_1__2__Impl4251 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AndExp__Group__0__Impl_in_rule__AndExp__Group__04287 = new BitSet(new long[]{0x0000006000000000L});
+    public static final BitSet FOLLOW_rule__AndExp__Group__0__Impl_in_rule__AndExp__Group__04287 = new BitSet(new long[]{0x0000018000000000L});
     public static final BitSet FOLLOW_rule__AndExp__Group__1_in_rule__AndExp__Group__04290 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePrimary_in_rule__AndExp__Group__0__Impl4317 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AndExp__Group__1__Impl_in_rule__AndExp__Group__14346 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AndExp__Group_1__0_in_rule__AndExp__Group__1__Impl4373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AndExp__Group_1__0__Impl_in_rule__AndExp__Group_1__04408 = new BitSet(new long[]{0x0000006000000000L});
+    public static final BitSet FOLLOW_rule__AndExp__Group_1__0__Impl_in_rule__AndExp__Group_1__04408 = new BitSet(new long[]{0x0000018000000000L});
     public static final BitSet FOLLOW_rule__AndExp__Group_1__1_in_rule__AndExp__Group_1__04411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__AndExp__Group_1__1__Impl_in_rule__AndExp__Group_1__14469 = new BitSet(new long[]{0xFFFFFC9F80000090L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_rule__AndExp__Group_1__1__Impl_in_rule__AndExp__Group_1__14469 = new BitSet(new long[]{0xFFFFF27E00000090L,0x0000000003FFFFFFL});
     public static final BitSet FOLLOW_rule__AndExp__Group_1__2_in_rule__AndExp__Group_1__14472 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AndExp__AndAssignment_1_1_in_rule__AndExp__Group_1__1__Impl4499 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AndExp__Group_1__2__Impl_in_rule__AndExp__Group_1__24529 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AndExp__RightAssignment_1_2_in_rule__AndExp__Group_1__2__Impl4556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Primary__Group_1__0__Impl_in_rule__Primary__Group_1__04592 = new BitSet(new long[]{0xFFFFFC9F80000090L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_rule__Primary__Group_1__0__Impl_in_rule__Primary__Group_1__04592 = new BitSet(new long[]{0xFFFFF27E00000090L,0x0000000003FFFFFFL});
     public static final BitSet FOLLOW_rule__Primary__Group_1__1_in_rule__Primary__Group_1__04595 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__Primary__Group_1__0__Impl4623 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Primary__Group_1__1__Impl_in_rule__Primary__Group_1__14654 = new BitSet(new long[]{0xFFFFFC9F80000090L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_rule__Primary__Group_1__1__Impl_in_rule__Primary__Group_1__14654 = new BitSet(new long[]{0xFFFFF27E00000090L,0x0000000003FFFFFFL});
     public static final BitSet FOLLOW_rule__Primary__Group_1__2_in_rule__Primary__Group_1__14657 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__Primary__Group_1__1__Impl4685 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Primary__Group_1__2__Impl_in_rule__Primary__Group_1__24716 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_41_in_rule__Primary__Group_1__1__Impl4685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Primary__Group_1__2__Impl_in_rule__Primary__Group_1__24716 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_rule__Primary__Group_1__3_in_rule__Primary__Group_1__24719 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOrExp_in_rule__Primary__Group_1__2__Impl4746 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Primary__Group_1__3__Impl_in_rule__Primary__Group_1__34775 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__Primary__Group_1__4_in_rule__Primary__Group_1__34778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__Primary__Group_1__3__Impl4806 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_42_in_rule__Primary__Group_1__3__Impl4806 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Primary__Group_1__4__Impl_in_rule__Primary__Group_1__44837 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__Primary__Group_1__4__Impl4865 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group__0__Impl_in_rule__ClauseExpression__Group__04906 = new BitSet(new long[]{0xFFFFFC0780000090L,0x0000000000FFFFFFL});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group__0__Impl_in_rule__ClauseExpression__Group__04906 = new BitSet(new long[]{0xFFFFF01E00000090L,0x0000000003FFFFFFL});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group__1_in_rule__ClauseExpression__Group__04909 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group__0__Impl4937 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group__1__Impl_in_rule__ClauseExpression__Group__14968 = new BitSet(new long[]{0x0000000000000002L});
@@ -20802,26 +20804,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__DefaultAssignment_1_0_0_in_rule__ClauseExpression__Group_1_0__0__Impl5059 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_0__1__Impl_in_rule__ClauseExpression__Group_1_0__15089 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_0__1__Impl5117 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__0__Impl_in_rule__ClauseExpression__Group_1_1_0__05152 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__0__Impl_in_rule__ClauseExpression__Group_1_1_0__05152 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__1_in_rule__ClauseExpression__Group_1_1_0__05155 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_0_0_in_rule__ClauseExpression__Group_1_1_0__0__Impl5182 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__1__Impl_in_rule__ClauseExpression__Group_1_1_0__15212 = new BitSet(new long[]{0x0000008000000090L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__1__Impl_in_rule__ClauseExpression__Group_1_1_0__15212 = new BitSet(new long[]{0x0000020000000090L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__2_in_rule__ClauseExpression__Group_1_1_0__15215 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_0__1__Impl5243 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_0__1__Impl5243 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__2__Impl_in_rule__ClauseExpression__Group_1_1_0__25274 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__3_in_rule__ClauseExpression__Group_1_1_0__25277 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_0_2_in_rule__ClauseExpression__Group_1_1_0__2__Impl5304 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0__3__Impl_in_rule__ClauseExpression__Group_1_1_0__35334 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_0__3__Impl5362 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1__05401 = new BitSet(new long[]{0x0000010780000090L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1__05401 = new BitSet(new long[]{0x0000041E00000090L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1__1_in_rule__ClauseExpression__Group_1_1_0_2_1__05404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_0_2_1__0__Impl5432 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1__15463 = new BitSet(new long[]{0x0000010780000090L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_0_2_1__0__Impl5432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1__15463 = new BitSet(new long[]{0x0000041E00000090L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1__2_in_rule__ClauseExpression__Group_1_1_0_2_1__15466 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1_1__0_in_rule__ClauseExpression__Group_1_1_0_2_1__1__Impl5493 = new BitSet(new long[]{0x0000000780000092L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1_1__0_in_rule__ClauseExpression__Group_1_1_0_2_1__1__Impl5493 = new BitSet(new long[]{0x0000001E00000092L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1__25524 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_0_2_1__2__Impl5552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1_1__05589 = new BitSet(new long[]{0x0000000780000090L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_0_2_1__2__Impl5552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1_1__05589 = new BitSet(new long[]{0x0000001E00000090L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1_1__1_in_rule__ClauseExpression__Group_1_1_0_2_1_1__05592 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_0_2_1_1__0__Impl5620 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1_1__15651 = new BitSet(new long[]{0x0000000000000100L});
@@ -20829,26 +20831,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_0_2_1_1_1_in_rule__ClauseExpression__Group_1_1_0_2_1_1__1__Impl5681 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_0_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_0_2_1_1__25711 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_0_2_1_1__2__Impl5739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_1__05776 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_1__05776 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__1_in_rule__ClauseExpression__Group_1_1_1__05779 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_1_0_in_rule__ClauseExpression__Group_1_1_1__0__Impl5806 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_1__15836 = new BitSet(new long[]{0x0000008000000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_1__15836 = new BitSet(new long[]{0x0000020000000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__2_in_rule__ClauseExpression__Group_1_1_1__15839 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_1__1__Impl5867 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_1__1__Impl5867 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_1__25898 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__3_in_rule__ClauseExpression__Group_1_1_1__25901 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_1_2_in_rule__ClauseExpression__Group_1_1_1__2__Impl5928 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1__3__Impl_in_rule__ClauseExpression__Group_1_1_1__35958 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_1__3__Impl5986 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1__06025 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1__06025 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1__1_in_rule__ClauseExpression__Group_1_1_1_2_1__06028 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_1_2_1__0__Impl6056 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1__16087 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_1_2_1__0__Impl6056 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1__16087 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1__2_in_rule__ClauseExpression__Group_1_1_1_2_1__16090 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1_1__0_in_rule__ClauseExpression__Group_1_1_1_2_1__1__Impl6117 = new BitSet(new long[]{0x0000000780000012L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1_1__0_in_rule__ClauseExpression__Group_1_1_1_2_1__1__Impl6117 = new BitSet(new long[]{0x0000001E00000012L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1__26148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_1_2_1__2__Impl6176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1_1__06213 = new BitSet(new long[]{0x0000000780000010L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_1_2_1__2__Impl6176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1_1__06213 = new BitSet(new long[]{0x0000001E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1_1__1_in_rule__ClauseExpression__Group_1_1_1_2_1_1__06216 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_1_2_1_1__0__Impl6244 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1_1__16275 = new BitSet(new long[]{0x0000000000000100L});
@@ -20856,26 +20858,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_1_2_1_1_1_in_rule__ClauseExpression__Group_1_1_1_2_1_1__1__Impl6305 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_1_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_1_2_1_1__26335 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_1_2_1_1__2__Impl6363 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__0__Impl_in_rule__ClauseExpression__Group_1_1_2__06400 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__0__Impl_in_rule__ClauseExpression__Group_1_1_2__06400 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__1_in_rule__ClauseExpression__Group_1_1_2__06403 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_2_0_in_rule__ClauseExpression__Group_1_1_2__0__Impl6430 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__1__Impl_in_rule__ClauseExpression__Group_1_1_2__16460 = new BitSet(new long[]{0x0000008000000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__1__Impl_in_rule__ClauseExpression__Group_1_1_2__16460 = new BitSet(new long[]{0x0000020000000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__2_in_rule__ClauseExpression__Group_1_1_2__16463 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_2__1__Impl6491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_2__1__Impl6491 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__2__Impl_in_rule__ClauseExpression__Group_1_1_2__26522 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__3_in_rule__ClauseExpression__Group_1_1_2__26525 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_2_2_in_rule__ClauseExpression__Group_1_1_2__2__Impl6552 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2__3__Impl_in_rule__ClauseExpression__Group_1_1_2__36582 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_2__3__Impl6610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1__06649 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1__06649 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1__1_in_rule__ClauseExpression__Group_1_1_2_2_1__06652 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_2_2_1__0__Impl6680 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1__16711 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_2_2_1__0__Impl6680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1__16711 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1__2_in_rule__ClauseExpression__Group_1_1_2_2_1__16714 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1_1__0_in_rule__ClauseExpression__Group_1_1_2_2_1__1__Impl6741 = new BitSet(new long[]{0x0000000780000012L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1_1__0_in_rule__ClauseExpression__Group_1_1_2_2_1__1__Impl6741 = new BitSet(new long[]{0x0000001E00000012L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1__26772 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_2_2_1__2__Impl6800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1_1__06837 = new BitSet(new long[]{0x0000000780000010L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_2_2_1__2__Impl6800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1_1__06837 = new BitSet(new long[]{0x0000001E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1_1__1_in_rule__ClauseExpression__Group_1_1_2_2_1_1__06840 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_2_2_1_1__0__Impl6868 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1_1__16899 = new BitSet(new long[]{0x0000000000000100L});
@@ -20883,26 +20885,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_2_2_1_1_1_in_rule__ClauseExpression__Group_1_1_2_2_1_1__1__Impl6929 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_2_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_2_2_1_1__26959 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_2_2_1_1__2__Impl6987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__0__Impl_in_rule__ClauseExpression__Group_1_1_3__07024 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__0__Impl_in_rule__ClauseExpression__Group_1_1_3__07024 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__1_in_rule__ClauseExpression__Group_1_1_3__07027 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_3_0_in_rule__ClauseExpression__Group_1_1_3__0__Impl7054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__1__Impl_in_rule__ClauseExpression__Group_1_1_3__17084 = new BitSet(new long[]{0x0000008000000040L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__1__Impl_in_rule__ClauseExpression__Group_1_1_3__17084 = new BitSet(new long[]{0x0000020000000040L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__2_in_rule__ClauseExpression__Group_1_1_3__17087 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_3__1__Impl7115 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_3__1__Impl7115 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__2__Impl_in_rule__ClauseExpression__Group_1_1_3__27146 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__3_in_rule__ClauseExpression__Group_1_1_3__27149 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_3_2_in_rule__ClauseExpression__Group_1_1_3__2__Impl7176 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3__3__Impl_in_rule__ClauseExpression__Group_1_1_3__37206 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_3__3__Impl7234 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1__07273 = new BitSet(new long[]{0x0000010780000040L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1__07273 = new BitSet(new long[]{0x0000041E00000040L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1__1_in_rule__ClauseExpression__Group_1_1_3_2_1__07276 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_3_2_1__0__Impl7304 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1__17335 = new BitSet(new long[]{0x0000010780000040L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_3_2_1__0__Impl7304 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1__17335 = new BitSet(new long[]{0x0000041E00000040L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1__2_in_rule__ClauseExpression__Group_1_1_3_2_1__17338 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1_1__0_in_rule__ClauseExpression__Group_1_1_3_2_1__1__Impl7365 = new BitSet(new long[]{0x0000000780000042L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1_1__0_in_rule__ClauseExpression__Group_1_1_3_2_1__1__Impl7365 = new BitSet(new long[]{0x0000001E00000042L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1__27396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_3_2_1__2__Impl7424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1_1__07461 = new BitSet(new long[]{0x0000000780000040L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_3_2_1__2__Impl7424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1_1__07461 = new BitSet(new long[]{0x0000001E00000040L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1_1__1_in_rule__ClauseExpression__Group_1_1_3_2_1_1__07464 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_3_2_1_1__0__Impl7492 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1_1__17523 = new BitSet(new long[]{0x0000000000000100L});
@@ -20910,26 +20912,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_3_2_1_1_1_in_rule__ClauseExpression__Group_1_1_3_2_1_1__1__Impl7553 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_3_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_3_2_1_1__27583 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_3_2_1_1__2__Impl7611 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__0__Impl_in_rule__ClauseExpression__Group_1_1_4__07648 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__0__Impl_in_rule__ClauseExpression__Group_1_1_4__07648 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__1_in_rule__ClauseExpression__Group_1_1_4__07651 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_4_0_in_rule__ClauseExpression__Group_1_1_4__0__Impl7678 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__1__Impl_in_rule__ClauseExpression__Group_1_1_4__17708 = new BitSet(new long[]{0x0000008000000020L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__1__Impl_in_rule__ClauseExpression__Group_1_1_4__17708 = new BitSet(new long[]{0x0000020000000020L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__2_in_rule__ClauseExpression__Group_1_1_4__17711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_4__1__Impl7739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_4__1__Impl7739 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__2__Impl_in_rule__ClauseExpression__Group_1_1_4__27770 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__3_in_rule__ClauseExpression__Group_1_1_4__27773 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_4_2_in_rule__ClauseExpression__Group_1_1_4__2__Impl7800 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4__3__Impl_in_rule__ClauseExpression__Group_1_1_4__37830 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_4__3__Impl7858 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1__07897 = new BitSet(new long[]{0x0000010780000020L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1__07897 = new BitSet(new long[]{0x0000041E00000020L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1__1_in_rule__ClauseExpression__Group_1_1_4_2_1__07900 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_4_2_1__0__Impl7928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1__17959 = new BitSet(new long[]{0x0000010780000020L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_4_2_1__0__Impl7928 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1__17959 = new BitSet(new long[]{0x0000041E00000020L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1__2_in_rule__ClauseExpression__Group_1_1_4_2_1__17962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1_1__0_in_rule__ClauseExpression__Group_1_1_4_2_1__1__Impl7989 = new BitSet(new long[]{0x0000000780000022L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1_1__0_in_rule__ClauseExpression__Group_1_1_4_2_1__1__Impl7989 = new BitSet(new long[]{0x0000001E00000022L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1__28020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_4_2_1__2__Impl8048 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1_1__08085 = new BitSet(new long[]{0x0000000780000020L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_4_2_1__2__Impl8048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1_1__08085 = new BitSet(new long[]{0x0000001E00000020L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1_1__1_in_rule__ClauseExpression__Group_1_1_4_2_1_1__08088 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_4_2_1_1__0__Impl8116 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1_1__18147 = new BitSet(new long[]{0x0000000000000100L});
@@ -20937,26 +20939,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_4_2_1_1_1_in_rule__ClauseExpression__Group_1_1_4_2_1_1__1__Impl8177 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_4_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_4_2_1_1__28207 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_4_2_1_1__2__Impl8235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__0__Impl_in_rule__ClauseExpression__Group_1_1_5__08272 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__0__Impl_in_rule__ClauseExpression__Group_1_1_5__08272 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__1_in_rule__ClauseExpression__Group_1_1_5__08275 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_5_0_in_rule__ClauseExpression__Group_1_1_5__0__Impl8302 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__1__Impl_in_rule__ClauseExpression__Group_1_1_5__18332 = new BitSet(new long[]{0x00000080001F8000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__1__Impl_in_rule__ClauseExpression__Group_1_1_5__18332 = new BitSet(new long[]{0x00000200007E0000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__2_in_rule__ClauseExpression__Group_1_1_5__18335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_5__1__Impl8363 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_5__1__Impl8363 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__2__Impl_in_rule__ClauseExpression__Group_1_1_5__28394 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__3_in_rule__ClauseExpression__Group_1_1_5__28397 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_5_2_in_rule__ClauseExpression__Group_1_1_5__2__Impl8424 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5__3__Impl_in_rule__ClauseExpression__Group_1_1_5__38454 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_5__3__Impl8482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1__08521 = new BitSet(new long[]{0x00000107801F8000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1__08521 = new BitSet(new long[]{0x0000041E007E0000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1__1_in_rule__ClauseExpression__Group_1_1_5_2_1__08524 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_5_2_1__0__Impl8552 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1__18583 = new BitSet(new long[]{0x00000107801F8000L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_5_2_1__0__Impl8552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1__18583 = new BitSet(new long[]{0x0000041E007E0000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1__2_in_rule__ClauseExpression__Group_1_1_5_2_1__18586 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1_1__0_in_rule__ClauseExpression__Group_1_1_5_2_1__1__Impl8613 = new BitSet(new long[]{0x00000007801F8002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1_1__0_in_rule__ClauseExpression__Group_1_1_5_2_1__1__Impl8613 = new BitSet(new long[]{0x0000001E007E0002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1__28644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_5_2_1__2__Impl8672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1_1__08709 = new BitSet(new long[]{0x00000007801F8000L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_5_2_1__2__Impl8672 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1_1__08709 = new BitSet(new long[]{0x0000001E007E0000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1_1__1_in_rule__ClauseExpression__Group_1_1_5_2_1_1__08712 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_5_2_1_1__0__Impl8740 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1_1__18771 = new BitSet(new long[]{0x0000000000000100L});
@@ -20964,26 +20966,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_5_2_1_1_1_in_rule__ClauseExpression__Group_1_1_5_2_1_1__1__Impl8801 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_5_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_5_2_1_1__28831 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_5_2_1_1__2__Impl8859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__0__Impl_in_rule__ClauseExpression__Group_1_1_6__08896 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__0__Impl_in_rule__ClauseExpression__Group_1_1_6__08896 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__1_in_rule__ClauseExpression__Group_1_1_6__08899 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_6_0_in_rule__ClauseExpression__Group_1_1_6__0__Impl8926 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__1__Impl_in_rule__ClauseExpression__Group_1_1_6__18956 = new BitSet(new long[]{0x0000008000000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__1__Impl_in_rule__ClauseExpression__Group_1_1_6__18956 = new BitSet(new long[]{0x0000020000000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__2_in_rule__ClauseExpression__Group_1_1_6__18959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_6__1__Impl8987 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_6__1__Impl8987 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__2__Impl_in_rule__ClauseExpression__Group_1_1_6__29018 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__3_in_rule__ClauseExpression__Group_1_1_6__29021 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_6_2_in_rule__ClauseExpression__Group_1_1_6__2__Impl9048 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6__3__Impl_in_rule__ClauseExpression__Group_1_1_6__39078 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_6__3__Impl9106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1__09145 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1__09145 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1__1_in_rule__ClauseExpression__Group_1_1_6_2_1__09148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_6_2_1__0__Impl9176 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1__19207 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_6_2_1__0__Impl9176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1__19207 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1__2_in_rule__ClauseExpression__Group_1_1_6_2_1__19210 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1_1__0_in_rule__ClauseExpression__Group_1_1_6_2_1__1__Impl9237 = new BitSet(new long[]{0x0000000780000012L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1_1__0_in_rule__ClauseExpression__Group_1_1_6_2_1__1__Impl9237 = new BitSet(new long[]{0x0000001E00000012L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1__29268 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_6_2_1__2__Impl9296 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1_1__09333 = new BitSet(new long[]{0x0000000780000010L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_6_2_1__2__Impl9296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1_1__09333 = new BitSet(new long[]{0x0000001E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1_1__1_in_rule__ClauseExpression__Group_1_1_6_2_1_1__09336 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_6_2_1_1__0__Impl9364 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1_1__19395 = new BitSet(new long[]{0x0000000000000100L});
@@ -20991,26 +20993,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_6_2_1_1_1_in_rule__ClauseExpression__Group_1_1_6_2_1_1__1__Impl9425 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_6_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_6_2_1_1__29455 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_6_2_1_1__2__Impl9483 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__0__Impl_in_rule__ClauseExpression__Group_1_1_7__09520 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__0__Impl_in_rule__ClauseExpression__Group_1_1_7__09520 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__1_in_rule__ClauseExpression__Group_1_1_7__09523 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_7_0_in_rule__ClauseExpression__Group_1_1_7__0__Impl9550 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__1__Impl_in_rule__ClauseExpression__Group_1_1_7__19580 = new BitSet(new long[]{0x0000008003E00000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__1__Impl_in_rule__ClauseExpression__Group_1_1_7__19580 = new BitSet(new long[]{0x000002000F800000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__2_in_rule__ClauseExpression__Group_1_1_7__19583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_7__1__Impl9611 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_7__1__Impl9611 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__2__Impl_in_rule__ClauseExpression__Group_1_1_7__29642 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__3_in_rule__ClauseExpression__Group_1_1_7__29645 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_7_2_in_rule__ClauseExpression__Group_1_1_7__2__Impl9672 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7__3__Impl_in_rule__ClauseExpression__Group_1_1_7__39702 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_7__3__Impl9730 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1__09769 = new BitSet(new long[]{0x0000010783E00000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1__09769 = new BitSet(new long[]{0x0000041E0F800000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1__1_in_rule__ClauseExpression__Group_1_1_7_2_1__09772 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_7_2_1__0__Impl9800 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1__19831 = new BitSet(new long[]{0x0000010783E00000L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_7_2_1__0__Impl9800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1__19831 = new BitSet(new long[]{0x0000041E0F800000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1__2_in_rule__ClauseExpression__Group_1_1_7_2_1__19834 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1_1__0_in_rule__ClauseExpression__Group_1_1_7_2_1__1__Impl9861 = new BitSet(new long[]{0x0000000783E00002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1_1__0_in_rule__ClauseExpression__Group_1_1_7_2_1__1__Impl9861 = new BitSet(new long[]{0x0000001E0F800002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1__29892 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_7_2_1__2__Impl9920 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1_1__09957 = new BitSet(new long[]{0x0000000783E00000L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_7_2_1__2__Impl9920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1_1__09957 = new BitSet(new long[]{0x0000001E0F800000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1_1__1_in_rule__ClauseExpression__Group_1_1_7_2_1_1__09960 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_7_2_1_1__0__Impl9988 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1_1__110019 = new BitSet(new long[]{0x0000000000000100L});
@@ -21018,26 +21020,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_7_2_1_1_1_in_rule__ClauseExpression__Group_1_1_7_2_1_1__1__Impl10049 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_7_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_7_2_1_1__210079 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_7_2_1_1__2__Impl10107 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__0__Impl_in_rule__ClauseExpression__Group_1_1_8__010144 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__0__Impl_in_rule__ClauseExpression__Group_1_1_8__010144 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__1_in_rule__ClauseExpression__Group_1_1_8__010147 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_8_0_in_rule__ClauseExpression__Group_1_1_8__0__Impl10174 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__1__Impl_in_rule__ClauseExpression__Group_1_1_8__110204 = new BitSet(new long[]{0x0000008000000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__1__Impl_in_rule__ClauseExpression__Group_1_1_8__110204 = new BitSet(new long[]{0x0000020000000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__2_in_rule__ClauseExpression__Group_1_1_8__110207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_8__1__Impl10235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_8__1__Impl10235 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__2__Impl_in_rule__ClauseExpression__Group_1_1_8__210266 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__3_in_rule__ClauseExpression__Group_1_1_8__210269 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_8_2_in_rule__ClauseExpression__Group_1_1_8__2__Impl10296 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8__3__Impl_in_rule__ClauseExpression__Group_1_1_8__310326 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_8__3__Impl10354 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1__010393 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1__010393 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1__1_in_rule__ClauseExpression__Group_1_1_8_2_1__010396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_8_2_1__0__Impl10424 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1__110455 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_8_2_1__0__Impl10424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1__110455 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1__2_in_rule__ClauseExpression__Group_1_1_8_2_1__110458 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1_1__0_in_rule__ClauseExpression__Group_1_1_8_2_1__1__Impl10485 = new BitSet(new long[]{0x0000000780000012L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1_1__0_in_rule__ClauseExpression__Group_1_1_8_2_1__1__Impl10485 = new BitSet(new long[]{0x0000001E00000012L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1__210516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_8_2_1__2__Impl10544 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1_1__010581 = new BitSet(new long[]{0x0000000780000010L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_8_2_1__2__Impl10544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1_1__010581 = new BitSet(new long[]{0x0000001E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1_1__1_in_rule__ClauseExpression__Group_1_1_8_2_1_1__010584 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_8_2_1_1__0__Impl10612 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1_1__110643 = new BitSet(new long[]{0x0000000000000100L});
@@ -21045,26 +21047,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_8_2_1_1_1_in_rule__ClauseExpression__Group_1_1_8_2_1_1__1__Impl10673 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_8_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_8_2_1_1__210703 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_8_2_1_1__2__Impl10731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__0__Impl_in_rule__ClauseExpression__Group_1_1_9__010768 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__0__Impl_in_rule__ClauseExpression__Group_1_1_9__010768 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__1_in_rule__ClauseExpression__Group_1_1_9__010771 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_9_0_in_rule__ClauseExpression__Group_1_1_9__0__Impl10798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__1__Impl_in_rule__ClauseExpression__Group_1_1_9__110828 = new BitSet(new long[]{0x0000008000000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__1__Impl_in_rule__ClauseExpression__Group_1_1_9__110828 = new BitSet(new long[]{0x0000020000000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__2_in_rule__ClauseExpression__Group_1_1_9__110831 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_9__1__Impl10859 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_9__1__Impl10859 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__2__Impl_in_rule__ClauseExpression__Group_1_1_9__210890 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__3_in_rule__ClauseExpression__Group_1_1_9__210893 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_9_2_in_rule__ClauseExpression__Group_1_1_9__2__Impl10920 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9__3__Impl_in_rule__ClauseExpression__Group_1_1_9__310950 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_9__3__Impl10978 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1__011017 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1__011017 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1__1_in_rule__ClauseExpression__Group_1_1_9_2_1__011020 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_9_2_1__0__Impl11048 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1__111079 = new BitSet(new long[]{0x0000010780000010L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_9_2_1__0__Impl11048 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1__111079 = new BitSet(new long[]{0x0000041E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1__2_in_rule__ClauseExpression__Group_1_1_9_2_1__111082 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1_1__0_in_rule__ClauseExpression__Group_1_1_9_2_1__1__Impl11109 = new BitSet(new long[]{0x0000000780000012L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1_1__0_in_rule__ClauseExpression__Group_1_1_9_2_1__1__Impl11109 = new BitSet(new long[]{0x0000001E00000012L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1__211140 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_9_2_1__2__Impl11168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1_1__011205 = new BitSet(new long[]{0x0000000780000010L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_9_2_1__2__Impl11168 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1_1__011205 = new BitSet(new long[]{0x0000001E00000010L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1_1__1_in_rule__ClauseExpression__Group_1_1_9_2_1_1__011208 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_9_2_1_1__0__Impl11236 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1_1__111267 = new BitSet(new long[]{0x0000000000000100L});
@@ -21072,26 +21074,26 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ClauseExpression__ValuesAssignment_1_1_9_2_1_1_1_in_rule__ClauseExpression__Group_1_1_9_2_1_1__1__Impl11297 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_9_2_1_1__2__Impl_in_rule__ClauseExpression__Group_1_1_9_2_1_1__211327 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_9_2_1_1__2__Impl11355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__0__Impl_in_rule__ClauseExpression__Group_1_1_10__011392 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__0__Impl_in_rule__ClauseExpression__Group_1_1_10__011392 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__1_in_rule__ClauseExpression__Group_1_1_10__011395 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__FieldAssignment_1_1_10_0_in_rule__ClauseExpression__Group_1_1_10__0__Impl11422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__1__Impl_in_rule__ClauseExpression__Group_1_1_10__111452 = new BitSet(new long[]{0x000000807C000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__1__Impl_in_rule__ClauseExpression__Group_1_1_10__111452 = new BitSet(new long[]{0x00000201F0000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__2_in_rule__ClauseExpression__Group_1_1_10__111455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_10__1__Impl11483 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_43_in_rule__ClauseExpression__Group_1_1_10__1__Impl11483 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__2__Impl_in_rule__ClauseExpression__Group_1_1_10__211514 = new BitSet(new long[]{0x0000000000000100L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__3_in_rule__ClauseExpression__Group_1_1_10__211517 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Alternatives_1_1_10_2_in_rule__ClauseExpression__Group_1_1_10__2__Impl11544 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10__3__Impl_in_rule__ClauseExpression__Group_1_1_10__311574 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_BOOST_in_rule__ClauseExpression__Group_1_1_10__3__Impl11602 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1__011641 = new BitSet(new long[]{0x00000107FC000000L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1__0__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1__011641 = new BitSet(new long[]{0x0000041FF0000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1__1_in_rule__ClauseExpression__Group_1_1_10_2_1__011644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_39_in_rule__ClauseExpression__Group_1_1_10_2_1__0__Impl11672 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1__111703 = new BitSet(new long[]{0x00000107FC000000L});
+    public static final BitSet FOLLOW_41_in_rule__ClauseExpression__Group_1_1_10_2_1__0__Impl11672 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1__1__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1__111703 = new BitSet(new long[]{0x0000041FF0000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1__2_in_rule__ClauseExpression__Group_1_1_10_2_1__111706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1_1__0_in_rule__ClauseExpression__Group_1_1_10_2_1__1__Impl11733 = new BitSet(new long[]{0x00000007FC000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1_1__0_in_rule__ClauseExpression__Group_1_1_10_2_1__1__Impl11733 = new BitSet(new long[]{0x0000001FF0000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1__2__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1__211764 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_rule__ClauseExpression__Group_1_1_10_2_1__2__Impl11792 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1_1__011829 = new BitSet(new long[]{0x00000007FC000000L});
+    public static final BitSet FOLLOW_42_in_rule__ClauseExpression__Group_1_1_10_2_1__2__Impl11792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1_1__0__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1_1__011829 = new BitSet(new long[]{0x0000001FF0000000L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1_1__1_in_rule__ClauseExpression__Group_1_1_10_2_1_1__011832 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnaryExpression_in_rule__ClauseExpression__Group_1_1_10_2_1_1__0__Impl11860 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ClauseExpression__Group_1_1_10_2_1_1__1__Impl_in_rule__ClauseExpression__Group_1_1_10_2_1_1__111891 = new BitSet(new long[]{0x0000000000000100L});
@@ -21138,51 +21140,51 @@ public class InternalLuceneQueryParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_ruleDefinitionType_in_rule__ClauseExpression__FieldAssignment_1_1_10_013137 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_rule__ClauseExpression__ValuesAssignment_1_1_10_2_013168 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleDefinitionTypeValue_in_rule__ClauseExpression__ValuesAssignment_1_1_10_2_1_1_113199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_42_in_rule__SimpleField__ValueAssignment_013235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_43_in_rule__SimpleField__ValueAssignment_113279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_44_in_rule__SimpleField__ValueAssignment_213323 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_45_in_rule__SimpleField__ValueAssignment_313367 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_46_in_rule__SimpleField__ValueAssignment_413411 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_rule__SimpleField__ValueAssignment_513455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_rule__SimpleField__ValueAssignment_613499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_rule__SimpleField__ValueAssignment_713543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_rule__SimpleField__ValueAssignment_813587 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_51_in_rule__SimpleField__ValueAssignment_913631 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_rule__SimpleField__ValueAssignment_1013675 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_rule__SimpleField__ValueAssignment_1113719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_rule__SimpleField__ValueAssignment_1213763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_rule__TypeField__ValueAssignment_013807 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_56_in_rule__TypeField__ValueAssignment_113851 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_rule__TypeField__ValueAssignment_213895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_rule__TypeField__ValueAssignment_313939 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_rule__TypeField__ValueAssignment_413983 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_rule__TypeField__ValueAssignment_514027 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_rule__TypeField__ValueAssignment_614071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_rule__TypeField__ValueAssignment_714115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_rule__TypeField__ValueAssignment_814159 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_rule__TypeField__ValueAssignment_914203 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_rule__TypeField__ValueAssignment_1014247 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_rule__TypeField__ValueAssignment_1114291 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_rule__TypeField__ValueAssignment_1214335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_rule__TypeField__ValueAssignment_1314379 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_rule__TypeField__ValueAssignment_1414423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_rule__TypeField__ValueAssignment_1514467 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_rule__TypeField__ValueAssignment_1614511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_rule__MethodField__ValueAssignment_014555 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_73_in_rule__MethodField__ValueAssignment_114599 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_rule__MethodField__ValueAssignment_214643 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_rule__MethodField__ValueAssignment_314687 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_76_in_rule__MethodField__ValueAssignment_414731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_77_in_rule__MethodField__ValueAssignment_514775 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_78_in_rule__MethodField__ValueAssignment_614819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_79_in_rule__MethodField__ValueAssignment_714863 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_80_in_rule__FilePathField__ValueAssignment14907 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_81_in_rule__NumberField__ValueAssignment14951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_82_in_rule__ModifierField__ValueAssignment14995 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_83_in_rule__TimeField__ValueAssignment15039 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_84_in_rule__DocumentTypeField__ValueAssignment15083 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_85_in_rule__ProjectNameField__ValueAssignment15127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_86_in_rule__AnnotationField__ValueAssignment15171 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_87_in_rule__DefinitionType__ValueAssignment15215 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_44_in_rule__SimpleField__ValueAssignment_013235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_45_in_rule__SimpleField__ValueAssignment_113279 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_46_in_rule__SimpleField__ValueAssignment_213323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_47_in_rule__SimpleField__ValueAssignment_313367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_48_in_rule__SimpleField__ValueAssignment_413411 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_rule__SimpleField__ValueAssignment_513455 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_50_in_rule__SimpleField__ValueAssignment_613499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_rule__SimpleField__ValueAssignment_713543 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_rule__SimpleField__ValueAssignment_813587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_rule__SimpleField__ValueAssignment_913631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_rule__SimpleField__ValueAssignment_1013675 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_rule__SimpleField__ValueAssignment_1113719 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_rule__SimpleField__ValueAssignment_1213763 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_rule__TypeField__ValueAssignment_013807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_rule__TypeField__ValueAssignment_113851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_rule__TypeField__ValueAssignment_213895 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_rule__TypeField__ValueAssignment_313939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_rule__TypeField__ValueAssignment_413983 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_rule__TypeField__ValueAssignment_514027 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_rule__TypeField__ValueAssignment_614071 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_rule__TypeField__ValueAssignment_714115 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_rule__TypeField__ValueAssignment_814159 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_rule__TypeField__ValueAssignment_914203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_rule__TypeField__ValueAssignment_1014247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_rule__TypeField__ValueAssignment_1114291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_rule__TypeField__ValueAssignment_1214335 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_rule__TypeField__ValueAssignment_1314379 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_rule__TypeField__ValueAssignment_1414423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_rule__TypeField__ValueAssignment_1514467 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_rule__TypeField__ValueAssignment_1614511 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_74_in_rule__MethodField__ValueAssignment_014555 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_rule__MethodField__ValueAssignment_114599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_rule__MethodField__ValueAssignment_214643 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_77_in_rule__MethodField__ValueAssignment_314687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_78_in_rule__MethodField__ValueAssignment_414731 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_79_in_rule__MethodField__ValueAssignment_514775 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_80_in_rule__MethodField__ValueAssignment_614819 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_81_in_rule__MethodField__ValueAssignment_714863 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_82_in_rule__FilePathField__ValueAssignment14907 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_83_in_rule__NumberField__ValueAssignment14951 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_84_in_rule__ModifierField__ValueAssignment14995 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_85_in_rule__TimeField__ValueAssignment15039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_86_in_rule__DocumentTypeField__ValueAssignment15083 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_87_in_rule__ProjectNameField__ValueAssignment15127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_88_in_rule__AnnotationField__ValueAssignment15171 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_89_in_rule__DefinitionType__ValueAssignment15215 = new BitSet(new long[]{0x0000000000000002L});
 
 }
