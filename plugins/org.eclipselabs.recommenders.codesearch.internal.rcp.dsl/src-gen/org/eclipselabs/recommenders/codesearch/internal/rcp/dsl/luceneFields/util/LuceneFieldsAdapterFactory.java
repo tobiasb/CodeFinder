@@ -8,13 +8,12 @@ package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.ut
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field;
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldCategory;
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType;
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model;
+
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.*;
 
 /**
  * <!-- begin-user-doc -->

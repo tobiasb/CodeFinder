@@ -4,17 +4,18 @@
 package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.ui.contentassist.antlr;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.AbstractContentAssistParser;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.FollowElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
-import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.services.LuceneFieldsGrammarAccess;
 
 import com.google.inject.Inject;
+
+import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.services.LuceneFieldsGrammarAccess;
 
 public class LuceneFieldsParser extends AbstractContentAssistParser {
 	
@@ -39,17 +40,21 @@ public class LuceneFieldsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldTypeAccess().getAlternatives(), "rule__FieldType__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getFieldCategoryAccess().getGroup(), "rule__FieldCategory__Group__0");
+					put(grammarAccess.getFieldCategoryAccess().getGroup_4(), "rule__FieldCategory__Group_4__0");
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup_5(), "rule__Field__Group_5__0");
+					put(grammarAccess.getFieldAccess().getGroup_7(), "rule__Field__Group_7__0");
 					put(grammarAccess.getModelAccess().getPackageNamesAssignment_1(), "rule__Model__PackageNamesAssignment_1");
 					put(grammarAccess.getModelAccess().getClassNameAssignment_3(), "rule__Model__ClassNameAssignment_3");
 					put(grammarAccess.getModelAccess().getFieldCategoriesAssignment_4(), "rule__Model__FieldCategoriesAssignment_4");
 					put(grammarAccess.getFieldCategoryAccess().getCategoryNameAssignment_0(), "rule__FieldCategory__CategoryNameAssignment_0");
 					put(grammarAccess.getFieldCategoryAccess().getFieldsAssignment_2(), "rule__FieldCategory__FieldsAssignment_2");
+					put(grammarAccess.getFieldCategoryAccess().getDescAssignment_4_1(), "rule__FieldCategory__DescAssignment_4_1");
 					put(grammarAccess.getFieldAccess().getNameAssignment_0(), "rule__Field__NameAssignment_0");
 					put(grammarAccess.getFieldAccess().getValueAssignment_2(), "rule__Field__ValueAssignment_2");
 					put(grammarAccess.getFieldAccess().getTypesAssignment_4(), "rule__Field__TypesAssignment_4");
 					put(grammarAccess.getFieldAccess().getTypesAssignment_5_1(), "rule__Field__TypesAssignment_5_1");
+					put(grammarAccess.getFieldAccess().getDescAssignment_7_1(), "rule__Field__DescAssignment_7_1");
 					put(grammarAccess.getFieldTypeAccess().getClassTypeAssignment_0(), "rule__FieldType__ClassTypeAssignment_0");
 					put(grammarAccess.getFieldTypeAccess().getMethodTypeAssignment_1(), "rule__FieldType__MethodTypeAssignment_1");
 					put(grammarAccess.getFieldTypeAccess().getFieldTypeAssignment_2(), "rule__FieldType__FieldTypeAssignment_2");

@@ -4,21 +4,14 @@
 
 package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.services;
 
-import org.eclipse.xtext.Alternatives;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.Grammar;
-import org.eclipse.xtext.GrammarUtil;
-import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
-import org.eclipse.xtext.service.GrammarProvider;
-
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.Inject;
+
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.service.GrammarProvider;
+import org.eclipse.xtext.service.AbstractElementFinder.*;
+
+import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 
 @Singleton
 public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
@@ -77,12 +70,17 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cFieldsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cFieldsFieldParserRuleCall_2_0 = (RuleCall)cFieldsAssignment_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cDescAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cDescSTRINGTerminalRuleCall_4_1_0 = (RuleCall)cDescAssignment_4_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
 		
 		//FieldCategory:
-		//	categoryName=ID "{" fields+=Field* "}";
+		//	categoryName=ID "{" fields+=Field* "}" ("(" desc=STRING ")")?;
 		public ParserRule getRule() { return rule; }
 
-		//categoryName=ID "{" fields+=Field* "}"
+		//categoryName=ID "{" fields+=Field* "}" ("(" desc=STRING ")")?
 		public Group getGroup() { return cGroup; }
 
 		//categoryName=ID
@@ -102,6 +100,21 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+
+		//("(" desc=STRING ")")?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+
+		//desc=STRING
+		public Assignment getDescAssignment_4_1() { return cDescAssignment_4_1; }
+
+		//STRING
+		public RuleCall getDescSTRINGTerminalRuleCall_4_1_0() { return cDescSTRINGTerminalRuleCall_4_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
 	}
 
 	public class FieldElements extends AbstractParserRuleElementFinder {
@@ -120,12 +133,17 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cTypesFieldTypeParserRuleCall_5_1_0 = (RuleCall)cTypesAssignment_5_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cLeftParenthesisKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cDescAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cDescSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cDescAssignment_7_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
 		
 		//Field:
-		//	name=ID "=" value=STRING "{" types+=FieldType ("," types+=FieldType)* "}";
+		//	name=ID "=" value=STRING "{" types+=FieldType ("," types+=FieldType)* "}" ("(" desc=STRING ")")?;
 		public ParserRule getRule() { return rule; }
 
-		//name=ID "=" value=STRING "{" types+=FieldType ("," types+=FieldType)* "}"
+		//name=ID "=" value=STRING "{" types+=FieldType ("," types+=FieldType)* "}" ("(" desc=STRING ")")?
 		public Group getGroup() { return cGroup; }
 
 		//name=ID
@@ -166,6 +184,21 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+
+		//("(" desc=STRING ")")?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_7_0() { return cLeftParenthesisKeyword_7_0; }
+
+		//desc=STRING
+		public Assignment getDescAssignment_7_1() { return cDescAssignment_7_1; }
+
+		//STRING
+		public RuleCall getDescSTRINGTerminalRuleCall_7_1_0() { return cDescSTRINGTerminalRuleCall_7_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_7_2() { return cRightParenthesisKeyword_7_2; }
 	}
 
 	public class FieldTypeElements extends AbstractParserRuleElementFinder {
@@ -258,7 +291,7 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FieldCategory:
-	//	categoryName=ID "{" fields+=Field* "}";
+	//	categoryName=ID "{" fields+=Field* "}" ("(" desc=STRING ")")?;
 	public FieldCategoryElements getFieldCategoryAccess() {
 		return (pFieldCategory != null) ? pFieldCategory : (pFieldCategory = new FieldCategoryElements());
 	}
@@ -268,7 +301,7 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Field:
-	//	name=ID "=" value=STRING "{" types+=FieldType ("," types+=FieldType)* "}";
+	//	name=ID "=" value=STRING "{" types+=FieldType ("," types+=FieldType)* "}" ("(" desc=STRING ")")?;
 	public FieldElements getFieldAccess() {
 		return (pField != null) ? pField : (pField = new FieldElements());
 	}

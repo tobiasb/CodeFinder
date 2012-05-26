@@ -7,9 +7,12 @@
 package org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
 

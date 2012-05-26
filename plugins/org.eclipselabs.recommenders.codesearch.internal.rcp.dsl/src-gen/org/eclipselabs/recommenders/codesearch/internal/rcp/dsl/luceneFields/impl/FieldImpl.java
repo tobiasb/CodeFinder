@@ -10,13 +10,18 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
@@ -31,6 +36,7 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Luc
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldImpl#getValue <em>Value</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldImpl#getTypes <em>Types</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldImpl#getDesc <em>Desc</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +93,26 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * @ordered
    */
   protected EList<FieldType> types;
+
+  /**
+   * The default value of the '{@link #getDesc() <em>Desc</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDesc()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESC_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDesc() <em>Desc</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDesc()
+   * @generated
+   * @ordered
+   */
+  protected String desc = DESC_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -174,6 +200,29 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDesc()
+  {
+    return desc;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDesc(String newDesc)
+  {
+    String oldDesc = desc;
+    desc = newDesc;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD__DESC, oldDesc, desc));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -201,6 +250,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return getValue();
       case LuceneFieldsPackage.FIELD__TYPES:
         return getTypes();
+      case LuceneFieldsPackage.FIELD__DESC:
+        return getDesc();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -226,6 +277,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         getTypes().clear();
         getTypes().addAll((Collection<? extends FieldType>)newValue);
         return;
+      case LuceneFieldsPackage.FIELD__DESC:
+        setDesc((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -249,6 +303,9 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
       case LuceneFieldsPackage.FIELD__TYPES:
         getTypes().clear();
         return;
+      case LuceneFieldsPackage.FIELD__DESC:
+        setDesc(DESC_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -269,6 +326,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
       case LuceneFieldsPackage.FIELD__TYPES:
         return types != null && !types.isEmpty();
+      case LuceneFieldsPackage.FIELD__DESC:
+        return DESC_EDEFAULT == null ? desc != null : !DESC_EDEFAULT.equals(desc);
     }
     return super.eIsSet(featureID);
   }
@@ -288,6 +347,8 @@ public class FieldImpl extends MinimalEObjectImpl.Container implements Field
     result.append(name);
     result.append(", value: ");
     result.append(value);
+    result.append(", desc: ");
+    result.append(desc);
     result.append(')');
     return result.toString();
   }

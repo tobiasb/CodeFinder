@@ -135,13 +135,22 @@ public interface LuceneFieldsPackage extends EPackage
   int FIELD_CATEGORY__FIELDS = 1;
 
   /**
+   * The feature id for the '<em><b>Desc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD_CATEGORY__DESC = 2;
+
+  /**
    * The number of structural features of the '<em>Field Category</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_CATEGORY_FEATURE_COUNT = 2;
+  int FIELD_CATEGORY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldImpl <em>Field</em>}' class.
@@ -181,13 +190,22 @@ public interface LuceneFieldsPackage extends EPackage
   int FIELD__TYPES = 2;
 
   /**
+   * The feature id for the '<em><b>Desc</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FIELD__DESC = 3;
+
+  /**
    * The number of structural features of the '<em>Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_FEATURE_COUNT = 3;
+  int FIELD_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl <em>Field Type</em>}' class.
@@ -330,6 +348,17 @@ public interface LuceneFieldsPackage extends EPackage
   EReference getFieldCategory_Fields();
 
   /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldCategory#getDesc <em>Desc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Desc</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldCategory#getDesc()
+   * @see #getFieldCategory()
+   * @generated
+   */
+  EAttribute getFieldCategory_Desc();
+
+  /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -371,6 +400,17 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    */
   EReference getField_Types();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field#getDesc <em>Desc</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Desc</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field#getDesc()
+   * @see #getField()
+   * @generated
+   */
+  EAttribute getField_Desc();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType <em>Field Type</em>}'.
@@ -521,6 +561,14 @@ public interface LuceneFieldsPackage extends EPackage
     EReference FIELD_CATEGORY__FIELDS = eINSTANCE.getFieldCategory_Fields();
 
     /**
+     * The meta object literal for the '<em><b>Desc</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD_CATEGORY__DESC = eINSTANCE.getFieldCategory_Desc();
+
+    /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldImpl <em>Field</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -553,6 +601,14 @@ public interface LuceneFieldsPackage extends EPackage
      * @generated
      */
     EReference FIELD__TYPES = eINSTANCE.getField_Types();
+
+    /**
+     * The meta object literal for the '<em><b>Desc</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FIELD__DESC = eINSTANCE.getField_Desc();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl <em>Field Type</em>}' class.

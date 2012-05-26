@@ -10,13 +10,18 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldCategory;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage;
@@ -30,6 +35,7 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Luc
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl#getCategoryName <em>Category Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl#getFields <em>Fields</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl#getDesc <em>Desc</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +72,26 @@ public class FieldCategoryImpl extends MinimalEObjectImpl.Container implements F
    * @ordered
    */
   protected EList<Field> fields;
+
+  /**
+   * The default value of the '{@link #getDesc() <em>Desc</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDesc()
+   * @generated
+   * @ordered
+   */
+  protected static final String DESC_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDesc() <em>Desc</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDesc()
+   * @generated
+   * @ordered
+   */
+  protected String desc = DESC_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -130,6 +156,29 @@ public class FieldCategoryImpl extends MinimalEObjectImpl.Container implements F
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDesc()
+  {
+    return desc;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDesc(String newDesc)
+  {
+    String oldDesc = desc;
+    desc = newDesc;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_CATEGORY__DESC, oldDesc, desc));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -155,6 +204,8 @@ public class FieldCategoryImpl extends MinimalEObjectImpl.Container implements F
         return getCategoryName();
       case LuceneFieldsPackage.FIELD_CATEGORY__FIELDS:
         return getFields();
+      case LuceneFieldsPackage.FIELD_CATEGORY__DESC:
+        return getDesc();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -177,6 +228,9 @@ public class FieldCategoryImpl extends MinimalEObjectImpl.Container implements F
         getFields().clear();
         getFields().addAll((Collection<? extends Field>)newValue);
         return;
+      case LuceneFieldsPackage.FIELD_CATEGORY__DESC:
+        setDesc((String)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -197,6 +251,9 @@ public class FieldCategoryImpl extends MinimalEObjectImpl.Container implements F
       case LuceneFieldsPackage.FIELD_CATEGORY__FIELDS:
         getFields().clear();
         return;
+      case LuceneFieldsPackage.FIELD_CATEGORY__DESC:
+        setDesc(DESC_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -215,6 +272,8 @@ public class FieldCategoryImpl extends MinimalEObjectImpl.Container implements F
         return CATEGORY_NAME_EDEFAULT == null ? categoryName != null : !CATEGORY_NAME_EDEFAULT.equals(categoryName);
       case LuceneFieldsPackage.FIELD_CATEGORY__FIELDS:
         return fields != null && !fields.isEmpty();
+      case LuceneFieldsPackage.FIELD_CATEGORY__DESC:
+        return DESC_EDEFAULT == null ? desc != null : !DESC_EDEFAULT.equals(desc);
     }
     return super.eIsSet(featureID);
   }
@@ -232,6 +291,8 @@ public class FieldCategoryImpl extends MinimalEObjectImpl.Container implements F
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (categoryName: ");
     result.append(categoryName);
+    result.append(", desc: ");
+    result.append(desc);
     result.append(')');
     return result.toString();
   }

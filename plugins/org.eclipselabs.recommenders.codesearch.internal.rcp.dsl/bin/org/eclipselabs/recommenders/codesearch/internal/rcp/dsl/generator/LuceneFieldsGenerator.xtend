@@ -14,7 +14,7 @@ class LuceneFieldsGenerator implements IGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		for (e : resource.allContents.toIterable.filter(typeof(Model))) {
-			fsa.generateFile(e.className + ".java", e.compileFieldsClass)
+			fsa.generateFile(e.className + ".java.txt", e.compileFieldsClass)
 			fsa.generateFile("LuceneQueryBaseGenerated.xtext", e.compileXtextBaseClass)
 			fsa.generateFile("FieldsOverview.tex", e.compileTexFieldOverview)
 		}
@@ -24,32 +24,59 @@ class LuceneFieldsGenerator implements IGenerator {
 		'''% This file is generated
 		
 		«FOR category : m.fieldCategories»
-		\begin{longtable}{|l|l|l|}
-		\hline
-		\multicolumn{3}{|l|}{\textsl{«category.categoryName»}}\\\hline
-		\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
-		\endfirsthead
-		\multicolumn{3}{@{}l}{\ldots continued}\\\hline
-		\multicolumn{3}{|l|}{\textsl{«category.categoryName»}}\\\hline
-		\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
-		\hline
-		\endhead
-		\hline
-		\multicolumn{3}{r@{}}{continued \ldots}\\
-		\endfoot
-		\hline
-		\endlastfoot
-		\hline
-		«FOR field : category.fields»
-			\cfield{«field.name.replace('_', '\\_')»} & \parbox[t]{4cm}{«FOR t : field.types»«if(field.types.indexOf(t)>0){'\\\\ '}»«t.toTypeName»«ENDFOR»} & TODO \\
-			«ENDFOR»
-		\hline
-		\caption{My caption for this table\label{foo}}\\\hline
-		\end{longtable}
+
+\subsubsection{«category.categoryName.getTexCompatibleString()»}
+
+«category.desc»
+
+See table \ref{tab:FieldTable«category.categoryName.getTexCompatibleString»} for the complete list of fields.
+
+%Category: «category.categoryName.getTexCompatibleString()»
+\begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
+	\hline
+	\multicolumn{3}{|l|}{\textsl{«category.categoryName.getTexCompatibleString()»}}\\\hline
+	\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
+	\endfirsthead
+	\multicolumn{3}{@{}l}{\ldots continued}\\\hline
+	%\multicolumn{3}{|l|}{\textsl{«category.categoryName.getTexCompatibleString()»}}\\\hline
+	\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
+	\hline
+	\endhead
+	\hline
+	\multicolumn{3}{r@{}}{continued \ldots}\\
+	\endfoot
+	\hline
+	\endlastfoot
+	\hline
+	«FOR field : category.fields»
+	\cfield{«field.value.getTexCompatibleString»} 
+		& 
+		«field.getIconForActionType("class")» 
+		«field.getIconForActionType("method")» 
+		«field.getIconForActionType("field")» 
+		«field.getIconForActionType("tryCatch")» 
+		«field.getIconForActionType("varusage")» 
+		& «field.desc» \\
+	«ENDFOR»
+	\hline
+	\caption{Lucene Fields in category \cquote{«category.categoryName.getTexCompatibleString»}\label{tab:FieldTable«category.categoryName.getTexCompatibleString»}}
+\end{longtable}
 		
 		«ENDFOR»
 		
 % End of generated file'''
+	}
+	
+	def getIconForActionType(Field field, String t) {
+		if(field.hasActionOfType(t)) {
+			'''\includegraphics[width=0.9em]{img-src/icons/«t».png}'''
+		} else {
+			'''\includegraphics[width=0.9em]{img-src/icons/empty.png}'''
+		}
+	}
+	
+	def getTexCompatibleString(String s) {
+		s.replace('_', '\\_')
 	}
 	
 	def compileXtextBaseClass(Model m) {
@@ -107,7 +134,8 @@ class LuceneFieldsGenerator implements IGenerator {
 	«ENDFOR»
 */
 	«doNotModify»
-	
+
+/*	
 public class «m.className» {
 	public final static String TYPE_CLASS = "class";
 	public final static String TYPE_METHOD = "method";
@@ -134,7 +162,9 @@ public class «m.className» {
     public static final String JAVA_ELEMENT_HANDLE = "Handle";
     
 	«FOR category : m.fieldCategories»
-	//«category.categoryName»
+	/* «category.categoryName»
+	   «category.desc»
+	*/
 		«FOR field : category.fields»
 	«field.compile»
 		«ENDFOR»
@@ -142,12 +172,16 @@ public class «m.className» {
 	
 	«ENDFOR»
 }
+*/
 '''
 	}
 	
 	def compile(Field f) {
-'''	/** Can be applied to: «FOR t : f.types»«if(f.types.indexOf(t)>0){','}»«t.toTypeName»«ENDFOR»*/
+'''	/** «f.desc»
+		Can be applied to: «FOR t : f.types»«if(f.types.indexOf(t)>0){','}»«t.toTypeName»«ENDFOR»
+	*/
 	//Generated - please modify in source file
+	
 	public final static String «f.name» = "«f.value»";'''
 	}
 	
@@ -164,6 +198,21 @@ public class «m.className» {
 		if(t.trycatchType) {
 			return "tryCatch"
 		}
+		if(t.varusage) {
+			return "varusage"
+		}
+		
+		return "N/A"
+	}
+	
+	def hasActionOfType(Field f, String tDesired) {
+		for(FieldType t : f.types) {
+			if(t.toTypeName.equals(tDesired)) {
+				return true
+			}
+		}
+		
+		return false
 	}
 	
 	def doNotModify() {

@@ -18,11 +18,13 @@
     <genClasses ecoreClass="LuceneFields.ecore#//FieldCategory">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//FieldCategory/categoryName"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneFields.ecore#//FieldCategory/fields"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//FieldCategory/desc"/>
     </genClasses>
     <genClasses ecoreClass="LuceneFields.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//Field/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//Field/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneFields.ecore#//Field/types"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//Field/desc"/>
     </genClasses>
     <genClasses ecoreClass="LuceneFields.ecore#//FieldType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneFields.ecore#//FieldType/classType"/>

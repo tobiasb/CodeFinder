@@ -204,7 +204,33 @@ ruleFieldCategory returns [EObject current=null]
     {
     	newLeafNode(otherlv_3, grammarAccess.getFieldCategoryAccess().getRightCurlyBracketKeyword_3());
     }
+(	otherlv_4='(' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getFieldCategoryAccess().getLeftParenthesisKeyword_4_0());
+    }
+(
+(
+		lv_desc_5_0=RULE_STRING
+		{
+			newLeafNode(lv_desc_5_0, grammarAccess.getFieldCategoryAccess().getDescSTRINGTerminalRuleCall_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldCategoryRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"desc",
+        		lv_desc_5_0, 
+        		"STRING");
+	    }
+
 )
+)	otherlv_6=')' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getFieldCategoryAccess().getRightParenthesisKeyword_4_2());
+    }
+)?)
 ;
 
 
@@ -313,7 +339,33 @@ ruleField returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getFieldAccess().getRightCurlyBracketKeyword_6());
     }
+(	otherlv_8='(' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getFieldAccess().getLeftParenthesisKeyword_7_0());
+    }
+(
+(
+		lv_desc_9_0=RULE_STRING
+		{
+			newLeafNode(lv_desc_9_0, grammarAccess.getFieldAccess().getDescSTRINGTerminalRuleCall_7_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFieldRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"desc",
+        		lv_desc_9_0, 
+        		"STRING");
+	    }
+
 )
+)	otherlv_10=')' 
+    {
+    	newLeafNode(otherlv_10, grammarAccess.getFieldAccess().getRightParenthesisKeyword_7_2());
+    }
+)?)
 ;
 
 

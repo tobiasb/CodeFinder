@@ -1,0 +1,184 @@
+/*
+	The following rules are generated. Do not modify. Modify source file instead.
+*/
+
+	//Generated Rule. Do not modify!
+	ClauseExpression:
+		(UnaryExpression)? 
+		(
+			default=SimpleFieldValue Boost? | // Default field
+			(
+				(
+					field=SimpleField ':' 
+					(
+						(values+=SimpleFieldValue)
+						| ('('(UnaryExpression? values+=SimpleFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=TypeField ':' 
+					(
+						(values+=TypeFieldValue)
+						| ('('(UnaryExpression? values+=TypeFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=MethodField ':' 
+					(
+						(values+=MethodFieldValue)
+						| ('('(UnaryExpression? values+=MethodFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=FilePathField ':' 
+					(
+						(values+=FilePathFieldValue)
+						| ('('(UnaryExpression? values+=FilePathFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=NumberField ':' 
+					(
+						(values+=NumberFieldValue)
+						| ('('(UnaryExpression? values+=NumberFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=ModifierField ':' 
+					(
+						(values+=ModifierFieldValue)
+						| ('('(UnaryExpression? values+=ModifierFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=TimeField ':' 
+					(
+						(values+=TimeFieldValue)
+						| ('('(UnaryExpression? values+=TimeFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=DocumentTypeField ':' 
+					(
+						(values+=DocumentTypeFieldValue)
+						| ('('(UnaryExpression? values+=DocumentTypeFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=ProjectNameField ':' 
+					(
+						(values+=ProjectNameFieldValue)
+						| ('('(UnaryExpression? values+=ProjectNameFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=AnnotationField ':' 
+					(
+						(values+=AnnotationFieldValue)
+						| ('('(UnaryExpression? values+=AnnotationFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
+					field=DefinitionType ':' 
+					(
+						(values+=DefinitionTypeValue)
+						| ('('(UnaryExpression? values+=DefinitionTypeValue Boost?)*')')
+					) Boost?
+				)
+			)
+		)
+	;
+
+	//Generated Rule. Do not modify!
+	SimpleField:
+			value='FullyQualifiedName'
+		| 	value='FriendlyName'
+		| 	value='ReturnVariableExpressions'
+		| 	value='AllDeclaredMethodNames'
+		| 	value='DeclaredMethodNames'
+		| 	value='DeclaredFieldNames'
+		| 	value='AllDeclaredFieldNames'
+		| 	value='FullText'
+		| 	value='FieldsRead'
+		| 	value='FieldsWritten'
+		| 	value='UsedFieldsInFinally'
+		| 	value='UsedFieldsInTry'
+		| 	value='VariableName'
+		| 	value='ParameterTypesStructural'
+	;
+	
+	//Generated Rule. Do not modify!
+	TypeField:
+			value='ImplementedTypes'
+		| 	value='ExtendedTypes'
+		| 	value='UsedTypes'
+		| 	value='UsedTypesInTry'
+		| 	value='UsedTypesInFinally'
+		| 	value='ParameterTypes'
+		| 	value='ReturnType'
+		| 	value='InstanceofTypes'
+		| 	value='AllImplementedTypes'
+		| 	value='AllExtendedTypes'
+		| 	value='FieldType'
+		| 	value='CaughtType'
+		| 	value='DeclaredFieldTypes'
+		| 	value='DeclaringType'
+		| 	value='VariableType'
+		| 	value='CheckedExceptions'
+	;
+	
+	//Generated Rule. Do not modify!
+	MethodField:
+			value='UsedMethods'
+		| 	value='UsedMethodsInTry'
+		| 	value='UsedMethodsInFinally'
+		| 	value='OverriddenMethods'
+		| 	value='DeclaredMethods'
+		| 	value='DeclaringMethod'
+		| 	value='UsedAsParameterInMethods'
+		| 	value='UsedAsTargetForMethods'
+	;
+	
+	//Generated Rule. Do not modify!
+	FilePathField:
+			value='ResourcePath'
+	;
+	
+	//Generated Rule. Do not modify!
+	NumberField:
+			value='ParameterCount'
+	;
+	
+	//Generated Rule. Do not modify!
+	ModifierField:
+			value='Modifiers'
+	;
+	
+	//Generated Rule. Do not modify!
+	TimeField:
+			value='Timestamp'
+	;
+	
+	//Generated Rule. Do not modify!
+	DocumentTypeField:
+			value='Type'
+	;
+	
+	//Generated Rule. Do not modify!
+	ProjectNameField:
+			value='ProjectName'
+	;
+	
+	//Generated Rule. Do not modify!
+	AnnotationField:
+			value='Annotations'
+	;
+	
+	//Generated Rule. Do not modify!
+	DefinitionType:
+			value='VariableDefinition'
+	;
+	
+	/*
+	End of generated rules.
+	*/

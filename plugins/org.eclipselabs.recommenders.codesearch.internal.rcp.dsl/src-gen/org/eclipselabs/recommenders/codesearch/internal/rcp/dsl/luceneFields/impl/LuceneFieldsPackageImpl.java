@@ -10,7 +10,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Field;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldCategory;
 import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType;
@@ -192,6 +194,16 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getFieldCategory_Desc()
+  {
+    return (EAttribute)fieldCategoryEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getField()
   {
     return fieldEClass;
@@ -225,6 +237,16 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
   public EReference getField_Types()
   {
     return (EReference)fieldEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getField_Desc()
+  {
+    return (EAttribute)fieldEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -325,11 +347,13 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
     fieldCategoryEClass = createEClass(FIELD_CATEGORY);
     createEAttribute(fieldCategoryEClass, FIELD_CATEGORY__CATEGORY_NAME);
     createEReference(fieldCategoryEClass, FIELD_CATEGORY__FIELDS);
+    createEAttribute(fieldCategoryEClass, FIELD_CATEGORY__DESC);
 
     fieldEClass = createEClass(FIELD);
     createEAttribute(fieldEClass, FIELD__NAME);
     createEAttribute(fieldEClass, FIELD__VALUE);
     createEReference(fieldEClass, FIELD__TYPES);
+    createEAttribute(fieldEClass, FIELD__DESC);
 
     fieldTypeEClass = createEClass(FIELD_TYPE);
     createEAttribute(fieldTypeEClass, FIELD_TYPE__CLASS_TYPE);
@@ -378,11 +402,13 @@ public class LuceneFieldsPackageImpl extends EPackageImpl implements LuceneField
     initEClass(fieldCategoryEClass, FieldCategory.class, "FieldCategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFieldCategory_CategoryName(), ecorePackage.getEString(), "categoryName", null, 0, 1, FieldCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFieldCategory_Fields(), this.getField(), null, "fields", null, 0, -1, FieldCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFieldCategory_Desc(), ecorePackage.getEString(), "desc", null, 0, 1, FieldCategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldEClass, Field.class, "Field", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getField_Name(), ecorePackage.getEString(), "name", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getField_Value(), ecorePackage.getEString(), "value", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getField_Types(), this.getFieldType(), null, "types", null, 0, -1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getField_Desc(), ecorePackage.getEString(), "desc", null, 0, 1, Field.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fieldTypeEClass, FieldType.class, "FieldType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFieldType_ClassType(), ecorePackage.getEBoolean(), "classType", null, 0, 1, FieldType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

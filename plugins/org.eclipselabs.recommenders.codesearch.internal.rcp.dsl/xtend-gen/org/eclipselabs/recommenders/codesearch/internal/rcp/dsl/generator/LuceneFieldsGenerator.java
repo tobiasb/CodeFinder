@@ -27,7 +27,7 @@ public class LuceneFieldsGenerator implements IGenerator {
     for (final Model e : _filter) {
       {
         String _className = e.getClassName();
-        String _operator_plus = StringExtensions.operator_plus(_className, ".java");
+        String _operator_plus = StringExtensions.operator_plus(_className, ".java.txt");
         CharSequence _compileFieldsClass = this.compileFieldsClass(e);
         fsa.generateFile(_operator_plus, _compileFieldsClass);
         CharSequence _compileXtextBaseClass = this.compileXtextBaseClass(e);
@@ -47,95 +47,152 @@ public class LuceneFieldsGenerator implements IGenerator {
     {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();
       for(final FieldCategory category : _fieldCategories) {
-        _builder.append("\t\t");
-        _builder.append("\\begin{longtable}{|l|l|l|}");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\\subsubsection{");
+        String _categoryName = category.getCategoryName();
+        String _texCompatibleString = this.getTexCompatibleString(_categoryName);
+        _builder.append(_texCompatibleString, "");
+        _builder.append("}");
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        String _desc = category.getDesc();
+        _builder.append(_desc, "");
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("See table \\ref{tab:FieldTable");
+        String _categoryName_1 = category.getCategoryName();
+        String _texCompatibleString_1 = this.getTexCompatibleString(_categoryName_1);
+        _builder.append(_texCompatibleString_1, "");
+        _builder.append("} for the complete list of fields.");
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("%Category: ");
+        String _categoryName_2 = category.getCategoryName();
+        String _texCompatibleString_2 = this.getTexCompatibleString(_categoryName_2);
+        _builder.append(_texCompatibleString_2, "");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\\begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("\\hline");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\multicolumn{3}{|l|}{\\textsl{");
-        String _categoryName = category.getCategoryName();
-        _builder.append(_categoryName, "		");
+        String _categoryName_3 = category.getCategoryName();
+        String _texCompatibleString_3 = this.getTexCompatibleString(_categoryName_3);
+        _builder.append(_texCompatibleString_3, "	");
         _builder.append("}}\\\\\\hline");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\textbf{Field Name} & \\textbf{Target} & \\textbf{Description}\\\\");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\endfirsthead");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\multicolumn{3}{@{}l}{\\ldots continued}\\\\\\hline");
         _builder.newLine();
-        _builder.append("\t\t");
-        _builder.append("\\multicolumn{3}{|l|}{\\textsl{");
-        String _categoryName_1 = category.getCategoryName();
-        _builder.append(_categoryName_1, "		");
+        _builder.append("\t");
+        _builder.append("%\\multicolumn{3}{|l|}{\\textsl{");
+        String _categoryName_4 = category.getCategoryName();
+        String _texCompatibleString_4 = this.getTexCompatibleString(_categoryName_4);
+        _builder.append(_texCompatibleString_4, "	");
         _builder.append("}}\\\\\\hline");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\textbf{Field Name} & \\textbf{Target} & \\textbf{Description}\\\\");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\hline");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\endhead");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\hline");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\multicolumn{3}{r@{}}{continued \\ldots}\\\\");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\endfoot");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\hline");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\endlastfoot");
         _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\hline");
         _builder.newLine();
         {
           EList<Field> _fields = category.getFields();
           for(final Field field : _fields) {
-            _builder.append("\t\t");
+            _builder.append("\t");
             _builder.append("\\cfield{");
-            String _name = field.getName();
-            String _replace = _name.replace("_", "\\_");
-            _builder.append(_replace, "		");
-            _builder.append("} & \\parbox[t]{4cm}{");
-            {
-              EList<FieldType> _types = field.getTypes();
-              for(final FieldType t : _types) {
-                String _xifexpression = null;
-                EList<FieldType> _types_1 = field.getTypes();
-                int _indexOf = _types_1.indexOf(t);
-                boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
-                if (_operator_greaterThan) {
-                  _xifexpression = "\\\\ ";
-                }
-                _builder.append(_xifexpression, "		");
-                String _typeName = this.toTypeName(t);
-                _builder.append(_typeName, "		");
-              }
-            }
-            _builder.append("} & TODO \\\\");
+            String _value = field.getValue();
+            String _texCompatibleString_5 = this.getTexCompatibleString(_value);
+            _builder.append(_texCompatibleString_5, "	");
+            _builder.append("} ");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("& ");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append("\t");
+            CharSequence _iconForActionType = this.getIconForActionType(field, "class");
+            _builder.append(_iconForActionType, "		");
+            _builder.append(" ");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            CharSequence _iconForActionType_1 = this.getIconForActionType(field, "method");
+            _builder.append(_iconForActionType_1, "		");
+            _builder.append(" ");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            CharSequence _iconForActionType_2 = this.getIconForActionType(field, "field");
+            _builder.append(_iconForActionType_2, "		");
+            _builder.append(" ");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            CharSequence _iconForActionType_3 = this.getIconForActionType(field, "tryCatch");
+            _builder.append(_iconForActionType_3, "		");
+            _builder.append(" ");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            CharSequence _iconForActionType_4 = this.getIconForActionType(field, "varusage");
+            _builder.append(_iconForActionType_4, "		");
+            _builder.append(" ");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("& ");
+            String _desc_1 = field.getDesc();
+            _builder.append(_desc_1, "		");
+            _builder.append(" \\\\");
             _builder.newLineIfNotEmpty();
           }
         }
-        _builder.append("\t\t");
+        _builder.append("\t");
         _builder.append("\\hline");
         _builder.newLine();
-        _builder.append("\t\t");
-        _builder.append("\\caption{My caption for this table\\label{foo}}\\\\\\hline");
-        _builder.newLine();
-        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("\\caption{Lucene Fields in category \\cquote{");
+        String _categoryName_5 = category.getCategoryName();
+        String _texCompatibleString_6 = this.getTexCompatibleString(_categoryName_5);
+        _builder.append(_texCompatibleString_6, "	");
+        _builder.append("}\\label{tab:FieldTable");
+        String _categoryName_6 = category.getCategoryName();
+        String _texCompatibleString_7 = this.getTexCompatibleString(_categoryName_6);
+        _builder.append(_texCompatibleString_7, "	");
+        _builder.append("}}");
+        _builder.newLineIfNotEmpty();
         _builder.append("\\end{longtable}");
         _builder.newLine();
         _builder.append("\t\t");
@@ -146,6 +203,28 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("% End of generated file");
     return _builder;
+  }
+  
+  public CharSequence getIconForActionType(final Field field, final String t) {
+    CharSequence _xifexpression = null;
+    boolean _hasActionOfType = this.hasActionOfType(field, t);
+    if (_hasActionOfType) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("\\includegraphics[width=0.9em]{img-src/icons/");
+      _builder.append(t, "");
+      _builder.append(".png}");
+      _xifexpression = _builder;
+    } else {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("\\includegraphics[width=0.9em]{img-src/icons/empty.png}");
+      _xifexpression = _builder_1;
+    }
+    return _xifexpression;
+  }
+  
+  public String getTexCompatibleString(final String s) {
+    String _replace = s.replace("_", "\\_");
+    return _replace;
   }
   
   public CharSequence compileXtextBaseClass(final Model m) {
@@ -322,7 +401,8 @@ public class LuceneFieldsGenerator implements IGenerator {
     CharSequence _doNotModify = this.doNotModify();
     _builder.append(_doNotModify, "	");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("/*\t");
     _builder.newLine();
     _builder.append("public class ");
     String _className_1 = m.getClassName();
@@ -401,10 +481,18 @@ public class LuceneFieldsGenerator implements IGenerator {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();
       for(final FieldCategory category : _fieldCategories) {
         _builder.append("\t");
-        _builder.append("//");
+        _builder.append("/* ");
         String _categoryName = category.getCategoryName();
         _builder.append(_categoryName, "	");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("   ");
+        String _desc = category.getDesc();
+        _builder.append(_desc, "	   ");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("*/");
+        _builder.newLine();
         {
           EList<Field> _fields = category.getFields();
           for(final Field field : _fields) {
@@ -421,13 +509,20 @@ public class LuceneFieldsGenerator implements IGenerator {
     }
     _builder.append("}");
     _builder.newLine();
+    _builder.append("*/");
+    _builder.newLine();
     return _builder;
   }
   
   public CharSequence compile(final Field f) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
-    _builder.append("/** Can be applied to: ");
+    _builder.append("/** ");
+    String _desc = f.getDesc();
+    _builder.append(_desc, "	");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("Can be applied to: ");
     {
       EList<FieldType> _types = f.getTypes();
       for(final FieldType t : _types) {
@@ -438,15 +533,19 @@ public class LuceneFieldsGenerator implements IGenerator {
         if (_operator_greaterThan) {
           _xifexpression = ",";
         }
-        _builder.append(_xifexpression, "	");
+        _builder.append(_xifexpression, "		");
         String _typeName = this.toTypeName(t);
-        _builder.append(_typeName, "	");
+        _builder.append(_typeName, "		");
       }
     }
-    _builder.append("*/");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("//Generated - please modify in source file");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public final static String ");
@@ -460,8 +559,6 @@ public class LuceneFieldsGenerator implements IGenerator {
   }
   
   public String toTypeName(final FieldType t) {
-    String _xblockexpression = null;
-    {
       boolean _isClassType = t.isClassType();
       if (_isClassType) {
         return "class";
@@ -474,14 +571,27 @@ public class LuceneFieldsGenerator implements IGenerator {
       if (_isFieldType) {
         return "field";
       }
-      String _xifexpression = null;
       boolean _isTrycatchType = t.isTrycatchType();
       if (_isTrycatchType) {
         return "tryCatch";
       }
-      _xblockexpression = (_xifexpression);
-    }
-    return _xblockexpression;
+      boolean _isVarusage = t.isVarusage();
+      if (_isVarusage) {
+        return "varusage";
+      }
+      return "N/A";
+  }
+  
+  public boolean hasActionOfType(final Field f, final String tDesired) {
+      EList<FieldType> _types = f.getTypes();
+      for (final FieldType t : _types) {
+        String _typeName = this.toTypeName(t);
+        boolean _equals = _typeName.equals(tDesired);
+        if (_equals) {
+          return true;
+        }
+      }
+      return false;
   }
   
   public CharSequence doNotModify() {

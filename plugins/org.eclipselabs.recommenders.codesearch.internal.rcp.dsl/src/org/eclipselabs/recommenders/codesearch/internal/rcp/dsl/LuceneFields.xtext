@@ -12,12 +12,13 @@ Model:
 FieldCategory:
 	categoryName=ID '{'
 		fields+=Field*
-	'}'
+	'}' ('(' desc=STRING ')')?
 ;
 	
 Field:
 	name=ID '=' value=STRING 
-	'{' types+=FieldType (',' types+=FieldType)* '}' 
+	'{' types+=FieldType (',' types+=FieldType)* '}'
+	('(' desc=STRING ')')?
 ;
 	
 FieldType:
