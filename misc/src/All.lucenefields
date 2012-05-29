@@ -189,28 +189,28 @@ This escapint is done for all search terms used with fields in this category.")
 NumberField {
 	PARAMETER_COUNT 			= "ParameterCount" 
 	{ method }
-	("")
+	("Number of parameters that are defined in a method's parameter list")
 }
 ("")
 
 ModifierField {	
 	MODIFIERS 					= "Modifiers"
 	{ class, method, field }
-	("")
+	("Modifiers that are defined for the entity")
 }
 ("")
 
 TimeField {
 	TIMESTAMP 					= "Timestamp"
 	{ class, method, field, trycatch }
-	("")
+	("Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970.")
 }
 ("")
 
 DocumentTypeField {
 	TYPE 						= "Type" 
 	{ class, method, field, trycatch, varusage }
-	("")
+	("Defines the type of the entity represented by the document.")
 }
 ("")
 

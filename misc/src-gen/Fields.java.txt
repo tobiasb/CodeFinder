@@ -299,7 +299,7 @@ public class Fields {
 	
 	/* NumberField
 	*/
-	/** 
+	/** Number of parameters that are defined in a method's parameter list
 		Can be applied to: method
 	*/
 	//Generated - please modify in source file
@@ -309,7 +309,7 @@ public class Fields {
 	
 	/* ModifierField
 	*/
-	/** 
+	/** Modifiers that are defined for the entity
 		Can be applied to: class,method,field
 	*/
 	//Generated - please modify in source file
@@ -319,7 +319,7 @@ public class Fields {
 	
 	/* TimeField
 	*/
-	/** 
+	/** Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970.
 		Can be applied to: class,method,field,tryCatch
 	*/
 	//Generated - please modify in source file
@@ -329,7 +329,7 @@ public class Fields {
 	
 	/* DocumentTypeField
 	*/
-	/** 
+	/** Defines the type of the entity represented by the document.
 		Can be applied to: class,method,field,tryCatch,varusage
 	*/
 	//Generated - please modify in source file
