@@ -26,7 +26,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.ITryCatc
 public class TimestampIndexer implements IClassIndexer, IMethodIndexer, IFieldIndexer,
         ITryCatchBlockIndexer {
 
-    private static Long currentTimestamp = 0L;
+    private static long currentTimestamp = 0L;
 
     @Override
     public void indexTryCatchBlock(final Document document, final TryStatement tryStatement,
@@ -63,7 +63,7 @@ public class TimestampIndexer implements IClassIndexer, IMethodIndexer, IFieldIn
         currentTimestamp = System.currentTimeMillis();
     }
 
-    public static Long getTime() {
+    public static long getTime() {
     	updateCurrentTimestamp(); //temporarily until the "only update once per indexing" is activated
         return currentTimestamp;
     }
