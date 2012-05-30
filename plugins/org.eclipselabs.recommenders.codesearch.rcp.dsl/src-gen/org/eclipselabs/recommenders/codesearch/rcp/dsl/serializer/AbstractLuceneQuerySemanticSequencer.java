@@ -14,7 +14,6 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
@@ -66,12 +65,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 				   context == grammarAccess.getOrExpAccess().getOrExpLeftAction_1_0() ||
 				   context == grammarAccess.getPrimaryRule()) {
 					sequence_AndExp(context, (AndExp) semanticObject); 
-					return; 
-				}
-				else break;
-			case LuceneQueryPackage.ANNOTATION_FIELD:
-				if(context == grammarAccess.getAnnotationFieldRule()) {
-					sequence_AnnotationField(context, (AnnotationField) semanticObject); 
 					return; 
 				}
 				else break;
@@ -176,22 +169,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     value='Annotations'
-	 */
-	protected void sequence_AnnotationField(EObject context, AnnotationField semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.ANNOTATION_FIELD__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.ANNOTATION_FIELD__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getAnnotationFieldAccess().getValueAnnotationsKeyword_0(), semanticObject.getValue());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (
 	 *         default=SimpleFieldValue | 
 	 *         (field=SimpleField (values+=SimpleFieldValue | values+=SimpleFieldValue*)) | 
@@ -203,7 +180,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         (field=TimeField (values+=TimeFieldValue | values+=TimeFieldValue*)) | 
 	 *         (field=DocumentTypeField (values+=DocumentTypeFieldValue | values+=DocumentTypeFieldValue*)) | 
 	 *         (field=ProjectNameField (values+=ProjectNameFieldValue | values+=ProjectNameFieldValue*)) | 
-	 *         (field=AnnotationField (values+=AnnotationFieldValue | values+=AnnotationFieldValue*)) | 
 	 *         (field=DefinitionType (values+=DefinitionTypeValue | values+=DefinitionTypeValue*))
 	 *     )
 	 */
@@ -347,6 +323,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
+	 *         value='FullyQualifiedName' | 
 	 *         value='FriendlyName' | 
 	 *         value='ReturnVariableExpressions' | 
 	 *         value='AllDeclaredMethodNames' | 
@@ -359,7 +336,8 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         value='UsedFieldsInFinally' | 
 	 *         value='UsedFieldsInTry' | 
 	 *         value='VariableName' | 
-	 *         value='ParameterTypesStructural'
+	 *         value='ParameterTypesStructural' | 
+	 *         value='Annotations'
 	 *     )
 	 */
 	protected void sequence_SimpleField(EObject context, SimpleField semanticObject) {
@@ -386,7 +364,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
-	 *         value='FullyQualifiedName' | 
 	 *         value='ImplementedTypes' | 
 	 *         value='ExtendedTypes' | 
 	 *         value='UsedTypes' | 

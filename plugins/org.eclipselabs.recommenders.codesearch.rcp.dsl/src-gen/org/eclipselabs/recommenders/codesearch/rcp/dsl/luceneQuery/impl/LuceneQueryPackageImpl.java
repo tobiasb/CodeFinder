@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
@@ -117,13 +116,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * @generated
    */
   private EClass projectNameFieldEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass annotationFieldEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -481,26 +473,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAnnotationField()
-  {
-    return annotationFieldEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAnnotationField_Value()
-  {
-    return (EAttribute)annotationFieldEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDefinitionType()
   {
     return definitionTypeEClass;
@@ -633,9 +605,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     projectNameFieldEClass = createEClass(PROJECT_NAME_FIELD);
     createEAttribute(projectNameFieldEClass, PROJECT_NAME_FIELD__VALUE);
 
-    annotationFieldEClass = createEClass(ANNOTATION_FIELD);
-    createEAttribute(annotationFieldEClass, ANNOTATION_FIELD__VALUE);
-
     definitionTypeEClass = createEClass(DEFINITION_TYPE);
     createEAttribute(definitionTypeEClass, DEFINITION_TYPE__VALUE);
 
@@ -718,9 +687,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
 
     initEClass(projectNameFieldEClass, ProjectNameField.class, "ProjectNameField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProjectNameField_Value(), ecorePackage.getEString(), "value", null, 0, 1, ProjectNameField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(annotationFieldEClass, AnnotationField.class, "AnnotationField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAnnotationField_Value(), ecorePackage.getEString(), "value", null, 0, 1, AnnotationField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(definitionTypeEClass, DefinitionType.class, "DefinitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDefinitionType_Value(), ecorePackage.getEString(), "value", null, 0, 1, DefinitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

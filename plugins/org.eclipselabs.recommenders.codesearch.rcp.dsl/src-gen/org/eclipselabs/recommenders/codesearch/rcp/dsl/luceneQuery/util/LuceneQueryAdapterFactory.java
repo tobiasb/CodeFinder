@@ -134,11 +134,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createProjectNameFieldAdapter();
       }
       @Override
-      public Adapter caseAnnotationField(AnnotationField object)
-      {
-        return createAnnotationFieldAdapter();
-      }
-      @Override
       public Adapter caseDefinitionType(DefinitionType object)
       {
         return createDefinitionTypeAdapter();
@@ -336,21 +331,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createProjectNameFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField <em>Annotation Field</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField
-   * @generated
-   */
-  public Adapter createAnnotationFieldAdapter()
   {
     return null;
   }

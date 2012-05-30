@@ -93,13 +93,6 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 					) Boost?
 				)
 			| 	(
-					field=AnnotationField ':' 
-					(
-						(values+=AnnotationFieldValue)
-						| ('('(UnaryExpression? values+=AnnotationFieldValue Boost?)*')')
-					) Boost?
-				)
-			| 	(
 					field=DefinitionType ':' 
 					(
 						(values+=DefinitionTypeValue)
@@ -112,7 +105,8 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 
 	//Generated Rule. Do not modify!
 	SimpleField:
-		 	value='FriendlyName'
+			value='FullyQualifiedName'
+		| 	value='FriendlyName'
 		| 	value='ReturnVariableExpressions'
 		| 	value='AllDeclaredMethodNames'
 		| 	value='DeclaredMethodNames'
@@ -125,12 +119,12 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 		| 	value='UsedFieldsInTry'
 		| 	value='VariableName'
 		| 	value='ParameterTypesStructural'
+		| 	value='Annotations'
 	;
 	
 	//Generated Rule. Do not modify!
 	TypeField:
-			value='FullyQualifiedName'
-		|	value='ImplementedTypes'
+			value='ImplementedTypes'
 		| 	value='ExtendedTypes'
 		| 	value='UsedTypes'
 		| 	value='UsedTypesInTry'
@@ -191,11 +185,6 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	;
 	
 	//Generated Rule. Do not modify!
-	AnnotationField:
-			value='Annotations'
-	;
-	
-	//Generated Rule. Do not modify!
 	DefinitionType:
 			value='VariableDefinition'
 	;
@@ -203,7 +192,6 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	/*
 	End of generated rules.
 	*/
-	
 
 	SimpleFieldValue:
 		QuotedNameWithWC | NameWithWC

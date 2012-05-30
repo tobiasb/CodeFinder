@@ -80,7 +80,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
       case LuceneQueryPackage.TIME_FIELD: return createTimeField();
       case LuceneQueryPackage.DOCUMENT_TYPE_FIELD: return createDocumentTypeField();
       case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
-      case LuceneQueryPackage.ANNOTATION_FIELD: return createAnnotationField();
       case LuceneQueryPackage.DEFINITION_TYPE: return createDefinitionType();
       case LuceneQueryPackage.OR_EXP: return createOrExp();
       case LuceneQueryPackage.AND_EXP: return createAndExp();
@@ -242,17 +241,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     ProjectNameFieldImpl projectNameField = new ProjectNameFieldImpl();
     return projectNameField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AnnotationField createAnnotationField()
-  {
-    AnnotationFieldImpl annotationField = new AnnotationFieldImpl();
-    return annotationField;
   }
 
   /**

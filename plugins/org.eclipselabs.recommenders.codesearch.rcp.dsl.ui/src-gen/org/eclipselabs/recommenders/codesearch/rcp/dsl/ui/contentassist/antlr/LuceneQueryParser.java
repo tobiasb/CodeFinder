@@ -50,7 +50,6 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1_1_7_2(), "rule__ClauseExpression__Alternatives_1_1_7_2");
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1_1_8_2(), "rule__ClauseExpression__Alternatives_1_1_8_2");
 					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1_1_9_2(), "rule__ClauseExpression__Alternatives_1_1_9_2");
-					put(grammarAccess.getClauseExpressionAccess().getAlternatives_1_1_10_2(), "rule__ClauseExpression__Alternatives_1_1_10_2");
 					put(grammarAccess.getSimpleFieldAccess().getAlternatives(), "rule__SimpleField__Alternatives");
 					put(grammarAccess.getTypeFieldAccess().getAlternatives(), "rule__TypeField__Alternatives");
 					put(grammarAccess.getMethodFieldAccess().getAlternatives(), "rule__MethodField__Alternatives");
@@ -98,9 +97,6 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_9(), "rule__ClauseExpression__Group_1_1_9__0");
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_9_2_1(), "rule__ClauseExpression__Group_1_1_9_2_1__0");
 					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_9_2_1_1(), "rule__ClauseExpression__Group_1_1_9_2_1_1__0");
-					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_10(), "rule__ClauseExpression__Group_1_1_10__0");
-					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_10_2_1(), "rule__ClauseExpression__Group_1_1_10_2_1__0");
-					put(grammarAccess.getClauseExpressionAccess().getGroup_1_1_10_2_1_1(), "rule__ClauseExpression__Group_1_1_10_2_1_1__0");
 					put(grammarAccess.getOrExpAccess().getOrAssignment_1_1(), "rule__OrExp__OrAssignment_1_1");
 					put(grammarAccess.getOrExpAccess().getRightAssignment_1_2(), "rule__OrExp__RightAssignment_1_2");
 					put(grammarAccess.getAndExpAccess().getAndAssignment_1_1(), "rule__AndExp__AndAssignment_1_1");
@@ -137,9 +133,6 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getClauseExpressionAccess().getFieldAssignment_1_1_9_0(), "rule__ClauseExpression__FieldAssignment_1_1_9_0");
 					put(grammarAccess.getClauseExpressionAccess().getValuesAssignment_1_1_9_2_0(), "rule__ClauseExpression__ValuesAssignment_1_1_9_2_0");
 					put(grammarAccess.getClauseExpressionAccess().getValuesAssignment_1_1_9_2_1_1_1(), "rule__ClauseExpression__ValuesAssignment_1_1_9_2_1_1_1");
-					put(grammarAccess.getClauseExpressionAccess().getFieldAssignment_1_1_10_0(), "rule__ClauseExpression__FieldAssignment_1_1_10_0");
-					put(grammarAccess.getClauseExpressionAccess().getValuesAssignment_1_1_10_2_0(), "rule__ClauseExpression__ValuesAssignment_1_1_10_2_0");
-					put(grammarAccess.getClauseExpressionAccess().getValuesAssignment_1_1_10_2_1_1_1(), "rule__ClauseExpression__ValuesAssignment_1_1_10_2_1_1_1");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_0(), "rule__SimpleField__ValueAssignment_0");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_1(), "rule__SimpleField__ValueAssignment_1");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_2(), "rule__SimpleField__ValueAssignment_2");
@@ -153,6 +146,8 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_10(), "rule__SimpleField__ValueAssignment_10");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_11(), "rule__SimpleField__ValueAssignment_11");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_12(), "rule__SimpleField__ValueAssignment_12");
+					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_13(), "rule__SimpleField__ValueAssignment_13");
+					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_14(), "rule__SimpleField__ValueAssignment_14");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_0(), "rule__TypeField__ValueAssignment_0");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_1(), "rule__TypeField__ValueAssignment_1");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_2(), "rule__TypeField__ValueAssignment_2");
@@ -169,7 +164,6 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_13(), "rule__TypeField__ValueAssignment_13");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_14(), "rule__TypeField__ValueAssignment_14");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_15(), "rule__TypeField__ValueAssignment_15");
-					put(grammarAccess.getTypeFieldAccess().getValueAssignment_16(), "rule__TypeField__ValueAssignment_16");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_0(), "rule__MethodField__ValueAssignment_0");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_1(), "rule__MethodField__ValueAssignment_1");
 					put(grammarAccess.getMethodFieldAccess().getValueAssignment_2(), "rule__MethodField__ValueAssignment_2");
@@ -184,7 +178,6 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTimeFieldAccess().getValueAssignment(), "rule__TimeField__ValueAssignment");
 					put(grammarAccess.getDocumentTypeFieldAccess().getValueAssignment(), "rule__DocumentTypeField__ValueAssignment");
 					put(grammarAccess.getProjectNameFieldAccess().getValueAssignment(), "rule__ProjectNameField__ValueAssignment");
-					put(grammarAccess.getAnnotationFieldAccess().getValueAssignment(), "rule__AnnotationField__ValueAssignment");
 					put(grammarAccess.getDefinitionTypeAccess().getValueAssignment(), "rule__DefinitionType__ValueAssignment");
 				}
 			};

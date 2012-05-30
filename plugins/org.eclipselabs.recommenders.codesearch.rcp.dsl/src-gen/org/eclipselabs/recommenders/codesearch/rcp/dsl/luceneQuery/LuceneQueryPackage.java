@@ -406,34 +406,6 @@ public interface LuceneQueryPackage extends EPackage
   int PROJECT_NAME_FIELD_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AnnotationFieldImpl <em>Annotation Field</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AnnotationFieldImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getAnnotationField()
-   * @generated
-   */
-  int ANNOTATION_FIELD = 11;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANNOTATION_FIELD__VALUE = 0;
-
-  /**
-   * The number of structural features of the '<em>Annotation Field</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ANNOTATION_FIELD_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl <em>Definition Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -441,7 +413,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionType()
    * @generated
    */
-  int DEFINITION_TYPE = 12;
+  int DEFINITION_TYPE = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -469,7 +441,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getOrExp()
    * @generated
    */
-  int OR_EXP = 13;
+  int OR_EXP = 12;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -524,7 +496,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getAndExp()
    * @generated
    */
-  int AND_EXP = 14;
+  int AND_EXP = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -579,7 +551,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getBinaryExp()
    * @generated
    */
-  int BINARY_EXP = 15;
+  int BINARY_EXP = 14;
 
 
   /**
@@ -856,27 +828,6 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EAttribute getProjectNameField_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField <em>Annotation Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Annotation Field</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField
-   * @generated
-   */
-  EClass getAnnotationField();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AnnotationField#getValue()
-   * @see #getAnnotationField()
-   * @generated
-   */
-  EAttribute getAnnotationField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType <em>Definition Type</em>}'.
@@ -1203,24 +1154,6 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute PROJECT_NAME_FIELD__VALUE = eINSTANCE.getProjectNameField_Value();
-
-    /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AnnotationFieldImpl <em>Annotation Field</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.AnnotationFieldImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getAnnotationField()
-     * @generated
-     */
-    EClass ANNOTATION_FIELD = eINSTANCE.getAnnotationField();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ANNOTATION_FIELD__VALUE = eINSTANCE.getAnnotationField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl <em>Definition Type</em>}' class.
