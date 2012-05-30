@@ -1,20 +1,12 @@
-package org.eclipselabs.recommenders.test.codesearch.rcp.dsl;
+package org.eclipselabs.recommenders.test.codesearch.rcp.dslQL1;
 
 import java.io.StringReader;
 
 import org.eclipse.xtext.junit.AbstractXtextTests;
 import org.eclipse.xtext.parser.IParseResult;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.LuceneQueryStandaloneSetup;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1StandaloneSetup;
 
 public abstract class DslTestBase extends AbstractXtextTests {
-
-    protected String field(final String fieldName, final String fieldValue) {
-        return fieldName + ":" + fieldValue;
-    }
-
-    protected String field(final String fieldName, final int fieldValue) {
-        return field(fieldName, String.valueOf(fieldValue));
-    }
 
     protected IParseResult parse(String query) {
         return getParser().parse(new StringReader(query));
@@ -34,6 +26,6 @@ public abstract class DslTestBase extends AbstractXtextTests {
     protected void setUp() throws Exception {
         super.setUp();
 
-        with(LuceneQueryStandaloneSetup.class);
+        with(QL1StandaloneSetup.class);
     }
 }
