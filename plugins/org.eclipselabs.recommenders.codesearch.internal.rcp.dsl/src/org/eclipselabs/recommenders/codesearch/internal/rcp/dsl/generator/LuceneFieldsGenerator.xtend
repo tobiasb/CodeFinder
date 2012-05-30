@@ -26,10 +26,11 @@ class LuceneFieldsGenerator implements IGenerator {
 		«FOR category : m.fieldCategories»
 
 \subsubsection{«category.categoryName.getTexCompatibleString()»}
+\label{sec:FieldCategory«category.categoryName.getTexCompatibleString()»}
 
 «category.desc»
 
-See table \ref{tab:FieldTable«category.categoryName.getTexCompatibleString»} for the complete list of fields.
+See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields} for the complete list of fields.
 
 %Category: «category.categoryName.getTexCompatibleString()»
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -59,7 +60,7 @@ See table \ref{tab:FieldTable«category.categoryName.getTexCompatibleString»} f
 		& «field.desc» \\
 	«ENDFOR»
 	\hline
-	\caption{Lucene Fields in category \cquote{«category.categoryName.getTexCompatibleString»}\label{tab:FieldTable«category.categoryName.getTexCompatibleString»}}
+	\caption{Lucene Fields in category \cquote{«category.categoryName.getTexCompatibleString»}\label{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields}}
 \end{longtable}
 		
 		«ENDFOR»
