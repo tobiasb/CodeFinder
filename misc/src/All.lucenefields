@@ -62,6 +62,10 @@ SimpleField {
 	PARAMETER_TYPES_STRUCTURAL	= "ParameterTypesStructural"
 	{ method }
 	("Textual representation of a methods parameter list used \\textbf{internally} by MethodPatternQL (see \\ref{sec:MethodPatternQL})")
+		
+	ANNOTATIONS					= "Annotations"
+	{ class }
+	("")
 }("If the value of a field is plain text it is considered a simple field. No postprocessing is done to search terms that are used with a simple field when triggering the search. They usually contain names or expressions that do not have a special semantic.")
 
 TypeField {
@@ -175,12 +179,12 @@ MethodField {
 	("")
 }
 ("")
-  
+   
 FilePathField {
 	RESOURCE_PATH 				= "ResourcePath"
 	{ class, method, field, trycatch }
 	("Local file path to the current entity's source code file")
-}
+} 
 ("When a field represents a file path it is contained in this category. 
 Regardless of the local operating system all path names are persisted in unix style, e.g., \\cquote{/users/bob/sourcecode} and \\cquote{c:/users/bob/sourcecode}. 
 Since the colon \\cquote{:} is a special Lucene character that seperates a field name from its value it must be escaped when used inside a search term.
@@ -198,12 +202,21 @@ ModifierField {
 	{ class, method, field }
 	("Modifiers that are defined for the entity")
 }
-("")
+("
+\\begin{itemize}
+	\\item \\textbf{public}
+	\\item \\textbf{final}
+	\\item \\textbf{private}
+	\\item \\textbf{protected}
+	\\item \\textbf{static}
+	\\item \\textbf{abstract}
+\\end{itemize}
+")
 
 TimeField {
 	TIMESTAMP 					= "Timestamp"
 	{ class, method, field, trycatch }
-	("Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970.")
+	("Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970")
 }
 ("")
 
@@ -212,25 +225,43 @@ DocumentTypeField {
 	{ class, method, field, trycatch, varusage }
 	("Defines the type of the entity represented by the document.")
 }
-("")
+("By design, every document in the search index itself is equal. 
+For the index a document is just a container for the fields it contains. For \\cname this obviously not the case. 
+There it does matter whether a document represents a method or a class. 
+A document type field can be used to indicate an entity's type. The following five values are valid for a field representing a document type.
+
+\\begin{itemize}
+	\\item \\textbf{class}
+	\\item \\textbf{method}
+	\\item \\textbf{field}
+	\\item \\textbf{trycatch}
+	\\item \\textbf{varusage}
+\\end{itemize}
+")
 
 ProjectNameField {	
 	PROJECT_NAME 				= "ProjectName"
 	{ class, method, field, trycatch }
-	("")
+	("Name of the project the entity's source code file is a part of")
 }
-("")
-
-AnnotationField {	
-	ANNOTATIONS					= "Annotations"
-	{ class }
-	("")
-}
-("")
+("This category containes field(s) that represent a name of an Eclipse project. 
+The name itself is just a plain text string that might as well fit into the simple field category (see \\ref{sec:FieldCategorySimpleField}).
+However special treatment is performed when it comes to content assist in the user interface while entering a search term. 
+When entering project name fields the UI proposes those project names that are currently in the workspace.
+")
 
 DefinitionType {
 	VARIABLE_DEFINITION					= "VariableDefinition"
 	{ varusage }
 	("")
 }
-("")
+("
+\\begin{itemize}
+	\\item \\textbf{parameter} A variable has been declared as a method parameter
+	\\item \\textbf{nullLiteral} The variable has been declared and assigned \\lstinline|null|
+	\\item \\textbf{methodInvocation} The variable has been declared and initialised with the return value of a method call
+	\\item \\textbf{instanceCreation} The variable has been declared and initialized with a \\lstinline|new| statement
+	\\item \\textbf{uninitialized} A variable declared without being initialized
+	%TODO what about int x = y;?
+\\end{itemize}
+")

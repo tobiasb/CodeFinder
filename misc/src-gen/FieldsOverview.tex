@@ -2,10 +2,11 @@
 		
 
 \subsubsection{SimpleField}
+\label{sec:FieldCategorySimpleField}
 
 If the value of a field is plain text it is considered a simple field. No postprocessing is done to search terms that are used with a simple field when triggering the search. They usually contain names or expressions that do not have a special semantic.
 
-See table \ref{tab:FieldTableSimpleField} for the complete list of fields.
+See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fields.
 
 %Category: SimpleField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -136,12 +137,21 @@ See table \ref{tab:FieldTableSimpleField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Textual representation of a methods parameter list used \textbf{internally} by MethodPatternQL (see \ref{sec:MethodPatternQL}) \\
+	\cfield{Annotations} 
+		& 
+		\includegraphics[width=0.9em]{img-src/icons/class.png} 
+		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
+		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
+		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
+		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
+		&  \\
 	\hline
-	\caption{Lucene Fields in category \cquote{SimpleField}\label{tab:FieldTableSimpleField}}
+	\caption{Lucene Fields in category \cquote{SimpleField}\label{tab:FieldCategorySimpleFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{TypeField}
+\label{sec:FieldCategoryTypeField}
 
 Field values in that category represent type names. 
 Type names are fully qualified names of types, e.g, classes and interfaces. 
@@ -153,7 +163,7 @@ What is saved in the index is not this dot-notated syntax but a syntax providing
 By using the syntax that is used across the whole CodeRecommenders product range the compatibility between the search engine and those potential consumers is provided. 
 For types that syntax does not look all that different than the usual dot-notation. The internal representation of the aforementioned type \cquote{java.util.List} is \cquote{Ljava/util/List}.  
 
-See table \ref{tab:FieldTableTypeField} for the complete list of fields.
+See table \ref{tab:FieldCategoryTypeFieldFields} for the complete list of fields.
 
 %Category: TypeField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -301,14 +311,15 @@ See table \ref{tab:FieldTableTypeField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& The FQN of the checked exceptions possibly thrown by a method \\
 	\hline
-	\caption{Lucene Fields in category \cquote{TypeField}\label{tab:FieldTableTypeField}}
+	\caption{Lucene Fields in category \cquote{TypeField}\label{tab:FieldCategoryTypeFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{MethodField}
+\label{sec:FieldCategoryMethodField}
 
 
-See table \ref{tab:FieldTableMethodField} for the complete list of fields.
+See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fields.
 
 %Category: MethodField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -392,18 +403,19 @@ See table \ref{tab:FieldTableMethodField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		&  \\
 	\hline
-	\caption{Lucene Fields in category \cquote{MethodField}\label{tab:FieldTableMethodField}}
+	\caption{Lucene Fields in category \cquote{MethodField}\label{tab:FieldCategoryMethodFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{FilePathField}
+\label{sec:FieldCategoryFilePathField}
 
 When a field represents a file path it is contained in this category. 
 Regardless of the local operating system all path names are persisted in unix style, e.g., \cquote{/users/bob/sourcecode} and \cquote{c:/users/bob/sourcecode}. 
 Since the colon \cquote{:} is a special Lucene character that seperates a field name from its value it must be escaped when used inside a search term.
 This escapint is done for all search terms used with fields in this category.
 
-See table \ref{tab:FieldTableFilePathField} for the complete list of fields.
+See table \ref{tab:FieldCategoryFilePathFieldFields} for the complete list of fields.
 
 %Category: FilePathField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -431,14 +443,15 @@ See table \ref{tab:FieldTableFilePathField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Local file path to the current entity's source code file \\
 	\hline
-	\caption{Lucene Fields in category \cquote{FilePathField}\label{tab:FieldTableFilePathField}}
+	\caption{Lucene Fields in category \cquote{FilePathField}\label{tab:FieldCategoryFilePathFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{NumberField}
+\label{sec:FieldCategoryNumberField}
 
 
-See table \ref{tab:FieldTableNumberField} for the complete list of fields.
+See table \ref{tab:FieldCategoryNumberFieldFields} for the complete list of fields.
 
 %Category: NumberField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -466,14 +479,24 @@ See table \ref{tab:FieldTableNumberField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Number of parameters that are defined in a method's parameter list \\
 	\hline
-	\caption{Lucene Fields in category \cquote{NumberField}\label{tab:FieldTableNumberField}}
+	\caption{Lucene Fields in category \cquote{NumberField}\label{tab:FieldCategoryNumberFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{ModifierField}
+\label{sec:FieldCategoryModifierField}
 
 
-See table \ref{tab:FieldTableModifierField} for the complete list of fields.
+\begin{itemize}
+	\item \textbf{public}
+	\item \textbf{final}
+	\item \textbf{private}
+	\item \textbf{protected}
+	\item \textbf{static}
+	\item \textbf{abstract}
+\end{itemize}
+
+See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fields.
 
 %Category: ModifierField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -501,14 +524,15 @@ See table \ref{tab:FieldTableModifierField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Modifiers that are defined for the entity \\
 	\hline
-	\caption{Lucene Fields in category \cquote{ModifierField}\label{tab:FieldTableModifierField}}
+	\caption{Lucene Fields in category \cquote{ModifierField}\label{tab:FieldCategoryModifierFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{TimeField}
+\label{sec:FieldCategoryTimeField}
 
 
-See table \ref{tab:FieldTableTimeField} for the complete list of fields.
+See table \ref{tab:FieldCategoryTimeFieldFields} for the complete list of fields.
 
 %Category: TimeField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -534,16 +558,29 @@ See table \ref{tab:FieldTableTimeField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/field.png} 
 		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970. \\
+		& Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970 \\
 	\hline
-	\caption{Lucene Fields in category \cquote{TimeField}\label{tab:FieldTableTimeField}}
+	\caption{Lucene Fields in category \cquote{TimeField}\label{tab:FieldCategoryTimeFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{DocumentTypeField}
+\label{sec:FieldCategoryDocumentTypeField}
 
+By design, every document in the search index itself is equal. 
+For the index a document is just a container for the fields it contains. For \cname this obviously not the case. 
+There it does matter whether a document represents a method or a class. 
+A document type field can be used to indicate an entity's type. The following five values are valid for a field representing a document type.
 
-See table \ref{tab:FieldTableDocumentTypeField} for the complete list of fields.
+\begin{itemize}
+	\item \textbf{class}
+	\item \textbf{method}
+	\item \textbf{field}
+	\item \textbf{trycatch}
+	\item \textbf{varusage}
+\end{itemize}
+
+See table \ref{tab:FieldCategoryDocumentTypeFieldFields} for the complete list of fields.
 
 %Category: DocumentTypeField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -571,14 +608,19 @@ See table \ref{tab:FieldTableDocumentTypeField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		& Defines the type of the entity represented by the document. \\
 	\hline
-	\caption{Lucene Fields in category \cquote{DocumentTypeField}\label{tab:FieldTableDocumentTypeField}}
+	\caption{Lucene Fields in category \cquote{DocumentTypeField}\label{tab:FieldCategoryDocumentTypeFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{ProjectNameField}
+\label{sec:FieldCategoryProjectNameField}
 
+This category containes field(s) that represent a name of an Eclipse project. 
+The name itself is just a plain text string that might as well fit into the simple field category (see \ref{sec:FieldCategorySimpleField}).
+However special treatment is performed when it comes to content assist in the user interface while entering a search term. 
+When entering project name fields the UI proposes those project names that are currently in the workspace.
 
-See table \ref{tab:FieldTableProjectNameField} for the complete list of fields.
+See table \ref{tab:FieldCategoryProjectNameFieldFields} for the complete list of fields.
 
 %Category: ProjectNameField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -604,51 +646,26 @@ See table \ref{tab:FieldTableProjectNameField} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/field.png} 
 		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		&  \\
+		& Name of the project the entity's source code file is a part of \\
 	\hline
-	\caption{Lucene Fields in category \cquote{ProjectNameField}\label{tab:FieldTableProjectNameField}}
-\end{longtable}
-		
-
-\subsubsection{AnnotationField}
-
-
-See table \ref{tab:FieldTableAnnotationField} for the complete list of fields.
-
-%Category: AnnotationField
-\begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
-	\hline
-	\multicolumn{3}{|l|}{\textsl{AnnotationField}}\\\hline
-	\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
-	\endfirsthead
-	\multicolumn{3}{@{}l}{\ldots continued}\\\hline
-	%\multicolumn{3}{|l|}{\textsl{AnnotationField}}\\\hline
-	\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
-	\hline
-	\endhead
-	\hline
-	\multicolumn{3}{r@{}}{continued \ldots}\\
-	\endfoot
-	\hline
-	\endlastfoot
-	\hline
-	\cfield{Annotations} 
-		& 
-		\includegraphics[width=0.9em]{img-src/icons/class.png} 
-		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		&  \\
-	\hline
-	\caption{Lucene Fields in category \cquote{AnnotationField}\label{tab:FieldTableAnnotationField}}
+	\caption{Lucene Fields in category \cquote{ProjectNameField}\label{tab:FieldCategoryProjectNameFieldFields}}
 \end{longtable}
 		
 
 \subsubsection{DefinitionType}
+\label{sec:FieldCategoryDefinitionType}
 
 
-See table \ref{tab:FieldTableDefinitionType} for the complete list of fields.
+\begin{itemize}
+	\item \textbf{parameter} A variable has been declared as a method parameter
+	\item \textbf{nullLiteral} The variable has been declared and assigned \lstinline|null|
+	\item \textbf{methodInvocation} The variable has been declared and initialised with the return value of a method call
+	\item \textbf{instanceCreation} The variable has been declared and initialized with a \lstinline|new| statement
+	\item \textbf{uninitialized} A variable declared without being initialized
+	%TODO what about int x = y;?
+\end{itemize}
+
+See table \ref{tab:FieldCategoryDefinitionTypeFields} for the complete list of fields.
 
 %Category: DefinitionType
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
@@ -676,7 +693,7 @@ See table \ref{tab:FieldTableDefinitionType} for the complete list of fields.
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		&  \\
 	\hline
-	\caption{Lucene Fields in category \cquote{DefinitionType}\label{tab:FieldTableDefinitionType}}
+	\caption{Lucene Fields in category \cquote{DefinitionType}\label{tab:FieldCategoryDefinitionTypeFields}}
 \end{longtable}
 		
 		

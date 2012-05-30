@@ -72,13 +72,6 @@
 					) Boost?
 				)
 			| 	(
-					field=AnnotationField ':' 
-					(
-						(values+=AnnotationFieldValue)
-						| ('('(UnaryExpression? values+=AnnotationFieldValue Boost?)*')')
-					) Boost?
-				)
-			| 	(
 					field=DefinitionType ':' 
 					(
 						(values+=DefinitionTypeValue)
@@ -105,6 +98,7 @@
 		| 	value='UsedFieldsInTry'
 		| 	value='VariableName'
 		| 	value='ParameterTypesStructural'
+		| 	value='Annotations'
 	;
 	
 	//Generated Rule. Do not modify!
@@ -167,11 +161,6 @@
 	//Generated Rule. Do not modify!
 	ProjectNameField:
 			value='ProjectName'
-	;
-	
-	//Generated Rule. Do not modify!
-	AnnotationField:
-			value='Annotations'
 	;
 	
 	//Generated Rule. Do not modify!
