@@ -322,34 +322,6 @@ public interface LuceneQueryPackage extends EPackage
   int MODIFIER_FIELD_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.TimeFieldImpl <em>Time Field</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.TimeFieldImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTimeField()
-   * @generated
-   */
-  int TIME_FIELD = 8;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TIME_FIELD__VALUE = 0;
-
-  /**
-   * The number of structural features of the '<em>Time Field</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TIME_FIELD_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl <em>Document Type Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -357,7 +329,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDocumentTypeField()
    * @generated
    */
-  int DOCUMENT_TYPE_FIELD = 9;
+  int DOCUMENT_TYPE_FIELD = 8;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -385,7 +357,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getProjectNameField()
    * @generated
    */
-  int PROJECT_NAME_FIELD = 10;
+  int PROJECT_NAME_FIELD = 9;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -413,7 +385,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionType()
    * @generated
    */
-  int DEFINITION_TYPE = 11;
+  int DEFINITION_TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -441,7 +413,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getOrExp()
    * @generated
    */
-  int OR_EXP = 12;
+  int OR_EXP = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -496,7 +468,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getAndExp()
    * @generated
    */
-  int AND_EXP = 13;
+  int AND_EXP = 12;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -551,7 +523,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getBinaryExp()
    * @generated
    */
-  int BINARY_EXP = 14;
+  int BINARY_EXP = 13;
 
 
   /**
@@ -765,27 +737,6 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EAttribute getModifierField_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField <em>Time Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Time Field</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField
-   * @generated
-   */
-  EClass getTimeField();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField#getValue()
-   * @see #getTimeField()
-   * @generated
-   */
-  EAttribute getTimeField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField <em>Document Type Field</em>}'.
@@ -1100,24 +1051,6 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute MODIFIER_FIELD__VALUE = eINSTANCE.getModifierField_Value();
-
-    /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.TimeFieldImpl <em>Time Field</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.TimeFieldImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTimeField()
-     * @generated
-     */
-    EClass TIME_FIELD = eINSTANCE.getTimeField();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TIME_FIELD__VALUE = eINSTANCE.getTimeField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl <em>Document Type Field</em>}' class.

@@ -132,13 +132,6 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.TIME_FIELD:
-      {
-        TimeField timeField = (TimeField)theEObject;
-        T result = caseTimeField(timeField);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case LuceneQueryPackage.DOCUMENT_TYPE_FIELD:
       {
         DocumentTypeField documentTypeField = (DocumentTypeField)theEObject;
@@ -304,22 +297,6 @@ public class LuceneQuerySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModifierField(ModifierField object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Time Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Time Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTimeField(TimeField object)
   {
     return null;
   }

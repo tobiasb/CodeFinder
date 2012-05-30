@@ -29,7 +29,6 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.NumberField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ProjectNameField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TypeField;
 
 /**
@@ -95,13 +94,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * @generated
    */
   private EClass modifierFieldEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass timeFieldEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -413,26 +405,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getTimeField()
-  {
-    return timeFieldEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getTimeField_Value()
-  {
-    return (EAttribute)timeFieldEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getDocumentTypeField()
   {
     return documentTypeFieldEClass;
@@ -596,9 +568,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     modifierFieldEClass = createEClass(MODIFIER_FIELD);
     createEAttribute(modifierFieldEClass, MODIFIER_FIELD__VALUE);
 
-    timeFieldEClass = createEClass(TIME_FIELD);
-    createEAttribute(timeFieldEClass, TIME_FIELD__VALUE);
-
     documentTypeFieldEClass = createEClass(DOCUMENT_TYPE_FIELD);
     createEAttribute(documentTypeFieldEClass, DOCUMENT_TYPE_FIELD__VALUE);
 
@@ -678,9 +647,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
 
     initEClass(modifierFieldEClass, ModifierField.class, "ModifierField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModifierField_Value(), ecorePackage.getEString(), "value", null, 0, 1, ModifierField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(timeFieldEClass, TimeField.class, "TimeField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTimeField_Value(), ecorePackage.getEString(), "value", null, 0, 1, TimeField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(documentTypeFieldEClass, DocumentTypeField.class, "DocumentTypeField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDocumentTypeField_Value(), ecorePackage.getEString(), "value", null, 0, 1, DocumentTypeField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

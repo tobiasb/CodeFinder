@@ -77,37 +77,15 @@ ruleModel returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='packages' 
+(	otherlv_0='class' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getModelAccess().getPackagesKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getModelAccess().getClassKeyword_0());
     }
 (
 (
-		lv_packageNames_1_0=RULE_STRING
+		lv_className_1_0=RULE_ID
 		{
-			newLeafNode(lv_packageNames_1_0, grammarAccess.getModelAccess().getPackageNamesSTRINGTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getModelRule());
-	        }
-       		addWithLastConsumed(
-       			$current, 
-       			"packageNames",
-        		lv_packageNames_1_0, 
-        		"STRING");
-	    }
-
-)
-)*	otherlv_2='class' 
-    {
-    	newLeafNode(otherlv_2, grammarAccess.getModelAccess().getClassKeyword_2());
-    }
-(
-(
-		lv_className_3_0=RULE_ID
-		{
-			newLeafNode(lv_className_3_0, grammarAccess.getModelAccess().getClassNameIDTerminalRuleCall_3_0()); 
+			newLeafNode(lv_className_1_0, grammarAccess.getModelAccess().getClassNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -116,7 +94,7 @@ ruleModel returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"className",
-        		lv_className_3_0, 
+        		lv_className_1_0, 
         		"ID");
 	    }
 
@@ -124,16 +102,16 @@ ruleModel returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModelAccess().getFieldCategoriesFieldCategoryParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getModelAccess().getFieldCategoriesFieldCategoryParserRuleCall_2_0()); 
 	    }
-		lv_fieldCategories_4_0=ruleFieldCategory		{
+		lv_fieldCategories_2_0=ruleFieldCategory		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModelRule());
 	        }
        		add(
        			$current, 
        			"fieldCategories",
-        		lv_fieldCategories_4_0, 
+        		lv_fieldCategories_2_0, 
         		"FieldCategory");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -388,64 +366,64 @@ ruleFieldType returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_classType_0_0=	'class' 
+		lv_type_0_0=	'type' 
     {
-        newLeafNode(lv_classType_0_0, grammarAccess.getFieldTypeAccess().getClassTypeClassKeyword_0_0());
+        newLeafNode(lv_type_0_0, grammarAccess.getFieldTypeAccess().getTypeTypeKeyword_0_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getFieldTypeRule());
 	        }
-       		setWithLastConsumed($current, "classType", true, "class");
+       		setWithLastConsumed($current, "type", true, "type");
 	    }
 
 )
 )
     |(
 (
-		lv_methodType_1_0=	'method' 
+		lv_method_1_0=	'method' 
     {
-        newLeafNode(lv_methodType_1_0, grammarAccess.getFieldTypeAccess().getMethodTypeMethodKeyword_1_0());
+        newLeafNode(lv_method_1_0, grammarAccess.getFieldTypeAccess().getMethodMethodKeyword_1_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getFieldTypeRule());
 	        }
-       		setWithLastConsumed($current, "methodType", true, "method");
+       		setWithLastConsumed($current, "method", true, "method");
 	    }
 
 )
 )
     |(
 (
-		lv_fieldType_2_0=	'field' 
+		lv_field_2_0=	'field' 
     {
-        newLeafNode(lv_fieldType_2_0, grammarAccess.getFieldTypeAccess().getFieldTypeFieldKeyword_2_0());
+        newLeafNode(lv_field_2_0, grammarAccess.getFieldTypeAccess().getFieldFieldKeyword_2_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getFieldTypeRule());
 	        }
-       		setWithLastConsumed($current, "fieldType", true, "field");
+       		setWithLastConsumed($current, "field", true, "field");
 	    }
 
 )
 )
     |(
 (
-		lv_trycatchType_3_0=	'trycatch' 
+		lv_trycatch_3_0=	'trycatch' 
     {
-        newLeafNode(lv_trycatchType_3_0, grammarAccess.getFieldTypeAccess().getTrycatchTypeTrycatchKeyword_3_0());
+        newLeafNode(lv_trycatch_3_0, grammarAccess.getFieldTypeAccess().getTrycatchTrycatchKeyword_3_0());
     }
  
 	    {
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getFieldTypeRule());
 	        }
-       		setWithLastConsumed($current, "trycatchType", true, "trycatch");
+       		setWithLastConsumed($current, "trycatch", true, "trycatch");
 	    }
 
 )

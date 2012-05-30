@@ -72,13 +72,6 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 					) Boost?
 				)
 			| 	(
-					field=TimeField ':' 
-					(
-						(values+=TimeFieldValue)
-						| ('('(UnaryExpression? values+=TimeFieldValue Boost?)*')')
-					) Boost?
-				)
-			| 	(
 					field=DocumentTypeField ':' 
 					(
 						(values+=DocumentTypeFieldValue)
@@ -162,16 +155,12 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	//Generated Rule. Do not modify!
 	NumberField:
 			value='ParameterCount'
+		| 	value='Timestamp'
 	;
 	
 	//Generated Rule. Do not modify!
 	ModifierField:
 			value='Modifiers'
-	;
-	
-	//Generated Rule. Do not modify!
-	TimeField:
-			value='Timestamp'
 	;
 	
 	//Generated Rule. Do not modify!
@@ -192,6 +181,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	/*
 	End of generated rules.
 	*/
+
 
 	SimpleFieldValue:
 		QuotedNameWithWC | NameWithWC
@@ -218,20 +208,12 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 		| 'protected'
 	;
 	
-	TimeFieldValue:
-		NameWithWC
-	;
-	
 	DocumentTypeFieldValue:
-		'class'
+		'type'
 		| 'method'
 		| 'field'
 		| 'trycatch'
 		| 'varusage'
-	;
-	
-	AnnotationFieldValue:
-		NameWithWC
 	;
 	
 	TypeFieldValue:

@@ -20,7 +20,7 @@
         <elements xsi:type="xtext:Assignment" feature="modifier" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="returnType" operator="=">
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="returnType" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="methodName" operator="=">

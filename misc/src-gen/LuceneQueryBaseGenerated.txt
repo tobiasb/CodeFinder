@@ -9,6 +9,13 @@
 			default=SimpleFieldValue Boost? | // Default field
 			(
 				(
+					field=DocumentTypeField ':' 
+					(
+						(values+=DocumentTypeFieldValue)
+						| ('('(UnaryExpression? values+=DocumentTypeFieldValue Boost?)*')')
+					) Boost?
+				)
+			| 	(
 					field=SimpleField ':' 
 					(
 						(values+=SimpleFieldValue)
@@ -51,20 +58,6 @@
 					) Boost?
 				)
 			| 	(
-					field=TimeField ':' 
-					(
-						(values+=TimeFieldValue)
-						| ('('(UnaryExpression? values+=TimeFieldValue Boost?)*')')
-					) Boost?
-				)
-			| 	(
-					field=DocumentTypeField ':' 
-					(
-						(values+=DocumentTypeFieldValue)
-						| ('('(UnaryExpression? values+=DocumentTypeFieldValue Boost?)*')')
-					) Boost?
-				)
-			| 	(
 					field=ProjectNameField ':' 
 					(
 						(values+=ProjectNameFieldValue)
@@ -82,6 +75,11 @@
 		)
 	;
 
+	//Generated Rule. Do not modify!
+	DocumentTypeField:
+			value='Type'
+	;
+	
 	//Generated Rule. Do not modify!
 	SimpleField:
 			value='FullyQualifiedName'
@@ -141,21 +139,12 @@
 	//Generated Rule. Do not modify!
 	NumberField:
 			value='ParameterCount'
+		| 	value='Timestamp'
 	;
 	
 	//Generated Rule. Do not modify!
 	ModifierField:
 			value='Modifiers'
-	;
-	
-	//Generated Rule. Do not modify!
-	TimeField:
-			value='Timestamp'
-	;
-	
-	//Generated Rule. Do not modify!
-	DocumentTypeField:
-			value='Type'
 	;
 	
 	//Generated Rule. Do not modify!

@@ -63,7 +63,7 @@ public class DotNotationTypeConverterTest {
     public void testQualifiedNameWithoutDotIsWildcardPrefixSearch() {
         final IQueryPartConverter sut = new DotNotationTypeConverter();
 
-        final String expected = "L*IWorkbench";
+        final String expected = "L*/IWorkbench";
         final String actual = sut.convertFrom("IWorkbench");
 
         Assert.assertEquals(expected, actual);
@@ -90,7 +90,7 @@ public class DotNotationTypeConverterTest {
     public void testIdempotenceUnqualifiedTypeName() {
         final IQueryPartConverter sut = new DotNotationTypeConverter();
 
-        final String expected = "L*IWorkbench";
+        final String expected = "L*/IWorkbench";
         String actual = "IWorkbench";
 
         actual = sut.convertFrom(actual);

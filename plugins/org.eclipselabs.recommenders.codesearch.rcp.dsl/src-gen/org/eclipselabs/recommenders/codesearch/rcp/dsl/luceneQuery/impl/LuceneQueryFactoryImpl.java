@@ -77,7 +77,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
       case LuceneQueryPackage.FILE_PATH_FIELD: return createFilePathField();
       case LuceneQueryPackage.NUMBER_FIELD: return createNumberField();
       case LuceneQueryPackage.MODIFIER_FIELD: return createModifierField();
-      case LuceneQueryPackage.TIME_FIELD: return createTimeField();
       case LuceneQueryPackage.DOCUMENT_TYPE_FIELD: return createDocumentTypeField();
       case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
       case LuceneQueryPackage.DEFINITION_TYPE: return createDefinitionType();
@@ -208,17 +207,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     ModifierFieldImpl modifierField = new ModifierFieldImpl();
     return modifierField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TimeField createTimeField()
-  {
-    TimeFieldImpl timeField = new TimeFieldImpl();
-    return timeField;
   }
 
   /**

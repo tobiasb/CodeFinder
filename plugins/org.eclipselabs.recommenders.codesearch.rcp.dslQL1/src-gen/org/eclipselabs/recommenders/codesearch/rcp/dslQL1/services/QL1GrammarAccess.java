@@ -48,11 +48,11 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cThrowsClauseThrowsParserRuleCall_4_0 = (RuleCall)cThrowsClauseAssignment_4.eContents().get(0);
 		
 		//MethodPatternDefinition:
-		//	modifier=Modifier returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
+		//	modifier=Modifier returnType=ReturnType? methodName=MethodName parameterDefinition=ParameterDefinition?
 		//	throwsClause=Throws?;
 		public ParserRule getRule() { return rule; }
 
-		//modifier=Modifier returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
+		//modifier=Modifier returnType=ReturnType? methodName=MethodName parameterDefinition=ParameterDefinition?
 		//throwsClause=Throws?
 		public Group getGroup() { return cGroup; }
 
@@ -62,7 +62,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 		//Modifier
 		public RuleCall getModifierModifierParserRuleCall_0_0() { return cModifierModifierParserRuleCall_0_0; }
 
-		//returnType=ReturnType
+		//returnType=ReturnType?
 		public Assignment getReturnTypeAssignment_1() { return cReturnTypeAssignment_1; }
 
 		//ReturnType
@@ -478,7 +478,7 @@ public class QL1GrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MethodPatternDefinition:
-	//	modifier=Modifier returnType=ReturnType methodName=MethodName parameterDefinition=ParameterDefinition?
+	//	modifier=Modifier returnType=ReturnType? methodName=MethodName parameterDefinition=ParameterDefinition?
 	//	throwsClause=Throws?;
 	public MethodPatternDefinitionElements getMethodPatternDefinitionAccess() {
 		return (pMethodPatternDefinition != null) ? pMethodPatternDefinition : (pMethodPatternDefinition = new MethodPatternDefinitionElements());

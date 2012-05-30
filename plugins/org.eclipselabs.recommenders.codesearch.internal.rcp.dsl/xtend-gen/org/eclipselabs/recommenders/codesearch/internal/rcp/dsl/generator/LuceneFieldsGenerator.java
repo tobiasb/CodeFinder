@@ -31,7 +31,7 @@ public class LuceneFieldsGenerator implements IGenerator {
         CharSequence _compileFieldsClass = this.compileFieldsClass(e);
         fsa.generateFile(_operator_plus, _compileFieldsClass);
         CharSequence _compileXtextBaseClass = this.compileXtextBaseClass(e);
-        fsa.generateFile("LuceneQueryBaseGenerated.xtext", _compileXtextBaseClass);
+        fsa.generateFile("LuceneQueryBaseGenerated.txt", _compileXtextBaseClass);
         CharSequence _compileTexFieldOverview = this.compileTexFieldOverview(e);
         fsa.generateFile("FieldsOverview.tex", _compileTexFieldOverview);
       }
@@ -42,7 +42,6 @@ public class LuceneFieldsGenerator implements IGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("% This file is generated");
     _builder.newLine();
-    _builder.append("\t\t");
     _builder.newLine();
     {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();
@@ -148,7 +147,7 @@ public class LuceneFieldsGenerator implements IGenerator {
             _builder.newLine();
             _builder.append("\t");
             _builder.append("\t");
-            CharSequence _iconForActionType = this.getIconForActionType(field, "class");
+            CharSequence _iconForActionType = this.getIconForActionType(field, "type");
             _builder.append(_iconForActionType, "		");
             _builder.append(" ");
             _builder.newLineIfNotEmpty();
@@ -385,38 +384,50 @@ public class LuceneFieldsGenerator implements IGenerator {
   
   public CharSequence compileFieldsClass(final Model m) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("/*");
+    _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("*\tCOPY THE NEXT BLOCK TO THE FOLLOWING LOCATONS:");
+    _builder.append("* Copyright (c) 2010, 2012 Darmstadt University of Technology.");
     _builder.newLine();
-    {
-      EList<String> _packageNames = m.getPackageNames();
-      for(final String packageName : _packageNames) {
-        _builder.append("*\t\t");
-        _builder.append(packageName, "");
-        _builder.append(".");
-        String _className = m.getClassName();
-        _builder.append(_className, "");
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    _builder.append(" ");
+    _builder.append("* All rights reserved. This program and the accompanying materials");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* are made available under the terms of the Eclipse Public License v1.0");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* which accompanies this distribution, and is available at");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* http://www.eclipse.org/legal/epl-v10.html");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Contributors:");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*    Tobias Boehm - initial API and implementation.");
+    _builder.newLine();
+    _builder.append(" ");
     _builder.append("*/");
     _builder.newLine();
-    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("package org.eclipse.recommenders.codesearch.rcp.index;");
+    _builder.newLine();
+    _builder.newLine();
     CharSequence _doNotModify = this.doNotModify();
-    _builder.append(_doNotModify, "	");
+    _builder.append(_doNotModify, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("/*\t");
-    _builder.newLine();
     _builder.append("public class ");
-    String _className_1 = m.getClassName();
-    _builder.append(_className_1, "");
+    String _className = m.getClassName();
+    _builder.append(_className, "");
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("public final static String TYPE_CLASS = \"class\";");
+    _builder.append("public final static String TYPE_CLASS = \"type\";");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public final static String TYPE_METHOD = \"method\";");
@@ -487,18 +498,10 @@ public class LuceneFieldsGenerator implements IGenerator {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();
       for(final FieldCategory category : _fieldCategories) {
         _builder.append("\t");
-        _builder.append("/* ");
+        _builder.append("// ");
         String _categoryName = category.getCategoryName();
         _builder.append(_categoryName, "	");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("   ");
-        String _desc = category.getDesc();
-        _builder.append(_desc, "	   ");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("*/");
-        _builder.newLine();
         {
           EList<Field> _fields = category.getFields();
           for(final Field field : _fields) {
@@ -515,8 +518,6 @@ public class LuceneFieldsGenerator implements IGenerator {
     }
     _builder.append("}");
     _builder.newLine();
-    _builder.append("*/");
-    _builder.newLine();
     return _builder;
   }
   
@@ -526,6 +527,7 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("/** ");
     String _desc = f.getDesc();
     _builder.append(_desc, "	");
+    _builder.append("<br /><br />");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("Can be applied to: ");
@@ -537,7 +539,7 @@ public class LuceneFieldsGenerator implements IGenerator {
         int _indexOf = _types_1.indexOf(t);
         boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
         if (_operator_greaterThan) {
-          _xifexpression = ",";
+          _xifexpression = ", ";
         }
         _builder.append(_xifexpression, "		");
         String _typeName = this.toTypeName(t);
@@ -552,8 +554,6 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("//Generated - please modify in source file");
     _builder.newLine();
     _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("public final static String ");
     String _name = f.getName();
     _builder.append(_name, "	");
@@ -565,20 +565,20 @@ public class LuceneFieldsGenerator implements IGenerator {
   }
   
   public String toTypeName(final FieldType t) {
-      boolean _isClassType = t.isClassType();
-      if (_isClassType) {
-        return "class";
+      boolean _isType = t.isType();
+      if (_isType) {
+        return "type";
       }
-      boolean _isMethodType = t.isMethodType();
-      if (_isMethodType) {
+      boolean _isMethod = t.isMethod();
+      if (_isMethod) {
         return "method";
       }
-      boolean _isFieldType = t.isFieldType();
-      if (_isFieldType) {
+      boolean _isField = t.isField();
+      if (_isField) {
         return "field";
       }
-      boolean _isTrycatchType = t.isTrycatchType();
-      if (_isTrycatchType) {
+      boolean _isTrycatch = t.isTrycatch();
+      if (_isTrycatch) {
         return "tryCatch";
       }
       boolean _isVarusage = t.isVarusage();

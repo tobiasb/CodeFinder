@@ -9,10 +9,6 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/internal/rcp/dsl/LuceneFields#//Model"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="packages"/>
-        <elements xsi:type="xtext:Assignment" cardinality="*" feature="packageNames" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
-        </elements>
         <elements xsi:type="xtext:Keyword" value="class"/>
         <elements xsi:type="xtext:Assignment" feature="className" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
@@ -81,16 +77,16 @@
         <classifier xsi:type="ecore:EClass" href="http://www.eclipselabs.org/recommenders/codesearch/internal/rcp/dsl/LuceneFields#//FieldType"/>
       </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Assignment" feature="classType" operator="?=">
-          <terminal xsi:type="xtext:Keyword" value="class"/>
+        <elements xsi:type="xtext:Assignment" feature="type" operator="?=">
+          <terminal xsi:type="xtext:Keyword" value="type"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="methodType" operator="?=">
+        <elements xsi:type="xtext:Assignment" feature="method" operator="?=">
           <terminal xsi:type="xtext:Keyword" value="method"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="fieldType" operator="?=">
+        <elements xsi:type="xtext:Assignment" feature="field" operator="?=">
           <terminal xsi:type="xtext:Keyword" value="field"/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="trycatchType" operator="?=">
+        <elements xsi:type="xtext:Assignment" feature="trycatch" operator="?=">
           <terminal xsi:type="xtext:Keyword" value="trycatch"/>
         </elements>
         <elements xsi:type="xtext:Assignment" feature="varusage" operator="?=">

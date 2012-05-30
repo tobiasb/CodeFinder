@@ -829,9 +829,9 @@ ruleUnaryExpression
     |((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldTimeFieldParserRuleCall_1_1_6_0_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldDocumentTypeFieldParserRuleCall_1_1_6_0_0()); 
 	    }
-		lv_field_57_0=ruleTimeField		{
+		lv_field_57_0=ruleDocumentTypeField		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -839,7 +839,7 @@ ruleUnaryExpression
        			$current, 
        			"field",
         		lv_field_57_0, 
-        		"TimeField");
+        		"DocumentTypeField");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -851,9 +851,9 @@ ruleUnaryExpression
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesTimeFieldValueParserRuleCall_1_1_6_2_0_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDocumentTypeFieldValueParserRuleCall_1_1_6_2_0_0()); 
 	    }
-		lv_values_59_0=ruleTimeFieldValue		{
+		lv_values_59_0=ruleDocumentTypeFieldValue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -861,7 +861,7 @@ ruleUnaryExpression
        			$current, 
        			"values",
         		lv_values_59_0, 
-        		"TimeFieldValue");
+        		"DocumentTypeFieldValue");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -882,9 +882,9 @@ ruleUnaryExpression
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesTimeFieldValueParserRuleCall_1_1_6_2_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDocumentTypeFieldValueParserRuleCall_1_1_6_2_1_1_1_0()); 
 	    }
-		lv_values_62_0=ruleTimeFieldValue		{
+		lv_values_62_0=ruleDocumentTypeFieldValue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -892,7 +892,7 @@ ruleUnaryExpression
        			$current, 
        			"values",
         		lv_values_62_0, 
-        		"TimeFieldValue");
+        		"DocumentTypeFieldValue");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -913,9 +913,9 @@ ruleUnaryExpression
     |((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldDocumentTypeFieldParserRuleCall_1_1_7_0_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldProjectNameFieldParserRuleCall_1_1_7_0_0()); 
 	    }
-		lv_field_66_0=ruleDocumentTypeField		{
+		lv_field_66_0=ruleProjectNameField		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -923,7 +923,7 @@ ruleUnaryExpression
        			$current, 
        			"field",
         		lv_field_66_0, 
-        		"DocumentTypeField");
+        		"ProjectNameField");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -935,9 +935,9 @@ ruleUnaryExpression
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_0_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesProjectNameFieldValueParserRuleCall_1_1_7_2_0_0()); 
 	    }
-		lv_values_68_0=ruleDocumentTypeFieldValue		{
+		lv_values_68_0=ruleProjectNameFieldValue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -945,7 +945,7 @@ ruleUnaryExpression
        			$current, 
        			"values",
         		lv_values_68_0, 
-        		"DocumentTypeFieldValue");
+        		"ProjectNameFieldValue");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -966,9 +966,9 @@ ruleUnaryExpression
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDocumentTypeFieldValueParserRuleCall_1_1_7_2_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesProjectNameFieldValueParserRuleCall_1_1_7_2_1_1_1_0()); 
 	    }
-		lv_values_71_0=ruleDocumentTypeFieldValue		{
+		lv_values_71_0=ruleProjectNameFieldValue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -976,7 +976,7 @@ ruleUnaryExpression
        			$current, 
        			"values",
         		lv_values_71_0, 
-        		"DocumentTypeFieldValue");
+        		"ProjectNameFieldValue");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -997,9 +997,9 @@ ruleUnaryExpression
     |((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldProjectNameFieldParserRuleCall_1_1_8_0_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldDefinitionTypeParserRuleCall_1_1_8_0_0()); 
 	    }
-		lv_field_75_0=ruleProjectNameField		{
+		lv_field_75_0=ruleDefinitionType		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -1007,7 +1007,7 @@ ruleUnaryExpression
        			$current, 
        			"field",
         		lv_field_75_0, 
-        		"ProjectNameField");
+        		"DefinitionType");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1019,9 +1019,9 @@ ruleUnaryExpression
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_0_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_8_2_0_0()); 
 	    }
-		lv_values_77_0=ruleProjectNameFieldValue		{
+		lv_values_77_0=ruleDefinitionTypeValue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -1029,7 +1029,7 @@ ruleUnaryExpression
        			$current, 
        			"values",
         		lv_values_77_0, 
-        		"ProjectNameFieldValue");
+        		"DefinitionTypeValue");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1050,9 +1050,9 @@ ruleUnaryExpression
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesProjectNameFieldValueParserRuleCall_1_1_8_2_1_1_1_0()); 
+	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_8_2_1_1_1_0()); 
 	    }
-		lv_values_80_0=ruleProjectNameFieldValue		{
+		lv_values_80_0=ruleDefinitionTypeValue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
 	        }
@@ -1060,7 +1060,7 @@ ruleUnaryExpression
        			$current, 
        			"values",
         		lv_values_80_0, 
-        		"ProjectNameFieldValue");
+        		"DefinitionTypeValue");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1076,90 +1076,6 @@ ruleUnaryExpression
 ))(this_Boost_83=RULE_BOOST
     { 
     newLeafNode(this_Boost_83, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_8_3()); 
-    }
-)?)
-    |((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getFieldDefinitionTypeParserRuleCall_1_1_9_0_0()); 
-	    }
-		lv_field_84_0=ruleDefinitionType		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
-	        }
-       		set(
-       			$current, 
-       			"field",
-        		lv_field_84_0, 
-        		"DefinitionType");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)	otherlv_85=':' 
-    {
-    	newLeafNode(otherlv_85, grammarAccess.getClauseExpressionAccess().getColonKeyword_1_1_9_1());
-    }
-((
-(
-		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_9_2_0_0()); 
-	    }
-		lv_values_86_0=ruleDefinitionTypeValue		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
-	        }
-       		add(
-       			$current, 
-       			"values",
-        		lv_values_86_0, 
-        		"DefinitionTypeValue");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-    |(	otherlv_87='(' 
-    {
-    	newLeafNode(otherlv_87, grammarAccess.getClauseExpressionAccess().getLeftParenthesisKeyword_1_1_9_2_1_0());
-    }
-((
-    { 
-        newCompositeNode(grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_9_2_1_1_0()); 
-    }
-ruleUnaryExpression
-    { 
-        afterParserOrEnumRuleCall();
-    }
-)?(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getClauseExpressionAccess().getValuesDefinitionTypeValueParserRuleCall_1_1_9_2_1_1_1_0()); 
-	    }
-		lv_values_89_0=ruleDefinitionTypeValue		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getClauseExpressionRule());
-	        }
-       		add(
-       			$current, 
-       			"values",
-        		lv_values_89_0, 
-        		"DefinitionTypeValue");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)(this_Boost_90=RULE_BOOST
-    { 
-    newLeafNode(this_Boost_90, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_2_1_1_2()); 
-    }
-)?)*	otherlv_91=')' 
-    {
-    	newLeafNode(otherlv_91, grammarAccess.getClauseExpressionAccess().getRightParenthesisKeyword_1_1_9_2_1_2());
-    }
-))(this_Boost_92=RULE_BOOST
-    { 
-    newLeafNode(this_Boost_92, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_3()); 
     }
 )?))))
 ;
@@ -1902,11 +1818,11 @@ ruleNumberField returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(
+((
 (
 		lv_value_0_0=	'ParameterCount' 
     {
-        newLeafNode(lv_value_0_0, grammarAccess.getNumberFieldAccess().getValueParameterCountKeyword_0());
+        newLeafNode(lv_value_0_0, grammarAccess.getNumberFieldAccess().getValueParameterCountKeyword_0_0());
     }
  
 	    {
@@ -1918,6 +1834,22 @@ ruleNumberField returns [EObject current=null]
 
 )
 )
+    |(
+(
+		lv_value_1_0=	'Timestamp' 
+    {
+        newLeafNode(lv_value_1_0, grammarAccess.getNumberFieldAccess().getValueTimestampKeyword_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getNumberFieldRule());
+	        }
+       		setWithLastConsumed($current, "value", lv_value_1_0, "Timestamp");
+	    }
+
+)
+))
 ;
 
 
@@ -1950,42 +1882,6 @@ ruleModifierField returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getModifierFieldRule());
 	        }
        		setWithLastConsumed($current, "value", lv_value_0_0, "Modifiers");
-	    }
-
-)
-)
-;
-
-
-
-
-
-// Entry rule entryRuleTimeField
-entryRuleTimeField returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getTimeFieldRule()); }
-	 iv_ruleTimeField=ruleTimeField 
-	 { $current=$iv_ruleTimeField.current; } 
-	 EOF 
-;
-
-// Rule TimeField
-ruleTimeField returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(
-(
-		lv_value_0_0=	'Timestamp' 
-    {
-        newLeafNode(lv_value_0_0, grammarAccess.getTimeFieldAccess().getValueTimestampKeyword_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getTimeFieldRule());
-	        }
-       		setWithLastConsumed($current, "value", lv_value_0_0, "Timestamp");
 	    }
 
 )
@@ -2286,34 +2182,6 @@ ruleModifierFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatype
 
 
 
-// Entry rule entryRuleTimeFieldValue
-entryRuleTimeFieldValue returns [String current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getTimeFieldValueRule()); } 
-	 iv_ruleTimeFieldValue=ruleTimeFieldValue 
-	 { $current=$iv_ruleTimeFieldValue.current.getText(); }  
-	 EOF 
-;
-
-// Rule TimeFieldValue
-ruleTimeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-    this_NameWithWC_0=RULE_NAMEWITHWC    {
-		$current.merge(this_NameWithWC_0);
-    }
-
-    { 
-    newLeafNode(this_NameWithWC_0, grammarAccess.getTimeFieldValueAccess().getNameWithWCTerminalRuleCall()); 
-    }
-
-    ;
-
-
-
-
-
 // Entry rule entryRuleDocumentTypeFieldValue
 entryRuleDocumentTypeFieldValue returns [String current=null] 
 	:
@@ -2329,10 +2197,10 @@ ruleDocumentTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrData
     }
     @after { leaveRule(); }:
 (
-	kw='class' 
+	kw='type' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getClassKeyword_0()); 
+        newLeafNode(kw, grammarAccess.getDocumentTypeFieldValueAccess().getTypeKeyword_0()); 
     }
 
     |
@@ -2364,8 +2232,6 @@ ruleDocumentTypeFieldValue returns [AntlrDatatypeRuleToken current=new AntlrData
     }
 )
     ;
-
-
 
 
 

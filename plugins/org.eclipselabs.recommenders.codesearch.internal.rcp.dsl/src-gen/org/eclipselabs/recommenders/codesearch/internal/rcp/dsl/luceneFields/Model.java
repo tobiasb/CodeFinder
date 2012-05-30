@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model#getPackageNames <em>Package Names</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model#getClassName <em>Class Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model#getFieldCategories <em>Field Categories</em>}</li>
  * </ul>
@@ -30,22 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Package Names</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Package Names</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Package Names</em>' attribute list.
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getModel_PackageNames()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getPackageNames();
-
   /**
    * Returns the value of the '<em><b>Class Name</b></em>' attribute.
    * <!-- begin-user-doc -->

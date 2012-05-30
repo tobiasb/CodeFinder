@@ -613,7 +613,7 @@ rule__MethodPatternDefinition__Group__1__Impl
 :
 (
 { before(grammarAccess.getMethodPatternDefinitionAccess().getReturnTypeAssignment_1()); }
-(rule__MethodPatternDefinition__ReturnTypeAssignment_1)
+(rule__MethodPatternDefinition__ReturnTypeAssignment_1)?
 { after(grammarAccess.getMethodPatternDefinitionAccess().getReturnTypeAssignment_1()); }
 )
 

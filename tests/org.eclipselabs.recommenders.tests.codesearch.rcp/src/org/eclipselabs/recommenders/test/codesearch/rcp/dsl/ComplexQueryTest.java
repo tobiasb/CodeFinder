@@ -41,7 +41,7 @@ public class ComplexQueryTest extends DslTestBase {
 
         super.setUp();
         getParseResultAndExpect(
-                "Type:method AND (UsedTypes:org.eclipse.recommenders.codesearch.FeatureWeights OR Modifiers:private OR Type:class)",
+                "Type:method AND (UsedTypes:org.eclipse.recommenders.codesearch.FeatureWeights OR Modifiers:private OR Type:type)",
                 0);
     }
 }

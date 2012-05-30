@@ -3,7 +3,6 @@ grammar org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.LuceneFields wi
 generate luceneFields "http://www.eclipselabs.org/recommenders/codesearch/internal/rcp/dsl/LuceneFields"
 
 Model:
-	'packages' packageNames +=STRING* 
 	'class' className=ID
 	
 	fieldCategories+=FieldCategory*
@@ -22,5 +21,5 @@ Field:
 ;
 	
 FieldType:
-	classType?='class' | methodType?='method' | fieldType?='field' | trycatchType?='trycatch' | varusage?='varusage'
+	type?='type' | method?='method' | field?='field' | trycatch?='trycatch' | varusage?='varusage'
 ;

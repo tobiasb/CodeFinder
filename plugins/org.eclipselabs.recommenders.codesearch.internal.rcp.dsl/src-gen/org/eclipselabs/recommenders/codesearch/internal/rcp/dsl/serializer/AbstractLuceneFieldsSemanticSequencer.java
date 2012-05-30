@@ -84,7 +84,7 @@ public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (classType?='class' | methodType?='method' | fieldType?='field' | trycatchType?='trycatch' | varusage?='varusage')
+	 *     (type?='type' | method?='method' | field?='field' | trycatch?='trycatch' | varusage?='varusage')
 	 */
 	protected void sequence_FieldType(EObject context, FieldType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -102,7 +102,7 @@ public class AbstractLuceneFieldsSemanticSequencer extends AbstractSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (packageNames+=STRING* className=ID fieldCategories+=FieldCategory*)
+	 *     (className=ID fieldCategories+=FieldCategory*)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

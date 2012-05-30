@@ -119,11 +119,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createModifierFieldAdapter();
       }
       @Override
-      public Adapter caseTimeField(TimeField object)
-      {
-        return createTimeFieldAdapter();
-      }
-      @Override
       public Adapter caseDocumentTypeField(DocumentTypeField object)
       {
         return createDocumentTypeFieldAdapter();
@@ -286,21 +281,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModifierFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField <em>Time Field</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField
-   * @generated
-   */
-  public Adapter createTimeFieldAdapter()
   {
     return null;
   }

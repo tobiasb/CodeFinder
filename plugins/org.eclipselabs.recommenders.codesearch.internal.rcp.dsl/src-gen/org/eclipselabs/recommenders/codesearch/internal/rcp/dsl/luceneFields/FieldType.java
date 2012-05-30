@@ -16,10 +16,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isClassType <em>Class Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethodType <em>Method Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isFieldType <em>Field Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatchType <em>Trycatch Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethod <em>Method</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isField <em>Field</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatch <em>Trycatch</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isVarusage <em>Varusage</em>}</li>
  * </ul>
  * </p>
@@ -31,108 +31,108 @@ import org.eclipse.emf.ecore.EObject;
 public interface FieldType extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Class Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Class Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Type</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Class Type</em>' attribute.
-   * @see #setClassType(boolean)
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_ClassType()
+   * @return the value of the '<em>Type</em>' attribute.
+   * @see #setType(boolean)
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_Type()
    * @model
    * @generated
    */
-  boolean isClassType();
+  boolean isType();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isClassType <em>Class Type</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isType <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Class Type</em>' attribute.
-   * @see #isClassType()
+   * @param value the new value of the '<em>Type</em>' attribute.
+   * @see #isType()
    * @generated
    */
-  void setClassType(boolean value);
+  void setType(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Method Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Method Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Method</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Method Type</em>' attribute.
-   * @see #setMethodType(boolean)
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_MethodType()
+   * @return the value of the '<em>Method</em>' attribute.
+   * @see #setMethod(boolean)
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_Method()
    * @model
    * @generated
    */
-  boolean isMethodType();
+  boolean isMethod();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethodType <em>Method Type</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethod <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Method Type</em>' attribute.
-   * @see #isMethodType()
+   * @param value the new value of the '<em>Method</em>' attribute.
+   * @see #isMethod()
    * @generated
    */
-  void setMethodType(boolean value);
+  void setMethod(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Field Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Field</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Field Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Field</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Field Type</em>' attribute.
-   * @see #setFieldType(boolean)
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_FieldType()
+   * @return the value of the '<em>Field</em>' attribute.
+   * @see #setField(boolean)
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_Field()
    * @model
    * @generated
    */
-  boolean isFieldType();
+  boolean isField();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isFieldType <em>Field Type</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isField <em>Field</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Field Type</em>' attribute.
-   * @see #isFieldType()
+   * @param value the new value of the '<em>Field</em>' attribute.
+   * @see #isField()
    * @generated
    */
-  void setFieldType(boolean value);
+  void setField(boolean value);
 
   /**
-   * Returns the value of the '<em><b>Trycatch Type</b></em>' attribute.
+   * Returns the value of the '<em><b>Trycatch</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Trycatch Type</em>' attribute isn't clear,
+   * If the meaning of the '<em>Trycatch</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Trycatch Type</em>' attribute.
-   * @see #setTrycatchType(boolean)
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_TrycatchType()
+   * @return the value of the '<em>Trycatch</em>' attribute.
+   * @see #setTrycatch(boolean)
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.LuceneFieldsPackage#getFieldType_Trycatch()
    * @model
    * @generated
    */
-  boolean isTrycatchType();
+  boolean isTrycatch();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatchType <em>Trycatch Type</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatch <em>Trycatch</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Trycatch Type</em>' attribute.
-   * @see #isTrycatchType()
+   * @param value the new value of the '<em>Trycatch</em>' attribute.
+   * @see #isTrycatch()
    * @generated
    */
-  void setTrycatchType(boolean value);
+  void setTrycatch(boolean value);
 
   /**
    * Returns the value of the '<em><b>Varusage</b></em>' attribute.

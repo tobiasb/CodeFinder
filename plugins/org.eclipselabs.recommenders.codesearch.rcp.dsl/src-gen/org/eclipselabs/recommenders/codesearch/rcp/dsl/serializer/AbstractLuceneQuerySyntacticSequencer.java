@@ -37,8 +37,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_7_3_q;
 	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q;
 	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q;
-	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q;
-	protected AbstractElementAlias match_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_0_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q;
@@ -49,7 +47,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_1_1_0_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q;
 	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q;
-	protected AbstractElementAlias match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q;
 	protected AbstractElementAlias match_Primary_BoostTerminalRuleCall_1_4_q;
 	protected AbstractElementAlias match_Primary___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__a;
 	protected AbstractElementAlias match_Primary___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__p;
@@ -76,8 +73,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 		match_ClauseExpression_BoostTerminalRuleCall_1_1_7_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_7_3());
 		match_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_8_2_1_1_2());
 		match_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_8_3());
-		match_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_2_1_1_2());
-		match_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getBoostTerminalRuleCall_1_1_9_3());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_0());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_0_2_1_1_0());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_1_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_1_2_1_1_0());
@@ -88,7 +83,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_6_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_6_2_1_1_0());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_7_2_1_1_0());
 		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_8_2_1_1_0());
-		match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q = new TokenAlias(false, true, grammarAccess.getClauseExpressionAccess().getUnaryExpressionParserRuleCall_1_1_9_2_1_1_0());
 		match_Primary_BoostTerminalRuleCall_1_4_q = new TokenAlias(false, true, grammarAccess.getPrimaryAccess().getBoostTerminalRuleCall_1_4());
 		match_Primary___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__a = new GroupAlias(true, true, new TokenAlias(false, true, grammarAccess.getPrimaryAccess().getUnaryExpressionParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_1()));
 		match_Primary___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__p = new GroupAlias(true, false, new TokenAlias(false, true, grammarAccess.getPrimaryAccess().getUnaryExpressionParserRuleCall_1_0()), new TokenAlias(false, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_1_1()));
@@ -158,10 +152,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 				emit_ClauseExpression_BoostTerminalRuleCall_1_1_8_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q.equals(syntax))
 				emit_ClauseExpression_BoostTerminalRuleCall_1_1_8_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q.equals(syntax))
-				emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q.equals(syntax))
-				emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_0_q.equals(syntax))
 				emit_ClauseExpression_UnaryExpressionParserRuleCall_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_0_2_1_1_0_q.equals(syntax))
@@ -182,8 +172,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_7_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q.equals(syntax))
 				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q.equals(syntax))
-				emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Primary_BoostTerminalRuleCall_1_4_q.equals(syntax))
 				emit_Primary_BoostTerminalRuleCall_1_4_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Primary___UnaryExpressionParserRuleCall_1_0_q_LeftParenthesisKeyword_1_1__a.equals(syntax))
@@ -348,22 +336,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	
 	/**
 	 * Syntax:
-	 *     Boost?
-	 */
-	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_2_1_1_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     Boost?
-	 */
-	protected void emit_ClauseExpression_BoostTerminalRuleCall_1_1_9_3_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
 	 *     UnaryExpression?
 	 */
 	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
@@ -439,14 +411,6 @@ public class AbstractLuceneQuerySyntacticSequencer extends AbstractSyntacticSequ
 	 *     UnaryExpression?
 	 */
 	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_8_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Syntax:
-	 *     UnaryExpression?
-	 */
-	protected void emit_ClauseExpression_UnaryExpressionParserRuleCall_1_1_9_2_1_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

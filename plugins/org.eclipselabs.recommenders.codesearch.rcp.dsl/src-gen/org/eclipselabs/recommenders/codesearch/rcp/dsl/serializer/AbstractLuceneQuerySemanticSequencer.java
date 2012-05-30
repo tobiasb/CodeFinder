@@ -26,7 +26,6 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.NumberField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ProjectNameField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TimeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.TypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.services.LuceneQueryGrammarAccess;
 
@@ -142,12 +141,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 					return; 
 				}
 				else break;
-			case LuceneQueryPackage.TIME_FIELD:
-				if(context == grammarAccess.getTimeFieldRule()) {
-					sequence_TimeField(context, (TimeField) semanticObject); 
-					return; 
-				}
-				else break;
 			case LuceneQueryPackage.TYPE_FIELD:
 				if(context == grammarAccess.getTypeFieldRule()) {
 					sequence_TypeField(context, (TypeField) semanticObject); 
@@ -177,7 +170,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         (field=FilePathField (values+=FilePathFieldValue | values+=FilePathFieldValue*)) | 
 	 *         (field=NumberField (values+=NumberFieldValue | values+=NumberFieldValue*)) | 
 	 *         (field=ModifierField (values+=ModifierFieldValue | values+=ModifierFieldValue*)) | 
-	 *         (field=TimeField (values+=TimeFieldValue | values+=TimeFieldValue*)) | 
 	 *         (field=DocumentTypeField (values+=DocumentTypeFieldValue | values+=DocumentTypeFieldValue*)) | 
 	 *         (field=ProjectNameField (values+=ProjectNameFieldValue | values+=ProjectNameFieldValue*)) | 
 	 *         (field=DefinitionType (values+=DefinitionTypeValue | values+=DefinitionTypeValue*))
@@ -272,17 +264,10 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	
 	/**
 	 * Constraint:
-	 *     value='ParameterCount'
+	 *     (value='ParameterCount' | value='Timestamp')
 	 */
 	protected void sequence_NumberField(EObject context, NumberField semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.NUMBER_FIELD__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.NUMBER_FIELD__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getNumberFieldAccess().getValueParameterCountKeyword_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -342,22 +327,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 */
 	protected void sequence_SimpleField(EObject context, SimpleField semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     value='Timestamp'
-	 */
-	protected void sequence_TimeField(EObject context, TimeField semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.TIME_FIELD__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.TIME_FIELD__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getTimeFieldAccess().getValueTimestampKeyword_0(), semanticObject.getValue());
-		feeder.finish();
 	}
 	
 	

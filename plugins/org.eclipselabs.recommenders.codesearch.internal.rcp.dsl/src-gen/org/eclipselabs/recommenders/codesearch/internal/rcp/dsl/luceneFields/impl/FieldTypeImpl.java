@@ -23,10 +23,10 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Luc
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isClassType <em>Class Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isMethodType <em>Method Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isFieldType <em>Field Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isTrycatchType <em>Trycatch Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isMethod <em>Method</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isField <em>Field</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isTrycatch <em>Trycatch</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldTypeImpl#isVarusage <em>Varusage</em>}</li>
  * </ul>
  * </p>
@@ -36,84 +36,84 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Luc
 public class FieldTypeImpl extends MinimalEObjectImpl.Container implements FieldType
 {
   /**
-   * The default value of the '{@link #isClassType() <em>Class Type</em>}' attribute.
+   * The default value of the '{@link #isType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isClassType()
+   * @see #isType()
    * @generated
    * @ordered
    */
-  protected static final boolean CLASS_TYPE_EDEFAULT = false;
+  protected static final boolean TYPE_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isClassType() <em>Class Type</em>}' attribute.
+   * The cached value of the '{@link #isType() <em>Type</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isClassType()
+   * @see #isType()
    * @generated
    * @ordered
    */
-  protected boolean classType = CLASS_TYPE_EDEFAULT;
+  protected boolean type = TYPE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isMethodType() <em>Method Type</em>}' attribute.
+   * The default value of the '{@link #isMethod() <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isMethodType()
+   * @see #isMethod()
    * @generated
    * @ordered
    */
-  protected static final boolean METHOD_TYPE_EDEFAULT = false;
+  protected static final boolean METHOD_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isMethodType() <em>Method Type</em>}' attribute.
+   * The cached value of the '{@link #isMethod() <em>Method</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isMethodType()
+   * @see #isMethod()
    * @generated
    * @ordered
    */
-  protected boolean methodType = METHOD_TYPE_EDEFAULT;
+  protected boolean method = METHOD_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isFieldType() <em>Field Type</em>}' attribute.
+   * The default value of the '{@link #isField() <em>Field</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isFieldType()
+   * @see #isField()
    * @generated
    * @ordered
    */
-  protected static final boolean FIELD_TYPE_EDEFAULT = false;
+  protected static final boolean FIELD_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isFieldType() <em>Field Type</em>}' attribute.
+   * The cached value of the '{@link #isField() <em>Field</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isFieldType()
+   * @see #isField()
    * @generated
    * @ordered
    */
-  protected boolean fieldType = FIELD_TYPE_EDEFAULT;
+  protected boolean field = FIELD_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isTrycatchType() <em>Trycatch Type</em>}' attribute.
+   * The default value of the '{@link #isTrycatch() <em>Trycatch</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTrycatchType()
+   * @see #isTrycatch()
    * @generated
    * @ordered
    */
-  protected static final boolean TRYCATCH_TYPE_EDEFAULT = false;
+  protected static final boolean TRYCATCH_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #isTrycatchType() <em>Trycatch Type</em>}' attribute.
+   * The cached value of the '{@link #isTrycatch() <em>Trycatch</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isTrycatchType()
+   * @see #isTrycatch()
    * @generated
    * @ordered
    */
-  protected boolean trycatchType = TRYCATCH_TYPE_EDEFAULT;
+  protected boolean trycatch = TRYCATCH_EDEFAULT;
 
   /**
    * The default value of the '{@link #isVarusage() <em>Varusage</em>}' attribute.
@@ -161,9 +161,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isClassType()
+  public boolean isType()
   {
-    return classType;
+    return type;
   }
 
   /**
@@ -171,12 +171,12 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClassType(boolean newClassType)
+  public void setType(boolean newType)
   {
-    boolean oldClassType = classType;
-    classType = newClassType;
+    boolean oldType = type;
+    type = newType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__CLASS_TYPE, oldClassType, classType));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__TYPE, oldType, type));
   }
 
   /**
@@ -184,9 +184,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isMethodType()
+  public boolean isMethod()
   {
-    return methodType;
+    return method;
   }
 
   /**
@@ -194,12 +194,12 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMethodType(boolean newMethodType)
+  public void setMethod(boolean newMethod)
   {
-    boolean oldMethodType = methodType;
-    methodType = newMethodType;
+    boolean oldMethod = method;
+    method = newMethod;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__METHOD_TYPE, oldMethodType, methodType));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__METHOD, oldMethod, method));
   }
 
   /**
@@ -207,9 +207,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isFieldType()
+  public boolean isField()
   {
-    return fieldType;
+    return field;
   }
 
   /**
@@ -217,12 +217,12 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFieldType(boolean newFieldType)
+  public void setField(boolean newField)
   {
-    boolean oldFieldType = fieldType;
-    fieldType = newFieldType;
+    boolean oldField = field;
+    field = newField;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__FIELD_TYPE, oldFieldType, fieldType));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__FIELD, oldField, field));
   }
 
   /**
@@ -230,9 +230,9 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isTrycatchType()
+  public boolean isTrycatch()
   {
-    return trycatchType;
+    return trycatch;
   }
 
   /**
@@ -240,12 +240,12 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setTrycatchType(boolean newTrycatchType)
+  public void setTrycatch(boolean newTrycatch)
   {
-    boolean oldTrycatchType = trycatchType;
-    trycatchType = newTrycatchType;
+    boolean oldTrycatch = trycatch;
+    trycatch = newTrycatch;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE, oldTrycatchType, trycatchType));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneFieldsPackage.FIELD_TYPE__TRYCATCH, oldTrycatch, trycatch));
   }
 
   /**
@@ -281,14 +281,14 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.FIELD_TYPE__CLASS_TYPE:
-        return isClassType();
-      case LuceneFieldsPackage.FIELD_TYPE__METHOD_TYPE:
-        return isMethodType();
-      case LuceneFieldsPackage.FIELD_TYPE__FIELD_TYPE:
-        return isFieldType();
-      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
-        return isTrycatchType();
+      case LuceneFieldsPackage.FIELD_TYPE__TYPE:
+        return isType();
+      case LuceneFieldsPackage.FIELD_TYPE__METHOD:
+        return isMethod();
+      case LuceneFieldsPackage.FIELD_TYPE__FIELD:
+        return isField();
+      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH:
+        return isTrycatch();
       case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
         return isVarusage();
     }
@@ -305,17 +305,17 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.FIELD_TYPE__CLASS_TYPE:
-        setClassType((Boolean)newValue);
+      case LuceneFieldsPackage.FIELD_TYPE__TYPE:
+        setType((Boolean)newValue);
         return;
-      case LuceneFieldsPackage.FIELD_TYPE__METHOD_TYPE:
-        setMethodType((Boolean)newValue);
+      case LuceneFieldsPackage.FIELD_TYPE__METHOD:
+        setMethod((Boolean)newValue);
         return;
-      case LuceneFieldsPackage.FIELD_TYPE__FIELD_TYPE:
-        setFieldType((Boolean)newValue);
+      case LuceneFieldsPackage.FIELD_TYPE__FIELD:
+        setField((Boolean)newValue);
         return;
-      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
-        setTrycatchType((Boolean)newValue);
+      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH:
+        setTrycatch((Boolean)newValue);
         return;
       case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
         setVarusage((Boolean)newValue);
@@ -334,17 +334,17 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.FIELD_TYPE__CLASS_TYPE:
-        setClassType(CLASS_TYPE_EDEFAULT);
+      case LuceneFieldsPackage.FIELD_TYPE__TYPE:
+        setType(TYPE_EDEFAULT);
         return;
-      case LuceneFieldsPackage.FIELD_TYPE__METHOD_TYPE:
-        setMethodType(METHOD_TYPE_EDEFAULT);
+      case LuceneFieldsPackage.FIELD_TYPE__METHOD:
+        setMethod(METHOD_EDEFAULT);
         return;
-      case LuceneFieldsPackage.FIELD_TYPE__FIELD_TYPE:
-        setFieldType(FIELD_TYPE_EDEFAULT);
+      case LuceneFieldsPackage.FIELD_TYPE__FIELD:
+        setField(FIELD_EDEFAULT);
         return;
-      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
-        setTrycatchType(TRYCATCH_TYPE_EDEFAULT);
+      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH:
+        setTrycatch(TRYCATCH_EDEFAULT);
         return;
       case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
         setVarusage(VARUSAGE_EDEFAULT);
@@ -363,14 +363,14 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.FIELD_TYPE__CLASS_TYPE:
-        return classType != CLASS_TYPE_EDEFAULT;
-      case LuceneFieldsPackage.FIELD_TYPE__METHOD_TYPE:
-        return methodType != METHOD_TYPE_EDEFAULT;
-      case LuceneFieldsPackage.FIELD_TYPE__FIELD_TYPE:
-        return fieldType != FIELD_TYPE_EDEFAULT;
-      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH_TYPE:
-        return trycatchType != TRYCATCH_TYPE_EDEFAULT;
+      case LuceneFieldsPackage.FIELD_TYPE__TYPE:
+        return type != TYPE_EDEFAULT;
+      case LuceneFieldsPackage.FIELD_TYPE__METHOD:
+        return method != METHOD_EDEFAULT;
+      case LuceneFieldsPackage.FIELD_TYPE__FIELD:
+        return field != FIELD_EDEFAULT;
+      case LuceneFieldsPackage.FIELD_TYPE__TRYCATCH:
+        return trycatch != TRYCATCH_EDEFAULT;
       case LuceneFieldsPackage.FIELD_TYPE__VARUSAGE:
         return varusage != VARUSAGE_EDEFAULT;
     }
@@ -388,14 +388,14 @@ public class FieldTypeImpl extends MinimalEObjectImpl.Container implements Field
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (classType: ");
-    result.append(classType);
-    result.append(", methodType: ");
-    result.append(methodType);
-    result.append(", fieldType: ");
-    result.append(fieldType);
-    result.append(", trycatchType: ");
-    result.append(trycatchType);
+    result.append(" (type: ");
+    result.append(type);
+    result.append(", method: ");
+    result.append(method);
+    result.append(", field: ");
+    result.append(field);
+    result.append(", trycatch: ");
+    result.append(trycatch);
     result.append(", varusage: ");
     result.append(varusage);
     result.append(')');

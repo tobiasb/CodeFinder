@@ -99,15 +99,6 @@ public interface LuceneQueryFactory extends EFactory
   ModifierField createModifierField();
 
   /**
-   * Returns a new object of class '<em>Time Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Time Field</em>'.
-   * @generated
-   */
-  TimeField createTimeField();
-
-  /**
    * Returns a new object of class '<em>Document Type Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

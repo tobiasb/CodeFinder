@@ -76,7 +76,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* *(Map)";
-        String expected = "Type:(method) AND ParameterTypesStructural:L*Map;";
+        String expected = "Type:(method) AND ParameterTypesStructural:L*/Map;";
 
         testQuery(query, expected);
     }
@@ -86,7 +86,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* * (*List, Map)";
-        String expected = "Type:(method) AND ParameterTypesStructural:L*List;L*Map;";
+        String expected = "Type:(method) AND ParameterTypesStructural:L*List;L*/Map;";
 
         testQuery(query, expected);
     }
@@ -96,7 +96,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* *({*List | Map}, String)";
-        String expected = "Type:(method) AND (ParameterTypesStructural:L*List;L*String; ParameterTypesStructural:L*Map;L*String;)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:L*List;L*/String; ParameterTypesStructural:L*/Map;L*/String;)";
 
         testQuery(query, expected);
     }
@@ -106,7 +106,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* *(String, {*List | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:L*String;L*List; ParameterTypesStructural:L*String;L*Map;)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:L*/String;L*List; ParameterTypesStructural:L*/String;L*/Map;)";
 
         testQuery(query, expected);
     }
@@ -116,7 +116,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* *(String, {*List | Map}, ..)";
-        String expected = "Type:(method) AND (ParameterTypesStructural:L*String;L*List;* ParameterTypesStructural:L*String;L*Map;*)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:L*/String;L*List;* ParameterTypesStructural:L*/String;L*/Map;*)";
 
         testQuery(query, expected);
     }
@@ -126,7 +126,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* *(.., String, {*List | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:*L*String;L*List; ParameterTypesStructural:*L*String;L*Map;)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:*L*/String;L*List; ParameterTypesStructural:*L*/String;L*/Map;)";
 
         testQuery(query, expected);
     }
@@ -136,7 +136,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* *(String, *, {*Tree | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:L*String;L*;L*Tree; ParameterTypesStructural:L*String;L*;L*Map;)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:L*/String;L*;L*Tree; ParameterTypesStructural:L*/String;L*;L*/Map;)";
 
         testQuery(query, expected);
     }
@@ -146,7 +146,7 @@ public class TransformationTest extends QL1TestBase {
         setUp();
 
         String query = "* *(String, .., {*List | Map})";
-        String expected = "Type:(method) AND (ParameterTypesStructural:L*String;*L*List; ParameterTypesStructural:L*String;*L*Map;)";
+        String expected = "Type:(method) AND (ParameterTypesStructural:L*/String;*L*List; ParameterTypesStructural:L*/String;*L*/Map;)";
 
         testQuery(query, expected);
     }

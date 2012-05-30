@@ -71,22 +71,13 @@ public interface LuceneFieldsPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Package Names</b></em>' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__PACKAGE_NAMES = 0;
-
-  /**
    * The feature id for the '<em><b>Class Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__CLASS_NAME = 1;
+  int MODEL__CLASS_NAME = 0;
 
   /**
    * The feature id for the '<em><b>Field Categories</b></em>' containment reference list.
@@ -95,7 +86,7 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__FIELD_CATEGORIES = 2;
+  int MODEL__FIELD_CATEGORIES = 1;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -104,7 +95,7 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 3;
+  int MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.FieldCategoryImpl <em>Field Category</em>}' class.
@@ -218,40 +209,40 @@ public interface LuceneFieldsPackage extends EPackage
   int FIELD_TYPE = 3;
 
   /**
-   * The feature id for the '<em><b>Class Type</b></em>' attribute.
+   * The feature id for the '<em><b>Type</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_TYPE__CLASS_TYPE = 0;
+  int FIELD_TYPE__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Method Type</b></em>' attribute.
+   * The feature id for the '<em><b>Method</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_TYPE__METHOD_TYPE = 1;
+  int FIELD_TYPE__METHOD = 1;
 
   /**
-   * The feature id for the '<em><b>Field Type</b></em>' attribute.
+   * The feature id for the '<em><b>Field</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_TYPE__FIELD_TYPE = 2;
+  int FIELD_TYPE__FIELD = 2;
 
   /**
-   * The feature id for the '<em><b>Trycatch Type</b></em>' attribute.
+   * The feature id for the '<em><b>Trycatch</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_TYPE__TRYCATCH_TYPE = 3;
+  int FIELD_TYPE__TRYCATCH = 3;
 
   /**
    * The feature id for the '<em><b>Varusage</b></em>' attribute.
@@ -281,17 +272,6 @@ public interface LuceneFieldsPackage extends EPackage
    * @generated
    */
   EClass getModel();
-
-  /**
-   * Returns the meta object for the attribute list '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model#getPackageNames <em>Package Names</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Package Names</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model#getPackageNames()
-   * @see #getModel()
-   * @generated
-   */
-  EAttribute getModel_PackageNames();
 
   /**
    * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model#getClassName <em>Class Name</em>}'.
@@ -423,48 +403,48 @@ public interface LuceneFieldsPackage extends EPackage
   EClass getFieldType();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isClassType <em>Class Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Class Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isClassType()
+   * @return the meta object for the attribute '<em>Type</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isType()
    * @see #getFieldType()
    * @generated
    */
-  EAttribute getFieldType_ClassType();
+  EAttribute getFieldType_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethodType <em>Method Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethod <em>Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Method Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethodType()
+   * @return the meta object for the attribute '<em>Method</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isMethod()
    * @see #getFieldType()
    * @generated
    */
-  EAttribute getFieldType_MethodType();
+  EAttribute getFieldType_Method();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isFieldType <em>Field Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isField <em>Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Field Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isFieldType()
+   * @return the meta object for the attribute '<em>Field</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isField()
    * @see #getFieldType()
    * @generated
    */
-  EAttribute getFieldType_FieldType();
+  EAttribute getFieldType_Field();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatchType <em>Trycatch Type</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatch <em>Trycatch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Trycatch Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatchType()
+   * @return the meta object for the attribute '<em>Trycatch</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isTrycatch()
    * @see #getFieldType()
    * @generated
    */
-  EAttribute getFieldType_TrycatchType();
+  EAttribute getFieldType_Trycatch();
 
   /**
    * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.FieldType#isVarusage <em>Varusage</em>}'.
@@ -509,14 +489,6 @@ public interface LuceneFieldsPackage extends EPackage
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
-
-    /**
-     * The meta object literal for the '<em><b>Package Names</b></em>' attribute list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute MODEL__PACKAGE_NAMES = eINSTANCE.getModel_PackageNames();
 
     /**
      * The meta object literal for the '<em><b>Class Name</b></em>' attribute feature.
@@ -621,36 +593,36 @@ public interface LuceneFieldsPackage extends EPackage
     EClass FIELD_TYPE = eINSTANCE.getFieldType();
 
     /**
-     * The meta object literal for the '<em><b>Class Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FIELD_TYPE__CLASS_TYPE = eINSTANCE.getFieldType_ClassType();
+    EAttribute FIELD_TYPE__TYPE = eINSTANCE.getFieldType_Type();
 
     /**
-     * The meta object literal for the '<em><b>Method Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Method</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FIELD_TYPE__METHOD_TYPE = eINSTANCE.getFieldType_MethodType();
+    EAttribute FIELD_TYPE__METHOD = eINSTANCE.getFieldType_Method();
 
     /**
-     * The meta object literal for the '<em><b>Field Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Field</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FIELD_TYPE__FIELD_TYPE = eINSTANCE.getFieldType_FieldType();
+    EAttribute FIELD_TYPE__FIELD = eINSTANCE.getFieldType_Field();
 
     /**
-     * The meta object literal for the '<em><b>Trycatch Type</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Trycatch</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FIELD_TYPE__TRYCATCH_TYPE = eINSTANCE.getFieldType_TrycatchType();
+    EAttribute FIELD_TYPE__TRYCATCH = eINSTANCE.getFieldType_Trycatch();
 
     /**
      * The meta object literal for the '<em><b>Varusage</b></em>' attribute feature.

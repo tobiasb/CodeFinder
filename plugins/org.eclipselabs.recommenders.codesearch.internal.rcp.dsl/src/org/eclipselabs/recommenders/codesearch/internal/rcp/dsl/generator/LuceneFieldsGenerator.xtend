@@ -15,14 +15,14 @@ class LuceneFieldsGenerator implements IGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		for (e : resource.allContents.toIterable.filter(typeof(Model))) {
 			fsa.generateFile(e.className + ".java.txt", e.compileFieldsClass)
-			fsa.generateFile("LuceneQueryBaseGenerated.xtext", e.compileXtextBaseClass)
+			fsa.generateFile("LuceneQueryBaseGenerated.txt", e.compileXtextBaseClass)
 			fsa.generateFile("FieldsOverview.tex", e.compileTexFieldOverview)
 		}
 	} 
 	
 	def compileTexFieldOverview(Model m) {
-		'''% This file is generated
-		
+'''% This file is generated
+
 		«FOR category : m.fieldCategories»
 
 \subsubsection{«category.categoryName.getTexCompatibleString()»}
@@ -52,7 +52,7 @@ See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»
 	«FOR field : category.fields»
 	\cfield{«field.value.getTexCompatibleString»} 
 		& 
-		«field.getIconForActionType("class")» 
+		«field.getIconForActionType("type")» 
 		«field.getIconForActionType("method")» 
 		«field.getIconForActionType("field")» 
 		«field.getIconForActionType("tryCatch")» 
@@ -128,17 +128,23 @@ See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»
 	
 	def compileFieldsClass(Model m) {
 		'''
-/*
- *	COPY THE NEXT BLOCK TO THE FOLLOWING LOCATONS:
-	«FOR packageName : m.packageNames»
- *		«packageName».«m.className»
-	«ENDFOR»
-*/
-	«doNotModify»
+/**
+ * Copyright (c) 2010, 2012 Darmstadt University of Technology.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *    Tobias Boehm - initial API and implementation.
+ */
 
-/*	
+package org.eclipse.recommenders.codesearch.rcp.index;
+
+«doNotModify»
+
 public class «m.className» {
-	public final static String TYPE_CLASS = "class";
+	public final static String TYPE_CLASS = "type";
 	public final static String TYPE_METHOD = "method";
 	public final static String TYPE_FIELD = "field";
 	public final static String TYPE_TRYCATCH = "trycatch";
@@ -163,9 +169,7 @@ public class «m.className» {
     public static final String JAVA_ELEMENT_HANDLE = "Handle";
     
 	«FOR category : m.fieldCategories»
-	/* «category.categoryName»
-	   «category.desc»
-	*/
+	// «category.categoryName»
 		«FOR field : category.fields»
 	«field.compile»
 		«ENDFOR»
@@ -173,30 +177,28 @@ public class «m.className» {
 	
 	«ENDFOR»
 }
-*/
 '''
 	}
 	
 	def compile(Field f) {
-'''	/** «f.desc»
-		Can be applied to: «FOR t : f.types»«if(f.types.indexOf(t)>0){','}»«t.toTypeName»«ENDFOR»
+'''	/** «f.desc»<br /><br />
+		Can be applied to: «FOR t : f.types»«if(f.types.indexOf(t)>0){', '}»«t.toTypeName»«ENDFOR»
 	*/
 	//Generated - please modify in source file
-	
 	public final static String «f.name» = "«f.value»";'''
 	}
 	
 	def toTypeName(FieldType t) {
-		if(t.classType) {
-			return "class"
+		if(t.type) {
+			return "type"
 		}
-		if(t.methodType) {
+		if(t.method) {
 			return "method"
 		}
-		if(t.fieldType) {
+		if(t.field) {
 			return "field"
 		}
-		if(t.trycatchType) {
+		if(t.trycatch) {
 			return "tryCatch"
 		}
 		if(t.varusage) {

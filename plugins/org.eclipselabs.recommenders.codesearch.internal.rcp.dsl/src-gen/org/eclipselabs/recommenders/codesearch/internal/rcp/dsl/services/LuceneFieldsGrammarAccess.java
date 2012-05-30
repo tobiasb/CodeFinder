@@ -20,45 +20,33 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPackagesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cPackageNamesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cPackageNamesSTRINGTerminalRuleCall_1_0 = (RuleCall)cPackageNamesAssignment_1.eContents().get(0);
-		private final Keyword cClassKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cClassNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cClassNameIDTerminalRuleCall_3_0 = (RuleCall)cClassNameAssignment_3.eContents().get(0);
-		private final Assignment cFieldCategoriesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cFieldCategoriesFieldCategoryParserRuleCall_4_0 = (RuleCall)cFieldCategoriesAssignment_4.eContents().get(0);
+		private final Keyword cClassKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cClassNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cClassNameIDTerminalRuleCall_1_0 = (RuleCall)cClassNameAssignment_1.eContents().get(0);
+		private final Assignment cFieldCategoriesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFieldCategoriesFieldCategoryParserRuleCall_2_0 = (RuleCall)cFieldCategoriesAssignment_2.eContents().get(0);
 		
 		//Model:
-		//	"packages" packageNames+=STRING* "class" className=ID fieldCategories+=FieldCategory*;
+		//	"class" className=ID fieldCategories+=FieldCategory*;
 		public ParserRule getRule() { return rule; }
 
-		//"packages" packageNames+=STRING* "class" className=ID fieldCategories+=FieldCategory*
+		//"class" className=ID fieldCategories+=FieldCategory*
 		public Group getGroup() { return cGroup; }
 
-		//"packages"
-		public Keyword getPackagesKeyword_0() { return cPackagesKeyword_0; }
-
-		//packageNames+=STRING*
-		public Assignment getPackageNamesAssignment_1() { return cPackageNamesAssignment_1; }
-
-		//STRING
-		public RuleCall getPackageNamesSTRINGTerminalRuleCall_1_0() { return cPackageNamesSTRINGTerminalRuleCall_1_0; }
-
 		//"class"
-		public Keyword getClassKeyword_2() { return cClassKeyword_2; }
+		public Keyword getClassKeyword_0() { return cClassKeyword_0; }
 
 		//className=ID
-		public Assignment getClassNameAssignment_3() { return cClassNameAssignment_3; }
+		public Assignment getClassNameAssignment_1() { return cClassNameAssignment_1; }
 
 		//ID
-		public RuleCall getClassNameIDTerminalRuleCall_3_0() { return cClassNameIDTerminalRuleCall_3_0; }
+		public RuleCall getClassNameIDTerminalRuleCall_1_0() { return cClassNameIDTerminalRuleCall_1_0; }
 
 		//fieldCategories+=FieldCategory*
-		public Assignment getFieldCategoriesAssignment_4() { return cFieldCategoriesAssignment_4; }
+		public Assignment getFieldCategoriesAssignment_2() { return cFieldCategoriesAssignment_2; }
 
 		//FieldCategory
-		public RuleCall getFieldCategoriesFieldCategoryParserRuleCall_4_0() { return cFieldCategoriesFieldCategoryParserRuleCall_4_0; }
+		public RuleCall getFieldCategoriesFieldCategoryParserRuleCall_2_0() { return cFieldCategoriesFieldCategoryParserRuleCall_2_0; }
 	}
 
 	public class FieldCategoryElements extends AbstractParserRuleElementFinder {
@@ -204,47 +192,47 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 	public class FieldTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FieldType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cClassTypeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final Keyword cClassTypeClassKeyword_0_0 = (Keyword)cClassTypeAssignment_0.eContents().get(0);
-		private final Assignment cMethodTypeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final Keyword cMethodTypeMethodKeyword_1_0 = (Keyword)cMethodTypeAssignment_1.eContents().get(0);
-		private final Assignment cFieldTypeAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final Keyword cFieldTypeFieldKeyword_2_0 = (Keyword)cFieldTypeAssignment_2.eContents().get(0);
-		private final Assignment cTrycatchTypeAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final Keyword cTrycatchTypeTrycatchKeyword_3_0 = (Keyword)cTrycatchTypeAssignment_3.eContents().get(0);
+		private final Assignment cTypeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cTypeTypeKeyword_0_0 = (Keyword)cTypeAssignment_0.eContents().get(0);
+		private final Assignment cMethodAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cMethodMethodKeyword_1_0 = (Keyword)cMethodAssignment_1.eContents().get(0);
+		private final Assignment cFieldAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cFieldFieldKeyword_2_0 = (Keyword)cFieldAssignment_2.eContents().get(0);
+		private final Assignment cTrycatchAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final Keyword cTrycatchTrycatchKeyword_3_0 = (Keyword)cTrycatchAssignment_3.eContents().get(0);
 		private final Assignment cVarusageAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
 		private final Keyword cVarusageVarusageKeyword_4_0 = (Keyword)cVarusageAssignment_4.eContents().get(0);
 		
 		//FieldType:
-		//	classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch" | varusage?="varusage";
+		//	type?="type" | method?="method" | field?="field" | trycatch?="trycatch" | varusage?="varusage";
 		public ParserRule getRule() { return rule; }
 
-		//classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch" | varusage?="varusage"
+		//type?="type" | method?="method" | field?="field" | trycatch?="trycatch" | varusage?="varusage"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//classType?="class"
-		public Assignment getClassTypeAssignment_0() { return cClassTypeAssignment_0; }
+		//type?="type"
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 
-		//"class"
-		public Keyword getClassTypeClassKeyword_0_0() { return cClassTypeClassKeyword_0_0; }
+		//"type"
+		public Keyword getTypeTypeKeyword_0_0() { return cTypeTypeKeyword_0_0; }
 
-		//methodType?="method"
-		public Assignment getMethodTypeAssignment_1() { return cMethodTypeAssignment_1; }
+		//method?="method"
+		public Assignment getMethodAssignment_1() { return cMethodAssignment_1; }
 
 		//"method"
-		public Keyword getMethodTypeMethodKeyword_1_0() { return cMethodTypeMethodKeyword_1_0; }
+		public Keyword getMethodMethodKeyword_1_0() { return cMethodMethodKeyword_1_0; }
 
-		//fieldType?="field"
-		public Assignment getFieldTypeAssignment_2() { return cFieldTypeAssignment_2; }
+		//field?="field"
+		public Assignment getFieldAssignment_2() { return cFieldAssignment_2; }
 
 		//"field"
-		public Keyword getFieldTypeFieldKeyword_2_0() { return cFieldTypeFieldKeyword_2_0; }
+		public Keyword getFieldFieldKeyword_2_0() { return cFieldFieldKeyword_2_0; }
 
-		//trycatchType?="trycatch"
-		public Assignment getTrycatchTypeAssignment_3() { return cTrycatchTypeAssignment_3; }
+		//trycatch?="trycatch"
+		public Assignment getTrycatchAssignment_3() { return cTrycatchAssignment_3; }
 
 		//"trycatch"
-		public Keyword getTrycatchTypeTrycatchKeyword_3_0() { return cTrycatchTypeTrycatchKeyword_3_0; }
+		public Keyword getTrycatchTrycatchKeyword_3_0() { return cTrycatchTrycatchKeyword_3_0; }
 
 		//varusage?="varusage"
 		public Assignment getVarusageAssignment_4() { return cVarusageAssignment_4; }
@@ -281,7 +269,7 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	"packages" packageNames+=STRING* "class" className=ID fieldCategories+=FieldCategory*;
+	//	"class" className=ID fieldCategories+=FieldCategory*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -311,7 +299,7 @@ public class LuceneFieldsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FieldType:
-	//	classType?="class" | methodType?="method" | fieldType?="field" | trycatchType?="trycatch" | varusage?="varusage";
+	//	type?="type" | method?="method" | field?="field" | trycatch?="trycatch" | varusage?="varusage";
 	public FieldTypeElements getFieldTypeAccess() {
 		return (pFieldType != null) ? pFieldType : (pFieldType = new FieldTypeElements());
 	}

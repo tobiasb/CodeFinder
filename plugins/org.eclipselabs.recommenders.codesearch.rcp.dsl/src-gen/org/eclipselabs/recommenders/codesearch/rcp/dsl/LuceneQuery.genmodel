@@ -43,9 +43,6 @@
     <genClasses ecoreClass="LuceneQuery.ecore#//ModifierField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ModifierField/value"/>
     </genClasses>
-    <genClasses ecoreClass="LuceneQuery.ecore#//TimeField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//TimeField/value"/>
-    </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//DocumentTypeField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DocumentTypeField/value"/>
     </genClasses>

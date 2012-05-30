@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,7 +33,6 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Mod
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.ModelImpl#getPackageNames <em>Package Names</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.ModelImpl#getClassName <em>Class Name</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.impl.ModelImpl#getFieldCategories <em>Field Categories</em>}</li>
  * </ul>
@@ -44,16 +42,6 @@ import org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Mod
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
-  /**
-   * The cached value of the '{@link #getPackageNames() <em>Package Names</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPackageNames()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> packageNames;
-
   /**
    * The default value of the '{@link #getClassName() <em>Class Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -103,20 +91,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   protected EClass eStaticClass()
   {
     return LuceneFieldsPackage.Literals.MODEL;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<String> getPackageNames()
-  {
-    if (packageNames == null)
-    {
-      packageNames = new EDataTypeEList<String>(String.class, this, LuceneFieldsPackage.MODEL__PACKAGE_NAMES);
-    }
-    return packageNames;
   }
 
   /**
@@ -182,8 +156,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.MODEL__PACKAGE_NAMES:
-        return getPackageNames();
       case LuceneFieldsPackage.MODEL__CLASS_NAME:
         return getClassName();
       case LuceneFieldsPackage.MODEL__FIELD_CATEGORIES:
@@ -203,10 +175,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.MODEL__PACKAGE_NAMES:
-        getPackageNames().clear();
-        getPackageNames().addAll((Collection<? extends String>)newValue);
-        return;
       case LuceneFieldsPackage.MODEL__CLASS_NAME:
         setClassName((String)newValue);
         return;
@@ -228,9 +196,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.MODEL__PACKAGE_NAMES:
-        getPackageNames().clear();
-        return;
       case LuceneFieldsPackage.MODEL__CLASS_NAME:
         setClassName(CLASS_NAME_EDEFAULT);
         return;
@@ -251,8 +216,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case LuceneFieldsPackage.MODEL__PACKAGE_NAMES:
-        return packageNames != null && !packageNames.isEmpty();
       case LuceneFieldsPackage.MODEL__CLASS_NAME:
         return CLASS_NAME_EDEFAULT == null ? className != null : !CLASS_NAME_EDEFAULT.equals(className);
       case LuceneFieldsPackage.MODEL__FIELD_CATEGORIES:
@@ -272,9 +235,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (packageNames: ");
-    result.append(packageNames);
-    result.append(", className: ");
+    result.append(" (className: ");
     result.append(className);
     result.append(')');
     return result.toString();

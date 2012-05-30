@@ -44,9 +44,8 @@ public class LuceneFieldsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldAccess().getGroup(), "rule__Field__Group__0");
 					put(grammarAccess.getFieldAccess().getGroup_5(), "rule__Field__Group_5__0");
 					put(grammarAccess.getFieldAccess().getGroup_7(), "rule__Field__Group_7__0");
-					put(grammarAccess.getModelAccess().getPackageNamesAssignment_1(), "rule__Model__PackageNamesAssignment_1");
-					put(grammarAccess.getModelAccess().getClassNameAssignment_3(), "rule__Model__ClassNameAssignment_3");
-					put(grammarAccess.getModelAccess().getFieldCategoriesAssignment_4(), "rule__Model__FieldCategoriesAssignment_4");
+					put(grammarAccess.getModelAccess().getClassNameAssignment_1(), "rule__Model__ClassNameAssignment_1");
+					put(grammarAccess.getModelAccess().getFieldCategoriesAssignment_2(), "rule__Model__FieldCategoriesAssignment_2");
 					put(grammarAccess.getFieldCategoryAccess().getCategoryNameAssignment_0(), "rule__FieldCategory__CategoryNameAssignment_0");
 					put(grammarAccess.getFieldCategoryAccess().getFieldsAssignment_2(), "rule__FieldCategory__FieldsAssignment_2");
 					put(grammarAccess.getFieldCategoryAccess().getDescAssignment_4_1(), "rule__FieldCategory__DescAssignment_4_1");
@@ -55,10 +54,10 @@ public class LuceneFieldsParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFieldAccess().getTypesAssignment_4(), "rule__Field__TypesAssignment_4");
 					put(grammarAccess.getFieldAccess().getTypesAssignment_5_1(), "rule__Field__TypesAssignment_5_1");
 					put(grammarAccess.getFieldAccess().getDescAssignment_7_1(), "rule__Field__DescAssignment_7_1");
-					put(grammarAccess.getFieldTypeAccess().getClassTypeAssignment_0(), "rule__FieldType__ClassTypeAssignment_0");
-					put(grammarAccess.getFieldTypeAccess().getMethodTypeAssignment_1(), "rule__FieldType__MethodTypeAssignment_1");
-					put(grammarAccess.getFieldTypeAccess().getFieldTypeAssignment_2(), "rule__FieldType__FieldTypeAssignment_2");
-					put(grammarAccess.getFieldTypeAccess().getTrycatchTypeAssignment_3(), "rule__FieldType__TrycatchTypeAssignment_3");
+					put(grammarAccess.getFieldTypeAccess().getTypeAssignment_0(), "rule__FieldType__TypeAssignment_0");
+					put(grammarAccess.getFieldTypeAccess().getMethodAssignment_1(), "rule__FieldType__MethodAssignment_1");
+					put(grammarAccess.getFieldTypeAccess().getFieldAssignment_2(), "rule__FieldType__FieldAssignment_2");
+					put(grammarAccess.getFieldTypeAccess().getTrycatchAssignment_3(), "rule__FieldType__TrycatchAssignment_3");
 					put(grammarAccess.getFieldTypeAccess().getVarusageAssignment_4(), "rule__FieldType__VarusageAssignment_4");
 				}
 			};

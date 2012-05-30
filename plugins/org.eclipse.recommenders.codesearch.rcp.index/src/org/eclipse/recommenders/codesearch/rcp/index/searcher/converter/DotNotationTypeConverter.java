@@ -20,7 +20,7 @@ public class DotNotationTypeConverter implements IQueryPartConverter {
         // If user entered a non-qualified type (e.g. IWorkbench) then prepend a wildcard operator automatically
         if(!tmp.startsWith("*")) {
 	        if( !(tmp.contains(".") || tmp.contains("/")) && !tmp.startsWith("L*")) {
-	        	tmp = "*" + tmp;
+	        	tmp = "*/" + tmp;
 	        }
         }
         
