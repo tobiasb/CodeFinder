@@ -9,22 +9,22 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Var Initialisation</b></em>'.
+ * A representation of the model object '<em><b>Var Instance Creation</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarInitialisation()
+ * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarInstanceCreation()
  * @model
  * @generated
  */
-public interface VarInitialisation extends Statement
+public interface VarInstanceCreation extends Statement
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -36,14 +36,14 @@ public interface VarInitialisation extends Statement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
    * @see #setType(Type)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarInitialisation_Type()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarInstanceCreation_Type()
    * @model containment="true"
    * @generated
    */
   Type getType();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getType <em>Type</em>}' containment reference.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getType <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Type</em>' containment reference.
@@ -62,14 +62,14 @@ public interface VarInitialisation extends Statement
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarInitialisation_Name()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getVarInstanceCreation_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -78,4 +78,4 @@ public interface VarInitialisation extends Statement
    */
   void setName(String value);
 
-} // VarInitialisation
+} // VarInstanceCreation

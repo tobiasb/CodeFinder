@@ -45,13 +45,13 @@ public interface QL2Factory extends EFactory
   Statement createStatement();
 
   /**
-   * Returns a new object of class '<em>Var Initialisation</em>'.
+   * Returns a new object of class '<em>Var Declaration Param</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Var Initialisation</em>'.
+   * @return a new object of class '<em>Var Declaration Param</em>'.
    * @generated
    */
-  VarInitialisation createVarInitialisation();
+  VarDeclarationParam createVarDeclarationParam();
 
   /**
    * Returns a new object of class '<em>Var Null Literal</em>'.
@@ -63,6 +63,24 @@ public interface QL2Factory extends EFactory
   VarNullLiteral createVarNullLiteral();
 
   /**
+   * Returns a new object of class '<em>Var Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Assignment</em>'.
+   * @generated
+   */
+  VarAssignment createVarAssignment();
+
+  /**
+   * Returns a new object of class '<em>Var Instance Creation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Var Instance Creation</em>'.
+   * @generated
+   */
+  VarInstanceCreation createVarInstanceCreation();
+
+  /**
    * Returns a new object of class '<em>Var Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -70,15 +88,6 @@ public interface QL2Factory extends EFactory
    * @generated
    */
   VarDeclaration createVarDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Var Declaration Param</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Var Declaration Param</em>'.
-   * @generated
-   */
-  VarDeclarationParam createVarDeclarationParam();
 
   /**
    * Returns a new object of class '<em>Method Call</em>'.

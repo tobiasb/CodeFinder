@@ -1,0 +1,12 @@
+SMAP
+VariableIdentityTestStrings.java
+Xtend
+*S Xtend
+*F
++ 0 VariableIdentityTestStrings.xtend
+src/org/eclipselabs/recommenders/test/codesearch/rcp/dslQL2/VariableIdentityTestStrings.xtend
+*L
+15:8,31
+27:40,42
+43:83,23
+*E

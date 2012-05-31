@@ -4,7 +4,6 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.parser.antlr;
 
 import java.io.InputStream;
-
 import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 
 public class QL2AntlrTokenFileProvider implements IAntlrTokenFileProvider {

@@ -40,10 +40,13 @@ public class VariableDefinitionIndexer implements IVarUsageIndexer {
                     addField(document, Fields.DEFINITION_NULLLITERAL);
                     break;
                 case ASTNode.METHOD_INVOCATION:
-                    addField(document, Fields.DEFINITION_METHOD_INVOCATION);
+                case ASTNode.NUMBER_LITERAL:
+                case ASTNode.BOOLEAN_LITERAL:
+                case ASTNode.CHARACTER_LITERAL:
+                case ASTNode.STRING_LITERAL:
+                    addField(document, Fields.DEFINITION_ASSIGNMENT);
                     break;
                 case ASTNode.CLASS_INSTANCE_CREATION:
-                case ASTNode.STRING_LITERAL:
                     addField(document, Fields.DEFINITION_INSTANCE_CREATION);
                     break;
                 }

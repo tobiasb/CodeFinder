@@ -4,17 +4,18 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui.contentassist.antlr;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.xtext.AbstractElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.AbstractContentAssistParser;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.FollowElement;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.services.QL2GrammarAccess;
 
 import com.google.inject.Inject;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.services.QL2GrammarAccess;
 
 public class QL2Parser extends AbstractContentAssistParser {
 	
@@ -41,30 +42,34 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getWildcardNameAccess().getAlternatives(), "rule__WildcardName__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getModelAccess().getGroup_1(), "rule__Model__Group_1__0");
-					put(grammarAccess.getModelAccess().getGroup_1_2(), "rule__Model__Group_1_2__0");
+					put(grammarAccess.getModelAccess().getGroup_1_1(), "rule__Model__Group_1_1__0");
+					put(grammarAccess.getModelAccess().getGroup_1_1_1(), "rule__Model__Group_1_1_1__0");
 					put(grammarAccess.getModelAccess().getGroup_2(), "rule__Model__Group_2__0");
 					put(grammarAccess.getStatementAccess().getGroup_0(), "rule__Statement__Group_0__0");
 					put(grammarAccess.getStatementAccess().getGroup_1(), "rule__Statement__Group_1__0");
 					put(grammarAccess.getStatementAccess().getGroup_2(), "rule__Statement__Group_2__0");
-					put(grammarAccess.getVarInitialisationAccess().getGroup(), "rule__VarInitialisation__Group__0");
-					put(grammarAccess.getVarNullLiteralAccess().getGroup(), "rule__VarNullLiteral__Group__0");
-					put(grammarAccess.getVarDeclarationAccess().getGroup(), "rule__VarDeclaration__Group__0");
 					put(grammarAccess.getVarDeclarationParamAccess().getGroup(), "rule__VarDeclarationParam__Group__0");
+					put(grammarAccess.getVarNullLiteralAccess().getGroup(), "rule__VarNullLiteral__Group__0");
+					put(grammarAccess.getVarAssignmentAccess().getGroup(), "rule__VarAssignment__Group__0");
+					put(grammarAccess.getVarInstanceCreationAccess().getGroup(), "rule__VarInstanceCreation__Group__0");
+					put(grammarAccess.getVarDeclarationAccess().getGroup(), "rule__VarDeclaration__Group__0");
 					put(grammarAccess.getMethodCallAccess().getGroup(), "rule__MethodCall__Group__0");
 					put(grammarAccess.getStaticMethodCallAccess().getGroup(), "rule__StaticMethodCall__Group__0");
 					put(grammarAccess.getWildcardNameConcatenatedAccess().getGroup(), "rule__WildcardNameConcatenated__Group__0");
 					put(grammarAccess.getWildcardNameConcatenatedAccess().getGroup_1(), "rule__WildcardNameConcatenated__Group_1__0");
-					put(grammarAccess.getModelAccess().getVarsAssignment_1_1(), "rule__Model__VarsAssignment_1_1");
-					put(grammarAccess.getModelAccess().getVarsAssignment_1_2_1(), "rule__Model__VarsAssignment_1_2_1");
+					put(grammarAccess.getModelAccess().getVarsAssignment_1_1_0(), "rule__Model__VarsAssignment_1_1_0");
+					put(grammarAccess.getModelAccess().getVarsAssignment_1_1_1_1(), "rule__Model__VarsAssignment_1_1_1_1");
 					put(grammarAccess.getModelAccess().getStatementsAssignment_2_1(), "rule__Model__StatementsAssignment_2_1");
-					put(grammarAccess.getVarInitialisationAccess().getTypeAssignment_0(), "rule__VarInitialisation__TypeAssignment_0");
-					put(grammarAccess.getVarInitialisationAccess().getNameAssignment_1(), "rule__VarInitialisation__NameAssignment_1");
-					put(grammarAccess.getVarNullLiteralAccess().getTypeAssignment_0(), "rule__VarNullLiteral__TypeAssignment_0");
-					put(grammarAccess.getVarNullLiteralAccess().getNameAssignment_1(), "rule__VarNullLiteral__NameAssignment_1");
-					put(grammarAccess.getVarDeclarationAccess().getTypeAssignment_0(), "rule__VarDeclaration__TypeAssignment_0");
-					put(grammarAccess.getVarDeclarationAccess().getNameAssignment_1(), "rule__VarDeclaration__NameAssignment_1");
 					put(grammarAccess.getVarDeclarationParamAccess().getTypeAssignment_0(), "rule__VarDeclarationParam__TypeAssignment_0");
 					put(grammarAccess.getVarDeclarationParamAccess().getNameAssignment_1(), "rule__VarDeclarationParam__NameAssignment_1");
+					put(grammarAccess.getVarNullLiteralAccess().getTypeAssignment_0(), "rule__VarNullLiteral__TypeAssignment_0");
+					put(grammarAccess.getVarNullLiteralAccess().getNameAssignment_1(), "rule__VarNullLiteral__NameAssignment_1");
+					put(grammarAccess.getVarAssignmentAccess().getTypeAssignment_0(), "rule__VarAssignment__TypeAssignment_0");
+					put(grammarAccess.getVarAssignmentAccess().getNameAssignment_1(), "rule__VarAssignment__NameAssignment_1");
+					put(grammarAccess.getVarInstanceCreationAccess().getTypeAssignment_0(), "rule__VarInstanceCreation__TypeAssignment_0");
+					put(grammarAccess.getVarInstanceCreationAccess().getNameAssignment_1(), "rule__VarInstanceCreation__NameAssignment_1");
+					put(grammarAccess.getVarDeclarationAccess().getTypeAssignment_0(), "rule__VarDeclaration__TypeAssignment_0");
+					put(grammarAccess.getVarDeclarationAccess().getNameAssignment_1(), "rule__VarDeclaration__NameAssignment_1");
 					put(grammarAccess.getMethodCallAccess().getNameCalleeAssignment_0(), "rule__MethodCall__NameCalleeAssignment_0");
 					put(grammarAccess.getMethodCallAccess().getMethodAssignment_2(), "rule__MethodCall__MethodAssignment_2");
 					put(grammarAccess.getMethodCallAccess().getNameCallerAssignment_4(), "rule__MethodCall__NameCallerAssignment_4");

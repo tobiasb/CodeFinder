@@ -40,6 +40,16 @@ public class TransformationTest extends QLTestBase {
         setUp();
 
         String query = "{%nvar exmpl.type.TypeA varA = *%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:assignment" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryDeclarationMethodInvocationTest2() throws Exception {
+        setUp();
+
+        String query = "{%nvar exmpl.type.TypeA varA = new%n}";
         String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:instanceCreation" };
 
         testQuery(query, expected);
@@ -81,7 +91,7 @@ public class TransformationTest extends QLTestBase {
         setUp();
 
         String query = "{%nvar exmpl.type.TypeA varA = *%ncall varA.testMethod()%n}";
-        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:instanceCreation AND UsedAsTargetForMethods:L*testMethod\\(*" };
+        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:assignment AND UsedAsTargetForMethods:L*testMethod\\(*" };
 
         testQuery(query, expected);
     }
@@ -92,8 +102,8 @@ public class TransformationTest extends QLTestBase {
 
         String query = "{%nvar exmpl.type.TypeA varA = *%nvar exmpl.type.TypeB varB = *%ncall varB.testMethod(varA)%n}";
         String[] expected = new String[] {
-                "Type:varusage AND VariableType:Lexmpl/type/TypeB AND VariableDefinition:instanceCreation AND UsedAsTargetForMethods:L*testMethod\\(*",
-                "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:instanceCreation AND UsedAsParameterInMethods:L*exmpl/type/TypeB.testMethod\\(*" };
+                "Type:varusage AND VariableType:Lexmpl/type/TypeB AND VariableDefinition:assignment AND UsedAsTargetForMethods:L*testMethod\\(*",
+                "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:assignment AND UsedAsParameterInMethods:L*exmpl/type/TypeB.testMethod\\(*" };
 
         testQuery(query, expected);
     }
@@ -103,7 +113,7 @@ public class TransformationTest extends QLTestBase {
         setUp();
 
         String query = "{%nvar exmpl.type.TypeA varA = *%nscall java.lang.bla.testMethod(varA)%n}";
-        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:instanceCreation AND UsedAsParameterInMethods:L*java/lang/bla.testMethod\\(*" };
+        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:assignment AND UsedAsParameterInMethods:L*java/lang/bla.testMethod\\(*" };
 
         testQuery(query, expected);
     }
@@ -115,7 +125,7 @@ public class TransformationTest extends QLTestBase {
         String query = "{%nvar exmpl.type.TypeA varA = *%nvar exmpl.type.TypeB varB%ncall varA.testMethod()%ncall varB.testMethod2()%n}";
         String[] expected = new String[] {
                 "Type:varusage AND VariableType:Lexmpl/type/TypeB AND VariableDefinition:* AND UsedAsTargetForMethods:L*testMethod2\\(*",
-                "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:instanceCreation AND UsedAsTargetForMethods:L*testMethod\\(*" };
+                "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:assignment AND UsedAsTargetForMethods:L*testMethod\\(*" };
 
         testQuery(query, expected);
     }

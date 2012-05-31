@@ -3,7 +3,7 @@ package org.eclipselabs.recommenders.test.codesearch.rcp.dslQL1;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.junit.Test;
 
-public class LanguageTest extends DslTestBase {
+public class SyntaxTest extends DslTestBase {
 
     @Test
     public void testValidModifier() throws Exception {

@@ -9,21 +9,12 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Factory;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,10 +70,11 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
     {
       case QL2Package.MODEL: return createModel();
       case QL2Package.STATEMENT: return createStatement();
-      case QL2Package.VAR_INITIALISATION: return createVarInitialisation();
-      case QL2Package.VAR_NULL_LITERAL: return createVarNullLiteral();
-      case QL2Package.VAR_DECLARATION: return createVarDeclaration();
       case QL2Package.VAR_DECLARATION_PARAM: return createVarDeclarationParam();
+      case QL2Package.VAR_NULL_LITERAL: return createVarNullLiteral();
+      case QL2Package.VAR_ASSIGNMENT: return createVarAssignment();
+      case QL2Package.VAR_INSTANCE_CREATION: return createVarInstanceCreation();
+      case QL2Package.VAR_DECLARATION: return createVarDeclaration();
       case QL2Package.METHOD_CALL: return createMethodCall();
       case QL2Package.STATIC_METHOD_CALL: return createStaticMethodCall();
       case QL2Package.CALLED_METHOD_NAME: return createCalledMethodName();
@@ -120,10 +112,10 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarInitialisation createVarInitialisation()
+  public VarDeclarationParam createVarDeclarationParam()
   {
-    VarInitialisationImpl varInitialisation = new VarInitialisationImpl();
-    return varInitialisation;
+    VarDeclarationParamImpl varDeclarationParam = new VarDeclarationParamImpl();
+    return varDeclarationParam;
   }
 
   /**
@@ -142,10 +134,10 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarDeclaration createVarDeclaration()
+  public VarAssignment createVarAssignment()
   {
-    VarDeclarationImpl varDeclaration = new VarDeclarationImpl();
-    return varDeclaration;
+    VarAssignmentImpl varAssignment = new VarAssignmentImpl();
+    return varAssignment;
   }
 
   /**
@@ -153,10 +145,21 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VarDeclarationParam createVarDeclarationParam()
+  public VarInstanceCreation createVarInstanceCreation()
   {
-    VarDeclarationParamImpl varDeclarationParam = new VarDeclarationParamImpl();
-    return varDeclarationParam;
+    VarInstanceCreationImpl varInstanceCreation = new VarInstanceCreationImpl();
+    return varInstanceCreation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VarDeclaration createVarDeclaration()
+  {
+    VarDeclarationImpl varDeclaration = new VarDeclarationImpl();
+    return varDeclaration;
   }
 
   /**

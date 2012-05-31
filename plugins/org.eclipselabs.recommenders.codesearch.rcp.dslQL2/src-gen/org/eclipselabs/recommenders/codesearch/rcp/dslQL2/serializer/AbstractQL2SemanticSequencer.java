@@ -1,5 +1,7 @@
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.serializer;
 
+import com.google.inject.Inject;
+import com.google.inject.Provider;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
@@ -18,14 +20,12 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.services.QL2GrammarAccess;
-
-import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 @SuppressWarnings("restriction")
 public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
@@ -93,6 +93,13 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL2Package.VAR_ASSIGNMENT:
+				if(context == grammarAccess.getStatementRule() ||
+				   context == grammarAccess.getVarAssignmentRule()) {
+					sequence_VarAssignment(context, (VarAssignment) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL2Package.VAR_DECLARATION:
 				if(context == grammarAccess.getStatementRule() ||
 				   context == grammarAccess.getVarDeclarationRule()) {
@@ -106,10 +113,10 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
-			case QL2Package.VAR_INITIALISATION:
+			case QL2Package.VAR_INSTANCE_CREATION:
 				if(context == grammarAccess.getStatementRule() ||
-				   context == grammarAccess.getVarInitialisationRule()) {
-					sequence_VarInitialisation(context, (VarInitialisation) semanticObject); 
+				   context == grammarAccess.getVarInstanceCreationRule()) {
+					sequence_VarInstanceCreation(context, (VarInstanceCreation) semanticObject); 
 					return; 
 				}
 				else break;
@@ -213,6 +220,25 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	 * Constraint:
 	 *     (type=Type name=ID)
 	 */
+	protected void sequence_VarAssignment(EObject context, VarAssignment semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_ASSIGNMENT__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_ASSIGNMENT__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_ASSIGNMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_ASSIGNMENT__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getVarAssignmentAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarAssignmentAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (type=Type name=ID)
+	 */
 	protected void sequence_VarDeclarationParam(EObject context, VarDeclarationParam semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_DECLARATION_PARAM__TYPE) == ValueTransient.YES)
@@ -251,17 +277,17 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	 * Constraint:
 	 *     (type=Type name=ID)
 	 */
-	protected void sequence_VarInitialisation(EObject context, VarInitialisation semanticObject) {
+	protected void sequence_VarInstanceCreation(EObject context, VarInstanceCreation semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_INITIALISATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_INITIALISATION__TYPE));
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_INITIALISATION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_INITIALISATION__NAME));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_INSTANCE_CREATION__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_INSTANCE_CREATION__TYPE));
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.VAR_INSTANCE_CREATION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.VAR_INSTANCE_CREATION__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVarInitialisationAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getVarInitialisationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVarInstanceCreationAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getVarInstanceCreationAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

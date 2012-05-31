@@ -217,9 +217,9 @@ class TestVariableUsageScenarios extends TestBase {
 	def void testVariableDefinitionIndexer05(){
 		val code = '''
 		public class MyClass {
-			public void testMethod() {
 			String s1 = "";
-			String s2 = s1.toString();
+			public void testMethod() {
+				String s2 = s1.toString();
 			}
 		}
 		'''
@@ -228,7 +228,25 @@ class TestVariableUsageScenarios extends TestBase {
 		
 		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
-			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_METHOD_INVOCATION)
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_ASSIGNMENT)
+		)))		
+	}
+	
+	@Test
+	def void testVariableDefinitionIndexer07(){
+		val code = '''
+		public class MyClass {
+			public void testMethod() {
+				int s2 = 1;
+			}
+		}
+		'''
+		
+		exercise(code, i(newArrayList(new DocumentTypeIndexer(), new VariableDefinitionIndexer())))
+		
+		assertField(l(newArrayList(
+			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_ASSIGNMENT)
 		)))		
 	}
 	
@@ -246,7 +264,7 @@ class TestVariableUsageScenarios extends TestBase {
 		
 		assertField(l(newArrayList(
 			s(Fields::TYPE, Fields::TYPE_VARUSAGE),
-			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_INSTANCE_CREATION)
+			s(Fields::VARIABLE_DEFINITION, Fields::DEFINITION_ASSIGNMENT)
 		)))		
 	}
 	

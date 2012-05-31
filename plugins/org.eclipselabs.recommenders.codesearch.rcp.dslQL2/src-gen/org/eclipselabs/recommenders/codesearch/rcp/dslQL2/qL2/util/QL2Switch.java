@@ -8,19 +8,10 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.Switch;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -99,11 +90,10 @@ public class QL2Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case QL2Package.VAR_INITIALISATION:
+      case QL2Package.VAR_DECLARATION_PARAM:
       {
-        VarInitialisation varInitialisation = (VarInitialisation)theEObject;
-        T result = caseVarInitialisation(varInitialisation);
-        if (result == null) result = caseStatement(varInitialisation);
+        VarDeclarationParam varDeclarationParam = (VarDeclarationParam)theEObject;
+        T result = caseVarDeclarationParam(varDeclarationParam);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,18 +105,27 @@ public class QL2Switch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case QL2Package.VAR_ASSIGNMENT:
+      {
+        VarAssignment varAssignment = (VarAssignment)theEObject;
+        T result = caseVarAssignment(varAssignment);
+        if (result == null) result = caseStatement(varAssignment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case QL2Package.VAR_INSTANCE_CREATION:
+      {
+        VarInstanceCreation varInstanceCreation = (VarInstanceCreation)theEObject;
+        T result = caseVarInstanceCreation(varInstanceCreation);
+        if (result == null) result = caseStatement(varInstanceCreation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case QL2Package.VAR_DECLARATION:
       {
         VarDeclaration varDeclaration = (VarDeclaration)theEObject;
         T result = caseVarDeclaration(varDeclaration);
         if (result == null) result = caseStatement(varDeclaration);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case QL2Package.VAR_DECLARATION_PARAM:
-      {
-        VarDeclarationParam varDeclarationParam = (VarDeclarationParam)theEObject;
-        T result = caseVarDeclarationParam(varDeclarationParam);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -204,17 +203,17 @@ public class QL2Switch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Var Initialisation</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Var Declaration Param</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Var Initialisation</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Var Declaration Param</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVarInitialisation(VarInitialisation object)
+  public T caseVarDeclarationParam(VarDeclarationParam object)
   {
     return null;
   }
@@ -236,6 +235,38 @@ public class QL2Switch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Assignment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarAssignment(VarAssignment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Var Instance Creation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Var Instance Creation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarInstanceCreation(VarInstanceCreation object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Var Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -247,22 +278,6 @@ public class QL2Switch<T> extends Switch<T>
    * @generated
    */
   public T caseVarDeclaration(VarDeclaration object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Var Declaration Param</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Var Declaration Param</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVarDeclarationParam(VarDeclarationParam object)
   {
     return null;
   }

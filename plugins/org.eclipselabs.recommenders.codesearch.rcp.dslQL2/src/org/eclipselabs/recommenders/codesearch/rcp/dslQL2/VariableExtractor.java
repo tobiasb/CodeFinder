@@ -18,9 +18,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
 
 import com.google.common.collect.Maps;
@@ -96,8 +97,11 @@ public class VariableExtractor {
             if (o instanceof VarDeclaration) {
                 VariableUsage v = getVarUsage((VarDeclaration) o);
                 result.put(v.name, v);
-            } else if (o instanceof VarInitialisation) {
-                VariableUsage v = getVarUsage((VarInitialisation) o);
+            } else if (o instanceof VarAssignment) {
+                VariableUsage v = getVarUsage((VarAssignment) o);
+                result.put(v.name, v);
+            } else if (o instanceof VarInstanceCreation) {
+                VariableUsage v = getVarUsage((VarInstanceCreation) o);
                 result.put(v.name, v);
             } else if (o instanceof VarDeclarationParam) {
                 VariableUsage v = getVarUsage((VarDeclarationParam) o);
@@ -119,7 +123,14 @@ public class VariableExtractor {
         return v;
     }
 
-    private VariableUsage getVarUsage(VarInitialisation o) {
+    private VariableUsage getVarUsage(VarAssignment o) {
+        VariableUsage v = new VariableUsage(o.getName(), null);
+        v.type = o.getType().getValue();
+        v.origin = Fields.DEFINITION_ASSIGNMENT;
+        return v;
+    }
+
+    private VariableUsage getVarUsage(VarInstanceCreation o) {
         VariableUsage v = new VariableUsage(o.getName(), null);
         v.type = o.getType().getValue();
         v.origin = Fields.DEFINITION_INSTANCE_CREATION;

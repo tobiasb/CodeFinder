@@ -8,28 +8,31 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Var Initialisation</b></em>'.
+ * An implementation of the model object '<em><b>Var Instance Creation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInitialisationImpl#getType <em>Type</em>}</li>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInitialisationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInstanceCreationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInstanceCreationImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class VarInitialisationImpl extends StatementImpl implements VarInitialisation
+public class VarInstanceCreationImpl extends StatementImpl implements VarInstanceCreation
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -66,7 +69,7 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
    * <!-- end-user-doc -->
    * @generated
    */
-  protected VarInitialisationImpl()
+  protected VarInstanceCreationImpl()
   {
     super();
   }
@@ -79,7 +82,7 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
   @Override
   protected EClass eStaticClass()
   {
-    return QL2Package.Literals.VAR_INITIALISATION;
+    return QL2Package.Literals.VAR_INSTANCE_CREATION;
   }
 
   /**
@@ -103,7 +106,7 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
     type = newType;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL2Package.VAR_INITIALISATION__TYPE, oldType, newType);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QL2Package.VAR_INSTANCE_CREATION__TYPE, oldType, newType);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -120,14 +123,14 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
     {
       NotificationChain msgs = null;
       if (type != null)
-        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL2Package.VAR_INITIALISATION__TYPE, null, msgs);
+        msgs = ((InternalEObject)type).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QL2Package.VAR_INSTANCE_CREATION__TYPE, null, msgs);
       if (newType != null)
-        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL2Package.VAR_INITIALISATION__TYPE, null, msgs);
+        msgs = ((InternalEObject)newType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QL2Package.VAR_INSTANCE_CREATION__TYPE, null, msgs);
       msgs = basicSetType(newType, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR_INITIALISATION__TYPE, newType, newType));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR_INSTANCE_CREATION__TYPE, newType, newType));
   }
 
   /**
@@ -150,7 +153,7 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR_INITIALISATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, QL2Package.VAR_INSTANCE_CREATION__NAME, oldName, name));
   }
 
   /**
@@ -163,7 +166,7 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
   {
     switch (featureID)
     {
-      case QL2Package.VAR_INITIALISATION__TYPE:
+      case QL2Package.VAR_INSTANCE_CREATION__TYPE:
         return basicSetType(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -179,9 +182,9 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
   {
     switch (featureID)
     {
-      case QL2Package.VAR_INITIALISATION__TYPE:
+      case QL2Package.VAR_INSTANCE_CREATION__TYPE:
         return getType();
-      case QL2Package.VAR_INITIALISATION__NAME:
+      case QL2Package.VAR_INSTANCE_CREATION__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -197,10 +200,10 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
   {
     switch (featureID)
     {
-      case QL2Package.VAR_INITIALISATION__TYPE:
+      case QL2Package.VAR_INSTANCE_CREATION__TYPE:
         setType((Type)newValue);
         return;
-      case QL2Package.VAR_INITIALISATION__NAME:
+      case QL2Package.VAR_INSTANCE_CREATION__NAME:
         setName((String)newValue);
         return;
     }
@@ -217,10 +220,10 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
   {
     switch (featureID)
     {
-      case QL2Package.VAR_INITIALISATION__TYPE:
+      case QL2Package.VAR_INSTANCE_CREATION__TYPE:
         setType((Type)null);
         return;
-      case QL2Package.VAR_INITIALISATION__NAME:
+      case QL2Package.VAR_INSTANCE_CREATION__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -237,9 +240,9 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
   {
     switch (featureID)
     {
-      case QL2Package.VAR_INITIALISATION__TYPE:
+      case QL2Package.VAR_INSTANCE_CREATION__TYPE:
         return type != null;
-      case QL2Package.VAR_INITIALISATION__NAME:
+      case QL2Package.VAR_INSTANCE_CREATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -262,4 +265,4 @@ public class VarInitialisationImpl extends StatementImpl implements VarInitialis
     return result.toString();
   }
 
-} //VarInitialisationImpl
+} //VarInstanceCreationImpl

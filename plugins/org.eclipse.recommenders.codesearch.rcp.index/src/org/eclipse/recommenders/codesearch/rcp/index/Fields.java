@@ -27,7 +27,7 @@ public class Fields {
 	
 	public static final String DEFINITION_PARAMETER = "parameter";
 	public static final String DEFINITION_NULLLITERAL = "nullLiteral";
-	public static final String DEFINITION_METHOD_INVOCATION = "methodInvocation";
+	public static final String DEFINITION_ASSIGNMENT = "assignment";
 	public static final String DEFINITION_INSTANCE_CREATION = "instanceCreation";
 	public static final String DEFINITION_UNINITIALIZED = "uninitialized";
 	

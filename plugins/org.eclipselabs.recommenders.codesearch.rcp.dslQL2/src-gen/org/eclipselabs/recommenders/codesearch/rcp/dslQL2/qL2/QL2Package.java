@@ -117,14 +117,14 @@ public interface QL2Package extends EPackage
   int STATEMENT_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInitialisationImpl <em>Var Initialisation</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl <em>Var Declaration Param</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInitialisationImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarInitialisation()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarDeclarationParam()
    * @generated
    */
-  int VAR_INITIALISATION = 2;
+  int VAR_DECLARATION_PARAM = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -133,7 +133,7 @@ public interface QL2Package extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_INITIALISATION__TYPE = STATEMENT_FEATURE_COUNT + 0;
+  int VAR_DECLARATION_PARAM__TYPE = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -142,16 +142,16 @@ public interface QL2Package extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_INITIALISATION__NAME = STATEMENT_FEATURE_COUNT + 1;
+  int VAR_DECLARATION_PARAM__NAME = 1;
 
   /**
-   * The number of structural features of the '<em>Var Initialisation</em>' class.
+   * The number of structural features of the '<em>Var Declaration Param</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_INITIALISATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int VAR_DECLARATION_PARAM_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarNullLiteralImpl <em>Var Null Literal</em>}' class.
@@ -191,6 +191,80 @@ public interface QL2Package extends EPackage
   int VAR_NULL_LITERAL_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarAssignmentImpl <em>Var Assignment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarAssignmentImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarAssignment()
+   * @generated
+   */
+  int VAR_ASSIGNMENT = 4;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_ASSIGNMENT__TYPE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_ASSIGNMENT__NAME = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Var Assignment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_ASSIGNMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInstanceCreationImpl <em>Var Instance Creation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInstanceCreationImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarInstanceCreation()
+   * @generated
+   */
+  int VAR_INSTANCE_CREATION = 5;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_INSTANCE_CREATION__TYPE = STATEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_INSTANCE_CREATION__NAME = STATEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Var Instance Creation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_INSTANCE_CREATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationImpl <em>Var Declaration</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -198,7 +272,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarDeclaration()
    * @generated
    */
-  int VAR_DECLARATION = 4;
+  int VAR_DECLARATION = 6;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -228,43 +302,6 @@ public interface QL2Package extends EPackage
   int VAR_DECLARATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl <em>Var Declaration Param</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarDeclarationParam()
-   * @generated
-   */
-  int VAR_DECLARATION_PARAM = 5;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_DECLARATION_PARAM__TYPE = 0;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_DECLARATION_PARAM__NAME = 1;
-
-  /**
-   * The number of structural features of the '<em>Var Declaration Param</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAR_DECLARATION_PARAM_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodCallImpl <em>Method Call</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -272,7 +309,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getMethodCall()
    * @generated
    */
-  int METHOD_CALL = 6;
+  int METHOD_CALL = 7;
 
   /**
    * The feature id for the '<em><b>Name Callee</b></em>' containment reference.
@@ -318,7 +355,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getStaticMethodCall()
    * @generated
    */
-  int STATIC_METHOD_CALL = 7;
+  int STATIC_METHOD_CALL = 8;
 
   /**
    * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -355,7 +392,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getCalledMethodName()
    * @generated
    */
-  int CALLED_METHOD_NAME = 8;
+  int CALLED_METHOD_NAME = 9;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -383,7 +420,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getType()
    * @generated
    */
-  int TYPE = 9;
+  int TYPE = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -411,7 +448,7 @@ public interface QL2Package extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getName_()
    * @generated
    */
-  int NAME = 10;
+  int NAME = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -475,36 +512,36 @@ public interface QL2Package extends EPackage
   EClass getStatement();
 
   /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation <em>Var Initialisation</em>}'.
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam <em>Var Declaration Param</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Var Initialisation</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation
+   * @return the meta object for class '<em>Var Declaration Param</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam
    * @generated
    */
-  EClass getVarInitialisation();
+  EClass getVarDeclarationParam();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getType <em>Type</em>}'.
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getType()
-   * @see #getVarInitialisation()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getType()
+   * @see #getVarDeclarationParam()
    * @generated
    */
-  EReference getVarInitialisation_Type();
+  EReference getVarDeclarationParam_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation#getName()
-   * @see #getVarInitialisation()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getName()
+   * @see #getVarDeclarationParam()
    * @generated
    */
-  EAttribute getVarInitialisation_Name();
+  EAttribute getVarDeclarationParam_Name();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral <em>Var Null Literal</em>}'.
@@ -539,6 +576,70 @@ public interface QL2Package extends EPackage
   EAttribute getVarNullLiteral_Name();
 
   /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment <em>Var Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Var Assignment</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment
+   * @generated
+   */
+  EClass getVarAssignment();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment#getType()
+   * @see #getVarAssignment()
+   * @generated
+   */
+  EReference getVarAssignment_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment#getName()
+   * @see #getVarAssignment()
+   * @generated
+   */
+  EAttribute getVarAssignment_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation <em>Var Instance Creation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Var Instance Creation</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation
+   * @generated
+   */
+  EClass getVarInstanceCreation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getType()
+   * @see #getVarInstanceCreation()
+   * @generated
+   */
+  EReference getVarInstanceCreation_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation#getName()
+   * @see #getVarInstanceCreation()
+   * @generated
+   */
+  EAttribute getVarInstanceCreation_Name();
+
+  /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration <em>Var Declaration</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -569,38 +670,6 @@ public interface QL2Package extends EPackage
    * @generated
    */
   EAttribute getVarDeclaration_Name();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam <em>Var Declaration Param</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Var Declaration Param</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam
-   * @generated
-   */
-  EClass getVarDeclarationParam();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getType()
-   * @see #getVarDeclarationParam()
-   * @generated
-   */
-  EReference getVarDeclarationParam_Type();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam#getName()
-   * @see #getVarDeclarationParam()
-   * @generated
-   */
-  EAttribute getVarDeclarationParam_Name();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall <em>Method Call</em>}'.
@@ -800,14 +869,14 @@ public interface QL2Package extends EPackage
     EClass STATEMENT = eINSTANCE.getStatement();
 
     /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInitialisationImpl <em>Var Initialisation</em>}' class.
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl <em>Var Declaration Param</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInitialisationImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarInitialisation()
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarDeclarationParam()
      * @generated
      */
-    EClass VAR_INITIALISATION = eINSTANCE.getVarInitialisation();
+    EClass VAR_DECLARATION_PARAM = eINSTANCE.getVarDeclarationParam();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -815,7 +884,7 @@ public interface QL2Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VAR_INITIALISATION__TYPE = eINSTANCE.getVarInitialisation_Type();
+    EReference VAR_DECLARATION_PARAM__TYPE = eINSTANCE.getVarDeclarationParam_Type();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -823,7 +892,7 @@ public interface QL2Package extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VAR_INITIALISATION__NAME = eINSTANCE.getVarInitialisation_Name();
+    EAttribute VAR_DECLARATION_PARAM__NAME = eINSTANCE.getVarDeclarationParam_Name();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarNullLiteralImpl <em>Var Null Literal</em>}' class.
@@ -852,6 +921,58 @@ public interface QL2Package extends EPackage
     EAttribute VAR_NULL_LITERAL__NAME = eINSTANCE.getVarNullLiteral_Name();
 
     /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarAssignmentImpl <em>Var Assignment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarAssignmentImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarAssignment()
+     * @generated
+     */
+    EClass VAR_ASSIGNMENT = eINSTANCE.getVarAssignment();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_ASSIGNMENT__TYPE = eINSTANCE.getVarAssignment_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VAR_ASSIGNMENT__NAME = eINSTANCE.getVarAssignment_Name();
+
+    /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInstanceCreationImpl <em>Var Instance Creation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarInstanceCreationImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarInstanceCreation()
+     * @generated
+     */
+    EClass VAR_INSTANCE_CREATION = eINSTANCE.getVarInstanceCreation();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VAR_INSTANCE_CREATION__TYPE = eINSTANCE.getVarInstanceCreation_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VAR_INSTANCE_CREATION__NAME = eINSTANCE.getVarInstanceCreation_Name();
+
+    /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationImpl <em>Var Declaration</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -876,32 +997,6 @@ public interface QL2Package extends EPackage
      * @generated
      */
     EAttribute VAR_DECLARATION__NAME = eINSTANCE.getVarDeclaration_Name();
-
-    /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl <em>Var Declaration Param</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationParamImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.QL2PackageImpl#getVarDeclarationParam()
-     * @generated
-     */
-    EClass VAR_DECLARATION_PARAM = eINSTANCE.getVarDeclarationParam();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference VAR_DECLARATION_PARAM__TYPE = eINSTANCE.getVarDeclarationParam_Type();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VAR_DECLARATION_PARAM__NAME = eINSTANCE.getVarDeclarationParam_Name();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.MethodCallImpl <em>Method Call</em>}' class.

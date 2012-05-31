@@ -227,11 +227,11 @@ public class LocalExamplesProvider extends ExtdocProvider {
                         term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_NULLLITERAL);
                         break;
                     case ASTNode.SUPER_METHOD_INVOCATION:
-                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
+                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_ASSIGNMENT);
                         def = findMethod((SuperMethodInvocation) initializer);
                         break;
                     case ASTNode.METHOD_INVOCATION:
-                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_METHOD_INVOCATION);
+                        term = prepareSearchTerm(Fields.VARIABLE_DEFINITION, Fields.DEFINITION_ASSIGNMENT);
                         def = findMethod((MethodInvocation) initializer);
                         break;
                     case ASTNode.CLASS_INSTANCE_CREATION: {

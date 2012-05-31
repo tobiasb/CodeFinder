@@ -8,7 +8,7 @@ generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
 
 Model:
 	{Model}
-	('(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')')?//
+	('(' (vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)*)? ')')?//
 	('{'
 		(statements+=Statement )*
 	'}')?
@@ -19,7 +19,8 @@ Model:
 //;
 	
 Statement:
-	( 'var' (VarInitialisation 
+	( 'var' (VarAssignment 
+		| VarInstanceCreation
 		| VarNullLiteral 
 		| VarDeclaration
 	) )
@@ -27,19 +28,23 @@ Statement:
 	| 'scall' ( StaticMethodCall)
 ;
 
-VarInitialisation:
-	type=Type name=ID '=' '*'
+VarDeclarationParam:
+	type=Type name=ID
 ;
 
 VarNullLiteral:
 	type=Type name=ID '=' 'null'
 ;
 
-VarDeclaration:
-	type=Type name=ID
+VarAssignment:
+	type=Type name=ID '=' '*'
 ;
 
-VarDeclarationParam:
+VarInstanceCreation:
+	type=Type name=ID '=' 'new'
+;
+
+VarDeclaration:
 	type=Type name=ID
 ;
 	

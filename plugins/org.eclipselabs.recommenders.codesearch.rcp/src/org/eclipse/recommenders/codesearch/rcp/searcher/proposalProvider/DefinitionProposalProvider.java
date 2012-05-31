@@ -28,7 +28,7 @@ public class DefinitionProposalProvider implements IQueryProposalProvider {
         final List<String> list = Lists.newArrayList();
 
         list.add(Fields.DEFINITION_INSTANCE_CREATION);
-        list.add(Fields.DEFINITION_METHOD_INVOCATION);
+        list.add(Fields.DEFINITION_ASSIGNMENT);
         list.add(Fields.DEFINITION_NULLLITERAL);
         list.add(Fields.DEFINITION_PARAMETER);
         list.add(Fields.DEFINITION_UNINITIALIZED);

@@ -14,21 +14,25 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/statements"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//Statement"/>
-    <genClasses ecoreClass="QL2.ecore#//VarInitialisation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarInitialisation/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarInitialisation/name"/>
+    <genClasses ecoreClass="QL2.ecore#//VarDeclarationParam">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarDeclarationParam/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclarationParam/name"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//VarNullLiteral">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarNullLiteral/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarNullLiteral/name"/>
     </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//VarAssignment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarAssignment/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarAssignment/name"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//VarInstanceCreation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarInstanceCreation/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarInstanceCreation/name"/>
+    </genClasses>
     <genClasses ecoreClass="QL2.ecore#//VarDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarDeclaration/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclaration/name"/>
-    </genClasses>
-    <genClasses ecoreClass="QL2.ecore#//VarDeclarationParam">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarDeclarationParam/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclarationParam/name"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//MethodCall">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//MethodCall/nameCallee"/>

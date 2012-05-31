@@ -8,20 +8,12 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
 import org.eclipse.emf.ecore.EObject;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.CalledMethodName;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
+
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,9 +89,9 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
         return createStatementAdapter();
       }
       @Override
-      public Adapter caseVarInitialisation(VarInitialisation object)
+      public Adapter caseVarDeclarationParam(VarDeclarationParam object)
       {
-        return createVarInitialisationAdapter();
+        return createVarDeclarationParamAdapter();
       }
       @Override
       public Adapter caseVarNullLiteral(VarNullLiteral object)
@@ -107,14 +99,19 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
         return createVarNullLiteralAdapter();
       }
       @Override
+      public Adapter caseVarAssignment(VarAssignment object)
+      {
+        return createVarAssignmentAdapter();
+      }
+      @Override
+      public Adapter caseVarInstanceCreation(VarInstanceCreation object)
+      {
+        return createVarInstanceCreationAdapter();
+      }
+      @Override
       public Adapter caseVarDeclaration(VarDeclaration object)
       {
         return createVarDeclarationAdapter();
-      }
-      @Override
-      public Adapter caseVarDeclarationParam(VarDeclarationParam object)
-      {
-        return createVarDeclarationParamAdapter();
       }
       @Override
       public Adapter caseMethodCall(MethodCall object)
@@ -194,16 +191,16 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation <em>Var Initialisation</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam <em>Var Declaration Param</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInitialisation
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam
    * @generated
    */
-  public Adapter createVarInitialisationAdapter()
+  public Adapter createVarDeclarationParamAdapter()
   {
     return null;
   }
@@ -224,6 +221,36 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment <em>Var Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment
+   * @generated
+   */
+  public Adapter createVarAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation <em>Var Instance Creation</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation
+   * @generated
+   */
+  public Adapter createVarInstanceCreationAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration <em>Var Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -234,21 +261,6 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVarDeclarationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam <em>Var Declaration Param</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam
-   * @generated
-   */
-  public Adapter createVarDeclarationParamAdapter()
   {
     return null;
   }
