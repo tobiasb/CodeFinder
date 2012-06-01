@@ -90,6 +90,15 @@ public interface QL2Factory extends EFactory
   VarDeclaration createVarDeclaration();
 
   /**
+   * Returns a new object of class '<em>Return Statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Return Statement</em>'.
+   * @generated
+   */
+  ReturnStatement createReturnStatement();
+
+  /**
    * Returns a new object of class '<em>Method Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

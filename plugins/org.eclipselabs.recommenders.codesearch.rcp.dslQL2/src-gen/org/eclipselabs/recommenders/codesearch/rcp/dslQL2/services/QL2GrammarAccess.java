@@ -39,17 +39,19 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cStatementsAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
 		private final RuleCall cStatementsStatementParserRuleCall_3_1_0 = (RuleCall)cStatementsAssignment_3_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
+		private final Assignment cReturnStatementAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cReturnStatementReturnStatementParserRuleCall_3_2_0 = (RuleCall)cReturnStatementAssignment_3_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		
 		//Model:
 		//	{Model} ("var" vars+=VarDeclaration)* ("(" (vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)*)? ")")? //
 		//
-		//	("{" statements+=Statement* "}")?;
+		//	("{" statements+=Statement* returnStatement=ReturnStatement? "}")?;
 		public ParserRule getRule() { return rule; }
 
 		//{Model} ("var" vars+=VarDeclaration)* ("(" (vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)*)? ")")? //
 		//
-		//("{" statements+=Statement* "}")?
+		//("{" statements+=Statement* returnStatement=ReturnStatement? "}")?
 		public Group getGroup() { return cGroup; }
 
 		//{Model}
@@ -97,7 +99,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 
-		//("{" statements+=Statement* "}")?
+		//("{" statements+=Statement* returnStatement=ReturnStatement? "}")?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"{"
@@ -109,8 +111,14 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		//Statement
 		public RuleCall getStatementsStatementParserRuleCall_3_1_0() { return cStatementsStatementParserRuleCall_3_1_0; }
 
+		//returnStatement=ReturnStatement?
+		public Assignment getReturnStatementAssignment_3_2() { return cReturnStatementAssignment_3_2; }
+
+		//ReturnStatement
+		public RuleCall getReturnStatementReturnStatementParserRuleCall_3_2_0() { return cReturnStatementReturnStatementParserRuleCall_3_2_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_3_2() { return cRightCurlyBracketKeyword_3_2; }
+		public Keyword getRightCurlyBracketKeyword_3_3() { return cRightCurlyBracketKeyword_3_3; }
 	}
 
 	public class StatementElements extends AbstractParserRuleElementFinder {
@@ -365,6 +373,30 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 	}
 
+	public class ReturnStatementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ReturnStatement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReturnKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		
+		//ReturnStatement:
+		//	"return" name=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"return" name=ID
+		public Group getGroup() { return cGroup; }
+
+		//"return"
+		public Keyword getReturnKeyword_0() { return cReturnKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+	}
+
 	public class MethodCallElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MethodCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -557,6 +589,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	private VarAssignmentElements pVarAssignment;
 	private VarInstanceCreationElements pVarInstanceCreation;
 	private VarDeclarationElements pVarDeclaration;
+	private ReturnStatementElements pReturnStatement;
 	private MethodCallElements pMethodCall;
 	private StaticMethodCallElements pStaticMethodCall;
 	private CalledMethodNameElements pCalledMethodName;
@@ -589,7 +622,7 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	//Model:
 	//	{Model} ("var" vars+=VarDeclaration)* ("(" (vars+=VarDeclarationParam ("," vars+=VarDeclarationParam)*)? ")")? //
 	//
-	//	("{" statements+=Statement* "}")?;
+	//	("{" statements+=Statement* returnStatement=ReturnStatement? "}")?;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -663,6 +696,16 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getVarDeclarationRule() {
 		return getVarDeclarationAccess().getRule();
+	}
+
+	//ReturnStatement:
+	//	"return" name=ID;
+	public ReturnStatementElements getReturnStatementAccess() {
+		return (pReturnStatement != null) ? pReturnStatement : (pReturnStatement = new ReturnStatementElements());
+	}
+	
+	public ParserRule getReturnStatementRule() {
+		return getReturnStatementAccess().getRule();
 	}
 
 	//MethodCall:

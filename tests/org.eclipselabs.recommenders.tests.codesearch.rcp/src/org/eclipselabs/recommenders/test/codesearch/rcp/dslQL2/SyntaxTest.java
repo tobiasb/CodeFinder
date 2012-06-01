@@ -41,4 +41,12 @@ public class SyntaxTest extends QLTestBase {
         Assert.assertEquals(1, parseAndExtractVars("{var String s1 = new}").size());
         Assert.assertEquals(1, parseAndExtractVars("{var String s1 = null}").size());
     }
+    
+    @Test
+    public void testReturnStatement() throws Exception {
+        setUp();
+
+        getParseResultAndExpect(String.format("{var String s1%nreturn s1}"), 0);
+        //geht noch nicht weil customvalidation nicht ausgeführt wird... getParseResultAndExpect(String.format("{var String s1%nreturn s2}"), 1);
+    }
 }

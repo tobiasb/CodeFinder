@@ -39,7 +39,7 @@ public abstract class QLTestBase extends AbstractXtextTests {
         ISerializer s = luceneInjector.getInstance(ISerializer.class);
         return s.serialize(o);
     }
-
+    
     protected void assertQueryEqual(String expected, String actual) {
         Assert.assertEquals(sanitize(expected), sanitize(actual));
     }

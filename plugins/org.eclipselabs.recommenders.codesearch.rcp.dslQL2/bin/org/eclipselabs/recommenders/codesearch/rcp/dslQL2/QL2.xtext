@@ -12,6 +12,8 @@ Model:
 	('(' (vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)*)? ')')?//
 	('{'
 		(statements+=Statement )*
+		
+		returnStatement=ReturnStatement?
 	'}')?
 	;
 	
@@ -47,6 +49,10 @@ VarInstanceCreation:
 
 VarDeclaration:
 	type=Type name=ID
+;
+	
+ReturnStatement:
+	'return' name=ID
 ;
 	
 MethodCall:

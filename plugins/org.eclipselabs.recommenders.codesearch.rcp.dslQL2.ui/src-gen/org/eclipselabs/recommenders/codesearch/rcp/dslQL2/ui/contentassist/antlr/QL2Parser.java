@@ -54,6 +54,7 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getVarAssignmentAccess().getGroup(), "rule__VarAssignment__Group__0");
 					put(grammarAccess.getVarInstanceCreationAccess().getGroup(), "rule__VarInstanceCreation__Group__0");
 					put(grammarAccess.getVarDeclarationAccess().getGroup(), "rule__VarDeclaration__Group__0");
+					put(grammarAccess.getReturnStatementAccess().getGroup(), "rule__ReturnStatement__Group__0");
 					put(grammarAccess.getMethodCallAccess().getGroup(), "rule__MethodCall__Group__0");
 					put(grammarAccess.getStaticMethodCallAccess().getGroup(), "rule__StaticMethodCall__Group__0");
 					put(grammarAccess.getWildcardNameConcatenatedAccess().getGroup(), "rule__WildcardNameConcatenated__Group__0");
@@ -62,6 +63,7 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getVarsAssignment_2_1_0(), "rule__Model__VarsAssignment_2_1_0");
 					put(grammarAccess.getModelAccess().getVarsAssignment_2_1_1_1(), "rule__Model__VarsAssignment_2_1_1_1");
 					put(grammarAccess.getModelAccess().getStatementsAssignment_3_1(), "rule__Model__StatementsAssignment_3_1");
+					put(grammarAccess.getModelAccess().getReturnStatementAssignment_3_2(), "rule__Model__ReturnStatementAssignment_3_2");
 					put(grammarAccess.getStatementAccess().getVarAssignment_0_1_0(), "rule__Statement__VarAssignment_0_1_0");
 					put(grammarAccess.getStatementAccess().getVarAssignment_0_1_1(), "rule__Statement__VarAssignment_0_1_1");
 					put(grammarAccess.getStatementAccess().getVarAssignment_0_1_2(), "rule__Statement__VarAssignment_0_1_2");
@@ -76,6 +78,7 @@ public class QL2Parser extends AbstractContentAssistParser {
 					put(grammarAccess.getVarInstanceCreationAccess().getNameAssignment_1(), "rule__VarInstanceCreation__NameAssignment_1");
 					put(grammarAccess.getVarDeclarationAccess().getTypeAssignment_0(), "rule__VarDeclaration__TypeAssignment_0");
 					put(grammarAccess.getVarDeclarationAccess().getNameAssignment_1(), "rule__VarDeclaration__NameAssignment_1");
+					put(grammarAccess.getReturnStatementAccess().getNameAssignment_1(), "rule__ReturnStatement__NameAssignment_1");
 					put(grammarAccess.getMethodCallAccess().getNameCalleeAssignment_0(), "rule__MethodCall__NameCalleeAssignment_0");
 					put(grammarAccess.getMethodCallAccess().getMethodAssignment_2(), "rule__MethodCall__MethodAssignment_2");
 					put(grammarAccess.getMethodCallAccess().getNameCallerAssignment_4(), "rule__MethodCall__NameCallerAssignment_4");

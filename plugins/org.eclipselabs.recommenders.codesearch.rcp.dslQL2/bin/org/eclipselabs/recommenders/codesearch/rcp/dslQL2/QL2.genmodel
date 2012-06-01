@@ -12,6 +12,7 @@
     <genClasses ecoreClass="QL2.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/vars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/statements"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/returnStatement"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//Statement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Statement/var"/>
@@ -35,6 +36,9 @@
     <genClasses ecoreClass="QL2.ecore#//VarDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarDeclaration/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclaration/name"/>
+    </genClasses>
+    <genClasses ecoreClass="QL2.ecore#//ReturnStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//ReturnStatement/name"/>
     </genClasses>
     <genClasses ecoreClass="QL2.ecore#//MethodCall">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//MethodCall/nameCallee"/>

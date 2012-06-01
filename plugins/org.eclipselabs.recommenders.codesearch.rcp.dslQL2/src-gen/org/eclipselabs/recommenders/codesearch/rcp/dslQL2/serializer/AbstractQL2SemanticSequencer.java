@@ -18,6 +18,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.ReturnStatement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
@@ -78,6 +79,12 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 			case QL2Package.NAME:
 				if(context == grammarAccess.getNameRule()) {
 					sequence_Name(context, (Name) semanticObject); 
+					return; 
+				}
+				else break;
+			case QL2Package.RETURN_STATEMENT:
+				if(context == grammarAccess.getReturnStatementRule()) {
+					sequence_ReturnStatement(context, (ReturnStatement) semanticObject); 
 					return; 
 				}
 				else break;
@@ -161,7 +168,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (vars+=VarDeclaration* (vars+=VarDeclarationParam vars+=VarDeclarationParam*)? statements+=Statement*)
+	 *     (vars+=VarDeclaration* (vars+=VarDeclarationParam vars+=VarDeclarationParam*)? (statements+=Statement* returnStatement=ReturnStatement?)?)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -180,6 +187,22 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getNameAccess().getValueIDTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_ReturnStatement(EObject context, ReturnStatement semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.RETURN_STATEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.RETURN_STATEMENT__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getReturnStatementAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

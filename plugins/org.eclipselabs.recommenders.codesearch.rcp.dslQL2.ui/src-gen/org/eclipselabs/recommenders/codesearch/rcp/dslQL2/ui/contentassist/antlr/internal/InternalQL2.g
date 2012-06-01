@@ -253,6 +253,34 @@ finally {
 
 
 
+// Entry rule entryRuleReturnStatement
+entryRuleReturnStatement 
+:
+{ before(grammarAccess.getReturnStatementRule()); }
+	 ruleReturnStatement
+{ after(grammarAccess.getReturnStatementRule()); } 
+	 EOF 
+;
+
+// Rule ReturnStatement
+ruleReturnStatement
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getReturnStatementAccess().getGroup()); }
+(rule__ReturnStatement__Group__0)
+{ after(grammarAccess.getReturnStatementAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleMethodCall
 entryRuleMethodCall 
 :
@@ -1027,6 +1055,7 @@ rule__Model__Group_3__2
     }
 :
 	rule__Model__Group_3__2__Impl
+	rule__Model__Group_3__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1038,17 +1067,47 @@ rule__Model__Group_3__2__Impl
     }
 :
 (
-{ before(grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_2()); }
-
-	'}' 
-
-{ after(grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_2()); }
+{ before(grammarAccess.getModelAccess().getReturnStatementAssignment_3_2()); }
+(rule__Model__ReturnStatementAssignment_3_2)?
+{ after(grammarAccess.getModelAccess().getReturnStatementAssignment_3_2()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Model__Group_3__3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Model__Group_3__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Model__Group_3__3__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_3()); }
+
+	'}' 
+
+{ after(grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_3()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -1749,6 +1808,69 @@ finally {
 
 
 
+rule__ReturnStatement__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ReturnStatement__Group__0__Impl
+	rule__ReturnStatement__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ReturnStatement__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getReturnStatementAccess().getReturnKeyword_0()); }
+
+	'return' 
+
+{ after(grammarAccess.getReturnStatementAccess().getReturnKeyword_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ReturnStatement__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__ReturnStatement__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ReturnStatement__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getReturnStatementAccess().getNameAssignment_1()); }
+(rule__ReturnStatement__NameAssignment_1)
+{ after(grammarAccess.getReturnStatementAccess().getNameAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 rule__MethodCall__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -2252,6 +2374,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Model__ReturnStatementAssignment_3_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getModelAccess().getReturnStatementReturnStatementParserRuleCall_3_2_0()); }
+	ruleReturnStatement{ after(grammarAccess.getModelAccess().getReturnStatementReturnStatementParserRuleCall_3_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Statement__VarAssignment_0_1_0
     @init {
 		int stackSize = keepStackSize();
@@ -2455,6 +2592,21 @@ rule__VarDeclaration__NameAssignment_1
 (
 { before(grammarAccess.getVarDeclarationAccess().getNameIDTerminalRuleCall_1_0()); }
 	RULE_ID{ after(grammarAccess.getVarDeclarationAccess().getNameIDTerminalRuleCall_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ReturnStatement__NameAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getReturnStatementAccess().getNameIDTerminalRuleCall_1_0()); }
+	RULE_ID{ after(grammarAccess.getReturnStatementAccess().getNameIDTerminalRuleCall_1_0()); }
 )
 
 ;

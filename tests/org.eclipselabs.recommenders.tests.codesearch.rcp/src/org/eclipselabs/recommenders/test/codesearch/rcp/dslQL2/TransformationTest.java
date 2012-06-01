@@ -15,6 +15,16 @@ public class TransformationTest extends QLTestBase {
         with(QL2StandaloneSetup.class);
     }
 
+//    @Test
+//    public void transformToLuceneQueryReturnTest() throws Exception {
+//        setUp();
+//
+//        String query = "{%n var exmpl.type.TypeA varA%nreturn varA%n}";
+//        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:uninitialized" };
+//
+//        testQuery(query, expected);
+//    }
+
     @Test
     public void transformToLuceneQueryUninitialisedTest() throws Exception {
         setUp();

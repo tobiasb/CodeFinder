@@ -19,6 +19,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Factory;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.ReturnStatement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
@@ -84,6 +85,13 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * @generated
    */
   private EClass varDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass returnStatementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -211,6 +219,16 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
   public EReference getModel_Statements()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_ReturnStatement()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -388,6 +406,26 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getReturnStatement()
+  {
+    return returnStatementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getReturnStatement_Name()
+  {
+    return (EAttribute)returnStatementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMethodCall()
   {
     return methodCallEClass;
@@ -546,6 +584,7 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__VARS);
     createEReference(modelEClass, MODEL__STATEMENTS);
+    createEReference(modelEClass, MODEL__RETURN_STATEMENT);
 
     statementEClass = createEClass(STATEMENT);
     createEReference(statementEClass, STATEMENT__VAR);
@@ -569,6 +608,9 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     varDeclarationEClass = createEClass(VAR_DECLARATION);
     createEReference(varDeclarationEClass, VAR_DECLARATION__TYPE);
     createEAttribute(varDeclarationEClass, VAR_DECLARATION__NAME);
+
+    returnStatementEClass = createEClass(RETURN_STATEMENT);
+    createEAttribute(returnStatementEClass, RETURN_STATEMENT__NAME);
 
     methodCallEClass = createEClass(METHOD_CALL);
     createEReference(methodCallEClass, METHOD_CALL__NAME_CALLEE);
@@ -625,6 +667,7 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Vars(), ecorePackage.getEObject(), null, "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Statements(), this.getStatement(), null, "statements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_ReturnStatement(), this.getReturnStatement(), null, "returnStatement", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStatement_Var(), ecorePackage.getEObject(), null, "var", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -648,6 +691,9 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     initEClass(varDeclarationEClass, VarDeclaration.class, "VarDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVarDeclaration_Type(), this.getType(), null, "type", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVarDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(returnStatementEClass, ReturnStatement.class, "ReturnStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getReturnStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ReturnStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(methodCallEClass, MethodCall.class, "MethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMethodCall_NameCallee(), this.getName_(), null, "nameCallee", null, 0, 1, MethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

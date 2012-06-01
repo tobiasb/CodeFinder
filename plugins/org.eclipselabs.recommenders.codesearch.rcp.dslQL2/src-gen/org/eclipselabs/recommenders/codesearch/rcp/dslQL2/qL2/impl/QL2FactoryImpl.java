@@ -75,6 +75,7 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
       case QL2Package.VAR_ASSIGNMENT: return createVarAssignment();
       case QL2Package.VAR_INSTANCE_CREATION: return createVarInstanceCreation();
       case QL2Package.VAR_DECLARATION: return createVarDeclaration();
+      case QL2Package.RETURN_STATEMENT: return createReturnStatement();
       case QL2Package.METHOD_CALL: return createMethodCall();
       case QL2Package.STATIC_METHOD_CALL: return createStaticMethodCall();
       case QL2Package.CALLED_METHOD_NAME: return createCalledMethodName();
@@ -160,6 +161,17 @@ public class QL2FactoryImpl extends EFactoryImpl implements QL2Factory
   {
     VarDeclarationImpl varDeclaration = new VarDeclarationImpl();
     return varDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ReturnStatement createReturnStatement()
+  {
+    ReturnStatementImpl returnStatement = new ReturnStatementImpl();
+    return returnStatement;
   }
 
   /**

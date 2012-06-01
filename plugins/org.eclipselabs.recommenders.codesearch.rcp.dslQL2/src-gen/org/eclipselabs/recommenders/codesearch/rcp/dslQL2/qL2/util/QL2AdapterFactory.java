@@ -114,6 +114,11 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
         return createVarDeclarationAdapter();
       }
       @Override
+      public Adapter caseReturnStatement(ReturnStatement object)
+      {
+        return createReturnStatementAdapter();
+      }
+      @Override
       public Adapter caseMethodCall(MethodCall object)
       {
         return createMethodCallAdapter();
@@ -261,6 +266,21 @@ public class QL2AdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVarDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.ReturnStatement <em>Return Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.ReturnStatement
+   * @generated
+   */
+  public Adapter createReturnStatementAdapter()
   {
     return null;
   }

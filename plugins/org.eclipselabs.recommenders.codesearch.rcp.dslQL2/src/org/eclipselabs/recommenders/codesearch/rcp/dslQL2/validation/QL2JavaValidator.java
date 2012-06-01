@@ -17,6 +17,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dsl.EmfHelper;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.VariableExtractor;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.ReturnStatement;
 
 public class QL2JavaValidator extends AbstractQL2JavaValidator {
 
@@ -29,5 +30,23 @@ public class QL2JavaValidator extends AbstractQL2JavaValidator {
         if (!e.getVars(model).keySet().contains(name.getValue())) {
             error("Name cannot be resolved to a previously defined variable", QL2Package.Literals.NAME__VALUE);
         }
+    }
+    
+
+    @Check
+    public void checkVariableNameExists(ReturnStatement returnStatement) {
+        EObject model = EmfHelper.getRoot(returnStatement);
+
+        VariableExtractor e = new VariableExtractor();
+
+        if (!e.getVars(model).keySet().contains(returnStatement.getName())) {
+            error("Name cannot be resolved to a previously defined variable", QL2Package.Literals.RETURN_STATEMENT__NAME);
+        }
+    }
+    
+
+    @Check
+    public void checkNotImplementedYet(ReturnStatement returnStatement) {
+    	warning("This feature is not implemented yet", QL2Package.Literals.RETURN_STATEMENT__NAME);
     }
 }

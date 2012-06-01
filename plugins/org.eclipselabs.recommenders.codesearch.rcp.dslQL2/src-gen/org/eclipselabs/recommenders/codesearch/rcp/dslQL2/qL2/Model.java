@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model#getVars <em>Vars</em>}</li>
  *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model#getStatements <em>Statements</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model#getReturnStatement <em>Return Statement</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,5 +61,31 @@ public interface Model extends EObject
    * @generated
    */
   EList<Statement> getStatements();
+
+  /**
+   * Returns the value of the '<em><b>Return Statement</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Return Statement</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Return Statement</em>' containment reference.
+   * @see #setReturnStatement(ReturnStatement)
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package#getModel_ReturnStatement()
+   * @model containment="true"
+   * @generated
+   */
+  ReturnStatement getReturnStatement();
+
+  /**
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model#getReturnStatement <em>Return Statement</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Return Statement</em>' containment reference.
+   * @see #getReturnStatement()
+   * @generated
+   */
+  void setReturnStatement(ReturnStatement value);
 
 } // Model

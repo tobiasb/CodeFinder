@@ -184,9 +184,27 @@ ruleModel returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_10='}' 
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getModelAccess().getReturnStatementReturnStatementParserRuleCall_3_2_0()); 
+	    }
+		lv_returnStatement_10_0=ruleReturnStatement		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getModelRule());
+	        }
+       		set(
+       			$current, 
+       			"returnStatement",
+        		lv_returnStatement_10_0, 
+        		"ReturnStatement");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?	otherlv_11='}' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_2());
+    	newLeafNode(otherlv_11, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_3_3());
     }
 )?)
 ;
@@ -622,6 +640,49 @@ ruleVarDeclaration returns [EObject current=null]
 		{
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getVarDeclarationRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleReturnStatement
+entryRuleReturnStatement returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getReturnStatementRule()); }
+	 iv_ruleReturnStatement=ruleReturnStatement 
+	 { $current=$iv_ruleReturnStatement.current; } 
+	 EOF 
+;
+
+// Rule ReturnStatement
+ruleReturnStatement returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='return' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getReturnStatementAccess().getReturnKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getReturnStatementAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReturnStatementRule());
 	        }
        		setWithLastConsumed(
        			$current, 
