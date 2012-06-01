@@ -1,5 +1,5 @@
 class Fields 
-
+ 
 DocumentTypeField {
 	TYPE 						= "Type" 
 	{ type, method, field, trycatch, varusage }

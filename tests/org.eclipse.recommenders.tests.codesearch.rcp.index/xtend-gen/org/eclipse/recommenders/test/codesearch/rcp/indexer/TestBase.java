@@ -29,8 +29,8 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.junit.Ignore;
 
-@Ignore(value = "to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 @SuppressWarnings("all")
+@Ignore("to make maven happy: All files that start or end with Test are executed per default. If no tests are found the build is failed...")
 public class TestBase extends AbstractTestBase {
   public LuceneInMemoryFixture f = new Function0<LuceneInMemoryFixture>() {
     public LuceneInMemoryFixture apply() {
@@ -46,7 +46,8 @@ public class TestBase extends AbstractTestBase {
   public static ASTNode parse(final ICompilationUnit unit) {
     ASTNode _xblockexpression = null;
     {
-      ASTParser parser = ASTParser.newParser(AST.JLS3);
+      ASTParser _newParser = ASTParser.newParser(AST.JLS3);
+      ASTParser parser = _newParser;
       parser.setKind(ASTParser.K_COMPILATION_UNIT);
       parser.setSource(unit);
       parser.setResolveBindings(true);
@@ -58,17 +59,20 @@ public class TestBase extends AbstractTestBase {
   
   public void assertNumDocs(final int expectedNum) {
     try {
-      List<Document> _documents = this.search.getDocuments();
-      int numDocs = _documents.size();
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("The number of documents is not correct. Is [");
-      _builder.append(numDocs, "");
-      _builder.append("] but should be [");
-      _builder.append(expectedNum, "");
-      _builder.append("]");
-      String _string = _builder.toString();
-      boolean _equals = Integer.valueOf(numDocs).equals(Integer.valueOf(expectedNum));
-      Assert.assertTrue(_string, _equals);
+      {
+        List<Document> _documents = this.search.getDocuments();
+        int _size = _documents.size();
+        int numDocs = _size;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("The number of documents is not correct. Is [");
+        _builder.append(numDocs, "");
+        _builder.append("] but should be [");
+        _builder.append(expectedNum, "");
+        _builder.append("]");
+        String _string = _builder.toString();
+        boolean _equals = Integer.valueOf(numDocs).equals(Integer.valueOf(expectedNum));
+        Assert.assertTrue(_string, _equals);
+      }
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -76,50 +80,52 @@ public class TestBase extends AbstractTestBase {
   
   public boolean assertField(final List<String> expected) {
     try {
-      List<Document> _documents = this.search.getDocuments();
-      for (final Document document : _documents) {
-        {
-          boolean foundInDocument = true;
-          for (final String exp : expected) {
-            {
-              boolean found = false;
-              List<Fieldable> _fields = document.getFields();
-              for (final Fieldable field : _fields) {
-                String _name = field.name();
-                String _stringValue = field.stringValue();
-                String _s = this.s(_name, _stringValue);
-                boolean _equals = _s.equals(exp);
-                if (_equals) {
-                  found = true;
+      {
+        List<Document> _documents = this.search.getDocuments();
+        for (final Document document : _documents) {
+          {
+            boolean foundInDocument = true;
+            for (final String exp : expected) {
+              {
+                boolean found = false;
+                List<Fieldable> _fields = document.getFields();
+                for (final Fieldable field : _fields) {
+                  String _name = field.name();
+                  String _stringValue = field.stringValue();
+                  String _s = this.s(_name, _stringValue);
+                  boolean _equals = _s.equals(exp);
+                  if (_equals) {
+                    found = true;
+                  }
+                }
+                boolean _operator_not = BooleanExtensions.operator_not(found);
+                if (_operator_not) {
+                  foundInDocument = false;
                 }
               }
-              boolean _not = BooleanExtensions.operator_not(found);
-              if (_not) {
-                foundInDocument = false;
-              }
+            }
+            if (foundInDocument) {
+              return true;
             }
           }
-          if (foundInDocument) {
-            return true;
-          }
         }
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("There was no document with ");
+        _builder.append(expected, "");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("Documents present:");
+        _builder.newLine();
+        _builder.append("\t\t");
+        List<Document> _documents_1 = this.search.getDocuments();
+        CharSequence _allDocsAsString = this.getAllDocsAsString(_documents_1);
+        _builder.append(_allDocsAsString, "		");
+        String _string = _builder.toString();
+        Assert.assertTrue(_string, false);
+        return false;
       }
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("There was no document with ");
-      _builder.append(expected, "");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t\t");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("Documents present:");
-      _builder.newLine();
-      _builder.append("\t\t");
-      List<Document> _documents_1 = this.search.getDocuments();
-      CharSequence _allDocsAsString = this.getAllDocsAsString(_documents_1);
-      _builder.append(_allDocsAsString, "		");
-      String _string = _builder.toString();
-      Assert.assertTrue(_string, false);
-      return false;
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -127,50 +133,52 @@ public class TestBase extends AbstractTestBase {
   
   public boolean assertFieldStartsWith(final List<String> expected) {
     try {
-      List<Document> _documents = this.search.getDocuments();
-      for (final Document document : _documents) {
-        {
-          boolean foundInDocument = true;
-          for (final String exp : expected) {
-            {
-              boolean found = false;
-              List<Fieldable> _fields = document.getFields();
-              for (final Fieldable field : _fields) {
-                String _name = field.name();
-                String _stringValue = field.stringValue();
-                String _s = this.s(_name, _stringValue);
-                boolean _startsWith = _s.startsWith(exp);
-                if (_startsWith) {
-                  found = true;
+      {
+        List<Document> _documents = this.search.getDocuments();
+        for (final Document document : _documents) {
+          {
+            boolean foundInDocument = true;
+            for (final String exp : expected) {
+              {
+                boolean found = false;
+                List<Fieldable> _fields = document.getFields();
+                for (final Fieldable field : _fields) {
+                  String _name = field.name();
+                  String _stringValue = field.stringValue();
+                  String _s = this.s(_name, _stringValue);
+                  boolean _startsWith = _s.startsWith(exp);
+                  if (_startsWith) {
+                    found = true;
+                  }
+                }
+                boolean _operator_not = BooleanExtensions.operator_not(found);
+                if (_operator_not) {
+                  foundInDocument = false;
                 }
               }
-              boolean _not = BooleanExtensions.operator_not(found);
-              if (_not) {
-                foundInDocument = false;
-              }
+            }
+            if (foundInDocument) {
+              return true;
             }
           }
-          if (foundInDocument) {
-            return true;
-          }
         }
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("There was no document with (startswith) ");
+        _builder.append(expected, "");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("Documents present:");
+        _builder.newLine();
+        _builder.append("\t\t");
+        List<Document> _documents_1 = this.search.getDocuments();
+        CharSequence _allDocsAsString = this.getAllDocsAsString(_documents_1);
+        _builder.append(_allDocsAsString, "		");
+        String _string = _builder.toString();
+        Assert.assertTrue(_string, false);
+        return false;
       }
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("There was no document with (startswith) ");
-      _builder.append(expected, "");
-      _builder.newLineIfNotEmpty();
-      _builder.append("\t\t");
-      _builder.newLine();
-      _builder.append("\t\t");
-      _builder.append("Documents present:");
-      _builder.newLine();
-      _builder.append("\t\t");
-      List<Document> _documents_1 = this.search.getDocuments();
-      CharSequence _allDocsAsString = this.getAllDocsAsString(_documents_1);
-      _builder.append(_allDocsAsString, "		");
-      String _string = _builder.toString();
-      Assert.assertTrue(_string, false);
-      return false;
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -178,19 +186,21 @@ public class TestBase extends AbstractTestBase {
   
   public CharSequence getAllDocsAsString(final List<Document> docs) {
     try {
-      StringConcatenation _builder = new StringConcatenation();
-      CharSequence docsFound = _builder;
-      List<Document> _documents = this.search.getDocuments();
-      for (final Document document : _documents) {
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append(docsFound, "");
-        _builder_1.newLineIfNotEmpty();
-        _builder_1.append("    \t\t");
-        String _string = document.toString();
-        _builder_1.append(_string, "    		");
-        docsFound = _builder_1;
+      {
+        StringConcatenation _builder = new StringConcatenation();
+        CharSequence docsFound = _builder;
+        List<Document> _documents = this.search.getDocuments();
+        for (final Document document : _documents) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append(docsFound, "");
+          _builder_1.newLineIfNotEmpty();
+          _builder_1.append("    \t\t");
+          String _string = document.toString();
+          _builder_1.append(_string, "    		");
+          docsFound = _builder_1;
+        }
+        return docsFound;
       }
-      return docsFound;
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
@@ -215,8 +225,8 @@ public class TestBase extends AbstractTestBase {
                   found = true;
                 }
               }
-              boolean _not = BooleanExtensions.operator_not(found);
-              if (_not) {
+              boolean _operator_not = BooleanExtensions.operator_not(found);
+              if (_operator_not) {
                 foundInDocument = false;
               }
             }
@@ -240,7 +250,8 @@ public class TestBase extends AbstractTestBase {
     _builder.append(name, "");
     _builder.append("=");
     _builder.append(value, "");
-    return _builder.toString();
+    String _string = _builder.toString();
+    return _string;
   }
   
   public CodeIndexer exercise(final CharSequence code, final List<IIndexer> indexer) {
@@ -260,20 +271,25 @@ public class TestBase extends AbstractTestBase {
   
   public CodeIndexer exercise(final CharSequence code1, final CharSequence code2, final CharSequence code3, final List<IIndexer> indexer, final String projectName, final String fileName) {
     try {
-      IndexUpdateService.setBackgroundIndexerActive(false);
-      IWorkspace _workspace = ResourcesPlugin.getWorkspace();
-      JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, projectName);
-      final JavaProjectFixture fixture = _javaProjectFixture;
-      String _string = code1.toString();
-      final Tuple<ICompilationUnit,Set<Integer>> struct = fixture.createFileAndParseWithMarkers(_string);
-      final ICompilationUnit cu = struct.getFirst();
-      ASTNode cuParsed = TestBase.parse(cu);
-      CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(this.index);
-      CompilationUnitVisitor visitor = _compilationUnitVisitor;
-      visitor.addIndexer(indexer);
-      cuParsed.accept(visitor);
-      this.index.commit();
-      return this.index;
+      {
+        IndexUpdateService.setBackgroundIndexerActive(false);
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        JavaProjectFixture _javaProjectFixture = new JavaProjectFixture(_workspace, projectName);
+        final JavaProjectFixture fixture = _javaProjectFixture;
+        String _string = code1.toString();
+        Tuple<ICompilationUnit,Set<Integer>> _createFileAndParseWithMarkers = fixture.createFileAndParseWithMarkers(_string);
+        final Tuple<ICompilationUnit,Set<Integer>> struct = _createFileAndParseWithMarkers;
+        ICompilationUnit _first = struct.getFirst();
+        final ICompilationUnit cu = _first;
+        ASTNode _parse = TestBase.parse(cu);
+        ASTNode cuParsed = _parse;
+        CompilationUnitVisitor _compilationUnitVisitor = new CompilationUnitVisitor(this.index);
+        CompilationUnitVisitor visitor = _compilationUnitVisitor;
+        visitor.addIndexer(indexer);
+        cuParsed.accept(visitor);
+        this.index.commit();
+        return this.index;
+      }
     } catch (Exception _e) {
       throw Exceptions.sneakyThrow(_e);
     }
