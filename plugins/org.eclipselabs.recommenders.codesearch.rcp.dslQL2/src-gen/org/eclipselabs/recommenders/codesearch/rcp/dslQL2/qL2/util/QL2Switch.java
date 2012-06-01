@@ -101,7 +101,6 @@ public class QL2Switch<T> extends Switch<T>
       {
         VarNullLiteral varNullLiteral = (VarNullLiteral)theEObject;
         T result = caseVarNullLiteral(varNullLiteral);
-        if (result == null) result = caseStatement(varNullLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -109,7 +108,6 @@ public class QL2Switch<T> extends Switch<T>
       {
         VarAssignment varAssignment = (VarAssignment)theEObject;
         T result = caseVarAssignment(varAssignment);
-        if (result == null) result = caseStatement(varAssignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -117,7 +115,6 @@ public class QL2Switch<T> extends Switch<T>
       {
         VarInstanceCreation varInstanceCreation = (VarInstanceCreation)theEObject;
         T result = caseVarInstanceCreation(varInstanceCreation);
-        if (result == null) result = caseStatement(varInstanceCreation);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,7 +122,6 @@ public class QL2Switch<T> extends Switch<T>
       {
         VarDeclaration varDeclaration = (VarDeclaration)theEObject;
         T result = caseVarDeclaration(varDeclaration);
-        if (result == null) result = caseStatement(varDeclaration);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

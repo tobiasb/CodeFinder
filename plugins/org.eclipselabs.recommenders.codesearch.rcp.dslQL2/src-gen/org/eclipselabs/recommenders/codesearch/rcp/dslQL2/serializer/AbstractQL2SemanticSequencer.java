@@ -18,6 +18,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Name;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment;
@@ -80,6 +81,12 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 					return; 
 				}
 				else break;
+			case QL2Package.STATEMENT:
+				if(context == grammarAccess.getStatementRule()) {
+					sequence_Statement(context, (Statement) semanticObject); 
+					return; 
+				}
+				else break;
 			case QL2Package.STATIC_METHOD_CALL:
 				if(context == grammarAccess.getStatementRule() ||
 				   context == grammarAccess.getStaticMethodCallRule()) {
@@ -94,15 +101,13 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 				}
 				else break;
 			case QL2Package.VAR_ASSIGNMENT:
-				if(context == grammarAccess.getStatementRule() ||
-				   context == grammarAccess.getVarAssignmentRule()) {
+				if(context == grammarAccess.getVarAssignmentRule()) {
 					sequence_VarAssignment(context, (VarAssignment) semanticObject); 
 					return; 
 				}
 				else break;
 			case QL2Package.VAR_DECLARATION:
-				if(context == grammarAccess.getStatementRule() ||
-				   context == grammarAccess.getVarDeclarationRule()) {
+				if(context == grammarAccess.getVarDeclarationRule()) {
 					sequence_VarDeclaration(context, (VarDeclaration) semanticObject); 
 					return; 
 				}
@@ -114,15 +119,13 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 				}
 				else break;
 			case QL2Package.VAR_INSTANCE_CREATION:
-				if(context == grammarAccess.getStatementRule() ||
-				   context == grammarAccess.getVarInstanceCreationRule()) {
+				if(context == grammarAccess.getVarInstanceCreationRule()) {
 					sequence_VarInstanceCreation(context, (VarInstanceCreation) semanticObject); 
 					return; 
 				}
 				else break;
 			case QL2Package.VAR_NULL_LITERAL:
-				if(context == grammarAccess.getStatementRule() ||
-				   context == grammarAccess.getVarNullLiteralRule()) {
+				if(context == grammarAccess.getVarNullLiteralRule()) {
 					sequence_VarNullLiteral(context, (VarNullLiteral) semanticObject); 
 					return; 
 				}
@@ -158,7 +161,7 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     ((vars+=VarDeclarationParam vars+=VarDeclarationParam*)? statements+=Statement*)
+	 *     (vars+=VarDeclaration* (vars+=VarDeclarationParam vars+=VarDeclarationParam*)? statements+=Statement*)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -183,20 +186,19 @@ public class AbstractQL2SemanticSequencer extends AbstractSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (var=VarAssignment | var=VarInstanceCreation | var=VarNullLiteral | var=VarDeclaration)
+	 */
+	protected void sequence_Statement(EObject context, Statement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (method=WildcardNameConcatenated name=Name)
 	 */
 	protected void sequence_StaticMethodCall(EObject context, StaticMethodCall semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__METHOD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__METHOD));
-			if(transientValues.isValueTransient(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, QL2Package.Literals.STATIC_METHOD_CALL__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getStaticMethodCallAccess().getMethodWildcardNameConcatenatedParserRuleCall_0_0(), semanticObject.getMethod());
-		feeder.accept(grammarAccess.getStaticMethodCallAccess().getNameNameParserRuleCall_2_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -23,7 +24,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
-import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<VarDeclarationParam> vars;
+  protected EList<EObject> vars;
 
   /**
    * The cached value of the '{@link #getStatements() <em>Statements</em>}' containment reference list.
@@ -87,11 +87,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<VarDeclarationParam> getVars()
+  public EList<EObject> getVars()
   {
     if (vars == null)
     {
-      vars = new EObjectContainmentEList<VarDeclarationParam>(VarDeclarationParam.class, this, QL2Package.MODEL__VARS);
+      vars = new EObjectContainmentEList<EObject>(EObject.class, this, QL2Package.MODEL__VARS);
     }
     return vars;
   }
@@ -159,7 +159,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case QL2Package.MODEL__VARS:
         getVars().clear();
-        getVars().addAll((Collection<? extends VarDeclarationParam>)newValue);
+        getVars().addAll((Collection<? extends EObject>)newValue);
         return;
       case QL2Package.MODEL__STATEMENTS:
         getStatements().clear();

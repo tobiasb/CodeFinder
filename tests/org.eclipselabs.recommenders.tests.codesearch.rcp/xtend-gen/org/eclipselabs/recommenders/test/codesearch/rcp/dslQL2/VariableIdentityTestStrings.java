@@ -83,15 +83,11 @@ public class VariableIdentityTestStrings {
   public static CharSequence varIdentityQueryString = new Function0<CharSequence>() {
     public CharSequence apply() {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("{");
-      _builder.newLine();
-      _builder.append("\t");
       _builder.append("var *String s");
       _builder.newLine();
-      _builder.append("\t");
       _builder.append("var *List l");
       _builder.newLine();
-      _builder.append("\t");
+      _builder.append("{\t\t");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("call l.add(s)");

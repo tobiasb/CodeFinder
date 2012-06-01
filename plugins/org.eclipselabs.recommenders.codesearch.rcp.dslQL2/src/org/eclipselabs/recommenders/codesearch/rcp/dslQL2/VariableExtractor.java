@@ -17,12 +17,17 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.MethodCall;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Model;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Statement;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.StaticMethodCall;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclaration;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarDeclarationParam;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarInstanceCreation;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarNullLiteral;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.ModelImpl;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.StatementImpl;
+import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.impl.VarDeclarationImpl;
 
 import com.google.common.collect.Maps;
 
@@ -119,9 +124,33 @@ public class VariableExtractor {
     private VariableUsage getVarUsage(VarDeclaration o) {
         VariableUsage v = new VariableUsage(o.getName(), null);
         v.type = o.getType().getValue();
-        v.origin = "*";
+        
+        if(o.eContainer() instanceof Statement){//isPartOfStatements((Model)o.eContainer(), o)) {
+        	v.origin = Fields.DEFINITION_UNINITIALIZED;
+        } else {
+        	v.origin = "*"; //Defined outside statement block, so exact variable definition not essential
+        }
         return v;
     }
+    
+//    private boolean isPartOfStatements(Model model, VarDeclaration var){
+//    	
+//    	if(model.getStatements() != null) {
+//    		for(Statement stmt : model.getStatements()) {
+//    	        TreeIterator<EObject> iter = stmt.eAllContents();
+//    	        do {
+//    	            final EObject o = iter.next();
+//
+//    	            if(o != null && o instanceof VarDeclarationImpl && o == var) {
+//    	            	return true;
+//    	            }
+//    	            
+//    	        } while (iter.hasNext());
+//    		}
+//    	}
+//    	
+//    	return false;
+//    }
 
     private VariableUsage getVarUsage(VarAssignment o) {
         VariableUsage v = new VariableUsage(o.getName(), null);

@@ -228,6 +228,16 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getStatement_Var()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getVarDeclarationParam()
   {
     return varDeclarationParamEClass;
@@ -538,6 +548,7 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     createEReference(modelEClass, MODEL__STATEMENTS);
 
     statementEClass = createEClass(STATEMENT);
+    createEReference(statementEClass, STATEMENT__VAR);
 
     varDeclarationParamEClass = createEClass(VAR_DECLARATION_PARAM);
     createEReference(varDeclarationParamEClass, VAR_DECLARATION_PARAM__TYPE);
@@ -607,19 +618,16 @@ public class QL2PackageImpl extends EPackageImpl implements QL2Package
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    varNullLiteralEClass.getESuperTypes().add(this.getStatement());
-    varAssignmentEClass.getESuperTypes().add(this.getStatement());
-    varInstanceCreationEClass.getESuperTypes().add(this.getStatement());
-    varDeclarationEClass.getESuperTypes().add(this.getStatement());
     methodCallEClass.getESuperTypes().add(this.getStatement());
     staticMethodCallEClass.getESuperTypes().add(this.getStatement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Vars(), this.getVarDeclarationParam(), null, "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Vars(), ecorePackage.getEObject(), null, "vars", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Statements(), this.getStatement(), null, "statements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStatement_Var(), ecorePackage.getEObject(), null, "var", null, 0, 1, Statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varDeclarationParamEClass, VarDeclarationParam.class, "VarDeclarationParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVarDeclarationParam_Type(), this.getType(), null, "type", null, 0, 1, VarDeclarationParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

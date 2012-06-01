@@ -30,6 +30,11 @@ public class SyntaxTest extends QLTestBase {
         setUp();
 
         Assert.assertEquals(0, parseAndExtractVars("{}").size());
+        Assert.assertEquals(1, parseAndExtractVars("var String s1 (){}").size());
+        Assert.assertEquals(1, parseAndExtractVars("var String s1 {}").size());
+        Assert.assertEquals(1, parseAndExtractVars("var String s1").size());
+        Assert.assertEquals(1, parseAndExtractVars(String.format("var String s1%nvar String s1%n{}")).size());
+        Assert.assertEquals(1, parseAndExtractVars(String.format("var String s1%nvar String s1%n")).size());
         Assert.assertEquals(1, parseAndExtractVars("(String s1){}").size());
         Assert.assertEquals(1, parseAndExtractVars("{var String s1}").size());
         Assert.assertEquals(1, parseAndExtractVars("{var String s1 = *}").size());

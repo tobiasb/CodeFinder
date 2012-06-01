@@ -17,13 +17,10 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.1.0";visibility:=reexport,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
  org.antlr.runtime,
- org.eclipse.xtend2.lib,
  org.eclipse.xtext.common.types,
  org.slf4j.api;resolution:=optional
 Import-Package: org.apache.log4j,
- org.apache.commons.logging,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtend2.lib
+ org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipselabs.recommenders.codesearch.internal.rcp.dsl,
  org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.services,

@@ -16,10 +16,20 @@ public class TransformationTest extends QLTestBase {
     }
 
     @Test
-    public void transformToLuceneQueryTest() throws Exception {
+    public void transformToLuceneQueryUninitialisedTest() throws Exception {
         setUp();
 
         String query = "{%n var exmpl.type.TypeA varA%n}";
+        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:uninitialized" };
+
+        testQuery(query, expected);
+    }
+
+    @Test
+    public void transformToLuceneQueryAnyTest() throws Exception {
+        setUp();
+
+        String query = "var exmpl.type.TypeA varA%n{%n}";
         String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:*" };
 
         testQuery(query, expected);
@@ -60,7 +70,7 @@ public class TransformationTest extends QLTestBase {
         setUp();
 
         String query = "{%nvar exmpl.type.TypeA varA%n}";
-        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:*" };
+        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:uninitialized" };
 
         testQuery(query, expected);
     }
@@ -80,8 +90,8 @@ public class TransformationTest extends QLTestBase {
         setUp();
 
         String query = "{%n var exmpl.type.TypeA varA%nvar exmpl.type.TypeB varB}";
-        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeB AND VariableDefinition:*",
-                "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:*" };
+        String[] expected = new String[] { "Type:varusage AND VariableType:Lexmpl/type/TypeB AND VariableDefinition:uninitialized",
+                "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:uninitialized" };
 
         testQuery(query, expected);
     }
@@ -124,7 +134,7 @@ public class TransformationTest extends QLTestBase {
 
         String query = "{%nvar exmpl.type.TypeA varA = *%nvar exmpl.type.TypeB varB%ncall varA.testMethod()%ncall varB.testMethod2()%n}";
         String[] expected = new String[] {
-                "Type:varusage AND VariableType:Lexmpl/type/TypeB AND VariableDefinition:* AND UsedAsTargetForMethods:L*testMethod2\\(*",
+                "Type:varusage AND VariableType:Lexmpl/type/TypeB AND VariableDefinition:uninitialized AND UsedAsTargetForMethods:L*testMethod2\\(*",
                 "Type:varusage AND VariableType:Lexmpl/type/TypeA AND VariableDefinition:assignment AND UsedAsTargetForMethods:L*testMethod\\(*" };
 
         testQuery(query, expected);

@@ -41,10 +41,9 @@ class VariableIdentityTestStrings {
 	}'''
 	
 	public static CharSequence varIdentityQueryString = '''
-	{
-		var *String s
-		var *List l
-		
+	var *String s
+	var *List l
+	{		
 		call l.add(s)
 		call l.contains(s)
 	}'''

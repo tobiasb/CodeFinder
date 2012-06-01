@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.QL2Package;
 import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.Type;
@@ -32,7 +33,7 @@ import org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2.VarAssignment;
  *
  * @generated
  */
-public class VarAssignmentImpl extends StatementImpl implements VarAssignment
+public class VarAssignmentImpl extends MinimalEObjectImpl.Container implements VarAssignment
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.

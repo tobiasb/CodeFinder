@@ -13,7 +13,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/vars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Model/statements"/>
     </genClasses>
-    <genClasses ecoreClass="QL2.ecore#//Statement"/>
+    <genClasses ecoreClass="QL2.ecore#//Statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//Statement/var"/>
+    </genClasses>
     <genClasses ecoreClass="QL2.ecore#//VarDeclarationParam">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QL2.ecore#//VarDeclarationParam/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QL2.ecore#//VarDeclarationParam/name"/>

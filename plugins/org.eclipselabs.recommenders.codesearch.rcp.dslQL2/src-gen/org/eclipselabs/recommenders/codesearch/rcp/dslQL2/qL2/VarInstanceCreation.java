@@ -6,6 +6,7 @@
  */
 package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +25,7 @@ package org.eclipselabs.recommenders.codesearch.rcp.dslQL2.qL2;
  * @model
  * @generated
  */
-public interface VarInstanceCreation extends Statement
+public interface VarInstanceCreation extends EObject
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
