@@ -70,7 +70,7 @@ public class QL2QueryExtractor {
     }
 
     private ClauseExpression getUsedAsTargetMethodExpression(String calledMethodName) {
-        return ExtractorHelper.getMethodFieldExpression(Fields.USED_AS_TAGET_FOR_METHODS, "*" + calledMethodName);
+        return ExtractorHelper.getMethodFieldExpression(Fields.USED_AS_TAGET_FOR_METHODS, "*." + calledMethodName);
     }
 
     private ClauseExpression getUsedAsParameterExpression(VariableParameterUsage varParamUsage) {
