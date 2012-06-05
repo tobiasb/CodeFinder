@@ -55,7 +55,7 @@ SimpleField {
 	 
 	FULL_TEXT 					= "FullText"
 	{ type, method, field, trycatch }
-	("Full text representation of the entire entity")
+	("Full text representation of the entire entity, including names of structural elements, implementation comments as well as documentation")
 	
 	FIELDS_READ 				= "FieldsRead"
 	{ type, method, trycatch }

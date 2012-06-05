@@ -84,7 +84,7 @@ public class Fields {
 	*/
 	//Generated - please modify in source file
 	public final static String ALL_DECLARED_FIELD_NAMES = "AllDeclaredFieldNames";
-	/** Full text representation of the entire entity<br /><br />
+	/** Full text representation of the entire entity, including names of structural elements, implementation comments as well as documentation<br /><br />
 		Can be applied to: type, method, field, tryCatch
 	*/
 	//Generated - please modify in source file
