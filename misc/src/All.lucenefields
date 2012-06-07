@@ -123,11 +123,12 @@ TypeField {
 	
 	ALL_IMPLEMENTED_TYPES 		= "AllImplementedTypes"
 	{ type }
-	("FQN of types (interfaces) implemented by the entity across the entire hierarchy")
+	("FQN of the type (interface) the type has implemented directly as well as the FQN of the types (interfaces) implemented indirectly by the type across the entire hierarchy"
+	)
 	
 	ALL_EXTENDED_TYPES 			= "AllExtendedTypes"
 	{ type }
-	("FQN of the types the class has extended across the entire hierarchy")
+	("FQN of the type that the class has extended directly as well as the FQN of the types the class has extended indirectly across the entire hierarchy")
 	
 	FIELD_TYPE 					= "FieldType"
 	{ field }

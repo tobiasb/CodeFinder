@@ -1955,6 +1955,8 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return (tNameWithWC != null) ? tNameWithWC : (tNameWithWC = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NameWithWC"));
 	} 
 
+	////terminal MethodWithWC   : NameWithWC* ('(' (NameWithWC (',' NameWithWC)*)? ')')?;
+	//
 	//terminal PathWithWC:
 	//	("A".."Z" ":" | ("a".."z" | "A".."Z" | "_" | "/")) ("a".."z" | "A".."Z" | "_" | "0".."9" | "*" | "?" | "." | "/")*;
 	public TerminalRule getPathWithWCRule() {

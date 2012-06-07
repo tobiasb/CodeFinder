@@ -130,7 +130,7 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
         String searchQuery = handle.getDocument().readOnly(new LuceneQueryExtractor()).trim();
         
         //XXX: Quick workaround to prevent most of the "empty" result rows until I have time to fix it
-        searchQuery = String.format("(%s) AND %s:*", searchQuery, Fields.QUALIFIED_NAME);
+        //searchQuery = String.format("(%s) AND %s:*", searchQuery, Fields.QUALIFIED_NAME);
         
         resetXtextQuery();
         System.out.println("Search: " + searchQuery);

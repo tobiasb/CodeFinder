@@ -247,6 +247,7 @@ generate luceneQuery 'http://www.eclipselabs.org/recommenders/codesearch/rcp/dsl
 	terminal QuotedNameWithWC : ('"' ' '? NameWithWC (' ' NameWithWC?)* '"');
 	terminal EscapedSpecialChar: ('\\' LuceneSpecialChar);
 	terminal NameWithWC		: ('a'..'z'|'A'..'Z'|'_'|'*'|'?'|'<'|'>'|'['|']'|EscapedSpecialChar) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'<'|'>'|'['|']'|EscapedSpecialChar|'.')*;
+	//terminal MethodWithWC   : NameWithWC* ('(' (NameWithWC (',' NameWithWC)*)? ')')?;
 	terminal PathWithWC  	: (('A'..'Z' ':') | ('a'..'z'|'A'..'Z'|'_'|'/')) ('a'..'z'|'A'..'Z'|'_'|'0'..'9'|'*'|'?'|'.'|'/')*;
 	terminal LuceneSpecialChar: ('+'|'-'|'&&'|'||'|'!'|'('|')'|'{'|'}'|'['|']'|'^'|'"'|'~'|'*'|'?'|':'|'\\');
 	

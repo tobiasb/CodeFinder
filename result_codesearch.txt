@@ -1,0 +1,843 @@
+[INFO] Scanning for projects...
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[WARNING] No explicit target runtime environment configuration. Build is platform dependent.
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.feature:org.eclipselabs.recommenders.feature.codesearch:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch\pom.xml
+[INFO] Fetching p2.index (0B of 96B at 0B/s) from http://download.eclipse.org/releases/indigo/
+[INFO] Fetching p2.index (128B of 96B at 0B/s) from http://download.eclipse.org/releases/indigo/
+[INFO] 1 operation remaining.
+[INFO] Adding repository http://download.eclipse.org/releases/indigo/
+[INFO] Fetching p2.index (0B of 98B at 0B/s) from http://download.eclipse.org/technology/epp/packages/indigo/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (131B of 98B at 0B/s) from http://download.eclipse.org/technology/epp/packages/indigo/
+[INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201202240900/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (119B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201202240900/
+[INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201109230900/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (119B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201109230900/
+[INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201106220900/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (119B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201106220900/
+[INFO] Fetching p2.index (0B of 96B at 0B/s) from http://download.eclipse.org/releases/indigo/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (128B of 96B at 0B/s) from http://download.eclipse.org/releases/indigo/
+[INFO] Adding repository http://download.eclipse.org/releases/indigo/
+[INFO] Fetching p2.index (0B of 98B at 0B/s) from http://download.eclipse.org/technology/epp/packages/indigo/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (131B of 98B at 0B/s) from http://download.eclipse.org/technology/epp/packages/indigo/
+[INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201202240900/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (119B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201202240900/
+[INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201109230900/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (119B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201109230900/
+[INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201106220900/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (119B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201106220900/
+[INFO] Adding repository http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack
+[INFO] Adding repository http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Adding repository http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/emft/mwe/updates/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/emft/mwe/updates/releases/
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/m2t/xpand/updates/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/m2t/xpand/updates/releases/
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/releases/
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Adding repository http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/emft/mwe/updates/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/emft/mwe/updates/releases/
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/m2t/xpand/updates/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/m2t/xpand/updates/releases/
+[INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/releases/
+[INFO] 1 operation remaining.
+[INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/releases/
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.feature:org.eclipselabs.recommenders.feature.codesearch.source:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.source\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.feature:org.eclipselabs.recommenders.feature.codesearch.rcp.index:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.rcp.index\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.feature:org.eclipselabs.recommenders.feature.dependencies:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.dependencies\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipselabs.recommenders.codesearch.rcp:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.codesearch.rcp_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.codesearch.rcp_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipse.recommenders.codesearch.rcp.index:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipse.recommenders.codesearch.rcp.index\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipse.recommenders.codesearch.rcp.index_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipse.recommenders.codesearch.rcp.index_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipselabs.recommenders.codesearch.rcp.dsl:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.codesearch.rcp.dsl_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.codesearch.rcp.dsl_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipselabs.recommenders.codesearch.rcp.dsl.ui:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.codesearch.rcp.dsl.ui_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.codesearch.rcp.dsl.ui_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipselabs.recommenders.codesearch.rcp.dslQL1:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.codesearch.rcp.dslQL1_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.codesearch.rcp.dslQL1_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipselabs.recommenders.codesearch.rcp.dslQL2:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.codesearch.rcp.dslQL2_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.codesearch.rcp.dslQL2_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.plugin:org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.repository:org.eclipselabs.recommenders.repository.codesearch:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\repositories\org.eclipselabs.recommenders.repository.codesearch\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.tests:org.eclipse.recommenders.tests:0.5.1-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipse.recommenders.tests_0.5.1.qualifier has been replaced by another bundle with the same symbolic name org.eclipse.recommenders.tests_0.5.1.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.tests:org.eclipse.recommenders.tests.codesearch.rcp.index:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests.codesearch.rcp.index\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipse.recommenders.tests.codesearch.rcp.index_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipse.recommenders.tests.codesearch.rcp.index_0.1.0.qualifier
+[INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.tests:org.eclipselabs.recommenders.tests.codesearch.rcp:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\pom.xml
+[INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
+[WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
+[INFO] Adding repository (cached) http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
+[INFO] Adding repository (cached) http://download.eclipse.org/recommenders/updates/train/e42
+[INFO] Adding repository (cached) http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
+[WARNING] org.eclipselabs.recommenders.tests.codesearch.rcp_0.1.0.qualifier has been replaced by another bundle with the same symbolic name org.eclipselabs.recommenders.tests.codesearch.rcp_0.1.0.qualifier
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] org.eclipselabs.recommenders.codesearch.parent
+[INFO] org.eclipselabs.recommenders.plugin.codesearch.parent
+[INFO] org.eclipse.recommenders.codesearch.rcp.index
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl.ui
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui
+[INFO] org.eclipselabs.recommenders.codesearch.rcp
+[INFO] org.eclipselabs.recommenders.feature.codesearch.parent
+[INFO] org.eclipselabs.recommenders.feature.codesearch
+[INFO] org.eclipselabs.recommenders.feature.codesearch.source
+[INFO] org.eclipselabs.recommenders.feature.codesearch.rcp.index
+[INFO] org.eclipselabs.recommenders.feature.dependencies
+[INFO] org.eclipselabs.recommenders.repository.codesearch.parent
+[INFO] org.eclipselabs.recommenders.repository.codesearch
+[INFO] org.eclipselabs.recommenders.tests.codesearch.parent
+[INFO] org.eclipse.recommenders.tests
+[INFO] org.eclipse.recommenders.tests.codesearch.rcp.index
+[INFO] org.eclipselabs.recommenders.tests.codesearch.rcp
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.parent 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.plugin.codesearch.parent 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.plugin.codesearch.parent ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.plugin.codesearch.parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipse.recommenders.codesearch.rcp.index 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipse.recommenders.codesearch.rcp.index\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipse.recommenders.codesearch.rcp.index\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 103 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipse.recommenders.codesearch.rcp.index\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipse.recommenders.codesearch.rcp.index\target\org.eclipse.recommenders.codesearch.rcp.index-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipse.recommenders.codesearch.rcp.index\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipse.recommenders.codesearch.rcp.index\target\org.eclipse.recommenders.codesearch.rcp.index-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipse.recommenders.codesearch.rcp.index ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.rcp.dsl 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 54 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl\target\org.eclipselabs.recommenders.codesearch.rcp.dsl-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dsl already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dsl\validation already added, skipping
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dsl already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dsl\generator already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl\target\org.eclipselabs.recommenders.codesearch.rcp.dsl-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.codesearch.rcp.dsl ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.rcp.dsl.ui 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 18 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui\target\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dsl already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dsl\ui already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dsl\ui\contentassist already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui\target\org.eclipselabs.recommenders.codesearch.rcp.dsl.ui-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.codesearch.rcp.dsl.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.rcp.dslQL2 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 56 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL2-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2 already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2\serializer already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2\validation already added, skipping
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2 already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2\generator already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL2-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2 ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.rcp.dslQL1 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 53 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL1-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1 already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1\serializer already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1\validation already added, skipping
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1 already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1\generator already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL1-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1 ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 14 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1 already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1\ui already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL1\ui\contentassist already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 14 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2 already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2\ui already added, skipping
+[INFO] org\eclipselabs\recommenders\codesearch\rcp\dslQL2\ui\contentassist already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui\target\org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.codesearch.rcp 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 24 source files to C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp\target\org.eclipselabs.recommenders.codesearch.rcp-0.1.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\plugins\org.eclipselabs.recommenders.codesearch.rcp\target\org.eclipselabs.recommenders.codesearch.rcp-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.codesearch.rcp ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.feature.codesearch.parent 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.feature.codesearch.parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.feature.codesearch 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.feature.codesearch ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.feature.codesearch ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.feature.codesearch ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.feature.codesearch ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-feature (default-package-feature) @ org.eclipselabs.recommenders.feature.codesearch ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch\target\org.eclipselabs.recommenders.feature.codesearch-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.feature.codesearch ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:feature-p2-metadata (default-feature-p2-metadata) @ org.eclipselabs.recommenders.feature.codesearch ---
+[WARNING] C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch\target\site does not exist or is not a directory
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.feature.codesearch.source 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.feature.codesearch.source ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.source\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.feature.codesearch.source ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.feature.codesearch.source ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.feature.codesearch.source ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-feature (default-package-feature) @ org.eclipselabs.recommenders.feature.codesearch.source ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.source\target\org.eclipselabs.recommenders.feature.codesearch.source-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.feature.codesearch.source ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:feature-p2-metadata (default-feature-p2-metadata) @ org.eclipselabs.recommenders.feature.codesearch.source ---
+[WARNING] C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.source\target\site does not exist or is not a directory
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.feature.codesearch.rcp.index 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.feature.codesearch.rcp.index ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.rcp.index\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.feature.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.feature.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.feature.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-feature (default-package-feature) @ org.eclipselabs.recommenders.feature.codesearch.rcp.index ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.rcp.index\target\org.eclipselabs.recommenders.feature.codesearch.rcp.index-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.feature.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:feature-p2-metadata (default-feature-p2-metadata) @ org.eclipselabs.recommenders.feature.codesearch.rcp.index ---
+[WARNING] C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.rcp.index\target\site does not exist or is not a directory
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.feature.dependencies 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.feature.dependencies ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.dependencies\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.feature.dependencies ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.feature.dependencies ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.feature.dependencies ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-feature (default-package-feature) @ org.eclipselabs.recommenders.feature.dependencies ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.dependencies\target\org.eclipselabs.recommenders.feature.dependencies-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.feature.dependencies ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:feature-p2-metadata (default-feature-p2-metadata) @ org.eclipselabs.recommenders.feature.dependencies ---
+[WARNING] C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.dependencies\target\site does not exist or is not a directory
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.repository.codesearch.parent 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.repository.codesearch.parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.repository.codesearch 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.repository.codesearch ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\repositories\org.eclipselabs.recommenders.repository.codesearch\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.repository.codesearch ---
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean-1) @ org.eclipselabs.recommenders.repository.codesearch ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.13.0:publish-products (default-publish-products) @ org.eclipselabs.recommenders.repository.codesearch ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.13.0:publish-categories (default-publish-categories) @ org.eclipselabs.recommenders.repository.codesearch ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.13.0:assemble-repository (default-assemble-repository) @ org.eclipselabs.recommenders.repository.codesearch ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.13.0:archive-repository (default-archive-repository) @ org.eclipselabs.recommenders.repository.codesearch ---
+[INFO] Building zip: C:\Users\Tobi\Repos\EclipseLabs_2\repositories\org.eclipselabs.recommenders.repository.codesearch\target\org.eclipselabs.recommenders.repository.codesearch.zip
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.tests.codesearch.parent 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.tests.codesearch.parent ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.tests.codesearch.parent ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipse.recommenders.tests 0.5.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipse.recommenders.tests ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipse.recommenders.tests ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipse.recommenders.tests ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipse.recommenders.tests ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipse.recommenders.tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipse.recommenders.tests ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 7 source files to C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipse.recommenders.tests ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests\target\org.eclipse.recommenders.tests-0.5.1-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipse.recommenders.tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests\src\test\resources
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipse.recommenders.tests ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests\target\org.eclipse.recommenders.tests-0.5.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipse.recommenders.tests ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipse.recommenders.tests.codesearch.rcp.index 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests.codesearch.rcp.index\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests.codesearch.rcp.index\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 23 source files to C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests.codesearch.rcp.index\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests.codesearch.rcp.index\target\org.eclipse.recommenders.tests.codesearch.rcp.index-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipse already added, skipping
+[INFO] org\eclipse\recommenders already added, skipping
+[INFO] org\eclipse\recommenders\test already added, skipping
+[INFO] org\eclipse\recommenders\test\codesearch already added, skipping
+[INFO] org\eclipse\recommenders\test\codesearch\rcp already added, skipping
+[INFO] org\eclipse\recommenders\test\codesearch\rcp\indexer already added, skipping
+[INFO] org\eclipse\recommenders\test\codesearch\rcp\searcher already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests.codesearch.rcp.index\src\test\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:testCompile (default-testCompile) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] Using compile source roots from build.properties
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipse.recommenders.tests.codesearch.rcp.index\target\org.eclipse.recommenders.tests.codesearch.rcp.index-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipse.recommenders.tests.codesearch.rcp.index ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.eclipselabs.recommenders.tests.codesearch.rcp 0.1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] Deleting C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\target
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:build-qualifier (default-build-qualifier) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-id (default-validate-id) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:validate-version (default-validate-version) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:resources (default-resources) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\src\main\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] Using compile source roots from build.properties
+[INFO] Compiling 36 source files to C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\target\classes
+
+[INFO] 
+[INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\target\org.eclipselabs.recommenders.tests.codesearch.rcp-0.1.0-SNAPSHOT-sources.jar
+[INFO] org already added, skipping
+[INFO] org\eclipselabs already added, skipping
+[INFO] org\eclipselabs\recommenders already added, skipping
+[INFO] org\eclipselabs\recommenders\test already added, skipping
+[INFO] org\eclipselabs\recommenders\test\codesearch already added, skipping
+[INFO] org\eclipselabs\recommenders\test\codesearch\rcp already added, skipping
+[INFO] org\eclipselabs\recommenders\test\codesearch\rcp\dsl already added, skipping
+[INFO] org\eclipselabs\recommenders\test\codesearch\rcp\dslQL2 already added, skipping
+[INFO] 
+[INFO] --- maven-resources-plugin:2.4.3:testResources (default-testResources) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\src\test\resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.13.0:testCompile (default-testCompile) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] Using compile source roots from build.properties
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.13.0:package-plugin (default-package-plugin) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] Building jar: C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\target\org.eclipselabs.recommenders.tests.codesearch.rcp-0.1.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.13.0:p2-metadata (default-p2-metadata) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] org.eclipselabs.recommenders.codesearch.parent .... SUCCESS [0.091s]
+[INFO] org.eclipselabs.recommenders.plugin.codesearch.parent  SUCCESS [0.162s]
+[INFO] org.eclipse.recommenders.codesearch.rcp.index ..... SUCCESS [3.338s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl ... SUCCESS [1.896s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl.ui  SUCCESS [1.340s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2  SUCCESS [0.972s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1  SUCCESS [0.936s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui  SUCCESS [0.638s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui  SUCCESS [0.657s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp ....... SUCCESS [0.673s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.parent  SUCCESS [0.002s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch ... SUCCESS [0.129s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.source  SUCCESS [0.032s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.rcp.index  SUCCESS [0.059s]
+[INFO] org.eclipselabs.recommenders.feature.dependencies . SUCCESS [0.086s]
+[INFO] org.eclipselabs.recommenders.repository.codesearch.parent  SUCCESS [0.001s]
+[INFO] org.eclipselabs.recommenders.repository.codesearch  SUCCESS [8.245s]
+[INFO] org.eclipselabs.recommenders.tests.codesearch.parent  SUCCESS [0.003s]
+[INFO] org.eclipse.recommenders.tests .................... SUCCESS [0.380s]
+[INFO] org.eclipse.recommenders.tests.codesearch.rcp.index  SUCCESS [0.904s]
+[INFO] org.eclipselabs.recommenders.tests.codesearch.rcp . SUCCESS [0.633s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:52.881s
+[INFO] Finished at: Tue Jun 05 17:19:51 CEST 2012
+[INFO] Final Memory: 126M/454M
+[INFO] ------------------------------------------------------------------------
