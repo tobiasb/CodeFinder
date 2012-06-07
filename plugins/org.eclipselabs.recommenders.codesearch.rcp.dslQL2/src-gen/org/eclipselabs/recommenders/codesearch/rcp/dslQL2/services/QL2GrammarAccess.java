@@ -142,12 +142,6 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cScallKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final RuleCall cStaticMethodCallParserRuleCall_2_1 = (RuleCall)cGroup_2.eContents().get(1);
 		
-		////ParameterDefinition:
-		//
-		////	'(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')'
-		//
-		////;
-		//
 		//Statement:
 		//	"var" (var=VarAssignment | var=VarInstanceCreation | var=VarNullLiteral | var=VarDeclaration) | "call" MethodCall |
 		//	"scall" StaticMethodCall;
@@ -631,12 +625,6 @@ public class QL2GrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 
-	////ParameterDefinition:
-	//
-	////	'(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')'
-	//
-	////;
-	//
 	//Statement:
 	//	"var" (var=VarAssignment | var=VarInstanceCreation | var=VarNullLiteral | var=VarDeclaration) | "call" MethodCall |
 	//	"scall" StaticMethodCall;

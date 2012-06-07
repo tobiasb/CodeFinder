@@ -86,42 +86,42 @@ See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»
 		b.setValue(true)
 		
 '''/*
-	The following rules are generated. Do not modify. Modify source file instead.
+The following rules are generated. Do not modify. Modify source file instead.
 */
 
-	//Generated Rule. Do not modify!
-	ClauseExpression:
-		(UnaryExpression)? 
+//Generated Rule. Do not modify!
+ClauseExpression:
+	(UnaryExpression)? 
+	(
+		default=SimpleFieldValue Boost? | // Default field
 		(
-			default=SimpleFieldValue Boost? | // Default field
-			(
-			«FOR category : m.fieldCategories»
-				«if(m.fieldCategories.indexOf(category)>0){'| '}»	(
-						field=«category.categoryName» ':' 
-						(
-							(values+=«category.categoryName»Value)
-							| ('('(UnaryExpression? values+=«category.categoryName»Value Boost?)*')')
-						) Boost?
-					)
-			«ENDFOR»
-			)
-		)
-	;
-
-	«FOR category : m.fieldCategories»
-	//Generated Rule. Do not modify!
-	«category.categoryName»:
-		«FOR field : category.fields»
-			«if(!b.value){'| '}»	value='«field.value»'
-			«b.setValue(false)»
+		«FOR category : m.fieldCategories»
+			«if(m.fieldCategories.indexOf(category)>0){'| '}»	(
+					field=«category.categoryName» ':' 
+					(
+						(values+=«category.categoryName»Value)
+						| ('('(UnaryExpression? values+=«category.categoryName»Value Boost?)*')')
+					) Boost?
+				)
 		«ENDFOR»
-	;
-	
-	«b.setValue(true)»
+		)
+	)
+;
+
+«FOR category : m.fieldCategories»
+//Generated Rule. Do not modify!
+«category.categoryName»:
+	«FOR field : category.fields»
+		«if(!b.value){'| '}»	value='«field.value»'
+		«b.setValue(false)»
 	«ENDFOR»
-	/*
-	End of generated rules.
-	*/
+;
+
+«b.setValue(true)»
+«ENDFOR»
+/*
+End of generated rules.
+*/
 '''
 
 	}

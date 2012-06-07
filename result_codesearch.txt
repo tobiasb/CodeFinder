@@ -40,7 +40,6 @@
 [INFO] 1 operation remaining.
 [INFO] Fetching p2.index (131B of 98B at 0B/s) from http://download.eclipse.org/technology/epp/packages/indigo/
 [INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201202240900/
-[INFO] 1 operation remaining.
 [INFO] Fetching p2.index (119B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201202240900/
 [INFO] Fetching p2.index (0B of 93B at 0B/s) from http://download.eclipse.org/releases/indigo/201109230900/
 [INFO] 1 operation remaining.
@@ -784,7 +783,7 @@
 [INFO] 
 [INFO] --- tycho-compiler-plugin:0.13.0:compile (default-compile) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
 [INFO] Using compile source roots from build.properties
-[INFO] Compiling 36 source files to C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\target\classes
+[INFO] Compiling 37 source files to C:\Users\Tobi\Repos\EclipseLabs_2\tests\org.eclipselabs.recommenders.tests.codesearch.rcp\target\classes
 
 [INFO] 
 [INFO] --- tycho-source-plugin:0.13.0:plugin-source (attach-source) @ org.eclipselabs.recommenders.tests.codesearch.rcp ---
@@ -813,31 +812,31 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] org.eclipselabs.recommenders.codesearch.parent .... SUCCESS [0.091s]
-[INFO] org.eclipselabs.recommenders.plugin.codesearch.parent  SUCCESS [0.162s]
-[INFO] org.eclipse.recommenders.codesearch.rcp.index ..... SUCCESS [3.338s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl ... SUCCESS [1.896s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl.ui  SUCCESS [1.340s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2  SUCCESS [0.972s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1  SUCCESS [0.936s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui  SUCCESS [0.638s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui  SUCCESS [0.657s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp ....... SUCCESS [0.673s]
-[INFO] org.eclipselabs.recommenders.feature.codesearch.parent  SUCCESS [0.002s]
-[INFO] org.eclipselabs.recommenders.feature.codesearch ... SUCCESS [0.129s]
-[INFO] org.eclipselabs.recommenders.feature.codesearch.source  SUCCESS [0.032s]
-[INFO] org.eclipselabs.recommenders.feature.codesearch.rcp.index  SUCCESS [0.059s]
+[INFO] org.eclipselabs.recommenders.codesearch.parent .... SUCCESS [0.150s]
+[INFO] org.eclipselabs.recommenders.plugin.codesearch.parent  SUCCESS [0.189s]
+[INFO] org.eclipse.recommenders.codesearch.rcp.index ..... SUCCESS [3.411s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl ... SUCCESS [1.879s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl.ui  SUCCESS [1.377s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2  SUCCESS [1.024s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1  SUCCESS [1.085s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui  SUCCESS [0.641s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui  SUCCESS [0.714s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp ....... SUCCESS [0.692s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.parent  SUCCESS [0.001s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch ... SUCCESS [0.141s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.source  SUCCESS [0.035s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.rcp.index  SUCCESS [0.066s]
 [INFO] org.eclipselabs.recommenders.feature.dependencies . SUCCESS [0.086s]
 [INFO] org.eclipselabs.recommenders.repository.codesearch.parent  SUCCESS [0.001s]
-[INFO] org.eclipselabs.recommenders.repository.codesearch  SUCCESS [8.245s]
+[INFO] org.eclipselabs.recommenders.repository.codesearch  SUCCESS [8.548s]
 [INFO] org.eclipselabs.recommenders.tests.codesearch.parent  SUCCESS [0.003s]
-[INFO] org.eclipse.recommenders.tests .................... SUCCESS [0.380s]
-[INFO] org.eclipse.recommenders.tests.codesearch.rcp.index  SUCCESS [0.904s]
-[INFO] org.eclipselabs.recommenders.tests.codesearch.rcp . SUCCESS [0.633s]
+[INFO] org.eclipse.recommenders.tests .................... SUCCESS [0.313s]
+[INFO] org.eclipse.recommenders.tests.codesearch.rcp.index  SUCCESS [0.832s]
+[INFO] org.eclipselabs.recommenders.tests.codesearch.rcp . SUCCESS [0.639s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3:52.881s
-[INFO] Finished at: Tue Jun 05 17:19:51 CEST 2012
-[INFO] Final Memory: 126M/454M
+[INFO] Total time: 2:07.018s
+[INFO] Finished at: Thu Jun 07 19:07:04 CEST 2012
+[INFO] Final Memory: 127M/796M
 [INFO] ------------------------------------------------------------------------

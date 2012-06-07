@@ -241,34 +241,31 @@ public class LuceneFieldsGenerator implements IGenerator {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("/*");
       _builder.newLine();
-      _builder.append("\t");
       _builder.append("The following rules are generated. Do not modify. Modify source file instead.");
       _builder.newLine();
       _builder.append("*/");
       _builder.newLine();
       _builder.newLine();
-      _builder.append("\t");
       _builder.append("//Generated Rule. Do not modify!");
       _builder.newLine();
-      _builder.append("\t");
       _builder.append("ClauseExpression:");
       _builder.newLine();
-      _builder.append("\t\t");
+      _builder.append("\t");
       _builder.append("(UnaryExpression)? ");
       _builder.newLine();
-      _builder.append("\t\t");
+      _builder.append("\t");
       _builder.append("(");
       _builder.newLine();
-      _builder.append("\t\t\t");
+      _builder.append("\t\t");
       _builder.append("default=SimpleFieldValue Boost? | // Default field");
       _builder.newLine();
-      _builder.append("\t\t\t");
+      _builder.append("\t\t");
       _builder.append("(");
       _builder.newLine();
       {
         EList<FieldCategory> _fieldCategories = m.getFieldCategories();
         for(final FieldCategory category : _fieldCategories) {
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           String _xifexpression = null;
           EList<FieldCategory> _fieldCategories_1 = m.getFieldCategories();
           int _indexOf = _fieldCategories_1.indexOf(category);
@@ -276,69 +273,65 @@ public class LuceneFieldsGenerator implements IGenerator {
           if (_operator_greaterThan) {
             _xifexpression = "| ";
           }
-          _builder.append(_xifexpression, "			");
+          _builder.append(_xifexpression, "		");
           _builder.append("\t(");
           _builder.newLineIfNotEmpty();
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("\t\t");
           _builder.append("field=");
           String _categoryName = category.getCategoryName();
-          _builder.append(_categoryName, "					");
+          _builder.append(_categoryName, "				");
           _builder.append(" \':\' ");
           _builder.newLineIfNotEmpty();
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("\t\t");
           _builder.append("(");
           _builder.newLine();
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("\t\t\t");
           _builder.append("(values+=");
           String _categoryName_1 = category.getCategoryName();
-          _builder.append(_categoryName_1, "						");
+          _builder.append(_categoryName_1, "					");
           _builder.append("Value)");
           _builder.newLineIfNotEmpty();
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("\t\t\t");
           _builder.append("| (\'(\'(UnaryExpression? values+=");
           String _categoryName_2 = category.getCategoryName();
-          _builder.append(_categoryName_2, "						");
+          _builder.append(_categoryName_2, "					");
           _builder.append("Value Boost?)*\')\')");
           _builder.newLineIfNotEmpty();
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("\t\t");
           _builder.append(") Boost?");
           _builder.newLine();
-          _builder.append("\t\t\t");
+          _builder.append("\t\t");
           _builder.append("\t");
           _builder.append(")");
           _builder.newLine();
         }
       }
-      _builder.append("\t\t\t");
-      _builder.append(")");
-      _builder.newLine();
       _builder.append("\t\t");
       _builder.append(")");
       _builder.newLine();
       _builder.append("\t");
+      _builder.append(")");
+      _builder.newLine();
       _builder.append(";");
       _builder.newLine();
       _builder.newLine();
       {
         EList<FieldCategory> _fieldCategories_2 = m.getFieldCategories();
         for(final FieldCategory category_1 : _fieldCategories_2) {
-          _builder.append("\t");
           _builder.append("//Generated Rule. Do not modify!");
           _builder.newLine();
-          _builder.append("\t");
           String _categoryName_3 = category_1.getCategoryName();
-          _builder.append(_categoryName_3, "	");
+          _builder.append(_categoryName_3, "");
           _builder.append(":");
           _builder.newLineIfNotEmpty();
           {
             EList<Field> _fields = category_1.getFields();
             for(final Field field : _fields) {
-              _builder.append("\t");
               _builder.append("\t");
               String _xifexpression_1 = null;
               Boolean _value = b.getValue();
@@ -346,35 +339,28 @@ public class LuceneFieldsGenerator implements IGenerator {
               if (_operator_not) {
                 _xifexpression_1 = "| ";
               }
-              _builder.append(_xifexpression_1, "		");
+              _builder.append(_xifexpression_1, "	");
               _builder.append("\tvalue=\'");
               String _value_1 = field.getValue();
-              _builder.append(_value_1, "		");
+              _builder.append(_value_1, "	");
               _builder.append("\'");
               _builder.newLineIfNotEmpty();
-              _builder.append("\t");
               _builder.append("\t");
               b.setValue(Boolean.valueOf(false));
               _builder.newLineIfNotEmpty();
             }
           }
-          _builder.append("\t");
           _builder.append(";");
           _builder.newLine();
-          _builder.append("\t");
           _builder.newLine();
-          _builder.append("\t");
           b.setValue(Boolean.valueOf(true));
           _builder.newLineIfNotEmpty();
         }
       }
-      _builder.append("\t");
       _builder.append("/*");
       _builder.newLine();
-      _builder.append("\t");
       _builder.append("End of generated rules.");
       _builder.newLine();
-      _builder.append("\t");
       _builder.append("*/");
       _builder.newLine();
       _xblockexpression = (_builder);

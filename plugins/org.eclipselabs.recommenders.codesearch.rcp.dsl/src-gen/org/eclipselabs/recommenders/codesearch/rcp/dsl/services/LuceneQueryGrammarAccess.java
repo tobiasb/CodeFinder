@@ -28,13 +28,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightOrExpParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		/// * * 
-		//
-		// *   Query  ::= ( Clause )*
-		//
-		// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
-		//
-		// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+		//// Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 		//
 		//OrExp returns Expression:
 		//	AndExp ({OrExp.left=current} or=BinaryOr? right=OrExp)?;
@@ -76,8 +70,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightAndExpParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//// Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
-		//
 		//AndExp returns Expression:
 		//	Primary ({AndExp.left=current} and=BinaryAnd right=AndExp)?;
 		public ParserRule getRule() { return rule; }
@@ -308,7 +300,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		/// *
 		//
-		//	The following rules are generated. Do not modify. Modify source file instead.
+		//The following rules are generated. Do not modify. Modify source file instead.
 		//
 		// * / //Generated Rule. Do not modify!
 		//
@@ -1317,9 +1309,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		
 		/// *
 		//
-		//	End of generated rules.
+		//End of generated rules.
 		//
-		//	* / SimpleFieldValue:
+		// * / SimpleFieldValue:
 		//	QuotedNameWithWC | NameWithWC;
 		public ParserRule getRule() { return rule; }
 
@@ -1513,8 +1505,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FilePathFieldValue");
 		private final RuleCall cPathWithWCTerminalRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		////-----------------
-		//
 		//FilePathFieldValue:
 		//	PathWithWC;
 		public ParserRule getRule() { return rule; }
@@ -1633,13 +1623,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	/// * * 
-	//
-	// *   Query  ::= ( Clause )*
-	//
-	// *   Clause ::= ["+", "-"] [<TERM> ":"] ( <TERM> | "(" Query ")" )
-	//
-	// * * / // Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+	//// Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
 	//
 	//OrExp returns Expression:
 	//	AndExp ({OrExp.left=current} or=BinaryOr? right=OrExp)?;
@@ -1651,8 +1635,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return getOrExpAccess().getRule();
 	}
 
-	//// Right associativity. Why? See http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
-	//
 	//AndExp returns Expression:
 	//	Primary ({AndExp.left=current} and=BinaryAnd right=AndExp)?;
 	public AndExpElements getAndExpAccess() {
@@ -1675,7 +1657,7 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	/// *
 	//
-	//	The following rules are generated. Do not modify. Modify source file instead.
+	//The following rules are generated. Do not modify. Modify source file instead.
 	//
 	// * / //Generated Rule. Do not modify!
 	//
@@ -1818,9 +1800,9 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 
 	/// *
 	//
-	//	End of generated rules.
+	//End of generated rules.
 	//
-	//	* / SimpleFieldValue:
+	// * / SimpleFieldValue:
 	//	QuotedNameWithWC | NameWithWC;
 	public SimpleFieldValueElements getSimpleFieldValueAccess() {
 		return (pSimpleFieldValue != null) ? pSimpleFieldValue : (pSimpleFieldValue = new SimpleFieldValueElements());
@@ -1969,8 +1951,6 @@ public class LuceneQueryGrammarAccess extends AbstractGrammarElementFinder {
 		return (tLuceneSpecialChar != null) ? tLuceneSpecialChar : (tLuceneSpecialChar = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "LuceneSpecialChar"));
 	} 
 
-	////-----------------
-	//
 	//FilePathFieldValue:
 	//	PathWithWC;
 	public FilePathFieldValueElements getFilePathFieldValueAccess() {

@@ -1,10 +1,6 @@
 grammar org.eclipselabs.recommenders.codesearch.rcp.dslQL2.QL2 with org.eclipse.xtext.common.Terminals//org.eclipselabs.recommenders.codesearch.rcp.dslQL1.QL1
 
-//import "platform:/resource/org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/QL1.genmodel"//"http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL1/QL1" as QL1
-import "platform:/resource/org.eclipselabs.recommenders.codesearch.rcp.dslQL1/src-gen/org/eclipselabs/recommenders/codesearch/rcp/dslQL1/QL1.ecore" as QL1
-
 generate qL2 "http://www.eclipselabs.org/recommenders/codesearch/rcp/dslQL2/QL2"
-
 
 Model:
 	{Model}
@@ -17,9 +13,6 @@ Model:
 	'}')?
 	;
 	
-//ParameterDefinition:
-//	'(' vars+=VarDeclarationParam (',' vars+=VarDeclarationParam)* ')'
-//;
 	
 Statement:
 	( 'var' (var=VarAssignment 
