@@ -12,6 +12,8 @@
 package org.eclipse.recommenders.internal.codesearch.rcp;
 
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -51,14 +53,19 @@ public class Activator extends AbstractUIPlugin {
         // logConsole(s);
     }
 
-    private static void logConsole(final Throwable e, final String format, final Object... args) {
+    @SuppressWarnings("restriction")
+	private static void logConsole(final Throwable e, final String format, final Object... args) {
         try {
+        	String msg = "";
             if (format != null) {
-                System.out.println(String.format(format, args));
+            	msg = String.format(format, args);
+                System.out.println(msg);
             }
             if (e != null) {
                 e.printStackTrace();
             }
+
+            WorkbenchPlugin.log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, msg, e));
         } catch (final Exception ex) {
             System.out.println(String.format("String [%1$s] cannot be formatted correctly. Stacktrace: %2$s", format,
                     ex.getStackTrace()));

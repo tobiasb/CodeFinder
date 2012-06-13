@@ -62,6 +62,7 @@ import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.internal.WorkbenchPlugin;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.model.XtextDocument;
@@ -387,9 +388,12 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                 try {
                     if (currentEditor != null) {
                         setResult(currentEditor.search());
+
+                        WorkbenchPlugin.log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Searched for: " + currentEditor.getSearchQuery()));
                     }
                 } catch (final Exception e) {
-                    Activator.logError(e);
+                    Activator.logError(e, "Error while searching. Query was: " + currentEditor.getSearchQuery());
+                    
                     setSearchEnabled(true);
                     return Status.CANCEL_STATUS;
                 }
