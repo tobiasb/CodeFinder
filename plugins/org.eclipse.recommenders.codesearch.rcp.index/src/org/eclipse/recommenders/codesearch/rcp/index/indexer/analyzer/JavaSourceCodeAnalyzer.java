@@ -23,7 +23,6 @@ import org.apache.lucene.util.Version;
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.CamelCaseTokenizer;
 import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.DotSplitTokenizer;
-import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.WordSplitTokenizer;
 
 public class JavaSourceCodeAnalyzer extends Analyzer {
 
@@ -46,7 +45,7 @@ public class JavaSourceCodeAnalyzer extends Analyzer {
 
         TokenStream resultTokenStream = new StandardTokenizer(version, reader);
         resultTokenStream = new StopFilter(version, resultTokenStream, javaSourceCodeStopSet);
-        resultTokenStream = new WordSplitTokenizer(resultTokenStream);
+//        resultTokenStream = new WordSplitTokenizer(resultTokenStream);
         resultTokenStream = new DotSplitTokenizer(resultTokenStream);
         resultTokenStream = new CamelCaseTokenizer(resultTokenStream);
         resultTokenStream = new LowerCaseFilter(version, resultTokenStream);

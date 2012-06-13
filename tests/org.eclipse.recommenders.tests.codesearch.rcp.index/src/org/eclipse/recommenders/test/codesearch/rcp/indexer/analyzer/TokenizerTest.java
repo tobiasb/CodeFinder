@@ -19,7 +19,6 @@ import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.util.Version;
 import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.CamelCaseTokenizer;
 import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.DotSplitTokenizer;
-import org.eclipse.recommenders.codesearch.rcp.index.tokenizers.WordSplitTokenizer;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -37,19 +36,19 @@ public class TokenizerTest extends AnalysisTestBase {
             }
         }, originalTerm, new String[] { "org.eclipse.ui.IActionBars" });
 
+//        testAnalyzer(new Analyzer() {
+//
+//            @Override
+//            public TokenStream tokenStream(String fieldName, Reader reader) {
+//                return new WordSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
+//            }
+//        }, originalTerm, new String[] { "org.eclipse.ui.IActionBars" });
+
         testAnalyzer(new Analyzer() {
 
             @Override
             public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new WordSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
-            }
-        }, originalTerm, new String[] { "org.eclipse.ui.IActionBars" });
-
-        testAnalyzer(new Analyzer() {
-
-            @Override
-            public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new DotSplitTokenizer(new WordSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader)));
+                return new DotSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
             }
         }, originalTerm, new String[] { "org", "eclipse", "ui", "IActionBars" });
 
@@ -57,8 +56,8 @@ public class TokenizerTest extends AnalysisTestBase {
 
             @Override
             public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new CamelCaseTokenizer(new DotSplitTokenizer(new WordSplitTokenizer(new StandardTokenizer(
-                        Version.LUCENE_35, reader))));
+                return new CamelCaseTokenizer(new DotSplitTokenizer(new StandardTokenizer(
+                        Version.LUCENE_35, reader)));
             }
         }, originalTerm, new String[] { "org", "eclipse", "ui", "I", "Action", "Bars" });
 
@@ -66,16 +65,15 @@ public class TokenizerTest extends AnalysisTestBase {
 
             @Override
             public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new LowerCaseFilter(new CamelCaseTokenizer(new DotSplitTokenizer(new WordSplitTokenizer(
-                        new StandardTokenizer(Version.LUCENE_35, reader)))));
+                return new LowerCaseFilter(new CamelCaseTokenizer(new DotSplitTokenizer(
+                        new StandardTokenizer(Version.LUCENE_35, reader))));
             }
         }, originalTerm, new String[] { "org", "eclipse", "ui", "i", "action", "bars" });
     }
 
     @Test
-    @Ignore
     public void testTokenizersNaturalLanguage() {
-        final String originalTerm = "The brown fox FireFox. He walked&jumped!";
+        final String originalTerm = "The brown fox FireFox\u00A9. He walked & jumped!";
 
         testAnalyzer(new Analyzer() {
 
@@ -83,40 +81,40 @@ public class TokenizerTest extends AnalysisTestBase {
             public TokenStream tokenStream(String fieldName, Reader reader) {
                 return new StandardTokenizer(Version.LUCENE_35, reader);
             }
-        }, originalTerm, new String[] { "The", "brown", "fox", "FireFox", "He", "walked&jumped" });
+        }, originalTerm, new String[] { "The", "brown", "fox", "FireFox", "He", "walked", "jumped" });
+
+//        testAnalyzer(new Analyzer() {
+//
+//            @Override
+//            public TokenStream tokenStream(String fieldName, Reader reader) {
+//                return new WordSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
+//            }
+//        }, originalTerm, new String[] { "The", "brown", "fox", "FireFox", "He", "walked", "jumped" });
 
         testAnalyzer(new Analyzer() {
 
             @Override
             public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new WordSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
+                return new DotSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
             }
-        }, originalTerm, new String[] { "The", "brown", "fox", "FireFox", "He", "jumped" });
+        }, originalTerm, new String[] { "The", "brown", "fox", "FireFox", "He", "walked", "jumped" });
 
         testAnalyzer(new Analyzer() {
 
             @Override
             public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new DotSplitTokenizer(new WordSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader)));
+                return new CamelCaseTokenizer(new DotSplitTokenizer(new StandardTokenizer(
+                        Version.LUCENE_35, reader)));
             }
-        }, originalTerm, new String[] { "The", "brown", "fox", "FireFox", "He", "jumped" });
+        }, originalTerm, new String[] { "The", "brown", "fox", "Fire", "Fox", "He", "walked", "jumped" });
 
         testAnalyzer(new Analyzer() {
 
             @Override
             public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new CamelCaseTokenizer(new DotSplitTokenizer(new WordSplitTokenizer(new StandardTokenizer(
-                        Version.LUCENE_35, reader))));
+                return new LowerCaseFilter(new CamelCaseTokenizer(new DotSplitTokenizer(
+                        new StandardTokenizer(Version.LUCENE_35, reader))));
             }
-        }, originalTerm, new String[] { "The", "brown", "fox", "Fire", "Fox", "He", "jumped" });
-
-        testAnalyzer(new Analyzer() {
-
-            @Override
-            public TokenStream tokenStream(String fieldName, Reader reader) {
-                return new LowerCaseFilter(new CamelCaseTokenizer(new DotSplitTokenizer(new WordSplitTokenizer(
-                        new StandardTokenizer(Version.LUCENE_35, reader)))));
-            }
-        }, originalTerm, new String[] { "the", "brown", "fox", "fire", "fox", "he", "jumped" });
+        }, originalTerm, new String[] { "the", "brown", "fox", "fire", "fox", "he", "walked", "jumped" });
     }
 }
