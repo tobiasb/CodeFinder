@@ -373,7 +373,7 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Copyright (c) 2010, 2012 Darmstadt University of Technology.");
+    _builder.append("* Copyright (c) 2012 Tobias Boehm.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* All rights reserved. This program and the accompanying materials");
