@@ -54,14 +54,7 @@
 [INFO] Adding repository http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
 [INFO] Adding repository http://vandyk.st.informatik.tu-darmstadt.de/updates/3rd/
 [INFO] Adding repository http://download.eclipse.org/recommenders/updates/train/e42
-[INFO] Fetching content.jar (0B of 26,8kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/
-[INFO] 1 operation remaining.
-[INFO] Fetching content.jar (3,46kB of 26,8kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/
-[INFO] Fetching content.jar (24,37kB of 26,8kB at 23,14kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/
 [INFO] Adding repository http://download.eclipse.org/recommenders/updates/train/e42
-[INFO] Fetching artifacts.jar (0B of 3,26kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/
-[INFO] 1 operation remaining.
-[INFO] Fetching artifacts.jar (3,26kB of 3,26kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/
 [INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
 [INFO] 1 operation remaining.
 [INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/
@@ -88,39 +81,6 @@
 [INFO] Fetching p2.index (0B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/releases/
 [INFO] 1 operation remaining.
 [INFO] Fetching p2.index (134B of 99B at 0B/s) from http://download.eclipse.org/modeling/tmf/xtext/updates/releases/
-[INFO] Downloading org.eclipse.recommenders.utils
-[INFO] Fetching org.eclipse.recommenders.utils_1.0.0.v20120612-2305-b156.jar.pack.gz (0B of 66,06kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] 1 operation remaining.
-[INFO] Fetching org.eclipse.recommenders.utils_1.0.0.v20120612-2305-b156.jar.pack.gz (3,46kB of 66,06kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.utils_1.0.0.v20120612-2305-b156.jar.pack.gz (20,69kB of 66,06kB at 19,46kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.utils_1.0.0.v20120612-2305-b156.jar.pack.gz (48,99kB of 66,06kB at 21,42kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Downloading org.eclipse.recommenders.rcp
-[INFO] Fetching org.eclipse.recommenders.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (0B of 73,57kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] 1 operation remaining.
-[INFO] Fetching org.eclipse.recommenders.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (3,46kB of 73,57kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (25,61kB of 73,57kB at 24,38kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (63,76kB of 73,57kB at 29,42kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Downloading org.eclipse.recommenders.injection
-[INFO] Fetching org.eclipse.recommenders.injection_1.0.0.v20120612-2305-b156.jar.pack.gz (0B of 10,1kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] 1 operation remaining.
-[INFO] Fetching org.eclipse.recommenders.injection_1.0.0.v20120612-2305-b156.jar.pack.gz (3,46kB of 10,1kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Downloading org.eclipse.recommenders.extdoc.rcp
-[INFO] Fetching org.eclipse.recommenders.extdoc.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (0B of 90,2kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] 1 operation remaining.
-[INFO] Fetching org.eclipse.recommenders.extdoc.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (2,23kB of 90,2kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.extdoc.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (12,08kB of 90,2kB at 10,85kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.extdoc.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (20,69kB of 90,2kB at 9,73kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.extdoc.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (36,69kB of 90,2kB at 11kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.extdoc.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (64,99kB of 90,2kB at 13,48kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Downloading org.eclipse.recommenders.utils.rcp
-[INFO] Fetching org.eclipse.recommenders.utils.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (0B of 44,52kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] 1 operation remaining.
-[INFO] Fetching org.eclipse.recommenders.utils.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (3,46kB of 44,52kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Fetching org.eclipse.recommenders.utils.rcp_1.0.0.v20120612-2305-b156.jar.pack.gz (39,15kB of 44,52kB at 37,92kB/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] Downloading org.eclipse.recommenders.extdoc
-[INFO] Fetching org.eclipse.recommenders.extdoc_1.0.0.v20120612-2305-b156.jar.pack.gz (0B of 11,27kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
-[INFO] 1 operation remaining.
-[INFO] Fetching org.eclipse.recommenders.extdoc_1.0.0.v20120612-2305-b156.jar.pack.gz (3,46kB of 11,27kB at 0B/s) from http://download.eclipse.org/recommenders/updates/train/e42/plugins/
 [INFO] Resolving target platform for project MavenProject: org.eclipselabs.recommenders.feature:org.eclipselabs.recommenders.feature.codesearch.source:0.1.0-SNAPSHOT @ C:\Users\Tobi\Repos\EclipseLabs_2\features\org.eclipselabs.recommenders.feature.codesearch.source\pom.xml
 [INFO] Adding repository (cached) http://download.eclipse.org/releases/indigo/
 [WARNING] Failed to access p2 repository indigo delta (http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack), will try to use local cache. Reason: org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://vandyk.st.informatik.tu-darmstadt.de/mirrors/indigo-deltapack.
@@ -854,31 +814,31 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] org.eclipselabs.recommenders.codesearch.parent .... SUCCESS [0.110s]
-[INFO] org.eclipselabs.recommenders.plugin.codesearch.parent  SUCCESS [0.186s]
-[INFO] org.eclipse.recommenders.codesearch.rcp.index ..... SUCCESS [3.838s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl ... SUCCESS [1.832s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl.ui  SUCCESS [1.386s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2  SUCCESS [1.019s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1  SUCCESS [0.936s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui  SUCCESS [0.611s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui  SUCCESS [0.680s]
-[INFO] org.eclipselabs.recommenders.codesearch.rcp ....... SUCCESS [0.682s]
+[INFO] org.eclipselabs.recommenders.codesearch.parent .... SUCCESS [0.113s]
+[INFO] org.eclipselabs.recommenders.plugin.codesearch.parent  SUCCESS [0.190s]
+[INFO] org.eclipse.recommenders.codesearch.rcp.index ..... SUCCESS [3.564s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl ... SUCCESS [1.879s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dsl.ui  SUCCESS [1.341s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2  SUCCESS [1.028s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1  SUCCESS [0.908s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL1.ui  SUCCESS [0.605s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp.dslQL2.ui  SUCCESS [0.654s]
+[INFO] org.eclipselabs.recommenders.codesearch.rcp ....... SUCCESS [0.705s]
 [INFO] org.eclipselabs.recommenders.feature.codesearch.parent  SUCCESS [0.001s]
-[INFO] org.eclipselabs.recommenders.feature.codesearch ... SUCCESS [0.133s]
-[INFO] org.eclipselabs.recommenders.feature.codesearch.source  SUCCESS [0.061s]
-[INFO] org.eclipselabs.recommenders.feature.codesearch.rcp.index  SUCCESS [0.067s]
-[INFO] org.eclipselabs.recommenders.feature.dependencies . SUCCESS [0.081s]
-[INFO] org.eclipselabs.recommenders.repository.codesearch.parent  SUCCESS [0.001s]
-[INFO] org.eclipselabs.recommenders.repository.codesearch  SUCCESS [8.354s]
-[INFO] org.eclipselabs.recommenders.tests.codesearch.parent  SUCCESS [0.002s]
-[INFO] org.eclipse.recommenders.tests .................... SUCCESS [0.316s]
-[INFO] org.eclipse.recommenders.tests.codesearch.rcp.index  SUCCESS [0.861s]
-[INFO] org.eclipselabs.recommenders.tests.codesearch.rcp . SUCCESS [0.773s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch ... SUCCESS [0.139s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.source  SUCCESS [0.033s]
+[INFO] org.eclipselabs.recommenders.feature.codesearch.rcp.index  SUCCESS [0.068s]
+[INFO] org.eclipselabs.recommenders.feature.dependencies . SUCCESS [0.086s]
+[INFO] org.eclipselabs.recommenders.repository.codesearch.parent  SUCCESS [0.002s]
+[INFO] org.eclipselabs.recommenders.repository.codesearch  SUCCESS [8.382s]
+[INFO] org.eclipselabs.recommenders.tests.codesearch.parent  SUCCESS [0.003s]
+[INFO] org.eclipse.recommenders.tests .................... SUCCESS [0.303s]
+[INFO] org.eclipse.recommenders.tests.codesearch.rcp.index  SUCCESS [0.881s]
+[INFO] org.eclipselabs.recommenders.tests.codesearch.rcp . SUCCESS [0.619s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2:25.782s
-[INFO] Finished at: Wed Jun 13 19:01:01 CEST 2012
-[INFO] Final Memory: 131M/598M
+[INFO] Total time: 1:59.580s
+[INFO] Finished at: Thu Jun 21 19:57:30 CEST 2012
+[INFO] Final Memory: 126M/644M
 [INFO] ------------------------------------------------------------------------

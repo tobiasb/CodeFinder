@@ -1,14 +1,9 @@
 /**
- * Copyright (c) 2012 Tobias Boehm.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Tobias Boehm - initial API and implementation.
- */
+ * <copyright>
+ * </copyright>
+ *
 
+ */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -159,6 +154,34 @@ public interface LuceneQueryPackage extends EPackage
   int CLAUSE_EXPRESSION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl <em>Document Type Field</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDocumentTypeField()
+   * @generated
+   */
+  int DOCUMENT_TYPE_FIELD = 2;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENT_TYPE_FIELD__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Document Type Field</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DOCUMENT_TYPE_FIELD_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.SimpleFieldImpl <em>Simple Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -166,7 +189,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getSimpleField()
    * @generated
    */
-  int SIMPLE_FIELD = 2;
+  int SIMPLE_FIELD = 3;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -194,7 +217,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getTypeField()
    * @generated
    */
-  int TYPE_FIELD = 3;
+  int TYPE_FIELD = 4;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -222,7 +245,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getMethodField()
    * @generated
    */
-  int METHOD_FIELD = 4;
+  int METHOD_FIELD = 5;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -250,7 +273,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getFilePathField()
    * @generated
    */
-  int FILE_PATH_FIELD = 5;
+  int FILE_PATH_FIELD = 6;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -278,7 +301,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getNumberField()
    * @generated
    */
-  int NUMBER_FIELD = 6;
+  int NUMBER_FIELD = 7;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -306,7 +329,7 @@ public interface LuceneQueryPackage extends EPackage
    * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getModifierField()
    * @generated
    */
-  int MODIFIER_FIELD = 7;
+  int MODIFIER_FIELD = 8;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -325,34 +348,6 @@ public interface LuceneQueryPackage extends EPackage
    * @ordered
    */
   int MODIFIER_FIELD_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl <em>Document Type Field</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDocumentTypeField()
-   * @generated
-   */
-  int DOCUMENT_TYPE_FIELD = 8;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOCUMENT_TYPE_FIELD__VALUE = 0;
-
-  /**
-   * The number of structural features of the '<em>Document Type Field</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOCUMENT_TYPE_FIELD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.ProjectNameFieldImpl <em>Project Name Field</em>}' class.
@@ -618,6 +613,27 @@ public interface LuceneQueryPackage extends EPackage
   EAttribute getClauseExpression_Values();
 
   /**
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField <em>Document Type Field</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Document Type Field</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField
+   * @generated
+   */
+  EClass getDocumentTypeField();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField#getValue()
+   * @see #getDocumentTypeField()
+   * @generated
+   */
+  EAttribute getDocumentTypeField_Value();
+
+  /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.SimpleField <em>Simple Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -742,27 +758,6 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    */
   EAttribute getModifierField_Value();
-
-  /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField <em>Document Type Field</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Document Type Field</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField
-   * @generated
-   */
-  EClass getDocumentTypeField();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField#getValue()
-   * @see #getDocumentTypeField()
-   * @generated
-   */
-  EAttribute getDocumentTypeField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ProjectNameField <em>Project Name Field</em>}'.
@@ -950,6 +945,24 @@ public interface LuceneQueryPackage extends EPackage
     EAttribute CLAUSE_EXPRESSION__VALUES = eINSTANCE.getClauseExpression_Values();
 
     /**
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl <em>Document Type Field</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDocumentTypeField()
+     * @generated
+     */
+    EClass DOCUMENT_TYPE_FIELD = eINSTANCE.getDocumentTypeField();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DOCUMENT_TYPE_FIELD__VALUE = eINSTANCE.getDocumentTypeField_Value();
+
+    /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.SimpleFieldImpl <em>Simple Field</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1056,24 +1069,6 @@ public interface LuceneQueryPackage extends EPackage
      * @generated
      */
     EAttribute MODIFIER_FIELD__VALUE = eINSTANCE.getModifierField_Value();
-
-    /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl <em>Document Type Field</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DocumentTypeFieldImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDocumentTypeField()
-     * @generated
-     */
-    EClass DOCUMENT_TYPE_FIELD = eINSTANCE.getDocumentTypeField();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DOCUMENT_TYPE_FIELD__VALUE = eINSTANCE.getDocumentTypeField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.ProjectNameFieldImpl <em>Project Name Field</em>}' class.

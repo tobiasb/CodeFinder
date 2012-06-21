@@ -25,6 +25,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LuceneQuery.ecore#//ClauseExpression/field"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ClauseExpression/values"/>
     </genClasses>
+    <genClasses ecoreClass="LuceneQuery.ecore#//DocumentTypeField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DocumentTypeField/value"/>
+    </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//SimpleField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//SimpleField/value"/>
     </genClasses>
@@ -42,9 +45,6 @@
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//ModifierField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ModifierField/value"/>
-    </genClasses>
-    <genClasses ecoreClass="LuceneQuery.ecore#//DocumentTypeField">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DocumentTypeField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//ProjectNameField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ProjectNameField/value"/>

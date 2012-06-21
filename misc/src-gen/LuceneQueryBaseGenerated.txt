@@ -82,8 +82,7 @@ DocumentTypeField:
 
 //Generated Rule. Do not modify!
 SimpleField:
-		value='FullyQualifiedName'
-	| 	value='FriendlyName'
+		value='FriendlyName'
 	| 	value='ReturnVariableExpressions'
 	| 	value='AllDeclaredMethodNames'
 	| 	value='DeclaredMethodNames'
@@ -101,7 +100,8 @@ SimpleField:
 
 //Generated Rule. Do not modify!
 TypeField:
-		value='ImplementedTypes'
+		value='FullyQualifiedName'
+	| 	value='ImplementedTypes'
 	| 	value='ExtendedTypes'
 	| 	value='UsedTypes'
 	| 	value='UsedTypesInTry'

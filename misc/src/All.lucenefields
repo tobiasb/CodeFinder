@@ -6,29 +6,26 @@ DocumentTypeField {
 	("Defines the type of the entity represented by the document.")
 }  
 ("By design, every document in the search index itself is equal. 
-For the index a document is just a container for the fields it contains. For \\cname this obviously not the case. 
+For the search index, a document is just a container for the fields it contains. For \\cname this is obviously not the case. 
 There it does matter whether a document represents a method or a class. 
-A document type field can be used to indicate an entity's type. The following five values are valid for a field representing a document type.
-  
+A document type field is used to indicate an entity's type. The following five values are valid for a field representing a document type.
+    
 \\begin{itemize}
 	\\item \\includegraphics[width=0.9em]{img-src/icons/type.png} \\textbf{type} Entity is a class, interface or enumeration
 	\\item \\includegraphics[width=0.9em]{img-src/icons/method.png} \\textbf{method} Entity is a class' method definition
 	\\item \\includegraphics[width=0.9em]{img-src/icons/field.png} \\textbf{field} Entity is a field, i.e. a local member variable of a class
-	\\item \\includegraphics[width=0.9em]{img-src/icons/trycatch.png} \\textbf{trycatch} Entity is a construct containing a try-block, a catch-block and possibly a \\\\*finally-block
+	\\item \\includegraphics[width=0.9em]{img-src/icons/trycatch.png} \\textbf{trycatch} Entity represents either a try-block, a catch-block or a finally-block
 	\\item \\includegraphics[width=0.9em]{img-src/icons/varusage.png} \\textbf{varusage} Entity is the usage of a local variable
 \\end{itemize}
 
-Every document in the index is of one of those document types. That is why every document in the index has one document type field. 
+Every document in the index is of one of those document types. That is why every document in the index is guaranteed to have exactly one document type field. 
 This is not the case for every other field that will be described here. Some fields only make sense for certain entities, i.e. document types.
-To illustrate what entities a field is used with each field description contains the symbols of the target document types it is the field indexed for and can be used with.
+To illustrate what entities a field is used with, each field description in this section contains the symbols of the target entities, i.e. document types, 
+that the field is indexed for and can be used with.
 These symbols correspond with the ones in the enumeration above. 
 ")
 
-SimpleField {
-	QUALIFIED_NAME 		= "FullyQualifiedName" 
-	{ type, method, field, trycatch }
-	("The unique represantation of the entity. Abbreviated as \\cquote{FQN}")
-   
+SimpleField {   
 	SIMPLE_NAME 				= "FriendlyName" 
 	{ type, method, field, trycatch }
 	("Simple version of the entity's name")
@@ -89,6 +86,10 @@ No postprocessing is done to search terms that are used with a simple field when
 They usually contain names or expressions that do not have a special semantic.")
 
 TypeField {
+	QUALIFIED_NAME 		= "FullyQualifiedName" 
+	{ type, method, field, trycatch }
+	("The unique representation of the entity. Abbreviated as \\cquote{FQN}")
+	
 	IMPLEMENTED_TYPES 			= "ImplementedTypes" 
 	{ type } 
 	("FQN of types (interfaces) implemented by the entity")
@@ -252,7 +253,7 @@ ModifierField {
 	\\item \\textbf{abstract}
 \\end{itemize}
 ")
-
+ 
 ProjectNameField {	
 	PROJECT_NAME 				= "ProjectName"
 	{ type, method, field, trycatch }
@@ -276,7 +277,7 @@ The following values are possible:
 \\begin{itemize}
 	\\item \\textbf{parameter} A variable has been declared as a method parameter
 	\\item \\textbf{nullLiteral} The variable has been declared and assigned \\lstinline|null|
-	\\item \\textbf{methodInvocation} The variable has been declared and initialised with the return value of a method call
+	\\item \\textbf{assignment} The variable has been declared and assigned a value such as the return value of a method call or a string literal
 	\\item \\textbf{instanceCreation} The variable has been declared and initialized with a \\lstinline|new| statement
 	\\item \\textbf{uninitialized} A variable declared without being initialized
 	%TODO what about int x = y;?

@@ -1,14 +1,9 @@
 /**
- * Copyright (c) 2012 Tobias Boehm.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Tobias Boehm - initial API and implementation.
- */
+ * <copyright>
+ * </copyright>
+ *
 
+ */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery;
 
 import org.eclipse.emf.ecore.EFactory;
@@ -48,6 +43,15 @@ public interface LuceneQueryFactory extends EFactory
    * @generated
    */
   ClauseExpression createClauseExpression();
+
+  /**
+   * Returns a new object of class '<em>Document Type Field</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Document Type Field</em>'.
+   * @generated
+   */
+  DocumentTypeField createDocumentTypeField();
 
   /**
    * Returns a new object of class '<em>Simple Field</em>'.
@@ -102,15 +106,6 @@ public interface LuceneQueryFactory extends EFactory
    * @generated
    */
   ModifierField createModifierField();
-
-  /**
-   * Returns a new object of class '<em>Document Type Field</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Document Type Field</em>'.
-   * @generated
-   */
-  DocumentTypeField createDocumentTypeField();
 
   /**
    * Returns a new object of class '<em>Project Name Field</em>'.

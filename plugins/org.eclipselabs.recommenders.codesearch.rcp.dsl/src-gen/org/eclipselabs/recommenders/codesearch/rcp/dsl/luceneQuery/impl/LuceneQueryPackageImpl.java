@@ -1,14 +1,9 @@
 /**
- * Copyright (c) 2012 Tobias Boehm.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Tobias Boehm - initial API and implementation.
- */
+ * <copyright>
+ * </copyright>
+ *
 
+ */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -63,6 +58,13 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass documentTypeFieldEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass simpleFieldEClass = null;
 
   /**
@@ -99,13 +101,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * @generated
    */
   private EClass modifierFieldEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass documentTypeFieldEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -290,6 +285,26 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getDocumentTypeField()
+  {
+    return documentTypeFieldEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDocumentTypeField_Value()
+  {
+    return (EAttribute)documentTypeFieldEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSimpleField()
   {
     return simpleFieldEClass;
@@ -403,26 +418,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
   public EAttribute getModifierField_Value()
   {
     return (EAttribute)modifierFieldEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDocumentTypeField()
-  {
-    return documentTypeFieldEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getDocumentTypeField_Value()
-  {
-    return (EAttribute)documentTypeFieldEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -555,6 +550,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     createEReference(clauseExpressionEClass, CLAUSE_EXPRESSION__FIELD);
     createEAttribute(clauseExpressionEClass, CLAUSE_EXPRESSION__VALUES);
 
+    documentTypeFieldEClass = createEClass(DOCUMENT_TYPE_FIELD);
+    createEAttribute(documentTypeFieldEClass, DOCUMENT_TYPE_FIELD__VALUE);
+
     simpleFieldEClass = createEClass(SIMPLE_FIELD);
     createEAttribute(simpleFieldEClass, SIMPLE_FIELD__VALUE);
 
@@ -572,9 +570,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
 
     modifierFieldEClass = createEClass(MODIFIER_FIELD);
     createEAttribute(modifierFieldEClass, MODIFIER_FIELD__VALUE);
-
-    documentTypeFieldEClass = createEClass(DOCUMENT_TYPE_FIELD);
-    createEAttribute(documentTypeFieldEClass, DOCUMENT_TYPE_FIELD__VALUE);
 
     projectNameFieldEClass = createEClass(PROJECT_NAME_FIELD);
     createEAttribute(projectNameFieldEClass, PROJECT_NAME_FIELD__VALUE);
@@ -635,6 +630,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEReference(getClauseExpression_Field(), ecorePackage.getEObject(), null, "field", null, 0, 1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getClauseExpression_Values(), ecorePackage.getEString(), "values", null, 0, -1, ClauseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(documentTypeFieldEClass, DocumentTypeField.class, "DocumentTypeField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDocumentTypeField_Value(), ecorePackage.getEString(), "value", null, 0, 1, DocumentTypeField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(simpleFieldEClass, SimpleField.class, "SimpleField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSimpleField_Value(), ecorePackage.getEString(), "value", null, 0, 1, SimpleField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -652,9 +650,6 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
 
     initEClass(modifierFieldEClass, ModifierField.class, "ModifierField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getModifierField_Value(), ecorePackage.getEString(), "value", null, 0, 1, ModifierField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(documentTypeFieldEClass, DocumentTypeField.class, "DocumentTypeField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDocumentTypeField_Value(), ecorePackage.getEString(), "value", null, 0, 1, DocumentTypeField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(projectNameFieldEClass, ProjectNameField.class, "ProjectNameField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProjectNameField_Value(), ecorePackage.getEString(), "value", null, 0, 1, ProjectNameField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

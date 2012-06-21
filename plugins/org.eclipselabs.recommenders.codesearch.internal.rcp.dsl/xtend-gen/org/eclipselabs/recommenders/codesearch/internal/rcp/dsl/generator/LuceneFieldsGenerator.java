@@ -47,6 +47,8 @@ public class LuceneFieldsGenerator implements IGenerator {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();
       for(final FieldCategory category : _fieldCategories) {
         _builder.newLine();
+        _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+        _builder.newLine();
         _builder.append("\\subsubsection{");
         String _categoryName = category.getCategoryName();
         String _texCompatibleString = this.getTexCompatibleString(_categoryName);
@@ -60,9 +62,13 @@ public class LuceneFieldsGenerator implements IGenerator {
         _builder.append("}");
         _builder.newLineIfNotEmpty();
         _builder.newLine();
+        _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+        _builder.newLine();
         String _desc = category.getDesc();
         _builder.append(_desc, "");
         _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
         _builder.newLine();
         _builder.append("See table \\ref{tab:FieldCategory");
         String _categoryName_2 = category.getCategoryName();
@@ -70,6 +76,8 @@ public class LuceneFieldsGenerator implements IGenerator {
         _builder.append(_texCompatibleString_2, "");
         _builder.append("Fields} for the complete list of fields.");
         _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
         _builder.newLine();
         _builder.append("%Category: ");
         String _categoryName_3 = category.getCategoryName();
@@ -134,6 +142,9 @@ public class LuceneFieldsGenerator implements IGenerator {
         {
           EList<Field> _fields = category.getFields();
           for(final Field field : _fields) {
+            _builder.append("\t");
+            _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+            _builder.newLine();
             _builder.append("\t");
             _builder.append("\\cfield{");
             String _value = field.getValue();
@@ -413,6 +424,9 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append(" {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
+    _builder.append("//GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("public final static String TYPE_CLASS = \"type\";");
     _builder.newLine();
     _builder.append("\t");
@@ -428,6 +442,9 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("public final static String TYPE_VARUSAGE = \"varusage\";");
     _builder.newLine();
     _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("//GENERATED, DO NOT MODIFY HERE!!!");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public static final String MODIFIER_PUBLIC = \"public\";");
@@ -450,13 +467,16 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("//GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("public static final String DEFINITION_PARAMETER = \"parameter\";");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public static final String DEFINITION_NULLLITERAL = \"nullLiteral\";");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public static final String DEFINITION_METHOD_INVOCATION = \"methodInvocation\";");
+    _builder.append("public static final String DEFINITION_ASSIGNMENT = \"assignment\";");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public static final String DEFINITION_INSTANCE_CREATION = \"instanceCreation\";");
@@ -483,6 +503,9 @@ public class LuceneFieldsGenerator implements IGenerator {
     {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();
       for(final FieldCategory category : _fieldCategories) {
+        _builder.append("\t");
+        _builder.append("//GENERATED, DO NOT MODIFY HERE!!!");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("// ");
         String _categoryName = category.getCategoryName();
@@ -537,7 +560,7 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("//Generated - please modify in source file");
+    _builder.append("//GENERATED, DO NOT MODIFY HERE!!!");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public final static String ");

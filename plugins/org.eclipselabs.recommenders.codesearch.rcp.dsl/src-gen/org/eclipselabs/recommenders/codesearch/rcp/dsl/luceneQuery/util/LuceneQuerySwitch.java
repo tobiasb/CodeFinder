@@ -1,14 +1,9 @@
 /**
- * Copyright (c) 2012 Tobias Boehm.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Tobias Boehm - initial API and implementation.
- */
+ * <copyright>
+ * </copyright>
+ *
 
+ */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.util;
 
 import org.eclipse.emf.ecore.EObject;
@@ -95,6 +90,13 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD:
+      {
+        DocumentTypeField documentTypeField = (DocumentTypeField)theEObject;
+        T result = caseDocumentTypeField(documentTypeField);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LuceneQueryPackage.SIMPLE_FIELD:
       {
         SimpleField simpleField = (SimpleField)theEObject;
@@ -134,13 +136,6 @@ public class LuceneQuerySwitch<T> extends Switch<T>
       {
         ModifierField modifierField = (ModifierField)theEObject;
         T result = caseModifierField(modifierField);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD:
-      {
-        DocumentTypeField documentTypeField = (DocumentTypeField)theEObject;
-        T result = caseDocumentTypeField(documentTypeField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -206,6 +201,22 @@ public class LuceneQuerySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseClauseExpression(ClauseExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Document Type Field</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Document Type Field</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDocumentTypeField(DocumentTypeField object)
   {
     return null;
   }
@@ -302,22 +313,6 @@ public class LuceneQuerySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModifierField(ModifierField object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Document Type Field</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Document Type Field</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDocumentTypeField(DocumentTypeField object)
   {
     return null;
   }

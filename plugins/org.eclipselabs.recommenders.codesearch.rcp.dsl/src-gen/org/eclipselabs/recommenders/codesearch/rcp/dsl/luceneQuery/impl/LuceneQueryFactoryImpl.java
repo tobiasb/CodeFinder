@@ -1,14 +1,9 @@
 /**
- * Copyright (c) 2012 Tobias Boehm.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Tobias Boehm - initial API and implementation.
- */
+ * <copyright>
+ * </copyright>
+ *
 
+ */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl;
 
 import org.eclipse.emf.ecore.EClass;
@@ -76,13 +71,13 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
     {
       case LuceneQueryPackage.EXPRESSION: return createExpression();
       case LuceneQueryPackage.CLAUSE_EXPRESSION: return createClauseExpression();
+      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD: return createDocumentTypeField();
       case LuceneQueryPackage.SIMPLE_FIELD: return createSimpleField();
       case LuceneQueryPackage.TYPE_FIELD: return createTypeField();
       case LuceneQueryPackage.METHOD_FIELD: return createMethodField();
       case LuceneQueryPackage.FILE_PATH_FIELD: return createFilePathField();
       case LuceneQueryPackage.NUMBER_FIELD: return createNumberField();
       case LuceneQueryPackage.MODIFIER_FIELD: return createModifierField();
-      case LuceneQueryPackage.DOCUMENT_TYPE_FIELD: return createDocumentTypeField();
       case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
       case LuceneQueryPackage.DEFINITION_TYPE: return createDefinitionType();
       case LuceneQueryPackage.OR_EXP: return createOrExp();
@@ -153,6 +148,17 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
+  public DocumentTypeField createDocumentTypeField()
+  {
+    DocumentTypeFieldImpl documentTypeField = new DocumentTypeFieldImpl();
+    return documentTypeField;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public SimpleField createSimpleField()
   {
     SimpleFieldImpl simpleField = new SimpleFieldImpl();
@@ -212,17 +218,6 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
   {
     ModifierFieldImpl modifierField = new ModifierFieldImpl();
     return modifierField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DocumentTypeField createDocumentTypeField()
-  {
-    DocumentTypeFieldImpl documentTypeField = new DocumentTypeFieldImpl();
-    return documentTypeField;
   }
 
   /**

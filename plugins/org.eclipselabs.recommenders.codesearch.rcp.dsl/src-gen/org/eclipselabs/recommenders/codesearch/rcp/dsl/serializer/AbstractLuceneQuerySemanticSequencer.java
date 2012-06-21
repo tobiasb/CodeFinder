@@ -1,14 +1,3 @@
-/**
- * Copyright (c) 2012 Tobias Boehm.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Tobias Boehm - initial API and implementation.
- */
-
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.serializer;
 
 import com.google.inject.Inject;
@@ -175,13 +164,13 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 * Constraint:
 	 *     (
 	 *         default=SimpleFieldValue | 
+	 *         (field=DocumentTypeField (values+=DocumentTypeFieldValue | values+=DocumentTypeFieldValue*)) | 
 	 *         (field=SimpleField (values+=SimpleFieldValue | values+=SimpleFieldValue*)) | 
 	 *         (field=TypeField (values+=TypeFieldValue | values+=TypeFieldValue*)) | 
 	 *         (field=MethodField (values+=MethodFieldValue | values+=MethodFieldValue*)) | 
 	 *         (field=FilePathField (values+=FilePathFieldValue | values+=FilePathFieldValue*)) | 
 	 *         (field=NumberField (values+=NumberFieldValue | values+=NumberFieldValue*)) | 
 	 *         (field=ModifierField (values+=ModifierFieldValue | values+=ModifierFieldValue*)) | 
-	 *         (field=DocumentTypeField (values+=DocumentTypeFieldValue | values+=DocumentTypeFieldValue*)) | 
 	 *         (field=ProjectNameField (values+=ProjectNameFieldValue | values+=ProjectNameFieldValue*)) | 
 	 *         (field=DefinitionType (values+=DefinitionTypeValue | values+=DefinitionTypeValue*))
 	 *     )
@@ -319,7 +308,6 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
-	 *         value='FullyQualifiedName' | 
 	 *         value='FriendlyName' | 
 	 *         value='ReturnVariableExpressions' | 
 	 *         value='AllDeclaredMethodNames' | 
@@ -344,6 +332,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
+	 *         value='FullyQualifiedName' | 
 	 *         value='ImplementedTypes' | 
 	 *         value='ExtendedTypes' | 
 	 *         value='UsedTypes' | 

@@ -35,6 +35,13 @@ ClauseExpression:
 		default=SimpleFieldValue Boost? | // Default field
 		(
 			(
+				field=DocumentTypeField ':' 
+				(
+					(values+=DocumentTypeFieldValue)
+					| ('('(UnaryExpression? values+=DocumentTypeFieldValue Boost?)*')')
+				) Boost?
+			)
+		| 	(
 				field=SimpleField ':' 
 				(
 					(values+=SimpleFieldValue)
@@ -77,13 +84,6 @@ ClauseExpression:
 				) Boost?
 			)
 		| 	(
-				field=DocumentTypeField ':' 
-				(
-					(values+=DocumentTypeFieldValue)
-					| ('('(UnaryExpression? values+=DocumentTypeFieldValue Boost?)*')')
-				) Boost?
-			)
-		| 	(
 				field=ProjectNameField ':' 
 				(
 					(values+=ProjectNameFieldValue)
@@ -102,9 +102,13 @@ ClauseExpression:
 ;
 
 //Generated Rule. Do not modify!
+DocumentTypeField:
+		value='Type'
+;
+
+//Generated Rule. Do not modify!
 SimpleField:
-		value='FullyQualifiedName'
-	| 	value='FriendlyName'
+		value='FriendlyName'
 	| 	value='ReturnVariableExpressions'
 	| 	value='AllDeclaredMethodNames'
 	| 	value='DeclaredMethodNames'
@@ -122,7 +126,8 @@ SimpleField:
 
 //Generated Rule. Do not modify!
 TypeField:
-		value='ImplementedTypes'
+		value='FullyQualifiedName'
+	| 	value='ImplementedTypes'
 	| 	value='ExtendedTypes'
 	| 	value='UsedTypes'
 	| 	value='UsedTypesInTry'
@@ -169,11 +174,6 @@ ModifierField:
 ;
 
 //Generated Rule. Do not modify!
-DocumentTypeField:
-		value='Type'
-;
-
-//Generated Rule. Do not modify!
 ProjectNameField:
 		value='ProjectName'
 ;
@@ -186,6 +186,7 @@ DefinitionType:
 /*
 End of generated rules.
 */
+
 
 
 SimpleFieldValue:

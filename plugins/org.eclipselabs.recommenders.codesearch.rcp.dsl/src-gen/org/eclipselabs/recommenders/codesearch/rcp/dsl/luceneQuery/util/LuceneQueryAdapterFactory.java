@@ -1,14 +1,9 @@
 /**
- * Copyright (c) 2012 Tobias Boehm.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *    Tobias Boehm - initial API and implementation.
- */
+ * <copyright>
+ * </copyright>
+ *
 
+ */
 package org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.util;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -94,6 +89,11 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createClauseExpressionAdapter();
       }
       @Override
+      public Adapter caseDocumentTypeField(DocumentTypeField object)
+      {
+        return createDocumentTypeFieldAdapter();
+      }
+      @Override
       public Adapter caseSimpleField(SimpleField object)
       {
         return createSimpleFieldAdapter();
@@ -122,11 +122,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
       public Adapter caseModifierField(ModifierField object)
       {
         return createModifierFieldAdapter();
-      }
-      @Override
-      public Adapter caseDocumentTypeField(DocumentTypeField object)
-      {
-        return createDocumentTypeFieldAdapter();
       }
       @Override
       public Adapter caseProjectNameField(ProjectNameField object)
@@ -196,6 +191,21 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createClauseExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField <em>Document Type Field</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField
+   * @generated
+   */
+  public Adapter createDocumentTypeFieldAdapter()
   {
     return null;
   }
@@ -286,21 +296,6 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModifierFieldAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField <em>Document Type Field</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField
-   * @generated
-   */
-  public Adapter createDocumentTypeFieldAdapter()
   {
     return null;
   }
