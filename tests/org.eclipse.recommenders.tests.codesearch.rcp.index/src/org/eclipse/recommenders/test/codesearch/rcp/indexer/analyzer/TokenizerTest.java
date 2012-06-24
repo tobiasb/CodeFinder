@@ -73,6 +73,53 @@ public class TokenizerTest extends AnalysisTestBase {
     }
 
     @Test
+    public void testTokenizersResolvedTypeNotation() {
+        final String originalTerm = "Lorg/eclipse/ui/IActionBars";
+
+        testAnalyzer(new Analyzer() {
+
+            @Override
+            public TokenStream tokenStream(String fieldName, Reader reader) {
+                return new StandardTokenizer(Version.LUCENE_35, reader);
+            }
+        }, originalTerm, new String[] { "Lorg", "eclipse", "ui", "IActionBars" });
+
+//        testAnalyzer(new Analyzer() {
+//
+//            @Override
+//            public TokenStream tokenStream(String fieldName, Reader reader) {
+//                return new WordSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
+//            }
+//        }, originalTerm, new String[] { "org.eclipse.ui.IActionBars" });
+
+        testAnalyzer(new Analyzer() {
+
+            @Override
+            public TokenStream tokenStream(String fieldName, Reader reader) {
+                return new DotSplitTokenizer(new StandardTokenizer(Version.LUCENE_35, reader));
+            }
+        }, originalTerm, new String[] { "Lorg", "eclipse", "ui", "IActionBars" });
+
+        testAnalyzer(new Analyzer() {
+
+            @Override
+            public TokenStream tokenStream(String fieldName, Reader reader) {
+                return new CamelCaseTokenizer(new DotSplitTokenizer(new StandardTokenizer(
+                        Version.LUCENE_35, reader)));
+            }
+        }, originalTerm, new String[] { "Lorg", "eclipse", "ui", "I", "Action", "Bars" });
+
+        testAnalyzer(new Analyzer() {
+
+            @Override
+            public TokenStream tokenStream(String fieldName, Reader reader) {
+                return new LowerCaseFilter(new CamelCaseTokenizer(new DotSplitTokenizer(
+                        new StandardTokenizer(Version.LUCENE_35, reader))));
+            }
+        }, originalTerm, new String[] { "lorg", "eclipse", "ui", "i", "action", "bars" });
+    }
+
+    @Test
     public void testTokenizersNaturalLanguage() {
         final String originalTerm = "The brown fox FireFox\u00A9. He walked & jumped!";
 
