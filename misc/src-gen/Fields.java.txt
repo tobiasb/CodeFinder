@@ -59,7 +59,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String SIMPLE_NAME = "FriendlyName";
-	/** Expression returned by a method, e.g, "return true;"<br /><br />
+	/** Expression returned by a method, e.g., "return true;"<br /><br />
 		Can be applied to: method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -89,22 +89,22 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String FULL_TEXT = "FullText";
-	/** The FQNs of the fields read within the entity. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields read from within the entity. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: type, method, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String FIELDS_READ = "FieldsRead";
-	/** The FQNs of the fields written within the entity. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields written to within the entity. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: method, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String FIELDS_WRITTEN = "FieldsWritten";
-	/** The FQNs of the fields used within the finally-block. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields used within the finally-block. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String USED_FIELDS_IN_FINALLY = "UsedFieldsInFinally";
-	/** The FQNs of the fields used within the try-block. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields used within the try-block. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -198,7 +198,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String DECLARED_FIELD_TYPES = "DeclaredFieldTypes";
-	/** The the FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method<br /><br />
+	/** The FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method<br /><br />
 		Can be applied to: method, field, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -217,7 +217,7 @@ public class Fields {
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// MethodField
-	/** FQN of the methods that are being called from within the entity. In case of a try/catch-construct. called from within the catch-block<br /><br />
+	/** FQN of the methods that are being called from within the entity. In case of a try/catch-construct called from within the catch-block<br /><br />
 		Can be applied to: type, method, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!

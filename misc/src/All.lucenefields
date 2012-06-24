@@ -6,7 +6,7 @@ DocumentTypeField {
 	("Defines the type of the entity represented by the document.")
 }  
 ("By design, every document in the search index itself is equal. 
-For the search index, a document is just a container for the fields it contains. For \\cname this is obviously not the case. 
+For the search index, a document is just a container for the fields it contains. For \\cname, this is obviously not the case. 
 There it does matter whether a document represents a method or a class. 
 A document type field is used to indicate an entity's type. The following five values are valid for a field representing a document type.
     
@@ -32,7 +32,7 @@ SimpleField {
 	
 	RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions" 
 	{ method }
-	("Expression returned by a method, e.g, \"return true;\"")
+	("Expression returned by a method, e.g., \"return true;\"")
 
 	ALL_DECLARED_METHOD_NAMES 	= "AllDeclaredMethodNames"
 	{ type }
@@ -56,19 +56,19 @@ SimpleField {
 	
 	FIELDS_READ 				= "FieldsRead"
 	{ type, method, trycatch }
-	("The FQNs of the fields read within the entity. E.g, \\cvalue{SomeType.someField}")
+	("The FQNs of the fields read from within the entity. E.g., \\cvalue{SomeType.someField}")
 	
 	FIELDS_WRITTEN				= "FieldsWritten"
 	{ method, trycatch }
-	("The FQNs of the fields written within the entity. E.g, \\cvalue{SomeType.someField}")
+	("The FQNs of the fields written to within the entity. E.g., \\cvalue{SomeType.someField}")
 	 
 	USED_FIELDS_IN_FINALLY		= "UsedFieldsInFinally"
 	{ trycatch }
-	("The FQNs of the fields used within the finally-block. E.g, \\cvalue{SomeType.someField}")
+	("The FQNs of the fields used within the finally-block. E.g., \\cvalue{SomeType.someField}")
 	
 	USED_FIELDS_IN_TRY			= "UsedFieldsInTry"
 	{ trycatch }
-	("The FQNs of the fields used within the try-block. E.g, \\cvalue{SomeType.someField}")
+	("The FQNs of the fields used within the try-block. E.g., \\cvalue{SomeType.someField}")
 	
 	VARIABLE_NAME				= "VariableName"
 	{ varusage }
@@ -82,7 +82,7 @@ SimpleField {
 	{ type }
 	("")
 }("If the value of a field is plain text it is considered a simple field. 
-No postprocessing is done to search terms that are used with a simple field when triggering the search. 
+No post-processing is done to search terms that are used with a simple field when triggering the search. 
 They usually contain names or expressions that do not have a special semantic.")
 
 TypeField {
@@ -142,10 +142,10 @@ TypeField {
 	DECLARED_FIELD_TYPES 		= "DeclaredFieldTypes"
 	{ type, method, trycatch }
 	("Contains the FQN of the types declared within the entity")
-	
+	 
 	DECLARING_TYPE 				= "DeclaringType"
 	{ method, field, trycatch }
-	("The the FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method")
+	("The FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method")
 	
 	VARIABLE_TYPE				= "VariableType"
 	{ varusage }
@@ -156,7 +156,7 @@ TypeField {
 	("The FQN of the checked exceptions possibly thrown by a method")
 }  
 ("Field values in that category represent type names. 
-Type names are fully qualified names of types, e.g, classes and interfaces. 
+Type names are fully qualified names of types, e.g., classes and interfaces. 
 In Java they follow a certain pattern. Their names consist of a package name and the name of the type. 
 Internally this format is called dot-notation. For example \\cquote{java.util.List} is an interface. 
 The name of the type is \\cvalue{List}, the name of the package is \\cvalue{java.util}.
@@ -169,7 +169,7 @@ When entering a field value that represents a type field \\cname supports the ty
 Using the internal index cache the set of types that are already contained in the index are proposed.
 
 At search time type fields further receive special processing. When searching for types these types can be entered using their fully qualified name, e.g., \\cquote{java.lang.String}.
-But it is also possible just to use the name of the type , e.g., \\cquote{String}. 
+But it is also possible just to use the name of the type, e.g., \\cquote{String}. 
 Since types are saved using their FQN representation this would lead to a poor search experience since String would never be found because its name is basically incomplete. 
 That is why internally this fielded term is prepended with a wildcard operator to include the types \\cquote{String} of all packages by searching for \\cvalue{*.String}.
 ")
@@ -178,7 +178,7 @@ That is why internally this fielded term is prepended with a wildcard operator t
 MethodField {
 	USED_METHODS 				= "UsedMethods" 
 	{ type, method, trycatch }
-	("FQN of the methods that are being called from within the entity. In case of a try/catch-construct. called from within the catch-block")
+	("FQN of the methods that are being called from within the entity. In case of a try/catch-construct called from within the catch-block")
 	
 	USED_METHODS_IN_TRY 		= "UsedMethodsInTry" 
 	{ trycatch }
@@ -208,7 +208,7 @@ MethodField {
 	{ varusage }
 	("FQN of the method that has been called on a variable")
 }
-("This category containes all fields that represent methods.
+("This category contains all fields that represent methods.
 The notation is similar to the one used for types (see \\ref{sec:FieldCategoryTypeField}). 
 The names are fully qualified for example \\cquote{java.util.List.add(Object)}. 
 
@@ -222,8 +222,8 @@ FilePathField {
 } 
 ("When a field represents a file path it is contained in this category. 
 Regardless of the local operating system all path names are persisted in unix style, e.g., \\cquote{/users/bob/sourcecode} and \\cquote{c:/users/bob/sourcecode}. 
-Since the colon \\cquote{:} is a special Lucene character that seperates a field name from its value it must be escaped when used inside a search term.
-This escapint is done for all search terms used with fields in this category.")
+Since the colon \\cquote{:} is a special Lucene character that separates a field name from its value it must be escaped when used inside a search term.
+This escaping is done for all search terms used with fields in this category.")
   
 NumberField {
 	PARAMETER_COUNT 			= "ParameterCount" 
@@ -234,7 +234,7 @@ NumberField {
 	{ type, method, field, trycatch }
 	("Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970")
 }
-("This category containes fields that represent numeric values. 
+("This category contains fields that represent numeric values. 
 The \\cname user interface makes sure that values entered here are valid.
 There is no immediate content assist associated with numeric values at the moment.")
 
@@ -259,7 +259,7 @@ ProjectNameField {
 	{ type, method, field, trycatch }
 	("Name of the project the entity's source code file is a part of")
 }
-("This category containes field(s) that represent a name of an Eclipse project. 
+("This category contains field(s) that represent a name of an Eclipse project. 
 The name itself is just a plain text string that might as well fit into the simple field category (see \\ref{sec:FieldCategorySimpleField}).
 However special treatment is performed when it comes to content assist in the user interface while entering a search term. 
 When entering project name fields the UI proposes those project names that are currently in the workspace.
