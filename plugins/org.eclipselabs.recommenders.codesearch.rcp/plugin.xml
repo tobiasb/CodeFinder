@@ -37,7 +37,7 @@
              class="org.eclipse.recommenders.internal.codesearch.rcp.views.SearchQueryView"
              icon="icons/obj16/search.png"
              id="org.eclipselabs.recommenders.codesearch.rcp.searchQueryView"
-             name="Code Search Query-View"/>
+             name="Code Search"/>
 	</extension>
  <extension
        point="org.eclipse.recommenders.injection.modules">
