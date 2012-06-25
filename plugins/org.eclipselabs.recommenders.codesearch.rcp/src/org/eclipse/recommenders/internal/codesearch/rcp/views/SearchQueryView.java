@@ -42,6 +42,7 @@ import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.SearchResult;
+import org.eclipse.recommenders.codesearch.rcp.index.ui.PreferencePage;
 import org.eclipse.recommenders.internal.codesearch.rcp.Activator;
 import org.eclipse.recommenders.utils.annotations.Experimental;
 import org.eclipse.recommenders.utils.rcp.RCPUtils;
@@ -194,7 +195,7 @@ public class SearchQueryView extends ViewPart implements ISearchView {
 
             @Override
             public void widgetSelected(final SelectionEvent e) {
-                try {
+                try {                	
                     doSearch();
                 } catch (final Exception e1) {
                     Activator.logError(e1);
@@ -387,9 +388,17 @@ public class SearchQueryView extends ViewPart implements ISearchView {
                 setSearching();
                 try {
                     if (currentEditor != null) {
-                        setResult(currentEditor.search());
-
-                        WorkbenchPlugin.log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Searched for: " + currentEditor.getSearchQuery()));
+                    	long startTime = System.currentTimeMillis(); //start timer
+                    	
+                    	SearchResult result = currentEditor.search(); //perform search
+                        setResult(result); //update UI
+                        
+                        long stopTime = System.currentTimeMillis(); //stop timer
+                        long runTime = stopTime - startTime;
+                        
+                        if(PreferencePage.isPerfInfoOutputEnabled()) {
+                        	WorkbenchPlugin.log(new Status(IStatus.INFO, Activator.PLUGIN_ID, String.format("Query took %s ms and returned %d entities.", runTime, result.docs.totalHits)));
+                        }
                     }
                 } catch (final Exception e) {
                     Activator.logError(e, "Error while searching. Query was: " + currentEditor.getSearchQuery());
