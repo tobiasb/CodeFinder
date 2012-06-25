@@ -26,6 +26,7 @@ import org.eclipse.ui.IWorkbenchPreferencePage;
 public class PreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
     private static final String P_KEEP_IN_SYNC = "recommenders.codesearch.index.keep_in_sync";
+    private static final String P_OUT_PERF_INFO = "recommenders.codesearch.index.out_perf_information";
 
     @Override
     protected void createFieldEditors() {
@@ -42,17 +43,27 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
                 + "Its duration depends on workspace size and number project dependencies and "
                 + "may take up to 30 minutes.\n\nThis operation can be canceled at any time; "
                 + "Indexing operation starts from the last sucessfully indexed project.");
+
+        addField(new BooleanFieldEditor(P_OUT_PERF_INFO, "Output of index/search performance information", parent));
     }
 
     @Override
     public void init(final IWorkbench workbench) {
         setPreferenceStore(CodesearchIndexPlugin.getDefault().getPreferenceStore());
     }
-
-    public static boolean isActive() {
+    
+    private static boolean getBooleanPref(String prefName) {
         final CodesearchIndexPlugin plugin = CodesearchIndexPlugin.getDefault();
         final IPreferenceStore store = plugin.getPreferenceStore();
-        final boolean res = store.getBoolean(P_KEEP_IN_SYNC);
+        final boolean res = store.getBoolean(prefName);
         return res;
+    }
+
+    public static boolean isActive() {
+    	return getBooleanPref(P_KEEP_IN_SYNC);
+    }
+    
+    public static boolean isPerfInfoOutputEnabled() {
+    	return getBooleanPref(P_OUT_PERF_INFO);
     }
 }

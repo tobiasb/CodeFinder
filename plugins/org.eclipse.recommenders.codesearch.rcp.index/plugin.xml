@@ -7,7 +7,7 @@
             category="org.eclipse.recommenders.rcp.category.preferences"
             class="org.eclipse.recommenders.codesearch.rcp.index.ui.PreferencePage"
             id="org.eclipse.recommenders.codesearch.rcp.index.page1"
-            name="Code-search">
+            name="Code Search">
       </page>
    </extension>
    <extension
