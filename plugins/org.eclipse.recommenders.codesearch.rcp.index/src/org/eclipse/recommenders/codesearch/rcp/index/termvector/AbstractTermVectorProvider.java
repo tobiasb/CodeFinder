@@ -11,6 +11,7 @@
 
 package org.eclipse.recommenders.codesearch.rcp.index.termvector;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -44,12 +45,23 @@ public abstract class AbstractTermVectorProvider implements ITermVectorProvider 
     }
 
     protected abstract String[] getFields();
+    
+    protected List<String> getExcludedFields() {
+    	return Lists.newArrayList();
+    }
 
     @Override
     public void load(final ITermVectorConsumable consumable, final Map<Integer, Object> argumentsMap) {
         final Set<String> result = Sets.newHashSet();
 
-        final Set<String> types = consumable.getTermVector(getFields());
+        List<String> fields = Lists.newArrayList(getFields());
+        fields.removeAll(getExcludedFields()); // remove fields that should not be used
+        
+        //TODO: tbo, needs cleanup
+        String[] fieldsArray = new String[fields.size()];
+        fields.toArray(fieldsArray); // back to an array
+        
+        final Set<String> types = consumable.getTermVector(fieldsArray);
         result.addAll(types);
 
         setTermVector(Lists.newArrayList(result));

@@ -27,6 +27,14 @@ public class DotNotationTypeConverterTest {
     }
 
     @Test
+    public void testPackageNameToDotNotationLowerCase() {
+        final IQueryPartConverter sut = new DotNotationTypeConverter();
+        final String actual = sut.convertTo("lorg/java/lang/String");
+
+        Assert.assertEquals("org.java.lang.String", actual);
+    }
+
+    @Test
     public void testPackageNameToDotNotationWildcard() {
         final IQueryPartConverter sut = new DotNotationTypeConverter();
         final String actual = sut.convertTo("Lorg/java/lang/*");

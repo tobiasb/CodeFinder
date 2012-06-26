@@ -11,13 +11,25 @@
 
 package org.eclipse.recommenders.codesearch.rcp.index.termvector;
 
+import java.util.List;
+
 import org.eclipse.recommenders.codesearch.rcp.index.Fields;
+
+import com.google.common.collect.Lists;
 
 public class JavaTypeProvider extends AbstractTermVectorProvider {
 
     @Override
     protected String[] getFields() {
         return Fields.getTypeFields();
+    }
+    
+    @Override
+    protected List<String> getExcludedFields() {
+    	List<String> list = Lists.newArrayList();
+    	list.add(Fields.QUALIFIED_NAME);
+    	
+    	return list;
     }
 
 }

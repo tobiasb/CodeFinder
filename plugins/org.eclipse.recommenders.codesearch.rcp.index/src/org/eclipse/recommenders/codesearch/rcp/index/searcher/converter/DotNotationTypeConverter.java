@@ -37,7 +37,7 @@ public class DotNotationTypeConverter implements IQueryPartConverter {
     public String convertTo(final String queryPart) {
         String tmp = queryPart;
 
-        if (tmp.startsWith("L")) {
+        if (tmp.toLowerCase().startsWith("l")) {
             tmp = tmp.substring(1);
         }
         

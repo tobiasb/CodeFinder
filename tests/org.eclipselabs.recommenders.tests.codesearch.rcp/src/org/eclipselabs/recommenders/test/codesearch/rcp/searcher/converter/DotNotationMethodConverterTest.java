@@ -25,6 +25,14 @@ public class DotNotationMethodConverterTest {
 
         Assert.assertEquals("org.java.lang.init<>", actual);
     }
+    
+    @Test
+    public void testConstructorToDotNotationLowerCase() {
+        final IQueryPartConverter sut = new DotNotationMethodConverter();
+        final String actual = sut.convertTo("lorg/java/lang.init<>()V");
+
+        Assert.assertEquals("org.java.lang.init<>", actual);
+    }
 
     @Test
     public void testConstructorFromDotNotation() {
