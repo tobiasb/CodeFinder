@@ -522,6 +522,50 @@ public class LuceneFieldsGenerator implements IGenerator {
         _builder.append("\t");
         _builder.newLine();
         _builder.append("\t");
+        _builder.append("//GENERATED, DO NOT MODIFY HERE!!!");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("// ");
+        String _categoryName_1 = category.getCategoryName();
+        _builder.append(_categoryName_1, "	");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("public static String[] get");
+        String _categoryName_2 = category.getCategoryName();
+        _builder.append(_categoryName_2, "	");
+        _builder.append("s() {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("return new String[]{");
+        _builder.newLine();
+        {
+          EList<Field> _fields_1 = category.getFields();
+          for(final Field field_1 : _fields_1) {
+            _builder.append("\t");
+            _builder.append("\t\t");
+            String _xifexpression = null;
+            EList<Field> _fields_2 = category.getFields();
+            int _indexOf = _fields_2.indexOf(field_1);
+            boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
+            if (_operator_greaterThan) {
+              _xifexpression = ", ";
+            }
+            _builder.append(_xifexpression, "			");
+            _builder.append("Fields.");
+            String _name = field_1.getName();
+            _builder.append(_name, "			");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("};\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.newLine();
       }
     }

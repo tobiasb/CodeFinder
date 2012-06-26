@@ -183,6 +183,15 @@ public class «m.className» {
 	«field.compile»
 		«ENDFOR»
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// «category.categoryName»
+	public static String[] get«category.categoryName»s() {
+		return new String[]{
+			«FOR field : category.fields»
+				«if(category.fields.indexOf(field)>0){', '}»Fields.«field.name»
+			«ENDFOR»
+		};	
+	}
 	
 	«ENDFOR»
 }
