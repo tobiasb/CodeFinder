@@ -51,6 +51,13 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String TYPE = "Type";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// DocumentTypeField
+	public static String[] getDocumentTypeFields() {
+		return new String[]{
+			Fields.TYPE
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// SimpleField
@@ -59,7 +66,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String SIMPLE_NAME = "FriendlyName";
-	/** Expression returned by a method, e.g, "return true;"<br /><br />
+	/** Expression returned by a method, e.g., "return true;"<br /><br />
 		Can be applied to: method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -89,22 +96,22 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String FULL_TEXT = "FullText";
-	/** The FQNs of the fields read within the entity. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields read from within the entity. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: type, method, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String FIELDS_READ = "FieldsRead";
-	/** The FQNs of the fields written within the entity. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields written to within the entity. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: method, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String FIELDS_WRITTEN = "FieldsWritten";
-	/** The FQNs of the fields used within the finally-block. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields used within the finally-block. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String USED_FIELDS_IN_FINALLY = "UsedFieldsInFinally";
-	/** The FQNs of the fields used within the try-block. E.g, \cvalue{SomeType.someField}<br /><br />
+	/** The FQNs of the fields used within the try-block. E.g., \cvalue{SomeType.someField}<br /><br />
 		Can be applied to: tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -125,6 +132,26 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String ANNOTATIONS = "Annotations";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// SimpleField
+	public static String[] getSimpleFields() {
+		return new String[]{
+			Fields.SIMPLE_NAME
+			, Fields.RETURN_VARIABLE_EXPRESSIONS
+			, Fields.ALL_DECLARED_METHOD_NAMES
+			, Fields.DECLARED_METHODS_NAMES
+			, Fields.DECLARED_FIELD_NAMES
+			, Fields.ALL_DECLARED_FIELD_NAMES
+			, Fields.FULL_TEXT
+			, Fields.FIELDS_READ
+			, Fields.FIELDS_WRITTEN
+			, Fields.USED_FIELDS_IN_FINALLY
+			, Fields.USED_FIELDS_IN_TRY
+			, Fields.VARIABLE_NAME
+			, Fields.PARAMETER_TYPES_STRUCTURAL
+			, Fields.ANNOTATIONS
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// TypeField
@@ -198,7 +225,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String DECLARED_FIELD_TYPES = "DeclaredFieldTypes";
-	/** The the FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method<br /><br />
+	/** The FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method<br /><br />
 		Can be applied to: method, field, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -214,10 +241,33 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String CHECKED_EXCEPTIONS = "CheckedExceptions";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// TypeField
+	public static String[] getTypeFields() {
+		return new String[]{
+			Fields.QUALIFIED_NAME
+			, Fields.IMPLEMENTED_TYPES
+			, Fields.EXTENDED_TYPE
+			, Fields.USED_TYPES
+			, Fields.USED_TYPES_IN_TRY
+			, Fields.USED_TYPES_IN_FINALLY
+			, Fields.PARAMETER_TYPES
+			, Fields.RETURN_TYPE
+			, Fields.INSTANCEOF_TYPES
+			, Fields.ALL_IMPLEMENTED_TYPES
+			, Fields.ALL_EXTENDED_TYPES
+			, Fields.FIELD_TYPE
+			, Fields.CAUGHT_TYPE
+			, Fields.DECLARED_FIELD_TYPES
+			, Fields.DECLARING_TYPE
+			, Fields.VARIABLE_TYPE
+			, Fields.CHECKED_EXCEPTIONS
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// MethodField
-	/** FQN of the methods that are being called from within the entity. In case of a try/catch-construct. called from within the catch-block<br /><br />
+	/** FQN of the methods that are being called from within the entity. In case of a try/catch-construct called from within the catch-block<br /><br />
 		Can be applied to: type, method, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -258,6 +308,20 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String USED_AS_TAGET_FOR_METHODS = "UsedAsTargetForMethods";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// MethodField
+	public static String[] getMethodFields() {
+		return new String[]{
+			Fields.USED_METHODS
+			, Fields.USED_METHODS_IN_TRY
+			, Fields.USED_METHODS_IN_FINALLY
+			, Fields.OVERRIDDEN_METHODS
+			, Fields.DECLARED_METHODS
+			, Fields.DECLARING_METHOD
+			, Fields.USED_AS_PARAMETER_IN_METHODS
+			, Fields.USED_AS_TAGET_FOR_METHODS
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// FilePathField
@@ -267,6 +331,13 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String RESOURCE_PATH = "ResourcePath";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// FilePathField
+	public static String[] getFilePathFields() {
+		return new String[]{
+			Fields.RESOURCE_PATH
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// NumberField
@@ -281,6 +352,14 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String TIMESTAMP = "Timestamp";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// NumberField
+	public static String[] getNumberFields() {
+		return new String[]{
+			Fields.PARAMETER_COUNT
+			, Fields.TIMESTAMP
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// ModifierField
@@ -290,6 +369,13 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String MODIFIERS = "Modifiers";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// ModifierField
+	public static String[] getModifierFields() {
+		return new String[]{
+			Fields.MODIFIERS
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// ProjectNameField
@@ -299,6 +385,13 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String PROJECT_NAME = "ProjectName";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// ProjectNameField
+	public static String[] getProjectNameFields() {
+		return new String[]{
+			Fields.PROJECT_NAME
+		};	
+	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// DefinitionType
@@ -308,5 +401,12 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String VARIABLE_DEFINITION = "VariableDefinition";
 	
+	//GENERATED, DO NOT MODIFY HERE!!!
+	// DefinitionType
+	public static String[] getDefinitionTypes() {
+		return new String[]{
+			Fields.VARIABLE_DEFINITION
+		};	
+	}
 	
 }

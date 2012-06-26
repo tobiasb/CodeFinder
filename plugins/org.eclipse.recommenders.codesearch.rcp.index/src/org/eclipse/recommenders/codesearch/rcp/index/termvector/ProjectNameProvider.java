@@ -17,7 +17,7 @@ public class ProjectNameProvider extends AbstractTermVectorProvider {
 
     @Override
     protected String[] getFields() {
-        return new String[] { Fields.PROJECT_NAME };
+        return Fields.getProjectNameFields();
     }
 
 }
