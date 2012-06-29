@@ -199,7 +199,7 @@ public class LuceneFieldsGenerator implements IGenerator {
         _builder.append("\\hline");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("\\caption{Lucene Fields in category \\cquote{");
+        _builder.append("\\caption{Lucene Fields in Category \\cquote{");
         String _categoryName_6 = category.getCategoryName();
         String _texCompatibleString_7 = this.getTexCompatibleString(_categoryName_6);
         _builder.append(_texCompatibleString_7, "	");

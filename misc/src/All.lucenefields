@@ -28,7 +28,7 @@ These symbols correspond with the ones in the enumeration above.
 SimpleField {   
 	SIMPLE_NAME 				= "FriendlyName" 
 	{ type, method, field, trycatch }
-	("Simple version of the entity's name")
+	("Simple name representation of the entity's name")
 	
 	RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions" 
 	{ method }
@@ -65,7 +65,7 @@ SimpleField {
 	USED_FIELDS_IN_FINALLY		= "UsedFieldsInFinally"
 	{ trycatch }
 	("The FQNs of the fields used within the finally-block. E.g., \\cvalue{SomeType.someField}")
-	
+	 
 	USED_FIELDS_IN_TRY			= "UsedFieldsInTry"
 	{ trycatch }
 	("The FQNs of the fields used within the try-block. E.g., \\cvalue{SomeType.someField}")
@@ -76,7 +76,7 @@ SimpleField {
 	
 	PARAMETER_TYPES_STRUCTURAL	= "ParameterTypesStructural"
 	{ method }
-	("Textual representation of a methods parameter list used \\textbf{internally} by MethodPatternQL (see \\ref{sec:MethodPatternQL})")
+	("Textual representation of a methods parameter list used \\textbf{internally} by \\cmpq (see \\ref{sec:MethodPatternQL})")
 		
 	ANNOTATIONS					= "Annotations"
 	{ type }
@@ -244,14 +244,8 @@ ModifierField {
 	("Modifiers that are defined for the entity")
 }
 ("
-\\begin{itemize}
-	\\item \\textbf{public}
-	\\item \\textbf{final}
-	\\item \\textbf{private}
-	\\item \\textbf{protected}
-	\\item \\textbf{static}
-	\\item \\textbf{abstract}
-\\end{itemize}
+The following acces modifiers are indexed and can be used:  \\textbf{public}, \\textbf{final}, \\textbf{private}, \\textbf{protected}, \\textbf{static} and \\textbf{abstract}. 
+The order in which they appear in the query is irrelevant. There is no validity check regarding reasonableness of the modifiers used in the query.
 ")
  
 ProjectNameField {	
@@ -265,7 +259,7 @@ However special treatment is performed when it comes to content assist in the us
 When entering project name fields the UI proposes those project names that are currently in the workspace.
 ")
 
-DefinitionType {
+DefinitionTypeField {
 	VARIABLE_DEFINITION					= "VariableDefinition"
 	{ varusage }
 	("The way a variable of a variable usage has been declared")

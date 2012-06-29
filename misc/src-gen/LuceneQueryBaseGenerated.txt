@@ -65,10 +65,10 @@ ClauseExpression:
 				) Boost?
 			)
 		| 	(
-				field=DefinitionType ':' 
+				field=DefinitionTypeField ':' 
 				(
-					(values+=DefinitionTypeValue)
-					| ('('(UnaryExpression? values+=DefinitionTypeValue Boost?)*')')
+					(values+=DefinitionTypeFieldValue)
+					| ('('(UnaryExpression? values+=DefinitionTypeFieldValue Boost?)*')')
 				) Boost?
 			)
 		)
@@ -153,7 +153,7 @@ ProjectNameField:
 ;
 
 //Generated Rule. Do not modify!
-DefinitionType:
+DefinitionTypeField:
 		value='VariableDefinition'
 ;
 

@@ -61,7 +61,7 @@ public class Fields {
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// SimpleField
-	/** Simple version of the entity's name<br /><br />
+	/** Simple name representation of the entity's name<br /><br />
 		Can be applied to: type, method, field, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -121,7 +121,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String VARIABLE_NAME = "VariableName";
-	/** Textual representation of a methods parameter list used \textbf{internally} by MethodPatternQL (see \ref{sec:MethodPatternQL})<br /><br />
+	/** Textual representation of a methods parameter list used \textbf{internally} by \cmpq (see \ref{sec:MethodPatternQL})<br /><br />
 		Can be applied to: method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -394,7 +394,7 @@ public class Fields {
 	}
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
-	// DefinitionType
+	// DefinitionTypeField
 	/** The way a variable of a variable usage has been declared<br /><br />
 		Can be applied to: varusage
 	*/
@@ -402,8 +402,8 @@ public class Fields {
 	public final static String VARIABLE_DEFINITION = "VariableDefinition";
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
-	// DefinitionType
-	public static String[] getDefinitionTypes() {
+	// DefinitionTypeField
+	public static String[] getDefinitionTypeFields() {
 		return new String[]{
 			Fields.VARIABLE_DEFINITION
 		};	

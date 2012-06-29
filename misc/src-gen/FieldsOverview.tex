@@ -56,7 +56,7 @@ See table \ref{tab:FieldCategoryDocumentTypeFieldFields} for the complete list o
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		& Defines the type of the entity represented by the document. \\
 	\hline
-	\caption{Lucene Fields in category \cquote{DocumentTypeField}\label{tab:FieldCategoryDocumentTypeFieldFields}}
+	\caption{Lucene Fields in Category \cquote{DocumentTypeField}\label{tab:FieldCategoryDocumentTypeFieldFields}}
 \end{longtable}
 		
 
@@ -98,7 +98,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/field.png} 
 		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Simple version of the entity's name \\
+		& Simple name representation of the entity's name \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{ReturnVariableExpressions} 
 		& 
@@ -206,7 +206,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Textual representation of a methods parameter list used \textbf{internally} by MethodPatternQL (see \ref{sec:MethodPatternQL}) \\
+		& Textual representation of a methods parameter list used \textbf{internally} by \cmpq (see \ref{sec:MethodPatternQL}) \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{Annotations} 
 		& 
@@ -217,7 +217,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		&  \\
 	\hline
-	\caption{Lucene Fields in category \cquote{SimpleField}\label{tab:FieldCategorySimpleFieldFields}}
+	\caption{Lucene Fields in Category \cquote{SimpleField}\label{tab:FieldCategorySimpleFieldFields}}
 \end{longtable}
 		
 
@@ -419,7 +419,7 @@ See table \ref{tab:FieldCategoryTypeFieldFields} for the complete list of fields
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& The FQN of the checked exceptions possibly thrown by a method \\
 	\hline
-	\caption{Lucene Fields in category \cquote{TypeField}\label{tab:FieldCategoryTypeFieldFields}}
+	\caption{Lucene Fields in Category \cquote{TypeField}\label{tab:FieldCategoryTypeFieldFields}}
 \end{longtable}
 		
 
@@ -528,7 +528,7 @@ See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		& FQN of the method that has been called on a variable \\
 	\hline
-	\caption{Lucene Fields in category \cquote{MethodField}\label{tab:FieldCategoryMethodFieldFields}}
+	\caption{Lucene Fields in Category \cquote{MethodField}\label{tab:FieldCategoryMethodFieldFields}}
 \end{longtable}
 		
 
@@ -573,7 +573,7 @@ See table \ref{tab:FieldCategoryFilePathFieldFields} for the complete list of fi
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Local file path to the current entity's source code file \\
 	\hline
-	\caption{Lucene Fields in category \cquote{FilePathField}\label{tab:FieldCategoryFilePathFieldFields}}
+	\caption{Lucene Fields in Category \cquote{FilePathField}\label{tab:FieldCategoryFilePathFieldFields}}
 \end{longtable}
 		
 
@@ -626,7 +626,7 @@ See table \ref{tab:FieldCategoryNumberFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970 \\
 	\hline
-	\caption{Lucene Fields in category \cquote{NumberField}\label{tab:FieldCategoryNumberFieldFields}}
+	\caption{Lucene Fields in Category \cquote{NumberField}\label{tab:FieldCategoryNumberFieldFields}}
 \end{longtable}
 		
 
@@ -636,14 +636,8 @@ See table \ref{tab:FieldCategoryNumberFieldFields} for the complete list of fiel
 
 %GENERATED, DO NOT MODIFY HERE!!!
 
-\begin{itemize}
-	\item \textbf{public}
-	\item \textbf{final}
-	\item \textbf{private}
-	\item \textbf{protected}
-	\item \textbf{static}
-	\item \textbf{abstract}
-\end{itemize}
+The following acces modifiers are indexed and can be used:  \textbf{public}, \textbf{final}, \textbf{private}, \textbf{protected}, \textbf{static} and \textbf{abstract}. 
+The order in which they appear in the query is irrelevant. There is no validity check regarding reasonableness of the modifiers used in the query.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fields.
@@ -676,7 +670,7 @@ See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fi
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Modifiers that are defined for the entity \\
 	\hline
-	\caption{Lucene Fields in category \cquote{ModifierField}\label{tab:FieldCategoryModifierFieldFields}}
+	\caption{Lucene Fields in Category \cquote{ModifierField}\label{tab:FieldCategoryModifierFieldFields}}
 \end{longtable}
 		
 
@@ -721,13 +715,13 @@ See table \ref{tab:FieldCategoryProjectNameFieldFields} for the complete list of
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Name of the project the entity's source code file is a part of \\
 	\hline
-	\caption{Lucene Fields in category \cquote{ProjectNameField}\label{tab:FieldCategoryProjectNameFieldFields}}
+	\caption{Lucene Fields in Category \cquote{ProjectNameField}\label{tab:FieldCategoryProjectNameFieldFields}}
 \end{longtable}
 		
 
 %GENERATED, DO NOT MODIFY HERE!!!
-\subsubsection{DefinitionType}
-\label{sec:FieldCategoryDefinitionType}
+\subsubsection{DefinitionTypeField}
+\label{sec:FieldCategoryDefinitionTypeField}
 
 %GENERATED, DO NOT MODIFY HERE!!!
 When indexing the usage patterns of variables it might be important to know how the variable has been defined, 
@@ -744,17 +738,17 @@ The following values are possible:
 \end{itemize}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryDefinitionTypeFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryDefinitionTypeFieldFields} for the complete list of fields.
 
 %GENERATED, DO NOT MODIFY HERE!!!
-%Category: DefinitionType
+%Category: DefinitionTypeField
 \begin{longtable}{|p{4.7cm}|p{2,1cm}|p{7,8cm}|}
 	\hline
-	\multicolumn{3}{|l|}{\textsl{DefinitionType}}\\\hline
+	\multicolumn{3}{|l|}{\textsl{DefinitionTypeField}}\\\hline
 	\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
 	\endfirsthead
 	\multicolumn{3}{@{}l}{\ldots continued}\\\hline
-	%\multicolumn{3}{|l|}{\textsl{DefinitionType}}\\\hline
+	%\multicolumn{3}{|l|}{\textsl{DefinitionTypeField}}\\\hline
 	\textbf{Field Name} & \textbf{Target} & \textbf{Description}\\
 	\hline
 	\endhead
@@ -774,7 +768,7 @@ See table \ref{tab:FieldCategoryDefinitionTypeFields} for the complete list of f
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		& The way a variable of a variable usage has been declared \\
 	\hline
-	\caption{Lucene Fields in category \cquote{DefinitionType}\label{tab:FieldCategoryDefinitionTypeFields}}
+	\caption{Lucene Fields in Category \cquote{DefinitionTypeField}\label{tab:FieldCategoryDefinitionTypeFieldFields}}
 \end{longtable}
 		
 		

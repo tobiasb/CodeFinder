@@ -65,7 +65,7 @@ See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»
 		& «field.desc» \\
 	«ENDFOR»
 	\hline
-	\caption{Lucene Fields in category \cquote{«category.categoryName.getTexCompatibleString»}\label{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields}}
+	\caption{Lucene Fields in Category \cquote{«category.categoryName.getTexCompatibleString»}\label{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields}}
 \end{longtable}
 		
 		«ENDFOR»
