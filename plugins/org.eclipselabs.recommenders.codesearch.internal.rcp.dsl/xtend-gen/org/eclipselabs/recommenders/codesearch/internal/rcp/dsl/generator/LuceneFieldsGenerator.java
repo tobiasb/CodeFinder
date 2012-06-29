@@ -23,13 +23,13 @@ public class LuceneFieldsGenerator implements IGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    Iterable<Model> _filter = IterableExtensions.<Model>filter(_iterable, org.eclipselabs.recommenders.codesearch.internal.rcp.dsl.luceneFields.Model.class);
+    Iterable<Model> _filter = IterableExtensions.<Model>filter(_iterable, Model.class);
     for (final Model e : _filter) {
       {
         String _className = e.getClassName();
-        String _operator_plus = StringExtensions.operator_plus(_className, ".java.txt");
+        String _plus = StringExtensions.operator_plus(_className, ".java.txt");
         CharSequence _compileFieldsClass = this.compileFieldsClass(e);
-        fsa.generateFile(_operator_plus, _compileFieldsClass);
+        fsa.generateFile(_plus, _compileFieldsClass);
         CharSequence _compileXtextBaseClass = this.compileXtextBaseClass(e);
         fsa.generateFile("LuceneQueryBaseGenerated.txt", _compileXtextBaseClass);
         CharSequence _compileTexFieldOverview = this.compileTexFieldOverview(e);
@@ -280,8 +280,8 @@ public class LuceneFieldsGenerator implements IGenerator {
           String _xifexpression = null;
           EList<FieldCategory> _fieldCategories_1 = m.getFieldCategories();
           int _indexOf = _fieldCategories_1.indexOf(category);
-          boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
-          if (_operator_greaterThan) {
+          boolean _greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
+          if (_greaterThan) {
             _xifexpression = "| ";
           }
           _builder.append(_xifexpression, "		");
@@ -346,8 +346,8 @@ public class LuceneFieldsGenerator implements IGenerator {
               _builder.append("\t");
               String _xifexpression_1 = null;
               Boolean _value = b.getValue();
-              boolean _operator_not = BooleanExtensions.operator_not(_value);
-              if (_operator_not) {
+              boolean _not = BooleanExtensions.operator_not(_value);
+              if (_not) {
                 _xifexpression_1 = "| ";
               }
               _builder.append(_xifexpression_1, "	");
@@ -547,8 +547,8 @@ public class LuceneFieldsGenerator implements IGenerator {
             String _xifexpression = null;
             EList<Field> _fields_2 = category.getFields();
             int _indexOf = _fields_2.indexOf(field_1);
-            boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
-            if (_operator_greaterThan) {
+            boolean _greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
+            if (_greaterThan) {
               _xifexpression = ", ";
             }
             _builder.append(_xifexpression, "			");
@@ -590,8 +590,8 @@ public class LuceneFieldsGenerator implements IGenerator {
         String _xifexpression = null;
         EList<FieldType> _types_1 = f.getTypes();
         int _indexOf = _types_1.indexOf(t);
-        boolean _operator_greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
-        if (_operator_greaterThan) {
+        boolean _greaterThan = IntegerExtensions.operator_greaterThan(_indexOf, 0);
+        if (_greaterThan) {
           _xifexpression = ", ";
         }
         _builder.append(_xifexpression, "		");
@@ -618,39 +618,39 @@ public class LuceneFieldsGenerator implements IGenerator {
   }
   
   public String toTypeName(final FieldType t) {
-      boolean _isType = t.isType();
-      if (_isType) {
-        return "type";
-      }
-      boolean _isMethod = t.isMethod();
-      if (_isMethod) {
-        return "method";
-      }
-      boolean _isField = t.isField();
-      if (_isField) {
-        return "field";
-      }
-      boolean _isTrycatch = t.isTrycatch();
-      if (_isTrycatch) {
-        return "tryCatch";
-      }
-      boolean _isVarusage = t.isVarusage();
-      if (_isVarusage) {
-        return "varusage";
-      }
-      return "N/A";
+    boolean _isType = t.isType();
+    if (_isType) {
+      return "type";
+    }
+    boolean _isMethod = t.isMethod();
+    if (_isMethod) {
+      return "method";
+    }
+    boolean _isField = t.isField();
+    if (_isField) {
+      return "field";
+    }
+    boolean _isTrycatch = t.isTrycatch();
+    if (_isTrycatch) {
+      return "tryCatch";
+    }
+    boolean _isVarusage = t.isVarusage();
+    if (_isVarusage) {
+      return "varusage";
+    }
+    return "N/A";
   }
   
   public boolean hasActionOfType(final Field f, final String tDesired) {
-      EList<FieldType> _types = f.getTypes();
-      for (final FieldType t : _types) {
-        String _typeName = this.toTypeName(t);
-        boolean _equals = _typeName.equals(tDesired);
-        if (_equals) {
-          return true;
-        }
+    EList<FieldType> _types = f.getTypes();
+    for (final FieldType t : _types) {
+      String _typeName = this.toTypeName(t);
+      boolean _equals = _typeName.equals(tDesired);
+      if (_equals) {
+        return true;
       }
-      return false;
+    }
+    return false;
   }
   
   public CharSequence doNotModify() {
