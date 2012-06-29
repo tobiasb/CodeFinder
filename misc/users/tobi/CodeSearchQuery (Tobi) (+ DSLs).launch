@@ -19,7 +19,7 @@
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/CodeSearchQuery (Tobi) (+ DSLs)"/>
 <booleanAttribute key="default" value="false"/>
 <booleanAttribute key="includeOptional" value="false"/>
-<stringAttribute key="location" value="${workspace_loc}/../runtime-CodeSearchQuery(Tobi)"/>
+<stringAttribute key="location" value="${workspace_loc}/../thsis_juno_copy"/>
 <stringAttribute key="myeclipse.profiling.mode" value="0"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>

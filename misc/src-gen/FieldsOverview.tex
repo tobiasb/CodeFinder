@@ -7,7 +7,7 @@
 
 %GENERATED, DO NOT MODIFY HERE!!!
 By design, every document in the search index itself is equal. 
-For the search index, a document is just a container for the fields it contains. For \cname, this is obviously not the case. 
+For the search index, a document is just a container for the fields it contains. For \cname{}, this is obviously not the case. 
 There it does matter whether a document represents a method or a class. 
 A document type field is used to indicate an entity's type. The following five values are valid for a field representing a document type.
      
@@ -206,7 +206,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Textual representation of a methods parameter list used \textbf{internally} by \cmpq (see \ref{sec:MethodPatternQL}) \\
+		& Textual representation of a methods parameter list used \textbf{internally} by \cmpq{} (see \ref{sec:MethodPatternQL}) \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{Annotations} 
 		& 
@@ -236,7 +236,7 @@ What is saved in the index is not this dot-notated syntax but a syntax providing
 By using the syntax that is used across the whole CodeRecommenders product range the compatibility between the search engine and those potential consumers is provided. 
 For types that syntax does not look all that different than the usual dot-notation. The internal representation of the aforementioned type \cquote{java.util.List} is \cquote{Ljava/util/List}.
 
-When entering a field value that represents a type field \cname supports the type entry with content assist. 
+When entering a field value that represents a type field \cname{} supports the type entry with content assist. 
 Using the internal index cache the set of types that are already contained in the index are proposed.
 
 At search time type fields further receive special processing. When searching for types these types can be entered using their fully qualified name, e.g., \cquote{java.lang.String}.
@@ -399,7 +399,7 @@ See table \ref{tab:FieldCategoryTypeFieldFields} for the complete list of fields
 		\includegraphics[width=0.9em]{img-src/icons/field.png} 
 		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& The FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method \\
+		& The FQN of the entity's declaring type, e.g., a method's declaring class or a catch-block's declaring method \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{VariableType} 
 		& 
@@ -430,9 +430,10 @@ See table \ref{tab:FieldCategoryTypeFieldFields} for the complete list of fields
 %GENERATED, DO NOT MODIFY HERE!!!
 This category contains all fields that represent methods.
 The notation is similar to the one used for types (see \ref{sec:FieldCategoryTypeField}). 
-The names are fully qualified for example \cquote{java.util.List.add(Object)}. 
+The names are fully qualified, for example \cquote{java.util.List.add(Object)}. 
+When searching however the query is reduced to the fully qualified method name with the parameter information eliminated.
 
-\cname uses its internal cache to provide content assist functionality when entering a search term that represents a method.
+\cname{} uses its internal cache to provide content assist functionality when entering a search term that represents a method.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fields.
@@ -538,7 +539,7 @@ See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fiel
 
 %GENERATED, DO NOT MODIFY HERE!!!
 When a field represents a file path it is contained in this category. 
-Regardless of the local operating system all path names are persisted in unix style, e.g., \cquote{/users/bob/sourcecode} and \cquote{c:/users/bob/sourcecode}. 
+Regardless of the local operating system all path names are persisted in Unix style, e.g., \cquote{/users/bob/sourcecode} and \cquote{c:/users/bob/sourcecode}. 
 Since the colon \cquote{:} is a special Lucene character that separates a field name from its value it must be escaped when used inside a search term.
 This escaping is done for all search terms used with fields in this category.
 
@@ -583,7 +584,7 @@ See table \ref{tab:FieldCategoryFilePathFieldFields} for the complete list of fi
 
 %GENERATED, DO NOT MODIFY HERE!!!
 This category contains fields that represent numeric values. 
-The \cname user interface makes sure that values entered here are valid.
+The \cname{} user interface makes sure that values entered here are valid.
 There is no immediate content assist associated with numeric values at the moment.
 
 %GENERATED, DO NOT MODIFY HERE!!!
@@ -635,7 +636,7 @@ See table \ref{tab:FieldCategoryNumberFieldFields} for the complete list of fiel
 \label{sec:FieldCategoryModifierField}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-
+ 
 The following acces modifiers are indexed and can be used:  \textbf{public}, \textbf{final}, \textbf{private}, \textbf{protected}, \textbf{static} and \textbf{abstract}. 
 The order in which they appear in the query is irrelevant. There is no validity check regarding reasonableness of the modifiers used in the query.
 
@@ -679,7 +680,7 @@ See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fi
 \label{sec:FieldCategoryProjectNameField}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-This category contains field(s) that represent a name of an Eclipse project. 
+This category contains fields that represent a name of an Eclipse project. 
 The name itself is just a plain text string that might as well fit into the simple field category (see \ref{sec:FieldCategorySimpleField}).
 However special treatment is performed when it comes to content assist in the user interface while entering a search term. 
 When entering project name fields the UI proposes those project names that are currently in the workspace.
@@ -713,7 +714,8 @@ See table \ref{tab:FieldCategoryProjectNameFieldFields} for the complete list of
 		\includegraphics[width=0.9em]{img-src/icons/field.png} 
 		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Name of the project the entity's source code file is a part of \\
+		& Name of the project the entity's source code file is a part of. 
+			  If the entity is part of a class file, the values is the project that references the library that contains the class file. \\
 	\hline
 	\caption{Lucene Fields in Category \cquote{ProjectNameField}\label{tab:FieldCategoryProjectNameFieldFields}}
 \end{longtable}

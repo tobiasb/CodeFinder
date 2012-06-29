@@ -121,7 +121,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String VARIABLE_NAME = "VariableName";
-	/** Textual representation of a methods parameter list used \textbf{internally} by \cmpq (see \ref{sec:MethodPatternQL})<br /><br />
+	/** Textual representation of a methods parameter list used \textbf{internally} by \cmpq{} (see \ref{sec:MethodPatternQL})<br /><br />
 		Can be applied to: method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -225,7 +225,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String DECLARED_FIELD_TYPES = "DeclaredFieldTypes";
-	/** The FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method<br /><br />
+	/** The FQN of the entity's declaring type, e.g., a method's declaring class or a catch-block's declaring method<br /><br />
 		Can be applied to: method, field, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -379,7 +379,8 @@ public class Fields {
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// ProjectNameField
-	/** Name of the project the entity's source code file is a part of<br /><br />
+	/** Name of the project the entity's source code file is a part of. 
+		  If the entity is part of a class file, the values is the project that references the library that contains the class file.<br /><br />
 		Can be applied to: type, method, field, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
