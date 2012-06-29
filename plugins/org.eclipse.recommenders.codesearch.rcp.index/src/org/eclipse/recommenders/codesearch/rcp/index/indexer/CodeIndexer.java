@@ -30,10 +30,12 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.interfaces.IIndexer;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.strategy.IFieldIndexingStrategy;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.strategy.SimpleNameBasedStrategy;
+import org.eclipse.recommenders.codesearch.rcp.index.indexer.strategy.VerboseStrategy;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IIndexInformationProvider;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.utils.IndexInformationCache;
 import org.eclipse.recommenders.codesearch.rcp.index.indexer.visitor.CompilationUnitVisitor;
 import org.eclipse.recommenders.codesearch.rcp.index.searcher.CodeSearcher;
+import org.eclipse.recommenders.codesearch.rcp.index.ui.PreferencePage;
 import org.eclipse.recommenders.rcp.RecommendersPlugin;
 import org.eclipse.recommenders.utils.rcp.internal.RecommendersUtilsPlugin;
 
@@ -49,10 +51,18 @@ public class CodeIndexer implements ICompilationUnitIndexer {
     
     private final static List<IIndexer> defaultIndexer = getDefaultIndexer();
 
-    private static IFieldIndexingStrategy indexingFieldInfoProvider = new SimpleNameBasedStrategy();
+    private static IFieldIndexingStrategy indexingFieldInfoProvider;
 
     public static void setVerbose(boolean value) {
         verbose = value;
+    }
+    
+    static {
+    	if(PreferencePage.isUseAlternativeStrategyEnabled()) {
+    		indexingFieldInfoProvider = new VerboseStrategy();
+    	} else {
+    		indexingFieldInfoProvider = new SimpleNameBasedStrategy();
+    	}
     }
 
     public static void setIndexingFieldInformationProvider(IFieldIndexingStrategy newIindexingFieldInfoProvider) {

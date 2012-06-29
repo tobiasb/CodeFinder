@@ -27,6 +27,7 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
 
     private static final String P_KEEP_IN_SYNC = "recommenders.codesearch.index.keep_in_sync";
     private static final String P_OUT_PERF_INFO = "recommenders.codesearch.index.out_perf_information";
+    private static final String P_USE_ALTERNATE_INDEXING_STRATEGY = "recommenders.codesearch.index.use_alternative_indexing_strategy";
 
     @Override
     protected void createFieldEditors() {
@@ -45,6 +46,8 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
                 + "Indexing operation starts from the last sucessfully indexed project.");
 
         addField(new BooleanFieldEditor(P_OUT_PERF_INFO, "Output of index/search performance information", parent));
+
+        addField(new BooleanFieldEditor(P_USE_ALTERNATE_INDEXING_STRATEGY, "Use alternative indexing Strategy (increases index size)", parent));
     }
 
     @Override
@@ -65,5 +68,9 @@ public class PreferencePage extends FieldEditorPreferencePage implements IWorkbe
     
     public static boolean isPerfInfoOutputEnabled() {
     	return getBooleanPref(P_OUT_PERF_INFO);
+    }
+    
+    public static boolean isUseAlternativeStrategyEnabled() {
+    	return getBooleanPref(P_USE_ALTERNATE_INDEXING_STRATEGY);
     }
 }
