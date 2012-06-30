@@ -13,23 +13,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Definition Type</b></em>'.
+ * An implementation of the model object '<em><b>Definition Type Field</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeFieldImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements DefinitionType
+public class DefinitionTypeFieldImpl extends MinimalEObjectImpl.Container implements DefinitionTypeField
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -56,7 +56,7 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DefinitionTypeImpl()
+  protected DefinitionTypeFieldImpl()
   {
     super();
   }
@@ -69,7 +69,7 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
   @Override
   protected EClass eStaticClass()
   {
-    return LuceneQueryPackage.Literals.DEFINITION_TYPE;
+    return LuceneQueryPackage.Literals.DEFINITION_TYPE_FIELD;
   }
 
   /**
@@ -92,7 +92,7 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.DEFINITION_TYPE__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, LuceneQueryPackage.DEFINITION_TYPE_FIELD__VALUE, oldValue, value));
   }
 
   /**
@@ -105,7 +105,7 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DEFINITION_TYPE__VALUE:
+      case LuceneQueryPackage.DEFINITION_TYPE_FIELD__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -121,7 +121,7 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DEFINITION_TYPE__VALUE:
+      case LuceneQueryPackage.DEFINITION_TYPE_FIELD__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -138,7 +138,7 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DEFINITION_TYPE__VALUE:
+      case LuceneQueryPackage.DEFINITION_TYPE_FIELD__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -155,7 +155,7 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case LuceneQueryPackage.DEFINITION_TYPE__VALUE:
+      case LuceneQueryPackage.DEFINITION_TYPE_FIELD__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
@@ -178,4 +178,4 @@ public class DefinitionTypeImpl extends MinimalEObjectImpl.Container implements 
     return result.toString();
   }
 
-} //DefinitionTypeImpl
+} //DefinitionTypeFieldImpl

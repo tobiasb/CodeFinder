@@ -49,8 +49,8 @@
     <genClasses ecoreClass="LuceneQuery.ecore#//ProjectNameField">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//ProjectNameField/value"/>
     </genClasses>
-    <genClasses ecoreClass="LuceneQuery.ecore#//DefinitionType">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DefinitionType/value"/>
+    <genClasses ecoreClass="LuceneQuery.ecore#//DefinitionTypeField">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//DefinitionTypeField/value"/>
     </genClasses>
     <genClasses ecoreClass="LuceneQuery.ecore#//OrExp">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LuceneQuery.ecore#//OrExp/or"/>

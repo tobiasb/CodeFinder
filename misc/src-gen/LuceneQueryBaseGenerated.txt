@@ -82,7 +82,8 @@ DocumentTypeField:
 
 //Generated Rule. Do not modify!
 SimpleField:
-		value='FriendlyName'
+		value='Handle'
+	| 	value='FriendlyName'
 	| 	value='ReturnVariableExpressions'
 	| 	value='AllDeclaredMethodNames'
 	| 	value='DeclaredMethodNames'

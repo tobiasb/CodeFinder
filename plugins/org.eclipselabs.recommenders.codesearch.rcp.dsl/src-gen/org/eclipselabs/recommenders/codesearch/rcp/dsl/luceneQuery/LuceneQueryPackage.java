@@ -378,14 +378,14 @@ public interface LuceneQueryPackage extends EPackage
   int PROJECT_NAME_FIELD_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl <em>Definition Type</em>}' class.
+   * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeFieldImpl <em>Definition Type Field</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionType()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeFieldImpl
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionTypeField()
    * @generated
    */
-  int DEFINITION_TYPE = 10;
+  int DEFINITION_TYPE_FIELD = 10;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -394,16 +394,16 @@ public interface LuceneQueryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINITION_TYPE__VALUE = 0;
+  int DEFINITION_TYPE_FIELD__VALUE = 0;
 
   /**
-   * The number of structural features of the '<em>Definition Type</em>' class.
+   * The number of structural features of the '<em>Definition Type Field</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINITION_TYPE_FEATURE_COUNT = 1;
+  int DEFINITION_TYPE_FIELD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.OrExpImpl <em>Or Exp</em>}' class.
@@ -781,25 +781,25 @@ public interface LuceneQueryPackage extends EPackage
   EAttribute getProjectNameField_Value();
 
   /**
-   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType <em>Definition Type</em>}'.
+   * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField <em>Definition Type Field</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Definition Type</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType
+   * @return the meta object for class '<em>Definition Type Field</em>'.
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField
    * @generated
    */
-  EClass getDefinitionType();
+  EClass getDefinitionTypeField();
 
   /**
-   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType#getValue()
-   * @see #getDefinitionType()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField#getValue()
+   * @see #getDefinitionTypeField()
    * @generated
    */
-  EAttribute getDefinitionType_Value();
+  EAttribute getDefinitionTypeField_Value();
 
   /**
    * Returns the meta object for class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.OrExp <em>Or Exp</em>}'.
@@ -1089,14 +1089,14 @@ public interface LuceneQueryPackage extends EPackage
     EAttribute PROJECT_NAME_FIELD__VALUE = eINSTANCE.getProjectNameField_Value();
 
     /**
-     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl <em>Definition Type</em>}' class.
+     * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeFieldImpl <em>Definition Type Field</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeImpl
-     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionType()
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.DefinitionTypeFieldImpl
+     * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.LuceneQueryPackageImpl#getDefinitionTypeField()
      * @generated
      */
-    EClass DEFINITION_TYPE = eINSTANCE.getDefinitionType();
+    EClass DEFINITION_TYPE_FIELD = eINSTANCE.getDefinitionTypeField();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1104,7 +1104,7 @@ public interface LuceneQueryPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEFINITION_TYPE__VALUE = eINSTANCE.getDefinitionType_Value();
+    EAttribute DEFINITION_TYPE_FIELD__VALUE = eINSTANCE.getDefinitionTypeField_Value();
 
     /**
      * The meta object literal for the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.impl.OrExpImpl <em>Or Exp</em>}' class.

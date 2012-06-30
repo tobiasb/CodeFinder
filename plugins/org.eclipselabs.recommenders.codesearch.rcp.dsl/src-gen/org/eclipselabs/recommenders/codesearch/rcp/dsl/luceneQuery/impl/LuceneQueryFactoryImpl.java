@@ -79,7 +79,7 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
       case LuceneQueryPackage.NUMBER_FIELD: return createNumberField();
       case LuceneQueryPackage.MODIFIER_FIELD: return createModifierField();
       case LuceneQueryPackage.PROJECT_NAME_FIELD: return createProjectNameField();
-      case LuceneQueryPackage.DEFINITION_TYPE: return createDefinitionType();
+      case LuceneQueryPackage.DEFINITION_TYPE_FIELD: return createDefinitionTypeField();
       case LuceneQueryPackage.OR_EXP: return createOrExp();
       case LuceneQueryPackage.AND_EXP: return createAndExp();
       default:
@@ -236,10 +236,10 @@ public class LuceneQueryFactoryImpl extends EFactoryImpl implements LuceneQueryF
    * <!-- end-user-doc -->
    * @generated
    */
-  public DefinitionType createDefinitionType()
+  public DefinitionTypeField createDefinitionTypeField()
   {
-    DefinitionTypeImpl definitionType = new DefinitionTypeImpl();
-    return definitionType;
+    DefinitionTypeFieldImpl definitionTypeField = new DefinitionTypeFieldImpl();
+    return definitionTypeField;
   }
 
   /**

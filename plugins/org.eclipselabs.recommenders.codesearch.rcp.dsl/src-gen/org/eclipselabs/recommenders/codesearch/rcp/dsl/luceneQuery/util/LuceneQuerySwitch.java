@@ -146,10 +146,10 @@ public class LuceneQuerySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LuceneQueryPackage.DEFINITION_TYPE:
+      case LuceneQueryPackage.DEFINITION_TYPE_FIELD:
       {
-        DefinitionType definitionType = (DefinitionType)theEObject;
-        T result = caseDefinitionType(definitionType);
+        DefinitionTypeField definitionTypeField = (DefinitionTypeField)theEObject;
+        T result = caseDefinitionTypeField(definitionTypeField);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -334,17 +334,17 @@ public class LuceneQuerySwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Definition Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Definition Type Field</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Definition Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Definition Type Field</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDefinitionType(DefinitionType object)
+  public T caseDefinitionTypeField(DefinitionTypeField object)
   {
     return null;
   }

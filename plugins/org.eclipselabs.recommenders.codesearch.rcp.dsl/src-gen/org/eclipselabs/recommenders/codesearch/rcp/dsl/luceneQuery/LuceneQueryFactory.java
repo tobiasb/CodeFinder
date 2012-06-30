@@ -117,13 +117,13 @@ public interface LuceneQueryFactory extends EFactory
   ProjectNameField createProjectNameField();
 
   /**
-   * Returns a new object of class '<em>Definition Type</em>'.
+   * Returns a new object of class '<em>Definition Type Field</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Definition Type</em>'.
+   * @return a new object of class '<em>Definition Type Field</em>'.
    * @generated
    */
-  DefinitionType createDefinitionType();
+  DefinitionTypeField createDefinitionTypeField();
 
   /**
    * Returns a new object of class '<em>Or Exp</em>'.

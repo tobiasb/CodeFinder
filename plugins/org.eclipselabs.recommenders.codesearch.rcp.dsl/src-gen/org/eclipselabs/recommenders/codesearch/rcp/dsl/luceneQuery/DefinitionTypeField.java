@@ -10,21 +10,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Definition Type</b></em>'.
+ * A representation of the model object '<em><b>Definition Type Field</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType#getValue <em>Value</em>}</li>
+ *   <li>{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage#getDefinitionType()
+ * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage#getDefinitionTypeField()
  * @model
  * @generated
  */
-public interface DefinitionType extends EObject
+public interface DefinitionTypeField extends EObject
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -36,14 +36,14 @@ public interface DefinitionType extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage#getDefinitionType_Value()
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryPackage#getDefinitionTypeField_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -52,4 +52,4 @@ public interface DefinitionType extends EObject
    */
   void setValue(String value);
 
-} // DefinitionType
+} // DefinitionTypeField

@@ -56,7 +56,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleFieldValueAccess().getAlternatives(), "rule__SimpleFieldValue__Alternatives");
 					put(grammarAccess.getModifierFieldValueAccess().getAlternatives(), "rule__ModifierFieldValue__Alternatives");
 					put(grammarAccess.getDocumentTypeFieldValueAccess().getAlternatives(), "rule__DocumentTypeFieldValue__Alternatives");
-					put(grammarAccess.getDefinitionTypeValueAccess().getAlternatives(), "rule__DefinitionTypeValue__Alternatives");
+					put(grammarAccess.getDefinitionTypeFieldValueAccess().getAlternatives(), "rule__DefinitionTypeFieldValue__Alternatives");
 					put(grammarAccess.getUnaryExpressionAccess().getAlternatives(), "rule__UnaryExpression__Alternatives");
 					put(grammarAccess.getBinaryOrAccess().getAlternatives(), "rule__BinaryOr__Alternatives");
 					put(grammarAccess.getBinaryAndAccess().getAlternatives(), "rule__BinaryAnd__Alternatives");
@@ -142,6 +142,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_11(), "rule__SimpleField__ValueAssignment_11");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_12(), "rule__SimpleField__ValueAssignment_12");
 					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_13(), "rule__SimpleField__ValueAssignment_13");
+					put(grammarAccess.getSimpleFieldAccess().getValueAssignment_14(), "rule__SimpleField__ValueAssignment_14");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_0(), "rule__TypeField__ValueAssignment_0");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_1(), "rule__TypeField__ValueAssignment_1");
 					put(grammarAccess.getTypeFieldAccess().getValueAssignment_2(), "rule__TypeField__ValueAssignment_2");
@@ -172,7 +173,7 @@ public class LuceneQueryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNumberFieldAccess().getValueAssignment_1(), "rule__NumberField__ValueAssignment_1");
 					put(grammarAccess.getModifierFieldAccess().getValueAssignment(), "rule__ModifierField__ValueAssignment");
 					put(grammarAccess.getProjectNameFieldAccess().getValueAssignment(), "rule__ProjectNameField__ValueAssignment");
-					put(grammarAccess.getDefinitionTypeAccess().getValueAssignment(), "rule__DefinitionType__ValueAssignment");
+					put(grammarAccess.getDefinitionTypeFieldAccess().getValueAssignment(), "rule__DefinitionTypeField__ValueAssignment");
 				}
 			};
 		}

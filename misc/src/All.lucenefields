@@ -4,7 +4,7 @@ DocumentTypeField {
 	TYPE 						= "Type" 
 	{ type, method, field, trycatch, varusage }
 	("Defines the type of the entity represented by the document.")
-}  
+}   
 ("By design, every document in the search index itself is equal. 
 For the search index, a document is just a container for the fields it contains. For \\cname{}, this is obviously not the case. 
 There it does matter whether a document represents a method or a class. 
@@ -25,7 +25,12 @@ that the field is indexed for and can be used with.
 These symbols correspond with the ones in the enumeration above. 
 ")
 
-SimpleField {   
+SimpleField {
+	JAVA_ELEMENT_HANDLE = "Handle"
+	{type, method, field, varusage}
+	("Java handle used internally as a reference from the entity represented by the document to the actual structural Java element. 
+	  Used for example when opening a Java element (class, method, ...) from the query result in the user interface")
+	
 	SIMPLE_NAME 				= "FriendlyName" 
 	{ type, method, field, trycatch }
 	("Simple name representation of the entity's name")
@@ -79,8 +84,8 @@ SimpleField {
 	("Textual representation of a methods parameter list used \\textbf{internally} by \\cmpq{} (see \\ref{sec:MethodPatternQL})")
 		
 	ANNOTATIONS					= "Annotations"
-	{ type }
-	("")
+	{ type, method }
+	("List of Java annotations along with specified annotation parameters.")
 }("If the value of a field is plain text it is considered a simple field. 
 No post-processing is done to search terms that are used with a simple field when triggering the search. 
 They usually contain names or expressions that do not have a special semantic.")

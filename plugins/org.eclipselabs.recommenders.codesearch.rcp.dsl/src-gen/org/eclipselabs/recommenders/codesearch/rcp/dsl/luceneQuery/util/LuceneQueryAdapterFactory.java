@@ -129,9 +129,9 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
         return createProjectNameFieldAdapter();
       }
       @Override
-      public Adapter caseDefinitionType(DefinitionType object)
+      public Adapter caseDefinitionTypeField(DefinitionTypeField object)
       {
-        return createDefinitionTypeAdapter();
+        return createDefinitionTypeFieldAdapter();
       }
       @Override
       public Adapter caseOrExp(OrExp object)
@@ -316,16 +316,16 @@ public class LuceneQueryAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType <em>Definition Type</em>}'.
+   * Creates a new adapter for an object of class '{@link org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField <em>Definition Type Field</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType
+   * @see org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField
    * @generated
    */
-  public Adapter createDefinitionTypeAdapter()
+  public Adapter createDefinitionTypeFieldAdapter()
   {
     return null;
   }

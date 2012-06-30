@@ -170,12 +170,7 @@ public class «m.className» {
 	public static final String DEFINITION_ASSIGNMENT = "assignment";
 	public static final String DEFINITION_INSTANCE_CREATION = "instanceCreation";
 	public static final String DEFINITION_UNINITIALIZED = "uninitialized";
-	
-	/**
-     * Java handle used to open a given java element in an editor.
-     */
-    public static final String JAVA_ELEMENT_HANDLE = "Handle";
-    
+	    
 	«FOR category : m.fieldCategories»
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// «category.categoryName»

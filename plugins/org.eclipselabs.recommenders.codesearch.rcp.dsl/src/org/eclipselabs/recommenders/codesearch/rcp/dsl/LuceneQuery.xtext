@@ -91,10 +91,10 @@ ClauseExpression:
 				) Boost?
 			)
 		| 	(
-				field=DefinitionType ':' 
+				field=DefinitionTypeField ':' 
 				(
-					(values+=DefinitionTypeValue)
-					| ('('(UnaryExpression? values+=DefinitionTypeValue Boost?)*')')
+					(values+=DefinitionTypeFieldValue)
+					| ('('(UnaryExpression? values+=DefinitionTypeFieldValue Boost?)*')')
 				) Boost?
 			)
 		)
@@ -108,7 +108,8 @@ DocumentTypeField:
 
 //Generated Rule. Do not modify!
 SimpleField:
-		value='FriendlyName'
+		value='Handle'
+	| 	value='FriendlyName'
 	| 	value='ReturnVariableExpressions'
 	| 	value='AllDeclaredMethodNames'
 	| 	value='DeclaredMethodNames'
@@ -179,7 +180,7 @@ ProjectNameField:
 ;
 
 //Generated Rule. Do not modify!
-DefinitionType:
+DefinitionTypeField:
 		value='VariableDefinition'
 ;
 
@@ -226,7 +227,7 @@ TypeFieldValue:
 	NameWithWC
 ;
 
-DefinitionTypeValue:
+DefinitionTypeFieldValue:
     'parameter'
     | 'nullLiteral'
     | 'methodInvocation'

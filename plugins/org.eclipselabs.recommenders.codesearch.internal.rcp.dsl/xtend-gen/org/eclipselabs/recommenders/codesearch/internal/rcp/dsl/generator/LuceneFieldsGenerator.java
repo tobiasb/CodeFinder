@@ -484,21 +484,7 @@ public class LuceneFieldsGenerator implements IGenerator {
     _builder.append("\t");
     _builder.append("public static final String DEFINITION_UNINITIALIZED = \"uninitialized\";");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("/**");
-    _builder.newLine();
-    _builder.append("     ");
-    _builder.append("* Java handle used to open a given java element in an editor.");
-    _builder.newLine();
-    _builder.append("     ");
-    _builder.append("*/");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("public static final String JAVA_ELEMENT_HANDLE = \"Handle\";");
-    _builder.newLine();
-    _builder.append("    ");
+    _builder.append("\t    ");
     _builder.newLine();
     {
       EList<FieldCategory> _fieldCategories = m.getFieldCategories();

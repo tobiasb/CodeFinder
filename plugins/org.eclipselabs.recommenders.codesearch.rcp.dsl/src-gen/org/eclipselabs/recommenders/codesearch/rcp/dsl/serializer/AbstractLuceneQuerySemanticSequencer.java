@@ -15,7 +15,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.FilePathField;
@@ -73,9 +73,9 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 					return; 
 				}
 				else break;
-			case LuceneQueryPackage.DEFINITION_TYPE:
-				if(context == grammarAccess.getDefinitionTypeRule()) {
-					sequence_DefinitionType(context, (DefinitionType) semanticObject); 
+			case LuceneQueryPackage.DEFINITION_TYPE_FIELD:
+				if(context == grammarAccess.getDefinitionTypeFieldRule()) {
+					sequence_DefinitionTypeField(context, (DefinitionTypeField) semanticObject); 
 					return; 
 				}
 				else break;
@@ -172,7 +172,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 *         (field=NumberField (values+=NumberFieldValue | values+=NumberFieldValue*)) | 
 	 *         (field=ModifierField (values+=ModifierFieldValue | values+=ModifierFieldValue*)) | 
 	 *         (field=ProjectNameField (values+=ProjectNameFieldValue | values+=ProjectNameFieldValue*)) | 
-	 *         (field=DefinitionType (values+=DefinitionTypeValue | values+=DefinitionTypeValue*))
+	 *         (field=DefinitionTypeField (values+=DefinitionTypeFieldValue | values+=DefinitionTypeFieldValue*))
 	 *     )
 	 */
 	protected void sequence_ClauseExpression(EObject context, ClauseExpression semanticObject) {
@@ -184,14 +184,14 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	 * Constraint:
 	 *     value='VariableDefinition'
 	 */
-	protected void sequence_DefinitionType(EObject context, DefinitionType semanticObject) {
+	protected void sequence_DefinitionTypeField(EObject context, DefinitionTypeField semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.DEFINITION_TYPE__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.DEFINITION_TYPE__VALUE));
+			if(transientValues.isValueTransient(semanticObject, LuceneQueryPackage.Literals.DEFINITION_TYPE_FIELD__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LuceneQueryPackage.Literals.DEFINITION_TYPE_FIELD__VALUE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDefinitionTypeAccess().getValueVariableDefinitionKeyword_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getDefinitionTypeFieldAccess().getValueVariableDefinitionKeyword_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
@@ -308,6 +308,7 @@ public class AbstractLuceneQuerySemanticSequencer extends AbstractSemanticSequen
 	/**
 	 * Constraint:
 	 *     (
+	 *         value='Handle' | 
 	 *         value='FriendlyName' | 
 	 *         value='ReturnVariableExpressions' | 
 	 *         value='AllDeclaredMethodNames' | 

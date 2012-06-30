@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.FilePathField;
@@ -114,7 +114,7 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass definitionTypeEClass = null;
+  private EClass definitionTypeFieldEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -445,9 +445,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDefinitionType()
+  public EClass getDefinitionTypeField()
   {
-    return definitionTypeEClass;
+    return definitionTypeFieldEClass;
   }
 
   /**
@@ -455,9 +455,9 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDefinitionType_Value()
+  public EAttribute getDefinitionTypeField_Value()
   {
-    return (EAttribute)definitionTypeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)definitionTypeFieldEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -574,8 +574,8 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     projectNameFieldEClass = createEClass(PROJECT_NAME_FIELD);
     createEAttribute(projectNameFieldEClass, PROJECT_NAME_FIELD__VALUE);
 
-    definitionTypeEClass = createEClass(DEFINITION_TYPE);
-    createEAttribute(definitionTypeEClass, DEFINITION_TYPE__VALUE);
+    definitionTypeFieldEClass = createEClass(DEFINITION_TYPE_FIELD);
+    createEAttribute(definitionTypeFieldEClass, DEFINITION_TYPE_FIELD__VALUE);
 
     orExpEClass = createEClass(OR_EXP);
     createEAttribute(orExpEClass, OR_EXP__OR);
@@ -654,8 +654,8 @@ public class LuceneQueryPackageImpl extends EPackageImpl implements LuceneQueryP
     initEClass(projectNameFieldEClass, ProjectNameField.class, "ProjectNameField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProjectNameField_Value(), ecorePackage.getEString(), "value", null, 0, 1, ProjectNameField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(definitionTypeEClass, DefinitionType.class, "DefinitionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDefinitionType_Value(), ecorePackage.getEString(), "value", null, 0, 1, DefinitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(definitionTypeFieldEClass, DefinitionTypeField.class, "DefinitionTypeField", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefinitionTypeField_Value(), ecorePackage.getEString(), "value", null, 0, 1, DefinitionTypeField.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(orExpEClass, OrExp.class, "OrExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOrExp_Or(), this.getBinaryExp(), "or", null, 0, 1, OrExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
