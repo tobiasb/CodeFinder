@@ -37,12 +37,7 @@ public class Fields {
 	public static final String DEFINITION_ASSIGNMENT = "assignment";
 	public static final String DEFINITION_INSTANCE_CREATION = "instanceCreation";
 	public static final String DEFINITION_UNINITIALIZED = "uninitialized";
-	
-	/**
-     * Java handle used to open a given java element in an editor.
-     */
-    public static final String JAVA_ELEMENT_HANDLE = "Handle";
-    
+	    
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// DocumentTypeField
 	/** Defines the type of the entity represented by the document.<br /><br />
@@ -61,6 +56,12 @@ public class Fields {
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// SimpleField
+	/** Java handle used internally as a reference from the entity represented by the document to the actual structural Java element. 
+		  Used for example when opening a Java element (class, method, ...) from the query result in the user interface<br /><br />
+		Can be applied to: type, method, field, varusage
+	*/
+	//GENERATED, DO NOT MODIFY HERE!!!
+	public final static String JAVA_ELEMENT_HANDLE = "Handle";
 	/** Simple name representation of the entity's name<br /><br />
 		Can be applied to: type, method, field, tryCatch
 	*/
@@ -121,13 +122,13 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String VARIABLE_NAME = "VariableName";
-	/** Textual representation of a methods parameter list used \textbf{internally} by \cmpq (see \ref{sec:MethodPatternQL})<br /><br />
+	/** Textual representation of a methods parameter list used \textbf{internally} by \cmpq{} (see \ref{sec:MethodPatternQL})<br /><br />
 		Can be applied to: method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String PARAMETER_TYPES_STRUCTURAL = "ParameterTypesStructural";
-	/** <br /><br />
-		Can be applied to: type
+	/** List of Java annotations along with specified annotation parameters.<br /><br />
+		Can be applied to: type, method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String ANNOTATIONS = "Annotations";
@@ -136,7 +137,8 @@ public class Fields {
 	// SimpleField
 	public static String[] getSimpleFields() {
 		return new String[]{
-			Fields.SIMPLE_NAME
+			Fields.JAVA_ELEMENT_HANDLE
+			, Fields.SIMPLE_NAME
 			, Fields.RETURN_VARIABLE_EXPRESSIONS
 			, Fields.ALL_DECLARED_METHOD_NAMES
 			, Fields.DECLARED_METHODS_NAMES
@@ -225,7 +227,7 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String DECLARED_FIELD_TYPES = "DeclaredFieldTypes";
-	/** The FQN of the entity's declaring type, e.g., a methods class or a catch-blocks method<br /><br />
+	/** The FQN of the entity's declaring type, e.g., a method's declaring class or a catch-block's declaring method<br /><br />
 		Can be applied to: method, field, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -379,7 +381,8 @@ public class Fields {
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// ProjectNameField
-	/** Name of the project the entity's source code file is a part of<br /><br />
+	/** Name of the project the entity's source code file is a part of. 
+		  If the entity is part of a class file, the values is the project that references the library that contains the class file.<br /><br />
 		Can be applied to: type, method, field, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
