@@ -18,7 +18,7 @@ import org.eclipse.recommenders.codesearch.rcp.index.Fields;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.AndExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.BinaryExp;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.ClauseExpression;
-import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionType;
+import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DefinitionTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.DocumentTypeField;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.Expression;
 import org.eclipselabs.recommenders.codesearch.rcp.dsl.luceneQuery.LuceneQueryFactory;
@@ -120,7 +120,7 @@ public class ExtractorHelper {
 
     public static ClauseExpression getDefinitionTypeExpression(String fieldString, String valueString) {
         ClauseExpression clause = lqf.createClauseExpression();
-        DefinitionType field = lqf.createDefinitionType();
+        DefinitionTypeField field = lqf.createDefinitionTypeField();
         field.setValue(fieldString);
         clause.setField(field);
         clause.getValues().add(valueString);
