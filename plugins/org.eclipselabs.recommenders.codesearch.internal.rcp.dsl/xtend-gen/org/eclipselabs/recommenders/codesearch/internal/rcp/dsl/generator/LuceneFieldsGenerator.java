@@ -74,7 +74,7 @@ public class LuceneFieldsGenerator implements IGenerator {
         String _categoryName_2 = category.getCategoryName();
         String _texCompatibleString_2 = this.getTexCompatibleString(_categoryName_2);
         _builder.append(_texCompatibleString_2, "");
-        _builder.append("Fields} for the complete list of fields.");
+        _builder.append("Fields} for the complete list of fields in this category.");
         _builder.newLineIfNotEmpty();
         _builder.newLine();
         _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
@@ -199,7 +199,7 @@ public class LuceneFieldsGenerator implements IGenerator {
         _builder.append("\\hline");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("\\caption{Lucene Fields in Category \\cquote{");
+        _builder.append("\\caption{\\clq{} Fields in Category \\cquote{");
         String _categoryName_6 = category.getCategoryName();
         String _texCompatibleString_7 = this.getTexCompatibleString(_categoryName_6);
         _builder.append(_texCompatibleString_7, "	");
@@ -215,9 +215,157 @@ public class LuceneFieldsGenerator implements IGenerator {
         _builder.newLine();
       }
     }
+    _builder.append("\\clearpage");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    _builder.append("Tables \\ref{tab:fieldspertype1} and \\ref{tab:fieldspertype2} show the field information organized differently. ");
+    _builder.newLine();
+    _builder.append("They provide a convenient overview of all fields that are indexed for a particular entity type.");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\\vspace{5pt}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    _builder.append("\\begin{figure}[h]");
+    _builder.newLine();
+    _builder.append("\\begin{minipage}[t]{0.45\\textwidth}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\\vspace{0pt}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    CharSequence _tabularForEntityType = this.getTabularForEntityType(m, "type", false);
+    _builder.append(_tabularForEntityType, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\end{minipage}");
+    _builder.newLine();
+    _builder.append("\\begin{minipage}[t]{0.45\\textwidth}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\\vspace{0pt}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    CharSequence _tabularForEntityType_1 = this.getTabularForEntityType(m, "method", false);
+    _builder.append(_tabularForEntityType_1, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\end{minipage}");
+    _builder.newLine();
+    _builder.append("\\caption{Indexed Fields for Entity Types \\cquote{type} and \\cquote{method}}\\label{tab:fieldspertype1}");
+    _builder.newLine();
+    _builder.append("\\end{figure}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    _builder.append("\\begin{figure}[h]");
+    _builder.newLine();
+    _builder.append("\\begin{minipage}[t]{0.45\\textwidth}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\\vspace{0pt}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    CharSequence _tabularForEntityType_2 = this.getTabularForEntityType(m, "field", true);
+    _builder.append(_tabularForEntityType_2, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    CharSequence _tabularForEntityType_3 = this.getTabularForEntityType(m, "varusage", false);
+    _builder.append(_tabularForEntityType_3, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\end{minipage}");
+    _builder.newLine();
+    _builder.append("\\begin{minipage}[t]{0.45\\textwidth}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("\\vspace{0pt}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("%GENERATED, DO NOT MODIFY HERE!!!");
+    _builder.newLine();
+    CharSequence _tabularForEntityType_4 = this.getTabularForEntityType(m, "tryCatch", false);
+    _builder.append(_tabularForEntityType_4, "");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\\end{minipage}");
+    _builder.newLine();
+    _builder.append("\\caption{Indexed Fields for Entity Types \\cquote{field}, \\cquote{varusage} and \\cquote{tryCatch}}\\label{tab:fieldspertype2}");
+    _builder.newLine();
+    _builder.append("\\end{figure}");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("\t\t");
     _builder.newLine();
     _builder.append("% End of generated file");
+    return _builder;
+  }
+  
+  public CharSequence getTabularForEntityType(final Model m, final String entityType, final boolean i) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t\t");
+    _builder.append("\\begin{tabular}{@{}l@{}}");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("\\toprule");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("\\textbf{\\includegraphics[width=0.9em]{img-src/icons/");
+    _builder.append(entityType, "		");
+    _builder.append(".png} ");
+    _builder.append(entityType, "		");
+    _builder.append("}\\\\");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("\\midrule");
+    _builder.newLine();
+    {
+      EList<FieldCategory> _fieldCategories = m.getFieldCategories();
+      for(final FieldCategory category : _fieldCategories) {
+        {
+          EList<Field> _fields = category.getFields();
+          for(final Field field : _fields) {
+            CharSequence _xifexpression = null;
+            boolean _hasActionOfType = this.hasActionOfType(field, entityType);
+            if (_hasActionOfType) {
+              StringConcatenation _builder_1 = new StringConcatenation();
+              _builder_1.append("\t\t\t");
+              String _value = field.getValue();
+              String _texCompatibleString = this.getTexCompatibleString(_value);
+              _builder_1.append(_texCompatibleString, "			");
+              _builder_1.append("\\\\");
+              _xifexpression = _builder_1;
+            }
+            _builder.append(_xifexpression, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("\\bottomrule");
+    _builder.newLine();
+    _builder.append("\t\t");
+    CharSequence _xifexpression_1 = null;
+    if (i) {
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("\t\t");
+      _builder_2.append("\\hspace{20 mm}");
+      _xifexpression_1 = _builder_2;
+    }
+    _builder.append(_xifexpression_1, "		");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("\\end{tabular}");
     return _builder;
   }
   

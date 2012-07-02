@@ -21,6 +21,7 @@ class LuceneFieldsGenerator implements IGenerator {
 	} 
 	
 	def compileTexFieldOverview(Model m) {
+		
 '''% This file is generated
 
 		«FOR category : m.fieldCategories»
@@ -33,7 +34,7 @@ class LuceneFieldsGenerator implements IGenerator {
 «category.desc»
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields} for the complete list of fields.
+See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: «category.categoryName.getTexCompatibleString()»
@@ -65,12 +66,69 @@ See table \ref{tab:FieldCategory«category.categoryName.getTexCompatibleString»
 		& «field.desc» \\
 	«ENDFOR»
 	\hline
-	\caption{Lucene Fields in Category \cquote{«category.categoryName.getTexCompatibleString»}\label{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields}}
+	\caption{\clq{} Fields in Category \cquote{«category.categoryName.getTexCompatibleString»}\label{tab:FieldCategory«category.categoryName.getTexCompatibleString»Fields}}
 \end{longtable}
 		
 		«ENDFOR»
+\clearpage
+
+%GENERATED, DO NOT MODIFY HERE!!!
+Tables \ref{tab:fieldspertype1} and \ref{tab:fieldspertype2} show the field information organized differently. 
+They provide a convenient overview of all fields that are indexed for a particular entity type.
+
+\vspace{5pt}
+
+%GENERATED, DO NOT MODIFY HERE!!!
+\begin{figure}[h]
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+«getTabularForEntityType(m, "type", false)»
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+«getTabularForEntityType(m, "method", false)»
+\end{minipage}
+\caption{Indexed Fields for Entity Types \cquote{type} and \cquote{method}}\label{tab:fieldspertype1}
+\end{figure}
+
+%GENERATED, DO NOT MODIFY HERE!!!
+\begin{figure}[h]
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+«getTabularForEntityType(m, "field", true)»
+	%GENERATED, DO NOT MODIFY HERE!!!
+«getTabularForEntityType(m, "varusage", false)»
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+«getTabularForEntityType(m, "tryCatch", false)»
+\end{minipage}
+\caption{Indexed Fields for Entity Types \cquote{field}, \cquote{varusage} and \cquote{tryCatch}}\label{tab:fieldspertype2}
+\end{figure}
+
 		
 % End of generated file'''
+	}
+	
+	def getTabularForEntityType(Model m, String entityType, boolean i) {
+'''		\begin{tabular}{@{}l@{}}
+		\toprule
+		\textbf{\includegraphics[width=0.9em]{img-src/icons/«entityType».png} «entityType»}\\
+		\midrule
+	«FOR category : m.fieldCategories»
+		«FOR field : category.fields»
+	«if(field.hasActionOfType(entityType)) {	
+		'''			«field.value.getTexCompatibleString»\\'''			
+		}»
+		«ENDFOR»
+	«ENDFOR»
+		\bottomrule
+		«if(i){'''		\hspace{20 mm}'''}»
+	\end{tabular}'''
 	}
 	
 	def getIconForActionType(Field field, String t) {
