@@ -1,27 +1,27 @@
 class Fields 
- 
-DocumentTypeField {
+  
+DocumentTypeField {  
 	TYPE 						= "Type" 
 	{ type, method, field, trycatch, varusage }
 	("Defines the type of the entity represented by the document.")
-}   
-("By design, every document in the search index itself is equal. 
+}     
+("By design, all documents in the search index are equal. 
 For the search index, a document is just a container for the fields it contains. For \\cname{}, this is obviously not the case. 
-There it does matter whether a document represents a method or a class. 
+There it does matter whether a document for example represents a method or a class. 
 A document type field is used to indicate an entity's type. The following five values are valid for a field representing a document type.
      
 \\begin{itemize}
 	\\item \\includegraphics[width=0.9em]{img-src/icons/type.png} \\textbf{type} Entity is a class, interface or enumeration
 	\\item \\includegraphics[width=0.9em]{img-src/icons/method.png} \\textbf{method} Entity is a class' method definition
 	\\item \\includegraphics[width=0.9em]{img-src/icons/field.png} \\textbf{field} Entity is a field, i.e. a local member variable of a class
-	\\item \\includegraphics[width=0.9em]{img-src/icons/trycatch.png} \\textbf{trycatch} Entity represents either a try-block, a catch-block or a finally-block
+	\\item \\includegraphics[width=0.9em]{img-src/icons/trycatch.png} \\textbf{trycatch} Entity represents a try-catch-finally-block combination
 	\\item \\includegraphics[width=0.9em]{img-src/icons/varusage.png} \\textbf{varusage} Entity is the usage of a local variable
-\\end{itemize}
+\\end{itemize} 
 
 Every document in the index is of one of those document types. That is why every document in the index is guaranteed to have exactly one document type field. 
 This is not the case for every other field that will be described here. Some fields only make sense for certain entities, i.e. document types.
 To illustrate what entities a field is used with, each field description in this section contains the symbols of the target entities, i.e. document types, 
-that the field is indexed for and can be used with.
+that the field is indexed for and can be used within a \\clq{} query.
 These symbols correspond with the ones in the enumeration above. 
 ")
 
@@ -32,7 +32,7 @@ SimpleField {
 	  Used for example when opening a Java element (class, method, ...) from the query result in the user interface")
 	
 	SIMPLE_NAME 				= "FriendlyName" 
-	{ type, method, field, trycatch }
+	{ type, method, field }
 	("Simple name representation of the entity's name")
 	
 	RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions" 
@@ -41,11 +41,11 @@ SimpleField {
 
 	ALL_DECLARED_METHOD_NAMES 	= "AllDeclaredMethodNames"
 	{ type }
-	("Simple versions of all declared methods within, across the entire hierarchy") 
+	("Simple names of all declared methods within the entity, across the entire hierarchy") 
 	
 	DECLARED_METHODS_NAMES 		= "DeclaredMethodNames"
 	{ type }
-	("Simple versions of all declared methods within")
+	("Simple names of all declared methods within the entity")
 	 
 	DECLARED_FIELD_NAMES	 	= "DeclaredFieldNames"
 	{ type, method,trycatch }
@@ -81,12 +81,12 @@ SimpleField {
 	
 	PARAMETER_TYPES_STRUCTURAL	= "ParameterTypesStructural"
 	{ method }
-	("Textual representation of a methods parameter list used \\textbf{internally} by \\cmpq{} (see \\ref{sec:MethodPatternQL})")
+	("Textual representation of a method's parameter list used \\textbf{internally} by \\cmpq{} (see \\ref{sec:MethodPatternQL})")
 		
 	ANNOTATIONS					= "Annotations"
 	{ type, method }
-	("List of Java annotations along with specified annotation parameters.")
-}("If the value of a field is plain text it is considered a simple field. 
+	("List of Java annotations, along with specified annotation parameters.")
+}("If the value of a field is plain text, it is considered a simple field. 
 No post-processing is done to search terms that are used with a simple field when triggering the search. 
 They usually contain names or expressions that do not have a special semantic.")
 
@@ -167,13 +167,13 @@ Internally this format is called dot-notation. For example \\cquote{java.util.Li
 The name of the type is \\cvalue{List}, the name of the package is \\cvalue{java.util}.
 
 What is saved in the index is not this dot-notated syntax but a syntax providing more information. It is borrowed from CodeRecommenders' \\cquote{BindingHelper}. 
-By using the syntax that is used across the whole CodeRecommenders product range the compatibility between the search engine and those potential consumers is provided. 
+By using the syntax that is used across the whole CodeRecommenders product range, the compatibility between the search engine and those potential consumers is provided. 
 For types that syntax does not look all that different than the usual dot-notation. The internal representation of the aforementioned type \\cquote{java.util.List} is \\cquote{Ljava/util/List}.
 
-When entering a field value that represents a type field \\cname{} supports the type entry with content assist. 
-Using the internal index cache the set of types that are already contained in the index are proposed.
+When entering a field value that represents a type field, \\cname{} supports the type name entry with content assist. 
+Using the internal index cache, the set of types that are already contained in the index are proposed to the searching developer.
 
-At search time type fields further receive special processing. When searching for types these types can be entered using their fully qualified name, e.g., \\cquote{java.lang.String}.
+At search time, type fields further receive special processing. When searching for types, these types can be entered using their fully qualified name, e.g., \\cquote{java.lang.String}.
 But it is also possible just to use the name of the type, e.g., \\cquote{String}. 
 Since types are saved using their FQN representation this would lead to a poor search experience since String would never be found because its name is basically incomplete. 
 That is why internally this fielded term is prepended with a wildcard operator to include the types \\cquote{String} of all packages by searching for \\cvalue{*.String}.
@@ -183,7 +183,7 @@ That is why internally this fielded term is prepended with a wildcard operator t
 MethodField {
 	USED_METHODS 				= "UsedMethods" 
 	{ type, method, trycatch }
-	("FQN of the methods that are being called from within the entity. In case of a try/catch-construct called from within the catch-block")
+	("FQN of the methods that are being called from within the entity. In case of a try/catch-construct, called from within the catch-block")
 	
 	USED_METHODS_IN_TRY 		= "UsedMethodsInTry" 
 	{ trycatch }
@@ -207,11 +207,11 @@ MethodField {
 	
 	USED_AS_PARAMETER_IN_METHODS="UsedAsParameterInMethods"
 	{ varusage }
-	("FQN of the method that a variable has been used as a parameter with")
+	("FQN of the methods that a variable has been used as a parameter with")
 	
 	USED_AS_TAGET_FOR_METHODS	="UsedAsTargetForMethods"
 	{ varusage }
-	("FQN of the method that has been called on a variable")
+	("FQN of the methods that have been called on a variable")
 }
 ("This category contains all fields that represent methods.
 The notation is similar to the one used for types (see \\ref{sec:FieldCategoryTypeField}). 
@@ -226,10 +226,10 @@ FilePathField {
 	{ type, method, field, trycatch }
 	("Local file path to the current entity's source code file")
 } 
-("When a field represents a file path it is contained in this category. 
-Regardless of the local operating system all path names are persisted in Unix style, e.g., \\cquote{/users/bob/sourcecode} and \\cquote{c:/users/bob/sourcecode}. 
-Since the colon \\cquote{:} is a special Lucene character that separates a field name from its value it must be escaped when used inside a search term.
-This escaping is done for all search terms used with fields in this category.")
+("When a field represents a file path, it is contained in this category. 
+Regardless of the local operating system, all path names are persisted in Unix style, e.g., \\cquote{/users/bob/sourcecode} and \\cquote{c:/users/bob/sourcecode}. 
+Since the colon \\cquote{:} is a special Lucene character that separates a field name from its value, it must be escaped when used inside a search term.
+During processing at search time, this escaping is done for all search terms used with fields in this category.")
   
 NumberField {
 	PARAMETER_COUNT 			= "ParameterCount" 
@@ -241,7 +241,7 @@ NumberField {
 	("Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970")
 }
 ("This category contains fields that represent numeric values. 
-The \\cname{} user interface makes sure that values entered here are valid.
+The \\cname{} user interface makes sure that values entered here are valid numbers.
 There is no immediate content assist associated with numeric values at the moment.")
 
 ModifierField {	
@@ -257,13 +257,14 @@ The order in which they appear in the query is irrelevant. There is no validity 
 ProjectNameField {	
 	PROJECT_NAME 				= "ProjectName"
 	{ type, method, field, trycatch }
-	("Name of the project the entity's source code file is a part of. 
+	("Name of the project, the entity's source code file is a part of. 
 	  If the entity is part of a class file, the values is the project that references the library that contains the class file.")
 }
 ("This category contains fields that represent a name of an Eclipse project. 
 The name itself is just a plain text string that might as well fit into the simple field category (see \\ref{sec:FieldCategorySimpleField}).
 However special treatment is performed when it comes to content assist in the user interface while entering a search term. 
-When entering project name fields the UI proposes those project names that are currently in the workspace.
+When entering a value for a project name field, the UI proposes those project names that are currently in the workspace.
+\\clb{}
 ")
 
 DefinitionTypeField {
@@ -271,16 +272,16 @@ DefinitionTypeField {
 	{ varusage }
 	("The way a variable of a variable usage has been declared")
 }
-("When indexing the usage patterns of variables it might be important to know how the variable has been defined, 
+("When indexing the usage patterns of variables, it might be important to know how the variable has been defined, 
 i.e. how the developer declared it.
 The following values are possible:
  
 \\begin{itemize}
 	\\item \\textbf{parameter} A variable has been declared as a method parameter
-	\\item \\textbf{nullLiteral} The variable has been declared and assigned \\lstinline|null|
+	\\item \\textbf{nullLiteral} The variable has been declared and assigned \\clstinline{null}
 	\\item \\textbf{assignment} The variable has been declared and assigned a value such as the return value of a method call or a string literal
-	\\item \\textbf{instanceCreation} The variable has been declared and initialized with a \\lstinline|new| statement
-	\\item \\textbf{uninitialized} A variable declared without being initialized
+	\\item \\textbf{instanceCreation} The variable has been declared and initialized with a \\clstinline{new} statement
+	\\item \\textbf{uninitialized} A variable has been declared without being initialized
 	%TODO what about int x = y;?
 \\end{itemize}
 ")

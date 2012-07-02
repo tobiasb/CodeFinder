@@ -63,7 +63,7 @@ public class Fields {
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String JAVA_ELEMENT_HANDLE = "Handle";
 	/** Simple name representation of the entity's name<br /><br />
-		Can be applied to: type, method, field, tryCatch
+		Can be applied to: type, method, field
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String SIMPLE_NAME = "FriendlyName";
@@ -72,12 +72,12 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String RETURN_VARIABLE_EXPRESSIONS = "ReturnVariableExpressions";
-	/** Simple versions of all declared methods within, across the entire hierarchy<br /><br />
+	/** Simple names of all declared methods within the entity, across the entire hierarchy<br /><br />
 		Can be applied to: type
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String ALL_DECLARED_METHOD_NAMES = "AllDeclaredMethodNames";
-	/** Simple versions of all declared methods within<br /><br />
+	/** Simple names of all declared methods within the entity<br /><br />
 		Can be applied to: type
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -122,12 +122,12 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String VARIABLE_NAME = "VariableName";
-	/** Textual representation of a methods parameter list used \textbf{internally} by \cmpq{} (see \ref{sec:MethodPatternQL})<br /><br />
+	/** Textual representation of a method's parameter list used \textbf{internally} by \cmpq{} (see \ref{sec:MethodPatternQL})<br /><br />
 		Can be applied to: method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String PARAMETER_TYPES_STRUCTURAL = "ParameterTypesStructural";
-	/** List of Java annotations along with specified annotation parameters.<br /><br />
+	/** List of Java annotations, along with specified annotation parameters.<br /><br />
 		Can be applied to: type, method
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -269,7 +269,7 @@ public class Fields {
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// MethodField
-	/** FQN of the methods that are being called from within the entity. In case of a try/catch-construct called from within the catch-block<br /><br />
+	/** FQN of the methods that are being called from within the entity. In case of a try/catch-construct, called from within the catch-block<br /><br />
 		Can be applied to: type, method, tryCatch
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -299,12 +299,12 @@ public class Fields {
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String DECLARING_METHOD = "DeclaringMethod";
-	/** FQN of the method that a variable has been used as a parameter with<br /><br />
+	/** FQN of the methods that a variable has been used as a parameter with<br /><br />
 		Can be applied to: varusage
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
 	public final static String USED_AS_PARAMETER_IN_METHODS = "UsedAsParameterInMethods";
-	/** FQN of the method that has been called on a variable<br /><br />
+	/** FQN of the methods that have been called on a variable<br /><br />
 		Can be applied to: varusage
 	*/
 	//GENERATED, DO NOT MODIFY HERE!!!
@@ -381,7 +381,7 @@ public class Fields {
 	
 	//GENERATED, DO NOT MODIFY HERE!!!
 	// ProjectNameField
-	/** Name of the project the entity's source code file is a part of. 
+	/** Name of the project, the entity's source code file is a part of. 
 		  If the entity is part of a class file, the values is the project that references the library that contains the class file.<br /><br />
 		Can be applied to: type, method, field, tryCatch
 	*/

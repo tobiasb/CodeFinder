@@ -6,27 +6,27 @@
 \label{sec:FieldCategoryDocumentTypeField}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-By design, every document in the search index itself is equal. 
+By design, all documents in the search index are equal. 
 For the search index, a document is just a container for the fields it contains. For \cname{}, this is obviously not the case. 
-There it does matter whether a document represents a method or a class. 
+There it does matter whether a document for example represents a method or a class. 
 A document type field is used to indicate an entity's type. The following five values are valid for a field representing a document type.
      
 \begin{itemize}
 	\item \includegraphics[width=0.9em]{img-src/icons/type.png} \textbf{type} Entity is a class, interface or enumeration
 	\item \includegraphics[width=0.9em]{img-src/icons/method.png} \textbf{method} Entity is a class' method definition
 	\item \includegraphics[width=0.9em]{img-src/icons/field.png} \textbf{field} Entity is a field, i.e. a local member variable of a class
-	\item \includegraphics[width=0.9em]{img-src/icons/trycatch.png} \textbf{trycatch} Entity represents either a try-block, a catch-block or a finally-block
+	\item \includegraphics[width=0.9em]{img-src/icons/trycatch.png} \textbf{trycatch} Entity represents a try-catch-finally-block combination
 	\item \includegraphics[width=0.9em]{img-src/icons/varusage.png} \textbf{varusage} Entity is the usage of a local variable
-\end{itemize}
+\end{itemize} 
 
 Every document in the index is of one of those document types. That is why every document in the index is guaranteed to have exactly one document type field. 
 This is not the case for every other field that will be described here. Some fields only make sense for certain entities, i.e. document types.
 To illustrate what entities a field is used with, each field description in this section contains the symbols of the target entities, i.e. document types, 
-that the field is indexed for and can be used with.
+that the field is indexed for and can be used within a \clq{} query.
 These symbols correspond with the ones in the enumeration above. 
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryDocumentTypeFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryDocumentTypeFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: DocumentTypeField
@@ -56,7 +56,7 @@ See table \ref{tab:FieldCategoryDocumentTypeFieldFields} for the complete list o
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		& Defines the type of the entity represented by the document. \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{DocumentTypeField}\label{tab:FieldCategoryDocumentTypeFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{DocumentTypeField}\label{tab:FieldCategoryDocumentTypeFieldFields}}
 \end{longtable}
 		
 
@@ -65,12 +65,12 @@ See table \ref{tab:FieldCategoryDocumentTypeFieldFields} for the complete list o
 \label{sec:FieldCategorySimpleField}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-If the value of a field is plain text it is considered a simple field. 
+If the value of a field is plain text, it is considered a simple field. 
 No post-processing is done to search terms that are used with a simple field when triggering the search. 
 They usually contain names or expressions that do not have a special semantic.
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: SimpleField
@@ -106,7 +106,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/type.png} 
 		\includegraphics[width=0.9em]{img-src/icons/method.png} 
 		\includegraphics[width=0.9em]{img-src/icons/field.png} 
-		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
+		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Simple name representation of the entity's name \\
 	%GENERATED, DO NOT MODIFY HERE!!!
@@ -126,7 +126,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Simple versions of all declared methods within, across the entire hierarchy \\
+		& Simple names of all declared methods within the entity, across the entire hierarchy \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{DeclaredMethodNames} 
 		& 
@@ -135,7 +135,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Simple versions of all declared methods within \\
+		& Simple names of all declared methods within the entity \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{DeclaredFieldNames} 
 		& 
@@ -216,7 +216,7 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Textual representation of a methods parameter list used \textbf{internally} by \cmpq{} (see \ref{sec:MethodPatternQL}) \\
+		& Textual representation of a method's parameter list used \textbf{internally} by \cmpq{} (see \ref{sec:MethodPatternQL}) \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{Annotations} 
 		& 
@@ -225,9 +225,9 @@ See table \ref{tab:FieldCategorySimpleFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& List of Java annotations along with specified annotation parameters. \\
+		& List of Java annotations, along with specified annotation parameters. \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{SimpleField}\label{tab:FieldCategorySimpleFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{SimpleField}\label{tab:FieldCategorySimpleFieldFields}}
 \end{longtable}
 		
 
@@ -243,19 +243,19 @@ Internally this format is called dot-notation. For example \cquote{java.util.Lis
 The name of the type is \cvalue{List}, the name of the package is \cvalue{java.util}.
 
 What is saved in the index is not this dot-notated syntax but a syntax providing more information. It is borrowed from CodeRecommenders' \cquote{BindingHelper}. 
-By using the syntax that is used across the whole CodeRecommenders product range the compatibility between the search engine and those potential consumers is provided. 
+By using the syntax that is used across the whole CodeRecommenders product range, the compatibility between the search engine and those potential consumers is provided. 
 For types that syntax does not look all that different than the usual dot-notation. The internal representation of the aforementioned type \cquote{java.util.List} is \cquote{Ljava/util/List}.
 
-When entering a field value that represents a type field \cname{} supports the type entry with content assist. 
-Using the internal index cache the set of types that are already contained in the index are proposed.
+When entering a field value that represents a type field, \cname{} supports the type name entry with content assist. 
+Using the internal index cache, the set of types that are already contained in the index are proposed to the searching developer.
 
-At search time type fields further receive special processing. When searching for types these types can be entered using their fully qualified name, e.g., \cquote{java.lang.String}.
+At search time, type fields further receive special processing. When searching for types, these types can be entered using their fully qualified name, e.g., \cquote{java.lang.String}.
 But it is also possible just to use the name of the type, e.g., \cquote{String}. 
 Since types are saved using their FQN representation this would lead to a poor search experience since String would never be found because its name is basically incomplete. 
 That is why internally this fielded term is prepended with a wildcard operator to include the types \cquote{String} of all packages by searching for \cvalue{*.String}.
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryTypeFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryTypeFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: TypeField
@@ -429,7 +429,7 @@ See table \ref{tab:FieldCategoryTypeFieldFields} for the complete list of fields
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& The FQN of the checked exceptions possibly thrown by a method \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{TypeField}\label{tab:FieldCategoryTypeFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{TypeField}\label{tab:FieldCategoryTypeFieldFields}}
 \end{longtable}
 		
 
@@ -446,7 +446,7 @@ When searching however the query is reduced to the fully qualified method name w
 \cname{} uses its internal cache to provide content assist functionality when entering a search term that represents a method.
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: MethodField
@@ -474,7 +474,7 @@ See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& FQN of the methods that are being called from within the entity. In case of a try/catch-construct called from within the catch-block \\
+		& FQN of the methods that are being called from within the entity. In case of a try/catch-construct, called from within the catch-block \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{UsedMethodsInTry} 
 		& 
@@ -528,7 +528,7 @@ See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
-		& FQN of the method that a variable has been used as a parameter with \\
+		& FQN of the methods that a variable has been used as a parameter with \\
 	%GENERATED, DO NOT MODIFY HERE!!!
 	\cfield{UsedAsTargetForMethods} 
 		& 
@@ -537,9 +537,9 @@ See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
-		& FQN of the method that has been called on a variable \\
+		& FQN of the methods that have been called on a variable \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{MethodField}\label{tab:FieldCategoryMethodFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{MethodField}\label{tab:FieldCategoryMethodFieldFields}}
 \end{longtable}
 		
 
@@ -548,13 +548,13 @@ See table \ref{tab:FieldCategoryMethodFieldFields} for the complete list of fiel
 \label{sec:FieldCategoryFilePathField}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-When a field represents a file path it is contained in this category. 
-Regardless of the local operating system all path names are persisted in Unix style, e.g., \cquote{/users/bob/sourcecode} and \cquote{c:/users/bob/sourcecode}. 
-Since the colon \cquote{:} is a special Lucene character that separates a field name from its value it must be escaped when used inside a search term.
-This escaping is done for all search terms used with fields in this category.
+When a field represents a file path, it is contained in this category. 
+Regardless of the local operating system, all path names are persisted in Unix style, e.g., \cquote{/users/bob/sourcecode} and \cquote{c:/users/bob/sourcecode}. 
+Since the colon \cquote{:} is a special Lucene character that separates a field name from its value, it must be escaped when used inside a search term.
+During processing at search time, this escaping is done for all search terms used with fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryFilePathFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryFilePathFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: FilePathField
@@ -584,7 +584,7 @@ See table \ref{tab:FieldCategoryFilePathFieldFields} for the complete list of fi
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Local file path to the current entity's source code file \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{FilePathField}\label{tab:FieldCategoryFilePathFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{FilePathField}\label{tab:FieldCategoryFilePathFieldFields}}
 \end{longtable}
 		
 
@@ -594,11 +594,11 @@ See table \ref{tab:FieldCategoryFilePathFieldFields} for the complete list of fi
 
 %GENERATED, DO NOT MODIFY HERE!!!
 This category contains fields that represent numeric values. 
-The \cname{} user interface makes sure that values entered here are valid.
+The \cname{} user interface makes sure that values entered here are valid numbers.
 There is no immediate content assist associated with numeric values at the moment.
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryNumberFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryNumberFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: NumberField
@@ -637,7 +637,7 @@ See table \ref{tab:FieldCategoryNumberFieldFields} for the complete list of fiel
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Timestamp of the document's entity's last indexing time. Measured in milliseconds since January 1, 1970 \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{NumberField}\label{tab:FieldCategoryNumberFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{NumberField}\label{tab:FieldCategoryNumberFieldFields}}
 \end{longtable}
 		
 
@@ -651,7 +651,7 @@ The following acces modifiers are indexed and can be used:  \textbf{public}, \te
 The order in which they appear in the query is irrelevant. There is no validity check regarding reasonableness of the modifiers used in the query.
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: ModifierField
@@ -681,7 +681,7 @@ See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fi
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
 		& Modifiers that are defined for the entity \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{ModifierField}\label{tab:FieldCategoryModifierFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{ModifierField}\label{tab:FieldCategoryModifierFieldFields}}
 \end{longtable}
 		
 
@@ -693,10 +693,11 @@ See table \ref{tab:FieldCategoryModifierFieldFields} for the complete list of fi
 This category contains fields that represent a name of an Eclipse project. 
 The name itself is just a plain text string that might as well fit into the simple field category (see \ref{sec:FieldCategorySimpleField}).
 However special treatment is performed when it comes to content assist in the user interface while entering a search term. 
-When entering project name fields the UI proposes those project names that are currently in the workspace.
+When entering a value for a project name field, the UI proposes those project names that are currently in the workspace.
+\clb{}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryProjectNameFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryProjectNameFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: ProjectNameField
@@ -724,10 +725,10 @@ See table \ref{tab:FieldCategoryProjectNameFieldFields} for the complete list of
 		\includegraphics[width=0.9em]{img-src/icons/field.png} 
 		\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} 
 		\includegraphics[width=0.9em]{img-src/icons/empty.png} 
-		& Name of the project the entity's source code file is a part of. 
+		& Name of the project, the entity's source code file is a part of. 
 			  If the entity is part of a class file, the values is the project that references the library that contains the class file. \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{ProjectNameField}\label{tab:FieldCategoryProjectNameFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{ProjectNameField}\label{tab:FieldCategoryProjectNameFieldFields}}
 \end{longtable}
 		
 
@@ -736,21 +737,21 @@ See table \ref{tab:FieldCategoryProjectNameFieldFields} for the complete list of
 \label{sec:FieldCategoryDefinitionTypeField}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-When indexing the usage patterns of variables it might be important to know how the variable has been defined, 
+When indexing the usage patterns of variables, it might be important to know how the variable has been defined, 
 i.e. how the developer declared it.
 The following values are possible:
  
 \begin{itemize}
 	\item \textbf{parameter} A variable has been declared as a method parameter
-	\item \textbf{nullLiteral} The variable has been declared and assigned \lstinline|null|
+	\item \textbf{nullLiteral} The variable has been declared and assigned \clstinline{null}
 	\item \textbf{assignment} The variable has been declared and assigned a value such as the return value of a method call or a string literal
-	\item \textbf{instanceCreation} The variable has been declared and initialized with a \lstinline|new| statement
-	\item \textbf{uninitialized} A variable declared without being initialized
+	\item \textbf{instanceCreation} The variable has been declared and initialized with a \clstinline{new} statement
+	\item \textbf{uninitialized} A variable has been declared without being initialized
 	%TODO what about int x = y;?
 \end{itemize}
 
 %GENERATED, DO NOT MODIFY HERE!!!
-See table \ref{tab:FieldCategoryDefinitionTypeFieldFields} for the complete list of fields.
+See table \ref{tab:FieldCategoryDefinitionTypeFieldFields} for the complete list of fields in this category.
 
 %GENERATED, DO NOT MODIFY HERE!!!
 %Category: DefinitionTypeField
@@ -780,8 +781,166 @@ See table \ref{tab:FieldCategoryDefinitionTypeFieldFields} for the complete list
 		\includegraphics[width=0.9em]{img-src/icons/varusage.png} 
 		& The way a variable of a variable usage has been declared \\
 	\hline
-	\caption{Lucene Fields in Category \cquote{DefinitionTypeField}\label{tab:FieldCategoryDefinitionTypeFieldFields}}
+	\caption{\clq{} Fields in Category \cquote{DefinitionTypeField}\label{tab:FieldCategoryDefinitionTypeFieldFields}}
 \end{longtable}
 		
+\clearpage
+
+%GENERATED, DO NOT MODIFY HERE!!!
+Tables \ref{tab:fieldspertype1} and \ref{tab:fieldspertype2} show the field information organized differently. 
+They provide a convenient overview of all fields that are indexed for a particular entity type.
+
+\vspace{5pt}
+
+%GENERATED, DO NOT MODIFY HERE!!!
+\begin{figure}[h]
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+		\begin{tabular}{@{}l@{}}
+		\toprule
+		\textbf{\includegraphics[width=0.9em]{img-src/icons/type.png} type}\\
+		\midrule
+			Type\\
+			Handle\\
+			FriendlyName\\
+			AllDeclaredMethodNames\\
+			DeclaredMethodNames\\
+			DeclaredFieldNames\\
+			AllDeclaredFieldNames\\
+			FullText\\
+			FieldsRead\\
+			Annotations\\
+			FullyQualifiedName\\
+			ImplementedTypes\\
+			ExtendedTypes\\
+			UsedTypes\\
+			InstanceofTypes\\
+			AllImplementedTypes\\
+			AllExtendedTypes\\
+			DeclaredFieldTypes\\
+			UsedMethods\\
+			OverriddenMethods\\
+			DeclaredMethods\\
+			ResourcePath\\
+			Timestamp\\
+			Modifiers\\
+			ProjectName\\
+		\bottomrule
+	\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+		\begin{tabular}{@{}l@{}}
+		\toprule
+		\textbf{\includegraphics[width=0.9em]{img-src/icons/method.png} method}\\
+		\midrule
+			Type\\
+			Handle\\
+			FriendlyName\\
+			ReturnVariableExpressions\\
+			DeclaredFieldNames\\
+			AllDeclaredFieldNames\\
+			FullText\\
+			FieldsRead\\
+			FieldsWritten\\
+			ParameterTypesStructural\\
+			Annotations\\
+			FullyQualifiedName\\
+			UsedTypes\\
+			ParameterTypes\\
+			ReturnType\\
+			InstanceofTypes\\
+			DeclaredFieldTypes\\
+			DeclaringType\\
+			CheckedExceptions\\
+			UsedMethods\\
+			ResourcePath\\
+			ParameterCount\\
+			Timestamp\\
+			Modifiers\\
+			ProjectName\\
+		\bottomrule
+	\end{tabular}
+\end{minipage}
+\caption{Indexed Fields for Entity Types \cquote{type} and \cquote{method}}\label{tab:fieldspertype1}
+\end{figure}
+
+%GENERATED, DO NOT MODIFY HERE!!!
+\begin{figure}[h]
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+		\begin{tabular}{@{}l@{}}
+		\toprule
+		\textbf{\includegraphics[width=0.9em]{img-src/icons/field.png} field}\\
+		\midrule
+			Type\\
+			Handle\\
+			FriendlyName\\
+			FullText\\
+			FullyQualifiedName\\
+			UsedTypes\\
+			FieldType\\
+			DeclaringType\\
+			ResourcePath\\
+			Timestamp\\
+			Modifiers\\
+			ProjectName\\
+		\bottomrule
+				\hspace{20 mm}
+	\end{tabular}
+	%GENERATED, DO NOT MODIFY HERE!!!
+		\begin{tabular}{@{}l@{}}
+		\toprule
+		\textbf{\includegraphics[width=0.9em]{img-src/icons/varusage.png} varusage}\\
+		\midrule
+			Type\\
+			Handle\\
+			VariableName\\
+			VariableType\\
+			DeclaringMethod\\
+			UsedAsParameterInMethods\\
+			UsedAsTargetForMethods\\
+			VariableDefinition\\
+		\bottomrule
+	\end{tabular}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+	\vspace{0pt}
+	%GENERATED, DO NOT MODIFY HERE!!!
+		\begin{tabular}{@{}l@{}}
+		\toprule
+		\textbf{\includegraphics[width=0.9em]{img-src/icons/tryCatch.png} tryCatch}\\
+		\midrule
+			Type\\
+			DeclaredFieldNames\\
+			AllDeclaredFieldNames\\
+			FullText\\
+			FieldsRead\\
+			FieldsWritten\\
+			UsedFieldsInFinally\\
+			UsedFieldsInTry\\
+			FullyQualifiedName\\
+			UsedTypes\\
+			UsedTypesInTry\\
+			UsedTypesInFinally\\
+			InstanceofTypes\\
+			CaughtType\\
+			DeclaredFieldTypes\\
+			DeclaringType\\
+			UsedMethods\\
+			UsedMethodsInTry\\
+			UsedMethodsInFinally\\
+			ResourcePath\\
+			Timestamp\\
+			ProjectName\\
+		\bottomrule
+	\end{tabular}
+\end{minipage}
+\caption{Indexed Fields for Entity Types \cquote{field}, \cquote{varusage} and \cquote{tryCatch}}\label{tab:fieldspertype2}
+\end{figure}
+
 		
 % End of generated file
