@@ -141,13 +141,20 @@ public class LuceneQueryEditorWrapper extends AbstractEmbeddedEditorWrapper {
     @Override
     String[] getExampleQueriesInternal() {
         return new String[] {
+        		"//Query 1\nUsedTypes:org.apache.lucene.document.Document",
+        		"//Query 2\nFullyQualifiedName:org.eclipse.recommenders.* AND ReturnType:List",
+        		"//Query 3\nExtendedTypes:org.eclipse*\n\tAND Modifiers:public\n\tAND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)",
+        		"//Query 4.1\nUsedTypes:(java.util.List java.util.Map java.lang.Exception)",
+        		"//Query 4.2\nUsedTypes:(+java.util.List +java.util.Map +java.lang.Exception)",
+        		"//Query 4.3\nUsedTypes:(+java.util.List +java.util.Map +java.lang.Exception) AND Type:(type trycatch)",
+        		"//Query 5\nsome test class",
         		"FullyQualifiedName:org.eclipse.ui.*",
                 "UsedTypes:java.util.List",
                 "ExtendedTypes:org.eclipse* AND Modifiers:public AND (UsedTypes:*ASTVisitor OR UsedTypes:*Plugin)",
                 "UsedTypes:java.util.List AND Type:method",
                 "UsedTypes:*Document Type:method Modifiers:private FriendlyName:addDoc FieldsRead:*Store.YES",
                 "/* Finde Klasse, die von AbstractButton erbt, exec.. überschreibt und nicht doOk aufruft */\n"
-                        + "Type:class AND AllExtendedTypes:*AbstractButton AND OverriddenMethods:*exec AND NOT UsedMethods:*doOk" };
+                        + "Type:type AND AllExtendedTypes:*AbstractButton AND OverriddenMethods:*exec AND NOT UsedMethods:*doOk" };
     }
 
     public static String getName() {
