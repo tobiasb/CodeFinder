@@ -83,7 +83,8 @@ public class LazyContentProvider implements ILazyContentProvider {
                     viewer.replace(method.get(), index);
                     return;
                 }
-            } else if (declaringMethod != null && docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
+            } 
+            else if (declaringType != null && docType.equals(Fields.TYPE_TRYCATCH) || docType.equals(Fields.TYPE_FIELD)) {
                 final ITypeName typeName = VmTypeName.get(declaringType);
                 final Optional<IType> type = JavaElementResolver.INSTANCE.toJdtType(typeName);
                 if (type.isPresent()) {
