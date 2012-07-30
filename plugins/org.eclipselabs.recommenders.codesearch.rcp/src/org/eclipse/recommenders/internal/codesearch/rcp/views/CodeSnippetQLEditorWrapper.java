@@ -101,7 +101,8 @@ public class CodeSnippetQLEditorWrapper extends AbstractEmbeddedEditorWrapper {
     public String[] getExampleQueriesInternal() {
 
         return new String[] {
-                String.format("{//identity problem%n  var *String s%nvar *List l%n%ncall l.add(s)%ncall l.contains(s)%n}"),
+        		String.format("//Demo 2%n{%nvar *String varA = *%nscall java.lang.String.format(varA)%ncall varA.toString()%n}"),
+                String.format("//Demo 3%n{//identity problem%n  var *String s%nvar *List l%n%ncall l.add(s)%ncall l.contains(s)%n}"),
                 String.format("{%nvar *SomeType X%n//call X.%n}"),
                 String.format("{%nvar java.lang.String X%nvar java.util.List Y%n}"),
                 String.format("{%n//Variable declaration/initialization%nvar A varA = *%nvar B varB = *%n}"),
